@@ -164,6 +164,15 @@
   .tvia::before{content:'↳ '; color:var(--muted)}
   .tree-legend{display:flex; gap:16px; font-size:11.5px; color:var(--muted); margin-top:10px; flex-wrap:wrap}
 
+  /* ---------- champions ---------- */
+  .mixbar{display:flex; gap:2px; height:26px; border-radius:6px; overflow:hidden; margin:6px 0 10px}
+  .mixseg{height:100%}
+  .champ-story{font-size:13px; color:var(--ink-2); background:var(--surface-2);
+    border-left:3px solid var(--s1); border-radius:0 6px 6px 0; padding:10px 14px; margin:14px 0}
+  .chip-reg{color:var(--s3); border:1px solid var(--s3)}
+  .chip-inh{color:var(--muted); border:1px solid var(--baseline)}
+  .chip-tra{color:var(--s4); border:1px solid var(--s4)}
+
   /* ---------- decision modal ---------- */
   .overlay{position:fixed; inset:0; background:rgba(0,0,0,0.6); display:none;
     align-items:flex-start; justify-content:center; padding:60px 20px; z-index:50; overflow:auto}
@@ -214,6 +223,7 @@
       <button class="on" data-view="leaderboard">Leaderboard</button>
       <button data-view="report">Regime Report Cards</button>
       <button data-view="trees">Transaction Trees</button>
+      <button data-view="champs">Champions</button>
       <button data-view="method">Methodology</button>
     </nav>
   </div>
@@ -310,6 +320,17 @@
     </div>
   </section>
 
+  <!-- ================= CHAMPIONS ================= -->
+  <section id="view-champs" hidden>
+    <h2>Championship Team Tracker · How Titles Get Built</h2>
+    <div class="sub">The provenance machinery pointed at a championship roster: where every core contributor came from, which channel built the title, and how much was this regime's work versus inherited. Acquisition dates and channels are real; contribution values are approximate. <span class="badge-real" style="margin-left:0">PROVENANCE REAL · VALUES APPROX</span></div>
+    <div class="filters">
+      <label for="champsel">Champion</label>
+      <select id="champsel"></select>
+    </div>
+    <div id="champwrap"></div>
+  </section>
+
   <!-- ================= METHODOLOGY ================= -->
   <section id="view-method" hidden>
     <h2>Methodology (abridged)</h2>
@@ -335,7 +356,7 @@
     </div>
   </section>
 
-  <footer>Front Office Ledger · prototype v0.7 · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · sample data except entries badged REAL DATA (the Betts decisions on the Dodgers card; the full Orioles/Elias card, approximate WAR inputs, see proof-of-concept reports). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
+  <footer>Front Office Ledger · prototype v0.9 · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · sample data except entries badged REAL DATA (the Betts decisions on the Dodgers card; the full Orioles/Elias card, approximate WAR inputs, see proof-of-concept reports). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
 </div>
 
 <!-- decision modal -->
@@ -624,6 +645,121 @@ function renderTrees(){
 }
 
 /* =========================================================
+   CHAMPIONSHIP TEAM TRACKER · how titles get built
+   ========================================================= */
+const CHAMP_CH = {
+  fa:{name:'Free agency', hex:'var(--s3)'},
+  trade:{name:'Trades', hex:'var(--s2)'},
+  draft:{name:'Draft (this regime)', hex:'var(--s1)'},
+  intl:{name:"Int'l / minor-lg finds", hex:'var(--s4)'},
+  inherited:{name:'Inherited', hex:'var(--baseline)'},
+};
+const CHAMPS = [
+ {id:'lad25', label:'2025 Los Angeles Dodgers', team:'Los Angeles Dodgers', year:2025,
+  result:'Won World Series', regime:'Andrew Friedman', regimeNote:'title in year 11 of the regime',
+  story:'The juggernaut model. Eleven years in, almost nothing on the roster is inherited: the machine drafted and developed its own core (Smith, Pages, Muncy-as-reclamation), converted trade assets into stars (the Betts chain), then spent at the very top of the market (Ohtani, Yamamoto, Snell). Free agency bought about half the title WAR; the build supplied the rest. This is what the FOR channels look like when they all fire at once.',
+  roster:[
+    ['Shohei Ohtani','fa','FA · 10 yr / $700M ($680M deferred)','12/2023','reg',7.0],
+    ['Yoshinobu Yamamoto','fa','FA · 12 yr / $325M','12/2023','reg',5.0],
+    ['Mookie Betts','trade','Trade (BOS) + retention-option extension · the real-data chain','02/2020','reg',4.5],
+    ['Will Smith','draft','Draft · 2016 1st round (#32)','06/2016','reg',4.0],
+    ['Freddie Freeman','fa','FA · 6 yr / $162M','03/2022','reg',3.5],
+    ['Andy Pages','intl',"Int'l amateur signing (Cuba)",'2018','reg',3.0],
+    ['Blake Snell','fa','FA · 5 yr / $182M','11/2024','reg',3.0],
+    ['Tyler Glasnow','trade','Trade (TB) · Pepiot + DeLuca out · then extended','12/2023','reg',2.5],
+    ['Tommy Edman','trade','Three-team deadline trade (STL)','07/2024','reg',2.5],
+    ['Max Muncy','intl','Minor-league FA · cost ≈ 0','04/2015','reg',2.0],
+    ['Roki Sasaki','intl',"Int'l posting · minimum-bonus class",'01/2025','reg',1.5],
+    ['Clayton Kershaw','inherited','Draft · 2006 1st round (#7) · two regimes ago','06/2006','inh',1.5],
+    ['Tanner Scott','fa','FA · 4 yr / $72M','01/2025','reg',1.0],
+  ],
+  trees:[
+   {title:'The Betts chain, ending in three of the last six titles',
+    sub:'One trade bought a 2020 window plus the retention option; the option became the extension; the extension is still paying at peak leverage.',
+    root:{nm:'Feb 10, 2020 · trade with Boston', status:'closed', kids:[
+      {via:'acquired', nm:'RF Mookie Betts · 2020 window', wv:'+3.7', status:'closed', kids:[
+        {via:'Jul 22, 2020 · retention option exercised · 12 yr / $365M', nm:'Mookie Betts 2021 to 2032 · WS 2020, 2024, 2025', wv:'+28.1 raw', status:'open'}]},
+    ]}},
+   {title:'The Glasnow conversion',
+    sub:'Development capital out, a front-of-rotation window in: the build channel funding the buy channel.',
+    root:{nm:'Dec 2023 · trade with Tampa Bay', status:'closed', kids:[
+      {via:'acquired', nm:'RHP Tyler Glasnow · then extended 5 yr / $136M', wv:'+2.5 in 2025', status:'open'},
+      {nm:'RHP Ryan Pepiot · Tampa Bay window', wv:'outflow', status:'open', outflow:true},
+      {nm:'OF Jonny DeLuca · Tampa Bay window', wv:'outflow', status:'open', outflow:true},
+    ]}},
+  ]},
+ {id:'tex23', label:'2023 Texas Rangers', team:'Texas Rangers', year:2023,
+  result:'Won World Series (first in franchise history)', regime:'Daniels → Young handoff',
+  regimeNote:'Chris Young GM from Dec 2020, sole baseball-ops lead from Aug 2022; title 14 months later',
+  story:'The bought spine plus the inherited scrap-heap star. One November (2021) purchased the middle infield outright; the club\'s best position player had arrived two years earlier for cash considerations under the previous regime, and the young core (Jung, Carter) was drafted before the handoff too. This is exactly why the Ledger grades regimes rather than teams: the 2023 flag decomposes across two front offices, and the page shows the split instead of hiding it.',
+  roster:[
+    ['Corey Seager','fa','FA · 10 yr / $325M','11/2021','tra',6.0],
+    ['Marcus Semien','fa','FA · 7 yr / $175M','11/2021','tra',5.5],
+    ['Adolis García','inherited','Acquired from STL for cash considerations','12/2019','inh',4.5],
+    ['Jonah Heim','trade','Elvis Andrus / Khris Davis trade (OAK)','02/2021','tra',3.0],
+    ['Nathan Eovaldi','fa','FA · 2 yr / $34M','12/2022','reg',3.0],
+    ['Nathaniel Lowe','trade','Trade (TB) for prospect package','12/2020','tra',2.0],
+    ['Josh Jung','inherited','Draft · 2019 1st round (#8) · prior regime','06/2019','inh',2.0],
+    ['Jordan Montgomery','trade','Deadline rental (STL)','07/2023','reg',1.5],
+    ['Evan Carter','inherited','Draft · 2020 2nd round (#50) · prior regime','06/2020','inh',1.5],
+    ['Max Scherzer','trade','Deadline rental (NYM, salary offset)','07/2023','reg',1.0],
+    ['Jacob deGrom','fa','FA · 5 yr / $185M · injured June 2023','12/2022','reg',0.5],
+  ],
+  trees:[
+   {title:'The Adolis García chain · cash into a franchise cornerstone',
+    sub:'The scrap-heap acquisition that predated the regime that won with it. Development credit and deployment credit belong to different front offices, which is the point of the value-chain accounting.',
+    root:{nm:'Dec 2019 · acquired from St. Louis for cash considerations (Daniels regime)', status:'closed', kids:[
+      {via:'2020 to 2021 · development + breakout', nm:'OF Adolis García · Texas window', wv:'+4.5 in 2023 · WS MVP-caliber October', status:'open'},
+    ]}},
+  ]},
+];
+function badge(tag){
+  return tag==='reg' ? '<span class="chip chip-reg">REGIME</span>'
+       : tag==='inh' ? '<span class="chip chip-inh">INHERITED</span>'
+       : '<span class="chip chip-tra">HANDOFF ERA</span>';
+}
+function renderChamp(id){
+  const c = CHAMPS.find(x=>x.id===id) || CHAMPS[0];
+  // channel mix from roster
+  const mix = {};
+  c.roster.forEach(([, ch,,, tag, war])=>{
+    const key = tag==='inh' ? 'inherited' : ch;
+    mix[key] = (mix[key]||0) + war;
+  });
+  const total = Object.values(mix).reduce((a,b)=>a+b,0);
+  const regShare = Math.round(100 * c.roster.filter(r=>r[4]==='reg').reduce((s,r)=>s+r[5],0) / total);
+  const order = ['fa','trade','draft','intl','inherited'].filter(k=>mix[k]);
+  const segs = order.map(k=>`<div class="mixseg" style="width:${(mix[k]/total*100).toFixed(1)}%; background:${CHAMP_CH[k].hex}" title="${CHAMP_CH[k].name}: ${mix[k].toFixed(1)} WAR (${Math.round(mix[k]/total*100)}%)"></div>`).join('');
+  const legend = order.map(k=>`<span class="key"><span class="swatch" style="background:${CHAMP_CH[k].hex}"></span>${CHAMP_CH[k].name} · ${Math.round(mix[k]/total*100)}%</span>`).join('');
+  const rows = c.roster.map(([nm, ch, how, d, tag, war])=>`
+    <tr><td style="font-weight:600">${nm}</td><td>${how}<div class="ttype">${d}</div></td>
+    <td>${badge(tag)}</td><td class="num pos" style="width:80px">${war.toFixed(1)}</td></tr>`).join('');
+  $('#champwrap').innerHTML = `
+    <div class="rc-head" style="margin-top:6px">
+      <div><div class="rc-title">${c.label}</div>
+      <div class="rc-meta">${c.result} · ${c.regime} · ${c.regimeNote}</div></div>
+    </div>
+    <div class="tiles">
+      <div class="card tile"><div class="lbl">Core WAR tracked</div><div class="val">${total.toFixed(0)}</div><div class="dlt">championship-season contributions, approx.</div></div>
+      <div class="card tile"><div class="lbl">Built by this regime</div><div class="val ${regShare>=60?'pos':''}">${regShare}%</div><div class="dlt">share of core WAR from this regime's own decisions</div></div>
+      <div class="card tile"><div class="lbl">Biggest channel</div><div class="val" style="font-size:24px">${CHAMP_CH[order[0]].name}</div><div class="dlt">${Math.round(mix[order[0]]/total*100)}% of core WAR</div></div>
+    </div>
+    <div class="card">
+      <div class="chart-title">Where the title came from</div>
+      <div class="chart-sub">Share of championship-core WAR by acquisition channel</div>
+      <div class="mixbar">${segs}</div>
+      <div class="legend">${legend}</div>
+    </div>
+    <div class="champ-story">${c.story}</div>
+    <div class="card" style="margin-bottom:14px">
+      <div class="chart-title" style="margin-bottom:8px">Roster provenance · how every core piece arrived</div>
+      <table><thead><tr><th>Player</th><th>How acquired</th><th>Attribution</th><th class="num">WAR</th></tr></thead>
+      <tbody>${rows}</tbody></table>
+    </div>
+    ${c.trees.map(t=>`<div class="card tree-card"><div class="tree-title">${t.title}</div><div class="tree-sub">${t.sub}</div>${tnode(t.root)}</div>`).join('')}`;
+}
+
+/* =========================================================
    helpers
    ========================================================= */
 const $ = s => document.querySelector(s);
@@ -645,9 +781,10 @@ document.querySelectorAll('nav button').forEach(b=>{
 });
 function switchView(v, regimeId){
   document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on', x.dataset.view===v));
-  ['leaderboard','report','trees','method'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
+  ['leaderboard','report','trees','champs','method'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
   if(v==='report'){ if(regimeId) $('#teamsel').value = regimeId; renderReport($('#teamsel').value); }
   if(v==='trees') renderTrees();
+  if(v==='champs') renderChamp($('#champsel').value);
   window.scrollTo({top:0});
 }
 
@@ -869,6 +1006,11 @@ function openModal(x, r){
 $('#mclose').addEventListener('click', ()=>$('#overlay').classList.remove('on'));
 $('#overlay').addEventListener('click', e=>{ if(e.target===$('#overlay')) $('#overlay').classList.remove('on'); });
 document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ $('#overlay').classList.remove('on'); hideTip(); }});
+
+/* champions selector */
+const champsel = $('#champsel');
+CHAMPS.forEach(c=>{ const o=document.createElement('option'); o.value=c.id; o.textContent=c.label; champsel.appendChild(o); });
+champsel.addEventListener('change', ()=>renderChamp(champsel.value));
 
 /* theme toggle (in-memory only; no browser storage) */
 const themebtn = document.getElementById('themebtn');
