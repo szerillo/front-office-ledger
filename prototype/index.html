@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Front Office Ledger, MLB Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: dark;
+    --f-display:'Barlow Condensed','Avenir Next Condensed','Arial Narrow','Helvetica Neue',sans-serif;
+    --f-body:'IBM Plex Sans','Avenir Next','Segoe UI',Helvetica,Arial,sans-serif;
+    --f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Consolas,monospace;
+    /* warm near-black, dark is the default theme */
+    --page:#131110; --surface:#1c1917; --surface-2:#272321;
+    --ink:#f5f2ee; --ink-2:#c9c3ba; --muted:#8d867d;
+    --grid:#2e2a26; --baseline:#3d3833; --border:rgba(245,242,238,0.09);
+    --good:#2fae2f; --bad:#d03b3b; --bad-text:#e66767;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+  }
+  :root[data-theme="light"]{
+    color-scheme: light;
+    --page:#f7f6f2; --surface:#fcfcfb; --surface-2:#f0efec;
+    --ink:#161310; --ink-2:#52514e; --muted:#898781;
+    --grid:#e1e0d9; --baseline:#c3c2b7; --border:rgba(11,11,11,0.10);
+    --good:#0a7a0a; --bad:#c13333; --bad-text:#b32d2d;
+    --s1:#2a78d6; --s2:#eb6834; --s3:#149067; --s4:#b57a00;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{
+    background:var(--page); color:var(--ink);
+    font-family:var(--f-body);
+    font-size:14px; line-height:1.5;
+  }
+  svg text{font-family:var(--f-mono)}
+  .grade, td.num, .tile .val, .wv, #tip, .lens-table td:nth-child(2){font-family:var(--f-mono)}
+  a{color:var(--s1); text-decoration:none}
+  .wrap{max-width:1240px; margin:0 auto; padding:0 24px 64px}
+
+  /* ---------- header ---------- */
+  header{border-bottom:1px solid var(--border); background:var(--surface)}
+  .hd{max-width:1240px; margin:0 auto; padding:20px 24px 0}
+  .brandrow{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap}
+  .brand{font-family:var(--f-display); font-size:30px; font-weight:700; letter-spacing:1.5px; line-height:1}
+  .brand .ledger{color:var(--s1)}
+  #themebtn{margin-left:auto; background:var(--surface-2); border:1px solid var(--border); color:var(--ink-2);
+    border-radius:99px; padding:5px 14px; font:600 12px var(--f-body); cursor:pointer; align-self:center}
+  #themebtn:hover{color:var(--ink)}
+  .sample-chip{font-size:11px; font-weight:600; color:var(--s4); border:1px solid var(--s4);
+    border-radius:99px; padding:2px 10px; letter-spacing:0.4px; text-transform:uppercase}
+  .tagline{color:var(--muted); font-size:13px; margin-top:2px}
+  nav{display:flex; gap:2px; margin-top:16px}
+  nav button{
+    background:none; border:none; color:var(--ink-2);
+    font-family:var(--f-display); font-size:16.5px; font-weight:600; letter-spacing:1px; text-transform:uppercase;
+    padding:10px 16px; cursor:pointer; border-bottom:2px solid transparent;
+  }
+  nav button:hover{color:var(--ink)}
+  nav button.on{color:var(--ink); border-bottom-color:var(--s1)}
+
+  /* ---------- shared ---------- */
+  h2{font-family:var(--f-display); font-size:22px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase; margin:28px 0 4px}
+  .rc-title{font-family:var(--f-display); letter-spacing:0.8px}
+  .ledger h3, .tree-title{font-family:var(--f-display); letter-spacing:1px}
+  .sub{color:var(--muted); font-size:13px; margin-bottom:14px}
+  .card{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:18px 20px}
+  .pos{color:var(--good); font-weight:600}
+  .neg{color:var(--bad-text); font-weight:600}
+  .grade{
+    display:inline-block; min-width:34px; text-align:center; font-weight:700; font-size:12.5px;
+    border-radius:6px; padding:3px 6px; font-variant-numeric:tabular-nums;
+  }
+  .g80{background:#0d3d0d; color:#7be07b} .g70{background:#0d3d0d; color:#7be07b}
+  .g60{background:#1a3d1a; color:#9ad69a} .g55{background:#2e3522; color:#cfd6a0}
+  .g50{background:#353229; color:var(--ink-2)} .g45{background:#3d2f22; color:#e0b98a}
+  .g40{background:#3d2622; color:#e89a8a} .g30{background:#451111; color:#f0908f}
+  :root[data-theme="light"] .g80, :root[data-theme="light"] .g70{background:#d8efd8; color:#0a5c0a}
+  :root[data-theme="light"] .g60{background:#e2f0e2; color:#2d6b2d}
+  :root[data-theme="light"] .g55{background:#ecefd8; color:#5c6b1f}
+  :root[data-theme="light"] .g50{background:#efeee9; color:#52514e}
+  :root[data-theme="light"] .g45{background:#f3e9da; color:#8a5a1f}
+  :root[data-theme="light"] .g40{background:#f5e2dc; color:#a33c2a}
+  :root[data-theme="light"] .g30{background:#f7d9d9; color:#a31f1f}
+
+  table{width:100%; border-collapse:collapse}
+  th{font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:var(--muted);
+     text-align:left; font-weight:600; padding:8px 10px; border-bottom:1px solid var(--baseline)}
+  td{padding:9px 10px; border-bottom:1px solid var(--grid); font-variant-numeric:tabular-nums}
+  tr:last-child td{border-bottom:none}
+  th.num, td.num{text-align:right}
+
+  /* ---------- leaderboard ---------- */
+  .filters{display:flex; gap:10px; align-items:center; margin:18px 0 14px; flex-wrap:wrap}
+  .filters label{color:var(--muted); font-size:12.5px}
+  select{
+    background:var(--surface-2); color:var(--ink); border:1px solid var(--border);
+    border-radius:8px; padding:7px 10px; font:inherit; cursor:pointer;
+  }
+  #lb tbody tr{cursor:pointer}
+  #lb tbody tr:hover td{background:var(--surface-2)}
+  .execcell{display:flex; flex-direction:column}
+  .execcell .nm{font-weight:600}
+  .execcell .tm{color:var(--muted); font-size:12px}
+  .rk{color:var(--muted); width:30px}
+  .badge-ss{font-size:10px; color:var(--s4); border:1px solid var(--s4); border-radius:4px;
+    padding:0 5px; margin-left:6px; vertical-align:1px; letter-spacing:0.3px}
+  .badge-real{font-size:10px; font-weight:700; color:var(--s3); border:1px solid var(--s3); border-radius:4px;
+    padding:0 5px; margin-left:6px; vertical-align:1px; letter-spacing:0.4px}
+  .ring{font-size:11px; color:var(--muted)}
+  .divbar{display:block}
+
+  /* ---------- report card ---------- */
+  .rc-head{display:flex; justify-content:space-between; align-items:flex-end; gap:16px; flex-wrap:wrap; margin-top:24px}
+  .rc-title{font-size:24px; font-weight:700}
+  .rc-meta{color:var(--muted); font-size:13px; margin-top:2px}
+  .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin:18px 0}
+  .tile .lbl{font-size:12px; color:var(--muted); margin-bottom:6px}
+  .tile .val{font-size:34px; font-weight:600; letter-spacing:-0.5px; line-height:1.1}
+  .tile .dlt{font-size:12.5px; margin-top:6px; color:var(--ink-2)}
+  .charts{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px}
+  @media (max-width:900px){.charts{grid-template-columns:1fr}}
+  .chart-title{font-size:13px; font-weight:600; margin-bottom:2px}
+  .chart-sub{font-size:12px; color:var(--muted); margin-bottom:10px}
+  .legend{display:flex; gap:14px; flex-wrap:wrap; font-size:12px; color:var(--ink-2); margin-top:8px}
+  .legend .key{display:inline-flex; align-items:center; gap:6px}
+  .swatch{width:10px; height:10px; border-radius:3px; display:inline-block}
+  .ledgers{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  @media (max-width:900px){.ledgers{grid-template-columns:1fr}}
+  .ledger h3{font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--ink-2); margin-bottom:8px}
+  .ledger tbody tr{cursor:pointer}
+  .ledger tbody tr:hover td{background:var(--surface-2)}
+  .ttype{font-size:11px; color:var(--muted)}
+
+  /* ---------- open/closed chips ---------- */
+  .chip{display:inline-block; font-size:9.5px; font-weight:700; letter-spacing:0.5px;
+    border-radius:4px; padding:1px 6px; margin-left:6px; vertical-align:1px}
+  .chip-open{color:var(--s4); border:1px solid var(--s4)}
+  .chip-closed{color:var(--muted); border:1px solid var(--baseline)}
+
+  /* ---------- lens matrix (in modal) ---------- */
+  .lens-box{margin-top:14px; border:1px solid var(--border); border-radius:8px; overflow:hidden}
+  .lens-row{display:grid; grid-template-columns:1fr 150px 76px; gap:10px; align-items:center;
+    padding:9px 12px; border-top:1px solid var(--grid)}
+  .lens-row.hd{background:var(--surface-2); border-top:none; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.5px; color:var(--muted); font-weight:600; padding:7px 12px}
+  .lens-name{font-weight:700; color:var(--ink); font-size:12.5px}
+  .lens-desc{color:var(--muted); font-size:11.5px; font-weight:400; margin-top:2px}
+  .lens-verdict{font-family:var(--f-mono); font-weight:700; font-size:12.5px}
+
+  /* ---------- transaction trees ---------- */
+  .tree-card{margin-bottom:16px}
+  .tree-title{font-size:14px; font-weight:700; margin-bottom:2px}
+  .tree-sub{font-size:12px; color:var(--muted); margin-bottom:12px}
+  .tnode{position:relative; padding:3px 0}
+  .tbranch{margin-left:14px; border-left:1px solid var(--grid); padding-left:18px; margin-top:2px}
+  .tcard{display:inline-flex; align-items:center; gap:8px; background:var(--surface-2);
+    border:1px solid var(--border); border-radius:8px; padding:6px 11px; font-size:12.5px}
+  .tcard.outflow{background:transparent; border-style:dashed}
+  .tcard .nm{font-weight:600}
+  .tcard .wv{font-variant-numeric:tabular-nums; font-weight:700}
+  .tvia{font-size:11px; color:var(--s1); margin:8px 0 3px; letter-spacing:0.2px}
+  .tvia::before{content:'↳ '; color:var(--muted)}
+  .tree-legend{display:flex; gap:16px; font-size:11.5px; color:var(--muted); margin-top:10px; flex-wrap:wrap}
+
+  /* ---------- decision modal ---------- */
+  .overlay{position:fixed; inset:0; background:rgba(0,0,0,0.6); display:none;
+    align-items:flex-start; justify-content:center; padding:60px 20px; z-index:50; overflow:auto}
+  .overlay.on{display:flex}
+  .modal{background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    max-width:760px; width:100%; padding:24px 26px; position:relative}
+  .modal .x{position:absolute; top:12px; right:14px; background:none; border:none;
+    color:var(--muted); font-size:20px; cursor:pointer}
+  .modal .x:hover{color:var(--ink)}
+  .m-type{font-size:11px; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted)}
+  .m-title{font-size:19px; font-weight:700; margin:4px 0 2px}
+  .m-date{color:var(--muted); font-size:13px; margin-bottom:14px}
+  .sides{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  @media (max-width:640px){.sides{grid-template-columns:1fr}}
+  .side{background:var(--surface-2); border-radius:8px; padding:12px 14px}
+  .side .dir{font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:var(--muted); margin-bottom:8px}
+  .asset{display:flex; justify-content:space-between; gap:10px; padding:5px 0; border-bottom:1px solid var(--grid); font-size:13px}
+  .asset:last-child{border-bottom:none}
+  .m-net{margin-top:14px; font-size:15px}
+  .m-note{margin-top:12px; font-size:13px; color:var(--ink-2); background:var(--surface-2);
+    border-left:3px solid var(--s1); border-radius:0 6px 6px 0; padding:10px 12px}
+
+  /* ---------- methodology ---------- */
+  .prose{max-width:760px}
+  .prose p{margin:12px 0; color:var(--ink-2)}
+  .prose strong{color:var(--ink)}
+  .prose h3{margin-top:22px; font-size:15px}
+
+  /* ---------- tooltip ---------- */
+  #tip{position:fixed; pointer-events:none; background:var(--surface-2); border:1px solid var(--border);
+    border-radius:8px; padding:8px 11px; font-size:12.5px; display:none; z-index:99;
+    box-shadow:0 6px 20px rgba(0,0,0,0.5); font-variant-numeric:tabular-nums}
+  #tip .t1{color:var(--muted); font-size:11px}
+  footer{color:var(--muted); font-size:12px; margin-top:48px; border-top:1px solid var(--grid); padding-top:16px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd">
+    <div class="brandrow">
+      <div class="brand">FRONT OFFICE <span class="ledger">LEDGER</span></div>
+      <span class="sample-chip">Prototype · illustrative sample data</span>
+      <button id="themebtn" aria-label="Toggle theme">◐ Light</button>
+    </div>
+    <div class="tagline">Every draft pick, trade, signing, and waiver claim, graded against expectation and attributed to the regime that made it.</div>
+    <nav>
+      <button class="on" data-view="leaderboard">Leaderboard</button>
+      <button data-view="report">Regime Report Cards</button>
+      <button data-view="trees">Transaction Trees</button>
+      <button data-view="method">Methodology</button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ================= LEADERBOARD ================= -->
+  <section id="view-leaderboard">
+    <h2>Front Office Leaderboard · Active MLB Regimes</h2>
+    <div class="sub">Value added vs. expectation across the four acquisition channels, realized WAR only, per season of tenure. Letter grades (hover any grade for its 20–80 scouting-scale value). <strong>FOR</strong> rates decision quality; <strong>Success</strong> rates on-field results; the gap between them is a story in itself. <strong style="color:var(--s4)">Values are mocked for this prototype</strong>, except the <span class="badge-real" style="margin-left:0">REAL DATA</span> entries: the two Betts decisions on the Dodgers card, and the <strong>entire Orioles card</strong>, scored end-to-end from the real Elias ledger (approximate WAR inputs; see proof-of-concept reports).</div>
+    <div class="filters">
+      <label for="erasel">Era</label>
+      <select id="erasel">
+        <option value="active">Active regimes</option>
+        <option value="hist">Historical regimes</option>
+        <option value="all">All eras</option>
+      </select>
+      <label for="sortsel">Sort by</label>
+      <select id="sortsel">
+        <option value="for">Front Office Rating</option>
+        <option value="success">Team success</option>
+        <option value="net">Total net value (WAR)</option>
+        <option value="draft">Draft grade</option>
+        <option value="trade">Trade grade</option>
+        <option value="fa">Free agency grade</option>
+        <option value="waiver">Waiver / minor grade</option>
+      </select>
+      <label for="realsel">Accounting</label>
+      <select id="realsel">
+        <option>Realized only</option>
+        <option disabled>Realized + projected (Phase 2)</option>
+      </select>
+    </div>
+    <div class="card" style="padding:6px 8px">
+      <table id="lb">
+        <thead>
+          <tr>
+            <th class="rk">#</th><th>Regime</th><th>Tenure</th>
+            <th class="num">Draft</th><th class="num">Trades</th><th class="num">Free Agency</th><th class="num">Waiver / Minor</th>
+            <th style="width:170px">Net value vs. expectation</th>
+            <th class="num" title="On-field results during tenure: win%, division titles, playoff appearances, series wins, pennants, World Series">Success</th>
+            <th class="num" title="Front Office Rating: decision quality vs. expectation">FOR</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="sub" style="margin-top:10px">Click any regime for its full report card. <span class="badge-ss">SS</span> = small-sample regime (&lt; 3 seasons); shown, never hidden.</div>
+  </section>
+
+  <!-- ================= REPORT CARD ================= -->
+  <section id="view-report" hidden>
+    <div class="filters" style="margin-top:22px">
+      <label for="teamsel">Regime</label>
+      <select id="teamsel"></select>
+    </div>
+    <div class="rc-head">
+      <div>
+        <div class="rc-title" id="rc-name"></div>
+        <div class="rc-meta" id="rc-meta"></div>
+      </div>
+      <div class="ring" id="rc-rings"></div>
+    </div>
+
+    <div class="tiles" id="rc-tiles"></div>
+
+    <div class="charts">
+      <div class="card">
+        <div class="chart-title">Value vs. expectation by channel</div>
+        <div class="chart-sub">Realized WAR above (right) or below (left) the channel baseline, full tenure</div>
+        <div id="chanchart"></div>
+        <div class="legend" id="chanlegend"></div>
+      </div>
+      <div class="card">
+        <div class="chart-title">Cumulative net value over tenure</div>
+        <div class="chart-sub">Net WAR vs. expectation, all decisions, by season</div>
+        <div id="cumchart"></div>
+      </div>
+    </div>
+
+    <div class="ledgers" id="rc-ledgers"></div>
+  </section>
+
+  <!-- ================= TRANSACTION TREES ================= -->
+  <section id="view-trees" hidden>
+    <h2>Transaction Trees · How One Decision Becomes the Next</h2>
+    <div class="sub">Assets don't die when they're traded; they compound. Each tree follows a chain of decisions across generations, with every branch marked <span class="chip chip-open" style="margin-left:2px">OPEN</span> (value still accruing) or <span class="chip chip-closed" style="margin-left:2px">CLOSED</span> (window finished; the number is final). Solid cards are value captured by the regime; dashed cards are value that flowed out. All three trees below are real. <span class="badge-real" style="margin-left:0">REAL DATA</span></div>
+    <div id="treeswrap"></div>
+    <div class="tree-legend">
+      <span>■ solid card: value captured by the regime</span>
+      <span>◌ dashed card: outflow (counts against the ledger)</span>
+      <span>WAR figures approximate ±0.5; lens details on each decision's modal in the report cards</span>
+    </div>
+  </section>
+
+  <!-- ================= METHODOLOGY ================= -->
+  <section id="view-method" hidden>
+    <h2>Methodology (abridged)</h2>
+    <div class="prose">
+      <p>The unit of account is the <strong>decision</strong>: a dated transaction attributed to the executive regime in office when it was made. Each decision is scored in <strong>WAR captured</strong> (production received during the club-control window acquired) and <strong>surplus dollars</strong> (WAR × market $/WAR, minus salary paid). Departing players are scored symmetrically, so every deal nets to one number.</p>
+      <h3>Grading against expectation, not zero</h3>
+      <p>Draft picks are measured against the historical expected value of their slot; the #1 overall pick carries a far higher bar than pick #38. Prospects moved in trades are valued at the deal date using published prospect-tier surplus curves, so the ledger can score a trade both <strong>as it looked at the time</strong> and <strong>as it turned out</strong>; the gap between the two is the luck-versus-skill diagnostic. Free agency is graded as return on the market price of the contract, and the waiver/minor-league channel is graded against a baseline of zero: pure found money, the cleanest read on pro scouting. Net-of-cost is the universal display rule wherever a contract exists: FA signings and extensions never show raw WAR accumulation, because signing a star who then plays like a star is a pass, not a triumph.</p>
+      <h3>Lenses, and open vs. closed</h3>
+      <p>Every substantial decision is shown through a <strong>stack of named lenses</strong> rather than one verdict: windows-only (the control years actually exchanged), option-inclusive (adding retention rights and their exercise), and the counterfactual (this regime against its own realistic alternative), with raw v0.1 and leverage-adjusted v0.2 readings where they differ. <strong>Perspective rule:</strong> every lens on a regime's card is signed from that regime's seat. The other side of the same deal grades on the other regime's card, from theirs; the Betts trade reads as Friedman's win on Friedman's card and as Bloom's defensible sale on Boston's, and both are correct because each is measured against its own alternative. Alongside the lenses, every decision and every branch of a transaction tree carries a status: <strong>CLOSED</strong> means the window is finished and the number is final; <strong>OPEN</strong> means value is still accruing and the verdict can move. The site never averages the lenses into one number; the disagreement between them is the analysis.</p>
+      <h3>Transaction trees</h3>
+      <p>Assets compound across decisions: a fourth-round pick becomes a rental ace becomes a comp pick becomes a new draftee. The Trees view follows these chains generation by generation, marking each branch open or closed, with captured value in solid cards and outflows in dashed ones. Trees are also the honest way to display sell-offs: the Orioles' 2025 deadline reads as a dozen open branches, not a graded verdict.</p>
+      <h3>Win-curve leverage &amp; time discounting (v0.2)</h3>
+      <p>A marginal win is worth 3–4× more at 89 projected wins than at 70 or 105, so acquired WAR is multiplied by a leverage curve, L(w) = 0.5 + 1.3·e<sup>−(w−89)²/200</sup>, peaking at 1.80, evaluated at the acquirer's <strong>projected wins on the decision date</strong>: the front office is graded on the leverage it thought it was buying. Future-year value discounts to the decision date at 10%/yr (6–14% sensitivity shown): a 2029 prospect win was never worth a 2024 pennant-race win to a defending champion, and win-now is a rational preference the ledger must price, not a bias to correct. Together these fixed v0.1's systematic bias (deadline buys punished, sell-side hauls flattered) and flipped the Burnes trade from "worst decision of the tenure" (−2.9) to a fair playoff-push price (+1.2). Every parameter (curve shape, discount rate, projected wins per case) is versioned and public.</p>
+      <h3>Retention rights &amp; opportunity cost</h3>
+      <p>A trade transfers a third asset beyond the control windows: the <strong>exclusive right to extend the player</strong>. Pricing it at zero produces indefensible verdicts: the windows-only ledger says Boston "won" the Betts trade. Every trade therefore shows three ledgers: windows-only; <strong>option-inclusive</strong> (realized extension surplus flows to the acquirer once the right is exercised, the headline number); and the seller's counterfactual, charged p(retain) × forfeited extension surplus, where p is a documented, versioned judgment drawn from negotiation reporting. The same machinery scores passive retention failures (letting a star walk is charged p-weighted forfeited surplus with the comp pick credited), so "traded him with team control left" and "let him leave for nothing" become directly comparable. Under this accounting deals stop being zero-sum: in the Betts case both front offices beat their realistic alternatives, which is the honest and more interesting answer.</p>
+      <h3>Attribution rules</h3>
+      <p>A regime is graded only on its own decisions; inherited players are excluded. Extensions, non-tenders, and passive losses (a free agent walking, a player lost on waivers) are decisions too. Recent regimes carry a small-sample badge rather than being hidden, and the leaderboard defaults to realized value only, with projected-remaining value shown separately. Every rating is clickable down to the individual decisions that produced it, and every methodology version is archived so grades are reproducible. The two Betts decisions on the Dodgers card are scored with real data as a proof of concept; the trade and the extension are separate, chainable decisions, and that one example shows why: on windows alone the deal reads as an overpay, while the full chain reads as one of the great decisions of the era. Same inputs, different lenses, both on the page.</p>
+      <h3>Two grades, on purpose</h3>
+      <p><strong>FOR (Front Office Rating)</strong> measures decision quality: value added versus expectation across the four channels. <strong>Team Success</strong> measures on-field results during the tenure: winning percentage, division titles, playoff appearances, playoff series wins, pennants, and World Series. They are deliberately separate: a front office can out-decide the league and still miss Octobers (payroll, luck, timing), or ride inherited stars to banners. The gap between the two grades is often the most interesting number on the page. Grades display as letters (A+ through F) mapped from the underlying 20–80 scouting scale, which stays available on hover.</p>
+      <h3>Historical depth</h3>
+      <p>The ledger is designed to backfill decade by decade; transactions exist back to the 1870s (Retrosheet), so historical regimes (Weiss, Rickey, Schuerholz, Gillick) sit on the same scale as active ones. Channel definitions adapt by era: before the 1965 amateur draft, the "draft" channel reads as amateur and international signings. Era-specific $/WAR baselines keep cross-era comparisons honest.</p>
+      <p style="color:var(--s4)"><strong>Reminder:</strong> every number in this prototype is illustrative sample data, not a computed rating.</p>
+    </div>
+  </section>
+
+  <footer>Front Office Ledger · prototype v0.7 · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · sample data except entries badged REAL DATA (the Betts decisions on the Dodgers card; the full Orioles/Elias card, approximate WAR inputs, see proof-of-concept reports). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
+</div>
+
+<!-- decision modal -->
+<div class="overlay" id="overlay">
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="x" id="mclose" aria-label="Close">×</button>
+    <div class="m-type" id="m-type"></div>
+    <div class="m-title" id="m-title"></div>
+    <div class="m-date" id="m-date"></div>
+    <div class="sides" id="m-sides"></div>
+    <div class="m-net" id="m-net"></div>
+    <div id="m-lenses"></div>
+    <div class="m-note" id="m-note"></div>
+  </div>
+</div>
+
+<div id="tip"></div>
+
+<script>
+/* =========================================================
+   SAMPLE DATA: all values fabricated for the prototype
+   ========================================================= */
+const CHANNELS = [
+  {key:'draft',  name:'Draft',          hex:'var(--s1)'},
+  {key:'trade',  name:'Trades',         hex:'var(--s2)'},
+  {key:'fa',     name:'Free Agency',    hex:'var(--s3)'},
+  {key:'waiver', name:'Waiver / Minor', hex:'var(--s4)'},
+];
+
+// grades are stored internally on the 20–80 scouting scale but DISPLAYED as
+// letter grades, friendlier for a general audience. Tooltip keeps the 20–80.
+const g2letter = g => g>=80?'A+':g>=70?'A':g>=65?'A−':g>=60?'B+':g>=55?'B':g>=50?'C+':g>=45?'C':g>=40?'D+':g>=35?'D':'F';
+const gradeClass = g => g>=70?'g70':g>=60?'g60':g>=55?'g55':g>=45?'g50':g>=40?'g45':g>=35?'g40':'g30';
+const gradeChip = (g, big) => `<span class="grade ${gradeClass(g)}"${big?' style="font-size:13.5px"':''} title="${g} on the 20–80 scouting scale">${g2letter(g)}</span>`;
+
+const REGIMES = [
+  {
+    id:'lad', exec:'Andrew Friedman', title:'President of Baseball Operations', team:'Los Angeles Dodgers',
+    start:2014, seasons:12, titles:3, forGrade:75,
+    success:{wpct:'.615', div:10, po:12, sw:16, pen:5, ws:3, g:80},
+    chan:{draft:{net:14.2,g:60,n:118}, trade:{net:38.6,g:75,n:64}, fa:{net:19.4,g:65,n:47}, waiver:{net:16.8,g:80,n:71}},
+    surplus:'$612M', decisions:300,
+    cum:[0,3,9,15,24,33,45,52,61,72,81,89],
+    ledgers:{
+      bestTrades:[
+        {d:'02/10/2020', h:'Acquired RF Mookie Betts & LHP David Price (BOS) <span class="badge-real">REAL DATA</span>', war:+13.3, real:true, open:true, t:'Trade · option-inclusive lens · methodology v0.2',
+         lenses:[
+           {l:'Windows only', v:'LAD −$59M PV', s:'open', d:'The control years alone: LA gave up more than the 2020 window returned (raw v0.1: −$96M). Real, and shown, but not the deal LA actually made.'},
+           {l:'Option inclusive · the headline', v:'LAD +$106M PV', s:'open', d:'Counting the extension right the trade delivered, exercised July 2020, accruing through 2032. This is the deal LA actually made.'},
+           {l:'Versus passing on the deal', v:'LAD clearly ahead', s:'open', d:'The alternative: no 2020 Betts, then bidding against the open market that winter at ~zero expected surplus. Nearly all of the +$106M is real gain vs. that path.'},
+         ],
+         note:'Every lens here is signed from the Dodgers\' seat; this is Friedman\'s card. Windows alone, LA overpaid. Counting the extension right the trade delivered (exercised July 2020), LA is ≈ +$106M PV ahead and climbing, plus three World Series titles. Boston\'s side of the same deal grades on Boston\'s card, from Boston\'s seat, where it also beats their realistic alternative (walk year plus comp pick, p(retain)=0.30). Both front offices beat their alternatives; the lenses answer different questions, and the site never averages them. Displayed value: option-inclusive PV ≈ +13.3 WAR-equivalent to LA.',
+         sides:[['Acquired',[['RF Mookie Betts (2020 window)','+3.7'],['Retention rights (exercised)','+$141M realized'],['LHP David Price (net of BOS cash)','+1.0 / −$23.5M']]],['Surrendered',[['OF Alex Verdugo (2020–24)','-10.3'],['C Connor Wong (window open)','-3.4'],['SS Jeter Downs (bust)','+0.5']]]]},
+        {d:'07/30/2021', h:'Acquired RHP Max Scherzer & SS Trea Turner (WSN)', war:+11.3, note:'Rental + 1.5 control years for Ruiz/Gray package. Ex-ante near-even; realized clearly positive before Turner walked in FA (departure logged as separate passive decision).', sides:[['Acquired',[['RHP Max Scherzer','+3.4'],['SS Trea Turner','+9.6']]],['Surrendered',[['C Keibert Ruiz','-1.4'],['RHP Josiah Gray','-0.3']]]]},
+      ],
+      worstTrades:[
+        {d:'12/12/2021', h:'Traded 1B/OF package for RHP Craig Kimbrel (CWS)', war:-2.8, note:'AJ Pollock out, Kimbrel\'s decline year in. Small realized loss; flagged as negative-process at the time by projection snapshot.', sides:[['Acquired',[['RHP Craig Kimbrel','+0.4']]],['Surrendered',[['OF AJ Pollock','+3.2 elsewhere']]]]},
+      ],
+      bestAcq:[
+        {d:'07/22/2020', h:'Extended RF Mookie Betts (12 yr / $365M) <span class="badge-real">REAL DATA</span>', t:'Extension · net of contract cost', war:+15.9, real:true, open:true,
+         lenses:[
+           {l:'Realized, 2021 to 2025', v:'+15.9 net · ≈ +$141M', s:'closed', d:'Five seasons banked: +28.1 raw WAR against ~12.2 the salary implied. Final.'},
+           {l:'Unrealized, 2026 to 2032', v:'7 seasons remain', s:'open', d:'Projected-remaining value ships in Phase 2 and decays to zero as the window closes.'},
+         ],
+         note:'Net of cost, like every contract decision: ≈ +28.1 raw WAR minus the ~12.2 WAR the ~$110M paid so far implied → +15.9 net (≈ +$141M surplus), seven seasons remaining, WS titles 2024 and 2025 inside the window. Its realized surplus also flows into the trade\'s option-inclusive ledger above.',
+         sides:[['Acquired',[['RF Mookie Betts, 2021–2032','+28.1 raw to date']]],['Committed',[['$365M ($115M deferred, PV ≈ $306M)','−$110M paid ≈ 12.2 WAR implied']]]]},
+        {d:'04/29/2015', h:'Signed 3B Max Muncy (minor-league FA)', t:'Minor-league FA · cost ≈ 0', war:+21.4},
+        {d:'07/15/2016', h:'Drafted RHP Tony Gonsolin (Rd 9)', t:'Draft pick · vs. slot expectation', war:+9.8},
+        {d:'03/12/2022', h:'Signed 1B Freddie Freeman', t:'FA signing · net of contract', war:+2.1, note:'≈ 13.9 raw WAR against the ~11.8 the money paid so far implied. A very good signing grades as solidly positive, not enormous, because stars are expensive. Raw accumulation is never the FA display.'},
+      ],
+      losses:[
+        {d:'12/07/2022', h:'Let SS Trea Turner walk (FA)', t:'Passive loss', war:-6.2},
+        {d:'08/02/2021', h:'C Keibert Ruiz (trade)', t:'Trade', war:-1.4},
+      ],
+    }
+  },
+  {
+    id:'bal', exec:'Mike Elias', title:'President of Baseball Operations', team:'Baltimore Orioles',
+    start:2019, seasons:8, titles:0, forGrade:75, realCard:true,
+    success:{wpct:'.484', div:1, po:2, sw:0, pen:0, ws:0, g:45},
+    chan:{draft:{net:21.8,g:80,n:148}, trade:{net:16.8,g:75,n:34}, fa:{net:-6.9,g:40,n:24}, waiver:{net:23.5,g:80,n:41}},
+    surplus:'≈$440M', decisions:247,
+    cum:[0.5,2,6,14,28,44,52,55],
+    ledgers:{
+      bestTrades:[
+        {d:'12/04/2019', h:'RHP Dylan Bundy to LAA for RHP Kyle Bradish + 3 arms <span class="badge-real">REAL DATA</span>', war:+9.2, real:true,
+         note:'The signature sell-low that hit: one year of Bundy for four arms, with Bradish (~8.2 WAR through 2023, plus an injury-shortened return) carrying nearly all the value. Scored with real data; bWAR inputs approximate.',
+         sides:[['Acquired',[['RHP Kyle Bradish','+9.0'],['RHP Peek / Brnovich / arms','+0.2']]],['Surrendered',[['RHP Dylan Bundy (2 arb yrs)','-1.0 elsewhere']]]]},
+        {d:'08/01/2022', h:'2022 deadline sales: Mancini, Jorge López <span class="badge-real">REAL DATA</span>', war:+4.0, real:true,
+         note:'Selling at 51-51 was locally unpopular, and it returned Yennier Cano (~2.5) and Cade Povich (~1.5) for rentals who produced ~1 WAR elsewhere. Process and outcome both graded positive.',
+         sides:[['Acquired',[['RHP Yennier Cano','+2.5'],['LHP Cade Povich','+1.5'],['RHP McDermott et al.','+0.5']]],['Surrendered',[['1B Trey Mancini','-0.3 elsewhere'],['RHP Jorge López','-0.7 elsewhere']]]]},
+        {d:'07/26/2024', h:'OF Austin Hays to PHI for Domínguez + Laureano <span class="badge-real">REAL DATA</span>', war:+2.3, real:true,
+         note:'Laureano\'s 2.5-WAR 2025 was the surprise; Hays produced ~1.0 elsewhere. A quiet, clean win.',
+         sides:[['Acquired',[['RHP Seranthony Domínguez','+0.8'],['OF Ramón Laureano','+2.5']]],['Surrendered',[['OF Austin Hays','-1.0 elsewhere']]]]},
+        {d:'02/01/2024', h:'RHP Corbin Burnes from MIL (Ortiz, Hall, pick 34) <span class="badge-real">REAL DATA</span>', war:+1.2, real:true, open:true, t:'Trade · methodology v0.2 (leverage + discounting)',
+         lenses:[
+           {l:'Raw windows (v0.1)', v:'−2.9 WAR', s:'open', d:'Every win equal, no time value: the "Ortiz already won this trade" reading.'},
+           {l:'Leverage + discounting (v0.2)', v:'+1.2 WAR-equiv', s:'open', d:'Pennant-race wins at ×1.80; Ortiz\'s 2029 wins discounted to 2024. Robust 6–14%.'},
+           {l:'Open exposure', v:'Ortiz thru 2029', s:'open', d:'The verdict can still move; shown on the page, never hidden.'},
+         ],
+         note:'THE VERDICT FLIP. v0.1 (raw WAR) graded this the worst decision of the tenure (−2.9): Ortiz alone has out-produced Burnes\' rental year. v0.2 prices what Baltimore was actually buying (pennant-race wins at a ~89-win projection\'s peak leverage, ×1.80) and discounts Ortiz\'s 2029 wins to 2024 value: net +1.2, robust from 6% to 14% discount rates. A fair price for a playoff push, not a fiasco. The window stays open through 2029; it must deteriorate much further before the decision grades negative.',
+         sides:[['Acquired',[['RHP Corbin Burnes (1 yr, L=1.80)','+7.4 lev-adj'],['Comp pick on departure','+0.2 disc']]],['Surrendered',[['IF Joey Ortiz (thru 2029, disc)','-5.2'],['LHP DL Hall','-0.5'],['Pick #34 (2024, disc)','-0.7']]]]},
+      ],
+      worstTrades:[
+        {d:'07/30/2025', h:'2025 deadline sell-off · 8 deals, 16 prospects in <span class="badge-real">REAL DATA</span>', war:-1.4, real:true, open:true,
+         note:'Baker, Soto, Domínguez, Kittredge, Urías, Mullins, O\'Hearn+Laureano, Morton all out; return almost entirely unrealized (incl. draft pick #37 → OF Slater de Brun). This line will move for a decade; shown as OPEN, not judged.',
+         sides:[['Acquired',[['16 prospects + pick #37','+0.1 to date']]],['Surrendered',[['8 veterans (rental windows)','-1.5 elsewhere']]]]},
+        {d:'07/26/2024', h:'LHP Trevor Rogers from MIA (Stowers, Norby) <span class="badge-real">REAL DATA</span>', war:-0.5, real:true, open:true,
+         note:'Panned at the time, then Rogers posted a 1.81 ERA in 2025 (~4.5 WAR), while Stowers broke out in Miami. OPEN and trending toward even: the ex-ante vs. ex-post whipsaw in one deal.',
+         sides:[['Acquired',[['LHP Trevor Rogers','+3.5']]],['Surrendered',[['OF Kyle Stowers','-2.5 & counting'],['2B Connor Norby','-1.5']]]]},
+      ],
+      bestAcq:[
+        {d:'06/10/2019', h:'Drafted SS Gunnar Henderson (Rd 2, #42) <span class="badge-real">REAL DATA</span>', t:'Draft pick · vs. slot expectation', war:+19.4, real:true,
+         note:'~20.3 WAR realized against a pick-42 maturity-adjusted bar of ~0.9: the single most valuable decision of the regime, and the draft-curve methodology is why it outranks Rutschman: value OVER expectation, not raw value.'},
+        {d:'06/03/2019', h:'Drafted C Adley Rutschman (#1 overall) <span class="badge-real">REAL DATA</span>', t:'Draft pick · vs. slot expectation', war:+6.8, real:true,
+         note:'~13.7 WAR realized against the 1-1 bar (~6.9 maturity-adjusted). A clear win, but the #1 pick carries the sport\'s highest expectation, so it grades below Henderson.'},
+        {d:'02/05/2020', h:'Claimed IF Ramón Urías (waivers, STL) <span class="badge-real">REAL DATA</span>', t:'Waiver claim · found money', war:+6.5, real:true},
+        {d:'06/11/2020', h:'Drafted IF Jordan Westburg (#30) <span class="badge-real">REAL DATA</span>', t:'Draft pick · vs. slot expectation', war:+6.1, real:true},
+        {d:'01/03/2023', h:'1B Ryan O\'Hearn from KC for cash <span class="badge-real">REAL DATA</span>', t:'Cash deal · found money', war:+4.2, real:true,
+         note:'~4.2 WAR for nothing, then flipped at the 2025 deadline in a six-prospect package. The found-money channel (+23.5 total) is the regime\'s quiet superpower.'},
+      ],
+      losses:[
+        {d:'02/01/2024', h:'IF Joey Ortiz (Burnes trade) <span class="badge-real">REAL DATA</span>', t:'Trade', war:-5.4, real:true, open:true, note:'Controlled through 2029: the deepest open liability on the ledger.'},
+        {d:'07/26/2024', h:'OF Kyle Stowers (Rogers trade) <span class="badge-real">REAL DATA</span>', t:'Trade', war:-2.5, real:true, open:true},
+        {d:'12/15/2024', h:'2024–25 FA class (O\'Neill, Morton, Kimbrel…) <span class="badge-real">REAL DATA</span>', t:'FA signings vs. contract price', war:-5.5, real:true, open:true, note:'≈ −$52M of surplus in one winter: the documented channel weakness (FA grades D+).'},
+      ],
+    }
+  },
+  {
+    id:'sd', exec:'A.J. Preller', title:'President of Baseball Operations', team:'San Diego Padres',
+    start:2014, seasons:12, titles:0, forGrade:55,
+    success:{wpct:'.503', div:0, po:4, sw:3, pen:0, ws:0, g:50},
+    chan:{draft:{net:6.1,g:55,n:110}, trade:{net:11.4,g:60,n:88}, fa:{net:-11.8,g:35,n:41}, waiver:{net:4.2,g:55,n:52}},
+    surplus:'$96M', decisions:291,
+    cum:[0,-4,-2,3,5,12,10,16,14,11,9,10],
+    ledgers:{
+      bestTrades:[
+        {d:'06/04/2016', h:'Acquired SS Fernando Tatis Jr. for RHP James Shields (CWS)', war:+27.6, note:'A 17-year-old lottery ticket for a declining veteran: the canonical pro-scouting win. Ex-ante value: negligible. Realized: franchise player.', sides:[['Acquired',[['SS Fernando Tatis Jr.','+27.6'],['RHP Erik Johnson','-0.3']]],['Surrendered',[['RHP James Shields','+1.7 elsewhere']]]]},
+      ],
+      worstTrades:[
+        {d:'08/02/2022', h:'Acquired OF Juan Soto & 1B Josh Bell (WSN)', war:-6.9, note:'Ex-ante: defensible superstar strike. Realized ledger negative after the surrendered package (Gore, Abrams, Wood, Susana) outproduced Soto\'s San Diego window before his own departure via trade.', sides:[['Acquired',[['OF Juan Soto (2.5 yrs)','+11.2'],['1B Josh Bell','-0.4']]],['Surrendered',[['LHP MacKenzie Gore','-5.8'],['SS CJ Abrams','-6.1'],['OF James Wood','-5.4'],['RHP Jarlin Susana','-0.4']]]]},
+      ],
+      bestAcq:[
+        {d:'06/04/2016', h:'SS Fernando Tatis Jr.', t:'Trade', war:+27.6},
+        {d:'02/28/2019', h:'Signed 3B Manny Machado', t:'FA signing', war:+8.3},
+        {d:'07/06/2021', h:'Int\'l class incl. LHP arm (illustrative)', t:'Int\'l signing', war:+5.9},
+      ],
+      losses:[
+        {d:'08/02/2022', h:'OF James Wood (trade)', t:'Trade', war:-5.4},
+        {d:'08/02/2022', h:'SS CJ Abrams (trade)', t:'Trade', war:-6.1},
+        {d:'12/09/2023', h:'Let RHP Blake Snell walk (FA)', t:'Passive loss', war:-3.8},
+      ],
+    }
+  },
+  {
+    id:'nym', exec:'David Stearns', title:'President of Baseball Operations', team:'New York Mets',
+    start:2023, seasons:3, titles:0, forGrade:60, smallSample:true,
+    success:{wpct:'.535', div:0, po:2, sw:2, pen:0, ws:0, g:55},
+    chan:{draft:{net:2.1,g:55,n:41}, trade:{net:5.8,g:60,n:19}, fa:{net:7.2,g:65,n:18}, waiver:{net:3.4,g:60,n:23}},
+    surplus:'$88M', decisions:101,
+    cum:[0,6,13],
+    ledgers:{
+      bestTrades:[
+        {d:'12/11/2024', h:'Buy-low rotation acquisition (illustrative)', war:+3.2, note:'Mid-tier arm acquired below prospect-curve cost; realized value on track with ex-ante projection.', sides:[['Acquired',[['RHP starter','+3.4']]],['Surrendered',[['IF prospect (FV45)','-0.2 to date']]]]},
+      ],
+      worstTrades:[
+        {d:'07/28/2025', h:'Deadline bullpen rental (illustrative)', war:-1.1, note:'Standard rental cost, below-projection return.', sides:[['Acquired',[['RHP reliever','+0.1']]],['Surrendered',[['C prospect','-1.2 to date']]]]},
+      ],
+      bestAcq:[
+        {d:'12/09/2024', h:'Retained OF Juan Soto (FA, 15 yrs)', t:'FA signing', war:+6.8},
+        {d:'02/02/2024', h:'Signed RHP reclamation starter', t:'FA signing', war:+4.1},
+      ],
+      losses:[
+        {d:'11/04/2024', h:'Let RHP Luis Severino walk (FA)', t:'Passive loss', war:-2.4},
+      ],
+    }
+  },
+];
+
+// leaderboard-only rows (no full report card yet)
+const LB_EXTRA = [
+  {exec:'Alex Anthopoulos', team:'Atlanta Braves', start:2017, seasons:9, forGrade:70, titles:1,
+   success:{wpct:'.565', div:7, po:7, sw:4, pen:1, ws:1, g:70},
+   chan:{draft:{net:8.9,g:60},trade:{net:26.4,g:70},fa:{net:6.1,g:55},waiver:{net:5.0,g:60}}},
+  {exec:'Erik Neander', team:'Tampa Bay Rays', start:2016, seasons:10, forGrade:65, titles:0,
+   success:{wpct:'.539', div:2, po:5, sw:2, pen:1, ws:0, g:60},
+   chan:{draft:{net:11.2,g:60},trade:{net:19.8,g:65},fa:{net:3.3,g:55},waiver:{net:9.6,g:70}}},
+  {exec:'Dave Dombrowski', team:'Philadelphia Phillies', start:2020, seasons:6, forGrade:60, titles:0,
+   success:{wpct:'.551', div:1, po:4, sw:5, pen:1, ws:0, g:60},
+   chan:{draft:{net:1.4,g:45},trade:{net:12.6,g:60},fa:{net:14.8,g:65},waiver:{net:0.8,g:50}}},
+  {exec:'Brian Cashman', team:'New York Yankees', start:1998, seasons:28, forGrade:60, titles:5,
+   success:{wpct:'.584', div:11, po:21, sw:20, pen:7, ws:5, g:75},
+   chan:{draft:{net:9.7,g:55},trade:{net:22.1,g:60},fa:{net:-3.2,g:45},waiver:{net:6.1,g:60}}},
+  {exec:'Jerry Dipoto', team:'Seattle Mariners', start:2015, seasons:11, forGrade:55, titles:0,
+   success:{wpct:'.519', div:0, po:2, sw:1, pen:0, ws:0, g:45},
+   chan:{draft:{net:13.6,g:65},trade:{net:-2.4,g:45},fa:{net:-1.9,g:45},waiver:{net:4.4,g:55}}},
+  {exec:'Craig Breslow', team:'Boston Red Sox', start:2023, seasons:3, forGrade:55, titles:0, smallSample:true,
+   success:{wpct:'.506', div:0, po:1, sw:0, pen:0, ws:0, g:45},
+   chan:{draft:{net:1.8,g:55},trade:{net:4.6,g:60},fa:{net:0.9,g:50},waiver:{net:1.1,g:50}}},
+  {exec:'Chaim Bloom', team:'St. Louis Cardinals', start:2025, seasons:2, forGrade:50, titles:0, smallSample:true,
+   success:{wpct:'.494', div:0, po:0, sw:0, pen:0, ws:0, g:40},
+   chan:{draft:{net:0.6,g:50},trade:{net:2.2,g:55},fa:{net:-0.8,g:45},waiver:{net:2.9,g:60}}},
+  {exec:'Chris Getz', team:'Chicago White Sox', start:2023, seasons:3, forGrade:45, titles:0, smallSample:true,
+   success:{wpct:'.408', div:0, po:0, sw:0, pen:0, ws:0, g:30},
+   chan:{draft:{net:1.2,g:50},trade:{net:3.8,g:55},fa:{net:-2.6,g:40},waiver:{net:0.4,g:50}}},
+  {exec:'Perry Minasian', team:'Los Angeles Angels', start:2020, seasons:6, forGrade:35, titles:0,
+   success:{wpct:'.452', div:0, po:0, sw:0, pen:0, ws:0, g:30},
+   chan:{draft:{net:-4.8,g:35},trade:{net:-7.1,g:35},fa:{net:-13.4,g:30},waiver:{net:1.6,g:50}}},
+];
+
+// HISTORICAL regimes: the backfill ambition: ledgers reach back decade by
+// decade, so careers can be measured across eras. (Sample values; pre-1965
+// "Draft" reads as amateur/int'l signings; the channel taxonomy adapts by era.)
+const LB_HIST = [
+  {exec:'George Weiss', team:'New York Yankees', start:1948, end:1960, seasons:13, forGrade:80, titles:7, era:'hist',
+   success:{wpct:'.620', div:'-', po:10, sw:7, pen:10, ws:7, g:80},
+   chan:{draft:{net:28.0,g:80},trade:{net:19.5,g:70},fa:{net:4.2,g:60},waiver:{net:6.8,g:65}}},
+  {exec:'Branch Rickey', team:'Cardinals / Dodgers', start:1919, end:1950, seasons:31, forGrade:80, titles:4, era:'hist',
+   success:{wpct:'.562', div:'-', po:9, sw:4, pen:9, ws:4, g:75},
+   chan:{draft:{net:41.0,g:80},trade:{net:15.2,g:65},fa:{net:2.1,g:55},waiver:{net:8.4,g:70}}},
+  {exec:'John Schuerholz', team:'Royals / Braves', start:1982, end:2007, seasons:26, forGrade:75, titles:2, era:'hist',
+   success:{wpct:'.559', div:16, po:17, sw:12, pen:6, ws:2, g:75},
+   chan:{draft:{net:18.6,g:65},trade:{net:24.3,g:70},fa:{net:11.9,g:65},waiver:{net:3.2,g:55}}},
+  {exec:'Pat Gillick', team:'TOR / BAL / SEA / PHI', start:1978, end:2008, seasons:27, forGrade:75, titles:3, era:'hist',
+   success:{wpct:'.545', div:7, po:11, sw:9, pen:3, ws:3, g:70},
+   chan:{draft:{net:16.2,g:65},trade:{net:21.7,g:70},fa:{net:9.4,g:60},waiver:{net:5.5,g:60}}},
+  {exec:'Billy Beane', team:'Oakland Athletics', start:1998, end:2015, seasons:18, forGrade:70, titles:0, era:'hist',
+   success:{wpct:'.540', div:6, po:8, sw:1, pen:0, ws:0, g:55},
+   chan:{draft:{net:14.8,g:60},trade:{net:19.6,g:70},fa:{net:6.6,g:60},waiver:{net:7.9,g:70}}},
+  {exec:'Theo Epstein', team:'Boston Red Sox', start:2003, end:2011, seasons:9, forGrade:70, titles:2, era:'hist',
+   success:{wpct:'.575', div:1, po:6, sw:7, pen:2, ws:2, g:70},
+   chan:{draft:{net:12.4,g:65},trade:{net:9.8,g:60},fa:{net:7.2,g:60},waiver:{net:2.4,g:55}}},
+];
+
+/* =========================================================
+   TRANSACTION TREES: real chains, open/closed per branch
+   ========================================================= */
+const TREES = [
+  {title:'The Ortiz Chain · a 4th-round pick, three generations later',
+   sub:'Baltimore · Mike Elias regime · 2019 → still open. One amateur selection becomes a rental ace becomes a comp pick. The chain\'s verdict depends on the lens: raw windows say Milwaukee is winning; leverage-adjusted (v0.2) says Baltimore paid fair value for a pennant push.',
+   root:{nm:'2019 Draft · Round 4, pick #108', status:'closed', kids:[
+     {via:'June 2019 · selection', nm:'IF Joey Ortiz · Baltimore window', wv:'+0.6', status:'closed', kids:[
+       {via:'Feb 1, 2024 · packaged with LHP DL Hall + pick #34 to Milwaukee for Corbin Burnes', nm:'RHP Corbin Burnes · rental year', wv:'+4.1 raw · +7.4 lev-adj', status:'closed', kids:[
+         {via:'Dec 2024 · Burnes departs in free agency; compensation pick granted', nm:'2025 comp pick → draftee', wv:'0.0 to date', status:'open'},
+       ]},
+       {nm:'Joey Ortiz · Milwaukee window (thru 2029)', wv:'−5.4 & counting', status:'open', outflow:true},
+       {nm:'LHP DL Hall · Milwaukee', wv:'−0.5', status:'closed', outflow:true},
+       {nm:'Pick #34 (2024) · Milwaukee', wv:'−0.7 disc.', status:'open', outflow:true},
+     ]},
+   ]}},
+  {title:'The Scrap-Heap Compounder · cash becomes O\'Hearn becomes six prospects',
+   sub:'Baltimore · found money that kept compounding. A cash purchase produced +4.2 WAR, then converted into a six-player package whose windows run into the 2030s. The tree is why the 2025 sell-off can\'t be graded yet; nearly every branch is open.',
+   root:{nm:'Jan 3, 2023 · 1B Ryan O\'Hearn acquired from Kansas City for cash considerations', status:'closed', kids:[
+     {via:'2023 to 2025 · Baltimore window', nm:'1B Ryan O\'Hearn', wv:'+4.2', status:'closed', kids:[
+       {via:'Jul 30, 2025 · packaged with OF Ramón Laureano (himself +2.5 in Baltimore via the Jul 2024 Hays trade) to San Diego', nm:'Six-prospect package · Bateman, Hightower, Neighbors, Figueroa, Butterworth, Smith', wv:'0.0 to date', status:'open'},
+     ]},
+   ]}},
+  {title:'The Betts Tree · why the lenses matter',
+   sub:'Los Angeles · Andrew Friedman regime. The trade node is CLOSED on its windows; the extension branch it unlocked is OPEN through 2032, which is why "who won the trade" has three defensible answers (see the lens matrix on the decision page).',
+   root:{nm:'Feb 10, 2020 · three-team trade with Boston', status:'closed', kids:[
+     {via:'acquired', nm:'RF Mookie Betts · 2020 window', wv:'+3.7', status:'closed', kids:[
+       {via:'Jul 22, 2020 · retention option exercised: 12 yr / $365M extension (separate decision, chained)', nm:'Mookie Betts 2021–2032', wv:'+28.1 raw · +15.9 net of cost', status:'open'},
+     ]},
+     {via:'acquired', nm:'LHP David Price (net of $48M Boston cash)', wv:'+1.0 / −$23.5M', status:'closed'},
+     {nm:'OF Alex Verdugo · Boston window 2020 to 2024', wv:'−10.3', status:'closed', outflow:true, kids:[
+       {via:'Dec 2023 · Boston flips Verdugo to the Yankees; their tree continues on their ledger', nm:'Boston return branch', wv:'external', status:'open', outflow:true},
+     ]},
+     {nm:'C Connor Wong · Boston (thru 2026+)', wv:'−3.4', status:'open', outflow:true},
+     {nm:'SS Jeter Downs · bust, DFA\'d', wv:'+0.5', status:'closed', outflow:true},
+   ]}},
+];
+function tnode(n){
+  let h = '';
+  if(n.via) h += `<div class="tvia">${n.via}</div>`;
+  const neg = n.wv && (String(n.wv).startsWith('−') || String(n.wv).startsWith('-'));
+  h += `<div class="tnode"><span class="tcard${n.outflow?' outflow':''}"><span class="nm">${n.nm}</span>${n.wv?`<span class="wv ${neg?'neg':'pos'}" ${n.wv==='external'?'style="color:var(--muted)"':''}>${n.wv}</span>`:''}${n.status?`<span class="chip chip-${n.status}">${n.status.toUpperCase()}</span>`:''}</span></div>`;
+  if(n.kids && n.kids.length) h += `<div class="tbranch">${n.kids.map(tnode).join('')}</div>`;
+  return h;
+}
+let treesRendered = false;
+function renderTrees(){
+  if(treesRendered) return; treesRendered = true;
+  $('#treeswrap').innerHTML = TREES.map(t=>
+    `<div class="card tree-card"><div class="tree-title">${t.title}</div><div class="tree-sub">${t.sub}</div>${tnode(t.root)}</div>`
+  ).join('');
+}
+
+/* =========================================================
+   helpers
+   ========================================================= */
+const $ = s => document.querySelector(s);
+const fmtW = v => (v>0?'+':'') + v.toFixed(1);
+const tip = $('#tip');
+function showTip(html, x, y){
+  tip.innerHTML = html; tip.style.display='block';
+  const r = tip.getBoundingClientRect();
+  tip.style.left = Math.min(x+14, innerWidth - r.width - 12) + 'px';
+  tip.style.top  = Math.max(8, y - r.height - 12) + 'px';
+}
+function hideTip(){ tip.style.display='none'; }
+
+/* =========================================================
+   view switching
+   ========================================================= */
+document.querySelectorAll('nav button').forEach(b=>{
+  b.addEventListener('click', ()=> switchView(b.dataset.view));
+});
+function switchView(v, regimeId){
+  document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on', x.dataset.view===v));
+  ['leaderboard','report','trees','method'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
+  if(v==='report'){ if(regimeId) $('#teamsel').value = regimeId; renderReport($('#teamsel').value); }
+  if(v==='trees') renderTrees();
+  window.scrollTo({top:0});
+}
+
+/* =========================================================
+   leaderboard
+   ========================================================= */
+function lbRows(){
+  const era = $('#erasel').value;
+  let rows = [];
+  if(era!=='hist') rows.push(...REGIMES.map(r=>({...r, hasCard:true})), ...LB_EXTRA.map(r=>({...r, hasCard:false})));
+  if(era!=='active') rows.push(...LB_HIST.map(r=>({...r, hasCard:false})));
+  rows.forEach(r=>{ r.net = CHANNELS.reduce((s,c)=> s + r.chan[c.key].net, 0); });
+  return rows;
+}
+function renderLB(){
+  const key = $('#sortsel').value;
+  const rows = lbRows().sort((a,b)=>{
+    if(key==='for') return b.forGrade - a.forGrade || b.net - a.net;
+    if(key==='success') return b.success.g - a.success.g || b.net - a.net;
+    if(key==='net') return b.net - a.net;
+    return b.chan[key].net - a.chan[key].net;
+  });
+  const maxAbs = Math.max(...rows.map(r=>Math.abs(r.net)));
+  const tb = $('#lb tbody'); tb.innerHTML='';
+  rows.forEach((r,i)=>{
+    const tr = document.createElement('tr');
+    const bar = divergingBar(r.net, maxAbs, 160);
+    const s = r.success;
+    const sTip = `${s.wpct} W% · ${s.div==='-'?'pre-division era':s.div+' division titles'} · ${s.po} playoff berths · ${s.sw} series wins · ${s.pen} pennants · ${s.ws} WS`;
+    tr.innerHTML = `
+      <td class="rk">${i+1}</td>
+      <td><div class="execcell"><span class="nm">${r.exec}${r.smallSample?'<span class="badge-ss" title="Small sample: under 3 seasons">SS</span>':''}</span><span class="tm">${r.team}</span></div></td>
+      <td>${r.start}–${r.end||''}&nbsp;<span style="color:var(--muted)">(${r.seasons} yr${r.titles?` · ${r.titles} WS`:''})</span></td>
+      ${CHANNELS.map(c=>{const ch=r.chan[c.key];return `<td class="num">${gradeChip(ch.g)}</td>`;}).join('')}
+      <td>${bar}</td>
+      <td class="num" title="${sTip}">${gradeChip(s.g)}</td>
+      <td class="num">${gradeChip(r.forGrade, true)}</td>`;
+    tr.addEventListener('click', ()=>{
+      if(r.hasCard) switchView('report', r.id);
+      else { showTip(`<div class="t1">${r.exec}</div>Full report card ships in the next build; leaderboard entry only in this prototype.`, event.clientX, event.clientY); setTimeout(hideTip, 2200); }
+    });
+    tb.appendChild(tr);
+  });
+}
+function divergingBar(v, maxAbs, w){
+  const h=14, mid=w/2, len=Math.max(2,(Math.abs(v)/maxAbs)*(w/2-44));
+  const col = v>=0 ? 'var(--good)' : 'var(--bad)';
+  const x = v>=0 ? mid : mid-len;
+  const lbl = fmtW(v);
+  const lx = v>=0 ? mid+len+6 : mid-len-6;
+  const anch = v>=0 ? 'start' : 'end';
+  return `<svg class="divbar" width="${w}" height="${h+6}" role="img" aria-label="Net value ${lbl} WAR">
+    <line x1="${mid}" y1="0" x2="${mid}" y2="${h+4}" stroke="var(--baseline)" stroke-width="1"/>
+    <rect x="${x}" y="3" width="${len}" height="${h-2}" rx="4" fill="${col}"/>
+    <text x="${lx}" y="${h/2+7}" text-anchor="${anch}" font-size="11.5" fill="var(--ink-2)" font-weight="600">${lbl}</text>
+  </svg>`;
+}
+$('#sortsel').addEventListener('change', renderLB);
+$('#erasel').addEventListener('change', renderLB);
+
+/* =========================================================
+   report card
+   ========================================================= */
+const teamsel = $('#teamsel');
+REGIMES.forEach(r=>{
+  const o = document.createElement('option');
+  o.value=r.id; o.textContent = `${r.team} · ${r.exec}`;
+  teamsel.appendChild(o);
+});
+teamsel.addEventListener('change', ()=>renderReport(teamsel.value));
+
+function renderReport(id){
+  const r = REGIMES.find(x=>x.id===id) || REGIMES[0];
+  $('#rc-name').innerHTML = r.exec + (r.realCard ? ' <span class="badge-real" style="font-size:12px; vertical-align:6px">REAL DATA (approx. WAR inputs)</span>' : '');
+  $('#rc-meta').textContent = `${r.title} · ${r.team} · ${r.start}–present (${r.seasons} seasons)` + (r.smallSample ? ' · small-sample regime' : '');
+  $('#rc-rings').textContent = r.titles ? '🏆'.repeat(r.titles) + ` ${r.titles} World Series title${r.titles>1?'s':''} during tenure` : 'No World Series titles during tenure';
+
+  const net = CHANNELS.reduce((s,c)=>s + r.chan[c.key].net, 0);
+  const s = r.success;
+  $('#rc-tiles').innerHTML = `
+    <div class="card tile"><div class="lbl">Front Office Rating</div><div class="val"><span class="grade ${gradeClass(r.forGrade)}" style="font-size:30px; padding:4px 14px" title="${r.forGrade} on the 20–80 scouting scale">${g2letter(r.forGrade)}</span></div><div class="dlt">decision quality vs. expectation</div></div>
+    <div class="card tile"><div class="lbl">Team success during tenure</div><div class="val"><span class="grade ${gradeClass(s.g)}" style="font-size:30px; padding:4px 14px">${g2letter(s.g)}</span></div><div class="dlt">${s.wpct} W% · ${s.div==='-'?'-':s.div+' div'} · ${s.po} playoffs · ${s.sw} series W · ${s.pen} pennants · ${s.ws} WS</div></div>
+    <div class="card tile"><div class="lbl">Net value vs. expectation</div><div class="val ${net>=0?'pos':'neg'}" style="font-weight:600">${fmtW(net)} <span style="font-size:16px; color:var(--muted); font-weight:400">WAR</span></div><div class="dlt">realized only, full tenure</div></div>
+    <div class="card tile"><div class="lbl">Estimated surplus value</div><div class="val">${r.surplus}</div><div class="dlt">WAR × market $/WAR, less salary paid</div></div>
+    <div class="card tile"><div class="lbl">Decisions graded</div><div class="val">${r.decisions}</div><div class="dlt">drafts · trades · signings · claims · losses</div></div>`;
+
+  renderChanChart(r);
+  renderCumChart(r);
+  renderLedgers(r);
+}
+
+/* ---- channel diverging bar chart ---- */
+function renderChanChart(r){
+  const W=520, rowH=46, padL=118, padR=64, H=rowH*CHANNELS.length+24;
+  const vals = CHANNELS.map(c=>r.chan[c.key].net);
+  const maxAbs = Math.max(...vals.map(Math.abs)) * 1.15;
+  const mid = padL + (W-padL-padR)/2, half=(W-padL-padR)/2;
+  let g='';
+  CHANNELS.forEach((c,i)=>{
+    const v = r.chan[c.key].net, n = r.chan[c.key].n;
+    const y = 14 + i*rowH, bh=18;
+    const len = Math.max(2, Math.abs(v)/maxAbs*half);
+    const x = v>=0 ? mid : mid-len;
+    const lx = v>=0 ? mid+len+7 : mid-len-7;
+    const anch = v>=0 ? 'start':'end';
+    g += `<text x="${padL-10}" y="${y+bh/2+4}" text-anchor="end" font-size="12.5" fill="var(--ink-2)" font-weight="600">${c.name}</text>`;
+    g += `<rect class="chanbar" data-i="${i}" x="${x}" y="${y}" width="${len}" height="${bh}" rx="4" fill="${c.hex}"/>`;
+    g += `<text x="${lx}" y="${y+bh/2+4.5}" text-anchor="${anch}" font-size="12.5" font-weight="700" fill="${v>=0?'var(--good)':'var(--bad-text)'}">${fmtW(v)}</text>`;
+    g += `<text x="${padL-10}" y="${y+bh/2+18}" text-anchor="end" font-size="10.5" fill="var(--muted)">${n} decisions</text>`;
+  });
+  g += `<line x1="${mid}" y1="6" x2="${mid}" y2="${H-10}" stroke="var(--baseline)" stroke-width="1"/>`;
+  g += `<text x="${mid}" y="${H-0}" text-anchor="middle" font-size="10.5" fill="var(--muted)">0 = met expectation</text>`;
+  $('#chanchart').innerHTML = `<svg viewBox="0 0 ${W} ${H+8}" width="100%" role="img" aria-label="Value versus expectation by channel">${g}</svg>`;
+  $('#chanlegend').innerHTML = CHANNELS.map(c=>`<span class="key"><span class="swatch" style="background:${c.hex}"></span>${c.name}</span>`).join('');
+  document.querySelectorAll('.chanbar').forEach(b=>{
+    b.addEventListener('mousemove', e=>{
+      const c = CHANNELS[+b.dataset.i], ch = r.chan[c.key];
+      showTip(`<div class="t1">${c.name} - ${r.team}</div><b>${fmtW(ch.net)} WAR</b> vs. channel expectation<br>${ch.n} decisions graded · grade <b>${g2letter(ch.g)}</b> (${ch.g}/80)`, e.clientX, e.clientY);
+    });
+    b.addEventListener('mouseleave', hideTip);
+  });
+}
+
+/* ---- cumulative line chart ---- */
+function renderCumChart(r){
+  const W=520, H=210, padL=44, padR=56, padT=14, padB=30;
+  const data = r.cum, n=data.length;
+  const years = data.map((_,i)=>r.start+i);
+  const lo = Math.min(0, ...data), hi = Math.max(...data)*1.1 || 1;
+  const X = i => padL + i*(W-padL-padR)/Math.max(1,n-1);
+  const Y = v => padT + (hi-v)/(hi-lo)*(H-padT-padB);
+  // clean y ticks
+  const step = hi-lo > 60 ? 25 : hi-lo > 25 ? 10 : 5;
+  let grid='';
+  for(let t=Math.ceil(lo/step)*step; t<=hi; t+=step){
+    grid += `<line x1="${padL}" y1="${Y(t)}" x2="${W-padR}" y2="${Y(t)}" stroke="var(--grid)" stroke-width="1"/>
+             <text x="${padL-8}" y="${Y(t)+4}" text-anchor="end" font-size="10.5" fill="var(--muted)">${t}</text>`;
+  }
+  const pts = data.map((v,i)=>`${X(i)},${Y(v)}`).join(' ');
+  const area = `M ${X(0)},${Y(Math.max(lo,0))} L ${pts.split(' ').join(' L ')} L ${X(n-1)},${Y(Math.max(lo,0))} Z`;
+  let xlab='';
+  years.forEach((yr,i)=>{
+    if(i===0 || i===n-1 || (n>6 && i===Math.floor(n/2)))
+      xlab += `<text x="${X(i)}" y="${H-8}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${yr}</text>`;
+  });
+  const last=data[n-1];
+  const svg = `<svg id="cumsvg" viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Cumulative net WAR by season">
+    ${grid}
+    <line x1="${padL}" y1="${Y(0)}" x2="${W-padR}" y2="${Y(0)}" stroke="var(--baseline)" stroke-width="1"/>
+    <path d="${area}" fill="var(--s1)" opacity="0.10"/>
+    <polyline points="${pts}" fill="none" stroke="var(--s1)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="${X(n-1)}" cy="${Y(last)}" r="4.5" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"/>
+    <text x="${X(n-1)+8}" y="${Y(last)+4}" font-size="12" font-weight="700" fill="var(--ink-2)">${fmtW(last)}</text>
+    ${xlab}
+    <line id="xhair" y1="${padT}" y2="${H-padB}" stroke="var(--baseline)" stroke-width="1" opacity="0"/>
+    <circle id="hoverdot" r="4.5" fill="var(--s1)" stroke="var(--surface)" stroke-width="2" opacity="0"/>
+    <rect x="${padL}" y="${padT}" width="${W-padL-padR}" height="${H-padT-padB}" fill="transparent" id="cumhit"/>
+  </svg>`;
+  $('#cumchart').innerHTML = svg;
+  const hit = $('#cumhit'), xh=$('#xhair'), hd=$('#hoverdot'), svgEl=$('#cumsvg');
+  hit.addEventListener('mousemove', e=>{
+    const rct = svgEl.getBoundingClientRect();
+    const sx = (e.clientX - rct.left) * (W / rct.width);
+    let i = Math.round((sx-padL)/((W-padL-padR)/Math.max(1,n-1)));
+    i = Math.max(0, Math.min(n-1, i));
+    xh.setAttribute('x1',X(i)); xh.setAttribute('x2',X(i)); xh.setAttribute('opacity',1);
+    hd.setAttribute('cx',X(i)); hd.setAttribute('cy',Y(data[i])); hd.setAttribute('opacity',1);
+    showTip(`<div class="t1">End of ${years[i]}</div><b>${fmtW(data[i])} WAR</b> cumulative vs. expectation`, e.clientX, e.clientY);
+  });
+  hit.addEventListener('mouseleave', ()=>{ xh.setAttribute('opacity',0); hd.setAttribute('opacity',0); hideTip(); });
+}
+
+/* ---- ledgers ---- */
+function ledgerTable(title, rows, isTrade){
+  const body = rows.map((x,i)=>`
+    <tr data-l="${title}" data-i="${i}">
+      <td style="width:86px; color:var(--muted)">${x.d}</td>
+      <td>${x.h}${x.t?`<div class="ttype">${x.t}</div>`:''}</td>
+      <td class="num" style="width:96px"><span class="${x.war>=0?'pos':'neg'}">${fmtW(x.war)}</span><br><span class="chip ${x.open?'chip-open':'chip-closed'}" style="margin-left:0">${x.open?'OPEN':'CLOSED'}</span></td>
+    </tr>`).join('');
+  return `<div class="card ledger"><h3>${title}</h3>
+    <table><thead><tr><th>Date</th><th>Decision</th><th class="num">Net WAR</th></tr></thead>
+    <tbody>${body}</tbody></table></div>`;
+}
+function renderLedgers(r){
+  const L = r.ledgers;
+  $('#rc-ledgers').innerHTML =
+    ledgerTable('Best trades by WAR', L.bestTrades, true) +
+    ledgerTable('Worst trades by WAR', L.worstTrades, true) +
+    ledgerTable('Best acquisitions', L.bestAcq) +
+    ledgerTable('Greatest losses', L.losses);
+  document.querySelectorAll('.ledger tbody tr').forEach(tr=>{
+    tr.addEventListener('click', ()=>{
+      const l = tr.dataset.l, i = +tr.dataset.i;
+      const src = l==='Best trades by WAR'?L.bestTrades : l==='Worst trades by WAR'?L.worstTrades : l==='Best acquisitions'?L.bestAcq : L.losses;
+      openModal(src[i], r);
+    });
+  });
+}
+
+/* ---- decision modal ---- */
+function openModal(x, r){
+  $('#m-type').textContent = (x.t || 'Trade') + ' · ' + r.team + ' · ' + r.exec + ' regime';
+  $('#m-title').innerHTML = x.h;
+  $('#m-date').textContent = x.d + ' - net ' + fmtW(x.war) + ' WAR to date ' + (x.real ? '(scored with real data - see proof of concept)' : '(sample data)');
+  const sides = x.sides || [['Acquired',[['(detail view ships with real data)','-']]],['Surrendered',[['(detail view ships with real data)','-']]]];
+  $('#m-sides').innerHTML = sides.map(([dir, assets])=>`
+    <div class="side"><div class="dir">${dir}</div>
+      ${assets.map(([nm,w])=>`<div class="asset"><span>${nm}</span><span class="${String(w).startsWith('-')?'neg':'pos'}">${w}</span></div>`).join('')}
+    </div>`).join('');
+  $('#m-net').innerHTML = `Net to ${r.team}: <span class="${x.war>=0?'pos':'neg'}" style="font-size:17px">${fmtW(x.war)} WAR</span> <span class="chip ${x.open?'chip-open':'chip-closed'}">${x.open?'OPEN - value still accruing':'CLOSED - number is final'}</span>`;
+  const lensEl = $('#m-lenses');
+  lensEl.innerHTML = x.lenses ? `<div class="lens-box"><div class="lens-row hd"><span>Lens</span><span>Verdict</span><span>Status</span></div>${
+    x.lenses.map(L=>`<div class="lens-row"><div class="lens-name">${L.l}<div class="lens-desc">${L.d}</div></div><div class="lens-verdict">${L.v}</div><div><span class="chip chip-${L.s}" style="margin-left:0">${L.s.toUpperCase()}</span></div></div>`).join('')
+  }</div>` : '';
+  $('#m-note').textContent = x.note || 'At-the-time snapshot (prospect ranks, projections as of the transaction date) attaches here in the full build - this is what separates bad process from bad luck.';
+  $('#overlay').classList.add('on');
+}
+$('#mclose').addEventListener('click', ()=>$('#overlay').classList.remove('on'));
+$('#overlay').addEventListener('click', e=>{ if(e.target===$('#overlay')) $('#overlay').classList.remove('on'); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ $('#overlay').classList.remove('on'); hideTip(); }});
+
+/* theme toggle (in-memory only; no browser storage) */
+const themebtn = document.getElementById('themebtn');
+themebtn.addEventListener('click', ()=>{
+  const root = document.documentElement;
+  const light = root.dataset.theme !== 'light';
+  root.dataset.theme = light ? 'light' : 'dark';
+  themebtn.textContent = light ? '◑ Dark' : '◐ Light';
+});
+
+/* init */
+renderLB();
+renderReport('lad');
+</script>
+</body>
+</html>

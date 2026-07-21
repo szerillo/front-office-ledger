@@ -1,0 +1,1074 @@
+date,channel,direction,assets_in,assets_out,unresolved,desc
+2018-11-02,fa_minor,in,Sean Gilmartin,,0,Baltimore Orioles signed free agent LHP Sean Gilmartin to a minor league contract.
+2018-11-05,fa_minor,in,Corban Joseph,,0,Baltimore Orioles signed free agent 2B Corban Joseph to a minor league contract.
+2018-11-17,fa_minor,in,Christopher Bostick,,0,Baltimore Orioles signed free agent 2B Christopher Bostick to a minor league contract and invited him to spring training.
+2018-11-20,fa_minor,in,Zach Vincej,,0,Baltimore Orioles signed free agent SS Zach Vincej to a minor league contract and invited him to spring training.
+2018-11-20,fa_minor,in,Jace Peterson,,0,Baltimore Orioles signed free agent 2B Jace Peterson to a minor league contract and invited him to spring training.
+2018-11-20,fa_minor,in,Jefferson Medina,,0,Baltimore Orioles signed free agent RHP Jeffeson Medina to a minor league contract.
+2018-11-29,fa_minor,in,Josh Lucas,,0,Baltimore Orioles signed free agent RHP Josh Lucas to a minor league contract and invited him to spring training.
+2018-11-30,passive_loss,out,,Caleb Joseph,0,C Caleb Joseph elected free agency.
+2018-11-30,passive_loss,out,,Tim Beckham,0,SS Tim Beckham elected free agency.
+2018-12-07,fa_minor,in,Hector Lopez,,0,Baltimore Orioles signed free agent RHP Hector Lopez to a minor league contract.
+2018-12-10,waiver_loss,out,,Ryan Meisinger,0,St. Louis Cardinals claimed RHP Ryan Meisinger off waivers from Baltimore Orioles.
+2018-12-10,waiver_claim,in,Rio Ruiz,,0,Baltimore Orioles claimed 3B Rio Ruiz off waivers from Atlanta Braves.
+2018-12-13,waiver_claim,in,Richie Martin Jr.,,0,Baltimore Orioles claimed SS Richie Martin off waivers from Midland RockHounds.
+2018-12-13,trade,both,Drew Jackson,,1,Philadelphia Phillies traded SS Drew Jackson to Baltimore Orioles for Future Considerations.
+2018-12-16,fa_minor,in,Sean Miller,,0,Baltimore Orioles signed free agent SS Sean Miller to a minor league contract.
+2018-12-25,fa_minor,in,Lians Beato,,0,Baltimore Orioles signed free agent C Lians Beato to a minor league contract.
+2019-01-04,waiver_claim,in,Austin Brice,,0,Baltimore Orioles claimed RHP Austin Brice off waivers from Los Angeles Angels.
+2019-01-05,trade,both,,Breyvic Valera,1,Baltimore Orioles traded 2B Breyvic Valera to San Francisco Giants for cash.
+2019-01-06,fa_minor,in,Gregory Infante,,0,Baltimore Orioles signed free agent RHP Gregory Infante to a minor league contract and invited him to spring training.
+2019-01-08,fa_minor,in,Carlos Pérez,,0,Baltimore Orioles signed free agent C Carlos Perez to a minor league contract and invited him to spring training.
+2019-01-11,fa_minor,in,Bo Schultz,,0,Baltimore Orioles signed free agent RHP Bo Schultz to a minor league contract and invited him to spring training.
+2019-01-11,waiver_claim,in,Hanser Alberto,,0,Baltimore Orioles claimed SS Hanser Alberto off waivers from New York Yankees.
+2019-01-15,fa_minor,in,Cael Brockmeyer,,0,Baltimore Orioles signed free agent C Cael Brockmeyer to a minor league contract and invited him to spring training.
+2019-01-28,waiver_claim,in,Jack Reinheimer,,0,Baltimore Orioles claimed SS Jack Reinheimer off waivers from Texas Rangers.
+2019-02-04,waiver_loss,out,,Austin Brice,0,Miami Marlins claimed RHP Austin Brice off waivers from Baltimore Orioles.
+2019-02-05,fa_minor,in,Jesús Sucre,,0,Baltimore Orioles signed free agent C Jesus Sucre to a minor league contract and invited him to spring training.
+2019-02-07,fa_major,in,Nate Karns,,0,Baltimore Orioles signed free agent RHP Nate Karns.
+2019-02-11,fa_minor,in,Eric Young Jr.,,0,Baltimore Orioles signed free agent LF Eric Young Jr. to a minor league contract and invited him to spring training.
+2019-02-16,fa_minor,in,Alcides Escobar,,0,Baltimore Orioles signed free agent SS Alcides Escobar to a minor league contract and invited him to spring training.
+2019-02-17,fa_minor,in,Jordany Vasquez,,0,Baltimore Orioles signed free agent RHP Jordany Vasquez to a minor league contract.
+2019-02-17,fa_minor,in,Yan Lara,,0,Baltimore Orioles signed free agent LHP Yan Lara to a minor league contract.
+2019-02-17,fa_minor,in,Oscar Pierret,,0,Baltimore Orioles signed free agent RHP Oscar Pierret to a minor league contract.
+2019-02-18,fa_minor,in,Marcos Molina,,0,Baltimore Orioles signed free agent RHP Marcos Molina to a minor league contract.
+2019-02-19,waiver_claim,in,Josh Osich,,0,Baltimore Orioles claimed LHP Josh Osich off waivers from San Francisco Giants.
+2019-02-21,fa_minor,in,Jesus Chavez,,0,Baltimore Orioles signed free agent LHP Jesus Chavez to a minor league contract.
+2019-02-22,waiver_loss,out,,Hanser Alberto,0,San Francisco Giants claimed SS Hanser Alberto off waivers from Baltimore Orioles.
+2019-03-01,waiver_claim,in,Hanser Alberto,,0,Baltimore Orioles claimed SS Hanser Alberto off waivers from San Francisco Giants.
+2019-03-03,trade,both,Xavier Moore,,1,Minnesota Twins traded RHP Xavier Moore to Baltimore Orioles for Future Considerations.
+2019-03-06,fa_minor,in,Enmanuel Gutierrez,,0,Baltimore Orioles signed free agent RHP Enmanuel Gutierrez to a minor league contract.
+2019-03-07,fa_minor,in,Juan De Los Santos,,0,Baltimore Orioles signed free agent RHP Juan De Los Santos to a minor league contract.
+2019-03-07,fa_minor,in,Jalen Miller,,0,Baltimore Orioles signed free agent RHP Jalen Miller to a minor league contract.
+2019-03-07,waiver_loss,out,,Donnie Hart,0,Los Angeles Dodgers claimed Donnie Hart off waivers from Baltimore Orioles.
+2019-03-08,trade,both,Dwight Smith Jr.,,1,Toronto Blue Jays traded LF Dwight Smith Jr. to Baltimore Orioles for Future Considerations.
+2019-03-11,waiver_loss,out,,Josh Osich,0,Chicago White Sox claimed Josh Osich off waivers from Baltimore Orioles.
+2019-03-12,fa_minor,in,Eduard Monroy,,0,Baltimore Orioles signed free agent LHP Eduard Monroy to a minor league contract.
+2019-03-18,trade,both,Lenin Rodriguez,,1,Philadelphia Phillies traded C Lenin Rodriguez to Baltimore Orioles for Future Considerations.
+2019-03-20,passive_loss,out,,Omar Bencomo,0,Baltimore Orioles released RHP Omar Bencomo.
+2019-03-20,passive_loss,out,,Alcides Escobar,0,Baltimore Orioles released SS Alcides Escobar.
+2019-03-20,passive_loss,out,,Bo Schultz,0,Baltimore Orioles released RHP Bo Schultz.
+2019-03-20,fa_minor,in,Samy Apolinar,,0,Baltimore Orioles signed free agent 1B Samy Apolinar to a minor league contract.
+2019-03-21,passive_loss,out,,Eric Young Jr.,0,Baltimore Orioles released LF Eric Young Jr..
+2019-03-23,waiver_claim,in,Pedro Severino,,0,Baltimore Orioles claimed C Pedro Severino off waivers from Washington Nationals.
+2019-03-23,trade,both,Tyler Herb,Mike Yastrzemski,0,Baltimore Orioles traded LF Mike Yastrzemski to San Francisco Giants for RHP Tyler Herb.
+2019-03-26,fa_minor,in,Michael Mantecón,,0,Baltimore Orioles signed free agent C Michael Mantecon to a minor league contract.
+2019-03-28,fa_minor,in,Mason Williams,,0,Baltimore Orioles signed free agent OF Mason Williams to a minor league contract.
+2019-04-02,trade,both,,Andrew Susac,1,Baltimore Orioles traded C Andrew Susac to Kansas City Royals for cash.
+2019-04-05,fa_major,in,Dan Straily,,0,Baltimore Orioles signed free agent RHP Dan Straily.
+2019-04-07,fa_minor,in,Joel Benitez,,0,Baltimore Orioles signed free agent RHP Joel Benitez to a minor league contract.
+2019-04-08,fa_minor,in,Deiby Ramirez,,0,Baltimore Orioles signed free agent C Deiby Ramirez to a minor league contract.
+2019-04-08,fa_minor,in,Stiven Acevedo,,0,Baltimore Orioles signed free agent OF Stiven Acevedo to a minor league contract.
+2019-04-11,fa_minor,in,Jesmuel Valentín,,0,Baltimore Orioles signed free agent 3B Jesmuel Valentin to a minor league contract.
+2019-04-11,fa_minor,in,Ángel Vargas,,0,Baltimore Orioles signed free agent RHP Angel Vargas to a minor league contract.
+2019-04-16,fa_minor,in,Chris Madera,,0,Baltimore Orioles signed free agent OF Chris Madera to a minor league contract.
+2019-04-17,fa_minor,in,Anyelo Reyes,,0,Baltimore Orioles signed free agent IF Anyelo Reyes to a minor league contract.
+2019-04-20,fa_minor,in,Hector Lucero,,0,Baltimore Orioles signed free agent C Hector Lucero to a minor league contract.
+2019-04-24,fa_minor,in,Joeli Martinez,,0,Baltimore Orioles signed free agent RHP Joeli Martinez to a minor league contract.
+2019-04-24,fa_minor,in,James Rolle,,0,Baltimore Orioles signed free agent 1B James Rolle to a minor league contract.
+2019-04-24,fa_minor,in,Orlando Fulgencio,,0,Baltimore Orioles signed free agent RHP Orlando Fulgencio to a minor league contract.
+2019-04-24,fa_minor,in,Harif Frias,,0,Baltimore Orioles signed free agent RHP Harif Frias to a minor league contract.
+2019-04-24,trade,both,Ryne Ogren,Mike Wright Jr.,0,Baltimore Orioles traded RHP Mike Wright to Seattle Mariners for SS Ryne Ogren.
+2019-04-25,fa_minor,in,Jorge Morla,,0,Baltimore Orioles signed free agent RHP Jorge Morla to a minor league contract.
+2019-04-28,waiver_claim,in,Shawn Armstrong,,0,Baltimore Orioles claimed RHP Shawn Armstrong off waivers from Seattle Mariners.
+2019-05-01,fa_minor,in,Juan De La Rosa,,0,Baltimore Orioles signed free agent OF Juan De La Rosa to a minor league contract.
+2019-05-01,fa_minor,in,Andersson Espinal,,0,Baltimore Orioles signed free agent LHP Andersson Espinal to a minor league contract.
+2019-05-01,fa_minor,in,Edison Lantigua,,0,Baltimore Orioles signed free agent OF Edison Lantigua to a minor league contract.
+2019-05-09,fa_minor,in,Luis Sena,,0,Baltimore Orioles signed free agent IF Luis Sena to a minor league contract.
+2019-05-20,fa_minor,in,Darlin Alcántara,,0,Baltimore Orioles signed free agent RHP Darlin Alcantara to a minor league contract.
+2019-05-20,fa_minor,in,Raily Nunez,,0,Baltimore Orioles signed free agent SS Raily Nunez to a minor league contract.
+2019-05-20,fa_minor,in,Luis Valdez,,0,Baltimore Orioles signed free agent SS Luis Valdez to a minor league contract.
+2019-05-20,fa_minor,in,Jairo Vásquez,,0,Baltimore Orioles signed free agent RHP Jairo Vasquez to a minor league contract.
+2019-05-20,fa_minor,in,Brayner Sánchez,,0,Baltimore Orioles signed free agent RHP Brayner Sanchez to a minor league contract.
+2019-05-20,fa_minor,in,Yorkislandy Alvarez,,0,Baltimore Orioles signed free agent SS Yorkislandy Alvarez to a minor league contract.
+2019-05-20,fa_minor,in,Julio Herrera,,0,Baltimore Orioles signed free agent C Julio Herrera to a minor league contract.
+2019-05-22,waiver_claim,in,Chandler Shepherd,,0,Baltimore Orioles claimed RHP Chandler Shepherd off waivers from Chicago Cubs.
+2019-05-22,trade,both,Keon Broxton,,1,New York Mets traded CF Keon Broxton to Baltimore Orioles for Future Considerations.
+2019-05-27,fa_minor,in,Welington Santana,,0,Baltimore Orioles signed free agent RF Welington Santana to a minor league contract.
+2019-05-27,trade,both,,Yefry Ramírez,1,Baltimore Orioles traded RHP Yefry Ramirez to Pittsburgh Pirates for Player To Be Named Later.
+2019-05-28,fa_minor,in,Joel Munoz,,0,Baltimore Orioles signed free agent C Joel Munoz to a minor league contract.
+2019-05-30,fa_minor,in,Christopher Marte,,0,Baltimore Orioles signed free agent RHP Christopher Marte to a minor league contract.
+2019-05-31,fa_minor,in,Yeudry Manzanillo,,0,Baltimore Orioles signed free agent RHP Yeudry Manzanillo to a minor league contract.
+2019-05-31,fa_minor,in,Petter Caty,,0,Baltimore Orioles signed free agent RHP Petter Caty to a minor league contract.
+2019-06-01,fa_minor,in,Samuel De La Cruz,,0,Baltimore Orioles signed free agent 1B Samuel De La Cruz to a minor league contract.
+2019-06-04,fa_minor,in,Kyle Brnovich,,0,Baltimore Orioles signed free agent RHP Kyle Brnovich to a minor league contract.
+2019-06-09,trade,both,Thomas Eshelman,,0,Philadelphia Phillies traded RHP Tom Eshelman to Baltimore Orioles.
+2019-06-10,fa_minor,in,Issac Solano,,0,Baltimore Orioles signed free agent P Issac Solano to a minor league contract.
+2019-06-10,fa_minor,in,Anthony Morillo,,0,Baltimore Orioles signed free agent RHP Anthony Morillo to a minor league contract.
+2019-06-11,signed_other,in,Johnny Rizer,,0,Baltimore Orioles signed OF Johnny Rizer.
+2019-06-11,signed_other,in,Joey Ortiz,,0,Baltimore Orioles signed SS Joseph Ortiz.
+2019-06-11,signed_other,in,Toby Welk,,0,Baltimore Orioles signed 3B Toby Welk.
+2019-06-11,signed_other,in,Jordan Cannon,,0,Baltimore Orioles signed C Jordan Cannon.
+2019-06-11,signed_other,in,Kyle Martin,,0,Baltimore Orioles signed RHP Kyle Martin.
+2019-06-12,fa_minor,in,Joldanny Genao,,0,Baltimore Orioles signed free agent RHP Joldanny Genao to a minor league contract.
+2019-06-12,fa_minor,in,Manuel Duncan,,0,Baltimore Orioles signed free agent RHP Manuel Duncan to a minor league contract.
+2019-06-15,signed_other,in,Kade Strowd,,0,Baltimore Orioles signed RHP Kade Strowd.
+2019-06-19,signed_other,in,Darell Hernaiz,,0,Baltimore Orioles signed SS Darell Hernaiz.
+2019-06-19,signed_other,in,Jake Prizina,,0,Baltimore Orioles signed LHP Jake Prizina.
+2019-06-20,fa_minor,in,Kieran Lovegrove,,0,Baltimore Orioles signed free agent RHP Kieran Lovegrove to a minor league contract.
+2019-06-21,waiver_loss,out,,Joey Rickard,0,San Francisco Giants claimed RF Joey Rickard off waivers from Baltimore Orioles.
+2019-06-22,signed_other,in,Harris Yett,,0,Baltimore Orioles signed C Harris Yett.
+2019-06-22,signed_other,in,Nick Roth,,0,Baltimore Orioles signed RHP Nick Roth.
+2019-06-22,signed_other,in,James Ryan,,0,Baltimore Orioles signed RHP James Ryan.
+2019-06-22,signed_other,in,Shayne Fontana,,0,Baltimore Orioles signed OF Shayne Fontana.
+2019-06-22,signed_other,in,Jonathan Pendergast,,0,Baltimore Orioles signed RHP Jonathan Pendergast.
+2019-06-22,signed_other,in,Craig Lewis,,0,Baltimore Orioles signed OF Craig Lewis.
+2019-06-22,signed_other,in,Trevor Kehe,,0,Baltimore Orioles signed OF Trevor Kehe.
+2019-06-22,signed_other,in,Andrew Martinez,,0,Baltimore Orioles signed SS Andrew Martinez.
+2019-06-22,signed_other,in,Christopher Burgess,,0,Baltimore Orioles signed C Christopher Burgess.
+2019-06-22,signed_other,in,Mason Janvrin,,0,Baltimore Orioles signed OF Mason Janvrin.
+2019-06-22,signed_other,in,Dalton Stambaugh,,0,Baltimore Orioles signed LHP Dalton Stambaugh.
+2019-06-22,signed_other,in,Clayton McGinness,,0,Baltimore Orioles signed RHP Clayton McGinness.
+2019-06-24,signed_other,in,Jensen Elliott,,0,Baltimore Orioles signed RHP Jensen Elliott.
+2019-06-24,signed_other,in,Adley Rutschman,,0,Baltimore Orioles signed C Adley Rutschman.
+2019-06-25,signed_other,in,Garrett Farmer,,0,Baltimore Orioles signed RHP Garrett Farmer.
+2019-06-25,signed_other,in,Connor Gillispie,,0,Baltimore Orioles signed RHP Connor Gillispie.
+2019-06-25,signed_other,in,Malachi Emond,,0,Baltimore Orioles signed RHP Malachi Emond.
+2019-06-25,signed_other,in,Dillon McCollough,,0,Baltimore Orioles signed LHP Dillon McCollough.
+2019-06-25,signed_other,in,Jake Lyons,,0,Baltimore Orioles signed RHP Jake Lyons.
+2019-06-25,signed_other,in,Gunnar Henderson,,0,Baltimore Orioles signed SS Gunnar Henderson.
+2019-06-25,waiver_claim,in,Tayler Scott,,0,Baltimore Orioles claimed RHP Tayler Scott off waivers from Seattle Mariners.
+2019-06-25,signed_other,in,Kyle Stowers,,0,Baltimore Orioles signed CF Kyle Stowers.
+2019-06-27,trade,both,Patrick Dorrian,,0,Pittsburgh Pirates traded 3B Patrick Dorrian to Baltimore Orioles.
+2019-06-29,signed_other,in,Andrew Daschbach,,0,Baltimore Orioles signed 1B Andrew Daschbach.
+2019-07-01,fa_minor,in,Alejandro Méndez,,0,Baltimore Orioles signed free agent RHP Alejandro Mendez to a minor league contract.
+2019-07-01,fa_minor,in,Johan Berroa,,0,Baltimore Orioles signed free agent LHP Johan Berroa to a minor league contract.
+2019-07-01,fa_minor,in,Erison Placencia,,0,Baltimore Orioles signed free agent IF Erison Placencia to a minor league contract.
+2019-07-02,fa_minor,in,Erick Caines,,0,Baltimore Orioles signed free agent RHP Erick Caines to a minor league contract.
+2019-07-02,fa_minor,in,Randy Berigüete,,0,Baltimore Orioles signed free agent RHP Randy Beriguete to a minor league contract.
+2019-07-02,fa_minor,in,Harol Arias,,0,Baltimore Orioles signed free agent RHP Harol Arias to a minor league contract.
+2019-07-02,fa_minor,in,Kenny Báez,,0,Baltimore Orioles signed free agent C Kenny Baez to a minor league contract.
+2019-07-02,fa_minor,in,Adrion Lacle,,0,Baltimore Orioles signed free agent LHP Adrion Lacle to a minor league contract.
+2019-07-02,fa_minor,in,César Álvarez,,0,Baltimore Orioles signed free agent RHP Cesar Alvarez to a minor league contract.
+2019-07-02,fa_minor,in,Jesus Alvarado,,0,Baltimore Orioles signed free agent OF Jesus Alvarado to a minor league contract.
+2019-07-02,fa_minor,in,Cesar Aguasvivas,,0,Baltimore Orioles signed free agent SS Cesar Aguasvivas to a minor league contract.
+2019-07-02,fa_minor,in,Luis González,,0,Baltimore Orioles signed free agent OF Luis Gonzalez to a minor league contract.
+2019-07-02,fa_minor,in,Leonel Sanchez,,0,Baltimore Orioles signed free agent IF Leonel Sanchez to a minor league contract.
+2019-07-02,fa_minor,in,Luis De La Cruz,,0,Baltimore Orioles signed free agent OF Luis De La Cruz to a minor league contract.
+2019-07-02,fa_minor,in,Raúl Rangel,,0,Baltimore Orioles signed free agent RHP Raul Rangel to a minor league contract.
+2019-07-02,fa_minor,in,Rolphy Cruz,,0,Baltimore Orioles signed free agent IF Rolphy Cruz to a minor league contract.
+2019-07-02,fa_minor,in,Luis Ortiz,,0,Baltimore Orioles signed free agent LHP Luis Ortiz to a minor league contract.
+2019-07-02,fa_minor,in,Charbel Abboud,,0,Baltimore Orioles signed free agent RHP Charbel Abboud to a minor league contract.
+2019-07-02,fa_minor,in,Anderson Rogers,,0,Baltimore Orioles signed free agent SS Anderson Rogers to a minor league contract.
+2019-07-02,fa_minor,in,Edgar Portes,,0,Baltimore Orioles signed free agent RHP Edgar Portes to a minor league contract.
+2019-07-02,fa_minor,in,Dax Stubbs,,0,Baltimore Orioles signed free agent OF Dax Stubbs to a minor league contract.
+2019-07-02,fa_minor,in,Moises Salas,,0,Baltimore Orioles signed free agent LHP Moises Salas to a minor league contract.
+2019-07-02,fa_minor,in,Ricardo Rivera,,0,Baltimore Orioles signed free agent C Ricardo Rivera to a minor league contract.
+2019-07-02,fa_minor,in,José  Ramírez,,0,Baltimore Orioles signed free agent LHP Jose Ramirez to a minor league contract.
+2019-07-02,fa_minor,in,Moisés Chace,,0,Baltimore Orioles signed free agent RHP Moises Chace to a minor league contract.
+2019-07-02,fa_minor,in,Francisco Crispin,,0,Baltimore Orioles signed free agent RHP Francisco Crispin to a minor league contract.
+2019-07-02,fa_minor,in,Roberto Martínez,,0,Baltimore Orioles signed free agent IF Roberto Martinez to a minor league contract.
+2019-07-06,waiver_claim,in,Aaron Brooks,,0,Baltimore Orioles claimed RHP Aaron Brooks off waivers from Oakland Athletics.
+2019-07-10,fa_minor,in,Carlos Sanchez,,0,Baltimore Orioles signed free agent RHP Carlos Sanchez to a minor league contract.
+2019-07-12,signed_other,in,Dan Hammer,,0,Baltimore Orioles signed RHP Dan Hammer.
+2019-07-12,signed_other,in,Houston Roth,,0,Baltimore Orioles signed RHP Houston Roth.
+2019-07-13,trade,both,Elio Prado; Noelberth Romero,Andrew Cashner,1,Baltimore Orioles traded RHP Andrew Cashner and cash to Boston Red Sox for CF Elio Prado and SS Noelberth Romero.
+2019-07-17,trade,both,,Yeltsin Gudino,0,Baltimore Orioles traded 2B Yeltsin Gudino to Toronto Blue Jays.
+2019-07-19,fa_minor,in,Jace Peterson,,0,Baltimore Orioles signed free agent 3B Jace Peterson to a minor league contract.
+2019-07-22,fa_minor,in,Andry Mercedes,,0,Baltimore Orioles signed free agent LHP Andry Mercedes to a minor league contract.
+2019-07-27,waiver_loss,out,,Keon Broxton,0,Seattle Mariners claimed CF Keon Broxton off waivers from Baltimore Orioles.
+2019-07-30,waiver_claim,in,José Rondon,,0,Baltimore Orioles claimed 2B Jose Rondon off waivers from Chicago White Sox.
+2019-07-31,trade,both,,Dan Straily,1,Baltimore Orioles traded RHP Dan Straily to Philadelphia Phillies for cash.
+2019-08-03,waiver_claim,in,Ty Blach,,0,Baltimore Orioles claimed LHP Ty Blach off waivers from San Francisco Giants.
+2019-08-05,fa_minor,in,Noah Denoyer,,0,Baltimore Orioles signed free agent RHP Noah Denoyer to a minor league contract.
+2019-08-07,fa_minor,in,Hunter Cervenka,,0,Baltimore Orioles signed free agent LHP Hunter Cervenka to a minor league contract.
+2019-08-14,waiver_claim,in,Ryan Eades,,0,Baltimore Orioles claimed RHP Ryan Eades off waivers from Minnesota Twins.
+2019-09-12,fa_minor,in,Albert Calderon,,0,Baltimore Orioles signed free agent 1B Albert Calderon to a minor league contract.
+2019-09-16,waiver_claim,in,Eric Hanhold,,0,Baltimore Orioles claimed RHP Eric Hanhold off waivers from New York Mets.
+2019-10-01,waiver_claim,in,Cole Sulser,,0,Baltimore Orioles claimed RHP Cole Sulser off waivers from Tampa Bay Rays.
+2019-10-30,waiver_claim,in,Pat Valaika,,0,Baltimore Orioles claimed 3B Pat Valaika off waivers from Colorado Rockies.
+2019-10-30,fa_minor,in,Ty Moore,,0,Baltimore Orioles signed free agent OF Ty Moore to a minor league contract.
+2019-10-31,passive_loss,out,,Mark Trumbo,0,DH Mark Trumbo elected free agency.
+2019-11-08,fa_minor,in,Angelo Mora,,0,Baltimore Orioles signed free agent SS Angelo Mora to a minor league contract.
+2019-11-12,passive_loss,out,,Aaron Brooks,0,Baltimore Orioles released RHP Aaron Brooks.
+2019-11-13,fa_minor,in,Rafael Ramirez,,0,Baltimore Orioles signed free agent RHP Rafael Ramirez to a minor league contract.
+2019-11-13,fa_minor,in,Yonatan Pineda,,0,Baltimore Orioles signed free agent RHP Yonatan Pineda to a minor league contract.
+2019-11-15,fa_minor,in,Ronnie Martinez,,0,Baltimore Orioles signed free agent OF Ronnie Martinez to a minor league contract.
+2019-11-15,fa_minor,in,Luis Sánchez,,0,Baltimore Orioles signed free agent RHP Luis Sanchez to a minor league contract.
+2019-11-15,fa_minor,in,Jose Cosma,,0,Baltimore Orioles signed free agent SS Jose Cosma to a minor league contract.
+2019-11-18,fa_minor,in,Rob Zastryzny,,0,Baltimore Orioles signed free agent LHP Rob Zastryzny to a minor league contract and invited him to spring training.
+2019-11-22,fa_minor,in,Malquin Canelo,,0,Baltimore Orioles signed free agent SS Malquin Canelo to a minor league contract and invited him to spring training.
+2019-11-22,fa_minor,in,Mason Williams,,0,Baltimore Orioles signed free agent CF Mason Williams to a minor league contract and invited him to spring training.
+2019-12-02,trade,both,Easton Lucas,Jonathan Villar,0,Baltimore Orioles traded OF Jonathan Villar to Miami Marlins for LHP Easton Lucas.
+2019-12-04,trade,both,Isaac Mattson; Kyle Bradish; Kyle Brnovich; Zach Peek,Dylan Bundy,0,"Baltimore Orioles traded RHP Dylan Bundy to Los Angeles Angels for RHP Isaac Mattson, RHP Kyle Bradish, RHP Kyle Brnovich and RHP Zach Peek."
+2019-12-05,fa_minor,in,Dilson Herrera,,0,Baltimore Orioles signed free agent 2B Dilson Herrera to a minor league contract.
+2019-12-09,waiver_claim,in,Marcos Diplán,,0,Baltimore Orioles claimed RHP Marcos Diplan off waivers from Detroit Tigers.
+2019-12-12,waiver_claim,in,Brandon Bailey,,0,Baltimore Orioles claimed RHP Brandon Bailey off waivers from Corpus Christi Hooks.
+2019-12-12,waiver_claim,in,Michael Rucker,,0,Baltimore Orioles claimed RHP Michael Rucker off waivers from Iowa Cubs.
+2019-12-18,fa_minor,in,Frailyn Abreu,,0,Baltimore Orioles signed free agent 3B Frailyn Abreu to a minor league contract.
+2019-12-29,fa_major,in,Kohl Stewart,,0,Baltimore Orioles signed free agent RHP Kohl Stewart.
+2020-01-07,fa_major,in,Jose Iglesias,,0,Baltimore Orioles signed free agent SS Jose Iglesias.
+2020-01-10,waiver_claim,in,Richard Urena,,0,Baltimore Orioles claimed SS Richard Urena off waivers from Toronto Blue Jays.
+2020-01-10,fa_minor,in,César Valdez,,0,Baltimore Orioles signed free agent RHP Cesar Valdez to a minor league contract.
+2020-01-16,waiver_loss,out,,Pat Valaika,0,Arizona Diamondbacks claimed 3B Pat Valaika off waivers from Baltimore Orioles.
+2020-01-16,fa_minor,in,Christopher Ramirez,,0,Baltimore Orioles signed free agent RHP Christopher Ramirez to a minor league contract.
+2020-01-17,fa_minor,in,Mickey Jannis,,0,Baltimore Orioles signed free agent RHP Mickey Jannis to a minor league contract.
+2020-01-28,fa_minor,in,Brady Rodgers,,0,Baltimore Orioles signed free agent RHP Brady Rodgers to a minor league contract and invited him to spring training.
+2020-01-28,fa_minor,in,Taylor Davis,,0,Baltimore Orioles signed free agent C Taylor Davis to a minor league contract and invited him to spring training.
+2020-01-28,fa_minor,in,Bryan Holaday,,0,Baltimore Orioles signed free agent C Bryan Holaday to a minor league contract and invited him to spring training.
+2020-01-30,waiver_claim,in,Pat Valaika,,0,Baltimore Orioles claimed Pat Valaika off waivers from Arizona Diamondbacks.
+2020-01-31,waiver_claim,in,Travis Lakins,,0,Baltimore Orioles claimed RHP Travis Lakins Sr. off waivers from Chicago Cubs.
+2020-02-01,fa_minor,in,Wade LeBlanc,,0,Baltimore Orioles signed free agent LHP Wade LeBlanc to a minor league contract and invited him to spring training.
+2020-02-11,waiver_claim,in,Ramón Urías,,0,Baltimore Orioles claimed Ramon Urias off waivers from St. Louis Cardinals.
+2020-02-13,fa_minor,in,Francis Martínez,,0,Baltimore Orioles signed free agent RHP Francis Martinez to a minor league contract.
+2020-02-13,fa_minor,in,Carlos Vicioso,,0,Baltimore Orioles signed free agent OF Carlos Vicioso to a minor league contract.
+2020-02-14,fa_minor,in,Brayan Hernández,,0,Baltimore Orioles signed free agent C Brayan Hernandez to a minor league contract.
+2020-02-14,fa_minor,in,Eris Rodríguez,,0,Baltimore Orioles signed free agent RHP Eris Rodriguez to a minor league contract.
+2020-02-14,fa_minor,in,Alexis Cruz,,0,Baltimore Orioles signed free agent RHP Alexis Cruz to a minor league contract.
+2020-02-14,fa_minor,in,Tommy Milone,,0,Baltimore Orioles signed free agent LHP Tommy Milone to a minor league contract and invited him to spring training.
+2020-02-19,waiver_claim,in,Andrew Velazquez,,0,Baltimore Orioles claimed 3B Andrew Velazquez off waivers from Cleveland Indians.
+2020-02-21,fa_minor,in,Sean Miller,,0,Baltimore Orioles signed free agent SS Sean Miller to a minor league contract.
+2020-02-22,fa_minor,in,Danny Barnes,,0,Baltimore Orioles signed free agent RHP Danny Barnes to a minor league contract.
+2020-03-08,waiver_claim,in,Hector Velázquez,,0,Baltimore Orioles claimed Hector Velazquez off waivers from Boston Red Sox.
+2020-03-09,fa_minor,in,Junior Pina,,0,Baltimore Orioles signed free agent RHP Junior Pina to a minor league contract.
+2020-06-14,fa_minor,in,J.D. Mundy,,0,Baltimore Orioles signed free agent 1B J.D. Mundy to a minor league contract.
+2020-06-14,fa_minor,in,Ryan Watson,,0,Baltimore Orioles signed free agent RHP Ryan Watson to a minor league contract.
+2020-06-14,fa_minor,in,Brandon Young,,0,Baltimore Orioles signed free agent RHP Brandon Young to a minor league contract.
+2020-06-16,fa_minor,in,Thomas Girard,,0,Baltimore Orioles signed free agent RHP Thomas Girard to a minor league contract.
+2020-06-16,fa_minor,in,Isaiah Kearns,,0,Baltimore Orioles signed free agent RHP Isaiah Kearns to a minor league contract.
+2020-06-16,fa_minor,in,TT Bowens,,0,Baltimore Orioles signed free agent 1B TT Bowens to a minor league contract.
+2020-06-20,fa_minor,in,Dylan Harris,,0,Baltimore Orioles signed free agent OF Dylan Harris to a minor league contract.
+2020-06-27,signed_other,in,Hudson Haskin,,0,Baltimore Orioles signed OF Hudson Haskin.
+2020-06-27,signed_other,in,Jordan Westburg,,0,Baltimore Orioles signed SS Jordan Westburg.
+2020-06-30,signed_other,in,Heston Kjerstad,,0,Baltimore Orioles signed OF Heston Kjerstad.
+2020-07-07,fa_minor,in,Shane Davis,,0,Baltimore Orioles signed free agent RHP Shane Davis to a minor league contract.
+2020-07-07,signed_other,in,Anthony Servideo,,0,Baltimore Orioles signed SS Anthony Servideo.
+2020-07-07,signed_other,in,Coby Mayo,,0,Baltimore Orioles signed 3B Coby Mayo.
+2020-07-24,signed_other,in,Carter Baumler,,0,Baltimore Orioles signed RHP Carter Baumler.
+2020-07-29,trade,both,,Hector Velázquez,1,Baltimore Orioles traded RHP Hector Velazquez to Houston Astros for Player To Be Named Later.
+2020-08-01,trade,both,,Richard Bleier,1,Baltimore Orioles traded LHP Richard Bleier to Miami Marlins for Player To Be Named Later.
+2020-08-09,waiver_claim,in,Jorge López,,0,Baltimore Orioles claimed RHP Jorge Lopez off waivers from Kansas City Royals.
+2020-08-10,passive_loss,out,,Ty Blach,0,Baltimore Orioles released LHP Ty Blach.
+2020-08-14,fa_major,in,Elchero Francisca,,0,Baltimore Orioles signed free agent P Elchero Francisca.
+2020-08-14,fa_minor,in,Frederick Bencosme,,0,Baltimore Orioles signed free agent IF Frederick Bencosme to a minor league contract.
+2020-08-30,trade,both,,Tommy Milone,2,"Baltimore Orioles traded LHP Tommy Milone to Atlanta Braves for Player To Be Named Later and Player To Be Named Later. AJ Graffanino and Greg Cullen traded to Orioles as PTBNL, 11/5/2020"
+2020-08-30,trade,both,Terrin Vavra; Tyler Nevin,Mychal Givens,1,"Baltimore Orioles traded RHP Mychal Givens to Colorado Rockies for 1B Tyler Nevin, SS Terrin Vavra and Player To Be Named Later."
+2020-08-31,trade,both,Kevin Smith,Miguel Castro,1,"Baltimore Orioles traded RHP Miguel Castro to New York Mets for LHP Kevin Smith and Player To Be Named Later. Victor Gonzalez sent to Orioles to complete trade, 9/20/2020"
+2020-09-05,waiver_claim,in,Carson Fulmer,,0,Baltimore Orioles claimed RHP Carson Fulmer off waivers from Pittsburgh Pirates.
+2020-09-14,passive_loss,out,,Stevie Wilkerson,0,Baltimore Orioles released CF Stevie Wilkerson.
+2020-09-18,passive_loss,out,,Rob Zastryzny,0,Baltimore Orioles released LHP Rob Zastryzny.
+2020-09-18,trade,both,Isaac De León,,0,Miami Marlins traded SS Isaac De Leon to Baltimore Orioles.
+2020-09-18,trade,both,Mishael Deson,,0,Colorado Rockies traded OF Mishael Deson to Baltimore Orioles.
+2020-09-20,passive_loss,out,,Chandler Shepherd,0,Baltimore Orioles released RHP Chandler Shepherd.
+2020-09-20,passive_loss,out,,Mason Williams,0,Baltimore Orioles released OF Mason Williams.
+2020-09-20,trade,both,Conner Loeprich,,1,Pittsburgh Pirates traded RHP Conner Loeprich to Baltimore Orioles for cash. International bonus pool capacity
+2020-09-20,trade,both,Victor González,,0,"New York Mets traded SS Victor Gonzalez to Baltimore Orioles. PTBNL in Miguel Castro trade, 8/31/2020"
+2020-09-21,waiver_loss,out,,Carson Fulmer,0,Pittsburgh Pirates claimed RHP Carson Fulmer off waivers from Baltimore Orioles.
+2020-10-28,passive_loss,out,,Bryan Holaday,0,C Bryan Holaday elected free agency.
+2020-10-28,passive_loss,out,,Wade LeBlanc,0,LHP Wade LeBlanc elected free agency.
+2020-10-29,fa_minor,in,Stevie Wilkerson,,0,Baltimore Orioles signed free agent OF Stevie Wilkerson to a minor league contract and invited him to spring training.
+2020-10-30,waiver_claim,in,Yolmer Sánchez,,0,Baltimore Orioles claimed 2B Yolmer Sanchez off waivers from .
+2020-10-30,waiver_claim,in,Yolmer Sánchez,,0,Baltimore Orioles claimed 2B Yolmer Sanchez off waivers from Chicago White Sox.
+2020-11-05,trade,both,AJ Graffanino; Greg Cullen,,0,"Atlanta Braves traded SS AJ Graffanino and 2B Greg Cullen to Baltimore Orioles. PTBNL in Tommy Milone trade, 8/30/2020"
+2020-11-16,trade,both,Miguel Padilla,,0,Houston Astros traded RHP Miguel Padilla to Baltimore Orioles.
+2020-11-23,passive_loss,out,,Renato Núñez,0,Baltimore Orioles released 3B Renato Nunez.
+2020-11-25,waiver_claim,in,Chris Shaw,,0,Baltimore Orioles claimed 1B Chris Shaw off waivers from San Francisco Giants.
+2020-12-02,passive_loss,out,,Hanser Alberto,0,2B Hanser Alberto elected free agency.
+2020-12-02,trade,both,Garrett Stallings; Jean Pinto,Jose Iglesias,0,Baltimore Orioles traded SS Jose Iglesias to Los Angeles Angels for RHP Garrett Stallings and RHP Jean Pinto.
+2020-12-03,fa_major,in,Conner Greene,,0,Baltimore Orioles signed free agent P Conner Greene.
+2020-12-07,waiver_claim,in,Ashton Goudeau,,0,Baltimore Orioles claimed RHP Ashton Goudeau off waivers from .
+2020-12-07,waiver_claim,in,Ashton Goudeau,,0,Baltimore Orioles claimed RHP Ashton Goudeau off waivers from Pittsburgh Pirates.
+2020-12-10,waiver_claim,in,Tyler Wells,,0,Baltimore Orioles claimed P Tyler Wells off waivers.
+2020-12-10,waiver_claim,in,Tyler Wells,,0,Baltimore Orioles claimed RHP Tyler Wells off waivers from Rochester Red Wings.
+2020-12-10,waiver_claim,in,Mac Sceroler,,0,Baltimore Orioles claimed RHP Mac Sceroler off waivers from Daytona Tortugas.
+2020-12-10,waiver_claim,in,Mac Sceroler,,0,Baltimore Orioles claimed RHP Mac Sceroler off waivers from .
+2020-12-10,waiver_claim,in,Tyler Wells,,0,Baltimore Orioles claimed P Tyler Wells off waivers.
+2020-12-10,waiver_claim,in,Tyler Wells,,0,Baltimore Orioles claimed RHP Tyler Wells off waivers from .
+2020-12-10,waiver_claim,in,Tyler Wells,,0,Baltimore Orioles claimed P Tyler Wells off waivers.
+2020-12-21,fa_minor,in,Fernando Abad,,0,Baltimore Orioles signed free agent LHP Fernando Abad to a minor league contract.
+2020-12-21,fa_minor,in,Nick Ciuffo,,0,Baltimore Orioles signed free agent C Nick Ciuffo to a minor league contract and invited him to spring training.
+2020-12-21,fa_minor,in,Claudio Custodio,,0,Baltimore Orioles signed free agent RHP Claudio Custodio to a minor league contract.
+2021-01-15,fa_minor,in,Eruviel Castillo,,0,Baltimore Orioles signed free agent SS Eruviel Castillo to a minor league contract.
+2021-01-15,fa_minor,in,Maikol Hernández,,0,Baltimore Orioles signed free agent SS Maikol Hernandez to a minor league contract.
+2021-01-15,fa_minor,in,Angel Pena,,0,Baltimore Orioles signed free agent OF Angel Pena to a minor league contract.
+2021-01-15,fa_minor,in,Junior Lara,,0,Baltimore Orioles signed free agent OF Junior Lara to a minor league contract.
+2021-01-15,fa_minor,in,Elvis Polanco,,0,Baltimore Orioles signed free agent LHP Elvis Polanco to a minor league contract.
+2021-01-15,fa_minor,in,Teudis Cortorreal,,0,Baltimore Orioles signed free agent OF Teudis Cortorreal to a minor league contract.
+2021-01-15,fa_minor,in,Carlos Rodríguez,,0,Baltimore Orioles signed free agent C Carlos Rodriguez to a minor league contract.
+2021-01-15,fa_minor,in,Aneudis Mordán,,0,Baltimore Orioles signed free agent C Aneudis Mordan to a minor league contract.
+2021-01-15,fa_minor,in,Samuel Basallo,,0,Baltimore Orioles signed free agent C Samuel Basallo to a minor league contract.
+2021-01-15,fa_minor,in,Héctor Jiménez,,0,Baltimore Orioles signed free agent OF Hector Jimenez to a minor league contract.
+2021-01-15,fa_minor,in,Angel Tejada,,0,Baltimore Orioles signed free agent SS Angel Tejada to a minor league contract.
+2021-01-15,fa_minor,in,Wilmer Feliciano,,0,Baltimore Orioles signed free agent OF Wilmer Feliciano to a minor league contract.
+2021-01-15,fa_minor,in,Anderson De Los Santos,,0,Baltimore Orioles signed free agent SS Anderson De Los Santos to a minor league contract.
+2021-01-15,fa_minor,in,Grabiel Salazar,,0,Baltimore Orioles signed free agent OF Grabiel Salazar to a minor league contract.
+2021-01-15,fa_minor,in,Victor Celedonio,,0,Baltimore Orioles signed free agent SS Victor Celedonio to a minor league contract.
+2021-01-15,fa_minor,in,Deivy Cruz,,0,Baltimore Orioles signed free agent LHP Deivy Cruz to a minor league contract.
+2021-01-15,fa_minor,in,Yasmil Bucce,,0,Baltimore Orioles signed free agent C Yasmil Bucce to a minor league contract.
+2021-01-18,fa_major,in,Thomas Eshelman,,0,Baltimore Orioles signed free agent P Thomas Eshelman.
+2021-01-26,fa_major,in,Freddy Galvis,,0,Baltimore Orioles signed free agent SS Freddy Galvis.
+2021-01-26,fa_major,in,Jonaiker Sandoval,,0,Baltimore Orioles signed free agent CF Jonaiker Sandoval.
+2021-01-30,fa_major,in,Omar Hernandez,,0,Baltimore Orioles signed free agent P Omar Hernandez.
+2021-02-02,fa_minor,in,Malquin Canelo,,0,Baltimore Orioles signed free agent SS Malquin Canelo to a minor league contract.
+2021-02-02,fa_major,in,Spenser Watkins,,0,Baltimore Orioles signed free agent P Spenser Watkins.
+2021-02-02,fa_minor,in,Dusten Knight,,0,Baltimore Orioles signed free agent RHP Dusten Knight to a minor league contract.
+2021-02-02,trade,both,Jahmai Jones,,0,traded  to Baltimore Orioles for .
+2021-02-02,trade,both,Jahmai Jones,Alex Cobb,1,Baltimore Orioles traded RHP Alex Cobb and cash to Los Angeles Angels for 2B Jahmai Jones.
+2021-02-03,fa_minor,in,Konner Wade,,0,Baltimore Orioles signed free agent RHP Konner Wade to a minor league contract.
+2021-02-03,fa_minor,in,Seth Mejias-Brean,,0,Baltimore Orioles signed free agent 3B Seth Mejias-Brean to a minor league contract.
+2021-02-03,fa_minor,in,Wade LeBlanc,,0,Baltimore Orioles signed free agent LHP Wade LeBlanc to a minor league contract and invited him to spring training.
+2021-02-03,fa_minor,in,Félix Hernández,,0,Baltimore Orioles signed free agent RHP Felix Hernandez to a minor league contract and invited him to spring training.
+2021-02-17,fa_minor,in,Matt Harvey,,0,Baltimore Orioles signed free agent RHP Matt Harvey to a minor league contract and invited him to spring training.
+2021-03-04,fa_major,in,Manny Barreda,,0,Baltimore Orioles signed free agent P Manny Barreda.
+2021-03-16,fa_major,in,Maikel Franco,,0,Baltimore Orioles signed free agent 3B Maikel Franco.
+2021-03-18,waiver_loss,out,,Ashton Goudeau,0,San Francisco Giants claimed P Ashton Goudeau off waivers from Baltimore Orioles.
+2021-03-22,fa_major,in,Ty Blach,,0,Baltimore Orioles signed free agent P Ty Blach.
+2021-03-23,fa_major,in,Ramón Rodríguez,,0,Baltimore Orioles signed free agent C Ramon Rodriguez.
+2021-03-26,fa_major,in,Wade LeBlanc,,0,Baltimore Orioles signed free agent P Wade LeBlanc.
+2021-03-27,trade,both,Adam Plutko,,1,Cleveland Indians traded P Adam Plutko to Baltimore Orioles for cash.
+2021-03-30,passive_loss,out,,Yolmer Sánchez,0,Baltimore Orioles released 2B Yolmer Sanchez.
+2021-05-08,waiver_claim,in,Brandon Waddell,,0,Baltimore Orioles claimed LHP Brandon Waddell off waivers from Minnesota Twins.
+2021-05-11,waiver_loss,out,,Jay Flaa,0,Atlanta Braves claimed RHP Jay Flaa off waivers from Baltimore Orioles.
+2021-05-24,waiver_loss,out,,Rio Ruiz,0,Colorado Rockies claimed 3B Rio Ruiz off waivers from Baltimore Orioles.
+2021-06-04,waiver_claim,in,Domingo Leyba,,0,Baltimore Orioles claimed SS Domingo Leyba off waivers from Arizona Diamondbacks.
+2021-06-06,waiver_loss,out,,Brandon Waddell,0,St. Louis Cardinals claimed LHP Brandon Waddell off waivers from Baltimore Orioles.
+2021-06-09,fa_minor,in,Logan Gillaspie,,0,Baltimore Orioles signed free agent RHP Logan Gillaspie to a minor league contract.
+2021-06-15,trade,both,Jose Berroa,Taylor Davis,0,Pittsburgh Pirates traded CF Jose Berroa to Baltimore Orioles for 3B Taylor Davis.
+2021-06-25,waiver_loss,out,,Chance Sisco,0,New York Mets claimed C Chance Sisco off waivers from Baltimore Orioles.
+2021-07-02,fa_minor,in,Pedro Figueroa,,0,Baltimore Orioles signed free agent RHP Pedro Figueroa to a minor league contract.
+2021-07-03,waiver_claim,in,Shaun Anderson,,0,Baltimore Orioles claimed RHP Shaun Anderson off waivers from Texas Rangers.
+2021-07-03,trade,both,Kelvin Gutiérrez,,1,Kansas City Royals traded 3B Kelvin Gutierrez to Baltimore Orioles for cash.
+2021-07-05,fa_minor,in,Gregori Vasquez,,0,Baltimore Orioles signed free agent RHP Gregori Vasquez to a minor league contract.
+2021-07-10,trade,both,Hugo Beltran,,1,Los Angeles Dodgers traded RHP Hugo Beltran to Baltimore Orioles for cash.
+2021-07-14,fa_minor,in,Carson Carter,,0,Baltimore Orioles signed free agent RHP Carson Carter to a minor league contract.
+2021-07-14,fa_minor,in,Daniel Federman,,0,Baltimore Orioles signed free agent RHP Daniel Federman to a minor league contract.
+2021-07-14,signed_other,in,Logan Michaels,,0,Baltimore Orioles signed C Logan Michaels.
+2021-07-15,fa_minor,in,Preston Price,,0,Baltimore Orioles signed free agent RHP Preston Price to a minor league contract.
+2021-07-16,signed_other,in,Connor Norby,,0,Baltimore Orioles signed 2B Connor Norby.
+2021-07-17,signed_other,in,Colton Cowser,,0,Baltimore Orioles signed OF Colton Cowser.
+2021-07-20,fa_minor,in,Eduardo Torres,,0,Baltimore Orioles signed free agent RHP Eduardo Torres to a minor league contract.
+2021-07-22,signed_other,in,Dylan Heid,,0,Baltimore Orioles signed RHP Dylan Heid.
+2021-07-23,signed_other,in,Justin Armbruester,,0,Baltimore Orioles signed RHP Justin Armbruester.
+2021-07-23,signed_other,in,Ryan Long,,0,Baltimore Orioles signed RHP Ryan Long.
+2021-07-23,signed_other,in,Peter Van Loon,,0,Baltimore Orioles signed RHP Peter Van Loon.
+2021-07-23,signed_other,in,Ryan Higgins,,0,Baltimore Orioles signed 3B Ryan Higgins.
+2021-07-23,signed_other,in,Creed Willems,,0,Baltimore Orioles signed C Creed Willems.
+2021-07-23,signed_other,in,Conor Grady,,0,Baltimore Orioles signed RHP Conor Grady.
+2021-07-23,signed_other,in,Jacob Teter,,0,Baltimore Orioles signed 1B Jacob Teter.
+2021-07-23,signed_other,in,Alex Pham,,0,Baltimore Orioles signed RHP Alex Pham.
+2021-07-23,signed_other,in,Keagan Gillies,,0,Baltimore Orioles signed RHP Keagan Gillies.
+2021-07-23,signed_other,in,Billy Cook,,0,Baltimore Orioles signed OF Billy Cook.
+2021-07-23,signed_other,in,Carlos Tavera,,0,Baltimore Orioles signed RHP Carlos Tavera.
+2021-07-23,signed_other,in,Reed Trimble,,0,Baltimore Orioles signed OF Reed Trimble.
+2021-07-24,signed_other,in,Collin Burns,,0,Baltimore Orioles signed SS Collin Burns.
+2021-07-24,signed_other,in,Connor Pavolony,,0,Baltimore Orioles signed C Connor Pavolony.
+2021-07-27,fa_minor,in,Duany Gomez,,0,Baltimore Orioles signed free agent RHP Duany Gomez to a minor league contract.
+2021-07-27,signed_other,in,Daniel Lloyd,,0,Baltimore Orioles signed RHP Daniel Lloyd.
+2021-07-30,waiver_claim,in,Ryan Hartman,,0,Baltimore Orioles claimed LHP Ryan Hartman off waivers from Houston Astros.
+2021-07-30,trade,both,Tyler Burch,Freddy Galvis,0,Baltimore Orioles traded SS Freddy Galvis to Philadelphia Phillies for RHP Tyler Burch.
+2021-07-30,trade,both,,Shawn Armstrong,1,Baltimore Orioles traded RHP Shawn Armstrong to Tampa Bay Rays for cash.
+2021-08-02,fa_minor,in,Luis Marine,,0,Baltimore Orioles signed free agent RHP Luis Marine to a minor league contract.
+2021-08-05,signed_other,in,Donta' Williams,,0,Baltimore Orioles signed OF Donta' Williams.
+2021-08-05,waiver_claim,in,Jorge Mateo,,0,Baltimore Orioles claimed SS Jorge Mateo off waivers from San Diego Padres.
+2021-08-05,signed_other,in,John Rhodes,,0,Baltimore Orioles signed OF John Rhodes.
+2021-08-05,signed_other,in,Trendon Craig,,0,Baltimore Orioles signed OF Trendon Craig.
+2021-08-07,waiver_loss,out,,Shaun Anderson,0,San Diego Padres claimed RHP Shaun Anderson off waivers from Baltimore Orioles.
+2021-08-09,waiver_loss,out,,Conner Greene,0,Los Angeles Dodgers claimed RHP Conner Greene off waivers from Baltimore Orioles.
+2021-08-18,waiver_claim,in,Zack Burdi,,0,Baltimore Orioles claimed RHP Zack Burdi off waivers from Chicago White Sox.
+2021-08-20,waiver_claim,in,Chris Ellis,,0,Baltimore Orioles claimed RHP Chris Ellis off waivers from Tampa Bay Rays.
+2021-08-23,waiver_claim,in,Conner Greene,,0,Baltimore Orioles claimed RHP Conner Greene off waivers from Los Angeles Dodgers.
+2021-08-25,passive_loss,out,,Maikel Franco,0,Baltimore Orioles released 3B Maikel Franco.
+2021-09-16,waiver_claim,in,Brooks Kriske,,0,Baltimore Orioles claimed RHP Brooks Kriske off waivers from New York Yankees.
+2021-09-21,waiver_claim,in,Joey Krehbiel,,0,Baltimore Orioles claimed RHP Joey Krehbiel off waivers from Tampa Bay Rays.
+2021-10-14,waiver_loss,out,,Zack Burdi,0,Arizona Diamondbacks claimed RHP Zack Burdi off waivers from Baltimore Orioles.
+2021-11-03,passive_loss,out,,Matt Harvey,0,RHP Matt Harvey elected free agency.
+2021-11-03,passive_loss,out,,Fernando Abad,0,LHP Fernando Abad elected free agency.
+2021-11-03,waiver_loss,out,,Eric Hanhold,0,Pittsburgh Pirates claimed RHP Eric Hanhold off waivers from Baltimore Orioles.
+2021-11-05,waiver_loss,out,,Hunter Harvey,0,San Francisco Giants claimed RHP Hunter Harvey off waivers from Baltimore Orioles.
+2021-11-08,waiver_claim,in,Bryan Baker,,0,Baltimore Orioles claimed RHP Bryan Baker off waivers from Toronto Blue Jays.
+2021-11-12,fa_minor,in,Rico Garcia,,0,Baltimore Orioles signed free agent RHP Rico Garcia to a minor league contract.
+2021-11-12,fa_minor,in,Spenser Watkins,,0,Baltimore Orioles signed free agent RHP Spenser Watkins to a minor league contract.
+2021-11-19,fa_minor,in,Marcos Diplán,,0,Baltimore Orioles signed free agent RHP Marcos Diplan to a minor league contract.
+2021-11-19,waiver_claim,in,Lucius Fox,,0,Baltimore Orioles claimed SS Lucius Fox off waivers from Kansas City Royals.
+2021-11-24,waiver_claim,in,Cionel Pérez,,0,Baltimore Orioles claimed LHP Cionel Perez off waivers from Cincinnati Reds.
+2021-11-29,passive_loss,out,,Brooks Kriske,0,Baltimore Orioles released RHP Brooks Kriske.
+2021-11-29,fa_minor,in,Denyi Reyes,,0,Baltimore Orioles signed free agent RHP Denyi Reyes to a minor league contract.
+2021-11-30,fa_major,in,Rougned Odor,,0,Baltimore Orioles signed free agent 2B Rougned Odor.
+2021-11-30,waiver_loss,out,,Lucius Fox,0,Washington Nationals claimed SS Lucius Fox off waivers from Baltimore Orioles.
+2021-12-01,fa_minor,in,Jacob Nottingham,,0,Baltimore Orioles signed free agent C Jacob Nottingham to a minor league contract.
+2021-12-06,fa_minor,in,Bryan Bautista,,0,Baltimore Orioles signed free agent RHP Bryan Bautista to a minor league contract.
+2021-12-06,fa_minor,in,Jarlin Guerrero,,0,Baltimore Orioles signed free agent RHP Jarlin Guerrero to a minor league contract.
+2021-12-07,fa_minor,in,Noelin Cuevas,,0,Baltimore Orioles signed free agent LHP Noelin Cuevas to a minor league contract.
+2021-12-07,fa_minor,in,Darwin Caballero,,0,Baltimore Orioles signed free agent RHP Darwin Caballero to a minor league contract.
+2021-12-07,fa_minor,in,Wilton Rondon,,0,Baltimore Orioles signed free agent RHP Wilton Rondon to a minor league contract.
+2021-12-07,fa_minor,in,Raynel Duran,,0,Baltimore Orioles signed free agent RHP Raynel Duran to a minor league contract.
+2021-12-14,fa_minor,in,Matt Vogel,,0,Baltimore Orioles signed free agent RHP Matt Vogel to a minor league contract.
+2021-12-15,fa_minor,in,Luis De León,,0,Baltimore Orioles signed free agent LHP Luis De Leon to a minor league contract.
+2022-01-15,fa_minor,in,César Prieto,,0,Baltimore Orioles signed free agent 2B Cesar Prieto to a minor league contract.
+2022-01-15,fa_minor,in,Yirber Ruiz,,0,Baltimore Orioles signed free agent OF Yirber Ruiz to a minor league contract.
+2022-01-15,fa_minor,in,Edrei Campos,,0,Baltimore Orioles signed free agent SS Edrei Campos to a minor league contract.
+2022-01-15,fa_minor,in,Henry Tejada,,0,Baltimore Orioles signed free agent RHP Henry Tejada to a minor league contract.
+2022-01-15,fa_minor,in,Miguel Mesa,,0,Baltimore Orioles signed free agent RHP Miguel Mesa to a minor league contract.
+2022-01-15,fa_minor,in,Juan Martínez,,0,Baltimore Orioles signed free agent OF Juan Martinez to a minor league contract.
+2022-01-15,fa_minor,in,Adriam Santos,,0,Baltimore Orioles signed free agent SS Adriam Santos to a minor league contract.
+2022-01-15,fa_minor,in,Jean Mata,,0,Baltimore Orioles signed free agent OF Jean Mata to a minor league contract.
+2022-01-15,fa_minor,in,Ezequiel Bonilla,,0,Baltimore Orioles signed free agent RHP Ezequiel Bonilla to a minor league contract.
+2022-01-15,fa_minor,in,Jesús  Palacios,,0,Baltimore Orioles signed free agent RHP Jesus Palacios to a minor league contract.
+2022-01-15,fa_minor,in,Edwin Amparo,,0,Baltimore Orioles signed free agent SS Edwin Amparo to a minor league contract.
+2022-01-15,fa_minor,in,Raylin Ramos,,0,Baltimore Orioles signed free agent OF Raylin Ramos to a minor league contract.
+2022-01-15,fa_minor,in,Thomas Sosa,,0,Baltimore Orioles signed free agent OF Thomas Sosa to a minor league contract.
+2022-01-15,fa_minor,in,Oscar Moreta,,0,Baltimore Orioles signed free agent RHP Oscar Moreta to a minor league contract.
+2022-01-15,fa_minor,in,Cristian Benavides,,0,Baltimore Orioles signed free agent SS Cristian Benavides to a minor league contract.
+2022-01-15,fa_minor,in,Andrés Parra,,0,Baltimore Orioles signed free agent LHP Andres Parra to a minor league contract.
+2022-01-15,fa_minor,in,José Noguera,,0,Baltimore Orioles signed free agent C Jose Noguera to a minor league contract.
+2022-01-15,fa_minor,in,Leandro Arias,,0,Baltimore Orioles signed free agent SS Leandro Arias to a minor league contract.
+2022-01-15,fa_minor,in,Adrián Delgado,,0,Baltimore Orioles signed free agent RHP Adrian Delgado to a minor league contract.
+2022-01-15,fa_minor,in,Alfredo Velásquez,,0,Baltimore Orioles signed free agent 3B Alfredo Velasquez to a minor league contract.
+2022-01-15,fa_minor,in,Braylin Tavera,,0,Baltimore Orioles signed free agent OF Braylin Tavera to a minor league contract.
+2022-01-15,fa_minor,in,Aron Estrada,,0,Baltimore Orioles signed free agent 2B Aron Estrada to a minor league contract.
+2022-01-15,fa_minor,in,Fernando Peguero,,0,Baltimore Orioles signed free agent SS Fernando Peguero to a minor league contract.
+2022-01-15,fa_minor,in,Andrés Nolaya,,0,Baltimore Orioles signed free agent C Andres Nolaya to a minor league contract.
+2022-01-15,fa_minor,in,Elis Cuevas,,0,Baltimore Orioles signed free agent SS Elis Cuevas to a minor league contract.
+2022-02-18,fa_minor,in,Shed Long Jr.,,0,Baltimore Orioles signed free agent 2B Shed Long Jr. to a minor league contract.
+2022-02-20,fa_minor,in,Andres Angulo,,0,Baltimore Orioles signed free agent C Andres Angulo to a minor league contract.
+2022-03-07,fa_minor,in,Wes Robertson,,0,Baltimore Orioles signed free agent RHP Wes Robertson to a minor league contract.
+2022-03-07,fa_minor,in,Buddy Baumann,,0,Baltimore Orioles signed free agent LHP Buddy Baumann to a minor league contract.
+2022-03-12,fa_major,in,Jordan Lyles,,0,Baltimore Orioles signed free agent RHP Jordan Lyles.
+2022-03-13,fa_minor,in,Anthony Bemboom,,0,Baltimore Orioles signed free agent C Anthony Bemboom to a minor league contract and invited him to spring training.
+2022-03-14,fa_major,in,Robinson Chirinos,,0,Baltimore Orioles signed free agent C Robinson Chirinos.
+2022-03-15,fa_minor,in,Chris Owings,,0,Baltimore Orioles signed free agent SS Chris Owings to a minor league contract and invited him to spring training.
+2022-03-16,fa_minor,in,Chris Ellis,,0,Baltimore Orioles signed free agent RHP Chris Ellis to a minor league contract and invited him to spring training.
+2022-03-16,fa_minor,in,Conner Greene,,0,Baltimore Orioles signed free agent RHP Conner Greene to a minor league contract and invited him to spring training.
+2022-03-18,fa_minor,in,Beau Taylor,,0,Baltimore Orioles signed free agent C Beau Taylor to a minor league contract and invited him to spring training.
+2022-04-03,trade,both,Antonio Velez; Kevin Guerrero,Cole Sulser; Tanner Scott,0,Baltimore Orioles traded RHP Cole Sulser and LHP Tanner Scott to Miami Marlins for OF Kevin Guerrero and LHP Antonio Velez.
+2022-04-07,trade,both,,Mason McCoy,0,Baltimore Orioles traded SS Mason McCoy to Seattle Mariners.
+2022-04-08,fa_minor,in,Matt Harvey,,0,Baltimore Orioles signed free agent RHP Matt Harvey to a minor league contract.
+2022-05-05,fa_minor,in,Yeiber Cartaya,,0,Baltimore Orioles signed free agent RHP Yeiber Cartaya to a minor league contract.
+2022-05-05,waiver_claim,in,Logan Allen,,0,Baltimore Orioles claimed LHP Logan Allen off waivers from Cleveland Guardians.
+2022-05-10,fa_minor,in,Hector Perez,,0,Baltimore Orioles signed free agent RHP Hector Perez to a minor league contract.
+2022-05-12,fa_minor,in,Jose Leandro,,0,Baltimore Orioles signed free agent LHP Jose Leandro to a minor league contract.
+2022-05-14,waiver_claim,in,Beau Sulser,,0,Baltimore Orioles claimed RHP Beau Sulser off waivers from Pittsburgh Pirates.
+2022-05-18,trade,both,Luis Osorio,Paul Fry,0,Baltimore Orioles traded LHP Paul Fry to Arizona Diamondbacks for RHP Luis Osorio.
+2022-05-25,fa_minor,in,Anthony Bello,,0,Baltimore Orioles signed free agent Anthony Bello to a minor league contract.
+2022-05-25,fa_minor,in,Nick Richmond,,0,Baltimore Orioles signed free agent RHP Nick Richmond to a minor league contract.
+2022-05-25,waiver_claim,in,Chris Vallimont,,0,Baltimore Orioles claimed RHP Chris Vallimont off waivers from Minnesota Twins.
+2022-06-01,fa_minor,in,Elías Moscoso,,0,Baltimore Orioles signed free agent RHP Elias Moscoso to a minor league contract.
+2022-06-02,fa_minor,in,Juan Peña,,0,Baltimore Orioles signed free agent RHP Juan Pena to a minor league contract.
+2022-06-02,fa_minor,in,Ronal Herrera,,0,Baltimore Orioles signed free agent RHP Ronal Herrera to a minor league contract.
+2022-06-03,passive_loss,out,,Jahmai Jones,0,Baltimore Orioles released CF Jahmai Jones.
+2022-06-07,fa_minor,in,Cesar Espinal,,0,Baltimore Orioles signed free agent RHP Cesar Espinal to a minor league contract.
+2022-06-07,waiver_claim,in,Austin Voth,,0,Baltimore Orioles claimed RHP Austin Voth off waivers from Washington Nationals.
+2022-06-11,fa_minor,in,Chris Givin,,0,Baltimore Orioles signed free agent SS Chris Givin to a minor league contract.
+2022-06-12,passive_loss,out,,Chris Owings,0,Baltimore Orioles released SS Chris Owings.
+2022-06-13,fa_minor,in,Eddy Alberto,,0,Baltimore Orioles signed free agent RHP Eddy Alberto to a minor league contract.
+2022-06-15,waiver_claim,in,Jonathan Araúz,,0,Baltimore Orioles claimed SS Jonathan Arauz off waivers from Boston Red Sox.
+2022-06-23,trade,both,,Patrick Dorrian,1,Baltimore Orioles traded 2B Patrick Dorrian to Milwaukee Brewers for cash.
+2022-07-04,fa_minor,in,Geronimo Rombley,,0,Baltimore Orioles signed free agent RHP Geronimo Rombley to a minor league contract.
+2022-07-06,waiver_claim,in,Kirk McCarty,,0,Baltimore Orioles claimed LHP Kirk McCarty off waivers from Cleveland Guardians.
+2022-07-11,trade,both,,Cody Sedlock,0,Baltimore Orioles traded RHP Cody Sedlock to Detroit Tigers.
+2022-07-12,waiver_claim,in,Louis Head,,0,Baltimore Orioles claimed RHP Louis Head off waivers from Miami Marlins.
+2022-07-14,waiver_loss,out,,Kirk McCarty,0,Cleveland Guardians claimed LHP Kirk McCarty off waivers from Baltimore Orioles.
+2022-07-15,fa_minor,in,Carson King,,0,Baltimore Orioles signed free agent RHP Carson King to a minor league contract.
+2022-07-23,signed_other,in,Jud Fabian,,0,Baltimore Orioles signed OF Jud Fabian.
+2022-07-23,signed_other,in,Dylan Beavers,,0,Baltimore Orioles signed OF Dylan Beavers.
+2022-07-26,signed_other,in,Cameron Weston,,0,Baltimore Orioles signed RHP Cameron Weston.
+2022-07-26,fa_minor,in,Maxwell Costes,,0,Baltimore Orioles signed free agent 1B Maxwell Costes to a minor league contract.
+2022-07-26,signed_other,in,Douglas Hodo III,,0,Baltimore Orioles signed OF Douglas Hodo III.
+2022-07-26,signed_other,in,Jared Beck,,0,Baltimore Orioles signed LHP Jared Beck.
+2022-07-26,signed_other,in,Max Wagner,,0,Baltimore Orioles signed 3B Max Wagner.
+2022-07-26,signed_other,in,Preston Johnson,,0,Baltimore Orioles signed RHP Preston Johnson.
+2022-07-26,signed_other,in,Adam Retzbach,,0,Baltimore Orioles signed C Adam Retzbach.
+2022-07-26,signed_other,in,Reese Sharp,,0,Baltimore Orioles signed RHP Reese Sharp.
+2022-07-26,signed_other,in,Adam Crampton,,0,Baltimore Orioles signed SS Adam Crampton.
+2022-07-26,signed_other,in,Graham Firoved,,0,Baltimore Orioles signed RHP Graham Firoved.
+2022-07-26,signed_other,in,Trace Bright,,0,Baltimore Orioles signed RHP Trace Bright.
+2022-07-26,signed_other,in,Wyatt Cheney,,0,Baltimore Orioles signed RHP Wyatt Cheney.
+2022-07-26,signed_other,in,Bradley Brehmer,,0,Baltimore Orioles signed RHP Bradley Brehmer.
+2022-07-26,signed_other,in,Silas Ardoin,,0,Baltimore Orioles signed C Silas Ardoin.
+2022-07-27,signed_other,in,Jackson Holliday,,0,Baltimore Orioles signed SS Jackson Holliday.
+2022-07-30,signed_other,in,Zack Showalter,,0,Baltimore Orioles signed RHP Zack Showalter.
+2022-08-01,trade,both,Chayce McDermott,,0,Houston Astros traded RHP Chayce McDermott to Baltimore Orioles.
+2022-08-01,trade,both,,Trey Mancini,0,Baltimore Orioles traded LF Trey Mancini to Houston Astros.
+2022-08-01,trade,both,Seth Johnson,,0,Tampa Bay Rays traded RHP Seth Johnson to Baltimore Orioles.
+2022-08-02,signed_other,in,Carter Young,,0,Baltimore Orioles signed SS Carter Young.
+2022-08-02,fa_minor,in,Cooper Chandler,,0,Baltimore Orioles signed free agent RHP Cooper Chandler to a minor league contract.
+2022-08-02,fa_minor,in,Trey Nordmann,,0,Baltimore Orioles signed free agent RHP Trey Nordmann to a minor league contract.
+2022-08-02,fa_minor,in,Hayden Nierman,,0,Baltimore Orioles signed free agent RHP Hayden Nierman to a minor league contract.
+2022-08-02,trade,both,Cade Povich; Juan Nuñez; Juan Rojas; Yennier Cano,Jorge López,1,"Baltimore Orioles traded RHP Jorge Lopez and cash to Minnesota Twins for RHP Yennier Cano, LHP Cade Povich, LHP Juan Rojas and RHP Juan Nunez."
+2022-08-02,trade,both,Brett Phillips,,1,Tampa Bay Rays traded CF Brett Phillips to Baltimore Orioles for cash.
+2022-08-08,waiver_loss,out,,Rylan Bannon,0,Los Angeles Dodgers claimed 3B Rylan Bannon off waivers from Baltimore Orioles.
+2022-08-13,fa_minor,in,Ryan Hennen,,0,Baltimore Orioles signed free agent LHP Ryan Hennen to a minor league contract.
+2022-08-24,waiver_claim,in,Phoenix Sanders,,0,Baltimore Orioles claimed RHP Phoenix Sanders off waivers from Tampa Bay Rays.
+2022-08-31,fa_minor,in,Jesús Aguilar,,0,Baltimore Orioles signed free agent 1B Jesus Aguilar to a minor league contract.
+2022-09-03,waiver_claim,in,Anthony Castro,,0,Baltimore Orioles claimed RHP Anthony Castro off waivers from Cleveland Guardians.
+2022-09-05,waiver_claim,in,Jake Reed,,0,Baltimore Orioles claimed RHP Jake Reed off waivers from Los Angeles Dodgers.
+2022-09-11,waiver_claim,in,Cam Gallagher,,0,Baltimore Orioles claimed C Cam Gallagher off waivers from San Diego Padres.
+2022-10-11,waiver_claim,in,Jake Cave,,0,Baltimore Orioles claimed CF Jake Cave off waivers from Minnesota Twins.
+2022-10-13,waiver_loss,out,,Jake Reed,0,Boston Red Sox claimed RHP Jake Reed off waivers from Baltimore Orioles.
+2022-10-14,waiver_claim,in,Aramis Garcia,,0,Baltimore Orioles claimed C Aramis Garcia off waivers from Cincinnati Reds.
+2022-10-14,waiver_claim,in,Mark Kolozsvary,,0,Baltimore Orioles claimed C Mark Kolozsvary off waivers from Cincinnati Reds.
+2022-10-18,waiver_loss,out,,Beau Sulser,0,Pittsburgh Pirates claimed RHP Beau Sulser off waivers from Baltimore Orioles.
+2022-11-06,passive_loss,out,,Rougned Odor,0,2B Rougned Odor elected free agency.
+2022-11-06,passive_loss,out,,Jesús Aguilar,0,1B Jesus Aguilar elected free agency.
+2022-11-06,passive_loss,out,,Robinson Chirinos,0,C Robinson Chirinos elected free agency.
+2022-11-09,passive_loss,out,,Jordan Lyles,0,RHP Jordan Lyles elected free agency.
+2022-11-09,waiver_claim,in,Daz Cameron,,0,Baltimore Orioles claimed CF Daz Cameron off waivers from Detroit Tigers.
+2022-12-02,fa_minor,in,Franchy Cordero,,0,Baltimore Orioles signed free agent CF Franchy Cordero to a minor league contract.
+2022-12-02,waiver_loss,out,,Jake Cave,0,Philadelphia Phillies claimed CF Jake Cave off waivers from Baltimore Orioles.
+2022-12-02,waiver_claim,in,Lewin Díaz,,0,Baltimore Orioles claimed 1B Lewin Díaz off waivers from Pittsburgh Pirates.
+2022-12-05,fa_minor,in,Ofreidy Gómez,,0,Baltimore Orioles signed free agent RHP Ofreidy Gómez to a minor league contract.
+2022-12-05,fa_major,in,Kyle Gibson,,0,Baltimore Orioles signed free agent RHP Kyle Gibson.
+2022-12-06,fa_minor,in,Nomar Mazara,,0,Baltimore Orioles signed free agent RF Nomar Mazara to a minor league contract.
+2022-12-06,fa_minor,in,Josh Lester,,0,Baltimore Orioles signed free agent 3B Josh Lester to a minor league contract.
+2022-12-07,waiver_claim,in,Andrew Politi,,0,Baltimore Orioles claimed RHP Andrew Politi off waivers from Worcester Red Sox.
+2022-12-15,fa_major,in,Adam Frazier,,0,Baltimore Orioles signed free agent 2B Adam Frazier.
+2022-12-19,fa_minor,in,Eduard Bazardo,,0,Baltimore Orioles signed free agent RHP Eduard Bazardo to a minor league contract.
+2022-12-19,fa_minor,in,Wandisson Charles,,0,Baltimore Orioles signed free agent RHP Wandisson Charles to a minor league contract.
+2022-12-19,fa_minor,in,Kyle Dowdy,,0,Baltimore Orioles signed free agent RHP Kyle Dowdy to a minor league contract.
+2022-12-21,fa_major,in,Mychal Givens,,0,Baltimore Orioles signed free agent RHP Mychal Givens.
+2022-12-21,trade,both,James McCann,,0,New York Mets traded C James McCann to Baltimore Orioles.
+2022-12-23,trade,both,,Lewin Díaz,0,Baltimore Orioles traded 1B Lewin Díaz to Atlanta Braves.
+2023-01-01,trade,both,,Tyler Nevin,1,Baltimore Orioles traded 3B Tyler Nevin to Detroit Tigers for cash.
+2023-01-03,trade,both,Ryan O'Hearn,,1,Kansas City Royals traded 1B Ryan O'Hearn to Baltimore Orioles for cash.
+2023-01-05,waiver_claim,in,Lewin Díaz,,0,Baltimore Orioles claimed 1B Lewin Díaz off waivers from Atlanta Braves.
+2023-01-11,trade,both,Darwinzon Hernández,,1,Boston Red Sox traded LHP Darwinzon Hernandez to Baltimore Orioles for cash.
+2023-01-13,trade,both,,Luis De La Cruz,0,Baltimore Orioles traded OF Luis De La Cruz to New York Mets.
+2023-01-15,fa_minor,in,Raymond Sosa,,0,Baltimore Orioles signed free agent RHP Raymond Sosa to a minor league contract.
+2023-01-15,fa_minor,in,Francisco Morao,,0,Baltimore Orioles signed free agent LHP Francisco Morao to a minor league contract.
+2023-01-15,fa_minor,in,Keeler Morfe,,0,Baltimore Orioles signed free agent RHP Keeler Morfe to a minor league contract.
+2023-01-15,fa_minor,in,Sebastián De Los Santos,,0,Baltimore Orioles signed free agent SS Sebastian De Los Santos to a minor league contract.
+2023-01-15,fa_minor,in,Juan Rasquin,,0,Baltimore Orioles signed free agent RHP Juan Rasquin to a minor league contract.
+2023-01-15,fa_minor,in,Adriander Mejía,,0,Baltimore Orioles signed free agent C Adriander Mejia to a minor league contract.
+2023-01-15,fa_minor,in,Junior Aybar,,0,Baltimore Orioles signed free agent 2B Junior Aybar to a minor league contract.
+2023-01-15,fa_minor,in,Rafael Suero,,0,Baltimore Orioles signed free agent RHP Rafael Suero to a minor league contract.
+2023-01-15,fa_minor,in,Abraham Cohen,,0,Baltimore Orioles signed free agent OF Abraham Cohen to a minor league contract.
+2023-01-15,fa_minor,in,Miguel Rodríguez,,0,Baltimore Orioles signed free agent C Miguel Rodriguez to a minor league contract.
+2023-01-15,fa_minor,in,Luis Beltrán,,0,Baltimore Orioles signed free agent RHP Luis Beltran to a minor league contract.
+2023-01-15,fa_minor,in,Fermin Magallanes,,0,Baltimore Orioles signed free agent RHP Fermin Magallanes to a minor league contract.
+2023-01-15,fa_minor,in,Omar Urbina,,0,Baltimore Orioles signed free agent C Omar Urbina to a minor league contract.
+2023-01-15,fa_minor,in,Eccel Correa,,0,Baltimore Orioles signed free agent RHP Eccel Correa to a minor league contract.
+2023-01-15,fa_minor,in,Luis Vicioso,,0,Baltimore Orioles signed free agent C Luis Vicioso to a minor league contract.
+2023-01-15,fa_minor,in,Kevin Velasco,,0,Baltimore Orioles signed free agent RHP Kevin Velasco to a minor league contract.
+2023-01-15,fa_minor,in,Elvis Rojas,,0,Baltimore Orioles signed free agent OF Elvis Rojas to a minor league contract.
+2023-01-15,fa_minor,in,Luis Guevara,,0,Baltimore Orioles signed free agent SS Luis Guevara to a minor league contract.
+2023-01-15,fa_minor,in,Breiny Ramírez,,0,Baltimore Orioles signed free agent OF Breiny Ramirez to a minor league contract.
+2023-01-15,fa_minor,in,Diorky Ortiz,,0,Baltimore Orioles signed free agent 2B Diorky Ortiz to a minor league contract.
+2023-01-15,fa_minor,in,Javier González,,0,Baltimore Orioles signed free agent RHP Javier Gonzalez to a minor league contract.
+2023-01-15,fa_minor,in,Raúl Leonte,,0,Baltimore Orioles signed free agent OF Raul Leonte to a minor league contract.
+2023-01-15,fa_minor,in,José Mejía,,0,Baltimore Orioles signed free agent SS Jose Mejia to a minor league contract.
+2023-01-15,fa_minor,in,Jhonanderson Robain,,0,Baltimore Orioles signed free agent C Jhonanderson Robain to a minor league contract.
+2023-01-15,fa_minor,in,Félix Amparo,,0,Baltimore Orioles signed free agent SS Felix Amparo to a minor league contract.
+2023-01-15,fa_minor,in,Xavier Alvero,,0,Baltimore Orioles signed free agent RHP Xavier Alvero to a minor league contract.
+2023-01-15,fa_minor,in,Luis Almeyda,,0,Baltimore Orioles signed free agent SS Luis Almeyda to a minor league contract.
+2023-01-15,fa_minor,in,Joshua Liranzo,,0,Baltimore Orioles signed free agent 3B Joshua Liranzo to a minor league contract.
+2023-01-15,fa_minor,in,Juan Ortega,,0,Baltimore Orioles signed free agent C Juan Ortega to a minor league contract.
+2023-01-15,fa_minor,in,Esteban Dicent,,0,Baltimore Orioles signed free agent RHP Esteban Dicent to a minor league contract.
+2023-01-15,fa_minor,in,Mario Santana,,0,Baltimore Orioles signed free agent RHP Mario Santana to a minor league contract.
+2023-01-15,fa_minor,in,Jose Yan,,0,Baltimore Orioles signed free agent RHP Jose Yan to a minor league contract.
+2023-01-19,fa_minor,in,Reed Garrett,,0,Baltimore Orioles signed free agent RHP Reed Garrett to a minor league contract.
+2023-01-26,trade,both,Cole Irvin; Kyle Virbitsky,Darell Hernaiz,0,Oakland Athletics traded LHP Cole Irvin and RHP Kyle Virbitsky to Baltimore Orioles for SS Darell Hernaiz.
+2023-01-27,fa_minor,in,Curtis Terry,,0,Baltimore Orioles signed free agent 1B Curtis Terry to a minor league contract.
+2023-02-10,fa_minor,in,Gilbert Lara,,0,Baltimore Orioles signed free agent SS Gilbert Lara to a minor league contract.
+2023-03-26,passive_loss,out,,Kevin Smith,0,Baltimore Orioles released LHP Kevin Smith.
+2023-03-26,passive_loss,out,,Griffin McLarty,0,Baltimore Orioles released RHP Griffin McLarty.
+2023-03-26,passive_loss,out,,Robert Neustrom,0,Baltimore Orioles released OF Robert Neustrom.
+2023-03-26,passive_loss,out,,Curtis Terry,0,Baltimore Orioles released 1B Curtis Terry.
+2023-03-26,passive_loss,out,,Clayton McGinness,0,Baltimore Orioles released RHP Clayton McGinness.
+2023-03-26,passive_loss,out,,Blaine Knight,0,Baltimore Orioles released RHP Blaine Knight.
+2023-03-26,passive_loss,out,,Jake Prizina,0,Baltimore Orioles released LHP Jake Prizina.
+2023-03-27,passive_loss,out,,Nomar Mazara,0,Baltimore Orioles released RF Nomar Mazara.
+2023-03-27,passive_loss,out,,Franchy Cordero,0,Baltimore Orioles released CF Franchy Cordero.
+2023-03-27,trade,both,Danny Coulombe,,1,Minnesota Twins traded LHP Danny Coulombe to Baltimore Orioles for cash.
+2023-04-27,fa_minor,in,Ledwin Gonzalez,,0,Baltimore Orioles signed free agent LHP Ledwin Gonzalez to a minor league contract.
+2023-05-03,trade,both,Luis Torrens,,1,Chicago Cubs traded C Luis Torrens to Baltimore Orioles for cash.
+2023-05-18,fa_minor,in,Tim Susnara,,0,Baltimore Orioles signed free agent C Tim Susnara to a minor league contract.
+2023-05-18,trade,both,Robbie Glendinning,,1,Kansas City Royals traded SS Robbie Glendinning to Baltimore Orioles for cash.
+2023-05-23,fa_minor,in,Ben DeLuzio,,0,Baltimore Orioles signed free agent CF Ben DeLuzio to a minor league contract.
+2023-05-24,fa_minor,in,Joseph Rosa,,0,Baltimore Orioles signed free agent 2B Joseph Rosa to a minor league contract.
+2023-05-25,fa_minor,in,Jose Perez,,0,Baltimore Orioles signed free agent SS Jose Perez to a minor league contract.
+2023-05-26,fa_minor,in,Simon Leandro,,0,Baltimore Orioles signed free agent RHP Alberto Leandro to a minor league contract.
+2023-05-30,fa_major,in,Aaron Hicks,,0,Baltimore Orioles signed free agent CF Aaron Hicks.
+2023-05-31,fa_minor,in,Eriner Batista,,0,Baltimore Orioles signed free agent RHP Eriner Batista to a minor league contract.
+2023-06-16,passive_loss,out,,Mark Kolozsvary,0,C Mark Kolozsvary elected free agency.
+2023-06-19,fa_minor,in,Juan Duran,,0,Baltimore Orioles signed free agent RHP Juan Duran to a minor league contract.
+2023-06-23,fa_minor,in,Angel Bolivar,,0,Baltimore Orioles signed free agent RHP Angel Bolivar to a minor league contract.
+2023-06-23,trade,both,,Spenser Watkins,1,Baltimore Orioles traded RHP Spenser Watkins to Houston Astros for cash.
+2023-06-25,waiver_loss,out,,Reed Garrett,0,New York Mets claimed RHP Reed Garrett off waivers from Baltimore Orioles.
+2023-06-26,fa_minor,in,Meibrys Viloria,,0,Baltimore Orioles signed free agent C Meibrys Viloria to a minor league contract.
+2023-07-01,fa_minor,in,Wander Frias,,0,Baltimore Orioles signed free agent SS Wander Frias to a minor league contract.
+2023-07-06,trade,both,,Chris Vallimont,1,Baltimore Orioles traded RHP Chris Vallimont to Cleveland Guardians for cash.
+2023-07-11,fa_minor,in,Carlos Brito,,0,Baltimore Orioles signed free agent RHP Carlos Brito to a minor league contract.
+2023-07-17,signed_other,in,Enrique Bradfield Jr.,,0,Baltimore Orioles signed OF Enrique Bradfield Jr..
+2023-07-17,signed_other,in,Mac Horvath,,0,Baltimore Orioles signed OF Mac Horvath.
+2023-07-18,fa_minor,in,Ty Weatherly,,0,Baltimore Orioles signed free agent RHP Ty Weatherly to a minor league contract.
+2023-07-18,fa_minor,in,Jack Maruskin,,0,Baltimore Orioles signed free agent RHP Jack Maruskin to a minor league contract.
+2023-07-19,signed_other,in,Teddy Sharkey,,0,Baltimore Orioles signed RHP Teddy Sharkey.
+2023-07-19,signed_other,in,Levi Wells,,0,Baltimore Orioles signed RHP Levi Wells.
+2023-07-19,signed_other,in,Jalen Vasquez,,0,Baltimore Orioles signed SS Jalen Vasquez.
+2023-07-19,signed_other,in,Cole Urman,,0,Baltimore Orioles signed C Cole Urman.
+2023-07-19,signed_other,in,Tavian Josenberger,,0,Baltimore Orioles signed OF Tavian Josenberger.
+2023-07-19,signed_other,in,Kiefer Lord,,0,Baltimore Orioles signed RHP Kiefer Lord.
+2023-07-19,signed_other,in,Zach Fruit,,0,Baltimore Orioles signed RHP Zach Fruit.
+2023-07-19,signed_other,in,Blake Money,,0,Baltimore Orioles signed RHP Blake Money.
+2023-07-19,signed_other,in,Matthew Etzel,,0,Baltimore Orioles signed OF Matthew Etzel.
+2023-07-19,signed_other,in,Braxton Bragg,,0,Baltimore Orioles signed RHP Braxton Bragg.
+2023-07-19,signed_other,in,Jake Cunningham,,0,Baltimore Orioles signed OF Jake Cunningham.
+2023-07-19,signed_other,in,Zane Barnhart,,0,Baltimore Orioles signed RHP Zane Barnhart.
+2023-07-19,signed_other,in,Riley Cooper,,0,Baltimore Orioles signed LHP Riley Cooper.
+2023-07-19,signed_other,in,Nestor German,,0,Baltimore Orioles signed RHP Nestor German.
+2023-07-19,signed_other,in,Jacob Cravey,,0,Baltimore Orioles signed RHP Jacob Cravey.
+2023-07-19,trade,both,Shintaro Fujinami,Easton Lucas,0,Oakland Athletics traded RHP Shintaro Fujinami to Baltimore Orioles for LHP Easton Lucas.
+2023-07-22,fa_minor,in,T.J. McFarland,,0,Baltimore Orioles signed free agent LHP T.J. McFarland to a minor league contract.
+2023-07-25,signed_other,in,Jackson Baumeister,,0,Baltimore Orioles signed RHP Jackson Baumeister.
+2023-07-25,signed_other,in,Michael Forret,,0,Baltimore Orioles signed RHP Michael Forret.
+2023-08-01,trade,both,Jack Flaherty,César Prieto; Drew Rom; Zack Showalter,0,"St. Louis Cardinals traded RHP Jack Flaherty to Baltimore Orioles for 2B César Prieto, LHP Drew Rom and RHP Zack Showalter."
+2023-08-01,trade,both,Logan Rinehart,Eduard Bazardo,0,Baltimore Orioles traded RHP Eduard Bazardo to Seattle Mariners for RHP Logan Rinehart.
+2023-08-03,fa_minor,in,Joe Kemlage,,0,Baltimore Orioles signed free agent LHP Joe Kemlage to a minor league contract.
+2023-08-03,trade,both,Luis Barroso,,1,Kansas City Royals traded RHP Luis Barroso to Baltimore Orioles for cash.
+2023-08-04,fa_minor,in,Jeyderson Mora,,0,Baltimore Orioles signed free agent RHP Jeyderson Mora to a minor league contract.
+2023-08-07,waiver_claim,in,Jacob Webb,,0,Baltimore Orioles claimed RHP Jacob Webb off waivers from Los Angeles Angels.
+2023-08-09,fa_minor,in,Trey Gibson,,0,Baltimore Orioles signed free agent RHP Trey Gibson to a minor league contract.
+2023-08-19,passive_loss,out,,Mychal Givens,0,Baltimore Orioles released RHP Mychal Givens.
+2023-09-02,waiver_claim,in,Jorge López,,0,Baltimore Orioles claimed RHP Jorge López off waivers from Miami Marlins.
+2023-09-04,waiver_loss,out,,Logan Gillaspie,0,Boston Red Sox claimed RHP Logan Gillaspie off waivers from Baltimore Orioles.
+2023-09-15,fa_minor,in,Albert Suárez,,0,Baltimore Orioles signed free agent RHP Albert Suárez to a minor league contract.
+2023-10-04,passive_loss,out,,Jorge López,0,RHP Jorge López elected free agency.
+2023-10-06,fa_minor,in,Luis González,,0,Baltimore Orioles signed free agent LHP Luis González to a minor league contract.
+2023-10-13,fa_minor,in,Guachi  Jules,,0,Baltimore Orioles signed free agent RHP Guachi  Jules to a minor league contract.
+2023-10-23,fa_minor,in,Nate Webb,,0,Baltimore Orioles signed free agent RHP Nathan Webb to a minor league contract.
+2023-10-25,waiver_claim,in,Tucker Davidson,,0,Baltimore Orioles claimed LHP Tucker Davidson off waivers from Kansas City Royals.
+2023-11-01,waiver_claim,in,Sam Hilliard,,0,Baltimore Orioles claimed RF Sam Hilliard off waivers from Atlanta Braves.
+2023-11-02,passive_loss,out,,Shintaro Fujinami,0,RHP Shintaro Fujinami elected free agency.
+2023-11-02,passive_loss,out,,Aaron Hicks,0,CF Aaron Hicks elected free agency.
+2023-11-02,passive_loss,out,,Jack Flaherty,0,RHP Jack Flaherty elected free agency.
+2023-11-02,passive_loss,out,,Adam Frazier,0,2B Adam Frazier elected free agency.
+2023-11-02,passive_loss,out,,Kyle Gibson,0,RHP Kyle Gibson elected free agency.
+2023-11-09,fa_minor,in,Adrian Heredia,,0,Baltimore Orioles signed free agent RHP Adrian Heredia to a minor league contract.
+2023-11-10,fa_minor,in,Andy Tena,,0,Baltimore Orioles signed free agent LHP Andy Tena to a minor league contract.
+2023-11-21,fa_minor,in,Jakob Hernandez,,0,Baltimore Orioles signed free agent LHP Jakob Hernandez to a minor league contract.
+2023-12-01,fa_minor,in,Jordan Sanchez,,0,Baltimore Orioles signed free agent OF Jordan Sanchez to a minor league contract.
+2023-12-02,fa_minor,in,Santhony Vizcaino,,0,Baltimore Orioles signed free agent RHP Santhony Vizcaino to a minor league contract.
+2023-12-02,fa_minor,in,Andy Fabian,,0,Baltimore Orioles signed free agent LHP Andy Fabian to a minor league contract.
+2023-12-06,fa_major,in,Craig Kimbrel,,0,Baltimore Orioles signed free agent RHP Craig Kimbrel.
+2023-12-12,fa_minor,in,Wandisson Charles,,0,Baltimore Orioles signed free agent RHP Wandisson Charles to a minor league contract.
+2023-12-18,trade,both,Jonathan Heasley,Cesar Espinal,0,Kansas City Royals traded RHP Jonathan Heasley to Baltimore Orioles for RHP Cesar Espinal.
+2023-12-30,fa_minor,in,Michael Pérez,,0,Baltimore Orioles signed free agent C Michael Perez to a minor league contract.
+2023-12-30,fa_minor,in,David Bañuelos,,0,Baltimore Orioles signed free agent C David Bañuelos to a minor league contract.
+2024-01-04,fa_minor,in,Dominic Freeberger,,0,Baltimore Orioles signed free agent 3B Dominic Freeberger to a minor league contract.
+2024-01-10,fa_minor,in,Errol Robinson,,0,Baltimore Orioles signed free agent SS Errol Robinson to a minor league contract.
+2024-01-15,fa_minor,in,Elvin Garcia,,0,Baltimore Orioles signed free agent SS Elvin Garcia to a minor league contract.
+2024-01-15,fa_minor,in,Christian Astudillo,,0,Baltimore Orioles signed free agent C Christian Astudillo to a minor league contract.
+2024-01-15,fa_minor,in,Enmanuel Corniel,,0,Baltimore Orioles signed free agent OF Enmanuel Corniel to a minor league contract.
+2024-01-15,fa_minor,in,Argenis Valdez,,0,Baltimore Orioles signed free agent OF Argenis Valdez to a minor league contract.
+2024-01-15,fa_minor,in,Cleudis Valenzuela,,0,Baltimore Orioles signed free agent SS Cleudis Valenzuela to a minor league contract.
+2024-01-15,fa_minor,in,Anthwan Brea,,0,Baltimore Orioles signed free agent OF Anthwan Brea to a minor league contract.
+2024-01-15,fa_minor,in,Alexander Rincon,,0,Baltimore Orioles signed free agent OF Alexander Rincon to a minor league contract.
+2024-01-15,fa_minor,in,Victor Santos,,0,Baltimore Orioles signed free agent LHP Victor Santos to a minor league contract.
+2024-01-15,fa_minor,in,Emilio Sanchez,,0,Baltimore Orioles signed free agent SS Emilio Sanchez to a minor league contract.
+2024-01-15,fa_minor,in,Esteban Mejia,,0,Baltimore Orioles signed free agent RHP Esteban Mejia to a minor league contract.
+2024-01-15,fa_minor,in,Frainner Chirinos,,0,Baltimore Orioles signed free agent SS Frainner Chirinos to a minor league contract.
+2024-01-15,fa_minor,in,Juan Garcia,,0,Baltimore Orioles signed free agent C Juan Garcia to a minor league contract.
+2024-01-15,fa_minor,in,Stiven Martinez,,0,Baltimore Orioles signed free agent OF Stiven Martinez to a minor league contract.
+2024-01-15,fa_minor,in,Jemone Nuel,,0,Baltimore Orioles signed free agent SS Jemone Nuel to a minor league contract.
+2024-01-15,fa_minor,in,Saul Gomez,,0,Baltimore Orioles signed free agent 3B Saul Gomez to a minor league contract.
+2024-01-15,fa_minor,in,Hector Campusano,,0,Baltimore Orioles signed free agent SS Hector Campusano to a minor league contract.
+2024-01-15,fa_minor,in,Luis Espinoza,,0,Baltimore Orioles signed free agent RHP Luis Espinoza to a minor league contract.
+2024-01-15,fa_minor,in,Angel Garcia,,0,Baltimore Orioles signed free agent OF Angel Garcia to a minor league contract.
+2024-01-22,fa_minor,in,Robinson Javier,,0,Baltimore Orioles signed free agent RHP Robinson Javier to a minor league contract.
+2024-01-22,fa_minor,in,Salvador Casado,,0,Baltimore Orioles signed free agent RHP Salvador Casado to a minor league contract.
+2024-01-22,trade,both,Tyler Nevin,,1,Detroit Tigers traded 3B Tyler Nevin to Baltimore Orioles for cash.
+2024-01-23,fa_minor,in,Daniel Johnson,,0,Baltimore Orioles signed free agent RF Daniel Johnson to a minor league contract.
+2024-01-25,fa_minor,in,Ronald Guzmán,,0,Baltimore Orioles signed free agent LHP Ronald Guzmán to a minor league contract.
+2024-01-30,fa_minor,in,Andrew Suárez,,0,Baltimore Orioles signed free agent LHP Andrew Suárez to a minor league contract.
+2024-02-01,trade,both,Corbin Burnes,DL Hall; Joey Ortiz,2,"Milwaukee Brewers traded RHP Corbin Burnes to Baltimore Orioles for SS Joey Ortiz, LHP DL Hall and Future Considerations."
+2024-02-07,trade,both,Nick Maton,,1,Detroit Tigers traded SS Nick Maton to Baltimore Orioles for cash.
+2024-02-08,waiver_claim,in,Livan Soto,,0,Baltimore Orioles claimed SS Livan Soto off waivers from Los Angeles Angels.
+2024-02-14,trade,both,Peyton Burdick,,1,Miami Marlins traded CF Peyton Burdick to Baltimore Orioles for cash.
+2024-02-16,waiver_claim,in,Diego Castillo,,0,Baltimore Orioles claimed SS Diego Castillo off waivers from Philadelphia Phillies.
+2024-02-18,waiver_loss,out,,Livan Soto,0,Los Angeles Angels claimed SS Livan Soto off waivers from Baltimore Orioles.
+2024-02-18,trade,both,Matt Krook,,1,New York Yankees traded LHP Matt Krook to Baltimore Orioles for cash.
+2024-02-19,trade,both,Kaleb Ort,,1,Philadelphia Phillies traded RHP Kaleb Ort to Baltimore Orioles for cash.
+2024-02-21,fa_minor,in,Esteban Luna,,0,Baltimore Orioles signed free agent RHP Esteban Luna to a minor league contract.
+2024-02-23,waiver_loss,out,,Peyton Burdick,0,Chicago White Sox claimed CF Peyton Burdick off waivers from Baltimore Orioles.
+2024-02-28,fa_minor,in,Kolten Wong,,0,Baltimore Orioles signed free agent 2B Kolten Wong to a minor league contract and invited him to spring training.
+2024-02-28,fa_minor,in,Julio Teheran,,0,Baltimore Orioles signed free agent RHP Julio Teheran to a minor league contract and invited him to spring training.
+2024-02-28,waiver_loss,out,,Sam Hilliard,0,Colorado Rockies claimed RF Sam Hilliard off waivers from Baltimore Orioles.
+2024-03-16,waiver_claim,in,Peyton Burdick,,0,Baltimore Orioles claimed CF Peyton Burdick off waivers from Chicago White Sox.
+2024-03-22,fa_minor,in,Jiorgeny Casimiri,,0,Baltimore Orioles signed free agent RHP Jiorgeny Casimiri to a minor league contract.
+2024-03-26,fa_major,in,Tony Kemp,,0,Baltimore Orioles signed free agent LF Tony Kemp.
+2024-03-31,waiver_loss,out,,Tyler Nevin,0,Oakland Athletics claimed 3B Tyler Nevin off waivers from Baltimore Orioles.
+2024-04-05,trade,both,,Diego Castillo,1,Baltimore Orioles traded SS Diego Castillo to Minnesota Twins for cash.
+2024-04-11,waiver_claim,in,Livan Soto,,0,Baltimore Orioles claimed SS Livan Soto off waivers from Los Angeles Angels.
+2024-04-11,trade,both,Yohan Ramírez,,1,New York Mets traded RHP Yohan Ramírez to Baltimore Orioles for cash.
+2024-04-13,passive_loss,out,,Tony Kemp,0,LF Tony Kemp elected free agency.
+2024-04-19,waiver_loss,out,,Livan Soto,0,Cincinnati Reds claimed SS Livan Soto off waivers from Baltimore Orioles.
+2024-04-24,waiver_loss,out,,Peyton Burdick,0,Cincinnati Reds claimed CF Peyton Burdick off waivers from Baltimore Orioles.
+2024-05-06,waiver_loss,out,,Yohan Ramírez,0,New York Mets claimed RHP Yohan Ramírez off waivers from Baltimore Orioles.
+2024-05-13,waiver_claim,in,Corbin Martin,,0,Baltimore Orioles claimed RHP Corbin Martin off waivers from Milwaukee Brewers.
+2024-05-13,waiver_claim,in,Corbin Martin,,0,Baltimore Orioles claimed RHP Corbin Martin off waivers from Milwaukee Brewers.
+2024-05-18,waiver_loss,out,,Ryan McKenna,0,San Francisco Giants claimed CF Ryan McKenna off waivers from Baltimore Orioles.
+2024-05-22,trade,both,Blake Hunt,Michael Pérez; Mike Baumann,0,Seattle Mariners traded C Blake Hunt to Baltimore Orioles for RHP Mike Baumann and C Michael Pérez.
+2024-05-25,trade,both,Aneuris Rodriguez; Thyago Vieira,Garrett Stallings,0,Milwaukee Brewers traded RHP Thyago Vieira and RHP Aneuris Rodriguez to Baltimore Orioles for RHP Garrett Stallings.
+2024-05-28,waiver_loss,out,,Kaleb Ort,0,Houston Astros claimed RHP Kaleb Ort off waivers from Baltimore Orioles.
+2024-06-01,fa_minor,in,Esmerlyn Valenzuela,,0,Baltimore Orioles signed free agent RHP Esmerlyn Valenzuela to a minor league contract.
+2024-06-04,fa_minor,in,Julio Teheran,,0,Baltimore Orioles signed free agent RHP Julio Teheran to a minor league contract.
+2024-06-04,fa_minor,in,Lincoln Henzman,,0,Baltimore Orioles signed free agent RHP Lincoln Henzman to a minor league contract.
+2024-06-06,fa_minor,in,Cody Scroggins,,0,Baltimore Orioles signed free agent RHP Cody Scroggins to a minor league contract.
+2024-06-06,waiver_loss,out,,Thyago Vieira,0,Arizona Diamondbacks claimed RHP Thyago Vieira off waivers from Baltimore Orioles.
+2024-06-13,waiver_claim,in,Levi Stoudt,,0,Baltimore Orioles claimed RHP Levi Stoudt off waivers from Seattle Mariners.
+2024-06-14,fa_minor,in,Cooper McKeehan,,0,Baltimore Orioles signed free agent LHP Cooper McKeehan to a minor league contract.
+2024-06-17,waiver_claim,in,Nick Avila,,0,Baltimore Orioles claimed RHP Nick Avila off waivers from San Francisco Giants.
+2024-06-25,fa_minor,in,Garrett Cooper,,0,Baltimore Orioles signed free agent 1B Garrett Cooper to a minor league contract.
+2024-06-25,fa_minor,in,Reykelly Rubi,,0,Baltimore Orioles signed free agent LHP Reykelly Rubi to a minor league contract.
+2024-06-27,fa_minor,in,Niko Goodrum,,0,Baltimore Orioles signed free agent 1B Niko Goodrum to a minor league contract.
+2024-06-27,fa_minor,in,Burch Smith,,0,Baltimore Orioles signed free agent RHP Burch Smith to a minor league contract.
+2024-07-01,fa_minor,in,Niko Goodrum,,0,Baltimore Orioles signed free agent 1B Niko Goodrum to a minor league contract.
+2024-07-02,fa_minor,in,Vinny Nittoli,,0,Baltimore Orioles signed free agent RHP Vinny Nittoli to a minor league contract.
+2024-07-03,fa_minor,in,Justin Showalter,,0,Baltimore Orioles signed free agent RHP Justin Showalter to a minor league contract.
+2024-07-10,fa_minor,in,Harlin Naut,,0,Baltimore Orioles signed free agent Harlin Naut to a minor league contract.
+2024-07-11,trade,both,Colin Selby,,1,Kansas City Royals traded RHP Colin Selby to Baltimore Orioles for cash.
+2024-07-12,fa_minor,in,David De Los Santos,,0,Baltimore Orioles signed free agent RHP David De Los Santos to a minor league contract.
+2024-07-19,signed_other,in,Ethan Anderson,,0,Baltimore Orioles signed C Ethan Anderson.
+2024-07-19,signed_other,in,Griff O'Ferrall,,0,Baltimore Orioles signed SS Griff O'Ferrall.
+2024-07-19,signed_other,in,Jack Crowder,,0,Baltimore Orioles signed RHP Jack Crowder.
+2024-07-23,signed_other,in,Michael Caldon,,0,Baltimore Orioles signed RHP Michael Caldon.
+2024-07-23,signed_other,in,Carson Dorsey,,0,Baltimore Orioles signed LHP Carson Dorsey.
+2024-07-23,signed_other,in,Trent Turzenski,,0,Baltimore Orioles signed RHP Trent Turzenski.
+2024-07-23,signed_other,in,Sebastian Gongora,,0,Baltimore Orioles signed LHP Sebastian Gongora.
+2024-07-23,signed_other,in,Christian Rodriguez,,0,Baltimore Orioles signed RHP Christian Rodriguez.
+2024-07-23,signed_other,in,Jacob Stretch,,0,Baltimore Orioles signed RHP Jacob Stretch.
+2024-07-23,fa_minor,in,Kenny Leiner,,0,Baltimore Orioles signed free agent RHP Kenny Leiner to a minor league contract.
+2024-07-23,signed_other,in,Chipper Menard,,0,Baltimore Orioles signed LHP Chipper Menard.
+2024-07-23,signed_other,in,Chase Allsup,,0,Baltimore Orioles signed RHP Chase Allsup.
+2024-07-23,fa_minor,in,Joe Glassey,,0,Baltimore Orioles signed free agent RHP Joe Glassey to a minor league contract.
+2024-07-23,signed_other,in,Steven Ondina,,0,Baltimore Orioles signed SS Steven Ondina.
+2024-07-23,fa_minor,in,Alex Ramos,,0,Baltimore Orioles signed free agent RHP Alex Ramos to a minor league contract.
+2024-07-23,signed_other,in,Cohen Achen,,0,Baltimore Orioles signed RHP Cohen Achen.
+2024-07-23,signed_other,in,Austin Overn,,0,Baltimore Orioles signed OF Austin Overn.
+2024-07-23,signed_other,in,Colin Tuft,,0,Baltimore Orioles signed C Colin Tuft.
+2024-07-23,signed_other,in,Braylon Whitaker,,0,Baltimore Orioles signed OF Braylon Whitaker.
+2024-07-23,signed_other,in,Ryan Stafford,,0,Baltimore Orioles signed C Ryan Stafford.
+2024-07-23,signed_other,in,Christian Herberholz,,0,Baltimore Orioles signed RHP Christian Herberholz.
+2024-07-25,passive_loss,out,,Jonathan Heasley,0,Baltimore Orioles released RHP Jonathan Heasley.
+2024-07-26,trade,both,Zach Eflin,Jackson Baumeister; Mac Horvath; Matthew Etzel,0,"Tampa Bay Rays traded RHP Zach Eflin to Baltimore Orioles for RHP Jackson Baumeister, OF Matthew Etzel and OF Mac Horvath."
+2024-07-26,trade,both,Cristian Pache; Seranthony Domínguez,Austin Hays,0,Baltimore Orioles traded RF Austin Hays to Philadelphia Phillies for RHP Seranthony Domínguez and CF Cristian Pache.
+2024-07-29,signed_other,in,DJ Layton,,0,Baltimore Orioles signed SS DJ Layton.
+2024-07-29,signed_other,in,Andrew Tess,,0,Baltimore Orioles signed C Andrew Tess.
+2024-07-29,fa_minor,in,Ben Vespi,,0,Baltimore Orioles signed free agent RHP Ben Vespi to a minor league contract.
+2024-07-29,signed_other,in,Brandon Downer,,0,Baltimore Orioles signed RHP Brandon Downer.
+2024-07-29,fa_minor,in,Ryan Cabarcas,,0,Baltimore Orioles signed free agent LHP Ryan Cabarcas to a minor league contract.
+2024-07-29,signed_other,in,Evan Yates,,0,Baltimore Orioles signed RHP Evan Yates.
+2024-07-29,signed_other,in,Carter Rustad,,0,Baltimore Orioles signed RHP Carter Rustad.
+2024-07-30,trade,both,Eloy Jiménez,Trey McGough,1,Chicago White Sox traded LF Eloy Jiménez and cash to Baltimore Orioles for LHP Trey McGough.
+2024-07-30,trade,both,Gregory Soto,Moisés Chace; Seth Johnson,0,Philadelphia Phillies traded LHP Gregory Soto to Baltimore Orioles for RHP Seth Johnson and RHP Moisés Chace.
+2024-07-30,trade,both,Patrick Reilly,Billy Cook,0,Baltimore Orioles traded OF Billy Cook to Pittsburgh Pirates for RHP Patrick Reilly.
+2024-07-30,trade,both,Trevor Rogers,Connor Norby; Kyle Stowers,0,Miami Marlins traded LHP Trevor Rogers to Baltimore Orioles for 2B Connor Norby and CF Kyle Stowers.
+2024-07-30,trade,both,Austin Slater; Livan Soto,,2,"Cincinnati Reds traded LF Austin Slater, SS Livan Soto and cash to Baltimore Orioles for Player To Be Named Later."
+2024-08-01,signed_other,in,Iziah Salinas,,0,Baltimore Orioles signed LHP Iziah Salinas.
+2024-08-01,passive_loss,out,,Vinny Nittoli,0,RHP Vinny Nittoli elected free agency.
+2024-08-01,signed_other,in,Vance Honeycutt,,0,Baltimore Orioles signed OF Vance Honeycutt.
+2024-08-01,signed_other,in,Nate George,,0,Baltimore Orioles signed OF Nate George.
+2024-08-02,waiver_loss,out,,Cristian Pache,0,Miami Marlins claimed CF Cristian Pache off waivers from Baltimore Orioles.
+2024-08-07,fa_minor,in,J.D. Davis,,0,Baltimore Orioles signed free agent 3B J.D. Davis to a minor league contract.
+2024-08-09,fa_minor,in,Jean Segura,,0,Baltimore Orioles signed free agent SS Jean Segura to a minor league contract.
+2024-08-09,trade,both,,Ryan Watson,1,Baltimore Orioles traded RHP Ryan Watson to San Francisco Giants for cash.
+2024-08-15,fa_minor,in,Matt Bowman,,0,Baltimore Orioles signed free agent RHP Matt Bowman to a minor league contract.
+2024-08-21,waiver_claim,in,Emmanuel Rivera,,0,Baltimore Orioles claimed 3B Emmanuel Rivera off waivers from Miami Marlins.
+2024-08-23,waiver_loss,out,,Terrin Vavra,0,Seattle Mariners claimed SS Terrin Vavra off waivers from Baltimore Orioles.
+2024-08-25,waiver_claim,in,Brooks Kriske,,0,Baltimore Orioles claimed RHP Brooks Kriske off waivers from Cincinnati Reds.
+2024-08-26,passive_loss,out,,Nick Avila,0,Baltimore Orioles released RHP Nick Avila.
+2024-08-28,waiver_claim,in,Forrest Wall,,0,Baltimore Orioles claimed 2B Forrest Wall off waivers from Miami Marlins.
+2024-08-29,fa_minor,in,Nick Anderson,,0,Baltimore Orioles signed free agent RHP Nick Anderson to a minor league contract.
+2024-08-31,fa_minor,in,Adrian Houser,,0,Baltimore Orioles signed free agent RHP Adrian Houser to a minor league contract.
+2024-09-01,waiver_loss,out,,Dillon Tate,0,Toronto Blue Jays claimed RHP Dillon Tate off waivers from Baltimore Orioles.
+2024-09-07,fa_minor,in,Terrin Vavra,,0,Baltimore Orioles signed free agent 2B Terrin Vavra to a minor league contract.
+2024-09-16,waiver_loss,out,,Cole Irvin,0,Minnesota Twins claimed LHP Cole Irvin off waivers from Baltimore Orioles.
+2024-09-24,passive_loss,out,,Craig Kimbrel,0,Baltimore Orioles released RHP Craig Kimbrel.
+2024-10-07,passive_loss,out,,Tucker Davidson,0,LHP Tucker Davidson elected free agency.
+2024-10-31,passive_loss,out,,Anthony Santander,0,RF Anthony Santander elected free agency.
+2024-10-31,passive_loss,out,,Brooks Kriske,0,RHP Brooks Kriske elected free agency.
+2024-10-31,fa_minor,in,Yaramil Hiraldo,,0,Baltimore Orioles signed free agent RHP Yaramil Hiraldo to a minor league contract.
+2024-10-31,passive_loss,out,,Austin Slater,0,RF Austin Slater elected free agency.
+2024-10-31,passive_loss,out,,James McCann,0,C James McCann elected free agency.
+2024-10-31,passive_loss,out,,John Means,0,LHP John Means elected free agency.
+2024-10-31,passive_loss,out,,Corbin Burnes,0,RHP Corbin Burnes elected free agency.
+2024-10-31,passive_loss,out,,Burch Smith,0,RHP Burch Smith elected free agency.
+2024-10-31,trade,both,Daz Cameron,,1,Oakland Athletics traded LF Daz Cameron to Baltimore Orioles for cash.
+2024-11-01,fa_minor,in,Rodolfo Martinez,,0,Baltimore Orioles signed free agent RHP Rodolfo Martinez to a minor league contract.
+2024-11-02,passive_loss,out,,Eloy Jiménez,0,DH Eloy Jiménez elected free agency.
+2024-11-04,passive_loss,out,,Danny Coulombe,0,LHP Danny Coulombe elected free agency.
+2024-11-04,waiver_claim,in,René Pinto,,0,Baltimore Orioles claimed C René Pinto off waivers from Tampa Bay Rays.
+2024-11-04,waiver_claim,in,Thaddeus Ward,,0,Baltimore Orioles claimed RHP Thaddeus Ward off waivers from Washington Nationals.
+2024-11-13,fa_minor,in,Vimael Machín,,0,Baltimore Orioles signed free agent SS Vimael Machín to a minor league contract.
+2024-11-14,fa_minor,in,Robinson Martínez,,0,Baltimore Orioles signed free agent RHP Robinson Martínez to a minor league contract.
+2024-11-22,passive_loss,out,,Jacob Webb,0,RHP Jacob Webb elected free agency.
+2024-11-25,fa_minor,in,Franklin Barreto,,0,Baltimore Orioles signed free agent OF Franklin Barreto to a minor league contract.
+2024-11-25,fa_minor,in,Raúl Alcantara,,0,Baltimore Orioles signed free agent LHP Raúl Alcantara to a minor league contract.
+2024-11-25,fa_minor,in,Jeremiah Jackson,,0,Baltimore Orioles signed free agent 2B Jeremiah Jackson to a minor league contract.
+2024-12-10,fa_major,in,Tyler O'Neill,,0,Baltimore Orioles signed free agent LF Tyler O'Neill.
+2024-12-10,fa_major,in,Gary Sánchez,,0,Baltimore Orioles signed free agent C Gary Sánchez.
+2024-12-11,rule5,out,,Juan Nuñez,0,San Diego Padres purchased contract of RHP Juan Nuñez from Baltimore Orioles in the Rule 5 Draft.
+2024-12-16,fa_major,in,Tomoyuki Sugano,,0,Baltimore Orioles signed free agent RHP Tomoyuki Sugano.
+2024-12-23,fa_minor,in,Gerald Ogando,,0,Baltimore Orioles signed free agent RHP Gerald Ogando to a minor league contract.
+2024-12-23,fa_minor,in,Jordyn Adams,,0,Baltimore Orioles signed free agent RF Jordyn Adams to a minor league contract.
+2024-12-23,fa_minor,in,Matt Bowman,,0,Baltimore Orioles signed free agent RHP Matt Bowman to a minor league contract.
+2024-12-31,fa_minor,in,Nick Gordon,,0,Baltimore Orioles signed free agent LF Nick Gordon to a minor league contract.
+2025-01-03,fa_major,in,Charlie Morton,,0,Baltimore Orioles signed free agent RHP Charlie Morton.
+2025-01-10,waiver_claim,in,Roansy Contreras,,0,Baltimore Orioles claimed RHP Roansy Contreras off waivers from Cincinnati Reds.
+2025-01-10,waiver_loss,out,,René Pinto,0,Arizona Diamondbacks claimed C René Pinto off waivers from Baltimore Orioles.
+2025-01-13,fa_major,in,Andrew Kittredge,,0,Baltimore Orioles signed free agent RHP Andrew Kittredge.
+2025-01-15,fa_minor,in,Yunior Villavicencio,,0,Baltimore Orioles signed free agent LHP Yunior Villavicencio to a minor league contract.
+2025-01-15,fa_minor,in,Victor Saez,,0,Baltimore Orioles signed free agent C Victor Saez to a minor league contract.
+2025-01-15,fa_minor,in,Ricardo Chirinos,,0,Baltimore Orioles signed free agent C Ricardo Chirinos to a minor league contract.
+2025-01-15,fa_minor,in,Kelvin Zapata,,0,Baltimore Orioles signed free agent LHP Kelvin Zapata to a minor league contract.
+2025-01-15,fa_minor,in,Laurens Sosa,,0,Baltimore Orioles signed free agent RHP Laurens Sosa to a minor league contract.
+2025-01-15,fa_minor,in,Manuel Vasquez,,0,Baltimore Orioles signed free agent C Manuel Vasquez to a minor league contract.
+2025-01-15,fa_minor,in,Johanse Gomez,,0,Baltimore Orioles signed free agent OF Johanse Gomez to a minor league contract.
+2025-01-15,fa_minor,in,Frandy Guillen,,0,Baltimore Orioles signed free agent SS Frandy Guillen to a minor league contract.
+2025-01-15,fa_minor,in,Emmanuel Pena,,0,Baltimore Orioles signed free agent RHP Emmanuel Pena to a minor league contract.
+2025-01-15,fa_minor,in,Lisandro Sanchez,,0,Baltimore Orioles signed free agent OF Lisandro Sanchez to a minor league contract.
+2025-01-15,fa_minor,in,Meykel Baro,,0,Baltimore Orioles signed free agent SS Meykel Baro to a minor league contract.
+2025-01-15,fa_minor,in,Rayner Herrera,,0,Baltimore Orioles signed free agent OF Rayner Herrera to a minor league contract.
+2025-01-15,fa_minor,in,Jorge Drullard,,0,Baltimore Orioles signed free agent SS Jorge Drullard to a minor league contract.
+2025-01-15,fa_minor,in,Ronald Terrero,,0,Baltimore Orioles signed free agent SS Ronald Terrero to a minor league contract.
+2025-01-15,fa_major,in,Jose Flores,,0,Baltimore Orioles signed C Jose Flores.
+2025-01-15,fa_minor,in,Benjamin Vasquez,,0,Baltimore Orioles signed free agent RHP Benjamin Vasquez to a minor league contract.
+2025-01-15,fa_minor,in,Darling Valencio,,0,Baltimore Orioles signed free agent LHP Darling Valencio to a minor league contract.
+2025-01-15,fa_minor,in,Fabian Cordero,,0,Baltimore Orioles signed free agent LHP Fabian Cordero to a minor league contract.
+2025-01-15,fa_minor,in,José Peña,,0,Baltimore Orioles signed free agent SS José Peña to a minor league contract.
+2025-01-15,fa_minor,in,Samuel Teran,,0,Baltimore Orioles signed free agent RHP Samuel Teran to a minor league contract.
+2025-01-15,fa_minor,in,Yeison Acosta,,0,Baltimore Orioles signed free agent C Yeison Acosta to a minor league contract.
+2025-01-15,fa_minor,in,Alexander Diaz,,0,Baltimore Orioles signed free agent RHP Alexander Diaz to a minor league contract.
+2025-01-15,trade,both,,Blake Hunt,1,Baltimore Orioles traded C Blake Hunt to Seattle Mariners for cash.
+2025-01-16,waiver_claim,in,Jacob Amaya,,0,Baltimore Orioles claimed SS Jacob Amaya off waivers from Chicago White Sox.
+2025-01-23,waiver_loss,out,,Roansy Contreras,0,New York Yankees claimed RHP Roansy Contreras off waivers from Baltimore Orioles.
+2025-01-27,fa_major,in,Dylan Carlson,,0,Baltimore Orioles signed free agent LF Dylan Carlson.
+2025-01-31,trade,both,Luis Vázquez,,1,Chicago Cubs traded SS Luis Vazquez to Baltimore Orioles for cash.
+2025-02-03,waiver_loss,out,,Jacob Amaya,0,Chicago White Sox claimed SS Jacob Amaya off waivers from Baltimore Orioles.
+2025-02-04,fa_major,in,Ramón Laureano,,0,Baltimore Orioles signed free agent RF Ramón Laureano.
+2025-02-05,fa_minor,in,Terrin Vavra,,0,Baltimore Orioles signed free agent 2B Terrin Vavra to a minor league contract.
+2025-02-07,waiver_claim,in,Roansy Contreras,,0,Baltimore Orioles claimed RHP Roansy Contreras off waivers from New York Yankees.
+2025-02-10,fa_minor,in,Dylan Coleman,,0,Baltimore Orioles signed free agent RHP Dylan Coleman to a minor league contract and invited him to spring training.
+2025-03-22,fa_major,in,Kyle Gibson,,0,Baltimore Orioles signed free agent RHP Kyle Gibson.
+2025-03-24,fa_minor,in,Roynel Confidente,,0,Baltimore Orioles signed free agent RHP Roynel Confidente to a minor league contract.
+2025-03-24,fa_minor,in,Jainer Marmolejos,,0,Baltimore Orioles signed free agent RHP Jainer Marmolejos to a minor league contract.
+2025-03-29,trade,both,Cody Poteet,,1,Chicago Cubs traded RHP Cody Poteet to Baltimore Orioles for cash.
+2025-04-05,trade,both,,Nick Gordon,1,Baltimore Orioles traded 2B Nick Gordon to Kansas City Royals for cash.
+2025-04-07,trade,both,Grant Wolfram,Daz Cameron,2,Baltimore Orioles traded LF Daz Cameron and cash to Milwaukee Brewers for LHP Grant Wolfram.
+2025-04-13,fa_minor,in,Chadwick Tromp,,0,Baltimore Orioles signed free agent C Chadwick Tromp to a minor league contract.
+2025-04-14,waiver_claim,in,Scott Blewett,,0,Baltimore Orioles claimed RHP Scott Blewett off waivers from Minnesota Twins.
+2025-04-15,passive_loss,out,,Luis González,0,Baltimore Orioles released LHP Luis González.
+2025-04-20,trade,both,,Scott Blewett,1,Baltimore Orioles traded RHP Scott Blewett to Atlanta Braves for cash.
+2025-04-28,fa_minor,in,Starlin Mieses,,0,Baltimore Orioles signed free agent OF Starlin Mieses to a minor league contract.
+2025-04-28,waiver_claim,in,Walter Pennington,,0,Baltimore Orioles claimed LHP Walter Pennington off waivers from Texas Rangers.
+2025-05-07,fa_minor,in,Ezequiel Sosa,,0,Baltimore Orioles signed free agent RHP Ezequiel Sosa to a minor league contract.
+2025-05-08,trade,both,Luis F. Castillo,,1,Seattle Mariners traded RHP Luis F. Castillo to Baltimore Orioles for cash.
+2025-05-14,fa_minor,in,Asael Arias,,0,Baltimore Orioles signed free agent RHP Asael Arias to a minor league contract.
+2025-05-16,fa_minor,in,Deimer Rodriguez,,0,Baltimore Orioles signed free agent Deimer Rodriguez to a minor league contract.
+2025-05-20,passive_loss,out,,Kyle Gibson,0,Baltimore Orioles released RHP Kyle Gibson.
+2025-05-21,fa_minor,in,Carlos Virla,,0,Baltimore Orioles signed free agent RHP Carlos Virla to a minor league contract.
+2025-05-22,fa_minor,in,Edwin Marte,,0,Baltimore Orioles signed free agent RHP Edwin Marte to a minor league contract.
+2025-05-25,fa_major,in,Cooper Hummel,,0,Baltimore Orioles signed free agent LF Cooper Hummel.
+2025-05-28,fa_minor,in,Angel De Jesus,,0,Baltimore Orioles signed free agent RHP Angel De Jesus to a minor league contract.
+2025-05-30,fa_major,in,Cooper Hummel,,0,Baltimore Orioles signed free agent LF Cooper Hummel.
+2025-06-03,fa_minor,in,Naykel Cruz,,0,Baltimore Orioles signed free agent LHP Naykel Cruz to a minor league contract.
+2025-06-03,fa_minor,in,Chadwick Tromp,,0,Baltimore Orioles signed free agent C Chadwick Tromp to a minor league contract.
+2025-06-06,fa_minor,in,Devin Kirby,,0,Baltimore Orioles signed free agent RHP Devin Kirby to a minor league contract.
+2025-06-06,trade,both,Scott Blewett,,1,Atlanta Braves traded RHP Scott Blewett to Baltimore Orioles for cash.
+2025-06-11,fa_minor,in,Sayer Diederich,,0,Baltimore Orioles signed free agent LHP Sayer Diederich to a minor league contract.
+2025-06-11,fa_minor,in,Junior Medina,,0,Baltimore Orioles signed free agent RHP Junior Medina to a minor league contract.
+2025-06-12,fa_minor,in,Alberto Arias,,0,Baltimore Orioles signed free agent LHP Alberto Arias to a minor league contract.
+2025-06-15,waiver_claim,in,Kyle Tyler,,0,Baltimore Orioles claimed RHP Kyle Tyler off waivers from Philadelphia Phillies.
+2025-06-18,fa_minor,in,Luis Andujar,,0,Baltimore Orioles signed free agent RHP Luis Andujar to a minor league contract.
+2025-06-19,fa_minor,in,Waner Perez,,0,Baltimore Orioles signed free agent RHP Waner Perez to a minor league contract.
+2025-06-19,fa_minor,in,Julio Ozoria,,0,Baltimore Orioles signed free agent RHP Julio Ozoria to a minor league contract.
+2025-06-19,fa_minor,in,Luis Sierra,,0,Baltimore Orioles signed free agent RHP Luis Sierra to a minor league contract.
+2025-06-20,fa_minor,in,Luis Perdomo,,0,Baltimore Orioles signed free agent C Luis Perdomo to a minor league contract.
+2025-06-24,fa_minor,in,Jacob Stallings,,0,Baltimore Orioles signed free agent C Jacob Stallings to a minor league contract.
+2025-06-27,fa_minor,in,Edgar Benitez,,0,Baltimore Orioles signed free agent RHP Edgar Benitez to a minor league contract.
+2025-06-30,fa_minor,in,David Medina,,0,Baltimore Orioles signed free agent RHP David Medina to a minor league contract.
+2025-06-30,fa_minor,in,Anderson Reyes,,0,Baltimore Orioles signed free agent RHP Anderson Reyes to a minor league contract.
+2025-07-01,passive_loss,out,,Kyle Tyler,0,RHP Kyle Tyler elected free agency.
+2025-07-02,fa_minor,in,José Barrero,,0,Baltimore Orioles signed free agent SS Jose Barrero to a minor league contract.
+2025-07-06,trade,both,Alex Jackson,,2,New York Yankees traded C Alex Jackson to Baltimore Orioles for Player To Be Named Later and cash.
+2025-07-10,trade,both,,Bryan Baker,1,Baltimore Orioles traded RHP Bryan Baker to Tampa Bay Rays for Draft Pick.
+2025-07-15,signed_other,in,Dalton Neuschwander,,0,Baltimore Orioles signed RHP Dalton Neuschwander.
+2025-07-15,signed_other,in,Kailen Hamson,,0,Baltimore Orioles signed LHP Kailen Hamson.
+2025-07-16,signed_other,in,Hunter Allen,,0,Baltimore Orioles signed RHP Hunter Allen.
+2025-07-16,waiver_claim,in,Elvin Rodríguez,,0,Baltimore Orioles claimed RHP Elvin Rodriguez off waivers from Milwaukee Brewers.
+2025-07-16,waiver_claim,in,Elvin Rodríguez,,0,Baltimore Orioles claimed RHP Elvin Rodriguez off waivers from Milwaukee Brewers.
+2025-07-17,passive_loss,out,,Corbin Martin,0,RHP Corbin Martin elected free agency.
+2025-07-18,signed_other,in,Ike Irish,,0,Baltimore Orioles signed C Ike Irish.
+2025-07-18,fa_major,in,Corbin Martin,,0,Baltimore Orioles signed free agent RHP Corbin Martin.
+2025-07-18,signed_other,in,Caden Bodine,,0,Baltimore Orioles signed C Caden Bodine.
+2025-07-19,signed_other,in,JT Quinn,,0,Baltimore Orioles signed RHP JT Quinn.
+2025-07-19,signed_other,in,Wehiwa Aloy,,0,Baltimore Orioles signed SS Wehiwa Aloy.
+2025-07-19,fa_minor,in,Joismer Sandoval,,0,Baltimore Orioles signed free agent RHP Joismer Sandoval to a minor league contract.
+2025-07-19,signed_other,in,Joseph Dzierwa,,0,Baltimore Orioles signed LHP Joseph Dzierwa.
+2025-07-21,signed_other,in,RJ Austin,,0,Baltimore Orioles signed OF RJ Austin.
+2025-07-21,signed_other,in,Cam Lee,,0,Baltimore Orioles signed OF Cam Lee.
+2025-07-21,signed_other,in,Colin Yeaman,,0,Baltimore Orioles signed SS Colin Yeaman.
+2025-07-21,signed_other,in,Caden Hunter,,0,Baltimore Orioles signed LHP Caden Hunter.
+2025-07-21,signed_other,in,Jaiden Lo Re,,0,Baltimore Orioles signed SS Jaiden Lo Re.
+2025-07-23,fa_minor,in,Vinny Nittoli,,0,Baltimore Orioles signed free agent RHP Vinny Nittoli to a minor league contract.
+2025-07-24,fa_minor,in,J.D. Hennen,,0,Baltimore Orioles signed free agent RHP J.D. Hennen to a minor league contract.
+2025-07-24,signed_other,in,Holden deJong,,0,Baltimore Orioles signed LHP Holden deJong.
+2025-07-24,signed_other,in,Brayden Smith,,0,Baltimore Orioles signed 2B Brayden Smith.
+2025-07-24,fa_minor,in,Isaac Silva,,0,Baltimore Orioles signed free agent RHP Isaac Silva to a minor league contract.
+2025-07-24,signed_other,in,Slater de Brun,,0,Baltimore Orioles signed OF Slater de Brun.
+2025-07-24,signed_other,in,Braeden Sloan,,0,Baltimore Orioles signed LHP Braeden Sloan.
+2025-07-24,fa_minor,in,Joephillip Guzman,,0,Baltimore Orioles signed free agent 2B Joephillip Guzman to a minor league contract.
+2025-07-24,signed_other,in,KK Clark,,0,Baltimore Orioles signed RHP KK Clark.
+2025-07-25,trade,both,Cameron Foster; Wellington Aracena,Gregory Soto,0,Baltimore Orioles traded LHP Gregory Soto to New York Mets for RHP Wellington Aracena and RHP Cameron Foster.
+2025-07-26,signed_other,in,Connor Gehr,,0,Baltimore Orioles signed RHP Connor Gehr.
+2025-07-26,signed_other,in,Denton Biller,,0,Baltimore Orioles signed RHP Denton Biller.
+2025-07-26,fa_minor,in,Jose Espada,,0,Baltimore Orioles signed free agent RHP Jose Espada to a minor league contract.
+2025-07-28,signed_other,in,Brayan Orrantia,,0,Baltimore Orioles signed RHP Brayan Orrantia.
+2025-07-28,fa_minor,in,Todd Kniebbe,,0,Baltimore Orioles signed free agent RHP Todd Kniebbe to a minor league contract.
+2025-07-29,fa_minor,in,Jakson Reetz,,0,Baltimore Orioles signed free agent C Jakson Reetz to a minor league contract.
+2025-07-29,trade,both,Juaron Watts-Brown,Seranthony Domínguez,1,Baltimore Orioles traded RHP Seranthony Domínguez and cash to Toronto Blue Jays for RHP Juaron Watts-Brown.
+2025-07-31,trade,both,Anthony Nunez; Chandler Marsh; Raimon Gomez,Cedric Mullins,0,"Baltimore Orioles traded CF Cedric Mullins to New York Mets for RHP Raimon Gomez, RHP Anthony Nunez and RHP Chandler Marsh."
+2025-07-31,trade,both,Wilfri De La Cruz,Andrew Kittredge,0,Baltimore Orioles traded RHP Andrew Kittredge to Chicago Cubs for SS Wilfri De La Cruz.
+2025-07-31,trade,both,Dietrich Enns,,1,Detroit Tigers traded LHP Dietrich Enns to Baltimore Orioles for cash.
+2025-07-31,trade,both,Twine Palmer,Ramón Urías,0,Baltimore Orioles traded 3B Ramón Urías to Houston Astros for RHP Twine Palmer.
+2025-07-31,trade,both,Boston Bateman; Brandon Butterworth; Cobb Hightower; Tanner Smith; Tyson Neighbors; Victor Figueroa,Ramón Laureano; Ryan O'Hearn,1,"Baltimore Orioles traded 1B Ryan O'Hearn, RF Ramón Laureano and cash to San Diego Padres for LHP Boston Bateman, RHP Tyson Neighbors, RHP Tanner Smith, SS Brandon Butterworth, SS Cobb Hightower and 1B Victor Figueroa."
+2025-07-31,trade,both,Micah Ashman,Charlie Morton,0,Baltimore Orioles traded RHP Charlie Morton to Detroit Tigers for LHP Micah Ashman.
+2025-08-02,waiver_claim,in,Ryan Noda,,0,Baltimore Orioles claimed 1B Ryan Noda off waivers from Chicago White Sox.
+2025-08-03,waiver_claim,in,Vidal Bruján,,0,Baltimore Orioles claimed 3B Vidal Bruján off waivers from Chicago Cubs.
+2025-08-03,waiver_claim,in,Carson Ragsdale,,0,Baltimore Orioles claimed RHP Carson Ragsdale off waivers from San Francisco Giants.
+2025-08-05,waiver_claim,in,Rico Garcia,,0,Baltimore Orioles claimed RHP Rico Garcia off waivers from New York Mets.
+2025-08-08,fa_major,in,Greg Allen,,0,Baltimore Orioles signed free agent CF Greg Allen.
+2025-08-08,waiver_loss,out,,Vidal Bruján,0,Atlanta Braves claimed 3B Vidal Bruján off waivers from Baltimore Orioles.
+2025-08-11,waiver_claim,in,Daniel Johnson,,0,Baltimore Orioles claimed CF Daniel Johnson off waivers from San Francisco Giants.
+2025-08-21,waiver_claim,in,Josh Walker,,0,Baltimore Orioles claimed LHP Josh Walker off waivers from Philadelphia Phillies.
+2025-08-26,waiver_claim,in,Shawn Dubin,,0,Baltimore Orioles claimed RHP Shawn Dubin off waivers from Houston Astros.
+2025-08-29,passive_loss,out,,Matt Bowman,0,Baltimore Orioles released RHP Matt Bowman.
+2025-09-02,waiver_loss,out,,Roansy Contreras,0,Colorado Rockies claimed RHP Roansy Contreras off waivers from Baltimore Orioles.
+2025-09-05,waiver_loss,out,,Elvin Rodríguez,0,Arizona Diamondbacks claimed RHP Elvin Rodríguez off waivers from Baltimore Orioles.
+2025-09-15,waiver_claim,in,José Castillo,,0,Baltimore Orioles claimed LHP José Castillo off waivers from Seattle Mariners.
+2025-09-17,waiver_loss,out,,Carson Ragsdale,0,Atlanta Braves claimed RHP Carson Ragsdale off waivers from Baltimore Orioles.
+2025-09-20,waiver_claim,in,Dom Hamel,,0,Baltimore Orioles claimed RHP Dom Hamel off waivers from New York Mets.
+2025-09-25,waiver_claim,in,Carson Ragsdale,,0,Baltimore Orioles claimed RHP Carson Ragsdale off waivers from Atlanta Braves.
+2025-09-27,waiver_loss,out,,Dom Hamel,0,Texas Rangers claimed RHP Dom Hamel off waivers from Baltimore Orioles.
+2025-10-20,fa_minor,in,Scarling Sterling,,0,Baltimore Orioles signed free agent LHP Scarling Sterling to a minor league contract.
+2025-10-20,fa_minor,in,Gabriel Fuentes,,0,Baltimore Orioles signed free agent RHP Gabriel Fuentes to a minor league contract.
+2025-10-20,fa_minor,in,Christian Rojas,,0,Baltimore Orioles signed free agent LHP Christian Rojas to a minor league contract.
+2025-10-31,fa_minor,in,Roniel Joseph,,0,Baltimore Orioles signed free agent RHP Roniel Joseph to a minor league contract.
+2025-11-02,passive_loss,out,,Zach Eflin,0,RHP Zach Eflin elected free agency.
+2025-11-02,passive_loss,out,,Tomoyuki Sugano,0,RHP Tomoyuki Sugano elected free agency.
+2025-11-02,passive_loss,out,,Gary Sánchez,0,C Gary Sánchez elected free agency.
+2025-11-03,fa_minor,in,Jean Henriquez,,0,Baltimore Orioles signed free agent RHP Jean Henriquez to a minor league contract.
+2025-11-04,trade,both,Andrew Kittredge,,1,Chicago Cubs traded RHP Andrew Kittredge to Baltimore Orioles for cash.
+2025-11-05,waiver_claim,in,George Soriano,,0,Baltimore Orioles claimed RHP George Soriano off waivers from Miami Marlins.
+2025-11-06,passive_loss,out,,Dylan Carlson,0,LF Dylan Carlson elected free agency.
+2025-11-06,passive_loss,out,,Jorge Mateo,0,SS Jorge Mateo elected free agency.
+2025-11-06,fa_major,in,Leody Taveras,,0,Baltimore Orioles signed free agent OF Leody Taveras.
+2025-11-06,waiver_claim,in,Pedro León,,0,Baltimore Orioles claimed RF Pedro León off waivers from Houston Astros.
+2025-11-06,waiver_loss,out,,José Castillo,0,New York Mets claimed LHP José Castillo off waivers from Baltimore Orioles.
+2025-11-10,fa_minor,in,Enoli Paredes,,0,Baltimore Orioles signed free agent RHP Enoli Paredes to a minor league contract.
+2025-11-13,waiver_loss,out,,Carson Ragsdale,0,Atlanta Braves claimed RHP Carson Ragsdale off waivers from Baltimore Orioles.
+2025-11-13,waiver_loss,out,,Josh Walker,0,Atlanta Braves claimed LHP Josh Walker off waivers from Baltimore Orioles.
+2025-11-14,fa_minor,in,Richard Guasch,,0,Baltimore Orioles signed free agent RHP Richard Guasch to a minor league contract.
+2025-11-18,fa_minor,in,Jeisson Cabrera,,0,Baltimore Orioles signed free agent RHP Jeisson Cabrera to a minor league contract.
+2025-11-19,trade,both,Taylor Ward,Grayson Rodriguez,0,Los Angeles Angels traded LF Taylor Ward to Baltimore Orioles for RHP Grayson Rodriguez.
+2025-11-21,passive_loss,out,,Albert Suárez,0,RHP Albert Suárez elected free agency.
+2025-11-21,waiver_loss,out,,Pedro León,0,Philadelphia Phillies claimed RF Pedro León off waivers from Baltimore Orioles.
+2025-11-21,trade,both,Payton Eeles,Alex Jackson,0,Minnesota Twins traded 2B Payton Eeles to Baltimore Orioles for C Alex Jackson.
+2025-12-01,fa_major,in,Ryan Helsley,,0,Baltimore Orioles signed free agent RHP Ryan Helsley.
+2025-12-02,fa_minor,in,Andrew Magno,,0,Baltimore Orioles signed free agent LHP Andrew Magno to a minor league contract.
+2025-12-05,waiver_claim,in,Drew Romo,,0,Baltimore Orioles claimed C Drew Romo off waivers from Colorado Rockies.
+2025-12-05,waiver_claim,in,Will Robertson,,0,Baltimore Orioles claimed LF Will Robertson off waivers from Pittsburgh Pirates.
+2025-12-10,rule5_minors,out,,Justin Armbruester,0,"New York Mets purchased contract of RHP Justin Armbruester  in the Rule 5 Draft, AAA Phase."
+2025-12-10,waiver_claim,in,Josh Walker,,0,Baltimore Orioles claimed LHP Josh Walker off waivers from Atlanta Braves.
+2025-12-10,rule5,out,,Carter Baumler,0,Pittsburgh Pirates purchased contract of RHP Carter Baumler  in the Rule 5 Draft.
+2025-12-11,fa_major,in,Pete Alonso,,0,Baltimore Orioles signed free agent 1B Pete Alonso.
+2025-12-13,fa_minor,in,Roldanny Sena,,0,Baltimore Orioles signed free agent RHP Roldanny Sena to a minor league contract.
+2025-12-17,fa_minor,in,Willy Vasquez,,0,Baltimore Orioles signed free agent C Willy Vasquez to a minor league contract.
+2025-12-17,fa_minor,in,Albert Suárez,,0,Baltimore Orioles signed free agent RHP Albert Suárez to a minor league contract.
+2025-12-17,waiver_loss,out,,Drew Romo,0,New York Mets claimed C Drew Romo off waivers from Baltimore Orioles.
+2025-12-19,trade,both,Shane Baz,Austin Overn; Caden Bodine; Michael Forret; Slater de Brun,1,"Tampa Bay Rays traded RHP Shane Baz to Baltimore Orioles for C Caden Bodine, OF Slater de Brun, RHP Michael Forret, OF Austin Overn and Draft Pick. 2026 Competitive Balance Round A pick (No. 33)."
+2025-12-28,fa_major,in,Zach Eflin,,0,Baltimore Orioles signed free agent RHP Zach Eflin.
+2026-01-05,waiver_claim,in,Jhonkensy Noel,,0,Baltimore Orioles claimed RF Jhonkensy Noel off waivers from Cleveland Guardians.
+2026-01-06,fa_minor,in,Eric Torres,,0,Baltimore Orioles signed free agent LHP Eric Torres to a minor league contract.
+2026-01-07,waiver_claim,in,Marco Luciano,,0,Baltimore Orioles claimed OF Marco Luciano off waivers from Pittsburgh Pirates.
+2026-01-09,waiver_loss,out,,George Soriano,0,Atlanta Braves claimed RHP George Soriano off waivers from Baltimore Orioles.
+2026-01-15,fa_minor,in,Luis Dias,,0,Baltimore Orioles signed free agent C Luis Dias to a minor league contract.
+2026-01-15,fa_minor,in,Andri Hidalgo,,0,Baltimore Orioles signed free agent LHP Andri Hidalgo to a minor league contract.
+2026-01-15,fa_minor,in,Sam Huff,,0,Baltimore Orioles signed free agent C Sam Huff to a minor league contract.
+2026-01-15,fa_minor,in,Jose Luis Acevedo,,0,Baltimore Orioles signed free agent SS Jose Luis Acevedo to a minor league contract.
+2026-01-15,fa_minor,in,Ray Faria,,0,Baltimore Orioles signed free agent C Ray Faria to a minor league contract.
+2026-01-15,fa_minor,in,Joshddy Castillo,,0,Baltimore Orioles signed free agent OF Joshddy Castillo to a minor league contract.
+2026-01-15,fa_minor,in,Ariel Roque,,0,Baltimore Orioles signed free agent OF Ariel Roque to a minor league contract.
+2026-01-15,fa_minor,in,Gabriel Rosario,,0,Baltimore Orioles signed free agent OF Gabriel Rosario to a minor league contract.
+2026-01-15,fa_minor,in,Pedro Gomez,,0,Baltimore Orioles signed free agent OF Pedro Gomez to a minor league contract.
+2026-01-15,fa_minor,in,Jhostin Berroa,,0,Baltimore Orioles signed free agent SS Jhostin Berroa to a minor league contract.
+2026-01-15,fa_minor,in,Carlos Rubecindo,,0,Baltimore Orioles signed free agent OF Carlos Rubecindo to a minor league contract.
+2026-01-15,waiver_claim,in,José Suarez,,0,Baltimore Orioles claimed LHP José Suarez off waivers from Atlanta Braves.
+2026-01-20,fa_minor,in,Hans Crouse,,0,Baltimore Orioles signed free agent RHP Hans Crouse to a minor league contract.
+2026-01-22,waiver_claim,in,Weston Wilson,,0,Baltimore Orioles claimed LF Weston Wilson off waivers from Philadelphia Phillies.
+2026-01-22,waiver_loss,out,,Marco Luciano,0,New York Yankees claimed OF Marco Luciano off waivers from Baltimore Orioles.
+2026-01-26,waiver_loss,out,,José Suarez,0,Atlanta Braves claimed LHP José Suarez off waivers from Baltimore Orioles.
+2026-02-01,trade,both,Bryan Ramos,,1,Chicago White Sox traded 3B Bryan Ramos to Baltimore Orioles for cash.
+2026-02-05,trade,both,Blaze Alexander,José Mejía; Kade Strowd; Wellington Aracena,0,"Arizona Diamondbacks traded SS Blaze Alexander to Baltimore Orioles for RHP Kade Strowd, RHP Wellington Aracena and 2B José Mejía."
+2026-02-06,waiver_loss,out,,Bryan Ramos,0,St. Louis Cardinals claimed 3B Bryan Ramos off waivers from Baltimore Orioles.
+2026-02-13,fa_major,in,Chris Bassitt,,0,Baltimore Orioles signed free agent RHP Chris Bassitt.
+2026-02-14,trade,both,Jackson Kowar,,1,Minnesota Twins traded RHP Jackson Kowar to Baltimore Orioles for cash.
+2026-02-18,fa_minor,in,Roberto Geraldo,,0,Baltimore Orioles signed free agent RHP Roberto Geraldo to a minor league contract.
+2026-02-19,fa_minor,in,Wanel Celestin,,0,Baltimore Orioles signed free agent OF Wanel Celestin to a minor league contract.
+2026-02-20,waiver_claim,in,Bryan Ramos,,0,Baltimore Orioles claimed 3B Bryan Ramos off waivers from St. Louis Cardinals.
+2026-02-23,fa_minor,in,Thairo Estrada,,0,Baltimore Orioles signed free agent 2B Thairo Estrada to a minor league contract and invited him to spring training.
+2026-03-03,fa_minor,in,Joseph Moschetto,,0,Baltimore Orioles signed free agent RHP Joseph Moschetto to a minor league contract.
+2026-03-20,fa_minor,in,Elvis Peguero,,0,Baltimore Orioles signed free agent RHP Elvis Peguero to a minor league contract.
+2026-03-20,passive_loss,out,,Dylan Heid,0,Baltimore Orioles released RHP Dylan Heid.
+2026-03-20,passive_loss,out,,Max Wagner,0,Baltimore Orioles released 3B Max Wagner.
+2026-03-23,passive_loss,out,,Thairo Estrada,0,Baltimore Orioles released 2B Thairo Estrada.
+2026-03-29,trade,both,Jayvien Sandridge,,1,Los Angeles Angels traded LHP Jayvien Sandridge to Baltimore Orioles for cash.
+2026-03-29,trade,both,Johnathan Rodríguez,Carter Rustad,0,Cleveland Guardians traded RF Johnathan Rodríguez to Baltimore Orioles for RHP Carter Rustad.
+2026-04-06,fa_minor,in,Josnaider Orellana,,0,Baltimore Orioles signed free agent C Josnaider Orellana to a minor league contract.
+2026-04-06,fa_minor,in,Roberto Gabot,,0,Baltimore Orioles signed free agent IF Roberto Gabot to a minor league contract.
+2026-04-07,trade,both,Nick Raquet,Brayden Smith,0,St. Louis Cardinals traded LHP Nick Raquet to Baltimore Orioles for 2B Brayden Smith.
+2026-04-13,trade,both,Christian Encarnacion-Strand,,1,Cincinnati Reds traded 1B Christian Encarnacion-Strand to Baltimore Orioles for cash.
+2026-04-15,fa_minor,in,Riley Cooper,,0,Baltimore Orioles signed free agent LHP Riley Cooper to a minor league contract.
+2026-04-16,trade,both,Axel Perez,Chayce McDermott,0,Los Angeles Dodgers traded RHP Axel Perez to Baltimore Orioles for RHP Chayce McDermott.
+2026-04-17,fa_minor,in,Jason Shockley,,0,Baltimore Orioles signed free agent RHP Jason Shockley to a minor league contract.
+2026-04-17,fa_minor,in,Brendan Parks,,0,Baltimore Orioles signed free agent LHP Brendan Parks to a minor league contract.
+2026-04-21,fa_minor,in,Johnny Tincher,,0,Baltimore Orioles signed free agent C Johnny Tincher to a minor league contract.
+2026-04-23,passive_loss,out,,Sam Huff,0,C Sam Huff elected free agency.
+2026-04-25,fa_minor,in,Sam Huff,,0,Baltimore Orioles signed free agent C Sam Huff to a minor league contract.
+2026-04-26,fa_minor,in,Zac Lampton,,0,Baltimore Orioles signed free agent LHP Zac Lampton to a minor league contract.
+2026-04-27,fa_minor,in,Anthony Steele,,0,Baltimore Orioles signed free agent LHP Anthony Steele to a minor league contract.
+2026-04-28,fa_minor,in,Maicor Degollado,,0,Baltimore Orioles signed free agent SS Maicor Degollado to a minor league contract.
+2026-04-29,passive_loss,out,,Albert Suárez,0,RHP Albert Suárez elected free agency.
+2026-04-30,fa_minor,in,Albert Suárez,,0,Baltimore Orioles signed free agent RHP Albert Suárez to a minor league contract.
+2026-05-04,fa_major,in,Lou Trivino III,,0,Baltimore Orioles signed free agent RHP Lou Trivino.
+2026-05-08,trade,both,Enyel Garcia; Maicol Lauriano,,1,Philadelphia Phillies traded RHP Enyel Garcia and RHP Maicol Lauriano to Baltimore Orioles for cash.
+2026-05-10,waiver_claim,in,Christian Roa,,0,Baltimore Orioles claimed RHP Christian Roa off waivers from Minnesota Twins.
+2026-05-11,fa_minor,in,Enmanuel Rodriguez,,0,Baltimore Orioles signed free agent RHP Enmanuel Rodriguez to a minor league contract.
+2026-05-12,passive_loss,out,,Lou Trivino III,0,RHP Lou Trivino elected free agency.
+2026-05-15,fa_minor,in,Marcos Reynoso,,0,Baltimore Orioles signed free agent RHP Marcos Reynoso to a minor league contract.
+2026-05-15,trade,both,Eduarniel Núñez,,1,Athletics traded RHP Eduarniel Núñez to Baltimore Orioles for cash.
+2026-05-16,fa_minor,in,Tommy Pham,,0,Baltimore Orioles signed free agent LF Tommy Pham to a minor league contract.
+2026-05-17,waiver_loss,out,,Christian Roa,0,Chicago Cubs claimed RHP Christian Roa off waivers from Baltimore Orioles.
+2026-05-18,waiver_claim,in,Michael Siani,,0,Baltimore Orioles claimed CF Michael Siani off waivers from Los Angeles Dodgers.
+2026-05-21,fa_minor,in,Stephen Still,,0,Baltimore Orioles signed free agent LHP Stephen Still to a minor league contract.
+2026-05-21,fa_minor,in,Andrew Herbert,,0,Baltimore Orioles signed free agent RHP Andrew Herbert to a minor league contract.
+2026-05-21,waiver_loss,out,,Maverick Handley,0,Atlanta Braves claimed C Maverick Handley off waivers from Baltimore Orioles.
+2026-05-26,fa_minor,in,Henry Ramirez,,0,Baltimore Orioles signed free agent RHP Henry Ramirez to a minor league contract.
+2026-05-26,fa_minor,in,Mason Dinesen,,0,Baltimore Orioles signed free agent SS Mason Dinesen to a minor league contract.
+2026-05-28,passive_loss,out,,Albert Suárez,0,RHP Albert Suárez elected free agency.
+2026-05-29,fa_minor,in,Jake Dykhoff,,0,Baltimore Orioles signed free agent RHP Jake Dykhoff to a minor league contract.
+2026-05-29,fa_minor,in,Chris Kachmar,,0,Baltimore Orioles signed free agent RHP Chris Kachmar to a minor league contract.
+2026-05-29,fa_major,in,Albert Suárez,,0,Baltimore Orioles signed free agent RHP Albert Suárez.
+2026-05-31,fa_minor,in,Pedro Tovar,,0,Baltimore Orioles signed free agent OF Pedro Tovar to a minor league contract.
+2026-06-04,trade,both,Kyle Nicolas,,1,Cincinnati Reds traded RHP Kyle Nicolas to Baltimore Orioles for cash.
+2026-06-08,waiver_loss,out,,Eduarniel Núñez,0,Chicago Cubs claimed RHP Eduarniel Núñez off waivers from Baltimore Orioles.
+2026-06-10,fa_minor,in,Chadwick Tromp,,0,Baltimore Orioles signed free agent C Chadwick Tromp to a minor league contract.
+2026-06-11,fa_minor,in,Fermin Magallanes,,0,Baltimore Orioles signed free agent RHP Fermin Magallanes to a minor league contract.
+2026-06-12,fa_minor,in,Darling VIllalona,,0,Baltimore Orioles signed free agent RHP Darling VIllalona to a minor league contract.
+2026-06-13,fa_minor,in,Jarol Capellan,,0,Baltimore Orioles signed free agent SS Jarol Capellan to a minor league contract.
+2026-06-13,fa_minor,in,Railin Tea,,0,Baltimore Orioles signed free agent 2B Railin Tea to a minor league contract.
+2026-06-25,fa_minor,in,Jesus Gomez,,0,Baltimore Orioles signed free agent IF Jesus Gomez to a minor league contract.
+2026-06-27,waiver_claim,in,Dom Keegan,,0,Baltimore Orioles claimed C Dom Keegan off waivers from Tampa Bay Rays.
+2026-06-28,waiver_claim,in,Yosver Zulueta,,0,Baltimore Orioles claimed RHP Yosver Zulueta off waivers from Chicago Cubs.
+2026-07-01,trade,both,Randal Diaz,Kyle Nicolas,0,Baltimore Orioles traded RHP Kyle Nicolas to Washington Nationals for SS Randal Diaz.
+2026-07-03,fa_minor,in,Sam Huff,,0,Baltimore Orioles signed free agent C Sam Huff to a minor league contract.
+2026-07-07,fa_minor,in,Kelvin Cadet,,0,Baltimore Orioles signed free agent RHP Kelvin Cadet to a minor league contract.
+2026-07-07,fa_minor,in,,,0,Baltimore Orioles signed free agent IF Jonnathan Torres to a minor league contract.
+2026-07-07,fa_minor,in,Eduin Rodriguez,,0,Baltimore Orioles signed free agent LHP Eduin Rodriguez to a minor league contract.
+2026-07-07,fa_minor,in,Jonnathan Torres,,0,Baltimore Orioles signed free agent RHP Jonnathan Torres to a minor league contract.
+2026-07-13,trade,both,Cam Sanders,,1,Pittsburgh Pirates traded RHP Cam Sanders to Baltimore Orioles for cash.
+2026-07-15,signed_other,in,Zane Adams,,0,Baltimore Orioles signed LHP Zane Adams.
+2026-07-16,fa_minor,in,Yorvis Salazar,,0,Baltimore Orioles signed free agent IF Yorvis Salazar to a minor league contract.
+2026-07-16,fa_minor,in,Ruben Hernandez,,0,Baltimore Orioles signed free agent IF Ruben Hernandez to a minor league contract.
+2026-07-18,signed_other,in,Eric Booth Jr.,,0,Baltimore Orioles signed OF Eric Booth Jr..
+2026-07-18,trade,both,Rudy Martin Jr.,,1,Kansas City Royals traded RF Rudy Martin Jr. to Baltimore Orioles for cash.

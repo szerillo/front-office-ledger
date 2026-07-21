@@ -1,0 +1,525 @@
+date,channel,direction,assets_in,assets_out,unresolved,desc
+2022-06-23,trade,both,Patrick Dorrian,,1,Baltimore Orioles traded 2B Patrick Dorrian to Milwaukee Brewers for cash.
+2022-11-06,passive_loss,out,,Taylor Rogers,0,LHP Taylor Rogers elected free agency.
+2022-11-06,passive_loss,out,,Jace Peterson,0,2B Jace Peterson elected free agency.
+2022-11-06,passive_loss,out,,Andrew McCutchen,0,DH Andrew McCutchen elected free agency.
+2022-11-06,passive_loss,out,,Trevor Rosenthal,0,RHP Trevor Rosenthal elected free agency.
+2022-11-07,passive_loss,out,,Omar Narváez,0,C Omar Narvaez elected free agency.
+2022-11-09,fa_minor,in,Elias Gonzalez,,0,Milwaukee Brewers signed free agent RHP Elias Gonzalez to a minor league contract.
+2022-11-10,passive_loss,out,,Brad Boxberger,0,RHP Brad Boxberger elected free agency.
+2022-11-10,fa_minor,in,Tobias Myers,,0,Milwaukee Brewers signed free agent RHP Tobias Myers to a minor league contract.
+2022-11-10,waiver_claim,in,Tyson Miller,,0,Milwaukee Brewers claimed RHP Tyson Miller off waivers from Texas Rangers.
+2022-11-10,trade,both,Payton Henry,Reminton Batista,0,Miami Marlins traded C Payton Henry to Milwaukee Brewers for RF Reminton Batista.
+2022-11-14,fa_minor,in,Idalberto Santiesteban,,0,Milwaukee Brewers signed free agent OF Idalberto Santiesteban to a minor league contract.
+2022-11-18,passive_loss,out,,Jandel Gustave,0,RHP Jandel Gustave elected free agency.
+2022-11-18,passive_loss,out,,Trevor Gott,0,RHP Trevor Gott elected free agency.
+2022-11-18,passive_loss,out,,Luis Perdomo,0,RHP Luis Perdomo elected free agency.
+2022-11-18,waiver_loss,out,,Brent Suter,0,Colorado Rockies claimed LHP Brent Suter off waivers from Milwaukee Brewers.
+2022-11-18,trade,both,Javy Guerra,,1,Tampa Bay Rays traded RHP Javy Guerra to Milwaukee Brewers for Player To Be Named Later.
+2022-11-23,fa_major,in,Blake Perkins,,0,Milwaukee Brewers signed free agent CF Blake Perkins.
+2022-11-23,trade,both,Adam Seminaris; Elvis Peguero; Janson Junk,Hunter Renfroe,0,"Milwaukee Brewers traded RF Hunter Renfroe to Los Angeles Angels for RHP Janson Junk, RHP Elvis Peguero and LHP Adam Seminaris."
+2022-12-02,trade,both,Abraham Toro; Jesse Winker,Kolten Wong,1,Milwaukee Brewers traded 2B Kolten Wong and cash to Seattle Mariners for LF Jesse Winker and 3B Abraham Toro.
+2022-12-05,fa_minor,in,Adonis Medina,,0,Milwaukee Brewers signed free agent RHP Adonis Medina to a minor league contract.
+2022-12-07,waiver_claim,in,Gus Varland,,0,Milwaukee Brewers claimed RHP Gus Varland off waivers from Tulsa Drillers.
+2022-12-09,fa_minor,in,Christian Mejias,,0,Milwaukee Brewers signed free agent RHP Christian Mejias to a minor league contract.
+2022-12-09,fa_minor,in,Luis Amaya,,0,Milwaukee Brewers signed free agent LHP Luis Amaya to a minor league contract.
+2022-12-12,trade,both,Joel Payamps; Justin Yeager; William Contreras,Esteury Ruiz,0,"Atlanta Braves traded RHP Freddy Tarnok, C Manny Piña, RHP Royber Salinas, 2B Esteury Ruiz and LHP Kyle Muller to Oakland Athletics for C Sean Murphy."
+2022-12-14,trade,both,Owen Miller,,1,Cleveland Guardians traded SS Owen Miller to Milwaukee Brewers for Player To Be Named Later.
+2022-12-20,fa_minor,in,Thomas Pannone,,0,Milwaukee Brewers signed free agent LHP Thomas Pannone to a minor league contract and invited him to spring training.
+2022-12-20,fa_minor,in,Eddy Alvarez,,0,Milwaukee Brewers signed free agent SS Eddy Alvarez to a minor league contract and invited him to spring training.
+2022-12-20,fa_minor,in,Collin Wiles,,0,Milwaukee Brewers signed free agent RHP Collin Wiles to a minor league contract and invited him to spring training.
+2022-12-21,waiver_loss,out,,Mario Feliciano,0,Detroit Tigers claimed C Mario Feliciano off waivers from Milwaukee Brewers.
+2023-01-03,fa_minor,in,Alex Claudio,,0,Milwaukee Brewers signed free agent LHP Alex Claudio to a minor league contract and invited him to spring training.
+2023-01-04,trade,both,Bryse Wilson,,1,Pittsburgh Pirates traded RHP Bryse Wilson to Milwaukee Brewers for cash.
+2023-01-07,trade,both,Joseph Hernandez,Justin Topa,0,Milwaukee Brewers traded RHP Justin Topa to Seattle Mariners for RHP Joseph Hernandez.
+2023-01-09,fa_minor,in,Josh VanMeter,,0,Milwaukee Brewers signed free agent 2B Josh VanMeter to a minor league contract and invited him to spring training.
+2023-01-09,fa_major,in,Wade Miley,,0,Milwaukee Brewers signed free agent LHP Wade Miley.
+2023-01-11,fa_minor,in,Lamar Sparks,,0,Milwaukee Brewers signed free agent CF Lamar Sparks to a minor league contract.
+2023-01-12,fa_minor,in,Thyago Vieira,,0,Milwaukee Brewers signed free agent RHP Thyago Vieira to a minor league contract.
+2023-01-15,fa_minor,in,Kevin Ereu,,0,Milwaukee Brewers signed free agent SS Kevin Ereu to a minor league contract.
+2023-01-15,fa_minor,in,Jhon Bencosme,,0,Milwaukee Brewers signed free agent SS Jhon Bencosme to a minor league contract.
+2023-01-15,fa_minor,in,Yophery Rodriguez,,0,Milwaukee Brewers signed free agent OF Yophery Rodriguez to a minor league contract.
+2023-01-15,fa_minor,in,Eduardo Charles,,0,Milwaukee Brewers signed free agent SS Eduardo Charles to a minor league contract.
+2023-01-15,fa_minor,in,Freider Rojas,,0,Milwaukee Brewers signed free agent C Freider Rojas to a minor league contract.
+2023-01-15,fa_minor,in,Joan Gutierrez,,0,Milwaukee Brewers signed free agent SS Joan Gutierrez to a minor league contract.
+2023-01-15,fa_minor,in,Jesus Flores,,0,Milwaukee Brewers signed free agent RHP Jesus Flores to a minor league contract.
+2023-01-15,fa_minor,in,Melvin Hernandez,,0,Milwaukee Brewers signed free agent RHP Melvin Hernandez to a minor league contract.
+2023-01-15,fa_minor,in,Antony Gomez,,0,Milwaukee Brewers signed free agent OF Antony Gomez to a minor league contract.
+2023-01-15,fa_minor,in,Ismael Yanez,,0,Milwaukee Brewers signed free agent RHP Ismael Yanez to a minor league contract.
+2023-01-15,fa_minor,in,Pedro Ibarguen,,0,Milwaukee Brewers signed free agent SS Pedro Ibarguen to a minor league contract.
+2023-01-15,fa_minor,in,Tyler Rodriguez,,0,Milwaukee Brewers signed free agent SS Tyler Rodriguez to a minor league contract.
+2023-01-15,fa_minor,in,Roderick Flores,,0,Milwaukee Brewers signed free agent SS Roderick Flores to a minor league contract.
+2023-01-15,fa_minor,in,Gabriel Colmenarez,,0,Milwaukee Brewers signed free agent RHP Gabriel Colmenarez to a minor league contract.
+2023-01-15,fa_minor,in,Aldrin Gonzalez,,0,Milwaukee Brewers signed free agent RHP Aldrin Gonzalez to a minor league contract.
+2023-01-15,fa_minor,in,Luiyin Alastre,,0,Milwaukee Brewers signed free agent SS Luiyin Alastre to a minor league contract.
+2023-01-15,fa_minor,in,Danny Puerta,,0,Milwaukee Brewers signed free agent OF Danny Puerta to a minor league contract.
+2023-01-15,fa_minor,in,Enniel Cortez,,0,Milwaukee Brewers signed free agent RHP Enniel Cortez to a minor league contract.
+2023-01-15,fa_minor,in,Luis Guevara,,0,Milwaukee Brewers signed free agent RHP Luis Guevara to a minor league contract.
+2023-01-15,fa_minor,in,Eric Prado,,0,Milwaukee Brewers signed free agent RHP Eric Prado to a minor league contract.
+2023-01-15,fa_minor,in,Oliver Camilo,,0,Milwaukee Brewers signed free agent RHP Oliver Camilo to a minor league contract.
+2023-01-15,fa_minor,in,Nestor Mena,,0,Milwaukee Brewers signed free agent RHP Nestor Mena to a minor league contract.
+2023-01-15,fa_minor,in,Linbel Jimenez,,0,Milwaukee Brewers signed free agent RHP Linbel Jimenez to a minor league contract.
+2023-01-15,fa_minor,in,Pedro Tovar,,0,Milwaukee Brewers signed free agent OF Pedro Tovar to a minor league contract.
+2023-01-15,fa_minor,in,Luis Lameda,,0,Milwaukee Brewers signed free agent SS Luis Lameda to a minor league contract.
+2023-01-15,fa_minor,in,Filippo Di Turi,,0,Milwaukee Brewers signed free agent SS Filippo Di Turi to a minor league contract.
+2023-01-15,fa_minor,in,Saul Sanchez,,0,Milwaukee Brewers signed free agent RHP Saul Sanchez to a minor league contract.
+2023-01-15,fa_minor,in,Lenin Mendez,,0,Milwaukee Brewers signed free agent RHP Lenin Mendez to a minor league contract.
+2023-01-15,fa_minor,in,Smarlin Espinal,,0,Milwaukee Brewers signed free agent OF Smarlin Espinal to a minor league contract.
+2023-01-21,fa_minor,in,Tanner Shears,,0,Milwaukee Brewers signed free agent RHP Tanner Shears to a minor league contract.
+2023-01-23,fa_major,in,Brian Anderson,,0,Milwaukee Brewers signed free agent 3B Brian Anderson.
+2023-01-23,fa_minor,in,Pedro Fernandez,,0,Milwaukee Brewers signed free agent RHP Pedro Fernandez to a minor league contract.
+2023-01-26,passive_loss,out,,Jon Singleton,0,Milwaukee Brewers released 1B Jon Singleton.
+2023-01-26,fa_minor,in,Robert Stock,,0,Milwaukee Brewers signed free agent RHP Robert Stock and  to a minor league contract and invited him to spring training.
+2023-01-26,fa_minor,in,,,0,Milwaukee Brewers signed free agent RHP Robert Stock and  to a minor league contract and invited him to spring training.
+2023-01-28,fa_minor,in,Skye Bolt,,0,Milwaukee Brewers signed free agent CF Skye Bolt to a minor league contract and invited him to spring training.
+2023-01-28,fa_minor,in,Colin Rea,,0,Milwaukee Brewers signed free agent RHP Colin Rea and  to a minor league contract and invited him to spring training.
+2023-01-28,fa_minor,in,,,0,Milwaukee Brewers signed free agent RHP Colin Rea and  to a minor league contract and invited him to spring training.
+2023-01-30,fa_minor,in,,,0,"Milwaukee Brewers signed free agent CF Monte Harrison,  and  to a minor league contract and invited him to spring training."
+2023-01-30,fa_minor,in,Monte Harrison,,0,"Milwaukee Brewers signed free agent CF Monte Harrison,  and  to a minor league contract and invited him to spring training."
+2023-02-07,fa_minor,in,Brian Sanchez,,0,Milwaukee Brewers signed free agent LF Brian Sanchez to a minor league contract.
+2023-02-09,fa_minor,in,Johan Zapata,,0,Milwaukee Brewers signed free agent RHP Johan Zapata to a minor league contract.
+2023-02-10,fa_minor,in,Jon Singleton,,0,Milwaukee Brewers signed free agent 1B Jon Singleton and  to a minor league contract and invited him to spring training.
+2023-02-10,fa_minor,in,,,0,Milwaukee Brewers signed free agent 1B Jon Singleton and  to a minor league contract and invited him to spring training.
+2023-02-18,fa_major,in,Justin Wilson,,0,Milwaukee Brewers signed free agent LHP Justin Wilson.
+2023-02-20,fa_minor,in,Argenis Aparicio,,0,Milwaukee Brewers signed free agent RHP Argenis Aparicio to a minor league contract.
+2023-02-21,fa_minor,in,Luke Voit,,0,Milwaukee Brewers signed free agent 1B Luke Voit to a minor league contract and invited him to spring training.
+2023-02-21,fa_minor,in,Tyler Naquin,,0,Milwaukee Brewers signed free agent CF Tyler Naquin to a minor league contract and invited him to spring training.
+2023-02-28,fa_minor,in,Yeferson Tales,,0,Milwaukee Brewers signed free agent RHP Yeferson Tales to a minor league contract.
+2023-03-08,fa_minor,in,Chase Costello,,0,Milwaukee Brewers signed free agent RHP Chase Costello to a minor league contract.
+2023-03-15,trade,both,,Victor Castaneda,0,Milwaukee Brewers traded RHP Victor Castaneda to Tampa Bay Rays.
+2023-03-28,fa_major,in,Luke Voit,,0,Milwaukee Brewers signed free agent 1B Luke Voit.
+2023-04-04,fa_minor,in,Carlos Maurera,,0,Milwaukee Brewers signed free agent RHP Carlos Maurera to a minor league contract.
+2023-04-09,trade,both,Bennett Sousa,,1,Cincinnati Reds traded LHP Bennett Sousa to Milwaukee Brewers for cash.
+2023-04-18,waiver_claim,in,J.B. Bukauskas,,0,Milwaukee Brewers claimed RHP J.B. Bukauskas off waivers from Seattle Mariners.
+2023-04-29,trade,both,,Javy Guerra,2,Milwaukee Brewers traded RHP Javy Guerra to Tampa Bay Rays for Player To Be Named Later.
+2023-04-30,trade,both,Trevor Megill,,2,Minnesota Twins traded RHP Trevor Megill to Milwaukee Brewers for Player To Be Named Later and cash.
+2023-05-13,fa_minor,in,Michael Reed,,0,Milwaukee Brewers signed free agent CF Michael Reed to a minor league contract.
+2023-05-15,fa_major,in,Darin Ruf,,0,Milwaukee Brewers signed free agent 1B Darin Ruf.
+2023-05-17,trade,both,,Lucas Erceg,1,Milwaukee Brewers traded RHP Lucas Erceg to Oakland Athletics for cash.
+2023-05-24,fa_minor,in,Roman Quinn,,0,Milwaukee Brewers signed free agent CF Roman Quinn to a minor league contract.
+2023-05-25,fa_major,in,Julio Teheran,,0,Milwaukee Brewers signed free agent RHP Julio Teheran.
+2023-05-31,fa_minor,in,Sam Gardner,,0,Milwaukee Brewers signed free agent RHP Sam Gardner to a minor league contract.
+2023-06-01,fa_minor,in,Will Childers,,0,Milwaukee Brewers signed free agent RHP Will Childers to a minor league contract.
+2023-06-02,passive_loss,out,,Luke Voit,0,Milwaukee Brewers released 1B Luke Voit.
+2023-06-14,fa_major,in,Raimel Tapia,,0,Milwaukee Brewers signed free agent RF Raimel Tapia.
+2023-06-14,trade,both,,Taylor Floyd,0,Milwaukee Brewers traded RHP Taylor Floyd to Minnesota Twins.
+2023-07-03,passive_loss,out,,Matt Bush,0,Milwaukee Brewers released RHP Matt Bush.
+2023-07-03,fa_major,in,Jahmai Jones,,0,Milwaukee Brewers signed free agent CF Jahmai Jones.
+2023-07-05,passive_loss,out,,Thomas Pannone,0,Milwaukee Brewers released LHP Thomas Pannone.
+2023-07-05,fa_minor,in,Wilfredo Cordero,,0,Milwaukee Brewers signed free agent RHP Wilfredo Cordero to a minor league contract.
+2023-07-05,fa_minor,in,Alejandro Parra,,0,Milwaukee Brewers signed free agent RHP Alejandro Parra to a minor league contract.
+2023-07-06,fa_minor,in,Francisco Guevara,,0,Milwaukee Brewers signed free agent RHP Francisco Guevara to a minor league contract.
+2023-07-12,trade,both,,Tyson Miller,1,Milwaukee Brewers traded RHP Tyson Miller to Los Angeles Dodgers for cash.
+2023-07-15,fa_minor,in,Jesús Broca,,0,Milwaukee Brewers signed free agent LHP Jesus Broca to a minor league contract.
+2023-07-15,signed_other,in,Josh Timmerman,,0,Milwaukee Brewers signed RHP Josh Timmerman.
+2023-07-15,signed_other,in,Mark Manfredi,,0,Milwaukee Brewers signed LHP Mark Manfredi.
+2023-07-17,signed_other,in,Brock Wilken,,0,Milwaukee Brewers signed 3B Brock Wilken.
+2023-07-17,signed_other,in,Tate Kuehner,,0,Milwaukee Brewers signed LHP Tate Kuehner.
+2023-07-18,signed_other,in,Jason Woodward,,0,Milwaukee Brewers signed RHP Jason Woodward.
+2023-07-18,fa_minor,in,Alejandro Rodriguez,,0,Milwaukee Brewers signed free agent C Alejandro Rodriguez to a minor league contract.
+2023-07-19,signed_other,in,Craig Yoho,,0,Milwaukee Brewers signed RHP Craig Yoho.
+2023-07-19,fa_minor,in,Blake Whiting,,0,Milwaukee Brewers signed free agent RHP Blake Whiting to a minor league contract.
+2023-07-19,signed_other,in,Ryan Birchard,,0,Milwaukee Brewers signed RHP Ryan Birchard.
+2023-07-19,fa_minor,in,Bayden Root,,0,Milwaukee Brewers signed free agent RHP Bayden Root to a minor league contract.
+2023-07-19,signed_other,in,Morris Austin,,0,Milwaukee Brewers signed RHP Morris Austin.
+2023-07-19,signed_other,in,Mike Boeve,,0,Milwaukee Brewers signed 3B Mike Boeve.
+2023-07-19,signed_other,in,Brett Wichrowski,,0,Milwaukee Brewers signed RHP Brett Wichrowski.
+2023-07-20,signed_other,in,K.C. Hunt,,0,Milwaukee Brewers signed RHP K.C. Hunt.
+2023-07-21,signed_other,in,Isaiah Jackson,,0,Milwaukee Brewers signed RHP Isaiah Jackson.
+2023-07-21,signed_other,in,Cooper Pratt,,0,Milwaukee Brewers signed SS Cooper Pratt.
+2023-07-21,fa_minor,in,Wandy Cabrera,,0,Milwaukee Brewers signed free agent RHP Wandy Cabrera to a minor league contract.
+2023-07-21,signed_other,in,Eric Bitonti,,0,Milwaukee Brewers signed SS Eric Bitonti.
+2023-07-24,passive_loss,out,,Raimel Tapia,0,RF Raimel Tapia elected free agency.
+2023-07-25,signed_other,in,Hayden Robinson,,0,Milwaukee Brewers signed RHP Hayden Robinson.
+2023-07-25,signed_other,in,Justin Chambers,,0,Milwaukee Brewers signed LHP Justin Chambers.
+2023-07-25,signed_other,in,Bjorn Johnson,,0,Milwaukee Brewers signed LHP Bjorn Johnson.
+2023-07-25,signed_other,in,Josh Adamczewski,,0,Milwaukee Brewers signed SS Josh Adamczewski.
+2023-07-25,signed_other,in,Bishop Letson,,0,Milwaukee Brewers signed RHP Bishop Letson.
+2023-07-27,trade,both,Carlos Santana,Jhonny Severino,0,Pittsburgh Pirates traded 1B Carlos Santana to Milwaukee Brewers for SS Jhonny Severino.
+2023-07-31,fa_minor,in,Carlos Canales,,0,Milwaukee Brewers signed free agent RHP Carlos Canales to a minor league contract.
+2023-07-31,fa_minor,in,Harrison Durow,,0,Milwaukee Brewers signed free agent RHP Harrison Durow to a minor league contract.
+2023-07-31,fa_minor,in,Kegnnalex Seijas,,0,Milwaukee Brewers signed free agent C Kegnnalex Seijas to a minor league contract.
+2023-07-31,waiver_loss,out,,Jake Cousins,0,Houston Astros claimed RHP Jake Cousins off waivers from Milwaukee Brewers.
+2023-07-31,trade,both,Mark Canha,Justin Jarvis,1,New York Mets traded LF Mark Canha and cash to Milwaukee Brewers for RHP Justin Jarvis.
+2023-08-01,fa_minor,in,Jhosep Ospino,,0,Milwaukee Brewers signed free agent RHP Jhosep Ospino to a minor league contract.
+2023-08-01,trade,both,Evan McKendry,Alex Jackson,0,Milwaukee Brewers traded C Alex Jackson to Tampa Bay Rays for RHP Evan McKendry.
+2023-08-01,trade,both,Bradley Blalock,Luis Urías,0,Milwaukee Brewers traded 3B Luis Urías to Boston Red Sox for RHP Bradley Blalock.
+2023-08-01,trade,both,Andrew Chafin,Peter Strzelecki,0,Arizona Diamondbacks traded LHP Andrew Chafin to Milwaukee Brewers for RHP Peter Strzelecki.
+2023-08-07,trade,both,,Tyler Naquin,1,Milwaukee Brewers traded CF Tyler Naquin to Chicago White Sox for cash.
+2023-08-24,fa_minor,in,Fernando Abad,,0,Milwaukee Brewers signed free agent LHP Fernando Abad to a minor league contract.
+2023-08-29,waiver_loss,out,,Bennett Sousa,0,Detroit Tigers claimed LHP Bennett Sousa off waivers from Milwaukee Brewers.
+2023-08-31,fa_minor,in,Josh Donaldson,,0,Milwaukee Brewers signed free agent 3B Josh Donaldson to a minor league contract.
+2023-08-31,fa_minor,in,Greg Allen,,0,Milwaukee Brewers signed free agent CF Greg Allen to a minor league contract.
+2023-08-31,trade,both,Chris Roller,,1,Cleveland Guardians traded CF Chris Roller to Milwaukee Brewers for cash.
+2023-10-02,passive_loss,out,,Brian Anderson,0,Milwaukee Brewers released 3B Brian Anderson.
+2023-11-01,passive_loss,out,,Colin Rea,0,RHP Colin Rea elected free agency.
+2023-11-02,passive_loss,out,,Justin Wilson,0,LHP Justin Wilson elected free agency.
+2023-11-02,passive_loss,out,,Jesse Winker,0,LF Jesse Winker elected free agency.
+2023-11-02,passive_loss,out,,Colin Rea,0,RHP Colin Rea elected free agency.
+2023-11-02,passive_loss,out,,Darin Ruf,0,1B Darin Ruf elected free agency.
+2023-11-02,fa_major,in,Colin Rea,,0,Milwaukee Brewers signed free agent RHP Colin Rea.
+2023-11-02,passive_loss,out,,Carlos Santana,0,1B Carlos Santana elected free agency.
+2023-11-02,passive_loss,out,,Andrew Chafin,0,LHP Andrew Chafin elected free agency.
+2023-11-02,passive_loss,out,,Josh Donaldson,0,3B Josh Donaldson elected free agency.
+2023-11-02,passive_loss,out,,Victor Caratini,0,C Victor Caratini elected free agency.
+2023-11-02,waiver_claim,in,Vinny Capra,,0,Milwaukee Brewers claimed SS Vinny Capra off waivers from Pittsburgh Pirates.
+2023-11-04,passive_loss,out,,Wade Miley,0,LHP Wade Miley elected free agency.
+2023-11-04,trade,both,Blake Holub,Mark Canha,0,Milwaukee Brewers traded LF Mark Canha to Detroit Tigers for RHP Blake Holub.
+2023-11-07,fa_minor,in,Jose Nova,,0,Milwaukee Brewers signed free agent RHP Jose Nova to a minor league contract.
+2023-11-14,trade,both,Oliver Dunn,Hendry Mendez; Robert Moore,0,Philadelphia Phillies traded 2B Oliver Dunn to Milwaukee Brewers for LF Hendry Mendez and SS Robert Moore.
+2023-11-15,trade,both,Chad Patrick,Abraham Toro,0,Milwaukee Brewers traded 3B Abraham Toro to Oakland Athletics for RHP Chad Patrick.
+2023-11-16,fa_minor,in,Yonny Hernández,,0,Milwaukee Brewers signed free agent 2B Yonny Hernández to a minor league contract.
+2023-11-17,passive_loss,out,,J.C. Mejía,0,RHP J.C. Mejía elected free agency.
+2023-11-17,passive_loss,out,,Brandon Woodruff,0,RHP Brandon Woodruff elected free agency.
+2023-11-17,passive_loss,out,,Rowdy Tellez,0,1B Rowdy Tellez elected free agency.
+2023-11-17,trade,both,Jake Bauers,Brian Sanchez; Jace Avina,0,New York Yankees traded DH Jake Bauers to Milwaukee Brewers for OF Jace Avina and LF Brian Sanchez.
+2023-11-20,fa_minor,in,Jared Koenig,,0,Milwaukee Brewers signed free agent LHP Jared Koenig to a minor league contract.
+2023-11-21,fa_minor,in,Enoli Paredes,,0,Milwaukee Brewers signed free agent RHP Enoli Paredes to a minor league contract.
+2023-11-28,fa_minor,in,Easton McGee,,0,Milwaukee Brewers signed free agent RHP Easton McGee to a minor league contract and invited him to spring training.
+2023-11-28,fa_minor,in,Brewer Hicklen,,0,Milwaukee Brewers signed free agent OF Brewer Hicklen to a minor league contract and invited him to spring training.
+2023-11-30,fa_minor,in,Sam Carlson,,0,Milwaukee Brewers signed free agent RHP Sam Carlson to a minor league contract and invited him to spring training.
+2023-12-04,fa_major,in,Wade Miley,,0,Milwaukee Brewers signed free agent LHP Wade Miley.
+2023-12-12,fa_major,in,Joe Ross,,0,Milwaukee Brewers signed free agent RHP Joe Ross.
+2023-12-12,fa_minor,in,Rob Zastryzny,,0,Milwaukee Brewers signed free agent LHP Rob Zastryzny to a minor league contract.
+2023-12-14,trade,both,Taylor Clarke,Cam Devanney; Ryan Brady,0,Kansas City Royals traded RHP Taylor Clarke to Milwaukee Brewers for RHP Ryan Brady and SS Cam Devanney.
+2023-12-19,fa_minor,in,Aaron Rund,,0,Milwaukee Brewers signed free agent RHP Aaron Rund to a minor league contract.
+2023-12-19,fa_minor,in,Jake Polancic,,0,Milwaukee Brewers signed free agent RHP Jake Polancic to a minor league contract.
+2023-12-20,fa_major,in,Eric Haase,,0,Milwaukee Brewers signed free agent C Eric Haase.
+2023-12-20,trade,both,Coleman Crow,Adrian Houser; Tyrone Taylor,0,Milwaukee Brewers traded RHP Adrian Houser and CF Tyrone Taylor to New York Mets for RHP Coleman Crow.
+2023-12-21,fa_minor,in,Ramón Rodríguez,,0,Milwaukee Brewers signed free agent C Ramón Rodríguez to a minor league contract.
+2023-12-26,fa_minor,in,David García,,0,Milwaukee Brewers signed free agent C David García to a minor league contract.
+2024-01-03,trade,both,Bryan Hudson,Justin Chambers,0,Los Angeles Dodgers traded LHP Bryan Hudson to Milwaukee Brewers for LHP Justin Chambers.
+2024-01-05,fa_minor,in,Austin Nola,,0,Milwaukee Brewers signed free agent 1B Austin Nola to a minor league contract and invited him to spring training.
+2024-01-15,fa_minor,in,Lonell Downs,,0,Milwaukee Brewers signed free agent RHP Lonell Downs to a minor league contract.
+2024-01-15,fa_minor,in,Engel Paulino,,0,Milwaukee Brewers signed free agent OF Engel Paulino to a minor league contract.
+2024-01-15,fa_minor,in,Wenderlyn King,,0,Milwaukee Brewers signed free agent RHP Wenderlyn King to a minor league contract.
+2024-01-15,fa_minor,in,Jesús Made,,0,Milwaukee Brewers signed free agent SS Jesus Made to a minor league contract.
+2024-01-15,fa_minor,in,Jorge Quintana,,0,Milwaukee Brewers signed free agent SS Jorge Quintana to a minor league contract.
+2024-01-15,fa_minor,in,José Anderson,,0,Milwaukee Brewers signed free agent OF Jose Anderson to a minor league contract.
+2024-01-15,fa_minor,in,Jean Rodriguez,,0,Milwaukee Brewers signed free agent RHP Jean Rodriguez to a minor league contract.
+2024-01-15,fa_minor,in,Frandy Lafond,,0,Milwaukee Brewers signed free agent OF Frandy Lafond to a minor league contract.
+2024-01-15,fa_minor,in,Frederi Montero,,0,Milwaukee Brewers signed free agent SS Frederi Montero to a minor league contract.
+2024-01-15,fa_minor,in,Carlos Done,,0,Milwaukee Brewers signed free agent OF Carlos Done to a minor league contract.
+2024-01-15,fa_minor,in,Moises Polanco,,0,Milwaukee Brewers signed free agent SS Moises Polanco to a minor league contract.
+2024-01-15,fa_minor,in,Joandrew Pena,,0,Milwaukee Brewers signed free agent SS Joandrew Pena to a minor league contract.
+2024-01-15,fa_minor,in,Yohandy Cruz,,0,Milwaukee Brewers signed free agent SS Yohandy Cruz to a minor league contract.
+2024-01-15,fa_minor,in,Daiyiro Candelo,,0,Milwaukee Brewers signed free agent RHP Daiyiro Candelo to a minor league contract.
+2024-01-15,fa_minor,in,Jhoanjel Saez,,0,Milwaukee Brewers signed free agent SS Jhoanjel Saez to a minor league contract.
+2024-01-15,fa_minor,in,Yoneiker Lugo,,0,Milwaukee Brewers signed free agent C Yoneiker Lugo to a minor league contract.
+2024-01-15,fa_minor,in,Victor Garcia,,0,Milwaukee Brewers signed free agent LHP Victor Garcia to a minor league contract.
+2024-01-15,fa_minor,in,Dariel Jaquez,,0,Milwaukee Brewers signed free agent RHP Dariel Jaquez to a minor league contract.
+2024-01-15,fa_minor,in,Enderson Mercado,,0,Milwaukee Brewers signed free agent LHP Enderson Mercado to a minor league contract.
+2024-01-15,fa_minor,in,Juan Ortuno,,0,Milwaukee Brewers signed free agent SS Juan Ortuno to a minor league contract.
+2024-01-15,fa_minor,in,Angel Gonzalez,,0,Milwaukee Brewers signed free agent OF Angel Gonzalez to a minor league contract.
+2024-01-15,fa_minor,in,Ayendy Bravo,,0,Milwaukee Brewers signed free agent RHP Ayendy Bravo to a minor league contract.
+2024-01-15,fa_minor,in,Lukas Gonzalez,,0,Milwaukee Brewers signed free agent RHP Lukas Gonzalez to a minor league contract.
+2024-01-15,fa_minor,in,Jeremy George,,0,Milwaukee Brewers signed free agent OF Jeremy George to a minor league contract.
+2024-01-15,fa_minor,in,Paul Hoff,,0,Milwaukee Brewers signed free agent RHP Paul Hoff to a minor league contract.
+2024-01-15,fa_minor,in,Juan Martinez,,0,Milwaukee Brewers signed free agent SS Juan Martinez to a minor league contract.
+2024-01-15,fa_minor,in,Luis Corobo,,0,Milwaukee Brewers signed free agent C Luis Corobo to a minor league contract.
+2024-01-15,fa_minor,in,Jonathan Rangel,,0,Milwaukee Brewers signed free agent SS Jonathan Rangel to a minor league contract.
+2024-01-15,fa_minor,in,Josue Toledo,,0,Milwaukee Brewers signed free agent RHP Josue Toledo to a minor league contract.
+2024-01-15,fa_minor,in,Handelfry Encarnacion,,0,Milwaukee Brewers signed free agent CF Handelfry Encarnacion to a minor league contract.
+2024-01-15,fa_minor,in,Manuel Moreno,,0,Milwaukee Brewers signed free agent RHP Manuel Moreno to a minor league contract.
+2024-01-15,fa_minor,in,Christopher Peralta,,0,Milwaukee Brewers signed free agent RHP Christopher Peralta to a minor league contract.
+2024-01-15,fa_minor,in,Kevin Garcia,,0,Milwaukee Brewers signed free agent C Kevin Garcia to a minor league contract.
+2024-01-15,fa_minor,in,Luis Peña,,0,Milwaukee Brewers signed free agent SS Luis Pena to a minor league contract.
+2024-01-22,fa_minor,in,Chavez Young,,0,Milwaukee Brewers signed free agent CF Chavez Young to a minor league contract.
+2024-01-26,fa_major,in,Rhys Hoskins,,0,Milwaukee Brewers signed free agent 1B Rhys Hoskins.
+2024-01-31,fa_minor,in,Christian Arroyo,,0,Milwaukee Brewers signed free agent 3B Christian Arroyo to a minor league contract and invited him to spring training.
+2024-02-01,trade,both,DL Hall; Joey Ortiz,Corbin Burnes,2,"Milwaukee Brewers traded RHP Corbin Burnes to Baltimore Orioles for SS Joey Ortiz, LHP DL Hall and Future Considerations."
+2024-02-02,fa_minor,in,Andy Yerzy,,0,Milwaukee Brewers signed free agent C Andy Yerzy to a minor league contract.
+2024-02-06,trade,both,,Ethan Small,1,Milwaukee Brewers traded LHP Ethan Small to San Francisco Giants for cash.
+2024-02-07,fa_major,in,Jakob Junis,,0,Milwaukee Brewers signed free agent RHP Jakob Junis.
+2024-02-14,trade,both,Joshua Quezada,Clayton Andrews,0,New York Yankees traded RHP Joshua Quezada to Milwaukee Brewers for LHP Clayton Andrews.
+2024-02-21,fa_major,in,Gary Sánchez,,0,Milwaukee Brewers signed free agent C Gary Sánchez.
+2024-02-21,fa_minor,in,Dalvin Bodre,,0,Milwaukee Brewers signed free agent RHP Dalvin Bodre to a minor league contract.
+2024-02-21,fa_major,in,Brandon Woodruff,,0,Milwaukee Brewers signed free agent RHP Brandon Woodruff.
+2024-02-22,passive_loss,out,,Austin Nola,0,Milwaukee Brewers released 1B Austin Nola.
+2024-02-22,fa_minor,in,Kevin Herget,,0,Milwaukee Brewers signed free agent RHP Kevin Herget to a minor league contract.
+2024-02-23,fa_minor,in,Nolan Blackwood,,0,Milwaukee Brewers signed free agent RHP Nolan Blackwood to a minor league contract.
+2024-02-28,waiver_loss,out,,Jahmai Jones,0,New York Yankees claimed CF Jahmai Jones off waivers from Milwaukee Brewers.
+2024-03-19,fa_minor,in,Miqueas Mercedes,,0,Milwaukee Brewers signed free agent RHP Miqueas Mercedes to a minor league contract.
+2024-04-01,fa_minor,in,Yhoswar Garcia,,0,Milwaukee Brewers signed free agent CF Yhoswar Garcia to a minor league contract.
+2024-04-02,fa_minor,in,Justin Lugo,,0,Milwaukee Brewers signed free agent RHP Justin Lugo to a minor league contract.
+2024-04-04,fa_minor,in,Samuel Valerio,,0,Milwaukee Brewers signed free agent RHP Samuel Valerio to a minor league contract.
+2024-04-05,fa_minor,in,Francisco Mejía,,0,Milwaukee Brewers signed free agent C Francisco Mejía to a minor league contract.
+2024-04-05,waiver_claim,in,Vladimir Gutierrez,,0,Milwaukee Brewers claimed RHP Vladimir Gutierrez off waivers from Miami Marlins.
+2024-04-14,waiver_claim,in,Corbin Martin,,0,Milwaukee Brewers claimed RHP Corbin Martin off waivers from Arizona Diamondbacks.
+2024-04-16,fa_minor,in,Justin Dirden,,0,Milwaukee Brewers signed free agent RF Justin Dirden to a minor league contract.
+2024-04-18,fa_minor,in,Victor Torres,,0,Milwaukee Brewers signed free agent C Victor Torres to a minor league contract.
+2024-04-18,trade,both,,Vladimir Gutierrez,1,Milwaukee Brewers traded RHP Vladimir Gutierrez to Boston Red Sox for cash.
+2024-04-23,fa_minor,in,Carlos Carra,,0,Milwaukee Brewers signed free agent RHP Carlos Carra to a minor league contract.
+2024-05-10,trade,both,Mitch White,,1,San Francisco Giants traded RHP Mitch White to Milwaukee Brewers.
+2024-05-13,waiver_loss,out,,Corbin Martin,0,Baltimore Orioles claimed RHP Corbin Martin off waivers from Milwaukee Brewers.
+2024-05-13,waiver_loss,out,,Corbin Martin,0,Baltimore Orioles claimed RHP Corbin Martin off waivers from Milwaukee Brewers.
+2024-05-25,trade,both,Garrett Stallings,Aneuris Rodriguez; Thyago Vieira,0,Milwaukee Brewers traded RHP Thyago Vieira and RHP Aneuris Rodriguez to Baltimore Orioles for RHP Garrett Stallings.
+2024-05-31,fa_minor,in,Adam Hall,,0,Milwaukee Brewers signed free agent SS Adam Hall to a minor league contract.
+2024-06-04,fa_minor,in,Fabian Reyes,,0,Milwaukee Brewers signed free agent RHP Fabian Reyes to a minor league contract.
+2024-06-08,fa_major,in,Elieser Hernández,,0,Milwaukee Brewers signed free agent RHP Elieser Hernández.
+2024-06-11,fa_minor,in,Joel Kuhnel,,0,Milwaukee Brewers signed free agent RHP Joel Kuhnel to a minor league contract.
+2024-06-14,trade,both,Casey Martin,,0,Philadelphia Phillies traded SS Casey Martin to Milwaukee Brewers.
+2024-06-23,fa_minor,in,Ruben Saldana,,0,Milwaukee Brewers signed free agent RHP Ruben Saldana to a minor league contract.
+2024-06-25,trade,both,Dallas Keuchel,,1,Seattle Mariners traded LHP Dallas Keuchel to Milwaukee Brewers for cash.
+2024-07-02,fa_minor,in,Connor Scott,,0,Milwaukee Brewers signed free agent OF Connor Scott to a minor league contract.
+2024-07-03,trade,both,Aaron Civale,Gregory Barrios,0,Milwaukee Brewers traded SS Gregory Barrios to Tampa Bay Rays for RHP Aaron Civale.
+2024-07-12,fa_minor,in,Ever Urena,,0,Milwaukee Brewers signed free agent RHP Ever Urena to a minor league contract.
+2024-07-21,trade,both,Tyler Jay,TJ Shook,0,New York Mets traded LHP Tyler Jay to Milwaukee Brewers for RHP TJ Shook.
+2024-07-23,signed_other,in,Blake Burke,,0,Milwaukee Brewers signed 1B Blake Burke.
+2024-07-23,signed_other,in,Braylon Payne,,0,Milwaukee Brewers signed OF Braylon Payne.
+2024-07-23,waiver_loss,out,,Joel Kuhnel,0,Tampa Bay Rays claimed RHP Joel Kuhnel off waivers from Milwaukee Brewers.
+2024-07-24,signed_other,in,Marco Dinges,,0,Milwaukee Brewers signed C Marco Dinges.
+2024-07-24,signed_other,in,Mason Molina,,0,Milwaukee Brewers signed LHP Mason Molina.
+2024-07-24,signed_other,in,Miles Langhorne,,0,Milwaukee Brewers signed RHP Miles Langhorne.
+2024-07-24,signed_other,in,Ethan Dorchies,,0,Milwaukee Brewers signed RHP Ethan Dorchies.
+2024-07-24,signed_other,in,Jadyn Fielder,,0,Milwaukee Brewers signed 2B Jadyn Fielder.
+2024-07-24,signed_other,in,Tyson Hardin,,0,Milwaukee Brewers signed RHP Tyson Hardin.
+2024-07-24,signed_other,in,Sam Garcia,,0,Milwaukee Brewers signed LHP Sam Garcia.
+2024-07-25,signed_other,in,Jaron DeBerry,,0,Milwaukee Brewers signed RHP Jaron DeBerry.
+2024-07-26,signed_other,in,Chandler Welch,,0,Milwaukee Brewers signed RHP Chandler Welch.
+2024-07-26,signed_other,in,Griffin Tobias,,0,Milwaukee Brewers signed RHP Griffin Tobias.
+2024-07-26,signed_other,in,John Holobetz,,0,Milwaukee Brewers signed RHP John Holobetz.
+2024-07-26,signed_other,in,Bryce Meccage,,0,Milwaukee Brewers signed RHP Bryce Meccage.
+2024-07-27,trade,both,Nick Mears,Bradley Blalock; Yujanyer Herrera,0,Colorado Rockies traded RHP Nick Mears to Milwaukee Brewers for RHP Bradley Blalock and RHP Yujanyer Herrera.
+2024-07-30,trade,both,Frankie Montas,Jakob Junis; Joey Wiemer,1,"Cincinnati Reds traded RHP Frankie Montas to Milwaukee Brewers for RHP Jakob Junis, OF Joey Wiemer and cash."
+2024-07-31,signed_other,in,Joey Broughton,,0,Milwaukee Brewers signed LHP Joey Broughton.
+2024-07-31,fa_minor,in,Jack Hostetler,,0,Milwaukee Brewers signed free agent RHP Jack Hostetler to a minor league contract.
+2024-08-01,signed_other,in,Jayden Dubanewicz,,0,Milwaukee Brewers signed RHP Jayden Dubanewicz.
+2024-08-01,signed_other,in,Tyler Renz,,0,Milwaukee Brewers signed RHP Tyler Renz.
+2024-08-01,signed_other,in,Travis Smith,,0,Milwaukee Brewers signed RHP Travis Smith.
+2024-08-02,waiver_loss,out,,Janson Junk,0,Houston Astros claimed RHP Janson Junk off waivers from Milwaukee Brewers.
+2024-08-04,fa_minor,in,Jack Seppings,,0,Milwaukee Brewers signed free agent RHP Jack Seppings to a minor league contract.
+2024-08-15,fa_minor,in,Garrett Hodges,,0,Milwaukee Brewers signed free agent RHP Garrett Hodges to a minor league contract.
+2024-09-03,fa_minor,in,Tanner Gillis,,0,Milwaukee Brewers signed free agent RHP Tanner Gillis to a minor league contract.
+2024-09-05,fa_minor,in,Sam McWilliams,,0,Milwaukee Brewers signed free agent RHP Sam McWilliams to a minor league contract.
+2024-09-23,waiver_loss,out,,Enoli Paredes,0,Chicago Cubs claimed RHP Enoli Paredes off waivers from Milwaukee Brewers.
+2024-10-01,fa_minor,in,Vinny Nittoli,,0,Milwaukee Brewers signed free agent RHP Vinny Nittoli to a minor league contract.
+2024-10-03,fa_minor,in,Ernesto Martinez Jr.,,0,Milwaukee Brewers signed free agent 1B Ernesto Martinez Jr. to a minor league contract and invited him to spring training.
+2024-10-24,fa_minor,in,Johandry Ramirez,,0,Milwaukee Brewers signed free agent RHP Johandry Ramirez to a minor league contract.
+2024-10-31,passive_loss,out,,Willy Adames,0,SS Willy Adames elected free agency.
+2024-10-31,passive_loss,out,,Joe Ross,0,RHP Joe Ross elected free agency.
+2024-10-31,passive_loss,out,,Wade Miley,0,LHP Wade Miley elected free agency.
+2024-11-02,trade,both,,Owen Miller,1,Milwaukee Brewers traded 1B Owen Miller to Colorado Rockies for cash.
+2024-11-04,passive_loss,out,,Colin Rea,0,RHP Colin Rea elected free agency.
+2024-11-04,passive_loss,out,,Frankie Montas,0,RHP Frankie Montas elected free agency.
+2024-11-04,passive_loss,out,,Gary Sánchez,0,C Gary Sánchez elected free agency.
+2024-11-04,waiver_loss,out,,Rob Zastryzny,0,Chicago Cubs claimed LHP Rob Zastryzny off waivers from Milwaukee Brewers.
+2024-11-04,waiver_loss,out,,Kevin Herget,0,New York Mets claimed RHP Kevin Herget off waivers from Milwaukee Brewers.
+2024-11-15,fa_minor,in,Jimmy Herron,,0,Milwaukee Brewers signed free agent LF Jimmy Herron to a minor league contract.
+2024-11-15,fa_minor,in,Raynel Delgado,,0,Milwaukee Brewers signed free agent 2B Raynel Delgado to a minor league contract.
+2024-11-16,fa_minor,in,Bladimir Restituyo,,0,Milwaukee Brewers signed free agent OF Bladimir Restituyo to a minor league contract.
+2024-11-19,fa_minor,in,David García,,0,Milwaukee Brewers signed free agent C David García to a minor league contract and invited him to spring training.
+2024-11-19,fa_minor,in,Anthony Seigler,,0,Milwaukee Brewers signed free agent 2B Anthony Seigler to a minor league contract.
+2024-11-19,fa_minor,in,Ramón Rodríguez,,0,Milwaukee Brewers signed free agent C Ramón Rodríguez to a minor league contract and invited him to spring training.
+2024-11-22,fa_minor,in,Jose Arias,,0,Milwaukee Brewers signed free agent RHP Jose Arias to a minor league contract.
+2024-11-22,passive_loss,out,,Hoby Milner,0,LHP Hoby Milner elected free agency.
+2024-11-25,fa_minor,in,Jared Oliva,,0,Milwaukee Brewers signed free agent RF Jared Oliva to a minor league contract and invited him to spring training.
+2024-11-26,fa_minor,in,Jon Duplantier,,0,Milwaukee Brewers signed free agent RHP Jon Duplantier to a minor league contract and invited him to spring training.
+2024-11-26,fa_minor,in,Thomas Pannone,,0,Milwaukee Brewers signed free agent LHP Thomas Pannone to a minor league contract.
+2024-12-10,fa_minor,in,Deivi García,,0,Milwaukee Brewers signed free agent RHP Deivi García to a minor league contract and invited him to spring training.
+2024-12-11,rule5,out,,Shane Smith,0,Chicago White Sox purchased contract of RHP Shane Smith from Milwaukee Brewers in the Rule 5 Draft.
+2024-12-11,rule5,in,Connor Thomas,,0,Milwaukee Brewers purchased contract of LHP Connor Thomas from St. Louis Cardinals in the Rule 5 Draft.
+2024-12-12,fa_major,in,Grant Wolfram,,0,Milwaukee Brewers signed free agent LHP Grant Wolfram.
+2024-12-13,trade,both,Caleb Durbin; Nestor Cortes,Devin Williams,0,Milwaukee Brewers traded RHP Devin Williams to New York Yankees for LHP Nestor Cortes and 2B Caleb Durbin.
+2024-12-16,passive_loss,out,,Jon Duplantier,0,Milwaukee Brewers released RHP Jon Duplantier.
+2024-12-19,fa_minor,in,Bruce Zimmermann,,0,Milwaukee Brewers signed free agent LHP Bruce Zimmermann to a minor league contract and invited him to spring training.
+2025-01-02,trade,both,Grant Anderson,Mason Molina,0,Texas Rangers traded RHP Grant Anderson to Milwaukee Brewers for LHP Mason Molina.
+2025-01-06,fa_minor,in,Jake Bauers,,0,Milwaukee Brewers signed free agent 1B Jake Bauers to a minor league contract and invited him to spring training.
+2025-01-09,waiver_loss,out,,Tyler Jay,0,Seattle Mariners claimed LHP Tyler Jay off waivers from Milwaukee Brewers.
+2025-01-15,fa_minor,in,Daniel Garcia,,0,Milwaukee Brewers signed free agent LHP Daniel Garcia to a minor league contract.
+2025-01-15,fa_minor,in,Cristopher Acosta,,0,Milwaukee Brewers signed free agent SS Cristopher Acosta to a minor league contract.
+2025-01-15,fa_minor,in,Gerlyn Payano,,0,Milwaukee Brewers signed free agent OF Gerlyn Payano to a minor league contract.
+2025-01-15,fa_minor,in,Joan Pena,,0,Milwaukee Brewers signed free agent LHP Joan Pena to a minor league contract.
+2025-01-15,fa_minor,in,Nicolas Barrios,,0,Milwaukee Brewers signed free agent OF Nicolas Barrios to a minor league contract.
+2025-01-15,fa_minor,in,Ryan Sandberg,,0,Milwaukee Brewers signed free agent RHP Ryan Sandberg to a minor league contract.
+2025-01-15,fa_minor,in,Santiago Martinez,,0,Milwaukee Brewers signed free agent LHP Santiago Martinez to a minor league contract.
+2025-01-15,fa_minor,in,Carlos Galindo,,0,Milwaukee Brewers signed free agent RHP Carlos Galindo to a minor league contract.
+2025-01-15,fa_minor,in,Merwin Manrique,,0,Milwaukee Brewers signed free agent RHP Merwin Manrique to a minor league contract.
+2025-01-15,fa_minor,in,Johanderson Tarazona,,0,Milwaukee Brewers signed free agent C Johanderson Tarazona to a minor league contract.
+2025-01-15,fa_minor,in,Luis Aguayo,,0,Milwaukee Brewers signed free agent RHP Luis Aguayo to a minor league contract.
+2025-01-15,fa_minor,in,Enrique Velasquez,,0,Milwaukee Brewers signed free agent RHP Enrique Velasquez to a minor league contract.
+2025-01-15,fa_minor,in,Raymond Sarmiento,,0,Milwaukee Brewers signed free agent RHP Raymond Sarmiento to a minor league contract.
+2025-01-15,fa_minor,in,Isais Chavez,,0,Milwaukee Brewers signed free agent C Isais Chavez to a minor league contract.
+2025-01-15,fa_minor,in,Romano Donato,,0,Milwaukee Brewers signed free agent SS Romano Donato to a minor league contract.
+2025-01-15,fa_minor,in,Jefer Lista,,0,Milwaukee Brewers signed free agent OF Jefer Lista to a minor league contract.
+2025-01-15,fa_minor,in,Luis Velasquez,,0,Milwaukee Brewers signed free agent RHP Luis Velasquez to a minor league contract.
+2025-01-15,fa_minor,in,Cristian Montilla,,0,Milwaukee Brewers signed free agent SS Cristian Montilla to a minor league contract.
+2025-01-15,fa_minor,in,Sharlisson De La Rosa,,0,Milwaukee Brewers signed free agent 3B Sharlisson De La Rosa to a minor league contract.
+2025-01-15,fa_minor,in,Eryks Rivero,,0,Milwaukee Brewers signed free agent OF Eryks Rivero to a minor league contract.
+2025-01-15,fa_minor,in,Diustin Mayorquin,,0,Milwaukee Brewers signed free agent RHP Diustin Mayorquin to a minor league contract.
+2025-01-15,fa_minor,in,Francis Sosa,,0,Milwaukee Brewers signed free agent OF Francis Sosa to a minor league contract.
+2025-01-15,fa_minor,in,Kenny Fenelon,,0,Milwaukee Brewers signed free agent OF Kenny Fenelon to a minor league contract.
+2025-01-15,fa_minor,in,Brailyn Antunez,,0,Milwaukee Brewers signed free agent OF Brailyn Antunez to a minor league contract.
+2025-01-15,fa_minor,in,Alexander Frias,,0,Milwaukee Brewers signed free agent Alexander Frias to a minor league contract.
+2025-01-15,fa_minor,in,Roniel Paulino,,0,Milwaukee Brewers signed free agent C Roniel Paulino to a minor league contract.
+2025-01-15,fa_minor,in,Leonard Rijo,,0,Milwaukee Brewers signed free agent SS Leonard Rijo to a minor league contract.
+2025-01-15,fa_minor,in,Matthew Moses,,0,Milwaukee Brewers signed free agent SS Matthew Moses to a minor league contract.
+2025-01-15,fa_minor,in,Manuel Castro,,0,Milwaukee Brewers signed free agent SS Manuel Castro to a minor league contract.
+2025-01-16,fa_minor,in,Abdiel Mendoza,,0,Milwaukee Brewers signed free agent RHP Abdiel Mendoza to a minor league contract.
+2025-01-16,fa_minor,in,Jorge Alfaro,,0,Milwaukee Brewers signed free agent C Jorge Alfaro to a minor league contract and invited him to spring training.
+2025-01-17,fa_major,in,Elvin Rodríguez,,0,Milwaukee Brewers signed free agent RHP Elvin Rodriguez.
+2025-01-21,fa_minor,in,Jesús Liranzo,,0,Milwaukee Brewers signed free agent RHP Jesús Liranzo to a minor league contract.
+2025-02-03,fa_minor,in,Tyler Jay,,0,Milwaukee Brewers signed free agent LHP Tyler Jay to a minor league contract and invited him to spring training.
+2025-02-12,fa_major,in,Tyler Alexander,,0,Milwaukee Brewers signed free agent LHP Tyler Alexander.
+2025-02-15,fa_minor,in,Josh Maciejewski,,0,Milwaukee Brewers signed free agent LHP Josh Maciejewski to a minor league contract.
+2025-02-23,fa_minor,in,Manuel Margot,,0,Milwaukee Brewers signed free agent LF Manuel Margot to a minor league contract and invited him to spring training.
+2025-02-24,fa_minor,in,Mark Canha,,0,Milwaukee Brewers signed free agent 1B Mark Canha to a minor league contract and invited him to spring training.
+2025-03-05,fa_minor,in,Gustavo Garcia,,0,Milwaukee Brewers signed free agent RHP Gustavo Garcia to a minor league contract.
+2025-03-05,fa_major,in,Jose Quintana,,0,Milwaukee Brewers signed free agent LHP Jose Quintana.
+2025-03-18,fa_minor,in,Brailin Aguirrez,,0,Milwaukee Brewers signed free agent RHP Brailin Aguirrez to a minor league contract.
+2025-03-22,trade,both,,Mark Canha,1,Milwaukee Brewers traded 1B Mark Canha to Kansas City Royals.
+2025-03-26,fa_minor,in,Ty Duvall,,0,Milwaukee Brewers signed free agent C Ty Duvall to a minor league contract.
+2025-03-28,trade,both,,Brewer Hicklen,1,Milwaukee Brewers traded RF Brewer Hicklen to Detroit Tigers for cash.
+2025-04-07,trade,both,Daz Cameron,Grant Wolfram,2,Baltimore Orioles traded LF Daz Cameron and cash to Milwaukee Brewers for LHP Grant Wolfram.
+2025-04-07,trade,both,Quinn Priester,Yophery Rodriguez,2,"Boston Red Sox traded RHP Quinn Priester to Milwaukee Brewers for CF Yophery Rodriguez, Player To Be Named Later and Draft Pick."
+2025-04-14,fa_minor,in,Jesus Molina,,0,Milwaukee Brewers signed free agent RHP Jesus Molina to a minor league contract.
+2025-04-14,fa_minor,in,Albert Vargas,,0,Milwaukee Brewers signed free agent RHP Albert Vargas to a minor league contract.
+2025-04-21,trade,both,Cesar Espinal,,0,Kansas City Royals traded RHP Cesar Espinal to Milwaukee Brewers.
+2025-04-22,fa_minor,in,Steven Duran,,0,Milwaukee Brewers signed free agent RHP Steven Duran to a minor league contract.
+2025-05-05,trade,both,,Evan McKendry,1,Milwaukee Brewers traded RHP Evan McKendry to Chicago White Sox for cash.
+2025-05-05,trade,both,,John Holobetz,0,Milwaukee Brewers traded RHP John Holobetz to Boston Red Sox. PTBNL from 4/7 Quinn Priester trade.
+2025-05-10,fa_minor,in,Bobby Dalbec,,0,Milwaukee Brewers signed free agent 1B Bobby Dalbec to a minor league contract.
+2025-05-15,fa_minor,in,Eddie Rosario,,0,Milwaukee Brewers signed free agent OF Eddie Rosario to a minor league contract.
+2025-05-15,waiver_loss,out,,Vinny Capra,0,Chicago White Sox claimed 3B Vinny Capra off waivers from Milwaukee Brewers.
+2025-05-16,trade,both,Rob Zastryzny,,1,New York Yankees traded LHP Rob Zastryzny to Milwaukee Brewers for cash.
+2025-05-27,fa_minor,in,Bryan Regalado,,0,Milwaukee Brewers signed free agent RHP Bryan Regalado to a minor league contract.
+2025-06-06,passive_loss,out,,Tyler Alexander,0,Milwaukee Brewers released LHP Tyler Alexander.
+2025-06-08,waiver_claim,in,Drew Avans,,0,Milwaukee Brewers claimed LF Drew Avans off waivers from Athletics.
+2025-06-12,fa_minor,in,Fausto Barreras,,0,Milwaukee Brewers signed free agent RHP Fausto Barreras to a minor league contract.
+2025-06-12,fa_minor,in,Derlin Garcia,,0,Milwaukee Brewers signed free agent RHP Derlin Garcia to a minor league contract.
+2025-06-13,trade,both,Andrew Vaughn,Aaron Civale,1,Chicago White Sox traded 1B Andrew Vaughn to Milwaukee Brewers for RHP Aaron Civale and cash.
+2025-06-16,fa_minor,in,Nick DeCarlo,,0,Milwaukee Brewers signed free agent RHP Nick DeCarlo to a minor league contract.
+2025-06-19,fa_minor,in,Chang Tzu-Chun Lin,,0,Milwaukee Brewers signed free agent RHP Chang Tzu-Chun Lin to a minor league contract.
+2025-06-19,trade,both,,Wes Clarke,1,Milwaukee Brewers traded 1B Wes Clarke to Houston Astros for cash.
+2025-06-23,fa_minor,in,Yu-Lin Liao,,0,Milwaukee Brewers signed free agent 3B Yu-Lin Liao to a minor league contract.
+2025-07-09,trade,both,Steward Berroa,,1,Los Angeles Dodgers traded RF Steward Berroa to Milwaukee Brewers for cash.
+2025-07-16,waiver_loss,out,,Elvin Rodríguez,0,Baltimore Orioles claimed RHP Elvin Rodriguez off waivers from Milwaukee Brewers.
+2025-07-16,waiver_loss,out,,Elvin Rodríguez,0,Baltimore Orioles claimed RHP Elvin Rodriguez off waivers from Milwaukee Brewers.
+2025-07-17,trade,both,Andrick Nava,,1,Philadelphia Phillies traded C Andrick Nava to Milwaukee Brewers for cash.
+2025-07-19,fa_minor,in,Bruce Zimmermann,,0,Milwaukee Brewers signed free agent LHP Bruce Zimmermann to a minor league contract.
+2025-07-19,signed_other,in,Brady Ebel,,0,Milwaukee Brewers signed SS Brady Ebel.
+2025-07-21,signed_other,in,Josiah Ragsdale,,0,Milwaukee Brewers signed OF Josiah Ragsdale.
+2025-07-21,signed_other,in,Sean Episcope,,0,Milwaukee Brewers signed RHP Sean Episcope.
+2025-07-22,fa_minor,in,Malachai Halterman,,0,Milwaukee Brewers signed free agent OF Malachai Halterman to a minor league contract.
+2025-07-23,signed_other,in,Jacob Morrison,,0,Milwaukee Brewers signed RHP Jacob Morrison.
+2025-07-23,signed_other,in,Andrew Fischer,,0,Milwaukee Brewers signed 3B Andrew Fischer.
+2025-07-23,signed_other,in,Joshua Flores,,0,Milwaukee Brewers signed RHP Joshua Flores.
+2025-07-23,signed_other,in,Andrew Healy,,0,Milwaukee Brewers signed LHP Andrew Healy.
+2025-07-24,signed_other,in,Braylon Owens,,0,Milwaukee Brewers signed RHP Braylon Owens.
+2025-07-24,signed_other,in,Hayden Vucinovich,,0,Milwaukee Brewers signed RHP Hayden Vucinovich.
+2025-07-24,signed_other,in,Frank Cairone,,0,Milwaukee Brewers signed LHP Frank Cairone.
+2025-07-24,signed_other,in,J.D. Thompson,,0,Milwaukee Brewers signed LHP J.D. Thompson.
+2025-07-24,signed_other,in,Rylan Mills,,0,Milwaukee Brewers signed C Rylan Mills.
+2025-07-24,signed_other,in,Daniel Dickinson,,0,Milwaukee Brewers signed SS Daniel Dickinson.
+2025-07-25,fa_minor,in,Tanner Perry,,0,Milwaukee Brewers signed free agent RHP Tanner Perry to a minor league contract.
+2025-07-25,fa_minor,in,Caleb Nieman,,0,Milwaukee Brewers signed free agent RHP Caleb Nieman to a minor league contract.
+2025-07-25,fa_minor,in,Peyton Niksch,,0,Milwaukee Brewers signed free agent RHP Peyton Niksch to a minor league contract.
+2025-07-25,fa_minor,in,Thomas Conrad,,0,Milwaukee Brewers signed free agent RHP Thomas Conrad to a minor league contract.
+2025-07-25,fa_minor,in,Jarrette Bonet,,0,Milwaukee Brewers signed free agent RHP Jarrette Bonet to a minor league contract.
+2025-07-28,signed_other,in,Chase Bentley,,0,Milwaukee Brewers signed RHP Chase Bentley.
+2025-07-28,signed_other,in,Luke Roupe,,0,Milwaukee Brewers signed RHP Luke Roupe.
+2025-07-28,signed_other,in,Ma'Kale Holden,,0,Milwaukee Brewers signed RHP Ma'Kale Holden.
+2025-07-28,signed_other,in,CJ Hughes,,0,Milwaukee Brewers signed SS CJ Hughes.
+2025-07-28,trade,both,Danny Jansen,Jadher Areinamo,1,Tampa Bay Rays traded C Danny Jansen and cash to Milwaukee Brewers for 2B Jadher Areinamo.
+2025-07-29,fa_minor,in,Michael Fowler,,0,Milwaukee Brewers signed free agent RHP Michael Fowler to a minor league contract.
+2025-07-31,trade,both,Brandon Lockridge,Jorge Quintana; Nestor Cortes,1,"Milwaukee Brewers traded LHP Nestor Cortes, SS Jorge Quintana and cash to San Diego Padres for LF Brandon Lockridge."
+2025-07-31,trade,both,Jordan Montgomery; Shelby Miller,,1,Arizona Diamondbacks traded RHP Shelby Miller and LHP Jordan Montgomery to Milwaukee Brewers for Player To Be Named Later.
+2025-08-03,waiver_loss,out,,Bryan Hudson,0,Chicago White Sox claimed LHP Bryan Hudson off waivers from Milwaukee Brewers.
+2025-08-03,waiver_loss,out,,Elvis Peguero,0,Chicago White Sox claimed RHP Elvis Peguero off waivers from Milwaukee Brewers.
+2025-08-04,trade,both,Austin Roberts,,1,Miami Marlins traded RHP Austin Roberts to Milwaukee Brewers for cash.
+2025-08-07,fa_minor,in,Raúl Alcantara,,0,Milwaukee Brewers signed free agent LHP Raúl Alcantara to a minor league contract.
+2025-08-09,fa_minor,in,Travis MacGregor,,0,Milwaukee Brewers signed free agent RHP Travis MacGregor to a minor league contract.
+2025-08-12,fa_minor,in,Julian Merryweather,,0,Milwaukee Brewers signed free agent RHP Julian Merryweather to a minor league contract.
+2025-08-20,fa_minor,in,Tucker Davidson,,0,Milwaukee Brewers signed free agent LHP Tucker Davidson to a minor league contract.
+2025-08-22,fa_minor,in,Nick Monile,,0,Milwaukee Brewers signed free agent OF Nick Monile to a minor league contract.
+2025-08-27,fa_major,in,Erick Fedde,,0,Milwaukee Brewers signed free agent RHP Erick Fedde.
+2025-09-01,fa_minor,in,Luis Urías,,0,Milwaukee Brewers signed free agent 2B Luis Urías to a minor league contract.
+2025-09-22,waiver_loss,out,,Joel Payamps,0,Atlanta Braves claimed RHP Joel Payamps off waivers from Milwaukee Brewers.
+2025-10-22,waiver_claim,in,Sammy Peralta,,0,Milwaukee Brewers claimed LHP Sammy Peralta off waivers from Los Angeles Angels.
+2025-11-02,passive_loss,out,,Jordan Montgomery,0,LHP Jordan Montgomery elected free agency.
+2025-11-02,passive_loss,out,,Shelby Miller,0,RHP Shelby Miller elected free agency.
+2025-11-03,passive_loss,out,,Danny Jansen,0,C Danny Jansen elected free agency.
+2025-11-03,passive_loss,out,,Brandon Woodruff,0,RHP Brandon Woodruff elected free agency.
+2025-11-04,passive_loss,out,,Jose Quintana,0,LHP Jose Quintana elected free agency.
+2025-11-04,passive_loss,out,,Rhys Hoskins,0,1B Rhys Hoskins elected free agency.
+2025-11-10,fa_minor,in,Jesus Vasquez,,0,Milwaukee Brewers signed free agent RHP Jesus Vasquez to a minor league contract.
+2025-11-11,fa_minor,in,Eddys Leonard,,0,Milwaukee Brewers signed free agent SS Eddys Leonard to a minor league contract.
+2025-11-18,fa_major,in,Brandon Woodruff,,0,Milwaukee Brewers signed free agent RHP Brandon Woodruff.
+2025-11-25,fa_minor,in,Hansel Rincon,,0,Milwaukee Brewers signed free agent RHP Hansel Rincon to a minor league contract.
+2025-12-05,fa_minor,in,Alejandro Bustamante,,0,Milwaukee Brewers signed free agent RHP Alejandro Bustamante to a minor league contract.
+2025-12-10,rule5_minors,out,,Nate Peterson,0,"Cincinnati Reds purchased contract of LHP Nate Peterson  in the Rule 5 Draft, AAA Phase."
+2025-12-10,rule5_minors,out,,Garrett Spain,0,"Minnesota Twins purchased contract of RF Garrett Spain  in the Rule 5 Draft, AAA Phase."
+2025-12-10,rule5_minors,out,,Hedbert Perez,0,"Toronto Blue Jays purchased contract of LF Hedbert Perez  in the Rule 5 Draft, AAA Phase."
+2025-12-10,rule5_minors,out,,Hansel Rincon,0,"New York Yankees purchased contract of RHP Hansel Rincon  in the Rule 5 Draft, AAA Phase."
+2025-12-10,rule5_minors,in,Cole Phillips,,0,"Milwaukee Brewers purchased contract of RHP Cole Phillips  in the Rule 5 Draft, AAA Phase."
+2025-12-10,rule5_minors,out,,Caden Vire,0,"Boston Red Sox purchased contract of LHP Caden Vire  in the Rule 5 Draft, AAA Phase."
+2025-12-10,rule5_minors,out,,Zavier Warren,0,"Cincinnati Reds purchased contract of 1B Zavier Warren  in the Rule 5 Draft, AAA Phase."
+2025-12-11,fa_minor,in,Dasan Brown,,0,Milwaukee Brewers signed free agent CF Dasan Brown to a minor league contract.
+2025-12-11,fa_minor,in,Greg Jones,,0,Milwaukee Brewers signed free agent RF Greg Jones to a minor league contract.
+2025-12-11,fa_major,in,Akil Baddoo,,0,Milwaukee Brewers signed free agent LF Akil Baddoo.
+2025-12-12,fa_minor,in,Adrian Bello,,0,Milwaukee Brewers signed free agent RHP Adrian Bello to a minor league contract.
+2025-12-12,fa_minor,in,Wilmer Duarte,,0,Milwaukee Brewers signed free agent RHP Wilmer Duarte to a minor league contract.
+2025-12-14,trade,both,Angel Zerpa,Isaac Collins; Nick Mears,0,Milwaukee Brewers traded LF Isaac Collins and RHP Nick Mears to Kansas City Royals for LHP Angel Zerpa.
+2025-12-17,fa_minor,in,Drew Rom,,0,Milwaukee Brewers signed free agent LHP Drew Rom to a minor league contract.
+2025-12-25,fa_minor,in,Gerson Garabito,,0,Milwaukee Brewers signed free agent RHP Gerson Garabito to a minor league contract.
+2026-01-10,fa_minor,in,Greg Jones,,0,Milwaukee Brewers signed free agent RF Greg Jones to a minor league contract and invited him to spring training.
+2026-01-15,fa_minor,in,José Rodríguez,,0,Milwaukee Brewers signed free agent SS Jose Rodriguez to a minor league contract.
+2026-01-15,fa_minor,in,Diego Frontado,,0,Milwaukee Brewers signed free agent SS Diego Frontado to a minor league contract.
+2026-01-15,fa_minor,in,Manny De Los Santos,,0,Milwaukee Brewers signed free agent OF Manny De Los Santos to a minor league contract.
+2026-01-15,fa_minor,in,Osiris Ramirez,,0,Milwaukee Brewers signed free agent 2B Osiris Ramirez to a minor league contract.
+2026-01-15,fa_minor,in,Leanders Matos,,0,Milwaukee Brewers signed free agent SS Leanders Matos to a minor league contract.
+2026-01-15,fa_minor,in,Alexander Mercedes,,0,Milwaukee Brewers signed free agent LHP Alexander Mercedes to a minor league contract.
+2026-01-15,fa_minor,in,Angeni Fernandez,,0,Milwaukee Brewers signed free agent SS Angeni Fernandez to a minor league contract.
+2026-01-15,fa_minor,in,Enrique Lovera,,0,Milwaukee Brewers signed free agent OF Enrique Lovera to a minor league contract.
+2026-01-15,fa_minor,in,Sebastian Franeites,,0,Milwaukee Brewers signed free agent C Sebastian Franeites to a minor league contract.
+2026-01-15,fa_minor,in,Daniel Munoz,,0,Milwaukee Brewers signed free agent RHP Daniel Munoz to a minor league contract.
+2026-01-15,fa_minor,in,Ricki Moneys,,0,Milwaukee Brewers signed free agent SS Ricki Moneys to a minor league contract.
+2026-01-15,fa_minor,in,Josue Rodriguez,,0,Milwaukee Brewers signed free agent SS Josue Rodriguez to a minor league contract.
+2026-01-15,fa_minor,in,Jean Rivero,,0,Milwaukee Brewers signed free agent RHP Jean Rivero to a minor league contract.
+2026-01-15,fa_minor,in,Miguel Andrade,,0,Milwaukee Brewers signed free agent RHP Miguel Andrade to a minor league contract.
+2026-01-15,fa_minor,in,Marcos Veras,,0,Milwaukee Brewers signed free agent RHP Marcos Veras to a minor league contract.
+2026-01-15,fa_minor,in,Francisco De Marchena,,0,Milwaukee Brewers signed free agent C Francisco De Marchena to a minor league contract.
+2026-01-15,fa_minor,in,Jordy Brache,,0,Milwaukee Brewers signed free agent RHP Jordy Brache to a minor league contract.
+2026-01-15,fa_minor,in,Moises Salazar,,0,Milwaukee Brewers signed free agent C Moises Salazar to a minor league contract.
+2026-01-15,fa_minor,in,Santiago Garcia,,0,Milwaukee Brewers signed free agent SS Santiago Garcia to a minor league contract.
+2026-01-15,fa_minor,in,Diego Trillo,,0,Milwaukee Brewers signed free agent RHP Diego Trillo to a minor league contract.
+2026-01-15,fa_minor,in,Joan Gonzalez,,0,Milwaukee Brewers signed free agent RHP Joan Gonzalez to a minor league contract.
+2026-01-15,fa_minor,in,Ruben Revost,,0,Milwaukee Brewers signed free agent SS Ruben Revost to a minor league contract.
+2026-01-21,trade,both,Brandon Sproat; Jett Williams,Freddy Peralta; Tobias Myers,0,Milwaukee Brewers traded RHP Freddy Peralta and RHP Tobias Myers to New York Mets for RHP Brandon Sproat and SS Jett Williams.
+2026-01-28,fa_minor,in,Reese McGuire,,0,Milwaukee Brewers signed free agent C Reese McGuire to a minor league contract and invited him to spring training.
+2026-01-29,fa_minor,in,Jacob Waguespack,,0,Milwaukee Brewers signed free agent RHP Jacob Waguespack to a minor league contract and invited him to spring training.
+2026-02-03,fa_minor,in,Jacob Hurtubise,,0,Milwaukee Brewers signed free agent LF Jacob Hurtubise to a minor league contract.
+2026-02-04,fa_minor,in,Jordyn Adams,,0,Milwaukee Brewers signed free agent CF Jordyn Adams to a minor league contract.
+2026-02-09,fa_minor,in,Peter Strzelecki,,0,Milwaukee Brewers signed free agent RHP Peter Strzelecki to a minor league contract and invited him to spring training.
+2026-02-09,trade,both,David Hamilton; Kyle Harrison; Shane Drohan,Andruw Monasterio; Anthony Seigler; Caleb Durbin,1,"Boston Red Sox traded LHP Kyle Harrison, LHP Shane Drohan and 2B David Hamilton to Milwaukee Brewers for 3B Caleb Durbin, SS Andruw Monasterio, 2B Anthony Seigler and Future Considerations."
+2026-02-12,fa_minor,in,Joe Corbett,,0,Milwaukee Brewers signed free agent RHP Joe Corbett to a minor league contract.
+2026-02-14,fa_major,in,Gary Sánchez,,0,Milwaukee Brewers signed free agent C Gary Sánchez.
+2026-02-16,fa_major,in,Luis Rengifo,,0,Milwaukee Brewers signed free agent 3B Luis Rengifo.
+2026-03-24,trade,both,Jake Woodford,K.C. Hunt,1,Tampa Bay Rays traded RHP Jake Woodford to Milwaukee Brewers for RHP K.C. Hunt and cash.
+2026-03-27,trade,both,Damon Keith,,0,Los Angeles Dodgers traded RF Damon Keith to Milwaukee Brewers.
+2026-03-30,trade,both,Luis Matos,,1,San Francisco Giants traded RF Luis Matos to Milwaukee Brewers for cash.
+2026-04-04,waiver_loss,out,,Sammy Peralta,0,Colorado Rockies claimed LHP Sammy Peralta off waivers from Milwaukee Brewers.
+2026-04-08,trade,both,,Steward Berroa,1,Milwaukee Brewers traded RF Steward Berroa to Philadelphia Phillies for cash.
+2026-04-09,fa_minor,in,Reiss Knehr,,0,Milwaukee Brewers signed free agent RHP Reiss Knehr to a minor league contract.
+2026-04-15,trade,both,Junior Fernández,,0,Arizona Diamondbacks traded RHP Junior Fernández to Milwaukee Brewers.
+2026-04-17,fa_minor,in,Jesus Mancera,,0,Milwaukee Brewers signed free agent OF Jesus Mancera to a minor league contract.
+2026-04-22,fa_minor,in,Mark Coley II,,0,Milwaukee Brewers signed free agent OF Mark Coley II to a minor league contract.
+2026-04-24,fa_minor,in,Josue Jean,,0,Milwaukee Brewers signed free agent Josue Jean to a minor league contract.
+2026-05-10,fa_minor,in,Jacob Waguespack,,0,Milwaukee Brewers signed free agent RHP Jacob Waguespack to a minor league contract.
+2026-05-15,fa_minor,in,Jefrey Etienne,,0,Milwaukee Brewers signed free agent RHP Jefrey Etienne to a minor league contract.
+2026-05-26,fa_minor,in,Manuel Davila,,0,Milwaukee Brewers signed free agent RHP Manuel Davila to a minor league contract.
+2026-05-27,fa_minor,in,Noel Cepeda,,0,Milwaukee Brewers signed free agent LHP Noel Cepeda to a minor league contract.
+2026-05-28,fa_minor,in,Yancarlos Vasquez,,0,Milwaukee Brewers signed free agent RHP Yancarlos Vasquez to a minor league contract.
+2026-05-28,fa_minor,in,Bryce Schaum,,0,Milwaukee Brewers signed free agent RHP Bryce Schaum to a minor league contract.
+2026-05-28,fa_minor,in,Deivy Gonzalez,,0,Milwaukee Brewers signed free agent RHP Deivy Gonzalez to a minor league contract.
+2026-06-06,trade,both,Joel Kuhnel,,1,Athletics traded RHP Joel Kuhnel to Milwaukee Brewers for cash.
+2026-06-10,fa_minor,in,Lyon Richardson,,0,Milwaukee Brewers signed free agent RHP Lyon Richardson to a minor league contract.
+2026-06-10,trade,both,,Jacob Waguespack,0,Milwaukee Brewers traded RHP Jacob Waguespack to Detroit Tigers.
+2026-06-23,passive_loss,out,,Luis Rengifo,0,Milwaukee Brewers released 3B Luis Rengifo.
+2026-06-24,fa_minor,in,Peter Strzelecki,,0,Milwaukee Brewers signed free agent RHP Peter Strzelecki to a minor league contract.
+2026-07-10,fa_major,in,Bryse Wilson,,0,Milwaukee Brewers signed free agent RHP Bryse Wilson.
+2026-07-12,trade,both,Braden Shewmake,,0,Houston Astros traded SS Braden Shewmake to Milwaukee Brewers.
+2026-07-14,trade,both,,Easton McGee,1,Milwaukee Brewers traded RHP Easton McGee to Kansas City Royals for cash.
+2026-07-15,trade,both,Colton Gordon; Lance McCullers Jr.,Jadyn Fielder,1,"Houston Astros traded RHP Lance McCullers Jr., LHP Colton Gordon and cash to Milwaukee Brewers for OF Jadyn Fielder."
+2026-07-16,signed_other,in,Ryan Oshinskie,,0,Milwaukee Brewers signed RHP Ryan Oshinskie.
+2026-07-17,signed_other,in,Trey Ebel,,0,Milwaukee Brewers signed SS Trey Ebel.
