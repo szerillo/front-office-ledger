@@ -234,7 +234,7 @@
   <!-- ================= LEADERBOARD ================= -->
   <section id="view-leaderboard">
     <h2>Front Office Leaderboard · Active MLB Regimes</h2>
-    <div class="sub">Value added vs. expectation across the four acquisition channels, realized WAR only, per season of tenure. Letter grades (hover any grade for its 20–80 scouting-scale value). <strong>FOR</strong> rates decision quality; <strong>Success</strong> rates on-field results; the gap between them is a story in itself. <strong style="color:var(--s4)">Values are mocked for this prototype</strong>, except the <span class="badge-real" style="margin-left:0">REAL DATA</span> entries: the two Betts decisions on the Dodgers card, and the <strong>entire Orioles card</strong>, scored end-to-end from the real Elias ledger (approximate WAR inputs; see proof-of-concept reports).</div>
+    <div class="sub">Value added vs. expectation across the four acquisition channels, realized WAR only, per season of tenure. Letter grades (hover any grade for its 20–80 scouting-scale value). <strong>FOR</strong> rates decision quality; <strong>Success</strong> rates on-field results; the gap between them is a story in itself. <strong style="color:var(--s4)">Values are mocked for this prototype</strong>, except the <span class="badge-real" style="margin-left:0">REAL DATA</span> entries: the Betts decisions on the Dodgers card, the <strong>entire Orioles card</strong> (hand-verified approximate inputs), and the <strong>entire Brewers card</strong>, whose values are computed automatically by Ledger WAR v0, our self-built metric from the live MLB Stats API feed.</div>
     <div class="filters">
       <label for="erasel">Era</label>
       <select id="erasel">
@@ -356,7 +356,7 @@
     </div>
   </section>
 
-  <footer>Front Office Ledger · prototype v0.9 · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · sample data except entries badged REAL DATA (the Betts decisions on the Dodgers card; the full Orioles/Elias card, approximate WAR inputs, see proof-of-concept reports). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
+  <footer>Front Office Ledger · prototype v1.0 · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · sample data except entries badged REAL DATA (the Betts decisions on the Dodgers card; the full Orioles/Elias card, approximate WAR inputs, see proof-of-concept reports). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
 </div>
 
 <!-- decision modal -->
@@ -482,6 +482,49 @@ const REGIMES = [
         {d:'02/01/2024', h:'IF Joey Ortiz (Burnes trade) <span class="badge-real">REAL DATA</span>', t:'Trade', war:-5.4, real:true, open:true, note:'Controlled through 2029: the deepest open liability on the ledger.'},
         {d:'07/26/2024', h:'OF Kyle Stowers (Rogers trade) <span class="badge-real">REAL DATA</span>', t:'Trade', war:-2.5, real:true, open:true},
         {d:'12/15/2024', h:'2024–25 FA class (O\'Neill, Morton, Kimbrel…) <span class="badge-real">REAL DATA</span>', t:'FA signings vs. contract price', war:-5.5, real:true, open:true, note:'≈ −$52M of surplus in one winter: the documented channel weakness (FA grades D+).'},
+      ],
+    }
+  },
+  {
+    id:'mil', exec:'Matt Arnold', title:'President of Baseball Operations', team:'Milwaukee Brewers',
+    start:2023, seasons:4, titles:0, forGrade:80, smallSample:true, realCard:true,
+    realBadge:'COMPUTED · LEDGER WAR v0',
+    success:{wpct:'.565', div:3, po:3, sw:1, pen:0, ws:0, g:65},
+    chan:{draft:{net:-0.5,g:50,n:62}, trade:{net:24.7,g:80,n:74}, fa:{net:2.0,g:55,n:28}, waiver:{net:4.8,g:70,n:15}},
+    surplus:'≈$260M', decisions:524,
+    cum:[6,14,25,31],
+    ledgers:{
+      bestTrades:[
+        {d:'12/12/2022', h:'C William Contreras + RHP Payamps in 3-team Murphy deal <span class="badge-real">COMPUTED</span>', war:+20.2, real:true, open:true, t:'Trade · values from Ledger WAR v0',
+         note:'The signature move of the regime, scored with computed values: an everyday all-star catcher plus a leverage reliever for Esteury Ruiz (−0.4 elsewhere). Note the metric caveat: LVM has no framing component, so Contreras is if anything undervalued here.',
+         sides:[['Acquired',[['C William Contreras (thru 2027)','+19.8 LVM'],['RHP Joel Payamps','incl. above']]],['Surrendered',[['OF Esteury Ruiz','-0.4 elsewhere']]]]},
+        {d:'04/07/2025', h:'RHP Quinn Priester from BOS (comp pick + prospect out) <span class="badge-real">COMPUTED</span>', war:+2.1, real:true, open:true, t:'Trade · values from Ledger WAR v0',
+         note:'Priester broke out immediately (+2.1 LVM in 2025); the surrendered comp pick carries ~1.5 expected value, unrealized and open.',
+         sides:[['Acquired',[['RHP Quinn Priester','+2.1 LVM']]],['Surrendered',[['Comp pick + OF prospect','~-1.5 expected, open']]]]},
+        {d:'06/13/2025', h:'Civale chain: rental arm flipped for 1B Andrew Vaughn <span class="badge-real">COMPUTED</span>', war:+1.8, real:true, open:true, t:'Trade chain · values from Ledger WAR v0',
+         note:'A two-step conversion: a prospect became Civale, Civale became Vaughn. The tree view is the honest display for chains like this.',
+         sides:[['Acquired',[['RHP Aaron Civale + 1B Andrew Vaughn','+1.8 LVM']]],['Surrendered',[['Pitching prospect','windows open']]]]},
+      ],
+      worstTrades:[
+        {d:'02/01/2024', h:'RHP Corbin Burnes to BAL (Ortiz, Hall, pick 34 in) <span class="badge-real">COMPUTED</span>', war:+0.2, real:true, open:true, t:'Trade · seller\'s seat · Ledger WAR v0',
+         note:'The same deal we scored from Baltimore\'s seat, now from Milwaukee\'s: near-even realized (+3.7 in vs +3.5 Burnes out) with pick 34\'s ~+1 still unrealized. Nothing on this regime\'s trade ledger grades negative yet; the two thinnest margins are shown here.',
+         sides:[['Acquired',[['IF Joey Ortiz + LHP DL Hall','+3.7 LVM'],['Pick #34 (2024)','~+1 expected, open']]],['Surrendered',[['RHP Corbin Burnes (1 yr)','-3.5 LVM']]]]},
+        {d:'12/13/2024', h:'RHP Devin Williams to NYY (Cortes, Durbin in) <span class="badge-real">COMPUTED</span>', war:+0.4, real:true, open:true, t:'Trade · seller\'s seat · Ledger WAR v0',
+         note:'Selling a closer\'s walk year: +2.2 in (mostly Durbin) vs Williams\' +1.8 in New York. Thin but positive, and the walk-year risk transferred.',
+         sides:[['Acquired',[['LHP Nestor Cortes + IF Caleb Durbin','+2.2 LVM']]],['Surrendered',[['RHP Devin Williams (1 yr)','-1.8 LVM']]]]},
+      ],
+      bestAcq:[
+        {d:'12/02/2023', h:'Extended OF Jackson Chourio, 8 yr / $82M, PRE-DEBUT <span class="badge-real">COMPUTED</span>', t:'Extension · net of cost · Ledger WAR v0', war:+4.3, real:true, open:true,
+         note:'The boldest retention decision in the sport: the option exercised before the market ever saw the player. +4.9 LVM realized in 2024-25 against ~0.6 implied by dollars paid so far, with the window open through 2031+. Inherited asset (Stearns int\'l signing), Arnold\'s extension decision.',
+         sides:[['Acquired',[['OF Jackson Chourio, 2024-2031','+4.9 LVM to date']]],['Committed',[['$82M guaranteed','~$6M paid so far']]]]},
+        {d:'11/06/2023', h:'RHP Tobias Myers, minor-league acquisition <span class="badge-real">COMPUTED</span>', t:'Found money · Ledger WAR v0', war:+2.6, real:true},
+        {d:'01/15/2024', h:'UT Isaac Collins, minor-league FA <span class="badge-real">COMPUTED</span>', t:'Found money · Ledger WAR v0', war:+2.2, real:true, open:true},
+      ],
+      losses:[
+        {d:'12/09/2024', h:'SS Willy Adames walks (FA to SF) <span class="badge-real">COMPUTED</span>', t:'Passive loss + comp pick', war:-3.7, real:true, open:true,
+         note:'Departed value +3.7 LVM elsewhere, comp pick credited back. Letting a 29-year-old shortstop walk at $182M looks defensible so far.'},
+        {d:'01/22/2024', h:'1B Rhys Hoskins, 2 yr / $34M <span class="badge-real">COMPUTED</span>', t:'FA signing vs. contract price', war:-2.0, real:true,
+         note:'The one clearly negative line on the card: +1.6 LVM against 3.6 implied by the money.'},
       ],
     }
   },
@@ -858,7 +901,7 @@ teamsel.addEventListener('change', ()=>renderReport(teamsel.value));
 
 function renderReport(id){
   const r = REGIMES.find(x=>x.id===id) || REGIMES[0];
-  $('#rc-name').innerHTML = r.exec + (r.realCard ? ' <span class="badge-real" style="font-size:12px; vertical-align:6px">REAL DATA (approx. WAR inputs)</span>' : '');
+  $('#rc-name').innerHTML = r.exec + (r.realCard ? ` <span class="badge-real" style="font-size:12px; vertical-align:6px">${r.realBadge || 'REAL DATA (approx. WAR inputs)'}</span>` : '');
   $('#rc-meta').textContent = `${r.title} · ${r.team} · ${r.start}–present (${r.seasons} seasons)` + (r.smallSample ? ' · small-sample regime' : '');
   $('#rc-rings').textContent = r.titles ? '🏆'.repeat(r.titles) + ` ${r.titles} World Series title${r.titles>1?'s':''} during tenure` : 'No World Series titles during tenure';
 
