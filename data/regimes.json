@@ -1,0 +1,42 @@
+{
+  "_comment": "Active MLB baseball-ops regimes as of July 2026. Top decision-maker per club. start = when they took charge of baseball ops (sole lead where distinguishable). floor 2005-01-01 applied at ingestion (API coverage). Flags: approx = month approximate; handoff = regime succeeded a colleague from same FO.",
+  "regimes": [
+    {"teamId":109, "team":"Arizona Diamondbacks", "abbr":"ARI", "exec":"Mike Hazen", "start":"2016-10-01"},
+    {"teamId":144, "team":"Atlanta Braves", "abbr":"ATL", "exec":"Alex Anthopoulos", "start":"2017-11-13"},
+    {"teamId":110, "team":"Baltimore Orioles", "abbr":"BAL", "exec":"Mike Elias", "start":"2018-11-16"},
+    {"teamId":111, "team":"Boston Red Sox", "abbr":"BOS", "exec":"Craig Breslow", "start":"2023-10-25"},
+    {"teamId":112, "team":"Chicago Cubs", "abbr":"CHC", "exec":"Jed Hoyer", "start":"2020-11-20", "flags":["handoff: Epstein co-architect 2011-2020"]},
+    {"teamId":145, "team":"Chicago White Sox", "abbr":"CWS", "exec":"Chris Getz", "start":"2023-08-31"},
+    {"teamId":113, "team":"Cincinnati Reds", "abbr":"CIN", "exec":"Nick Krall", "start":"2020-10-07"},
+    {"teamId":114, "team":"Cleveland Guardians", "abbr":"CLE", "exec":"Chris Antonetti", "start":"2015-10-06", "flags":["handoff: Shapiro tree"]},
+    {"teamId":115, "team":"Colorado Rockies", "abbr":"COL", "exec":"Paul DePodesta", "start":"2025-11-01", "flags":["approx"]},
+    {"teamId":116, "team":"Detroit Tigers", "abbr":"DET", "exec":"Scott Harris", "start":"2022-09-19"},
+    {"teamId":117, "team":"Houston Astros", "abbr":"HOU", "exec":"Dana Brown", "start":"2023-01-26"},
+    {"teamId":118, "team":"Kansas City Royals", "abbr":"KC", "exec":"J.J. Picollo", "start":"2022-09-21"},
+    {"teamId":108, "team":"Los Angeles Angels", "abbr":"LAA", "exec":"Perry Minasian", "start":"2020-11-12"},
+    {"teamId":119, "team":"Los Angeles Dodgers", "abbr":"LAD", "exec":"Andrew Friedman", "start":"2014-10-14"},
+    {"teamId":146, "team":"Miami Marlins", "abbr":"MIA", "exec":"Peter Bendix", "start":"2023-11-06"},
+    {"teamId":158, "team":"Milwaukee Brewers", "abbr":"MIL", "exec":"Matt Arnold", "start":"2022-10-27"},
+    {"teamId":142, "team":"Minnesota Twins", "abbr":"MIN", "exec":"Derek Falvey", "start":"2016-10-03"},
+    {"teamId":121, "team":"New York Mets", "abbr":"NYM", "exec":"David Stearns", "start":"2023-10-02"},
+    {"teamId":147, "team":"New York Yankees", "abbr":"NYY", "exec":"Brian Cashman", "start":"1998-02-03", "flags":["ledger floored at 2005 by API coverage"]},
+    {"teamId":133, "team":"Athletics", "abbr":"ATH", "exec":"David Forst", "start":"2015-10-05"},
+    {"teamId":143, "team":"Philadelphia Phillies", "abbr":"PHI", "exec":"Dave Dombrowski", "start":"2020-12-11"},
+    {"teamId":134, "team":"Pittsburgh Pirates", "abbr":"PIT", "exec":"Ben Cherington", "start":"2019-11-18"},
+    {"teamId":135, "team":"San Diego Padres", "abbr":"SD", "exec":"A.J. Preller", "start":"2014-08-06"},
+    {"teamId":137, "team":"San Francisco Giants", "abbr":"SF", "exec":"Buster Posey", "start":"2024-09-30"},
+    {"teamId":136, "team":"Seattle Mariners", "abbr":"SEA", "exec":"Jerry Dipoto", "start":"2015-09-28"},
+    {"teamId":138, "team":"St. Louis Cardinals", "abbr":"STL", "exec":"Chaim Bloom", "start":"2025-10-01", "flags":["approx"]},
+    {"teamId":139, "team":"Tampa Bay Rays", "abbr":"TB", "exec":"Erik Neander", "start":"2016-11-08"},
+    {"teamId":140, "team":"Texas Rangers", "abbr":"TEX", "exec":"Chris Young", "start":"2022-08-17", "flags":["GM from 2020-12 under Daniels; sole lead from this date"]},
+    {"teamId":141, "team":"Toronto Blue Jays", "abbr":"TOR", "exec":"Ross Atkins", "start":"2015-12-03"},
+    {"teamId":120, "team":"Washington Nationals", "abbr":"WSH", "exec":"Paul Toboni", "start":"2025-09-30", "flags":["approx"]}
+  ],
+  "aliases": {
+    "133": ["Athletics", "Oakland Athletics"],
+    "108": ["Los Angeles Angels", "Los Angeles Angels of Anaheim", "Anaheim Angels"],
+    "146": ["Miami Marlins", "Florida Marlins"],
+    "139": ["Tampa Bay Rays", "Tampa Bay Devil Rays"],
+    "114": ["Cleveland Guardians", "Cleveland Indians"]
+  }
+}

@@ -11,6 +11,8 @@ A decision-level accounting system for sports front offices. Every draft pick, t
 - `engine/` holds the scoring methodology, proven on two proofs of concept: the Betts trade (three-lens scoring with retention rights) and the full Elias regime (draft slot curve, maturity schedule, all four channels).
 - `prototype/index.html` is the product prototype: leaderboard, regime report cards, transaction trees, lens matrices, dark/light themes. Orioles card is scored end-to-end with real data; most other values are labeled sample data.
 
+**THE 30-REGIME SWEEP (new):** every active MLB front office scored automatically. `ingest/sweep_ingest.py` pulls all 30 clubs' transactions from each regime's start (108k rows, floor 2005), `engine/sweep_score.py` values 13k players with Ledger WAR v0 and grades trades / drafts / waivers per regime (FA pending a contracts feed), and `ingest/integrate_sweep.py` splices the results into the prototype leaderboard. Regime table: `data/regimes.json`; results: `data/sweep_results.json`.
+
 **Methodology version: v0.2** (win-curve leverage, time discounting, retention rights, net-of-cost contracts, perspective rule). See `docs/methodology-v02-addendum.md`. The v0.3 target: empirical market-price baselines for trades (the rental-return curve) that consolidate the lens stack; see `docs/design.md` section 3.4b.
 
 **The one missing stage: valuation.** Per-person per-season WAR keyed off the crosswalk. Paths: a FanGraphs data license, or self-computed open WAR from Retrosheet event files. B-Ref and FanGraphs block unlicensed programmatic access (verified); do not build on scraping.

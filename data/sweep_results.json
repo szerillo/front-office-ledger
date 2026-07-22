@@ -1,0 +1,3052 @@
+[
+ {
+  "id": "ari",
+  "teamId": 109,
+  "exec": "Mike Hazen",
+  "team": "Arizona Diamondbacks",
+  "abbr": "ARI",
+  "start": 2016,
+  "seasons": 9.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": -1.7,
+    "g": 50,
+    "n": 119
+   },
+   "draft": {
+    "net": 2.5,
+    "g": 55,
+    "n": 57
+   },
+   "waiver": {
+    "net": -1.0,
+    "g": 50,
+    "n": 85
+   },
+   "fa": {
+    "net": 47.3,
+    "g": null,
+    "n": 88
+   }
+  },
+  "total": -0.2,
+  "forGrade": 50,
+  "success": {
+   "wpct": ".485",
+   "div": 0,
+   "g": 45,
+   "w": 784,
+   "l": 834
+  },
+  "top": [
+   {
+    "d": "2019-07-31",
+    "ch": "trade",
+    "net": 15.3,
+    "h": "Miami Marlins traded RHP Zac Gallen to Arizona Diamondbacks.",
+    "vin": 15.3,
+    "vout": 0
+   },
+   {
+    "d": "2019-06-15",
+    "ch": "draft",
+    "net": 12.5,
+    "h": "Drafted Corbin Carroll (#16 overall, 2019)"
+   },
+   {
+    "d": "2018-12-05",
+    "ch": "trade",
+    "net": -9.3,
+    "h": "Arizona Diamondbacks traded 1B Paul Goldschmidt to St. Louis Cardinals for C Carson Kelly, RHP Luke Weaver, 2B Andy Young and Futu",
+    "vin": 9.6,
+    "vout": 18.8
+   },
+   {
+    "d": "2022-12-23",
+    "ch": "trade",
+    "net": 8.6,
+    "h": "Arizona Diamondbacks traded C Daulton Varsho to Toronto Blue Jays for SS Lourdes Gurriel Jr. and C Gabriel Moreno.",
+    "vin": 13.9,
+    "vout": 5.2
+   },
+   {
+    "d": "2019-07-31",
+    "ch": "trade",
+    "net": -7.5,
+    "h": "Arizona Diamondbacks traded SS Jazz Chisholm to Miami Marlins.",
+    "vin": 0,
+    "vout": 7.5
+   },
+   {
+    "d": "2020-06-15",
+    "ch": "draft",
+    "net": 5.5,
+    "h": "Drafted Brandon Pfaadt (#149 overall, 2020)"
+   },
+   {
+    "d": "2023-02-17",
+    "ch": "waiver",
+    "net": -5.0,
+    "h": "Detroit Tigers claimed LHP Tyler Holton off waivers from Arizona Diamondbacks."
+   },
+   {
+    "d": "2019-06-15",
+    "ch": "draft",
+    "net": 4.7,
+    "h": "Drafted Ryne Nelson (#56 overall, 2019)"
+   }
+  ]
+ },
+ {
+  "id": "atl",
+  "teamId": 144,
+  "exec": "Alex Anthopoulos",
+  "team": "Atlanta Braves",
+  "abbr": "ATL",
+  "start": 2017,
+  "seasons": 8.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": 44.4,
+    "g": 80,
+    "n": 132
+   },
+   "draft": {
+    "net": 22.4,
+    "g": 80,
+    "n": 43
+   },
+   "waiver": {
+    "net": 1.1,
+    "g": 50,
+    "n": 103
+   },
+   "fa": {
+    "net": 63.8,
+    "g": null,
+    "n": 92
+   }
+  },
+  "total": 67.9,
+  "forGrade": 75,
+  "success": {
+   "wpct": ".557",
+   "div": 7,
+   "g": 70,
+   "w": 810,
+   "l": 644
+  },
+  "top": [
+   {
+    "d": "2023-12-30",
+    "ch": "trade",
+    "net": 13.4,
+    "h": "Atlanta Braves traded SS Vaughn Grissom to Boston Red Sox for LHP Chris Sale and cash.",
+    "vin": 12.8,
+    "vout": -0.6
+   },
+   {
+    "d": "2022-12-12",
+    "ch": "trade",
+    "net": -13.0,
+    "h": "Atlanta Braves traded RHP Freddy Tarnok, C Manny Pi\u00f1a, RHP Royber Salinas, 2B Esteury Ruiz and LHP Kyle Muller to Oakland Athletic",
+    "vin": 6.6,
+    "vout": 19.6
+   },
+   {
+    "d": "2019-06-15",
+    "ch": "draft",
+    "net": 12.8,
+    "h": "Drafted Michael Harris II (#98 overall, 2019)"
+   },
+   {
+    "d": "2022-03-14",
+    "ch": "trade",
+    "net": 11.6,
+    "h": "Oakland Athletics traded 1B Matt Olson to Atlanta Braves for CF Cristian Pache, C Shea Langeliers, RHP Ryan Cusick and RHP Joey Es",
+    "vin": 20.1,
+    "vout": 8.5
+   },
+   {
+    "d": "2020-06-15",
+    "ch": "draft",
+    "net": 10.5,
+    "h": "Drafted Spencer Strider (#126 overall, 2020)"
+   },
+   {
+    "d": "2022-06-15",
+    "ch": "draft",
+    "net": 7.2,
+    "h": "Drafted Drake Baldwin (#96 overall, 2022)"
+   },
+   {
+    "d": "2022-08-02",
+    "ch": "trade",
+    "net": 6.7,
+    "h": "Los Angeles Angels traded RHP Raisel Iglesias to Atlanta Braves for RHP Jesse Chavez and LHP Tucker Davidson.",
+    "vin": 6.8,
+    "vout": 0.1
+   },
+   {
+    "d": "2021-04-06",
+    "ch": "trade",
+    "net": 4.7,
+    "h": "Atlanta Braves traded P Patrick Weigel and P Chad Sobotka to Milwaukee Brewers for SS Orlando Arcia.",
+    "vin": 4.6,
+    "vout": -0.0
+   }
+  ]
+ },
+ {
+  "id": "bal",
+  "teamId": 110,
+  "exec": "Mike Elias",
+  "team": "Baltimore Orioles",
+  "abbr": "BAL",
+  "start": 2018,
+  "seasons": 7.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": -3.9,
+    "g": 45,
+    "n": 120
+   },
+   "draft": {
+    "net": 23.5,
+    "g": 80,
+    "n": 47
+   },
+   "waiver": {
+    "net": 38.2,
+    "g": 80,
+    "n": 182
+   },
+   "fa": {
+    "net": 11.8,
+    "g": null,
+    "n": 49
+   }
+  },
+  "total": 57.8,
+  "forGrade": 75,
+  "success": {
+   "wpct": ".446",
+   "div": 1,
+   "g": 38,
+   "w": 577,
+   "l": 718
+  },
+  "top": [
+   {
+    "d": "2019-06-15",
+    "ch": "draft",
+    "net": 18.8,
+    "h": "Drafted Gunnar Henderson (#42 overall, 2019)"
+   },
+   {
+    "d": "2019-06-15",
+    "ch": "draft",
+    "net": 10.4,
+    "h": "Drafted Adley Rutschman (#1 overall, 2019)"
+   },
+   {
+    "d": "2019-03-23",
+    "ch": "trade",
+    "net": -9.7,
+    "h": "Baltimore Orioles traded LF Mike Yastrzemski to San Francisco Giants for RHP Tyler Herb.",
+    "vin": 0.0,
+    "vout": 9.7
+   },
+   {
+    "d": "2022-08-02",
+    "ch": "trade",
+    "net": 6.3,
+    "h": "Baltimore Orioles traded RHP Jorge Lopez and cash to Minnesota Twins for RHP Yennier Cano, LHP Cade Povich, LHP Juan Rojas and RHP",
+    "vin": 6.2,
+    "vout": -0.1
+   },
+   {
+    "d": "2023-01-03",
+    "ch": "trade",
+    "net": 5.8,
+    "h": "Kansas City Royals traded 1B Ryan O'Hearn to Baltimore Orioles for cash.",
+    "vin": 5.8,
+    "vout": 0
+   },
+   {
+    "d": "2020-02-11",
+    "ch": "waiver",
+    "net": 5.2,
+    "h": "Baltimore Orioles claimed Ramon Urias off waivers from St. Louis Cardinals."
+   },
+   {
+    "d": "2022-04-03",
+    "ch": "trade",
+    "net": -4.9,
+    "h": "Baltimore Orioles traded RHP Cole Sulser and LHP Tanner Scott to Miami Marlins for OF Kevin Guerrero and LHP Antonio Velez.",
+    "vin": 0.0,
+    "vout": 4.9
+   },
+   {
+    "d": "2020-06-15",
+    "ch": "draft",
+    "net": 4.5,
+    "h": "Drafted Jordan Westburg (#30 overall, 2020)"
+   }
+  ]
+ },
+ {
+  "id": "bos",
+  "teamId": 111,
+  "exec": "Craig Breslow",
+  "team": "Boston Red Sox",
+  "abbr": "BOS",
+  "start": 2023,
+  "seasons": 2.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": -9.7,
+    "g": 30,
+    "n": 58
+   },
+   "draft": {
+    "net": 1.7,
+    "g": 60,
+    "n": 11
+   },
+   "waiver": {
+    "net": 1.7,
+    "g": 60,
+    "n": 21
+   },
+   "fa": {
+    "net": 14.0,
+    "g": null,
+    "n": 16
+   }
+  },
+  "total": -6.3,
+  "forGrade": 35,
+  "success": {
+   "wpct": ".511",
+   "div": 0,
+   "g": 50,
+   "w": 299,
+   "l": 286
+  },
+  "top": [
+   {
+    "d": "2023-12-30",
+    "ch": "trade",
+    "net": -13.4,
+    "h": "Atlanta Braves traded SS Vaughn Grissom to Boston Red Sox for LHP Chris Sale and cash.",
+    "vin": -0.6,
+    "vout": 12.8
+   },
+   {
+    "d": "2025-12-22",
+    "ch": "trade",
+    "net": 3.2,
+    "h": "Boston Red Sox traded RHP Hunter Dobbins, RHP Yhoiker Fajardo and RHP Blake Aita to St. Louis Cardinals for 1B Willson Contreras.",
+    "vin": 3.4,
+    "vout": 0.3
+   },
+   {
+    "d": "2023-12-08",
+    "ch": "trade",
+    "net": 3.1,
+    "h": "St. Louis Cardinals traded LF Tyler O'Neill to Boston Red Sox for RHP Nick Robertson and RHP Victor Santos.",
+    "vin": 3.2,
+    "vout": 0.1
+   },
+   {
+    "d": "2023-12-05",
+    "ch": "trade",
+    "net": 2.9,
+    "h": "Boston Red Sox traded LF Alex Verdugo to New York Yankees for RHP Greg Weissert, RHP Richard Fitts and RHP Nicholas Judice.",
+    "vin": 2.7,
+    "vout": -0.2
+   },
+   {
+    "d": "2025-06-15",
+    "ch": "trade",
+    "net": -2.9,
+    "h": "Boston Red Sox traded DH Rafael Devers to San Francisco Giants for LHP Kyle Harrison, RHP Jordan Hicks, RHP Jose Bello and RF Jame",
+    "vin": 0.1,
+    "vout": 3.0
+   },
+   {
+    "d": "2023-12-06",
+    "ch": "trade",
+    "net": 2.7,
+    "h": "New York Mets traded RHP Justin Slaten to Boston Red Sox for LHP Ryan Ammons.",
+    "vin": 2.7,
+    "vout": 0.0
+   },
+   {
+    "d": "2024-12-11",
+    "ch": "trade",
+    "net": 2.5,
+    "h": "New York Yankees traded C Carlos Narvaez to Boston Red Sox for RHP Elmer Rodriguez-Cruz and Future Considerations.",
+    "vin": 2.5,
+    "vout": 0.0
+   },
+   {
+    "d": "2026-02-09",
+    "ch": "trade",
+    "net": -2.2,
+    "h": "Boston Red Sox traded LHP Kyle Harrison, LHP Shane Drohan and 2B David Hamilton to Milwaukee Brewers for 3B Caleb Durbin, SS Andru",
+    "vin": 2.1,
+    "vout": 4.3
+   }
+  ]
+ },
+ {
+  "id": "chc",
+  "teamId": 112,
+  "exec": "Jed Hoyer",
+  "team": "Chicago Cubs",
+  "abbr": "CHC",
+  "start": 2020,
+  "seasons": 5.5,
+  "flags": [
+   "handoff: Epstein co-architect 2011-2020"
+  ],
+  "chan": {
+   "trade": {
+    "net": -19.2,
+    "g": 30,
+    "n": 82
+   },
+   "draft": {
+    "net": -1.2,
+    "g": 45,
+    "n": 25
+   },
+   "waiver": {
+    "net": -2.5,
+    "g": 45,
+    "n": 64
+   },
+   "fa": {
+    "net": 72.1,
+    "g": null,
+    "n": 85
+   }
+  },
+  "total": -23.0,
+  "forGrade": 30,
+  "success": {
+   "wpct": ".508",
+   "div": 1,
+   "g": 53,
+   "w": 493,
+   "l": 477
+  },
+  "top": [
+   {
+    "d": "2020-12-29",
+    "ch": "trade",
+    "net": -10.3,
+    "h": "Chicago Cubs traded RHP Yu Darvish, C Victor Caratini and cash to San Diego Padres for RHP Zach Davies, SS Reginald Preciado, SS Y",
+    "vin": -0.8,
+    "vout": 9.5
+   },
+   {
+    "d": "2024-01-11",
+    "ch": "trade",
+    "net": 8.0,
+    "h": "Los Angeles Dodgers traded 2B Michael Busch and RHP Yency Almonte to Chicago Cubs for LHP Jackson Ferris and OF Zyhir Hope.",
+    "vin": 8.0,
+    "vout": 0.0
+   },
+   {
+    "d": "2024-12-17",
+    "ch": "trade",
+    "net": -5.0,
+    "h": "Chicago Cubs traded CF Cody Bellinger and cash to New York Yankees for RHP Cody Poteet.",
+    "vin": 0.0,
+    "vout": 5.0
+   },
+   {
+    "d": "2022-08-02",
+    "ch": "trade",
+    "net": 4.4,
+    "h": "Chicago Cubs traded RHP David Robertson to Philadelphia Phillies for RHP Ben Brown.",
+    "vin": 4.7,
+    "vout": 0.4
+   },
+   {
+    "d": "2021-07-30",
+    "ch": "trade",
+    "net": 4.2,
+    "h": "Chicago Cubs traded SS Javier Baez, RHP Trevor Williams and cash to New York Mets for OF Pete Crow-Armstrong.",
+    "vin": 8.1,
+    "vout": 3.9
+   },
+   {
+    "d": "2023-11-06",
+    "ch": "waiver",
+    "net": -3.9,
+    "h": "San Diego Padres claimed RHP Jeremiah Estrada off waivers from Chicago Cubs."
+   },
+   {
+    "d": "2021-07-29",
+    "ch": "trade",
+    "net": -3.7,
+    "h": "New York Yankees traded RHP Alexander Vizcaino and CF Kevin Alcantara to Chicago Cubs for 1B Anthony Rizzo and cash.",
+    "vin": -0.3,
+    "vout": 3.4
+   },
+   {
+    "d": "2022-03-25",
+    "ch": "trade",
+    "net": -3.2,
+    "h": "Chicago Cubs traded RF Harold Ramirez to Tampa Bay Rays for 3B Esteban Quiroz.",
+    "vin": 0.2,
+    "vout": 3.3
+   }
+  ]
+ },
+ {
+  "id": "cws",
+  "teamId": 145,
+  "exec": "Chris Getz",
+  "team": "Chicago White Sox",
+  "abbr": "CWS",
+  "start": 2023,
+  "seasons": 2.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": -13.0,
+    "g": 30,
+    "n": 52
+   },
+   "draft": {
+    "net": 1.5,
+    "g": 60,
+    "n": 11
+   },
+   "waiver": {
+    "net": 0.5,
+    "g": 55,
+    "n": 52
+   },
+   "fa": {
+    "net": 10.3,
+    "g": null,
+    "n": 27
+   }
+  },
+  "total": -11.0,
+  "forGrade": 30,
+  "success": {
+   "wpct": ".368",
+   "div": 1,
+   "g": 33,
+   "w": 215,
+   "l": 370
+  },
+  "top": [
+   {
+    "d": "2024-03-13",
+    "ch": "trade",
+    "net": -8.0,
+    "h": "Chicago White Sox traded RHP Dylan Cease to San Diego Padres for RHP Drew Thorpe, RHP Jairo Iriarte, OF Samuel Zavala and RHP Stev",
+    "vin": -0.5,
+    "vout": 7.5
+   },
+   {
+    "d": "2024-07-29",
+    "ch": "trade",
+    "net": 3.1,
+    "h": "Los Angeles Dodgers traded 3B Miguel Vargas, SS Alexander Albertus, SS Jeral Perez and a player to be named later or cash consider",
+    "vin": 4.6,
+    "vout": 1.5
+   },
+   {
+    "d": "2026-03-28",
+    "ch": "trade",
+    "net": -2.9,
+    "h": "Chicago White Sox traded 1B Curtis Mead to Washington Nationals for C Boston Smith.",
+    "vin": 0.0,
+    "vout": 2.9
+   },
+   {
+    "d": "2025-06-13",
+    "ch": "trade",
+    "net": -2.3,
+    "h": "Chicago White Sox traded 1B Andrew Vaughn to Milwaukee Brewers for RHP Aaron Civale and cash.",
+    "vin": 0.7,
+    "vout": 3.0
+   },
+   {
+    "d": "2025-12-18",
+    "ch": "trade",
+    "net": 1.9,
+    "h": "Tampa Bay Rays traded LF Tristan Peters to Chicago White Sox for cash.",
+    "vin": 1.9,
+    "vout": 0
+   },
+   {
+    "d": "2023-11-16",
+    "ch": "trade",
+    "net": -1.8,
+    "h": "Chicago White Sox traded LHP Aaron Bummer to Atlanta Braves for RHP Michael Soroka, LHP Jared Shuster, SS Nicky Lopez, SS Braden S",
+    "vin": 0.5,
+    "vout": 2.3
+   },
+   {
+    "d": "2024-07-30",
+    "ch": "trade",
+    "net": -1.7,
+    "h": "Chicago White Sox traded LHP Tanner Banks to Philadelphia Phillies for SS William Bergolla.",
+    "vin": 0.0,
+    "vout": 1.7
+   },
+   {
+    "d": "2024-06-15",
+    "ch": "draft",
+    "net": 1.7,
+    "h": "Drafted Sam Antonacci (#140 overall, 2024)"
+   }
+  ]
+ },
+ {
+  "id": "cin",
+  "teamId": 113,
+  "exec": "Nick Krall",
+  "team": "Cincinnati Reds",
+  "abbr": "CIN",
+  "start": 2020,
+  "seasons": 5.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": -16.0,
+    "g": 30,
+    "n": 82
+   },
+   "draft": {
+    "net": 8.9,
+    "g": 70,
+    "n": 31
+   },
+   "waiver": {
+    "net": -0.3,
+    "g": 50,
+    "n": 57
+   },
+   "fa": {
+    "net": 16.8,
+    "g": null,
+    "n": 54
+   }
+  },
+  "total": -7.4,
+  "forGrade": 40,
+  "success": {
+   "wpct": ".478",
+   "div": 0,
+   "g": 40,
+   "w": 463,
+   "l": 506
+  },
+  "top": [
+   {
+    "d": "2022-07-30",
+    "ch": "trade",
+    "net": -10.8,
+    "h": "Cincinnati Reds traded RHP Luis Castillo to Seattle Mariners for SS Noelvi Marte, SS Edwin Arroyo, RHP Levi Stoudt and RHP Andrew ",
+    "vin": 0.3,
+    "vout": 11.1
+   },
+   {
+    "d": "2022-03-13",
+    "ch": "trade",
+    "net": -8.0,
+    "h": "Cincinnati Reds traded RHP Sonny Gray and RHP Francis Peguero to Minnesota Twins for RHP Chase Petty.",
+    "vin": -0.5,
+    "vout": 7.4
+   },
+   {
+    "d": "2022-08-02",
+    "ch": "trade",
+    "net": 5.4,
+    "h": "Cincinnati Reds traded RHP Tyler Mahle to Minnesota Twins for SS Spencer Steer, 3B Christian Encarnacion-Strand and LHP Steve Hajj",
+    "vin": 5.6,
+    "vout": 0.2
+   },
+   {
+    "d": "2021-06-15",
+    "ch": "draft",
+    "net": 4.6,
+    "h": "Drafted Andrew Abbott (#53 overall, 2021)"
+   },
+   {
+    "d": "2021-11-24",
+    "ch": "waiver",
+    "net": -3.5,
+    "h": "Baltimore Orioles claimed LHP Cionel Perez off waivers from Cincinnati Reds."
+   },
+   {
+    "d": "2021-06-15",
+    "ch": "draft",
+    "net": 3.3,
+    "h": "Drafted Matt McLain (#17 overall, 2021)"
+   },
+   {
+    "d": "2024-06-15",
+    "ch": "draft",
+    "net": 3.2,
+    "h": "Drafted Chase Burns (#2 overall, 2024)"
+   },
+   {
+    "d": "2020-12-07",
+    "ch": "trade",
+    "net": -2.7,
+    "h": "Cincinnati Reds traded RHP Raisel Iglesias and cash to Los Angeles Angels for RHP Noe Ramirez and Future Considerations.",
+    "vin": 0.0,
+    "vout": 2.7
+   }
+  ]
+ },
+ {
+  "id": "cle",
+  "teamId": 114,
+  "exec": "Chris Antonetti",
+  "team": "Cleveland Guardians",
+  "abbr": "CLE",
+  "start": 2015,
+  "seasons": 10.5,
+  "flags": [
+   "handoff: Shapiro tree"
+  ],
+  "chan": {
+   "trade": {
+    "net": -14.8,
+    "g": 35,
+    "n": 133
+   },
+   "draft": {
+    "net": 40.3,
+    "g": 80,
+    "n": 60
+   },
+   "waiver": {
+    "net": -10.9,
+    "g": 35,
+    "n": 74
+   },
+   "fa": {
+    "net": 27.3,
+    "g": null,
+    "n": 44
+   }
+  },
+  "total": 14.7,
+  "forGrade": 60,
+  "success": {
+   "wpct": ".549",
+   "div": 6,
+   "g": 70,
+   "w": 977,
+   "l": 801
+  },
+  "top": [
+   {
+    "d": "2016-06-15",
+    "ch": "draft",
+    "net": 20.2,
+    "h": "Drafted Shane Bieber (#122 overall, 2016)"
+   },
+   {
+    "d": "2021-07-30",
+    "ch": "trade",
+    "net": -15.1,
+    "h": "Cleveland Indians traded RHP Phil Maton and C Yainer Diaz to Houston Astros for RF Myles Straw.",
+    "vin": -2.1,
+    "vout": 13.0
+   },
+   {
+    "d": "2018-06-15",
+    "ch": "draft",
+    "net": 13.5,
+    "h": "Drafted Steven Kwan (#163 overall, 2018)"
+   },
+   {
+    "d": "2021-11-19",
+    "ch": "trade",
+    "net": -10.7,
+    "h": "Tampa Bay Rays traded RHP Tobias Myers to Cleveland Indians for SS Junior Caminero.",
+    "vin": 0.0,
+    "vout": 10.7
+   },
+   {
+    "d": "2020-08-31",
+    "ch": "trade",
+    "net": 10.1,
+    "h": "Cleveland Indians traded RHP Mike Clevinger, LF Greg Allen and Player To Be Named Later to San Diego Padres for C Austin Hedges, R",
+    "vin": 10.9,
+    "vout": 0.7
+   },
+   {
+    "d": "2019-12-15",
+    "ch": "trade",
+    "net": 9.5,
+    "h": "Cleveland Indians traded RHP Corey Kluber and cash to Texas Rangers for RHP Emmanuel Clase and CF Delino DeShields.",
+    "vin": 9.5,
+    "vout": 0.0
+   },
+   {
+    "d": "2021-06-15",
+    "ch": "draft",
+    "net": 8.4,
+    "h": "Drafted Tanner Bibee (#156 overall, 2021)"
+   },
+   {
+    "d": "2018-12-13",
+    "ch": "trade",
+    "net": -7.9,
+    "h": "Cleveland Indians Traded 1B Edwin Encarnacion and Future Considerations to Seattle Mariners; Tampa Bay Rays Traded LF Jake Bauers ",
+    "vin": 3.7,
+    "vout": 11.6
+   }
+  ]
+ },
+ {
+  "id": "col",
+  "teamId": 115,
+  "exec": "Paul DePodesta",
+  "team": "Colorado Rockies",
+  "abbr": "COL",
+  "start": 2025,
+  "seasons": 0.7,
+  "flags": [
+   "approx"
+  ],
+  "chan": {
+   "trade": {
+    "net": 6.4,
+    "g": 80,
+    "n": 11
+   },
+   "draft": {
+    "net": 0.0,
+    "g": 50,
+    "n": 0
+   },
+   "waiver": {
+    "net": 1.7,
+    "g": 75,
+    "n": 12
+   },
+   "fa": {
+    "net": 1.8,
+    "g": null,
+    "n": 4
+   }
+  },
+  "total": 8.0,
+  "forGrade": 80,
+  "success": {
+   "wpct": ".314",
+   "div": 0,
+   "g": 30,
+   "w": 83,
+   "l": 181
+  },
+  "top": [
+   {
+    "d": "2026-01-10",
+    "ch": "trade",
+    "net": 2.8,
+    "h": "Arizona Diamondbacks traded CF Jake McCarthy to Colorado Rockies for RHP Josh Grosz.",
+    "vin": 2.8,
+    "vout": 0.0
+   },
+   {
+    "d": "2026-01-28",
+    "ch": "trade",
+    "net": 2.4,
+    "h": "Colorado Rockies traded RHP Angel Chivilli to New York Yankees for 1B T.J. Rumfield.",
+    "vin": 2.5,
+    "vout": 0.2
+   },
+   {
+    "d": "2025-11-05",
+    "ch": "waiver",
+    "net": 1.5,
+    "h": "Colorado Rockies claimed OF Troy Johnston off waivers from Miami Marlins."
+   },
+   {
+    "d": "2025-11-18",
+    "ch": "trade",
+    "net": 0.9,
+    "h": "Boston Red Sox traded LHP Brennan Bernardino to Colorado Rockies for CF Braiden Ward.",
+    "vin": 0.9,
+    "vout": 0.0
+   },
+   {
+    "d": "2026-01-07",
+    "ch": "waiver",
+    "net": 0.3,
+    "h": "Colorado Rockies claimed RHP Keegan Thompson off waivers from Cincinnati Reds."
+   },
+   {
+    "d": "2026-04-04",
+    "ch": "waiver",
+    "net": -0.1,
+    "h": "Colorado Rockies claimed LHP Sammy Peralta off waivers from Milwaukee Brewers."
+   }
+  ]
+ },
+ {
+  "id": "det",
+  "teamId": 116,
+  "exec": "Scott Harris",
+  "team": "Detroit Tigers",
+  "abbr": "DET",
+  "start": 2022,
+  "seasons": 3.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": 1.9,
+    "g": 60,
+    "n": 54
+   },
+   "draft": {
+    "net": 2.4,
+    "g": 60,
+    "n": 18
+   },
+   "waiver": {
+    "net": 1.0,
+    "g": 55,
+    "n": 57
+   },
+   "fa": {
+    "net": 28.1,
+    "g": null,
+    "n": 25
+   }
+  },
+  "total": 5.2,
+  "forGrade": 60,
+  "success": {
+   "wpct": ".487",
+   "div": 0,
+   "g": 45,
+   "w": 364,
+   "l": 384
+  },
+  "top": [
+   {
+    "d": "2023-02-17",
+    "ch": "waiver",
+    "net": 5.0,
+    "h": "Detroit Tigers claimed LHP Tyler Holton off waivers from Arizona Diamondbacks."
+   },
+   {
+    "d": "2023-06-15",
+    "ch": "draft",
+    "net": 3.6,
+    "h": "Drafted Kevin McGonigle (#37 overall, 2023)"
+   },
+   {
+    "d": "2022-12-07",
+    "ch": "trade",
+    "net": -3.1,
+    "h": "Detroit Tigers traded RHP Joe Jim\u00e9nez and cash to Atlanta Braves for 3B Justyn-Henry Malloy and LHP Jake Higginbotham.",
+    "vin": 0.2,
+    "vout": 3.3
+   },
+   {
+    "d": "2023-01-07",
+    "ch": "trade",
+    "net": 2.8,
+    "h": "Detroit Tigers traded LHP Gregory Soto, 2B Kody Clemens and  to Philadelphia Phillies for OF Matt Vierling, SS Nick Maton, C Donny",
+    "vin": 4.1,
+    "vout": 1.2
+   },
+   {
+    "d": "2023-03-27",
+    "ch": "trade",
+    "net": 2.8,
+    "h": "Chicago Cubs traded 2B Zach McKinstry to Detroit Tigers for RHP Carlos Guzman and.",
+    "vin": 2.8,
+    "vout": 0.0
+   },
+   {
+    "d": "2022-11-10",
+    "ch": "waiver",
+    "net": 2.3,
+    "h": "Detroit Tigers claimed 2B Andy Ibanez off waivers from Texas Rangers."
+   },
+   {
+    "d": "2023-09-03",
+    "ch": "waiver",
+    "net": -1.7,
+    "h": "Houston Astros claimed LHP Bennett Sousa off waivers from Detroit Tigers."
+   },
+   {
+    "d": "2025-02-12",
+    "ch": "trade",
+    "net": -1.0,
+    "h": "Detroit Tigers traded RHP Mason Englert to Tampa Bay Rays.",
+    "vin": 0,
+    "vout": 1.0
+   }
+  ]
+ },
+ {
+  "id": "hou",
+  "teamId": 117,
+  "exec": "Dana Brown",
+  "team": "Houston Astros",
+  "abbr": "HOU",
+  "start": 2023,
+  "seasons": 3.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": 6.2,
+    "g": 70,
+    "n": 44
+   },
+   "draft": {
+    "net": -1.2,
+    "g": 45,
+    "n": 13
+   },
+   "waiver": {
+    "net": 0.6,
+    "g": 50,
+    "n": 33
+   },
+   "fa": {
+    "net": 10.2,
+    "g": null,
+    "n": 16
+   }
+  },
+  "total": 5.6,
+  "forGrade": 60,
+  "success": {
+   "wpct": ".533",
+   "div": 2,
+   "g": 61,
+   "w": 313,
+   "l": 274
+  },
+  "top": [
+   {
+    "d": "2025-07-31",
+    "ch": "trade",
+    "net": 2.7,
+    "h": "Minnesota Twins traded SS Carlos Correa and cash to Houston Astros for LHP Matt Mikulski.",
+    "vin": 2.7,
+    "vout": 0.0
+   },
+   {
+    "d": "2024-02-07",
+    "ch": "waiver",
+    "net": -2.0,
+    "h": "Miami Marlins claimed RHP Declan Cronin off waivers from Houston Astros."
+   },
+   {
+    "d": "2024-12-13",
+    "ch": "trade",
+    "net": 1.9,
+    "h": "Houston Astros traded RF Kyle Tucker to Chicago Cubs for 3B Isaac Paredes, RHP Hayden Wesneski and 3B Cam Smith.",
+    "vin": 5.9,
+    "vout": 4.0
+   },
+   {
+    "d": "2023-09-03",
+    "ch": "waiver",
+    "net": 1.7,
+    "h": "Houston Astros claimed LHP Bennett Sousa off waivers from Detroit Tigers."
+   },
+   {
+    "d": "2023-08-01",
+    "ch": "trade",
+    "net": 1.4,
+    "h": "New York Mets traded RHP Justin Verlander to Houston Astros for OF Drew Gilbert and OF Ryan Clifford.",
+    "vin": 1.4,
+    "vout": 0.0
+   },
+   {
+    "d": "2024-08-26",
+    "ch": "waiver",
+    "net": 1.3,
+    "h": "Chicago White Sox claimed SS Jacob Amaya off waivers from Houston Astros."
+   },
+   {
+    "d": "2025-11-19",
+    "ch": "trade",
+    "net": -1.0,
+    "h": "Houston Astros traded 2B Mauricio Dub\u00f3n to Atlanta Braves for SS Nick Allen.",
+    "vin": -0.0,
+    "vout": 1.0
+   },
+   {
+    "d": "2024-07-29",
+    "ch": "trade",
+    "net": 0.9,
+    "h": "Toronto Blue Jays traded LHP Yusei Kikuchi to Houston Astros for RHP Jake Bloss, OF Joey Loperfido and 2B Will Wagner.",
+    "vin": 1.4,
+    "vout": 0.5
+   }
+  ]
+ },
+ {
+  "id": "kc",
+  "teamId": 118,
+  "exec": "J.J. Picollo",
+  "team": "Kansas City Royals",
+  "abbr": "KC",
+  "start": 2022,
+  "seasons": 3.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": 2.0,
+    "g": 60,
+    "n": 61
+   },
+   "draft": {
+    "net": -0.7,
+    "g": 50,
+    "n": 18
+   },
+   "waiver": {
+    "net": -7.0,
+    "g": 30,
+    "n": 24
+   },
+   "fa": {
+    "net": 20.1,
+    "g": null,
+    "n": 20
+   }
+  },
+  "total": -5.6,
+  "forGrade": 40,
+  "success": {
+   "wpct": ".441",
+   "div": 0,
+   "g": 35,
+   "w": 330,
+   "l": 419
+  },
+  "top": [
+   {
+    "d": "2023-01-03",
+    "ch": "trade",
+    "net": -5.8,
+    "h": "Kansas City Royals traded 1B Ryan O'Hearn to Baltimore Orioles for cash.",
+    "vin": 0,
+    "vout": 5.8
+   },
+   {
+    "d": "2022-11-09",
+    "ch": "waiver",
+    "net": -3.7,
+    "h": "Seattle Mariners claimed LHP Gabe Speier off waivers from Kansas City Royals."
+   },
+   {
+    "d": "2022-11-17",
+    "ch": "waiver",
+    "net": -2.6,
+    "h": "Oakland Athletics claimed OF Brent Rooker off waivers from Kansas City Royals."
+   },
+   {
+    "d": "2024-07-30",
+    "ch": "trade",
+    "net": 2.3,
+    "h": "Oakland Athletics traded RHP Lucas Erceg to Kansas City Royals for RHP Will Klein, RHP Mason Barnett and OF Jared Dickey.",
+    "vin": 2.2,
+    "vout": -0.1
+   },
+   {
+    "d": "2024-02-17",
+    "ch": "trade",
+    "net": 2.1,
+    "h": "Boston Red Sox traded RHP John Schreiber to Kansas City Royals for RHP David Sandlin.",
+    "vin": 2.1,
+    "vout": 0.0
+   },
+   {
+    "d": "2025-07-31",
+    "ch": "trade",
+    "net": 2.0,
+    "h": "Kansas City Royals traded C Freddy Fermin to San Diego Padres for RHP Ryan Bergert and RHP Stephen Kolek.",
+    "vin": 2.0,
+    "vout": 0.0
+   },
+   {
+    "d": "2025-07-31",
+    "ch": "trade",
+    "net": -1.6,
+    "h": "Pittsburgh Pirates traded LHP Bailey Falter to Kansas City Royals for LHP Evan Sisk and 1B Callan Moss.",
+    "vin": -0.4,
+    "vout": 1.1
+   },
+   {
+    "d": "2025-12-19",
+    "ch": "trade",
+    "net": -1.5,
+    "h": "Philadelphia Phillies traded LHP Matt Strahm to Kansas City Royals for RHP Jonathan Bowlan.",
+    "vin": -0.6,
+    "vout": 0.9
+   }
+  ]
+ },
+ {
+  "id": "laa",
+  "teamId": 108,
+  "exec": "Perry Minasian",
+  "team": "Los Angeles Angels",
+  "abbr": "LAA",
+  "start": 2020,
+  "seasons": 5.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": -12.0,
+    "g": 30,
+    "n": 60
+   },
+   "draft": {
+    "net": 12.0,
+    "g": 75,
+    "n": 25
+   },
+   "waiver": {
+    "net": -2.4,
+    "g": 45,
+    "n": 67
+   },
+   "fa": {
+    "net": 17.0,
+    "g": null,
+    "n": 69
+   }
+  },
+  "total": -2.5,
+  "forGrade": 45,
+  "success": {
+   "wpct": ".437",
+   "div": 0,
+   "g": 30,
+   "w": 424,
+   "l": 547
+  },
+  "top": [
+   {
+    "d": "2022-06-15",
+    "ch": "draft",
+    "net": 11.0,
+    "h": "Drafted Zach Neto (#13 overall, 2022)"
+   },
+   {
+    "d": "2022-08-02",
+    "ch": "trade",
+    "net": -6.7,
+    "h": "Los Angeles Angels traded RHP Raisel Iglesias to Atlanta Braves for RHP Jesse Chavez and LHP Tucker Davidson.",
+    "vin": 0.1,
+    "vout": 6.8
+   },
+   {
+    "d": "2023-06-15",
+    "ch": "draft",
+    "net": 3.3,
+    "h": "Drafted Nolan Schanuel (#11 overall, 2023)"
+   },
+   {
+    "d": "2021-02-02",
+    "ch": "trade",
+    "net": 3.1,
+    "h": "Baltimore Orioles traded RHP Alex Cobb and cash to Los Angeles Angels for 2B Jahmai Jones.",
+    "vin": 2.5,
+    "vout": -0.6
+   },
+   {
+    "d": "2022-08-02",
+    "ch": "trade",
+    "net": -3.1,
+    "h": "Los Angeles Angels traded OF Brandon Marsh to Philadelphia Phillies for C Logan O'Hoppe.",
+    "vin": 5.7,
+    "vout": 8.8
+   },
+   {
+    "d": "2020-12-07",
+    "ch": "trade",
+    "net": 2.7,
+    "h": "Cincinnati Reds traded RHP Raisel Iglesias and cash to Los Angeles Angels for RHP Noe Ramirez and Future Considerations.",
+    "vin": 2.7,
+    "vout": 0.0
+   },
+   {
+    "d": "2022-08-30",
+    "ch": "waiver",
+    "net": -2.3,
+    "h": "Atlanta Braves claimed RHP Jesse Chavez off waivers from Los Angeles Angels."
+   },
+   {
+    "d": "2025-11-19",
+    "ch": "trade",
+    "net": -1.9,
+    "h": "Los Angeles Angels traded LF Taylor Ward to Baltimore Orioles for RHP Grayson Rodriguez.",
+    "vin": 0.0,
+    "vout": 1.9
+   }
+  ]
+ },
+ {
+  "id": "lad",
+  "teamId": 119,
+  "exec": "Andrew Friedman",
+  "team": "Los Angeles Dodgers",
+  "abbr": "LAD",
+  "start": 2014,
+  "seasons": 11.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": 52.0,
+    "g": 80,
+    "n": 222
+   },
+   "draft": {
+    "net": 20.7,
+    "g": 75,
+    "n": 60
+   },
+   "waiver": {
+    "net": 5.5,
+    "g": 55,
+    "n": 118
+   },
+   "fa": {
+    "net": 180.0,
+    "g": null,
+    "n": 105
+   }
+  },
+  "total": 78.2,
+  "forGrade": 75,
+  "success": {
+   "wpct": ".614",
+   "div": 12,
+   "g": 75,
+   "w": 1193,
+   "l": 751
+  },
+  "top": [
+   {
+    "d": "2016-06-15",
+    "ch": "draft",
+    "net": 27.3,
+    "h": "Drafted Will Smith (#32 overall, 2016)"
+   },
+   {
+    "d": "2020-02-10",
+    "ch": "trade",
+    "net": 22.6,
+    "h": "Los Angeles Dodgers traded CF Alex Verdugo, C Connor Wong and SS Jeter Downs to Boston Red Sox for RF Mookie Betts, LHP David Pric",
+    "vin": 34.1,
+    "vout": 11.5
+   },
+   {
+    "d": "2016-06-19",
+    "ch": "trade",
+    "net": 14.6,
+    "h": "Seattle Mariners traded SS Chris Taylor to Los Angeles Dodgers for RHP Zach Lee.",
+    "vin": 14.6,
+    "vout": 0.0
+   },
+   {
+    "d": "2015-06-15",
+    "ch": "draft",
+    "net": 9.8,
+    "h": "Drafted Walker Buehler (#24 overall, 2015)"
+   },
+   {
+    "d": "2014-12-18",
+    "ch": "trade",
+    "net": 9.3,
+    "h": "Los Angeles Dodgers traded RF Matt Kemp, C Tim Federowicz and cash to San Diego Padres for C Yasmani Grandal, RHP Joe Wieland and ",
+    "vin": 14.5,
+    "vout": 5.2
+   },
+   {
+    "d": "2024-01-11",
+    "ch": "trade",
+    "net": -8.0,
+    "h": "Los Angeles Dodgers traded 2B Michael Busch and RHP Yency Almonte to Chicago Cubs for LHP Jackson Ferris and OF Zyhir Hope.",
+    "vin": 0.0,
+    "vout": 8.0
+   },
+   {
+    "d": "2015-07-30",
+    "ch": "trade",
+    "net": 7.9,
+    "h": "Atlanta Braves traded LHP Alex Wood, RHP Jim Johnson, LHP Luis Avilan, 2B Jose Peraza, RHP Bronson Arroyo and cash to Los Angeles ",
+    "vin": 8.1,
+    "vout": 0.2
+   },
+   {
+    "d": "2015-12-16",
+    "ch": "trade",
+    "net": -7.0,
+    "h": "Los Angeles Dodgers traded 2B Jose Peraza, LF Scott Schebler and 2B Brandon Dixon to Cincinnati Reds. Part of three-team trade",
+    "vin": 0,
+    "vout": 7.0
+   }
+  ]
+ },
+ {
+  "id": "mia",
+  "teamId": 146,
+  "exec": "Peter Bendix",
+  "team": "Miami Marlins",
+  "abbr": "MIA",
+  "start": 2023,
+  "seasons": 2.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": -18.0,
+    "g": 30,
+    "n": 52
+   },
+   "draft": {
+    "net": -0.1,
+    "g": 50,
+    "n": 12
+   },
+   "waiver": {
+    "net": 19.7,
+    "g": 80,
+    "n": 61
+   },
+   "fa": {
+    "net": -0.9,
+    "g": null,
+    "n": 9
+   }
+  },
+  "total": 1.6,
+  "forGrade": 55,
+  "success": {
+   "wpct": ".472",
+   "div": 0,
+   "g": 40,
+   "w": 277,
+   "l": 310
+  },
+  "top": [
+   {
+    "d": "2024-12-22",
+    "ch": "trade",
+    "net": -7.9,
+    "h": "Philadelphia Phillies traded LF Emaarion Boyd and SS Starlyn Caba to Miami Marlins for LHP Jes\u00fas Luzardo and C Paul McIntosh.",
+    "vin": 0.0,
+    "vout": 7.9
+   },
+   {
+    "d": "2024-04-04",
+    "ch": "waiver",
+    "net": 7.7,
+    "h": "Miami Marlins claimed SS Otto Lopez off waivers from San Francisco Giants."
+   },
+   {
+    "d": "2024-07-27",
+    "ch": "trade",
+    "net": -3.6,
+    "h": "Miami Marlins traded CF Jazz Chisholm Jr. to New York Yankees for C Agustin Ramirez, 2B Jared Serna and SS Abrahan Ramirez.",
+    "vin": 3.1,
+    "vout": 6.8
+   },
+   {
+    "d": "2023-11-17",
+    "ch": "trade",
+    "net": 3.1,
+    "h": "Tampa Bay Rays traded 2B Vidal Bruj\u00e1n and RHP Calvin Faucher to Miami Marlins for 3B Erick Lara, RHP Andrew Lindsey and Player To ",
+    "vin": 3.1,
+    "vout": 0.0
+   },
+   {
+    "d": "2024-05-04",
+    "ch": "trade",
+    "net": -3.1,
+    "h": "Miami Marlins traded 2B Luis Arraez to San Diego Padres for OF Dillon Head, OF Jakob Marsee, RHP Woo-Suk Go and 1B Nathan Martorel",
+    "vin": 2.2,
+    "vout": 5.3
+   },
+   {
+    "d": "2023-12-20",
+    "ch": "trade",
+    "net": -2.1,
+    "h": "Pittsburgh Pirates traded RHP Roddery Mu\u00f1oz to Miami Marlins for cash.",
+    "vin": -2.1,
+    "vout": 0
+   },
+   {
+    "d": "2024-02-07",
+    "ch": "waiver",
+    "net": 2.0,
+    "h": "Miami Marlins claimed RHP Declan Cronin off waivers from Houston Astros."
+   },
+   {
+    "d": "2024-07-30",
+    "ch": "trade",
+    "net": -2.0,
+    "h": "Miami Marlins traded RHP Huascar Brazoban to New York Mets for SS Wilfredo Lara.",
+    "vin": 0.0,
+    "vout": 2.0
+   }
+  ]
+ },
+ {
+  "id": "mil",
+  "teamId": 158,
+  "exec": "Matt Arnold",
+  "team": "Milwaukee Brewers",
+  "abbr": "MIL",
+  "start": 2022,
+  "seasons": 3.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": 45.0,
+    "g": 80,
+    "n": 73
+   },
+   "draft": {
+    "net": -1.0,
+    "g": 45,
+    "n": 20
+   },
+   "waiver": {
+    "net": -5.5,
+    "g": 35,
+    "n": 28
+   },
+   "fa": {
+    "net": 18.9,
+    "g": null,
+    "n": 28
+   }
+  },
+  "total": 38.5,
+  "forGrade": 80,
+  "success": {
+   "wpct": ".576",
+   "div": 4,
+   "g": 75,
+   "w": 431,
+   "l": 317
+  },
+  "top": [
+   {
+    "d": "2022-12-12",
+    "ch": "trade",
+    "net": 22.2,
+    "h": "Atlanta Braves traded RHP Freddy Tarnok, C Manny Pi\u00f1a, RHP Royber Salinas, 2B Esteury Ruiz and LHP Kyle Muller to Oakland Athletic",
+    "vin": 22.2,
+    "vout": 0.0
+   },
+   {
+    "d": "2023-04-30",
+    "ch": "trade",
+    "net": 5.4,
+    "h": "Minnesota Twins traded RHP Trevor Megill to Milwaukee Brewers for Player To Be Named Later and cash.",
+    "vin": 5.4,
+    "vout": 0
+   },
+   {
+    "d": "2023-11-15",
+    "ch": "trade",
+    "net": 3.5,
+    "h": "Milwaukee Brewers traded 3B Abraham Toro to Oakland Athletics for RHP Chad Patrick.",
+    "vin": 3.5,
+    "vout": 0.0
+   },
+   {
+    "d": "2023-11-17",
+    "ch": "trade",
+    "net": 2.7,
+    "h": "New York Yankees traded DH Jake Bauers to Milwaukee Brewers for OF Jace Avina and LF Brian Sanchez.",
+    "vin": 2.7,
+    "vout": 0.0
+   },
+   {
+    "d": "2024-07-27",
+    "ch": "trade",
+    "net": 2.3,
+    "h": "Colorado Rockies traded RHP Nick Mears to Milwaukee Brewers for RHP Bradley Blalock and RHP Yujanyer Herrera.",
+    "vin": 0.7,
+    "vout": -1.6
+   },
+   {
+    "d": "2025-06-13",
+    "ch": "trade",
+    "net": 2.3,
+    "h": "Chicago White Sox traded 1B Andrew Vaughn to Milwaukee Brewers for RHP Aaron Civale and cash.",
+    "vin": 3.0,
+    "vout": 0.7
+   },
+   {
+    "d": "2026-02-09",
+    "ch": "trade",
+    "net": 2.2,
+    "h": "Boston Red Sox traded LHP Kyle Harrison, LHP Shane Drohan and 2B David Hamilton to Milwaukee Brewers for 3B Caleb Durbin, SS Andru",
+    "vin": 4.3,
+    "vout": 2.1
+   },
+   {
+    "d": "2025-04-07",
+    "ch": "trade",
+    "net": 2.1,
+    "h": "Boston Red Sox traded RHP Quinn Priester to Milwaukee Brewers for CF Yophery Rodriguez, Player To Be Named Later and Draft Pick.",
+    "vin": 2.1,
+    "vout": 0.0
+   }
+  ]
+ },
+ {
+  "id": "min",
+  "teamId": 142,
+  "exec": "Derek Falvey",
+  "team": "Minnesota Twins",
+  "abbr": "MIN",
+  "start": 2016,
+  "seasons": 9.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": -13.5,
+    "g": 35,
+    "n": 129
+   },
+   "draft": {
+    "net": 11.4,
+    "g": 65,
+    "n": 50
+   },
+   "waiver": {
+    "net": -0.6,
+    "g": 50,
+    "n": 105
+   },
+   "fa": {
+    "net": 72.8,
+    "g": null,
+    "n": 68
+   }
+  },
+  "total": -2.7,
+  "forGrade": 50,
+  "success": {
+   "wpct": ".493",
+   "div": 3,
+   "g": 54,
+   "w": 798,
+   "l": 821
+  },
+  "top": [
+   {
+    "d": "2018-06-15",
+    "ch": "draft",
+    "net": 13.4,
+    "h": "Drafted Ryan Jeffers (#59 overall, 2018)"
+   },
+   {
+    "d": "2021-07-22",
+    "ch": "trade",
+    "net": 12.2,
+    "h": "Tampa Bay Rays traded RHP Drew Strotman and RHP Joe Ryan to Minnesota Twins for DH Nelson Cruz and RHP Calvin Faucher.",
+    "vin": 12.2,
+    "vout": -0.0
+   },
+   {
+    "d": "2022-03-13",
+    "ch": "trade",
+    "net": 8.0,
+    "h": "Cincinnati Reds traded RHP Sonny Gray and RHP Francis Peguero to Minnesota Twins for RHP Chase Petty.",
+    "vin": 7.4,
+    "vout": -0.5
+   },
+   {
+    "d": "2018-07-27",
+    "ch": "trade",
+    "net": -7.6,
+    "h": "Minnesota Twins traded RHP Ryan Pressly to Houston Astros for CF Gilberto Celestino and RHP Jorge Alcala.",
+    "vin": 1.1,
+    "vout": 8.6
+   },
+   {
+    "d": "2022-08-02",
+    "ch": "trade",
+    "net": -6.3,
+    "h": "Baltimore Orioles traded RHP Jorge Lopez and cash to Minnesota Twins for RHP Yennier Cano, LHP Cade Povich, LHP Juan Rojas and RHP",
+    "vin": -0.1,
+    "vout": 6.2
+   },
+   {
+    "d": "2021-02-04",
+    "ch": "trade",
+    "net": -5.6,
+    "h": "Minnesota Twins traded LaMonte Wade Jr to San Francisco Giants for RHP Shaun Anderson.",
+    "vin": 0.0,
+    "vout": 5.7
+   },
+   {
+    "d": "2022-08-02",
+    "ch": "trade",
+    "net": -5.4,
+    "h": "Cincinnati Reds traded RHP Tyler Mahle to Minnesota Twins for SS Spencer Steer, 3B Christian Encarnacion-Strand and LHP Steve Hajj",
+    "vin": 0.2,
+    "vout": 5.6
+   },
+   {
+    "d": "2023-04-30",
+    "ch": "trade",
+    "net": -5.4,
+    "h": "Minnesota Twins traded RHP Trevor Megill to Milwaukee Brewers for Player To Be Named Later and cash.",
+    "vin": 0,
+    "vout": 5.4
+   }
+  ]
+ },
+ {
+  "id": "nym",
+  "teamId": 121,
+  "exec": "David Stearns",
+  "team": "New York Mets",
+  "abbr": "NYM",
+  "start": 2023,
+  "seasons": 2.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": 1.7,
+    "g": 60,
+    "n": 56
+   },
+   "draft": {
+    "net": 0.7,
+    "g": 55,
+    "n": 9
+   },
+   "waiver": {
+    "net": -1.9,
+    "g": 40,
+    "n": 48
+   },
+   "fa": {
+    "net": 35.8,
+    "g": null,
+    "n": 41
+   }
+  },
+  "total": 0.4,
+  "forGrade": 50,
+  "success": {
+   "wpct": ".492",
+   "div": 0,
+   "g": 45,
+   "w": 289,
+   "l": 298
+  },
+  "top": [
+   {
+    "d": "2023-12-06",
+    "ch": "trade",
+    "net": -2.7,
+    "h": "New York Mets traded RHP Justin Slaten to Boston Red Sox for LHP Ryan Ammons.",
+    "vin": 0.0,
+    "vout": 2.7
+   },
+   {
+    "d": "2024-07-30",
+    "ch": "trade",
+    "net": 2.0,
+    "h": "Miami Marlins traded RHP Huascar Brazoban to New York Mets for SS Wilfredo Lara.",
+    "vin": 2.0,
+    "vout": 0.0
+   },
+   {
+    "d": "2025-11-24",
+    "ch": "trade",
+    "net": -1.6,
+    "h": "New York Mets traded LF Brandon Nimmo and cash to Texas Rangers for 2B Marcus Semien.",
+    "vin": -0.3,
+    "vout": 1.4
+   },
+   {
+    "d": "2024-07-26",
+    "ch": "trade",
+    "net": -1.5,
+    "h": "New York Mets traded RHP Cole Sulser to Tampa Bay Rays for cash.",
+    "vin": 0,
+    "vout": 1.5
+   },
+   {
+    "d": "2023-12-20",
+    "ch": "trade",
+    "net": 1.3,
+    "h": "Milwaukee Brewers traded RHP Adrian Houser and CF Tyrone Taylor to New York Mets for RHP Coleman Crow.",
+    "vin": 1.5,
+    "vout": 0.1
+   },
+   {
+    "d": "2026-03-27",
+    "ch": "waiver",
+    "net": -1.1,
+    "h": "Chicago White Sox claimed LHP Bryan Hudson off waivers from New York Mets."
+   },
+   {
+    "d": "2024-04-25",
+    "ch": "waiver",
+    "net": -1.0,
+    "h": "New York Yankees claimed RHP Michael Tonkin off waivers from New York Mets."
+   },
+   {
+    "d": "2024-05-31",
+    "ch": "trade",
+    "net": 1.0,
+    "h": "New York Yankees traded C Luis Torrens to New York Mets for cash.",
+    "vin": 1.0,
+    "vout": 0
+   }
+  ]
+ },
+ {
+  "id": "nyy",
+  "teamId": 147,
+  "exec": "Brian Cashman",
+  "team": "New York Yankees",
+  "abbr": "NYY",
+  "start": 2005,
+  "seasons": 21.5,
+  "flags": [
+   "ledger floored at 2005 by API coverage"
+  ],
+  "chan": {
+   "trade": {
+    "net": 32.9,
+    "g": 70,
+    "n": 238
+   },
+   "draft": {
+    "net": 58.4,
+    "g": 80,
+    "n": 104
+   },
+   "waiver": {
+    "net": -8.0,
+    "g": 45,
+    "n": 165
+   },
+   "fa": {
+    "net": 263.0,
+    "g": null,
+    "n": 126
+   }
+  },
+  "total": 83.3,
+  "forGrade": 70,
+  "success": {
+   "wpct": ".573",
+   "div": 8,
+   "g": 75,
+   "w": 1949,
+   "l": 1451
+  },
+  "top": [
+   {
+    "d": "2013-06-15",
+    "ch": "draft",
+    "net": 62.0,
+    "h": "Drafted Aaron Judge (#32 overall, 2013)"
+   },
+   {
+    "d": "2005-06-15",
+    "ch": "draft",
+    "net": 18.7,
+    "h": "Drafted Brett Gardner (#109 overall, 2005)"
+   },
+   {
+    "d": "2008-06-15",
+    "ch": "draft",
+    "net": 15.0,
+    "h": "Drafted Gerrit Cole (#28 overall, 2008)"
+   },
+   {
+    "d": "2009-12-09",
+    "ch": "trade",
+    "net": -11.7,
+    "h": "New York Yankees Traded RHP Ian Kennedy to Arizona Diamondbacks; New York Yankees Traded CF Austin Jackson and LHP Phil Coke to De",
+    "vin": 16.6,
+    "vout": 28.3
+   },
+   {
+    "d": "2016-07-25",
+    "ch": "trade",
+    "net": 11.2,
+    "h": "New York Yankees traded LHP Aroldis Chapman to Chicago Cubs for RHP Adam Warren, SS Gleyber Torres, RF Billy McKinney and OF Rasha",
+    "vin": 12.5,
+    "vout": 1.3
+   },
+   {
+    "d": "2014-12-05",
+    "ch": "trade",
+    "net": 10.6,
+    "h": "Arizona Diamondbacks Traded SS Didi Gregorius to New York Yankees; Detroit Tigers Traded 2B Domingo Leyba and LHP Robbie Ray to Ar",
+    "vin": 14.0,
+    "vout": 3.4
+   },
+   {
+    "d": "2012-01-23",
+    "ch": "trade",
+    "net": 10.5,
+    "h": "New York Yankees traded C Jesus Montero and RHP Hector Noesi to Seattle Mariners for RHP Michael Pineda and RHP Jose Campos.",
+    "vin": 8.4,
+    "vout": -2.1
+   },
+   {
+    "d": "2015-11-11",
+    "ch": "trade",
+    "net": 10.1,
+    "h": "Minnesota Twins traded RF Aaron Hicks to New York Yankees for C John Ryan Murphy.",
+    "vin": 9.5,
+    "vout": -0.6
+   }
+  ]
+ },
+ {
+  "id": "ath",
+  "teamId": 133,
+  "exec": "David Forst",
+  "team": "Athletics",
+  "abbr": "ATH",
+  "start": 2015,
+  "seasons": 10.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": -2.3,
+    "g": 45,
+    "n": 138
+   },
+   "draft": {
+    "net": 7.4,
+    "g": 60,
+    "n": 55
+   },
+   "waiver": {
+    "net": 14.5,
+    "g": 70,
+    "n": 113
+   },
+   "fa": {
+    "net": 31.8,
+    "g": null,
+    "n": 60
+   }
+  },
+  "total": 19.5,
+  "forGrade": 60,
+  "success": {
+   "wpct": ".464",
+   "div": 1,
+   "g": 43,
+   "w": 826,
+   "l": 954
+  },
+  "top": [
+   {
+    "d": "2016-02-12",
+    "ch": "trade",
+    "net": 10.4,
+    "h": "Milwaukee Brewers traded LF Khris Davis to Oakland Athletics for RHP Bubba Derby and C Jacob Nottingham.",
+    "vin": 11.0,
+    "vout": 0.6
+   },
+   {
+    "d": "2015-11-25",
+    "ch": "trade",
+    "net": 10.2,
+    "h": "Houston Astros traded 2B Jed Lowrie to Oakland Athletics for RHP Brendan McCurry.",
+    "vin": 10.2,
+    "vout": 0.0
+   },
+   {
+    "d": "2022-12-12",
+    "ch": "trade",
+    "net": -9.8,
+    "h": "Atlanta Braves traded RHP Freddy Tarnok, C Manny Pi\u00f1a, RHP Royber Salinas, 2B Esteury Ruiz and LHP Kyle Muller to Oakland Athletic",
+    "vin": -0.6,
+    "vout": 9.2
+   },
+   {
+    "d": "2022-11-17",
+    "ch": "waiver",
+    "net": 9.2,
+    "h": "Oakland Athletics claimed OF Brent Rooker off waivers from Kansas City Royals."
+   },
+   {
+    "d": "2024-06-15",
+    "ch": "draft",
+    "net": 8.5,
+    "h": "Drafted Nick Kurtz (#4 overall, 2024)"
+   },
+   {
+    "d": "2016-06-15",
+    "ch": "draft",
+    "net": 8.1,
+    "h": "Drafted Sean Murphy (#83 overall, 2016)"
+   },
+   {
+    "d": "2015-11-20",
+    "ch": "trade",
+    "net": 8.0,
+    "h": "Oakland Athletics traded RHP Jesse Chavez to Toronto Blue Jays for RHP Liam Hendriks.",
+    "vin": 8.2,
+    "vout": 0.2
+   },
+   {
+    "d": "2019-12-02",
+    "ch": "trade",
+    "net": -8.0,
+    "h": "San Diego Padres traded C Austin Allen and Player To Be Named Later to Oakland Athletics for OF Jurickson Profar.",
+    "vin": -0.1,
+    "vout": 7.8
+   }
+  ]
+ },
+ {
+  "id": "phi",
+  "teamId": 143,
+  "exec": "Dave Dombrowski",
+  "team": "Philadelphia Phillies",
+  "abbr": "PHI",
+  "start": 2020,
+  "seasons": 5.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": 9.2,
+    "g": 70,
+    "n": 108
+   },
+   "draft": {
+    "net": -0.8,
+    "g": 50,
+    "n": 22
+   },
+   "waiver": {
+    "net": 3.3,
+    "g": 60,
+    "n": 60
+   },
+   "fa": {
+    "net": 78.3,
+    "g": null,
+    "n": 43
+   }
+  },
+  "total": 11.6,
+  "forGrade": 60,
+  "success": {
+   "wpct": ".550",
+   "div": 2,
+   "g": 66,
+   "w": 534,
+   "l": 437
+  },
+  "top": [
+   {
+    "d": "2024-12-22",
+    "ch": "trade",
+    "net": 7.9,
+    "h": "Philadelphia Phillies traded LF Emaarion Boyd and SS Starlyn Caba to Miami Marlins for LHP Jes\u00fas Luzardo and C Paul McIntosh.",
+    "vin": 7.9,
+    "vout": 0.0
+   },
+   {
+    "d": "2020-12-29",
+    "ch": "trade",
+    "net": 4.9,
+    "h": "Tampa Bay Rays Traded LHP Jose Alvarado to Philadelphia Phillies; Los Angeles Dodgers Traded Player To Be Named Later and 1B Dillo",
+    "vin": 4.8,
+    "vout": -0.1
+   },
+   {
+    "d": "2022-08-02",
+    "ch": "trade",
+    "net": -4.4,
+    "h": "Chicago Cubs traded RHP David Robertson to Philadelphia Phillies for RHP Ben Brown.",
+    "vin": 0.4,
+    "vout": 4.7
+   },
+   {
+    "d": "2022-06-15",
+    "ch": "draft",
+    "net": 3.6,
+    "h": "Drafted Orion Kerkering (#152 overall, 2022)"
+   },
+   {
+    "d": "2022-08-02",
+    "ch": "trade",
+    "net": 3.1,
+    "h": "Los Angeles Angels traded OF Brandon Marsh to Philadelphia Phillies for C Logan O'Hoppe.",
+    "vin": 8.8,
+    "vout": 5.7
+   },
+   {
+    "d": "2023-01-07",
+    "ch": "trade",
+    "net": -2.8,
+    "h": "Detroit Tigers traded LHP Gregory Soto, 2B Kody Clemens and  to Philadelphia Phillies for OF Matt Vierling, SS Nick Maton, C Donny",
+    "vin": 1.2,
+    "vout": 4.1
+   },
+   {
+    "d": "2021-07-30",
+    "ch": "trade",
+    "net": 2.6,
+    "h": "Texas Rangers traded RHP Hans Crouse, RHP Ian Kennedy, RHP Kyle Gibson and cash to Philadelphia Phillies for RHP Spencer Howard, R",
+    "vin": 1.5,
+    "vout": -1.1
+   },
+   {
+    "d": "2023-01-09",
+    "ch": "trade",
+    "net": -2.0,
+    "h": "San Francisco Giants traded RHP Yunior Marte to Philadelphia Phillies for LHP Erik Miller.",
+    "vin": 0.1,
+    "vout": 2.1
+   }
+  ]
+ },
+ {
+  "id": "pit",
+  "teamId": 134,
+  "exec": "Ben Cherington",
+  "team": "Pittsburgh Pirates",
+  "abbr": "PIT",
+  "start": 2019,
+  "seasons": 6.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": 1.0,
+    "g": 50,
+    "n": 116
+   },
+   "draft": {
+    "net": 11.9,
+    "g": 75,
+    "n": 36
+   },
+   "waiver": {
+    "net": 0.1,
+    "g": 50,
+    "n": 106
+   },
+   "fa": {
+    "net": 14.6,
+    "g": null,
+    "n": 53
+   }
+  },
+  "total": 13.0,
+  "forGrade": 60,
+  "success": {
+   "wpct": ".429",
+   "div": 0,
+   "g": 30,
+   "w": 486,
+   "l": 647
+  },
+  "top": [
+   {
+    "d": "2023-06-15",
+    "ch": "draft",
+    "net": 12.3,
+    "h": "Drafted Paul Skenes (#1 overall, 2023)"
+   },
+   {
+    "d": "2020-12-24",
+    "ch": "trade",
+    "net": -6.5,
+    "h": "Pittsburgh Pirates traded 1B Josh Bell to Washington Nationals for RHP Wil Crowe and RHP Eddy Yean.",
+    "vin": -0.7,
+    "vout": 5.9
+   },
+   {
+    "d": "2021-07-26",
+    "ch": "trade",
+    "net": -5.5,
+    "h": "New York Yankees traded SS Hoy Park and SS Diego Castillo to Pittsburgh Pirates for RHP Clay Holmes.",
+    "vin": 0.5,
+    "vout": 6.0
+   },
+   {
+    "d": "2024-04-02",
+    "ch": "trade",
+    "net": 4.7,
+    "h": "San Francisco Giants traded C Joey Bart to Pittsburgh Pirates for RHP Austin Strickland.",
+    "vin": 4.7,
+    "vout": 0.0
+   },
+   {
+    "d": "2025-12-19",
+    "ch": "trade",
+    "net": 4.7,
+    "h": "Tampa Bay Rays traded 2B Brandon Lowe, LF Jake Mangum and LHP Mason Montgomery to Pittsburgh Pirates.",
+    "vin": 4.7,
+    "vout": 0
+   },
+   {
+    "d": "2020-06-15",
+    "ch": "draft",
+    "net": 4.1,
+    "h": "Drafted Carmen Mlodzinski (#31 overall, 2020)"
+   },
+   {
+    "d": "2021-06-15",
+    "ch": "draft",
+    "net": -3.8,
+    "h": "Drafted Henry Davis (#1 overall, 2021)"
+   },
+   {
+    "d": "2021-01-24",
+    "ch": "trade",
+    "net": -3.6,
+    "h": "Pittsburgh Pirates traded RHP Jameson Taillon to New York Yankees for RHP Roansy Contreras, SS Maikol Escotto, LF Canaan Smith and",
+    "vin": -0.1,
+    "vout": 3.5
+   }
+  ]
+ },
+ {
+  "id": "sd",
+  "teamId": 135,
+  "exec": "A.J. Preller",
+  "team": "San Diego Padres",
+  "abbr": "SD",
+  "start": 2014,
+  "seasons": 11.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": -16.8,
+    "g": 35,
+    "n": 150
+   },
+   "draft": {
+    "net": -34.6,
+    "g": 30,
+    "n": 62
+   },
+   "waiver": {
+    "net": 9.0,
+    "g": 60,
+    "n": 80
+   },
+   "fa": {
+    "net": 98.8,
+    "g": null,
+    "n": 92
+   }
+  },
+  "total": -42.3,
+  "forGrade": 30,
+  "success": {
+   "wpct": ".487",
+   "div": 0,
+   "g": 45,
+   "w": 945,
+   "l": 997
+  },
+  "top": [
+   {
+    "d": "2022-08-02",
+    "ch": "trade",
+    "net": -22.9,
+    "h": "Washington Nationals traded LF Juan Soto and 1B Josh Bell to San Diego Padres for 1B Luke Voit, LHP MacKenzie Gore, SS C.J. Abrams",
+    "vin": 7.0,
+    "vout": 30.0
+   },
+   {
+    "d": "2015-06-14",
+    "ch": "trade",
+    "net": -18.9,
+    "h": "San Diego Padres traded SS Trea Turner to Washington Nationals.",
+    "vin": 0,
+    "vout": 18.9
+   },
+   {
+    "d": "2019-12-06",
+    "ch": "trade",
+    "net": 14.0,
+    "h": "Tampa Bay Rays traded LF Tommy Pham and SS Jake Cronenworth to San Diego Padres for LF Hunter Renfroe, SS Xavier Edwards and Playe",
+    "vin": 13.8,
+    "vout": -0.2
+   },
+   {
+    "d": "2016-06-04",
+    "ch": "trade",
+    "net": 13.1,
+    "h": "San Diego Padres traded RHP James Shields and cash to Chicago White Sox for Erik Johnson and 3B Fernando Tatis Jr..",
+    "vin": 10.3,
+    "vout": -2.8
+   },
+   {
+    "d": "2019-12-06",
+    "ch": "trade",
+    "net": 12.6,
+    "h": "traded SS Jake Cronenworth, , , ,  and  to San Diego Padres.",
+    "vin": 12.6,
+    "vout": 0
+   },
+   {
+    "d": "2020-08-31",
+    "ch": "trade",
+    "net": -12.5,
+    "h": "Seattle Mariners traded Austin Adams, C Austin Nola and RHP Dan Altavilla to San Diego Padres for RHP Andres Munoz, C Luis Torrens",
+    "vin": 3.4,
+    "vout": 15.9
+   },
+   {
+    "d": "2020-12-29",
+    "ch": "trade",
+    "net": 10.3,
+    "h": "Chicago Cubs traded RHP Yu Darvish, C Victor Caratini and cash to San Diego Padres for RHP Zach Davies, SS Reginald Preciado, SS Y",
+    "vin": 9.5,
+    "vout": -0.8
+   },
+   {
+    "d": "2014-12-18",
+    "ch": "trade",
+    "net": -9.3,
+    "h": "Los Angeles Dodgers traded RF Matt Kemp, C Tim Federowicz and cash to San Diego Padres for C Yasmani Grandal, RHP Joe Wieland and ",
+    "vin": 5.2,
+    "vout": 14.5
+   }
+  ]
+ },
+ {
+  "id": "sf",
+  "teamId": 137,
+  "exec": "Buster Posey",
+  "team": "San Francisco Giants",
+  "abbr": "SF",
+  "start": 2024,
+  "seasons": 1.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": 1.2,
+    "g": 65,
+    "n": 19
+   },
+   "draft": {
+    "net": 0.0,
+    "g": 50,
+    "n": 3
+   },
+   "waiver": {
+    "net": -3.5,
+    "g": 30,
+    "n": 15
+   },
+   "fa": {
+    "net": 11.5,
+    "g": null,
+    "n": 14
+   }
+  },
+  "total": -2.3,
+  "forGrade": 40,
+  "success": {
+   "wpct": ".479",
+   "div": 0,
+   "g": 40,
+   "w": 203,
+   "l": 221
+  },
+  "top": [
+   {
+    "d": "2025-06-15",
+    "ch": "trade",
+    "net": 2.9,
+    "h": "Boston Red Sox traded DH Rafael Devers to San Francisco Giants for LHP Kyle Harrison, RHP Jordan Hicks, RHP Jose Bello and RF Jame",
+    "vin": 3.0,
+    "vout": 0.1
+   },
+   {
+    "d": "2025-07-31",
+    "ch": "trade",
+    "net": -1.1,
+    "h": "San Francisco Giants traded RF Mike Yastrzemski to Kansas City Royals for RHP Yunior Marte.",
+    "vin": 0.0,
+    "vout": 1.1
+   },
+   {
+    "d": "2026-01-07",
+    "ch": "waiver",
+    "net": -0.7,
+    "h": "Los Angeles Angels claimed OF Wade Meckler off waivers from San Francisco Giants."
+   },
+   {
+    "d": "2026-01-05",
+    "ch": "waiver",
+    "net": -0.6,
+    "h": "Washington Nationals claimed LF Joey Wiemer off waivers from San Francisco Giants."
+   },
+   {
+    "d": "2025-01-15",
+    "ch": "waiver",
+    "net": -0.4,
+    "h": "New York Mets claimed RHP Austin Warren off waivers from San Francisco Giants."
+   },
+   {
+    "d": "2025-11-06",
+    "ch": "waiver",
+    "net": -0.3,
+    "h": "San Francisco Giants claimed LHP Reiver Sanmartin off waivers from Cincinnati Reds."
+   },
+   {
+    "d": "2026-01-13",
+    "ch": "waiver",
+    "net": -0.2,
+    "h": "Chicago Cubs claimed CF Justin Dean off waivers from San Francisco Giants."
+   },
+   {
+    "d": "2025-01-08",
+    "ch": "waiver",
+    "net": 0.1,
+    "h": "San Francisco Giants claimed C Sam Huff off waivers from Texas Rangers."
+   }
+  ]
+ },
+ {
+  "id": "sea",
+  "teamId": 136,
+  "exec": "Jerry Dipoto",
+  "team": "Seattle Mariners",
+  "abbr": "SEA",
+  "start": 2015,
+  "seasons": 10.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": -6.6,
+    "g": 40,
+    "n": 223
+   },
+   "draft": {
+    "net": 34.1,
+    "g": 80,
+    "n": 55
+   },
+   "waiver": {
+    "net": -3.1,
+    "g": 45,
+    "n": 184
+   },
+   "fa": {
+    "net": 34.7,
+    "g": null,
+    "n": 66
+   }
+  },
+  "total": 24.5,
+  "forGrade": 65,
+  "success": {
+   "wpct": ".515",
+   "div": 2,
+   "g": 56,
+   "w": 918,
+   "l": 863
+  },
+  "top": [
+   {
+    "d": "2018-06-15",
+    "ch": "draft",
+    "net": 19.3,
+    "h": "Drafted Cal Raleigh (#90 overall, 2018)"
+   },
+   {
+    "d": "2018-06-15",
+    "ch": "draft",
+    "net": 15.7,
+    "h": "Drafted Logan Gilbert (#14 overall, 2018)"
+   },
+   {
+    "d": "2019-06-15",
+    "ch": "draft",
+    "net": 14.7,
+    "h": "Drafted George Kirby (#20 overall, 2019)"
+   },
+   {
+    "d": "2016-06-19",
+    "ch": "trade",
+    "net": -14.6,
+    "h": "Seattle Mariners traded SS Chris Taylor to Los Angeles Dodgers for RHP Zach Lee.",
+    "vin": 0.0,
+    "vout": 14.6
+   },
+   {
+    "d": "2020-08-31",
+    "ch": "trade",
+    "net": 12.5,
+    "h": "Seattle Mariners traded Austin Adams, C Austin Nola and RHP Dan Altavilla to San Diego Padres for RHP Andres Munoz, C Luis Torrens",
+    "vin": 15.9,
+    "vout": 3.4
+   },
+   {
+    "d": "2017-01-11",
+    "ch": "trade",
+    "net": -11.0,
+    "h": "Tampa Bay Rays traded LHP Drew Smyly to Seattle Mariners for SS Carlos Vargas, CF Mallex Smith and LHP Ryan Yarbrough.",
+    "vin": 0.0,
+    "vout": 11.0
+   },
+   {
+    "d": "2022-07-30",
+    "ch": "trade",
+    "net": 10.8,
+    "h": "Cincinnati Reds traded RHP Luis Castillo to Seattle Mariners for SS Noelvi Marte, SS Edwin Arroyo, RHP Levi Stoudt and RHP Andrew ",
+    "vin": 11.1,
+    "vout": 0.3
+   },
+   {
+    "d": "2018-12-03",
+    "ch": "trade",
+    "net": -9.9,
+    "h": "Seattle Mariners traded 2B Robinson Cano, RHP Edwin Diaz and cash to New York Mets for RF Jay Bruce, RHP Anthony Swarzak, RHP Gers",
+    "vin": -0.7,
+    "vout": 9.1
+   }
+  ]
+ },
+ {
+  "id": "stl",
+  "teamId": 138,
+  "exec": "Chaim Bloom",
+  "team": "St. Louis Cardinals",
+  "abbr": "STL",
+  "start": 2025,
+  "seasons": 0.7,
+  "flags": [
+   "approx"
+  ],
+  "chan": {
+   "trade": {
+    "net": -5.6,
+    "g": 30,
+    "n": 10
+   },
+   "draft": {
+    "net": 0.0,
+    "g": 50,
+    "n": 0
+   },
+   "waiver": {
+    "net": 0.5,
+    "g": 60,
+    "n": 12
+   },
+   "fa": {
+    "net": 2.7,
+    "g": null,
+    "n": 4
+   }
+  },
+  "total": -5.1,
+  "forGrade": 30,
+  "success": {
+   "wpct": ".494",
+   "div": 0,
+   "g": 45,
+   "w": 129,
+   "l": 132
+  },
+  "top": [
+   {
+    "d": "2025-12-22",
+    "ch": "trade",
+    "net": -3.2,
+    "h": "Boston Red Sox traded RHP Hunter Dobbins, RHP Yhoiker Fajardo and RHP Blake Aita to St. Louis Cardinals for 1B Willson Contreras.",
+    "vin": 0.3,
+    "vout": 3.4
+   },
+   {
+    "d": "2025-11-25",
+    "ch": "trade",
+    "net": -1.8,
+    "h": "St. Louis Cardinals traded RHP Sonny Gray and cash to Boston Red Sox for RHP Richard Fitts, LHP Brandon Clarke and Player To Be Na",
+    "vin": 0.0,
+    "vout": 1.8
+   },
+   {
+    "d": "2026-01-13",
+    "ch": "trade",
+    "net": -1.6,
+    "h": "St. Louis Cardinals traded 3B Nolan Arenado and cash to Arizona Diamondbacks for RHP Jack Martinez.",
+    "vin": 0.0,
+    "vout": 1.6
+   },
+   {
+    "d": "2026-02-02",
+    "ch": "trade",
+    "net": -0.9,
+    "h": "St. Louis Cardinals traded 2B Brendan Donovan to Seattle Mariners for CF Colton Ledbetter, SHP Jurrangelo Cijntje, OF Tai Peete, D",
+    "vin": 0.0,
+    "vout": 0.9
+   },
+   {
+    "d": "2026-02-10",
+    "ch": "trade",
+    "net": 0.9,
+    "h": "Washington Nationals traded RHP George Soriano to St. Louis Cardinals for RHP Andre Granillo.",
+    "vin": 0.6,
+    "vout": -0.3
+   },
+   {
+    "d": "2026-02-26",
+    "ch": "waiver",
+    "net": 0.3,
+    "h": "Minnesota Twins claimed RHP Zak Kent off waivers from St. Louis Cardinals."
+   }
+  ]
+ },
+ {
+  "id": "tb",
+  "teamId": 139,
+  "exec": "Erik Neander",
+  "team": "Tampa Bay Rays",
+  "abbr": "TB",
+  "start": 2016,
+  "seasons": 9.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": 5.7,
+    "g": 60,
+    "n": 248
+   },
+   "draft": {
+    "net": -4.7,
+    "g": 45,
+    "n": 59
+   },
+   "waiver": {
+    "net": -1.1,
+    "g": 50,
+    "n": 83
+   },
+   "fa": {
+    "net": 48.3,
+    "g": null,
+    "n": 53
+   }
+  },
+  "total": -0.0,
+  "forGrade": 50,
+  "success": {
+   "wpct": ".540",
+   "div": 3,
+   "g": 64,
+   "w": 873,
+   "l": 744
+  },
+  "top": [
+   {
+    "d": "2018-07-31",
+    "ch": "trade",
+    "net": 15.4,
+    "h": "Tampa Bay Rays traded RHP Chris Archer to Pittsburgh Pirates for RHP Tyler Glasnow, CF Austin Meadows and Player To Be Named Later",
+    "vin": 16.1,
+    "vout": 0.7
+   },
+   {
+    "d": "2019-12-06",
+    "ch": "trade",
+    "net": -14.0,
+    "h": "Tampa Bay Rays traded LF Tommy Pham and SS Jake Cronenworth to San Diego Padres for LF Hunter Renfroe, SS Xavier Edwards and Playe",
+    "vin": -0.2,
+    "vout": 13.8
+   },
+   {
+    "d": "2021-07-22",
+    "ch": "trade",
+    "net": -12.2,
+    "h": "Tampa Bay Rays traded RHP Drew Strotman and RHP Joe Ryan to Minnesota Twins for DH Nelson Cruz and RHP Calvin Faucher.",
+    "vin": -0.0,
+    "vout": 12.2
+   },
+   {
+    "d": "2017-01-11",
+    "ch": "trade",
+    "net": 11.0,
+    "h": "Tampa Bay Rays traded LHP Drew Smyly to Seattle Mariners for SS Carlos Vargas, CF Mallex Smith and LHP Ryan Yarbrough.",
+    "vin": 11.0,
+    "vout": 0.0
+   },
+   {
+    "d": "2021-11-19",
+    "ch": "trade",
+    "net": 10.7,
+    "h": "Tampa Bay Rays traded RHP Tobias Myers to Cleveland Indians for SS Junior Caminero.",
+    "vin": 10.7,
+    "vout": 0.0
+   },
+   {
+    "d": "2018-12-13",
+    "ch": "trade",
+    "net": 10.2,
+    "h": "Cleveland Indians Traded 1B Edwin Encarnacion and Future Considerations to Seattle Mariners; Tampa Bay Rays Traded LF Jake Bauers ",
+    "vin": 10.2,
+    "vout": 0.0
+   },
+   {
+    "d": "2017-06-15",
+    "ch": "draft",
+    "net": 10.0,
+    "h": "Drafted Drew Rasmussen (#31 overall, 2017)"
+   },
+   {
+    "d": "2022-04-05",
+    "ch": "trade",
+    "net": 9.4,
+    "h": "Detroit Tigers traded SS Isaac Paredes to Tampa Bay Rays for LF Austin Meadows.",
+    "vin": 9.5,
+    "vout": 0.2
+   }
+  ]
+ },
+ {
+  "id": "tex",
+  "teamId": 140,
+  "exec": "Chris Young",
+  "team": "Texas Rangers",
+  "abbr": "TEX",
+  "start": 2022,
+  "seasons": 3.5,
+  "flags": [
+   "GM from 2020-12 under Daniels; sole lead from this date"
+  ],
+  "chan": {
+   "trade": {
+    "net": 4.3,
+    "g": 70,
+    "n": 47
+   },
+   "draft": {
+    "net": 4.7,
+    "g": 70,
+    "n": 13
+   },
+   "waiver": {
+    "net": -4.3,
+    "g": 35,
+    "n": 38
+   },
+   "fa": {
+    "net": 46.5,
+    "g": null,
+    "n": 36
+   }
+  },
+  "total": 4.8,
+  "forGrade": 60,
+  "success": {
+   "wpct": ".491",
+   "div": 0,
+   "g": 45,
+   "w": 367,
+   "l": 381
+  },
+  "top": [
+   {
+    "d": "2023-06-15",
+    "ch": "draft",
+    "net": 4.9,
+    "h": "Drafted Wyatt Langford (#4 overall, 2023)"
+   },
+   {
+    "d": "2022-11-10",
+    "ch": "waiver",
+    "net": -2.3,
+    "h": "Detroit Tigers claimed 2B Andy Ibanez off waivers from Texas Rangers."
+   },
+   {
+    "d": "2024-12-22",
+    "ch": "trade",
+    "net": 1.9,
+    "h": "Texas Rangers traded 1B Nathaniel Lowe to Washington Nationals for LHP Robert Garcia.",
+    "vin": 1.2,
+    "vout": -0.7
+   },
+   {
+    "d": "2025-04-30",
+    "ch": "trade",
+    "net": -1.9,
+    "h": "Texas Rangers traded RHP Matt Festa to Cleveland Guardians for cash.",
+    "vin": 0,
+    "vout": 1.9
+   },
+   {
+    "d": "2026-01-22",
+    "ch": "trade",
+    "net": 1.7,
+    "h": "Washington Nationals traded LHP MacKenzie Gore to Texas Rangers for 3B Gavin Fien, 1B Abimelec Ortiz, SS Devin Fitz-Gerald, RHP Al",
+    "vin": 1.8,
+    "vout": 0.1
+   },
+   {
+    "d": "2023-01-06",
+    "ch": "waiver",
+    "net": -1.6,
+    "h": "Colorado Rockies claimed RHP Nick Mears off waivers from Texas Rangers."
+   },
+   {
+    "d": "2025-01-02",
+    "ch": "trade",
+    "net": -1.6,
+    "h": "Texas Rangers traded RHP Grant Anderson to Milwaukee Brewers for LHP Mason Molina.",
+    "vin": 0.0,
+    "vout": 1.6
+   },
+   {
+    "d": "2025-11-24",
+    "ch": "trade",
+    "net": 1.6,
+    "h": "New York Mets traded LF Brandon Nimmo and cash to Texas Rangers for 2B Marcus Semien.",
+    "vin": 1.4,
+    "vout": -0.3
+   }
+  ]
+ },
+ {
+  "id": "tor",
+  "teamId": 141,
+  "exec": "Ross Atkins",
+  "team": "Toronto Blue Jays",
+  "abbr": "TOR",
+  "start": 2015,
+  "seasons": 10.5,
+  "flags": [],
+  "chan": {
+   "trade": {
+    "net": 23.2,
+    "g": 75,
+    "n": 183
+   },
+   "draft": {
+    "net": -0.5,
+    "g": 50,
+    "n": 52
+   },
+   "waiver": {
+    "net": -2.5,
+    "g": 45,
+    "n": 103
+   },
+   "fa": {
+    "net": 77.2,
+    "g": null,
+    "n": 74
+   }
+  },
+  "total": 20.2,
+  "forGrade": 60,
+  "success": {
+   "wpct": ".515",
+   "div": 2,
+   "g": 56,
+   "w": 916,
+   "l": 864
+  },
+  "top": [
+   {
+    "d": "2016-06-15",
+    "ch": "draft",
+    "net": 21.3,
+    "h": "Drafted Bo Bichette (#66 overall, 2016)"
+   },
+   {
+    "d": "2017-07-31",
+    "ch": "trade",
+    "net": 12.7,
+    "h": "Toronto Blue Jays traded LHP Francisco Liriano to Houston Astros for LF Norichika Aoki and RF Teoscar Hernandez.",
+    "vin": 12.9,
+    "vout": 0.2
+   },
+   {
+    "d": "2022-12-23",
+    "ch": "trade",
+    "net": -8.6,
+    "h": "Arizona Diamondbacks traded C Daulton Varsho to Toronto Blue Jays for SS Lourdes Gurriel Jr. and C Gabriel Moreno.",
+    "vin": 5.2,
+    "vout": 13.9
+   },
+   {
+    "d": "2022-03-16",
+    "ch": "trade",
+    "net": 7.0,
+    "h": "Oakland Athletics traded 3B Matt Chapman to Toronto Blue Jays for LHP Zach Logue, RHP Gunnar Hoglund, LHP Kirby Snead and SS Kevin",
+    "vin": 6.4,
+    "vout": -0.6
+   },
+   {
+    "d": "2018-08-04",
+    "ch": "trade",
+    "net": -6.7,
+    "h": "Toronto Blue Jays traded 3B Gio Urshela to New York Yankees.",
+    "vin": 0,
+    "vout": 6.7
+   },
+   {
+    "d": "2021-07-30",
+    "ch": "trade",
+    "net": 4.1,
+    "h": "Minnesota Twins traded RHP Jose Berrios to Toronto Blue Jays for SS Austin Martin and RHP Simeon Woods Richardson.",
+    "vin": 7.1,
+    "vout": 3.0
+   },
+   {
+    "d": "2020-08-31",
+    "ch": "trade",
+    "net": 3.5,
+    "h": "Arizona Diamondbacks traded LHP Robbie Ray and cash to Toronto Blue Jays for LHP Travis Bergen.",
+    "vin": 3.4,
+    "vout": -0.1
+   },
+   {
+    "d": "2020-08-31",
+    "ch": "trade",
+    "net": 3.2,
+    "h": "Los Angeles Dodgers traded RHP Ross Stripling and Player To Be Named Later to Toronto Blue Jays for Player To Be Named Later.",
+    "vin": 3.2,
+    "vout": 0
+   }
+  ]
+ },
+ {
+  "id": "wsh",
+  "teamId": 120,
+  "exec": "Paul Toboni",
+  "team": "Washington Nationals",
+  "abbr": "WSH",
+  "start": 2025,
+  "seasons": 0.7,
+  "flags": [
+   "approx"
+  ],
+  "chan": {
+   "trade": {
+    "net": -1.3,
+    "g": 30,
+    "n": 16
+   },
+   "draft": {
+    "net": 0.0,
+    "g": 50,
+    "n": 0
+   },
+   "waiver": {
+    "net": 0.1,
+    "g": 50,
+    "n": 20
+   },
+   "fa": {
+    "net": 0.1,
+    "g": null,
+    "n": 5
+   }
+  },
+  "total": -1.2,
+  "forGrade": 40,
+  "success": {
+   "wpct": ".445",
+   "div": 0,
+   "g": 35,
+   "w": 117,
+   "l": 146
+  },
+  "top": [
+   {
+    "d": "2026-03-28",
+    "ch": "trade",
+    "net": 2.9,
+    "h": "Chicago White Sox traded 1B Curtis Mead to Washington Nationals for C Boston Smith.",
+    "vin": 2.9,
+    "vout": 0.0
+   },
+   {
+    "d": "2026-01-22",
+    "ch": "trade",
+    "net": -1.7,
+    "h": "Washington Nationals traded LHP MacKenzie Gore to Texas Rangers for 3B Gavin Fien, 1B Abimelec Ortiz, SS Devin Fitz-Gerald, RHP Al",
+    "vin": 0.1,
+    "vout": 1.8
+   },
+   {
+    "d": "2025-12-15",
+    "ch": "trade",
+    "net": -1.3,
+    "h": "Boston Red Sox traded RHP Luis Perales to Washington Nationals for LHP Jake Bennett.",
+    "vin": 0.0,
+    "vout": 1.3
+   },
+   {
+    "d": "2026-02-10",
+    "ch": "trade",
+    "net": -0.9,
+    "h": "Washington Nationals traded RHP George Soriano to St. Louis Cardinals for RHP Andre Granillo.",
+    "vin": -0.3,
+    "vout": 0.6
+   },
+   {
+    "d": "2026-01-05",
+    "ch": "waiver",
+    "net": 0.6,
+    "h": "Washington Nationals claimed LF Joey Wiemer off waivers from San Francisco Giants."
+   },
+   {
+    "d": "2026-02-05",
+    "ch": "waiver",
+    "net": -0.4,
+    "h": "Washington Nationals claimed LHP Ken Waldichuk off waivers from Tampa Bay Rays."
+   },
+   {
+    "d": "2026-01-09",
+    "ch": "waiver",
+    "net": 0.3,
+    "h": "Washington Nationals claimed RHP Paxton Schultz off waivers from Toronto Blue Jays."
+   },
+   {
+    "d": "2026-02-04",
+    "ch": "waiver",
+    "net": -0.2,
+    "h": "Boston Red Sox claimed 2B Mickey Gasper off waivers from Washington Nationals."
+   }
+  ]
+ }
+]

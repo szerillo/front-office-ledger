@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 ledger.sqlite
 .DS_Store
+lvm_cache.json
+sweep_*.log
