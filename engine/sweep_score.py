@@ -146,6 +146,7 @@ for reg in cfg["regimes"]:
     seasons = round((END_YEAR + 0.55) - (y_start + (1 if start[5:7] > "07" else 0)), 1)
     seasons = max(seasons, 0.7)
     decs = []
+    ynet = defaultdict(float)
     # trades
     trades = defaultdict(list)
     seen_fa = set(); fa_raw = 0.0; n_fa = 0
@@ -158,14 +159,15 @@ for reg in cfg["regimes"]:
             claim = r["to_team"] in names
             v = val(r["person_id"], names if claim else {r["to_team"]}, yr, yr+3, inside=True)
             net = v if claim else -v
-            wv_net += net; n_wv += 1
+            wv_net += net; n_wv += 1; ynet[yr] += net
             if abs(net) > 0.05:
                 decs.append(dict(d=r["date"], ch="waiver", net=round(net,1),
                                  h=(r["description"] or "waiver claim")[:110]))
         elif t == "Rule 5 Selection":
             pick = r["to_team"] in names
             v = val(r["person_id"], names if pick else {r["to_team"]}, yr, yr+3, inside=True)
-            wv_net += (v if pick else -v); n_r5 += 1
+            r5n = (v if pick else -v)
+            wv_net += r5n; n_r5 += 1; ynet[yr] += r5n
         elif t == "Signed as Free Agent":
             key = (r["date"], r["person_id"])
             if key in seen_fa or "minor league" in (r["description"] or "").lower(): continue
@@ -179,7 +181,7 @@ for reg in cfg["regimes"]:
                 if x["from_team"] in names and x["person_id"] and x["to_team"]}
         vin  = sum(val(p, names, yr, yr+5, inside=True) for p in pids_in)
         vout = sum(val(p, {dest}, yr, yr+5, inside=True) for p, dest in outs.items())
-        net = vin - vout; tr_net += net
+        net = vin - vout; tr_net += net; ynet[yr] += net
         if abs(net) >= 0.8:
             decs.append(dict(d=d, ch="trade", net=round(net,1), h=(desc or "trade")[:130],
                              vin=round(vin,1), vout=round(vout,1)))
@@ -190,7 +192,7 @@ for reg in cfg["regimes"]:
         realized = val(p["person_id"], names, yr, END_YEAR, inside=True)
         exp = slot_expectation(pk) * maturity(yr)
         dr_real += realized; dr_exp += exp
-        net = realized - exp
+        net = realized - exp; ynet[yr] += net
         if abs(net) >= 1.2:
             decs.append(dict(d=f"{yr}-06-15", ch="draft", net=round(net,1),
                              h=f"Drafted {p['person_name']} (#{pk} overall, {yr})"))
@@ -213,6 +215,7 @@ for reg in cfg["regimes"]:
         ),
         total=round(total,1), forGrade=grade_comp(total/seasons),
         success=dict(wpct=f"{wpct:.3f}".lstrip('0'), div=div, g=success_grade(wpct, div), w=w, l=l),
+        cum=[round(sum(ynet[y] for y in range(y_start, yy + 1)), 1) for yy in range(y_start, 2027)],
         top=decs[:8],
     ))
     print(f"{reg['abbr']}: trades {tr_net:+.1f} | draft {dr_net:+.1f} | waiver {wv_net:+.1f} "

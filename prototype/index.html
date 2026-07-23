@@ -356,7 +356,7 @@
     </div>
   </section>
 
-  <footer>Front Office Ledger · prototype v1.1 · 30-regime sweep · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · sample data except entries badged REAL DATA (the Betts decisions on the Dodgers card; the full Orioles/Elias card, approximate WAR inputs, see proof-of-concept reports). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
+  <footer>Front Office Ledger · prototype v1.2 · 30-regime sweep · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · sample data except entries badged REAL DATA (the Betts decisions on the Dodgers card; the full Orioles/Elias card, approximate WAR inputs, see proof-of-concept reports). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
 </div>
 
 <!-- decision modal -->
@@ -737,7 +737,7 @@ const AUTO_REGIMES = [
 "forGrade": 50,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".485",
 "div": 0,
@@ -772,7 +772,19 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$-2M",
 "decisions": 349,
-"cum": null,
+"cum": [
+-1.0,
+4.5,
+-5.1,
+9.7,
+3.3,
+-0.5,
+8.2,
+2.8,
+4.1,
+3.1,
+-0.2
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -780,18 +792,18 @@ const AUTO_REGIMES = [
 "war": 15.3,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Miami Marlins traded RHP Zac Gallen to Arizona Diamondbacks. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +15.3 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +15.3 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2022-12-23",
 "war": 8.6,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Arizona Diamondbacks traded C Daulton Varsho to Toronto Blue Jays for SS Lourdes Gurriel Jr. and C Gabriel Moreno. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +13.9 LVM vs value out +5.2 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +13.9 LVM vs value out +5.2 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -800,18 +812,18 @@ const AUTO_REGIMES = [
 "war": -9.3,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Arizona Diamondbacks traded 1B Paul Goldschmidt to St. Louis Cardinals for C Carson Kelly, RHP Luke Weaver, 2B Andy Young and Futu <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +9.6 LVM vs value out +18.8 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +9.6 LVM vs value out +18.8 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2019-07-31",
 "war": -7.5,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Arizona Diamondbacks traded SS Jazz Chisholm to Miami Marlins. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +7.5 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +7.5 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -820,7 +832,7 @@ const AUTO_REGIMES = [
 "war": 12.5,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Corbin Carroll (#16 overall, 2019) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -828,7 +840,7 @@ const AUTO_REGIMES = [
 "war": 5.5,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Brandon Pfaadt (#149 overall, 2020) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -836,7 +848,7 @@ const AUTO_REGIMES = [
 "war": 4.7,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Ryne Nelson (#56 overall, 2019) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -846,7 +858,7 @@ const AUTO_REGIMES = [
 "war": -5.0,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Detroit Tigers claimed LHP Tyler Holton off waivers from Arizona Diamondbacks. <span class=\"badge-real\">COMPUTED</span>"
 }
 ]
@@ -863,7 +875,7 @@ const AUTO_REGIMES = [
 "forGrade": 75,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".557",
 "div": 7,
@@ -898,7 +910,18 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$625M",
 "decisions": 370,
-"cum": null,
+"cum": [
+-1.4,
+-3.8,
+7.1,
+20.0,
+31.0,
+49.8,
+64.9,
+66.2,
+67.9,
+67.9
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -906,27 +929,27 @@ const AUTO_REGIMES = [
 "war": 13.4,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Atlanta Braves traded SS Vaughn Grissom to Boston Red Sox for LHP Chris Sale and cash. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +12.8 LVM vs value out -0.6 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +12.8 LVM vs value out -0.6 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2022-03-14",
 "war": 11.6,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Oakland Athletics traded 1B Matt Olson to Atlanta Braves for CF Cristian Pache, C Shea Langeliers, RHP Ryan Cusick and RHP Joey Es <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +20.1 LVM vs value out +8.5 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +20.1 LVM vs value out +8.5 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2022-08-02",
 "war": 6.7,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Los Angeles Angels traded RHP Raisel Iglesias to Atlanta Braves for RHP Jesse Chavez and LHP Tucker Davidson. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +6.8 LVM vs value out +0.1 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +6.8 LVM vs value out +0.1 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -935,9 +958,9 @@ const AUTO_REGIMES = [
 "war": -13.0,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Atlanta Braves traded RHP Freddy Tarnok, C Manny Pi\u00f1a, RHP Royber Salinas, 2B Esteury Ruiz and LHP Kyle Muller to Oakland Athletic <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +6.6 LVM vs value out +19.6 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +6.6 LVM vs value out +19.6 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -946,7 +969,7 @@ const AUTO_REGIMES = [
 "war": 12.8,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Michael Harris II (#98 overall, 2019) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -954,7 +977,7 @@ const AUTO_REGIMES = [
 "war": 10.5,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Spencer Strider (#126 overall, 2020) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -962,7 +985,7 @@ const AUTO_REGIMES = [
 "war": 7.2,
 "real": true,
 "open": true,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Drake Baldwin (#96 overall, 2022) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -980,7 +1003,7 @@ const AUTO_REGIMES = [
 "forGrade": 35,
 "smallSample": true,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".511",
 "div": 0,
@@ -1015,7 +1038,12 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$-58M",
 "decisions": 106,
-"cum": null,
+"cum": [
+-5.3,
+-2.9,
+-3.9,
+-6.3
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -1023,27 +1051,27 @@ const AUTO_REGIMES = [
 "war": 3.2,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Boston Red Sox traded RHP Hunter Dobbins, RHP Yhoiker Fajardo and RHP Blake Aita to St. Louis Cardinals for 1B Willson Contreras. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +3.4 LVM vs value out +0.3 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +3.4 LVM vs value out +0.3 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2023-12-08",
 "war": 3.1,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "St. Louis Cardinals traded LF Tyler O\\'Neill to Boston Red Sox for RHP Nick Robertson and RHP Victor Santos. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +3.2 LVM vs value out +0.1 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +3.2 LVM vs value out +0.1 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2023-12-05",
 "war": 2.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Boston Red Sox traded LF Alex Verdugo to New York Yankees for RHP Greg Weissert, RHP Richard Fitts and RHP Nicholas Judice. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +2.7 LVM vs value out -0.2 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +2.7 LVM vs value out -0.2 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -1052,27 +1080,27 @@ const AUTO_REGIMES = [
 "war": -13.4,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Atlanta Braves traded SS Vaughn Grissom to Boston Red Sox for LHP Chris Sale and cash. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.6 LVM vs value out +12.8 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.6 LVM vs value out +12.8 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-06-15",
 "war": -2.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Boston Red Sox traded DH Rafael Devers to San Francisco Giants for LHP Kyle Harrison, RHP Jordan Hicks, RHP Jose Bello and RF Jame <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.1 LVM vs value out +3.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.1 LVM vs value out +3.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2026-02-09",
 "war": -2.2,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Boston Red Sox traded LHP Kyle Harrison, LHP Shane Drohan and 2B David Hamilton to Milwaukee Brewers for 3B Caleb Durbin, SS Andru <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +2.1 LVM vs value out +4.3 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +2.1 LVM vs value out +4.3 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [],
@@ -1090,7 +1118,7 @@ const AUTO_REGIMES = [
 "forGrade": 30,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".508",
 "div": 1,
@@ -1125,7 +1153,15 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$-212M",
 "decisions": 256,
-"cum": null,
+"cum": [
+-10.8,
+-11.1,
+-14.5,
+-23.4,
+-24.2,
+-23.1,
+-23.0
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -1133,27 +1169,27 @@ const AUTO_REGIMES = [
 "war": 8.0,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Los Angeles Dodgers traded 2B Michael Busch and RHP Yency Almonte to Chicago Cubs for LHP Jackson Ferris and OF Zyhir Hope. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +8.0 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +8.0 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2022-08-02",
 "war": 4.4,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Chicago Cubs traded RHP David Robertson to Philadelphia Phillies for RHP Ben Brown. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +4.7 LVM vs value out +0.4 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +4.7 LVM vs value out +0.4 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2021-07-30",
 "war": 4.2,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Chicago Cubs traded SS Javier Baez, RHP Trevor Williams and cash to New York Mets for OF Pete Crow-Armstrong. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +8.1 LVM vs value out +3.9 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +8.1 LVM vs value out +3.9 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -1162,27 +1198,27 @@ const AUTO_REGIMES = [
 "war": -10.3,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Chicago Cubs traded RHP Yu Darvish, C Victor Caratini and cash to San Diego Padres for RHP Zach Davies, SS Reginald Preciado, SS Y <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.8 LVM vs value out +9.5 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.8 LVM vs value out +9.5 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2024-12-17",
 "war": -5.0,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Chicago Cubs traded CF Cody Bellinger and cash to New York Yankees for RHP Cody Poteet. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +5.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +5.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2021-07-29",
 "war": -3.7,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "New York Yankees traded RHP Alexander Vizcaino and CF Kevin Alcantara to Chicago Cubs for 1B Anthony Rizzo and cash. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.3 LVM vs value out +3.4 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.3 LVM vs value out +3.4 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [],
@@ -1192,7 +1228,7 @@ const AUTO_REGIMES = [
 "war": -3.9,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "San Diego Padres claimed RHP Jeremiah Estrada off waivers from Chicago Cubs. <span class=\"badge-real\">COMPUTED</span>"
 }
 ]
@@ -1209,7 +1245,7 @@ const AUTO_REGIMES = [
 "forGrade": 30,
 "smallSample": true,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".368",
 "div": 1,
@@ -1244,7 +1280,12 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$-101M",
 "decisions": 142,
-"cum": null,
+"cum": [
+-2.1,
+-8.2,
+-8.5,
+-11.0
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -1252,18 +1293,18 @@ const AUTO_REGIMES = [
 "war": 3.1,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Los Angeles Dodgers traded 3B Miguel Vargas, SS Alexander Albertus, SS Jeral Perez and a player to be named later or cash consider <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +4.6 LVM vs value out +1.5 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +4.6 LVM vs value out +1.5 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-12-18",
 "war": 1.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Tampa Bay Rays traded LF Tristan Peters to Chicago White Sox for cash. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +1.9 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +1.9 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -1272,27 +1313,27 @@ const AUTO_REGIMES = [
 "war": -8.0,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Chicago White Sox traded RHP Dylan Cease to San Diego Padres for RHP Drew Thorpe, RHP Jairo Iriarte, OF Samuel Zavala and RHP Stev <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.5 LVM vs value out +7.5 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.5 LVM vs value out +7.5 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2026-03-28",
 "war": -2.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Chicago White Sox traded 1B Curtis Mead to Washington Nationals for C Boston Smith. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +2.9 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +2.9 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-06-13",
 "war": -2.3,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Chicago White Sox traded 1B Andrew Vaughn to Milwaukee Brewers for RHP Aaron Civale and cash. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.7 LVM vs value out +3.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.7 LVM vs value out +3.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -1301,7 +1342,7 @@ const AUTO_REGIMES = [
 "war": 1.7,
 "real": true,
 "open": true,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Sam Antonacci (#140 overall, 2024) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -1319,9 +1360,9 @@ const AUTO_REGIMES = [
 "forGrade": 40,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
-"wpct": ".478",
+"wpct": ".479",
 "div": 0,
 "po": null,
 "sw": null,
@@ -1354,7 +1395,15 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$-68M",
 "decisions": 224,
-"cum": null,
+"cum": [
+-3.7,
+-0.6,
+-16.0,
+-12.2,
+-10.0,
+-7.0,
+-7.4
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -1362,9 +1411,9 @@ const AUTO_REGIMES = [
 "war": 5.4,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Cincinnati Reds traded RHP Tyler Mahle to Minnesota Twins for SS Spencer Steer, 3B Christian Encarnacion-Strand and LHP Steve Hajj <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +5.6 LVM vs value out +0.2 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +5.6 LVM vs value out +0.2 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -1373,27 +1422,27 @@ const AUTO_REGIMES = [
 "war": -10.8,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Cincinnati Reds traded RHP Luis Castillo to Seattle Mariners for SS Noelvi Marte, SS Edwin Arroyo, RHP Levi Stoudt and RHP Andrew  <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.3 LVM vs value out +11.1 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.3 LVM vs value out +11.1 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2022-03-13",
 "war": -8.0,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Cincinnati Reds traded RHP Sonny Gray and RHP Francis Peguero to Minnesota Twins for RHP Chase Petty. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.5 LVM vs value out +7.4 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.5 LVM vs value out +7.4 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2020-12-07",
 "war": -2.7,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Cincinnati Reds traded RHP Raisel Iglesias and cash to Los Angeles Angels for RHP Noe Ramirez and Future Considerations. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +2.7 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +2.7 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -1402,7 +1451,7 @@ const AUTO_REGIMES = [
 "war": 4.6,
 "real": true,
 "open": true,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Andrew Abbott (#53 overall, 2021) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -1410,7 +1459,7 @@ const AUTO_REGIMES = [
 "war": 3.3,
 "real": true,
 "open": true,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Matt McLain (#17 overall, 2021) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -1418,7 +1467,7 @@ const AUTO_REGIMES = [
 "war": 3.2,
 "real": true,
 "open": true,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Chase Burns (#2 overall, 2024) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -1428,7 +1477,7 @@ const AUTO_REGIMES = [
 "war": -3.5,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Baltimore Orioles claimed LHP Cionel Perez off waivers from Cincinnati Reds. <span class=\"badge-real\">COMPUTED</span>"
 }
 ]
@@ -1445,7 +1494,7 @@ const AUTO_REGIMES = [
 "forGrade": 60,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".549",
 "div": 6,
@@ -1480,7 +1529,20 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$135M",
 "decisions": 311,
-"cum": null,
+"cum": [
+3.9,
+25.2,
+16.5,
+23.7,
+37.4,
+39.7,
+24.1,
+19.9,
+15.3,
+14.4,
+14.9,
+14.7
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -1488,18 +1550,18 @@ const AUTO_REGIMES = [
 "war": 10.1,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Cleveland Indians traded RHP Mike Clevinger, LF Greg Allen and Player To Be Named Later to San Diego Padres for C Austin Hedges, R <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +10.9 LVM vs value out +0.7 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +10.9 LVM vs value out +0.7 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2019-12-15",
 "war": 9.5,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Cleveland Indians traded RHP Corey Kluber and cash to Texas Rangers for RHP Emmanuel Clase and CF Delino DeShields. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +9.5 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +9.5 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -1508,27 +1570,27 @@ const AUTO_REGIMES = [
 "war": -15.1,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Cleveland Indians traded RHP Phil Maton and C Yainer Diaz to Houston Astros for RF Myles Straw. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -2.1 LVM vs value out +13.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -2.1 LVM vs value out +13.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2021-11-19",
 "war": -10.7,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Tampa Bay Rays traded RHP Tobias Myers to Cleveland Indians for SS Junior Caminero. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +10.7 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +10.7 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2018-12-13",
 "war": -7.9,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Cleveland Indians Traded 1B Edwin Encarnacion and Future Considerations to Seattle Mariners; Tampa Bay Rays Traded LF Jake Bauers  <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +3.7 LVM vs value out +11.6 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +3.7 LVM vs value out +11.6 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -1537,7 +1599,7 @@ const AUTO_REGIMES = [
 "war": 20.2,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Shane Bieber (#122 overall, 2016) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -1545,7 +1607,7 @@ const AUTO_REGIMES = [
 "war": 13.5,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Steven Kwan (#163 overall, 2018) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -1553,7 +1615,7 @@ const AUTO_REGIMES = [
 "war": 8.4,
 "real": true,
 "open": true,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Tanner Bibee (#156 overall, 2021) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -1571,9 +1633,9 @@ const AUTO_REGIMES = [
 "forGrade": 80,
 "smallSample": true,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
-"wpct": ".314",
+"wpct": ".316",
 "div": 0,
 "po": null,
 "sw": null,
@@ -1606,7 +1668,10 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$74M",
 "decisions": 27,
-"cum": null,
+"cum": [
+2.4,
+8.0
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -1614,27 +1679,27 @@ const AUTO_REGIMES = [
 "war": 2.8,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Arizona Diamondbacks traded CF Jake McCarthy to Colorado Rockies for RHP Josh Grosz. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +2.8 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +2.8 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2026-01-28",
 "war": 2.4,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Colorado Rockies traded RHP Angel Chivilli to New York Yankees for 1B T.J. Rumfield. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +2.5 LVM vs value out +0.2 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +2.5 LVM vs value out +0.2 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-11-18",
 "war": 0.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Boston Red Sox traded LHP Brennan Bernardino to Colorado Rockies for CF Braiden Ward. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.9 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.9 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [],
@@ -1644,7 +1709,7 @@ const AUTO_REGIMES = [
 "war": 1.5,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Colorado Rockies claimed OF Troy Johnston off waivers from Miami Marlins. <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -1652,7 +1717,7 @@ const AUTO_REGIMES = [
 "war": 0.3,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Colorado Rockies claimed RHP Keegan Thompson off waivers from Cincinnati Reds. <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -1662,7 +1727,7 @@ const AUTO_REGIMES = [
 "war": -0.1,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Colorado Rockies claimed LHP Sammy Peralta off waivers from Milwaukee Brewers. <span class=\"badge-real\">COMPUTED</span>"
 }
 ]
@@ -1679,7 +1744,7 @@ const AUTO_REGIMES = [
 "forGrade": 60,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".487",
 "div": 0,
@@ -1714,7 +1779,13 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$48M",
 "decisions": 154,
-"cum": null,
+"cum": [
+0.1,
+13.1,
+6.9,
+5.2,
+5.2
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -1722,18 +1793,18 @@ const AUTO_REGIMES = [
 "war": 2.8,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Detroit Tigers traded LHP Gregory Soto, 2B Kody Clemens and  to Philadelphia Phillies for OF Matt Vierling, SS Nick Maton, C Donny <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +4.1 LVM vs value out +1.2 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +4.1 LVM vs value out +1.2 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2023-03-27",
 "war": 2.8,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Chicago Cubs traded 2B Zach McKinstry to Detroit Tigers for RHP Carlos Guzman and. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +2.8 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +2.8 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -1742,18 +1813,18 @@ const AUTO_REGIMES = [
 "war": -3.1,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Detroit Tigers traded RHP Joe Jim\u00e9nez and cash to Atlanta Braves for 3B Justyn-Henry Malloy and LHP Jake Higginbotham. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.2 LVM vs value out +3.3 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.2 LVM vs value out +3.3 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-02-12",
 "war": -1.0,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Detroit Tigers traded RHP Mason Englert to Tampa Bay Rays. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +1.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +1.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -1762,7 +1833,7 @@ const AUTO_REGIMES = [
 "war": 5.0,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Detroit Tigers claimed LHP Tyler Holton off waivers from Arizona Diamondbacks. <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -1770,7 +1841,7 @@ const AUTO_REGIMES = [
 "war": 3.6,
 "real": true,
 "open": true,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Kevin McGonigle (#37 overall, 2023) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -1778,7 +1849,7 @@ const AUTO_REGIMES = [
 "war": 2.3,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Detroit Tigers claimed 2B Andy Ibanez off waivers from Texas Rangers. <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -1788,7 +1859,7 @@ const AUTO_REGIMES = [
 "war": -1.7,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Houston Astros claimed LHP Bennett Sousa off waivers from Detroit Tigers. <span class=\"badge-real\">COMPUTED</span>"
 }
 ]
@@ -1805,9 +1876,9 @@ const AUTO_REGIMES = [
 "forGrade": 60,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
-"wpct": ".533",
+"wpct": ".535",
 "div": 2,
 "po": null,
 "sw": null,
@@ -1840,7 +1911,12 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$52M",
 "decisions": 106,
-"cum": null,
+"cum": [
+2.2,
+5.5,
+5.8,
+5.6
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -1848,27 +1924,27 @@ const AUTO_REGIMES = [
 "war": 2.7,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Minnesota Twins traded SS Carlos Correa and cash to Houston Astros for LHP Matt Mikulski. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +2.7 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +2.7 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2024-12-13",
 "war": 1.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Houston Astros traded RF Kyle Tucker to Chicago Cubs for 3B Isaac Paredes, RHP Hayden Wesneski and 3B Cam Smith. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +5.9 LVM vs value out +4.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +5.9 LVM vs value out +4.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2023-08-01",
 "war": 1.4,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "New York Mets traded RHP Justin Verlander to Houston Astros for OF Drew Gilbert and OF Ryan Clifford. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +1.4 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +1.4 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -1877,9 +1953,9 @@ const AUTO_REGIMES = [
 "war": -1.0,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Houston Astros traded 2B Mauricio Dub\u00f3n to Atlanta Braves for SS Nick Allen. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.0 LVM vs value out +1.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.0 LVM vs value out +1.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -1888,7 +1964,7 @@ const AUTO_REGIMES = [
 "war": 1.7,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Houston Astros claimed LHP Bennett Sousa off waivers from Detroit Tigers. <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -1896,7 +1972,7 @@ const AUTO_REGIMES = [
 "war": 1.3,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Chicago White Sox claimed SS Jacob Amaya off waivers from Houston Astros. <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -1906,7 +1982,7 @@ const AUTO_REGIMES = [
 "war": -2.0,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Miami Marlins claimed RHP Declan Cronin off waivers from Houston Astros. <span class=\"badge-real\">COMPUTED</span>"
 }
 ]
@@ -1923,9 +1999,9 @@ const AUTO_REGIMES = [
 "forGrade": 40,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
-"wpct": ".441",
+"wpct": ".442",
 "div": 0,
 "po": null,
 "sw": null,
@@ -1958,7 +2034,13 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$-52M",
 "decisions": 123,
-"cum": null,
+"cum": [
+-6.4,
+-11.0,
+-6.3,
+-5.2,
+-5.6
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -1966,27 +2048,27 @@ const AUTO_REGIMES = [
 "war": 2.3,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Oakland Athletics traded RHP Lucas Erceg to Kansas City Royals for RHP Will Klein, RHP Mason Barnett and OF Jared Dickey. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +2.2 LVM vs value out -0.1 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +2.2 LVM vs value out -0.1 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2024-02-17",
 "war": 2.1,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Boston Red Sox traded RHP John Schreiber to Kansas City Royals for RHP David Sandlin. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +2.1 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +2.1 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-07-31",
 "war": 2.0,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Kansas City Royals traded C Freddy Fermin to San Diego Padres for RHP Ryan Bergert and RHP Stephen Kolek. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +2.0 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +2.0 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -1995,27 +2077,27 @@ const AUTO_REGIMES = [
 "war": -5.8,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Kansas City Royals traded 1B Ryan O\\'Hearn to Baltimore Orioles for cash. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +5.8 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +5.8 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-07-31",
 "war": -1.6,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Pittsburgh Pirates traded LHP Bailey Falter to Kansas City Royals for LHP Evan Sisk and 1B Callan Moss. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.4 LVM vs value out +1.1 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.4 LVM vs value out +1.1 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-12-19",
 "war": -1.5,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Philadelphia Phillies traded LHP Matt Strahm to Kansas City Royals for RHP Jonathan Bowlan. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.6 LVM vs value out +0.9 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.6 LVM vs value out +0.9 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [],
@@ -2025,7 +2107,7 @@ const AUTO_REGIMES = [
 "war": -3.7,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Seattle Mariners claimed LHP Gabe Speier off waivers from Kansas City Royals. <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -2033,7 +2115,7 @@ const AUTO_REGIMES = [
 "war": -2.6,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Oakland Athletics claimed OF Brent Rooker off waivers from Kansas City Royals. <span class=\"badge-real\">COMPUTED</span>"
 }
 ]
@@ -2050,7 +2132,7 @@ const AUTO_REGIMES = [
 "forGrade": 45,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".437",
 "div": 0,
@@ -2085,7 +2167,15 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$-23M",
 "decisions": 221,
-"cum": null,
+"cum": [
+3.5,
+4.8,
+2.2,
+1.9,
+-0.8,
+-2.1,
+-2.5
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -2093,18 +2183,18 @@ const AUTO_REGIMES = [
 "war": 3.1,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Baltimore Orioles traded RHP Alex Cobb and cash to Los Angeles Angels for 2B Jahmai Jones. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +2.5 LVM vs value out -0.6 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +2.5 LVM vs value out -0.6 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2020-12-07",
 "war": 2.7,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Cincinnati Reds traded RHP Raisel Iglesias and cash to Los Angeles Angels for RHP Noe Ramirez and Future Considerations. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +2.7 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +2.7 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -2113,27 +2203,27 @@ const AUTO_REGIMES = [
 "war": -6.7,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Los Angeles Angels traded RHP Raisel Iglesias to Atlanta Braves for RHP Jesse Chavez and LHP Tucker Davidson. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.1 LVM vs value out +6.8 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.1 LVM vs value out +6.8 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2022-08-02",
 "war": -3.1,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Los Angeles Angels traded OF Brandon Marsh to Philadelphia Phillies for C Logan O\\'Hoppe. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +5.7 LVM vs value out +8.8 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +5.7 LVM vs value out +8.8 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-11-19",
 "war": -1.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Los Angeles Angels traded LF Taylor Ward to Baltimore Orioles for RHP Grayson Rodriguez. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +1.9 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +1.9 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -2142,7 +2232,7 @@ const AUTO_REGIMES = [
 "war": 11.0,
 "real": true,
 "open": true,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Zach Neto (#13 overall, 2022) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -2150,7 +2240,7 @@ const AUTO_REGIMES = [
 "war": 3.3,
 "real": true,
 "open": true,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Nolan Schanuel (#11 overall, 2023) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -2160,7 +2250,7 @@ const AUTO_REGIMES = [
 "war": -2.3,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Atlanta Braves claimed RHP Jesse Chavez off waivers from Los Angeles Angels. <span class=\"badge-real\">COMPUTED</span>"
 }
 ]
@@ -2177,9 +2267,9 @@ const AUTO_REGIMES = [
 "forGrade": 55,
 "smallSample": true,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
-"wpct": ".472",
+"wpct": ".470",
 "div": 0,
 "po": null,
 "sw": null,
@@ -2212,7 +2302,12 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$15M",
 "decisions": 134,
-"cum": null,
+"cum": [
+-1.1,
+0.0,
+3.0,
+1.6
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -2220,9 +2315,9 @@ const AUTO_REGIMES = [
 "war": 3.1,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Tampa Bay Rays traded 2B Vidal Bruj\u00e1n and RHP Calvin Faucher to Miami Marlins for 3B Erick Lara, RHP Andrew Lindsey and Player To  <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +3.1 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +3.1 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -2231,27 +2326,27 @@ const AUTO_REGIMES = [
 "war": -7.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Philadelphia Phillies traded LF Emaarion Boyd and SS Starlyn Caba to Miami Marlins for LHP Jes\u00fas Luzardo and C Paul McIntosh. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +7.9 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +7.9 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2024-07-27",
 "war": -3.6,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Miami Marlins traded CF Jazz Chisholm Jr. to New York Yankees for C Agustin Ramirez, 2B Jared Serna and SS Abrahan Ramirez. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +3.1 LVM vs value out +6.8 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +3.1 LVM vs value out +6.8 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2024-05-04",
 "war": -3.1,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Miami Marlins traded 2B Luis Arraez to San Diego Padres for OF Dillon Head, OF Jakob Marsee, RHP Woo-Suk Go and 1B Nathan Martorel <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +2.2 LVM vs value out +5.3 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +2.2 LVM vs value out +5.3 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -2260,7 +2355,7 @@ const AUTO_REGIMES = [
 "war": 7.7,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Miami Marlins claimed SS Otto Lopez off waivers from San Francisco Giants. <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -2268,7 +2363,7 @@ const AUTO_REGIMES = [
 "war": 2.0,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Miami Marlins claimed RHP Declan Cronin off waivers from Houston Astros. <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -2286,7 +2381,7 @@ const AUTO_REGIMES = [
 "forGrade": 50,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".493",
 "div": 3,
@@ -2321,7 +2416,19 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$-25M",
 "decisions": 352,
-"cum": null,
+"cum": [
+1.0,
+-7.4,
+5.0,
+7.8,
+5.9,
+7.6,
+9.0,
+7.4,
+8.1,
+-2.6,
+-2.7
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -2329,18 +2436,18 @@ const AUTO_REGIMES = [
 "war": 12.2,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Tampa Bay Rays traded RHP Drew Strotman and RHP Joe Ryan to Minnesota Twins for DH Nelson Cruz and RHP Calvin Faucher. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +12.2 LVM vs value out -0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +12.2 LVM vs value out -0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2022-03-13",
 "war": 8.0,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Cincinnati Reds traded RHP Sonny Gray and RHP Francis Peguero to Minnesota Twins for RHP Chase Petty. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +7.4 LVM vs value out -0.5 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +7.4 LVM vs value out -0.5 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -2349,27 +2456,27 @@ const AUTO_REGIMES = [
 "war": -7.6,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Minnesota Twins traded RHP Ryan Pressly to Houston Astros for CF Gilberto Celestino and RHP Jorge Alcala. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +1.1 LVM vs value out +8.6 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +1.1 LVM vs value out +8.6 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2022-08-02",
 "war": -6.3,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Baltimore Orioles traded RHP Jorge Lopez and cash to Minnesota Twins for RHP Yennier Cano, LHP Cade Povich, LHP Juan Rojas and RHP <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.1 LVM vs value out +6.2 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.1 LVM vs value out +6.2 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2021-02-04",
 "war": -5.6,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Minnesota Twins traded LaMonte Wade Jr to San Francisco Giants for RHP Shaun Anderson. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +5.7 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +5.7 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -2378,7 +2485,7 @@ const AUTO_REGIMES = [
 "war": 13.4,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Ryan Jeffers (#59 overall, 2018) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -2396,7 +2503,7 @@ const AUTO_REGIMES = [
 "forGrade": 50,
 "smallSample": true,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".492",
 "div": 0,
@@ -2431,7 +2538,12 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$4M",
 "decisions": 154,
-"cum": null,
+"cum": [
+-1.4,
+1.0,
+1.0,
+0.4
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -2439,27 +2551,27 @@ const AUTO_REGIMES = [
 "war": 2.0,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Miami Marlins traded RHP Huascar Brazoban to New York Mets for SS Wilfredo Lara. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +2.0 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +2.0 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2023-12-20",
 "war": 1.3,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Milwaukee Brewers traded RHP Adrian Houser and CF Tyrone Taylor to New York Mets for RHP Coleman Crow. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +1.5 LVM vs value out +0.1 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +1.5 LVM vs value out +0.1 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2024-05-31",
 "war": 1.0,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "New York Yankees traded C Luis Torrens to New York Mets for cash. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +1.0 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +1.0 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -2468,27 +2580,27 @@ const AUTO_REGIMES = [
 "war": -2.7,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "New York Mets traded RHP Justin Slaten to Boston Red Sox for LHP Ryan Ammons. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +2.7 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +2.7 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-11-24",
 "war": -1.6,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "New York Mets traded LF Brandon Nimmo and cash to Texas Rangers for 2B Marcus Semien. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.3 LVM vs value out +1.4 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.3 LVM vs value out +1.4 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2024-07-26",
 "war": -1.5,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "New York Mets traded RHP Cole Sulser to Tampa Bay Rays for cash. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +1.5 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +1.5 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [],
@@ -2498,7 +2610,7 @@ const AUTO_REGIMES = [
 "war": -1.1,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Chicago White Sox claimed LHP Bryan Hudson off waivers from New York Mets. <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -2506,7 +2618,7 @@ const AUTO_REGIMES = [
 "war": -1.0,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "New York Yankees claimed RHP Michael Tonkin off waivers from New York Mets. <span class=\"badge-real\">COMPUTED</span>"
 }
 ]
@@ -2523,7 +2635,7 @@ const AUTO_REGIMES = [
 "forGrade": 70,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".573",
 "div": 8,
@@ -2558,7 +2670,30 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$766M",
 "decisions": 633,
-"cum": null,
+"cum": [
+13.5,
+14.2,
+11.8,
+22.2,
+16.5,
+15.7,
+13.9,
+-4.8,
+49.8,
+49.1,
+68.4,
+69.6,
+80.9,
+86.8,
+77.8,
+79.7,
+77.2,
+69.7,
+72.8,
+78.4,
+84.0,
+83.3
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -2566,27 +2701,27 @@ const AUTO_REGIMES = [
 "war": 11.2,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "New York Yankees traded LHP Aroldis Chapman to Chicago Cubs for RHP Adam Warren, SS Gleyber Torres, RF Billy McKinney and OF Rasha <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +12.5 LVM vs value out +1.3 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +12.5 LVM vs value out +1.3 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2014-12-05",
 "war": 10.6,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Arizona Diamondbacks Traded SS Didi Gregorius to New York Yankees; Detroit Tigers Traded 2B Domingo Leyba and LHP Robbie Ray to Ar <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +14.0 LVM vs value out +3.4 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +14.0 LVM vs value out +3.4 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2012-01-23",
 "war": 10.5,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "New York Yankees traded C Jesus Montero and RHP Hector Noesi to Seattle Mariners for RHP Michael Pineda and RHP Jose Campos. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +8.4 LVM vs value out -2.1 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +8.4 LVM vs value out -2.1 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -2595,9 +2730,9 @@ const AUTO_REGIMES = [
 "war": -11.7,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "New York Yankees Traded RHP Ian Kennedy to Arizona Diamondbacks; New York Yankees Traded CF Austin Jackson and LHP Phil Coke to De <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +16.6 LVM vs value out +28.3 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +16.6 LVM vs value out +28.3 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -2606,7 +2741,7 @@ const AUTO_REGIMES = [
 "war": 62.0,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Aaron Judge (#32 overall, 2013) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -2614,7 +2749,7 @@ const AUTO_REGIMES = [
 "war": 18.7,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Brett Gardner (#109 overall, 2005) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -2622,7 +2757,7 @@ const AUTO_REGIMES = [
 "war": 15.0,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Gerrit Cole (#28 overall, 2008) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -2640,7 +2775,7 @@ const AUTO_REGIMES = [
 "forGrade": 60,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".464",
 "div": 1,
@@ -2675,7 +2810,20 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$179M",
 "decisions": 366,
-"cum": null,
+"cum": [
+17.9,
+35.1,
+25.5,
+25.7,
+17.4,
+23.7,
+21.4,
+7.1,
+11.7,
+20.8,
+17.2,
+19.5
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -2683,27 +2831,27 @@ const AUTO_REGIMES = [
 "war": 10.4,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Milwaukee Brewers traded LF Khris Davis to Oakland Athletics for RHP Bubba Derby and C Jacob Nottingham. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +11.0 LVM vs value out +0.6 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +11.0 LVM vs value out +0.6 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2015-11-25",
 "war": 10.2,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Houston Astros traded 2B Jed Lowrie to Oakland Athletics for RHP Brendan McCurry. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +10.2 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +10.2 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2015-11-20",
 "war": 8.0,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Oakland Athletics traded RHP Jesse Chavez to Toronto Blue Jays for RHP Liam Hendriks. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +8.2 LVM vs value out +0.2 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +8.2 LVM vs value out +0.2 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -2712,18 +2860,18 @@ const AUTO_REGIMES = [
 "war": -9.8,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Atlanta Braves traded RHP Freddy Tarnok, C Manny Pi\u00f1a, RHP Royber Salinas, 2B Esteury Ruiz and LHP Kyle Muller to Oakland Athletic <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.6 LVM vs value out +9.2 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.6 LVM vs value out +9.2 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2019-12-02",
 "war": -8.0,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "San Diego Padres traded C Austin Allen and Player To Be Named Later to Oakland Athletics for OF Jurickson Profar. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.1 LVM vs value out +7.8 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.1 LVM vs value out +7.8 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -2732,7 +2880,7 @@ const AUTO_REGIMES = [
 "war": 9.2,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Oakland Athletics claimed OF Brent Rooker off waivers from Kansas City Royals. <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -2740,7 +2888,7 @@ const AUTO_REGIMES = [
 "war": 8.5,
 "real": true,
 "open": true,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Nick Kurtz (#4 overall, 2024) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -2748,7 +2896,7 @@ const AUTO_REGIMES = [
 "war": 8.1,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Sean Murphy (#83 overall, 2016) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -2766,9 +2914,9 @@ const AUTO_REGIMES = [
 "forGrade": 60,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
-"wpct": ".550",
+"wpct": ".549",
 "div": 2,
 "po": null,
 "sw": null,
@@ -2801,7 +2949,15 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$107M",
 "decisions": 233,
-"cum": null,
+"cum": [
+4.9,
+7.9,
+10.6,
+1.4,
+9.1,
+11.2,
+11.6
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -2809,27 +2965,27 @@ const AUTO_REGIMES = [
 "war": 7.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Philadelphia Phillies traded LF Emaarion Boyd and SS Starlyn Caba to Miami Marlins for LHP Jes\u00fas Luzardo and C Paul McIntosh. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +7.9 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +7.9 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2020-12-29",
 "war": 4.9,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Tampa Bay Rays Traded LHP Jose Alvarado to Philadelphia Phillies; Los Angeles Dodgers Traded Player To Be Named Later and 1B Dillo <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +4.8 LVM vs value out -0.1 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +4.8 LVM vs value out -0.1 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2022-08-02",
 "war": 3.1,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Los Angeles Angels traded OF Brandon Marsh to Philadelphia Phillies for C Logan O\\'Hoppe. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +8.8 LVM vs value out +5.7 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +8.8 LVM vs value out +5.7 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -2838,27 +2994,27 @@ const AUTO_REGIMES = [
 "war": -4.4,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Chicago Cubs traded RHP David Robertson to Philadelphia Phillies for RHP Ben Brown. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.4 LVM vs value out +4.7 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.4 LVM vs value out +4.7 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2023-01-07",
 "war": -2.8,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Detroit Tigers traded LHP Gregory Soto, 2B Kody Clemens and  to Philadelphia Phillies for OF Matt Vierling, SS Nick Maton, C Donny <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +1.2 LVM vs value out +4.1 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +1.2 LVM vs value out +4.1 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2023-01-09",
 "war": -2.0,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "San Francisco Giants traded RHP Yunior Marte to Philadelphia Phillies for LHP Erik Miller. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.1 LVM vs value out +2.1 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.1 LVM vs value out +2.1 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -2867,7 +3023,7 @@ const AUTO_REGIMES = [
 "war": 3.6,
 "real": true,
 "open": true,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Orion Kerkering (#152 overall, 2022) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -2885,7 +3041,7 @@ const AUTO_REGIMES = [
 "forGrade": 60,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".429",
 "div": 0,
@@ -2920,7 +3076,16 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$120M",
 "decisions": 311,
-"cum": null,
+"cum": [
+0.0,
+-3.1,
+-12.1,
+-13.1,
+0.3,
+10.8,
+12.1,
+13.0
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -2928,18 +3093,18 @@ const AUTO_REGIMES = [
 "war": 4.7,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "San Francisco Giants traded C Joey Bart to Pittsburgh Pirates for RHP Austin Strickland. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +4.7 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +4.7 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-12-19",
 "war": 4.7,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Tampa Bay Rays traded 2B Brandon Lowe, LF Jake Mangum and LHP Mason Montgomery to Pittsburgh Pirates. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +4.7 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +4.7 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -2948,27 +3113,27 @@ const AUTO_REGIMES = [
 "war": -6.5,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Pittsburgh Pirates traded 1B Josh Bell to Washington Nationals for RHP Wil Crowe and RHP Eddy Yean. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.7 LVM vs value out +5.9 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.7 LVM vs value out +5.9 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2021-07-26",
 "war": -5.5,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "New York Yankees traded SS Hoy Park and SS Diego Castillo to Pittsburgh Pirates for RHP Clay Holmes. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.5 LVM vs value out +6.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.5 LVM vs value out +6.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2021-01-24",
 "war": -3.6,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Pittsburgh Pirates traded RHP Jameson Taillon to New York Yankees for RHP Roansy Contreras, SS Maikol Escotto, LF Canaan Smith and <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.1 LVM vs value out +3.5 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.1 LVM vs value out +3.5 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -2977,7 +3142,7 @@ const AUTO_REGIMES = [
 "war": 12.3,
 "real": true,
 "open": true,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Paul Skenes (#1 overall, 2023) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -2985,7 +3150,7 @@ const AUTO_REGIMES = [
 "war": 4.1,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Carmen Mlodzinski (#31 overall, 2020) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -2995,7 +3160,7 @@ const AUTO_REGIMES = [
 "war": -3.8,
 "real": true,
 "open": true,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Henry Davis (#1 overall, 2021) <span class=\"badge-real\">COMPUTED</span>"
 }
 ]
@@ -3012,7 +3177,7 @@ const AUTO_REGIMES = [
 "forGrade": 30,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".487",
 "div": 0,
@@ -3047,7 +3212,21 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$-389M",
 "decisions": 384,
-"cum": null,
+"cum": [
+-4.0,
+-25.7,
+-22.9,
+-20.3,
+-33.2,
+-8.7,
+-25.6,
+-23.0,
+-52.1,
+-54.1,
+-43.4,
+-42.3,
+-42.3
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -3055,27 +3234,27 @@ const AUTO_REGIMES = [
 "war": 14.0,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Tampa Bay Rays traded LF Tommy Pham and SS Jake Cronenworth to San Diego Padres for LF Hunter Renfroe, SS Xavier Edwards and Playe <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +13.8 LVM vs value out -0.2 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +13.8 LVM vs value out -0.2 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2016-06-04",
 "war": 13.1,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "San Diego Padres traded RHP James Shields and cash to Chicago White Sox for Erik Johnson and 3B Fernando Tatis Jr.. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +10.3 LVM vs value out -2.8 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +10.3 LVM vs value out -2.8 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2019-12-06",
 "war": 12.6,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "traded SS Jake Cronenworth, , , ,  and  to San Diego Padres. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +12.6 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +12.6 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -3084,27 +3263,27 @@ const AUTO_REGIMES = [
 "war": -22.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Washington Nationals traded LF Juan Soto and 1B Josh Bell to San Diego Padres for 1B Luke Voit, LHP MacKenzie Gore, SS C.J. Abrams <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +7.0 LVM vs value out +30.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +7.0 LVM vs value out +30.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2015-06-14",
 "war": -18.9,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "San Diego Padres traded SS Trea Turner to Washington Nationals. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +18.9 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +18.9 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2020-08-31",
 "war": -12.5,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Seattle Mariners traded Austin Adams, C Austin Nola and RHP Dan Altavilla to San Diego Padres for RHP Andres Munoz, C Luis Torrens <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +3.4 LVM vs value out +15.9 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +3.4 LVM vs value out +15.9 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [],
@@ -3122,9 +3301,9 @@ const AUTO_REGIMES = [
 "forGrade": 40,
 "smallSample": true,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
-"wpct": ".479",
+"wpct": ".477",
 "div": 0,
 "po": null,
 "sw": null,
@@ -3157,7 +3336,11 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$-21M",
 "decisions": 51,
-"cum": null,
+"cum": [
+0.0,
+-0.5,
+-2.3
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -3165,9 +3348,9 @@ const AUTO_REGIMES = [
 "war": 2.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Boston Red Sox traded DH Rafael Devers to San Francisco Giants for LHP Kyle Harrison, RHP Jordan Hicks, RHP Jose Bello and RF Jame <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +3.0 LVM vs value out +0.1 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +3.0 LVM vs value out +0.1 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -3176,9 +3359,9 @@ const AUTO_REGIMES = [
 "war": -1.1,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "San Francisco Giants traded RF Mike Yastrzemski to Kansas City Royals for RHP Yunior Marte. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +1.1 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +1.1 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -3187,7 +3370,7 @@ const AUTO_REGIMES = [
 "war": 0.1,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "San Francisco Giants claimed C Sam Huff off waivers from Texas Rangers. <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -3197,7 +3380,7 @@ const AUTO_REGIMES = [
 "war": -0.7,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Los Angeles Angels claimed OF Wade Meckler off waivers from San Francisco Giants. <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -3205,7 +3388,7 @@ const AUTO_REGIMES = [
 "war": -0.6,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Washington Nationals claimed LF Joey Wiemer off waivers from San Francisco Giants. <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -3213,7 +3396,7 @@ const AUTO_REGIMES = [
 "war": -0.4,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "New York Mets claimed RHP Austin Warren off waivers from San Francisco Giants. <span class=\"badge-real\">COMPUTED</span>"
 }
 ]
@@ -3230,15 +3413,15 @@ const AUTO_REGIMES = [
 "forGrade": 65,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".515",
-"div": 2,
+"div": 1,
 "po": null,
 "sw": null,
 "pen": null,
 "ws": null,
-"g": 56
+"g": 53
 },
 "chan": {
 "draft": {
@@ -3265,7 +3448,20 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$225M",
 "decisions": 528,
-"cum": null,
+"cum": [
+-12.1,
+-32.8,
+-55.3,
+-22.4,
+-8.3,
+9.4,
+7.6,
+23.1,
+20.8,
+24.5,
+24.2,
+24.5
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -3273,18 +3469,18 @@ const AUTO_REGIMES = [
 "war": 12.5,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Seattle Mariners traded Austin Adams, C Austin Nola and RHP Dan Altavilla to San Diego Padres for RHP Andres Munoz, C Luis Torrens <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +15.9 LVM vs value out +3.4 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +15.9 LVM vs value out +3.4 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2022-07-30",
 "war": 10.8,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Cincinnati Reds traded RHP Luis Castillo to Seattle Mariners for SS Noelvi Marte, SS Edwin Arroyo, RHP Levi Stoudt and RHP Andrew  <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +11.1 LVM vs value out +0.3 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +11.1 LVM vs value out +0.3 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -3293,27 +3489,27 @@ const AUTO_REGIMES = [
 "war": -14.6,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Seattle Mariners traded SS Chris Taylor to Los Angeles Dodgers for RHP Zach Lee. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +14.6 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +14.6 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2017-01-11",
 "war": -11.0,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Tampa Bay Rays traded LHP Drew Smyly to Seattle Mariners for SS Carlos Vargas, CF Mallex Smith and LHP Ryan Yarbrough. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +11.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +11.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2018-12-03",
 "war": -9.9,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Seattle Mariners traded 2B Robinson Cano, RHP Edwin Diaz and cash to New York Mets for RF Jay Bruce, RHP Anthony Swarzak, RHP Gers <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.7 LVM vs value out +9.1 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.7 LVM vs value out +9.1 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -3322,7 +3518,7 @@ const AUTO_REGIMES = [
 "war": 19.3,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Cal Raleigh (#90 overall, 2018) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -3330,7 +3526,7 @@ const AUTO_REGIMES = [
 "war": 15.7,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Logan Gilbert (#14 overall, 2018) <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -3338,7 +3534,7 @@ const AUTO_REGIMES = [
 "war": 14.7,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted George Kirby (#20 overall, 2019) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -3356,7 +3552,7 @@ const AUTO_REGIMES = [
 "forGrade": 30,
 "smallSample": true,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".494",
 "div": 0,
@@ -3391,7 +3587,10 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$-47M",
 "decisions": 26,
-"cum": null,
+"cum": [
+-4.9,
+-5.1
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -3399,9 +3598,9 @@ const AUTO_REGIMES = [
 "war": 0.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Washington Nationals traded RHP George Soriano to St. Louis Cardinals for RHP Andre Granillo. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.6 LVM vs value out -0.3 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.6 LVM vs value out -0.3 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -3410,27 +3609,27 @@ const AUTO_REGIMES = [
 "war": -3.2,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Boston Red Sox traded RHP Hunter Dobbins, RHP Yhoiker Fajardo and RHP Blake Aita to St. Louis Cardinals for 1B Willson Contreras. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.3 LVM vs value out +3.4 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.3 LVM vs value out +3.4 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-11-25",
 "war": -1.8,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "St. Louis Cardinals traded RHP Sonny Gray and cash to Boston Red Sox for RHP Richard Fitts, LHP Brandon Clarke and Player To Be Na <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +1.8 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +1.8 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2026-01-13",
 "war": -1.6,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "St. Louis Cardinals traded 3B Nolan Arenado and cash to Arizona Diamondbacks for RHP Jack Martinez. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +1.6 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +1.6 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -3439,7 +3638,7 @@ const AUTO_REGIMES = [
 "war": 0.3,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Minnesota Twins claimed RHP Zak Kent off waivers from St. Louis Cardinals. <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -3457,7 +3656,7 @@ const AUTO_REGIMES = [
 "forGrade": 50,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".540",
 "div": 3,
@@ -3465,7 +3664,7 @@ const AUTO_REGIMES = [
 "sw": null,
 "pen": null,
 "ws": null,
-"g": 64
+"g": 69
 },
 "chan": {
 "draft": {
@@ -3492,7 +3691,19 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$0M",
 "decisions": 443,
-"cum": null,
+"cum": [
+3.8,
+17.4,
+41.6,
+19.7,
+9.2,
+3.9,
+15.9,
+20.1,
+9.6,
+-0.5,
+-0.0
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -3500,27 +3711,27 @@ const AUTO_REGIMES = [
 "war": 15.4,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Tampa Bay Rays traded RHP Chris Archer to Pittsburgh Pirates for RHP Tyler Glasnow, CF Austin Meadows and Player To Be Named Later <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +16.1 LVM vs value out +0.7 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +16.1 LVM vs value out +0.7 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2017-01-11",
 "war": 11.0,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Tampa Bay Rays traded LHP Drew Smyly to Seattle Mariners for SS Carlos Vargas, CF Mallex Smith and LHP Ryan Yarbrough. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +11.0 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +11.0 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2021-11-19",
 "war": 10.7,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Tampa Bay Rays traded RHP Tobias Myers to Cleveland Indians for SS Junior Caminero. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +10.7 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +10.7 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -3529,18 +3740,18 @@ const AUTO_REGIMES = [
 "war": -14.0,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Tampa Bay Rays traded LF Tommy Pham and SS Jake Cronenworth to San Diego Padres for LF Hunter Renfroe, SS Xavier Edwards and Playe <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.2 LVM vs value out +13.8 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.2 LVM vs value out +13.8 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2021-07-22",
 "war": -12.2,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Tampa Bay Rays traded RHP Drew Strotman and RHP Joe Ryan to Minnesota Twins for DH Nelson Cruz and RHP Calvin Faucher. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.0 LVM vs value out +12.2 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.0 LVM vs value out +12.2 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -3549,7 +3760,7 @@ const AUTO_REGIMES = [
 "war": 10.0,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Drew Rasmussen (#31 overall, 2017) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -3567,15 +3778,15 @@ const AUTO_REGIMES = [
 "forGrade": 60,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".491",
-"div": 0,
+"div": 1,
 "po": null,
 "sw": null,
 "pen": null,
 "ws": null,
-"g": 45
+"g": 48
 },
 "chan": {
 "draft": {
@@ -3602,7 +3813,13 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$44M",
 "decisions": 134,
-"cum": null,
+"cum": [
+-2.4,
+2.9,
+2.8,
+3.1,
+4.8
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -3610,27 +3827,27 @@ const AUTO_REGIMES = [
 "war": 1.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Texas Rangers traded 1B Nathaniel Lowe to Washington Nationals for LHP Robert Garcia. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +1.2 LVM vs value out -0.7 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +1.2 LVM vs value out -0.7 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2026-01-22",
 "war": 1.7,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Washington Nationals traded LHP MacKenzie Gore to Texas Rangers for 3B Gavin Fien, 1B Abimelec Ortiz, SS Devin Fitz-Gerald, RHP Al <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +1.8 LVM vs value out +0.1 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +1.8 LVM vs value out +0.1 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-11-24",
 "war": 1.6,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "New York Mets traded LF Brandon Nimmo and cash to Texas Rangers for 2B Marcus Semien. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +1.4 LVM vs value out -0.3 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +1.4 LVM vs value out -0.3 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -3639,18 +3856,18 @@ const AUTO_REGIMES = [
 "war": -1.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Texas Rangers traded RHP Matt Festa to Cleveland Guardians for cash. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +1.9 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +1.9 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-01-02",
 "war": -1.6,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Texas Rangers traded RHP Grant Anderson to Milwaukee Brewers for LHP Mason Molina. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +1.6 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +1.6 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -3659,7 +3876,7 @@ const AUTO_REGIMES = [
 "war": 4.9,
 "real": true,
 "open": true,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Wyatt Langford (#4 overall, 2023) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -3669,7 +3886,7 @@ const AUTO_REGIMES = [
 "war": -2.3,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Detroit Tigers claimed 2B Andy Ibanez off waivers from Texas Rangers. <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -3677,7 +3894,7 @@ const AUTO_REGIMES = [
 "war": -1.6,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Colorado Rockies claimed RHP Nick Mears off waivers from Texas Rangers. <span class=\"badge-real\">COMPUTED</span>"
 }
 ]
@@ -3694,9 +3911,9 @@ const AUTO_REGIMES = [
 "forGrade": 60,
 "smallSample": false,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
-"wpct": ".515",
+"wpct": ".514",
 "div": 2,
 "po": null,
 "sw": null,
@@ -3729,7 +3946,20 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$186M",
 "decisions": 412,
-"cum": null,
+"cum": [
+2.9,
+25.6,
+32.8,
+20.3,
+12.1,
+11.9,
+13.1,
+12.8,
+8.7,
+13.4,
+20.1,
+20.2
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -3737,27 +3967,27 @@ const AUTO_REGIMES = [
 "war": 12.7,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Toronto Blue Jays traded LHP Francisco Liriano to Houston Astros for LF Norichika Aoki and RF Teoscar Hernandez. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +12.9 LVM vs value out +0.2 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +12.9 LVM vs value out +0.2 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2022-03-16",
 "war": 7.0,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Oakland Athletics traded 3B Matt Chapman to Toronto Blue Jays for LHP Zach Logue, RHP Gunnar Hoglund, LHP Kirby Snead and SS Kevin <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +6.4 LVM vs value out -0.6 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +6.4 LVM vs value out -0.6 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2021-07-30",
 "war": 4.1,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Minnesota Twins traded RHP Jose Berrios to Toronto Blue Jays for SS Austin Martin and RHP Simeon Woods Richardson. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +7.1 LVM vs value out +3.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +7.1 LVM vs value out +3.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -3766,18 +3996,18 @@ const AUTO_REGIMES = [
 "war": -8.6,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Arizona Diamondbacks traded C Daulton Varsho to Toronto Blue Jays for SS Lourdes Gurriel Jr. and C Gabriel Moreno. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +5.2 LVM vs value out +13.9 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +5.2 LVM vs value out +13.9 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2018-08-04",
 "war": -6.7,
 "real": true,
 "open": false,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Toronto Blue Jays traded 3B Gio Urshela to New York Yankees. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +6.7 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +6.7 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -3786,7 +4016,7 @@ const AUTO_REGIMES = [
 "war": 21.3,
 "real": true,
 "open": false,
-"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Draft pick vs. slot \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Drafted Bo Bichette (#66 overall, 2016) <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -3804,7 +4034,7 @@ const AUTO_REGIMES = [
 "forGrade": 40,
 "smallSample": true,
 "realCard": true,
-"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1",
+"realBadge": "COMPUTED \u00b7 LEDGER WAR v0 \u00b7 SWEEP v1.1",
 "success": {
 "wpct": ".445",
 "div": 0,
@@ -3839,7 +4069,10 @@ const AUTO_REGIMES = [
 },
 "surplus": "\u2248$-11M",
 "decisions": 41,
-"cum": null,
+"cum": [
+-2.0,
+-1.2
+],
 "ledgers": {
 "bestTrades": [
 {
@@ -3847,9 +4080,9 @@ const AUTO_REGIMES = [
 "war": 2.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Chicago White Sox traded 1B Curtis Mead to Washington Nationals for C Boston Smith. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +2.9 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +2.9 LVM vs value out +0.0 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "worstTrades": [
@@ -3858,27 +4091,27 @@ const AUTO_REGIMES = [
 "war": -1.7,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Washington Nationals traded LHP MacKenzie Gore to Texas Rangers for 3B Gavin Fien, 1B Abimelec Ortiz, SS Devin Fitz-Gerald, RHP Al <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.1 LVM vs value out +1.8 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.1 LVM vs value out +1.8 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2025-12-15",
 "war": -1.3,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Boston Red Sox traded RHP Luis Perales to Washington Nationals for LHP Jake Bennett. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in +0.0 LVM vs value out +1.3 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in +0.0 LVM vs value out +1.3 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 },
 {
 "d": "2026-02-10",
 "war": -0.9,
 "real": true,
 "open": true,
-"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Trade \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Washington Nationals traded RHP George Soriano to St. Louis Cardinals for RHP Andre Granillo. <span class=\"badge-real\">COMPUTED</span>",
-"note": "Auto-scored: value in -0.3 LVM vs value out +0.6 over a 5-year window from the deal date. Sweep v1 windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
+"note": "Auto-scored: value in -0.3 LVM vs value out +0.6 over a 5-year window from the deal date. Sweep windows are calendar approximations; decision-page precision (control windows, leverage, options) comes when a card is promoted to curated."
 }
 ],
 "bestAcq": [
@@ -3887,7 +4120,7 @@ const AUTO_REGIMES = [
 "war": 0.6,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Washington Nationals claimed LF Joey Wiemer off waivers from San Francisco Giants. <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -3895,7 +4128,7 @@ const AUTO_REGIMES = [
 "war": 0.3,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Washington Nationals claimed RHP Paxton Schultz off waivers from Toronto Blue Jays. <span class=\"badge-real\">COMPUTED</span>"
 }
 ],
@@ -3905,7 +4138,7 @@ const AUTO_REGIMES = [
 "war": -0.4,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Washington Nationals claimed LHP Ken Waldichuk off waivers from Tampa Bay Rays. <span class=\"badge-real\">COMPUTED</span>"
 },
 {
@@ -3913,7 +4146,7 @@ const AUTO_REGIMES = [
 "war": -0.2,
 "real": true,
 "open": true,
-"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1",
+"t": "Waiver / Rule 5 \u00b7 Ledger WAR v0 \u00b7 sweep v1.1",
 "h": "Boston Red Sox claimed 2B Mickey Gasper off waivers from Washington Nationals. <span class=\"badge-real\">COMPUTED</span>"
 }
 ]
