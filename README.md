@@ -19,6 +19,8 @@ A decision-level accounting system for sports front offices. Every draft pick, t
 
 **DEV PILLAR (sweep v1.5):** player development is now its own top-level grade alongside FOR and Success. The archive: MLB Pipeline preseason top-100s, 2011-2026 (1,548 rank-rows, 823 players), pulled from MLB's data-graph GraphQL endpoint (`ingest/pull_ranks.py`); holding org per list derived from minor-league season rosters mapped to parent orgs (`ingest/dev_ingest.py`), so attribution is ours, not Pipeline's. Prospects are marked to market on a rank-to-surplus-wins curve; entry credit is net of acquisition cost (own draft pick vs the pick-value curve, own international signing, or acquired-as-prospect) with an inherited screen (a prospect developed to the list under a predecessor regime earns the new regime nothing at entry); year-over-year rank moves accrue to the org holding the player; graduation to MLB is a neutral exit; falling off without debuting is charged. Grades are league-relative because development is positive-sum (league rate: about +2.5 wins of prospect value per club-season). `engine/dev_score.py`; per-regime farm flows and current farm value included. Development credit stays home even when the prospect is later traded, which is the point.
 
+**EXTENSIONS CHANNEL (sweep v1.6):** contract extensions graded as their own decision type, against the extension market for the player's service class rather than FA prices (the pre-arb discount is structural; picking which player to lock up, and at what price, is the skill). Class discounts of open-market $/win: pre-debut 0.35, early 0.45, arb 0.60, veteran 0.90 (documented assumptions, tunable when the book supports empirical fits). Curated book of ~60 major extensions inside current regime windows (`engine/contracts_ext.py`; the 2025-26 wave verified by web search: Guerrero 14/500, Crochet, Raleigh, Basallo, Anthony, Baz, Emerson, Griffin, Crow-Armstrong, Luzardo, Soderstrom, Wilson, Pratt). Deferral-heavy deals are costed at CBT/present value (Betts $306.7M PV, Ohtani $460.8M in the FA channel), and qualifying-offer signings now carry a draft-compensation charge on the FA ledger (confident QO list, flat second-round-pick value). Same-name collisions (two Jose Ramirezes, two Will Smiths) resolved by club fit. `engine/ext_grade.py`.
+
 **RETROSHEET BACKFILL INGESTED:** the full 1873-2022 transaction archive (101,594 rows) is loaded as `retro_tx` and shipped in `data/retrosheet_tranDB.zip`. The information used here was obtained free of charge from and is copyrighted by Retrosheet. Interested parties may contact Retrosheet at www.retrosheet.org.
 
 **Methodology version: v0.2** (win-curve leverage, time discounting, retention rights, net-of-cost contracts, perspective rule). See `docs/methodology-v02-addendum.md`. The v0.3 target: empirical market-price baselines for trades (the rental-return curve) that consolidate the lens stack; see `docs/design.md` section 3.4b.
@@ -53,8 +55,8 @@ A decision-level accounting system for sports front offices. Every draft pick, t
 
 1. ~~Valuation feed → auto-generated cards for all 30 teams~~ DONE (Ledger WAR v0 + 30-regime sweep)
 2. ~~Historical prospect-rank archive → development credit, farm-system flows~~ DONE (DEV pillar, sweep v1.5); still to come from the same archive: the v0.3 rental-market baseline
-3. Extensions channel: contract extensions graded as their own decision type (pre-debut, pre-arb, and veteran extension markets are different markets), using the retention-rights machinery from methodology v0.2
+3. ~~Extensions channel~~ DONE (sweep v1.6, class-market baselines + QO charges + CBT deferral costing)
 4. Regime table curation 2000 to present (the moat: nobody maintains this publicly)
-5. Retrosheet backfill for pre-2005 history; NBA schema pilot
+5. Retrosheet backfill for pre-2005 history; NBA schema pilot; v0.3 rental-market baseline from the prospect archive
 
 Full detail: `docs/design.md`.
