@@ -25,7 +25,7 @@
     "n": 85
    },
    "fa": {
-    "net": -16.6,
+    "net": -18.6,
     "g": 30,
     "n": 20,
     "majors": 87,
@@ -35,16 +35,21 @@
     "net": -5.8,
     "g": 40,
     "n": 9
+   },
+   "ext": {
+    "net": 17.2,
+    "g": 75,
+    "n": 3
    }
   },
-  "total": -22.6,
-  "forGrade": 35,
+  "total": -7.4,
+  "forGrade": 45,
   "success": {
-   "wpct": ".485",
+   "wpct": ".486",
    "div": 0,
    "g": 45,
-   "w": 786,
-   "l": 834
+   "w": 790,
+   "l": 837
   },
   "cum": [
    -1.0,
@@ -129,8 +134,14 @@
    {
     "d": "2019-12-17",
     "ch": "fa",
-    "net": -10.1,
-    "h": "Signed Madison Bumgarner \u00b7 5 yr / $85.0M (2019-20 winter, espn)"
+    "net": -11.1,
+    "h": "Signed Madison Bumgarner \u00b7 5 yr / $85.0M (2019-20 winter, espn, QO signing, draft comp charged)"
+   },
+   {
+    "d": "2024-12-30",
+    "ch": "fa",
+    "net": -3.8,
+    "h": "Signed Corbin Burnes \u00b7 6 yr / $210.0M (2024-25 winter, curated, QO signing, draft comp charged)"
    },
    {
     "d": "2023-12-08",
@@ -143,12 +154,26 @@
     "ch": "fa",
     "net": 2.8,
     "h": "Signed Chris Iannetta \u00b7 1 yr / $1.7M (2016-17 winter, espn)"
+   }
+  ],
+  "ext_tops": [
+   {
+    "d": "2018-03-15",
+    "ch": "ext",
+    "net": 12.3,
+    "h": "Extended Ketel Marte \u00b7 5 yr / $24.0M (arb market)"
    },
    {
-    "d": "2024-12-30",
-    "ch": "fa",
-    "net": -2.8,
-    "h": "Signed Corbin Burnes \u00b7 6 yr / $210.0M (2024-25 winter, curated)"
+    "d": "2024-04-15",
+    "ch": "ext",
+    "net": 3.3,
+    "h": "Extended Ketel Marte \u00b7 6 yr / $116.5M (veteran market)"
+   },
+   {
+    "d": "2023-03-15",
+    "ch": "ext",
+    "net": 1.6,
+    "h": "Extended Corbin Carroll \u00b7 8 yr / $111.0M (early market)"
    }
   ],
   "dev": {
@@ -242,16 +267,21 @@
     "net": -3.4,
     "g": 45,
     "n": 2
+   },
+   "ext": {
+    "net": 12.8,
+    "g": 70,
+    "n": 7
    }
   },
-  "total": 65.1,
-  "forGrade": 75,
+  "total": 77.9,
+  "forGrade": 80,
   "success": {
    "wpct": ".557",
    "div": 7,
    "g": 70,
-   "w": 811,
-   "l": 645
+   "w": 816,
+   "l": 648
   },
   "cum": [
    -1.4,
@@ -352,6 +382,32 @@
     "h": "Signed Drew Smyly \u00b7 1 yr / $11.0M (2020-21 winter, espn)"
    }
   ],
+  "ext_tops": [
+   {
+    "d": "2022-03-15",
+    "ch": "ext",
+    "net": 7.1,
+    "h": "Extended Matt Olson \u00b7 8 yr / $168.0M (veteran market)"
+   },
+   {
+    "d": "2019-04-15",
+    "ch": "ext",
+    "net": 5.9,
+    "h": "Extended Ozzie Albies \u00b7 7 yr / $35.0M (early market)"
+   },
+   {
+    "d": "2019-04-15",
+    "ch": "ext",
+    "net": 3.2,
+    "h": "Extended Ronald Acuna Jr. \u00b7 8 yr / $100.0M (early market)"
+   },
+   {
+    "d": "2022-10-15",
+    "ch": "ext",
+    "net": -2.8,
+    "h": "Extended Spencer Strider \u00b7 6 yr / $75.0M (early market)"
+   }
+  ],
   "dev": {
    "net": 18.7,
    "g": 45,
@@ -443,6 +499,11 @@
     "net": 0.4,
     "g": 50,
     "n": 3
+   },
+   "ext": {
+    "net": 0.0,
+    "g": null,
+    "n": 2
    }
   },
   "total": 54.1,
@@ -451,8 +512,8 @@
    "wpct": ".446",
    "div": 1,
    "g": 38,
-   "w": 578,
-   "l": 719
+   "w": 581,
+   "l": 722
   },
   "cum": [
    0.1,
@@ -557,6 +618,20 @@
     "h": "Signed Charlie Morton \u00b7 1 yr / $15.0M (2024-25 winter, curated)"
    }
   ],
+  "ext_tops": [
+   {
+    "d": "2025-08-15",
+    "ch": "ext",
+    "net": 0.0,
+    "h": "Extended Samuel Basallo \u00b7 8 yr / $67.0M (early) \u00b7 no seasons elapsed, OPEN"
+   },
+   {
+    "d": "2026-03-15",
+    "ch": "ext",
+    "net": 0.0,
+    "h": "Extended Shane Baz \u00b7 5 yr / $68.0M (arb) \u00b7 no seasons elapsed, OPEN"
+   }
+  ],
   "dev": {
    "net": 35.2,
    "g": 70,
@@ -648,16 +723,21 @@
     "net": 0.0,
     "g": 50,
     "n": 0
+   },
+   "ext": {
+    "net": 0.5,
+    "g": 50,
+    "n": 4
    }
   },
-  "total": -6.3,
+  "total": -5.8,
   "forGrade": 35,
   "success": {
-   "wpct": ".511",
+   "wpct": ".513",
    "div": 0,
    "g": 50,
-   "w": 300,
-   "l": 287
+   "w": 305,
+   "l": 289
   },
   "cum": [
    -5.3,
@@ -748,8 +828,34 @@
    {
     "d": "2025-02-15",
     "ch": "fa",
-    "net": -0.4,
-    "h": "Signed Alex Bregman \u00b7 3 yr / $120.0M (2024-25 winter, curated)"
+    "net": -1.4,
+    "h": "Signed Alex Bregman \u00b7 3 yr / $120.0M (2024-25 winter, curated, QO signing, draft comp charged)"
+   }
+  ],
+  "ext_tops": [
+   {
+    "d": "2024-04-15",
+    "ch": "ext",
+    "net": 0.5,
+    "h": "Extended Ceddanne Rafaela \u00b7 8 yr / $50.0M (early market)"
+   },
+   {
+    "d": "2025-04-15",
+    "ch": "ext",
+    "net": 0.0,
+    "h": "Extended Garrett Crochet \u00b7 6 yr / $170.0M (arb) \u00b7 no seasons elapsed, OPEN"
+   },
+   {
+    "d": "2025-04-15",
+    "ch": "ext",
+    "net": 0.0,
+    "h": "Extended Kristian Campbell \u00b7 8 yr / $60.0M (early) \u00b7 no seasons elapsed, OPEN"
+   },
+   {
+    "d": "2025-08-15",
+    "ch": "ext",
+    "net": 0.0,
+    "h": "Extended Roman Anthony \u00b7 8 yr / $130.0M (early) \u00b7 no seasons elapsed, OPEN"
    }
   ],
   "dev": {
@@ -835,7 +941,7 @@
     "n": 64
    },
    "fa": {
-    "net": -6.0,
+    "net": -7.0,
     "g": 35,
     "n": 14,
     "majors": 80,
@@ -845,16 +951,21 @@
     "net": 0.1,
     "g": 50,
     "n": 2
+   },
+   "ext": {
+    "net": 2.8,
+    "g": 60,
+    "n": 3
    }
   },
-  "total": -28.9,
+  "total": -27.1,
   "forGrade": 30,
   "success": {
-   "wpct": ".508",
+   "wpct": ".510",
    "div": 1,
    "g": 53,
-   "w": 494,
-   "l": 478
+   "w": 499,
+   "l": 480
   },
   "cum": [
    -10.8,
@@ -956,6 +1067,26 @@
     "h": "Signed Yan Gomes \u00b7 2 yr / $13.0M (2021-22 winter, espn)"
    }
   ],
+  "ext_tops": [
+   {
+    "d": "2023-04-15",
+    "ch": "ext",
+    "net": 1.6,
+    "h": "Extended Nico Hoerner \u00b7 3 yr / $35.0M (arb market)"
+   },
+   {
+    "d": "2023-04-15",
+    "ch": "ext",
+    "net": 1.1,
+    "h": "Extended Ian Happ \u00b7 3 yr / $61.0M (veteran market)"
+   },
+   {
+    "d": "2026-03-15",
+    "ch": "ext",
+    "net": 0.0,
+    "h": "Extended Pete Crow-Armstrong \u00b7 6 yr / $115.0M (arb) \u00b7 no seasons elapsed, OPEN"
+   }
+  ],
   "dev": {
    "net": 13.0,
    "g": 50,
@@ -1047,16 +1178,21 @@
     "net": 0.0,
     "g": 50,
     "n": 0
+   },
+   "ext": {
+    "net": 0,
+    "g": null,
+    "n": 0
    }
   },
   "total": -11.0,
   "forGrade": 30,
   "success": {
-   "wpct": ".368",
+   "wpct": ".369",
    "div": 1,
    "g": 33,
-   "w": 216,
-   "l": 371
+   "w": 219,
+   "l": 375
   },
   "cum": [
    -2.1,
@@ -1130,6 +1266,7 @@
   ],
   "intl_tops": [],
   "fa_tops": [],
+  "ext_tops": [],
   "dev": {
    "net": 8.2,
    "g": 50,
@@ -1220,16 +1357,21 @@
     "net": -0.4,
     "g": 50,
     "n": 0
+   },
+   "ext": {
+    "net": 0,
+    "g": null,
+    "n": 1
    }
   },
   "total": -7.8,
   "forGrade": 40,
   "success": {
-   "wpct": ".479",
+   "wpct": ".480",
    "div": 0,
    "g": 40,
-   "w": 465,
-   "l": 506
+   "w": 469,
+   "l": 509
   },
   "cum": [
    -3.7,
@@ -1317,6 +1459,14 @@
     "ch": "fa",
     "net": -0.1,
     "h": "Signed Hunter Strickland \u00b7 1 yr / $1.8M (2021-22 winter, espn)"
+   }
+  ],
+  "ext_tops": [
+   {
+    "d": "2023-04-15",
+    "ch": "ext",
+    "net": 1.0,
+    "h": "Extended Hunter Greene \u00b7 6 yr / $53.0M (early market)"
    }
   ],
   "dev": {
@@ -1412,16 +1562,21 @@
     "net": -4.1,
     "g": 45,
     "n": 6
+   },
+   "ext": {
+    "net": 24.8,
+    "g": 75,
+    "n": 3
    }
   },
-  "total": 5.0,
-  "forGrade": 55,
+  "total": 29.8,
+  "forGrade": 65,
   "success": {
-   "wpct": ".549",
+   "wpct": ".548",
    "div": 6,
    "g": 70,
-   "w": 978,
-   "l": 802
+   "w": 980,
+   "l": 807
   },
   "cum": [
    3.9,
@@ -1531,6 +1686,26 @@
     "h": "Signed Yonder Alonso \u00b7 2 yr / $16.0M (2017-18 winter, espn)"
    }
   ],
+  "ext_tops": [
+   {
+    "d": "2017-04-15",
+    "ch": "ext",
+    "net": 20.2,
+    "h": "Extended Jose Ramirez \u00b7 5 yr / $26.0M (arb market)"
+   },
+   {
+    "d": "2022-04-15",
+    "ch": "ext",
+    "net": 8.7,
+    "h": "Extended Jose Ramirez \u00b7 7 yr / $141.0M (veteran market)"
+   },
+   {
+    "d": "2023-04-15",
+    "ch": "ext",
+    "net": -4.1,
+    "h": "Extended Andres Gimenez \u00b7 7 yr / $106.5M (arb market)"
+   }
+  ],
   "dev": {
    "net": 27.4,
    "g": 50,
@@ -1624,16 +1799,21 @@
     "net": 0.0,
     "g": 50,
     "n": 0
+   },
+   "ext": {
+    "net": 0,
+    "g": null,
+    "n": 0
    }
   },
   "total": 8.0,
   "forGrade": 80,
   "success": {
-   "wpct": ".316",
+   "wpct": ".314",
    "div": 0,
    "g": 30,
-   "w": 84,
-   "l": 182
+   "w": 85,
+   "l": 186
   },
   "cum": [
    2.4,
@@ -1685,6 +1865,7 @@
   ],
   "intl_tops": [],
   "fa_tops": [],
+  "ext_tops": [],
   "dev": {
    "net": -0.7,
    "g": 30,
@@ -1752,16 +1933,21 @@
     "net": -0.0,
     "g": 50,
     "n": 0
+   },
+   "ext": {
+    "net": 0,
+    "g": null,
+    "n": 1
    }
   },
   "total": 5.2,
   "forGrade": 60,
   "success": {
-   "wpct": ".487",
+   "wpct": ".486",
    "div": 0,
    "g": 45,
-   "w": 365,
-   "l": 385
+   "w": 368,
+   "l": 389
   },
   "cum": [
    0.1,
@@ -1847,6 +2033,14 @@
     "ch": "fa",
     "net": 0.6,
     "h": "Signed Jack Flaherty \u00b7 2 yr / $35.0M (2024-25 winter, curated)"
+   }
+  ],
+  "ext_tops": [
+   {
+    "d": "2024-01-15",
+    "ch": "ext",
+    "net": 1.8,
+    "h": "Extended Colt Keith \u00b7 6 yr / $28.6M (early market)"
    }
   ],
   "dev": {
@@ -1939,16 +2133,21 @@
     "net": 0.0,
     "g": 50,
     "n": 0
+   },
+   "ext": {
+    "net": 0,
+    "g": null,
+    "n": 1
    }
   },
   "total": 5.6,
   "forGrade": 60,
   "success": {
-   "wpct": ".535",
+   "wpct": ".538",
    "div": 2,
    "g": 61,
-   "w": 315,
-   "l": 274
+   "w": 320,
+   "l": 275
   },
   "cum": [
    2.2,
@@ -2021,14 +2220,22 @@
    {
     "d": "2024-01-22",
     "ch": "fa",
-    "net": -1.6,
-    "h": "Signed Josh Hader \u00b7 5 yr / $95.0M (2023-24 winter, curated)"
+    "net": -2.6,
+    "h": "Signed Josh Hader \u00b7 5 yr / $95.0M (2023-24 winter, curated, QO signing, draft comp charged)"
    },
    {
     "d": "2024-12-23",
     "ch": "fa",
-    "net": -1.4,
-    "h": "Signed Christian Walker \u00b7 3 yr / $60.0M (2024-25 winter, curated)"
+    "net": -2.4,
+    "h": "Signed Christian Walker \u00b7 3 yr / $60.0M (2024-25 winter, curated, QO signing, draft comp charged)"
+   }
+  ],
+  "ext_tops": [
+   {
+    "d": "2024-02-15",
+    "ch": "ext",
+    "net": 2.5,
+    "h": "Extended Jose Altuve \u00b7 5 yr / $125.0M (veteran market)"
    }
   ],
   "dev": {
@@ -2098,6 +2305,11 @@
     "net": -0.0,
     "g": 50,
     "n": 0
+   },
+   "ext": {
+    "net": 0,
+    "g": null,
+    "n": 1
    }
   },
   "total": -5.6,
@@ -2106,8 +2318,8 @@
    "wpct": ".442",
    "div": 0,
    "g": 35,
-   "w": 332,
-   "l": 419
+   "w": 335,
+   "l": 423
   },
   "cum": [
    -6.4,
@@ -2191,6 +2403,14 @@
     "ch": "fa",
     "net": 1.3,
     "h": "Signed Seth Lugo \u00b7 3 yr / $45.0M (2023-24 winter, curated)"
+   }
+  ],
+  "ext_tops": [
+   {
+    "d": "2024-02-15",
+    "ch": "ext",
+    "net": 3.7,
+    "h": "Extended Bobby Witt Jr. \u00b7 11 yr / $288.7M (early market)"
    }
   ],
   "dev": {
@@ -2284,16 +2504,21 @@
     "net": 1.0,
     "g": 50,
     "n": 3
+   },
+   "ext": {
+    "net": 0,
+    "g": null,
+    "n": 0
    }
   },
   "total": -8.0,
   "forGrade": 40,
   "success": {
-   "wpct": ".437",
+   "wpct": ".435",
    "div": 0,
    "g": 30,
-   "w": 425,
-   "l": 548
+   "w": 426,
+   "l": 553
   },
   "cum": [
    3.5,
@@ -2398,6 +2623,7 @@
     "h": "Signed Aaron Loup \u00b7 2 yr / $17.0M (2021-22 winter, espn)"
    }
   ],
+  "ext_tops": [],
   "dev": {
    "net": 3.4,
    "g": 35,
@@ -2479,7 +2705,7 @@
     "n": 118
    },
    "fa": {
-    "net": -11.3,
+    "net": -8.2,
     "g": 40,
     "n": 34,
     "majors": 102,
@@ -2489,16 +2715,21 @@
     "net": 3.3,
     "g": 55,
     "n": 14
+   },
+   "ext": {
+    "net": 16.6,
+    "g": 70,
+    "n": 3
    }
   },
-  "total": 70.2,
+  "total": 89.9,
   "forGrade": 75,
   "success": {
    "wpct": ".614",
    "div": 12,
    "g": 75,
-   "w": 1195,
-   "l": 751
+   "w": 1199,
+   "l": 753
   },
   "cum": [
    9.8,
@@ -2595,8 +2826,14 @@
    {
     "d": "2021-02-11",
     "ch": "fa",
-    "net": -10.9,
-    "h": "Signed Trevor Bauer \u00b7 3 yr / $102.0M (2020-21 winter, espn)"
+    "net": -11.9,
+    "h": "Signed Trevor Bauer \u00b7 3 yr / $102.0M (2020-21 winter, espn, QO signing, draft comp charged)"
+   },
+   {
+    "d": "2023-12-11",
+    "ch": "fa",
+    "net": 11.2,
+    "h": "Signed Shohei Ohtani \u00b7 10 yr / $700.0M (2023-24 winter, curated, CBT $461M used for cost, QO signing, draft comp charged)"
    },
    {
     "d": "2022-03-18",
@@ -2605,16 +2842,30 @@
     "h": "Signed Freddie Freeman \u00b7 6 yr / $162.0M (2021-22 winter, espn)"
    },
    {
-    "d": "2023-12-11",
-    "ch": "fa",
-    "net": 7.1,
-    "h": "Signed Shohei Ohtani \u00b7 10 yr / $700.0M (2023-24 winter, curated)"
-   },
-   {
     "d": "2015-12-30",
     "ch": "fa",
     "net": -5.7,
     "h": "Signed Scott Kazmir \u00b7 3 yr / $48.0M (2015-16 winter, espn)"
+   }
+  ],
+  "ext_tops": [
+   {
+    "d": "2020-07-15",
+    "ch": "ext",
+    "net": 14.2,
+    "h": "Extended Mookie Betts \u00b7 12 yr / $365.0M (veteran market, CBT $307M)"
+   },
+   {
+    "d": "2024-03-15",
+    "ch": "ext",
+    "net": 4.3,
+    "h": "Extended Will Smith \u00b7 10 yr / $140.0M (arb market)"
+   },
+   {
+    "d": "2025-01-15",
+    "ch": "ext",
+    "net": -1.9,
+    "h": "Extended Tommy Edman \u00b7 5 yr / $74.0M (veteran market)"
    }
   ],
   "dev": {
@@ -2708,6 +2959,11 @@
     "net": 0.0,
     "g": 50,
     "n": 0
+   },
+   "ext": {
+    "net": 0,
+    "g": null,
+    "n": 0
    }
   },
   "total": 1.6,
@@ -2716,8 +2972,8 @@
    "wpct": ".470",
    "div": 0,
    "g": 40,
-   "w": 277,
-   "l": 312
+   "w": 280,
+   "l": 316
   },
   "cum": [
    -1.1,
@@ -2789,6 +3045,7 @@
   ],
   "intl_tops": [],
   "fa_tops": [],
+  "ext_tops": [],
   "dev": {
    "net": -1.6,
    "g": 30,
@@ -2879,16 +3136,21 @@
     "net": -0.0,
     "g": 50,
     "n": 0
+   },
+   "ext": {
+    "net": -1.4,
+    "g": 45,
+    "n": 2
    }
   },
-  "total": 38.5,
+  "total": 37.1,
   "forGrade": 80,
   "success": {
-   "wpct": ".576",
+   "wpct": ".575",
    "div": 4,
    "g": 75,
-   "w": 432,
-   "l": 318
+   "w": 435,
+   "l": 321
   },
   "cum": [
    21.9,
@@ -2972,6 +3234,20 @@
     "h": "Signed Rhys Hoskins \u00b7 2 yr / $34.0M (2023-24 winter, curated)"
    }
   ],
+  "ext_tops": [
+   {
+    "d": "2023-12-15",
+    "ch": "ext",
+    "net": -1.4,
+    "h": "Extended Jackson Chourio \u00b7 8 yr / $82.0M (pre-debut market)"
+   },
+   {
+    "d": "2026-03-15",
+    "ch": "ext",
+    "net": 0.0,
+    "h": "Extended Cooper Pratt \u00b7 8 yr / $50.0M (early) \u00b7 no seasons elapsed, OPEN"
+   }
+  ],
   "dev": {
    "net": 20.3,
    "g": 75,
@@ -3053,7 +3329,7 @@
     "n": 105
    },
    "fa": {
-    "net": -11.3,
+    "net": -13.3,
     "g": 35,
     "n": 29,
     "majors": 67,
@@ -3063,16 +3339,21 @@
     "net": -6.6,
     "g": 40,
     "n": 2
+   },
+   "ext": {
+    "net": 0,
+    "g": null,
+    "n": 1
    }
   },
-  "total": -20.6,
-  "forGrade": 40,
+  "total": -22.6,
+  "forGrade": 35,
   "success": {
-   "wpct": ".493",
+   "wpct": ".494",
    "div": 3,
    "g": 54,
-   "w": 799,
-   "l": 822
+   "w": 804,
+   "l": 824
   },
   "cum": [
    1.0,
@@ -3178,6 +3459,14 @@
     "h": "Signed Jake Odorizzi \u00b7 1 yr / $17.8M (2019-20 winter, espn)"
    }
   ],
+  "ext_tops": [
+   {
+    "d": "2021-11-15",
+    "ch": "ext",
+    "net": 5.6,
+    "h": "Extended Byron Buxton \u00b7 7 yr / $100.0M (veteran market)"
+   }
+  ],
   "dev": {
    "net": 4.3,
    "g": 35,
@@ -3258,8 +3547,8 @@
     "n": 48
    },
    "fa": {
-    "net": -3.1,
-    "g": 35,
+    "net": -4.1,
+    "g": 30,
     "n": 9,
     "majors": 41,
     "raw": 35.8
@@ -3268,16 +3557,21 @@
     "net": 0.0,
     "g": 50,
     "n": 0
+   },
+   "ext": {
+    "net": 0,
+    "g": null,
+    "n": 0
    }
   },
-  "total": -2.7,
-  "forGrade": 45,
+  "total": -3.7,
+  "forGrade": 40,
   "success": {
-   "wpct": ".492",
+   "wpct": ".493",
    "div": 0,
    "g": 45,
-   "w": 290,
-   "l": 299
+   "w": 294,
+   "l": 302
   },
   "cum": [
    -1.4,
@@ -3374,6 +3668,7 @@
     "h": "Signed Pete Alonso \u00b7 2 yr / $54.0M (2024-25 winter, curated)"
    }
   ],
+  "ext_tops": [],
   "dev": {
    "net": 0.9,
    "g": 35,
@@ -3457,7 +3752,7 @@
     "n": 165
    },
    "fa": {
-    "net": -29.0,
+    "net": -32.0,
     "g": 35,
     "n": 53,
     "majors": 123,
@@ -3467,16 +3762,21 @@
     "net": -1.7,
     "g": 50,
     "n": 41
+   },
+   "ext": {
+    "net": -11.6,
+    "g": 45,
+    "n": 2
    }
   },
-  "total": 52.6,
-  "forGrade": 65,
+  "total": 38.0,
+  "forGrade": 60,
   "success": {
    "wpct": ".573",
    "div": 8,
    "g": 75,
-   "w": 1950,
-   "l": 1452
+   "w": 1954,
+   "l": 1455
   },
   "cum": [
    13.5,
@@ -3598,14 +3898,28 @@
    {
     "d": "2019-12-18",
     "ch": "fa",
-    "net": -8.2,
-    "h": "Signed Gerrit Cole \u00b7 9 yr / $324.0M (2019-20 winter, espn)"
+    "net": -9.2,
+    "h": "Signed Gerrit Cole \u00b7 9 yr / $324.0M (2019-20 winter, espn, QO signing, draft comp charged)"
    },
    {
     "d": "2019-01-14",
     "ch": "fa",
     "net": 5.5,
     "h": "Signed DJ LeMahieu \u00b7 2 yr / $24.0M (2018-19 winter, espn)"
+   }
+  ],
+  "ext_tops": [
+   {
+    "d": "2019-02-15",
+    "ch": "ext",
+    "net": -5.9,
+    "h": "Extended Luis Severino \u00b7 4 yr / $40.0M (arb market)"
+   },
+   {
+    "d": "2019-02-15",
+    "ch": "ext",
+    "net": -5.7,
+    "h": "Extended Aaron Hicks \u00b7 7 yr / $70.0M (veteran market)"
    }
   ],
   "dev": {
@@ -3699,16 +4013,21 @@
     "net": -7.5,
     "g": 40,
     "n": 5
+   },
+   "ext": {
+    "net": -0.5,
+    "g": 50,
+    "n": 4
    }
   },
-  "total": 14.0,
+  "total": 13.5,
   "forGrade": 60,
   "success": {
-   "wpct": ".464",
+   "wpct": ".463",
    "div": 1,
    "g": 43,
-   "w": 826,
-   "l": 956
+   "w": 828,
+   "l": 961
   },
   "cum": [
    17.9,
@@ -3811,6 +4130,32 @@
     "h": "Signed Rich Hill \u00b7 1 yr / $6.0M (2015-16 winter, espn)"
    }
   ],
+  "ext_tops": [
+   {
+    "d": "2025-03-15",
+    "ch": "ext",
+    "net": -1.0,
+    "h": "Extended Lawrence Butler \u00b7 7 yr / $65.5M (early market)"
+   },
+   {
+    "d": "2025-01-15",
+    "ch": "ext",
+    "net": 0.5,
+    "h": "Extended Brent Rooker \u00b7 5 yr / $60.0M (arb market)"
+   },
+   {
+    "d": "2025-12-15",
+    "ch": "ext",
+    "net": 0.0,
+    "h": "Extended Tyler Soderstrom \u00b7 7 yr / $86.0M (early) \u00b7 no seasons elapsed, OPEN"
+   },
+   {
+    "d": "2026-02-15",
+    "ch": "ext",
+    "net": 0.0,
+    "h": "Extended Jacob Wilson \u00b7 7 yr / $70.0M (early) \u00b7 no seasons elapsed, OPEN"
+   }
+  ],
   "dev": {
    "net": 4.0,
    "g": 35,
@@ -3892,8 +4237,8 @@
     "n": 60
    },
    "fa": {
-    "net": -3.5,
-    "g": 40,
+    "net": -5.5,
+    "g": 35,
     "n": 9,
     "majors": 40,
     "raw": 78.3
@@ -3902,16 +4247,21 @@
     "net": -0.4,
     "g": 50,
     "n": 1
+   },
+   "ext": {
+    "net": 3.4,
+    "g": 60,
+    "n": 3
    }
   },
-  "total": 7.7,
+  "total": 9.1,
   "forGrade": 60,
   "success": {
-   "wpct": ".549",
+   "wpct": ".546",
    "div": 2,
    "g": 66,
-   "w": 534,
-   "l": 439
+   "w": 535,
+   "l": 444
   },
   "cum": [
    4.9,
@@ -4003,14 +4353,34 @@
    {
     "d": "2022-12-08",
     "ch": "fa",
-    "net": 5.1,
-    "h": "Signed Trea Turner \u00b7 11 yr / $300.0M (2022-23 winter, curated)"
+    "net": 4.1,
+    "h": "Signed Trea Turner \u00b7 11 yr / $300.0M (2022-23 winter, curated, QO signing, draft comp charged)"
    },
    {
-    "d": "2021-02-10",
+    "d": "2022-03-22",
     "ch": "fa",
-    "net": -3.0,
-    "h": "Signed Didi Gregorius \u00b7 2 yr / $28.0M (2020-21 winter, espn)"
+    "net": -3.7,
+    "h": "Signed Nick Castellanos \u00b7 5 yr / $100.0M (2021-22 winter, espn, QO signing, draft comp charged)"
+   }
+  ],
+  "ext_tops": [
+   {
+    "d": "2024-06-15",
+    "ch": "ext",
+    "net": 5.1,
+    "h": "Extended Cristopher Sanchez \u00b7 4 yr / $22.5M (arb market)"
+   },
+   {
+    "d": "2024-03-15",
+    "ch": "ext",
+    "net": -1.7,
+    "h": "Extended Zack Wheeler \u00b7 3 yr / $126.0M (veteran market)"
+   },
+   {
+    "d": "2026-03-15",
+    "ch": "ext",
+    "net": 0.0,
+    "h": "Extended Jesus Luzardo \u00b7 5 yr / $135.0M (veteran) \u00b7 no seasons elapsed, OPEN"
    }
   ],
   "dev": {
@@ -4104,16 +4474,21 @@
     "net": 1.6,
     "g": 55,
     "n": 3
+   },
+   "ext": {
+    "net": -5.8,
+    "g": 40,
+    "n": 4
    }
   },
-  "total": 14.6,
+  "total": 8.8,
   "forGrade": 60,
   "success": {
-   "wpct": ".429",
+   "wpct": ".428",
    "div": 0,
    "g": 30,
-   "w": 487,
-   "l": 648
+   "w": 489,
+   "l": 653
   },
   "cum": [
    0.0,
@@ -4219,6 +4594,32 @@
     "h": "Signed Roberto P\u00e9rez \u00b7 1 yr / $5.0M (2021-22 winter, espn)"
    }
   ],
+  "ext_tops": [
+   {
+    "d": "2022-04-15",
+    "ch": "ext",
+    "net": -5.1,
+    "h": "Extended Ke'Bryan Hayes \u00b7 8 yr / $70.0M (early market)"
+   },
+   {
+    "d": "2024-02-15",
+    "ch": "ext",
+    "net": -1.0,
+    "h": "Extended Mitch Keller \u00b7 5 yr / $77.0M (arb market)"
+   },
+   {
+    "d": "2023-04-15",
+    "ch": "ext",
+    "net": 0.3,
+    "h": "Extended Bryan Reynolds \u00b7 8 yr / $106.8M (arb market)"
+   },
+   {
+    "d": "2026-04-15",
+    "ch": "ext",
+    "net": 0.0,
+    "h": "Extended Konnor Griffin \u00b7 9 yr / $140.0M (early) \u00b7 no seasons elapsed, OPEN"
+   }
+  ],
   "dev": {
    "net": 16.3,
    "g": 50,
@@ -4300,7 +4701,7 @@
     "n": 80
    },
    "fa": {
-    "net": -12.5,
+    "net": -14.5,
     "g": 35,
     "n": 27,
     "majors": 89,
@@ -4310,16 +4711,21 @@
     "net": 1.7,
     "g": 50,
     "n": 16
+   },
+   "ext": {
+    "net": -20.5,
+    "g": 30,
+    "n": 6
    }
   },
-  "total": -53.1,
+  "total": -75.6,
   "forGrade": 30,
   "success": {
    "wpct": ".487",
    "div": 0,
    "g": 45,
-   "w": 946,
-   "l": 998
+   "w": 951,
+   "l": 1000
   },
   "cum": [
    -4.0,
@@ -4420,8 +4826,8 @@
    {
     "d": "2018-02-19",
     "ch": "fa",
-    "net": -13.6,
-    "h": "Signed Eric Hosmer \u00b7 8 yr / $144.0M (2017-18 winter, espn)"
+    "net": -14.6,
+    "h": "Signed Eric Hosmer \u00b7 8 yr / $144.0M (2017-18 winter, espn, QO signing, draft comp charged)"
    },
    {
     "d": "2015-02-11",
@@ -4440,6 +4846,32 @@
     "ch": "fa",
     "net": 3.4,
     "h": "Signed Craig Stammen \u00b7 2 yr / $4.5M (2017-18 winter, espn)"
+   }
+  ],
+  "ext_tops": [
+   {
+    "d": "2021-02-15",
+    "ch": "ext",
+    "net": -15.5,
+    "h": "Extended Fernando Tatis Jr. \u00b7 14 yr / $340.0M (early market)"
+   },
+   {
+    "d": "2022-07-15",
+    "ch": "ext",
+    "net": -3.9,
+    "h": "Extended Joe Musgrove \u00b7 5 yr / $100.0M (veteran market)"
+   },
+   {
+    "d": "2023-02-15",
+    "ch": "ext",
+    "net": -3.2,
+    "h": "Extended Yu Darvish \u00b7 6 yr / $108.0M (veteran market)"
+   },
+   {
+    "d": "2023-04-15",
+    "ch": "ext",
+    "net": 1.7,
+    "h": "Extended Jake Cronenworth \u00b7 7 yr / $80.0M (arb market)"
    }
   ],
   "dev": {
@@ -4533,16 +4965,21 @@
     "net": 0.0,
     "g": 50,
     "n": 0
+   },
+   "ext": {
+    "net": 0,
+    "g": null,
+    "n": 0
    }
   },
   "total": -2.3,
   "forGrade": 40,
   "success": {
-   "wpct": ".477",
+   "wpct": ".480",
    "div": 0,
-   "g": 40,
-   "w": 203,
-   "l": 223
+   "g": 45,
+   "w": 208,
+   "l": 225
   },
   "cum": [
    0.0,
@@ -4606,18 +5043,19 @@
   "intl_tops": [],
   "fa_tops": [
    {
-    "d": "2024-12-10",
-    "ch": "fa",
-    "net": 1.0,
-    "h": "Signed Willy Adames \u00b7 7 yr / $182.0M (2024-25 winter, curated)"
-   },
-   {
     "d": "2025-01-11",
     "ch": "fa",
     "net": 0.7,
     "h": "Signed Justin Verlander \u00b7 1 yr / $15.0M (2024-25 winter, curated)"
+   },
+   {
+    "d": "2024-12-10",
+    "ch": "fa",
+    "net": 0.0,
+    "h": "Signed Willy Adames \u00b7 7 yr / $182.0M (2024-25 winter, curated, QO signing, draft comp charged)"
    }
   ],
+  "ext_tops": [],
   "dev": {
    "net": 11.6,
    "g": 75,
@@ -4692,7 +5130,7 @@
     "n": 184
    },
    "fa": {
-    "net": -12.5,
+    "net": -13.5,
     "g": 35,
     "n": 17,
     "majors": 65,
@@ -4702,16 +5140,21 @@
     "net": 11.9,
     "g": 65,
     "n": 8
+   },
+   "ext": {
+    "net": 0.5,
+    "g": 50,
+    "n": 5
    }
   },
-  "total": 23.9,
+  "total": 23.4,
   "forGrade": 65,
   "success": {
-   "wpct": ".515",
+   "wpct": ".514",
    "div": 1,
    "g": 53,
-   "w": 918,
-   "l": 865
+   "w": 920,
+   "l": 870
   },
   "cum": [
    -12.1,
@@ -4799,8 +5242,8 @@
    {
     "d": "2021-11-30",
     "ch": "fa",
-    "net": -8.4,
-    "h": "Signed Robbie Ray \u00b7 5 yr / $115.0M (2021-22 winter, espn)"
+    "net": -9.4,
+    "h": "Signed Robbie Ray \u00b7 5 yr / $115.0M (2021-22 winter, espn, QO signing, draft comp charged)"
    },
    {
     "d": "2019-01-02",
@@ -4819,6 +5262,32 @@
     "ch": "fa",
     "net": 1.2,
     "h": "Signed Tim Beckham \u00b7 1 yr / $1.8M (2018-19 winter, espn)"
+   }
+  ],
+  "ext_tops": [
+   {
+    "d": "2019-11-15",
+    "ch": "ext",
+    "net": -9.6,
+    "h": "Extended Evan White \u00b7 6 yr / $24.0M (pre-debut market)"
+   },
+   {
+    "d": "2025-03-15",
+    "ch": "ext",
+    "net": 6.1,
+    "h": "Extended Cal Raleigh \u00b7 6 yr / $105.0M (arb market)"
+   },
+   {
+    "d": "2022-04-15",
+    "ch": "ext",
+    "net": 4.3,
+    "h": "Extended J.P. Crawford \u00b7 5 yr / $51.0M (arb market)"
+   },
+   {
+    "d": "2022-08-15",
+    "ch": "ext",
+    "net": -0.3,
+    "h": "Extended Julio Rodriguez \u00b7 12 yr / $209.3M (early market)"
    }
   ],
   "dev": {
@@ -4914,16 +5383,21 @@
     "net": 0.0,
     "g": 50,
     "n": 0
+   },
+   "ext": {
+    "net": 0,
+    "g": null,
+    "n": 0
    }
   },
   "total": -5.1,
   "forGrade": 30,
   "success": {
-   "wpct": ".494",
+   "wpct": ".487",
    "div": 0,
    "g": 45,
-   "w": 130,
-   "l": 133
+   "w": 132,
+   "l": 139
   },
   "cum": [
    -4.9,
@@ -4979,6 +5453,7 @@
   ],
   "intl_tops": [],
   "fa_tops": [],
+  "ext_tops": [],
   "dev": {
    "net": -2.3,
    "g": 30,
@@ -5051,16 +5526,21 @@
     "net": 1.5,
     "g": 50,
     "n": 2
+   },
+   "ext": {
+    "net": 6.5,
+    "g": 60,
+    "n": 2
    }
   },
-  "total": 18.4,
-  "forGrade": 60,
+  "total": 24.9,
+  "forGrade": 65,
   "success": {
-   "wpct": ".540",
+   "wpct": ".541",
    "div": 3,
    "g": 69,
-   "w": 875,
-   "l": 744
+   "w": 880,
+   "l": 746
   },
   "cum": [
    3.8,
@@ -5173,6 +5653,20 @@
     "h": "Signed Wilson Ramos \u00b7 2 yr / $12.5M (2016-17 winter, espn)"
    }
   ],
+  "ext_tops": [
+   {
+    "d": "2019-03-15",
+    "ch": "ext",
+    "net": 9.2,
+    "h": "Extended Brandon Lowe \u00b7 6 yr / $24.0M (early market)"
+   },
+   {
+    "d": "2021-11-15",
+    "ch": "ext",
+    "net": -2.7,
+    "h": "Extended Wander Franco \u00b7 11 yr / $182.0M (early market)"
+   }
+  ],
   "dev": {
    "net": 29.3,
    "g": 55,
@@ -5266,6 +5760,11 @@
     "net": -0.0,
     "g": 50,
     "n": 0
+   },
+   "ext": {
+    "net": 0,
+    "g": null,
+    "n": 0
    }
   },
   "total": 4.8,
@@ -5274,8 +5773,8 @@
    "wpct": ".491",
    "div": 1,
    "g": 48,
-   "w": 368,
-   "l": 382
+   "w": 372,
+   "l": 385
   },
   "cum": [
    -2.4,
@@ -5349,8 +5848,8 @@
    {
     "d": "2022-12-02",
     "ch": "fa",
-    "net": -7.3,
-    "h": "Signed Jacob deGrom \u00b7 5 yr / $185.0M (2022-23 winter, curated)"
+    "net": -8.3,
+    "h": "Signed Jacob deGrom \u00b7 5 yr / $185.0M (2022-23 winter, curated, QO signing, draft comp charged)"
    },
    {
     "d": "2022-11-15",
@@ -5371,6 +5870,7 @@
     "h": "Signed Nathan Eovaldi \u00b7 3 yr / $75.0M (2024-25 winter, curated)"
    }
   ],
+  "ext_tops": [],
   "dev": {
    "net": 10.9,
    "g": 50,
@@ -5452,8 +5952,8 @@
     "n": 103
    },
    "fa": {
-    "net": -7.1,
-    "g": 40,
+    "net": -12.1,
+    "g": 35,
     "n": 25,
     "majors": 74,
     "raw": 77.2
@@ -5462,16 +5962,21 @@
     "net": 8.2,
     "g": 60,
     "n": 9
+   },
+   "ext": {
+    "net": -6.4,
+    "g": 40,
+    "n": 3
    }
   },
-  "total": 21.3,
-  "forGrade": 60,
+  "total": 9.9,
+  "forGrade": 55,
   "success": {
    "wpct": ".514",
    "div": 2,
    "g": 56,
-   "w": 916,
-   "l": 866
+   "w": 920,
+   "l": 869
   },
   "cum": [
    2.9,
@@ -5563,26 +6068,46 @@
    {
     "d": "2021-12-01",
     "ch": "fa",
-    "net": 7.2,
-    "h": "Signed Kevin Gausman \u00b7 5 yr / $110.0M (2021-22 winter, espn)"
+    "net": 6.2,
+    "h": "Signed Kevin Gausman \u00b7 5 yr / $110.0M (2021-22 winter, espn, QO signing, draft comp charged)"
    },
    {
     "d": "2019-12-27",
     "ch": "fa",
+    "net": -5.9,
+    "h": "Signed Hyun Jin Ryu \u00b7 4 yr / $80.0M (2019-20 winter, espn, QO signing, draft comp charged)"
+   },
+   {
+    "d": "2021-01-23",
+    "ch": "fa",
     "net": -4.9,
-    "h": "Signed Hyun Jin Ryu \u00b7 4 yr / $80.0M (2019-20 winter, espn)"
+    "h": "Signed George Springer \u00b7 6 yr / $150.0M (2020-21 winter, espn, QO signing, draft comp charged)"
    },
    {
     "d": "2021-01-30",
     "ch": "fa",
     "net": 4.3,
     "h": "Signed Marcus Semien \u00b7 1 yr / $18.0M (2020-21 winter, espn)"
+   }
+  ],
+  "ext_tops": [
+   {
+    "d": "2021-11-15",
+    "ch": "ext",
+    "net": -8.2,
+    "h": "Extended Jose Berrios \u00b7 7 yr / $131.0M (arb market)"
    },
    {
-    "d": "2019-12-18",
-    "ch": "fa",
-    "net": -3.9,
-    "h": "Signed Tanner Roark \u00b7 2 yr / $24.0M (2019-20 winter, espn)"
+    "d": "2025-03-15",
+    "ch": "ext",
+    "net": 1.8,
+    "h": "Extended Alejandro Kirk \u00b7 5 yr / $58.0M (arb market)"
+   },
+   {
+    "d": "2025-04-15",
+    "ch": "ext",
+    "net": 0.0,
+    "h": "Extended Vladimir Guerrero Jr. \u00b7 14 yr / $500.0M (veteran) \u00b7 no seasons elapsed, OPEN"
    }
   ],
   "dev": {
@@ -5678,6 +6203,11 @@
     "net": 0.0,
     "g": 50,
     "n": 0
+   },
+   "ext": {
+    "net": 0,
+    "g": null,
+    "n": 0
    }
   },
   "total": -1.2,
@@ -5686,8 +6216,8 @@
    "wpct": ".445",
    "div": 0,
    "g": 35,
-   "w": 118,
-   "l": 147
+   "w": 121,
+   "l": 151
   },
   "cum": [
    -2.0,
@@ -5753,6 +6283,7 @@
   ],
   "intl_tops": [],
   "fa_tops": [],
+  "ext_tops": [],
   "dev": {
    "net": 4.5,
    "g": 70,
