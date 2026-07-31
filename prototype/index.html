@@ -342,7 +342,7 @@
   <!-- ================= CHAMPIONS ================= -->
   <section id="view-champs" hidden>
     <h2>Championship Team Tracker · How Titles Get Built</h2>
-    <div class="sub">The provenance machinery pointed at a championship roster: where every core contributor came from, which channel built the title, and how much was this regime's work versus inherited. Acquisition dates and channels are real; contribution values are approximate. <span class="badge-real" style="margin-left:0">PROVENANCE REAL · VALUES APPROX</span></div>
+    <div class="sub">The provenance machinery pointed at a championship roster: where every core contributor came from, which channel built the title, and how much was this regime's work versus inherited. Acquisition dates and channels are real; contribution values are computed by Ledger WAR v0 for the championship season (no fielding component yet, so gloves run modest). <span class="badge-real" style="margin-left:0">PROVENANCE REAL · VALUES COMPUTED · LEDGER WAR v0</span></div>
     <div class="filters">
       <label for="champsel">Champion</label>
       <select id="champsel"></select>
@@ -652,19 +652,19 @@ const CHAMPS = [
   result:'Won World Series', regime:'Andrew Friedman', regimeNote:'title in year 11 of the regime',
   story:'The juggernaut model. Eleven years in, almost nothing on the roster is inherited: the machine drafted and developed its own core (Smith, Pages, Muncy-as-reclamation), converted trade assets into stars (the Betts chain), then spent at the very top of the market (Ohtani, Yamamoto, Snell). Free agency bought about half the title WAR; the build supplied the rest. This is what the FOR channels look like when they all fire at once.',
   roster:[
-    ['Shohei Ohtani','fa','FA · 10 yr / $700M ($680M deferred)','12/2023','reg',7.0],
-    ['Yoshinobu Yamamoto','fa','FA · 12 yr / $325M','12/2023','reg',5.0],
-    ['Mookie Betts','trade','Trade (BOS) + retention-option extension · the real-data chain','02/2020','reg',4.5],
-    ['Will Smith','draft','Draft · 2016 1st round (#32)','06/2016','reg',4.0],
-    ['Freddie Freeman','fa','FA · 6 yr / $162M','03/2022','reg',3.5],
-    ['Andy Pages','intl',"Int'l amateur signing (Cuba)",'2018','reg',3.0],
-    ['Blake Snell','fa','FA · 5 yr / $182M','11/2024','reg',3.0],
-    ['Tyler Glasnow','trade','Trade (TB) · Pepiot + DeLuca out · then extended','12/2023','reg',2.5],
-    ['Tommy Edman','trade','Three-team deadline trade (STL)','07/2024','reg',2.5],
-    ['Max Muncy','intl','Minor-league FA · cost ≈ 0','04/2015','reg',2.0],
-    ['Roki Sasaki','intl',"Int'l posting · minimum-bonus class",'01/2025','reg',1.5],
-    ['Clayton Kershaw','inherited','Draft · 2006 1st round (#7) · two regimes ago','06/2006','inh',1.5],
-    ['Tanner Scott','fa','FA · 4 yr / $72M','01/2025','reg',1.0],
+    ['Shohei Ohtani','fa','FA · 10 yr / $700M ($680M deferred)','12/2023','reg',11.3],
+    ['Yoshinobu Yamamoto','fa','FA · 12 yr / $325M','12/2023','reg',4.4],
+    ['Mookie Betts','trade','Trade (BOS) + retention-option extension · the real-data chain','02/2020','reg',3.4],
+    ['Will Smith','draft','Draft · 2016 1st round (#32)','06/2016','reg',5.5],
+    ['Freddie Freeman','fa','FA · 6 yr / $162M','03/2022','reg',4.1],
+    ['Andy Pages','intl',"Int'l amateur signing (Cuba)",'2018','reg',3.5],
+    ['Blake Snell','fa','FA · 5 yr / $182M','11/2024','reg',1.7],
+    ['Tyler Glasnow','trade','Trade (TB) · Pepiot + DeLuca out · then extended','12/2023','reg',1.5],
+    ['Tommy Edman','trade','Three-team deadline trade (STL)','07/2024','reg',-0.2],
+    ['Max Muncy','intl','Minor-league FA · cost ≈ 0','04/2015','reg',3.4],
+    ['Roki Sasaki','intl',"Int'l posting · minimum-bonus class",'01/2025','reg',-0.3],
+    ['Clayton Kershaw','inherited','Draft · 2006 1st round (#7) · two regimes ago','06/2006','inh',2.1],
+    ['Tanner Scott','fa','FA · 4 yr / $72M','01/2025','reg',0.3],
   ],
   trees:[
    {title:'The Betts chain, ending in three of the last six titles',
@@ -686,17 +686,17 @@ const CHAMPS = [
   regimeNote:'Chris Young GM from Dec 2020, sole baseball-ops lead from Aug 2022; title 14 months later',
   story:'The bought spine plus the inherited scrap-heap star. One November (2021) purchased the middle infield outright; the club\'s best position player had arrived two years earlier for cash considerations under the previous regime, and the young core (Jung, Carter) was drafted before the handoff too. This is exactly why the Ledger grades regimes rather than teams: the 2023 flag decomposes across two front offices, and the page shows the split instead of hiding it.',
   roster:[
-    ['Corey Seager','fa','FA · 10 yr / $325M','11/2021','tra',6.0],
-    ['Marcus Semien','fa','FA · 7 yr / $175M','11/2021','tra',5.5],
-    ['Adolis García','inherited','Acquired from STL for cash considerations','12/2019','inh',4.5],
+    ['Corey Seager','fa','FA · 10 yr / $325M','11/2021','tra',7.4],
+    ['Marcus Semien','fa','FA · 7 yr / $175M','11/2021','tra',5.3],
+    ['Adolis García','inherited','Acquired from STL for cash considerations','12/2019','inh',3.4],
     ['Jonah Heim','trade','Elvis Andrus / Khris Davis trade (OAK)','02/2021','tra',3.0],
-    ['Nathan Eovaldi','fa','FA · 2 yr / $34M','12/2022','reg',3.0],
-    ['Nathaniel Lowe','trade','Trade (TB) for prospect package','12/2020','tra',2.0],
-    ['Josh Jung','inherited','Draft · 2019 1st round (#8) · prior regime','06/2019','inh',2.0],
-    ['Jordan Montgomery','trade','Deadline rental (STL)','07/2023','reg',1.5],
-    ['Evan Carter','inherited','Draft · 2020 2nd round (#50) · prior regime','06/2020','inh',1.5],
+    ['Nathan Eovaldi','fa','FA · 2 yr / $34M','12/2022','reg',2.4],
+    ['Nathaniel Lowe','trade','Trade (TB) for prospect package','12/2020','tra',1.6],
+    ['Josh Jung','inherited','Draft · 2019 1st round (#8) · prior regime','06/2019','inh',2.7],
+    ['Jordan Montgomery','trade','Deadline rental (STL)','07/2023','reg',1.6],
+    ['Evan Carter','inherited','Draft · 2020 2nd round (#50) · prior regime','06/2020','inh',1.1],
     ['Max Scherzer','trade','Deadline rental (NYM, salary offset)','07/2023','reg',1.0],
-    ['Jacob deGrom','fa','FA · 5 yr / $185M · injured June 2023','12/2022','reg',0.5],
+    ['Jacob deGrom','fa','FA · 5 yr / $185M · injured June 2023','12/2022','reg',1.3],
   ],
   trees:[
    {title:'The Adolis García chain · cash into a franchise cornerstone',
@@ -733,7 +733,7 @@ function renderChamp(id){
       <div class="rc-meta">${c.result} · ${c.regime} · ${c.regimeNote}</div></div>
     </div>
     <div class="tiles">
-      <div class="card tile"><div class="lbl">Core WAR tracked</div><div class="val">${total.toFixed(0)}</div><div class="dlt">championship-season contributions, approx.</div></div>
+      <div class="card tile"><div class="lbl">Core WAR tracked</div><div class="val">${total.toFixed(0)}</div><div class="dlt">championship-season Ledger WAR v0</div></div>
       <div class="card tile"><div class="lbl">Built by this regime</div><div class="val ${regShare>=60?'pos':''}">${regShare}%</div><div class="dlt">share of core WAR from this regime's own decisions</div></div>
       <div class="card tile"><div class="lbl">Biggest channel</div><div class="val" style="font-size:24px">${CHAMP_CH[order[0]].name}</div><div class="dlt">${Math.round(mix[order[0]]/total*100)}% of core WAR</div></div>
     </div>
