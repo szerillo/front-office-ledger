@@ -99,7 +99,7 @@ def grade(nps):
 per = defaultdict(lambda: dict(real=0.0, exp=0.0, n=0, tops=[]))
 for tid, yr, pid, nm, v in ifa:
     p = per[tid]; p["real"] += v; p["n"] += 1
-    p["tops"].append((v, yr, nm))
+    p["tops"].append((v, yr, nm, pid))
 for tid, p in per.items():
     y0 = max(int(REG[tid]["start"][:4]), 2005)
     p["exp"] = sum(class_mean(y) for y in range(y0, 2027))
@@ -109,9 +109,13 @@ for r in res:
     tid = r["teamId"]; p = per.get(tid, dict(real=0.0, exp=sum(class_mean(y) for y in range(max(int(REG[tid]['start'][:4]),2005), 2027)), n=0, tops=[]))
     net = p["real"] - p["exp"]
     r["chan"]["intl"] = dict(net=round(net, 1), g=grade(net / r["seasons"]), n=p["n"])
-    tops = sorted(p["tops"], reverse=True)[:5]
+    tops = sorted(p["tops"], key=lambda t: -t[0])[:5]
     r["intl_tops"] = [dict(d=f"{y}-01-15", ch="intl", net=round(v, 1),
-                           h=f"Int'l amateur signing: {nm} ({y} class)") for v, y, nm in tops if v >= 0.5]
+                           h=f"Int'l amateur signing: {nm} ({y} class)",
+                           sides=[["Realized on signing org (class year +10)", [[nm, f"{v:+.1f}"]]],
+                                  ["Class baseline", [["league mean per observed regime, near-equal pools", "shared"]]]],
+                           pids=[pp])
+                      for v, y, nm, pp in tops if v >= 0.5]
     r["total"] = round(r["total"] + net, 1)
     best = f"{tops[0][2]} (+{tops[0][0]:.1f})" if tops and tops[0][0] > 0.3 else "-"
     print(f"{r['abbr']:<6}{net:>+9.1f}{p['real']:>8.1f}{p['exp']:>7.1f}{p['n']:>5}   {best}")

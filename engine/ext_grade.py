@@ -136,7 +136,10 @@ for sign, player, ab, yrs, tot, cbt in EXT:
     per[tid]["net"] += n; per[tid]["n"] += 1
     cbtnote = f", CBT ${use_tot:.0f}M" if cbt else ""
     per[tid]["decs"].append(dict(d=sign_date, ch="ext", net=round(n, 1),
-        h=f"Extended {player} · {yrs} yr / ${tot:.1f}M ({cls} market{cbtnote})"))
+        h=f"Extended {player} · {yrs} yr / ${tot:.1f}M ({cls} market{cbtnote})",
+        sides=[["Production (LVM on club, covered seasons)", [[player, f"{realized:+.1f}"]]],
+               [f"Cost vs {cls} extension market", [[f"${use_tot:.0f}M over {yrs} yr at {int(DISC[cls]*100)}% of market $/win", f"{-implied:+.1f}"]]]],
+        pids=[pid] if pid else []))
 
 print(f"{'team':<6}{'EXT net':>9}{'n':>4}   deals")
 for r in res:

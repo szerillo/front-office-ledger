@@ -209,7 +209,11 @@ for reg in cfg["regimes"]:
             wv_net += net; n_wv += 1; ynet[yr] += net
             if abs(net) > 0.05:
                 decs.append(dict(d=r["date"], ch="waiver", net=round(net,1),
-                                 h=(r["description"] or "waiver claim")[:110]))
+                                 h=(r["description"] or "waiver claim")[:110],
+                                 sides=[[("Claimed · 3-yr value on club" if claim else "Lost on waivers · 3-yr value elsewhere"),
+                                         [[r["person_name"] or "?", f"{net:+.1f}"]]],
+                                        ["Baseline", [["waiver channel expectation", "0.0"]]]],
+                                 pids=[r["person_id"]]))
         elif t == "Rule 5 Selection":
             pick = r["to_team"] in names
             v = val(r["person_id"], names if pick else {r["to_team"]}, yr, yr+3, inside=True)
@@ -223,24 +227,38 @@ for reg in cfg["regimes"]:
                     lost = val(pid, names, yr + 1, yr + 3, inside=False)
                     if lost > 1.0:
                         walk.append(dict(d=r["date"], ch="walk", net=round(-lost, 1),
-                            h=f"Let {r['person_name']} walk as a free agent · {lost:.1f} LVM elsewhere over the next 3 seasons"))
+                            h=f"Let {r['person_name']} walk as a free agent · {lost:.1f} LVM elsewhere over the next 3 seasons",
+                            sides=[["Production lost (next 3 seasons, other clubs)", [[r["person_name"], f"{-lost:+.1f}"]]],
+                                   ["Received", [["nothing (no compensation modeled yet)", "0.0"]]]],
+                            pids=[r["person_id"]]))
         elif t == "Signed as Free Agent":
             key = (r["date"], r["person_id"])
             if key in seen_fa or "minor league" in (r["description"] or "").lower(): continue
             seen_fa.add(key); n_fa += 1
             fa_raw += val(r["person_id"], names, yr, yr+3, inside=True)
     tr_net = 0.0
+    pname = {}
+    for x in regime_rows[tid]:
+        if x["person_id"]: pname[x["person_id"]] = x["person_name"]
     for (d, desc), rs in trades.items():
         yr = int(d[:4])
         pids_in  = {x["person_id"] for x in rs if x["to_team"] in names and x["person_id"]}
         outs = {x["person_id"]: x["to_team"] for x in rs
                 if x["from_team"] in names and x["person_id"] and x["to_team"]}
-        vin  = sum(val_control(p, names, yr) for p in pids_in)
-        vout = sum(val_control(p, {dest}, yr) for p, dest in outs.items())
+        ins_det = [(p, pname.get(p, "?"), val_control(p, names, yr)) for p in pids_in]
+        out_det = [(p, pname.get(p, "?"), dest, val_control(p, {dest}, yr)) for p, dest in outs.items()]
+        vin  = sum(v for (_, _, v) in ins_det)
+        vout = sum(v for (_, _, _, v) in out_det)
         net = vin - vout; tr_net += net; ynet[yr] += net
         if abs(net) >= 0.8:
+            dests = sorted({dest for (_, _, dest, _) in out_det})
+            sides = [["Acquired (control-window value, leverage-weighted)",
+                      [[nm, f"{v:+.1f}"] for (_, nm, v) in sorted(ins_det, key=lambda t: -t[2])] or [["(no valued players)", "0.0"]]],
+                     ["Surrendered · value realized on " + (", ".join(dests) if dests else "counterparty"),
+                      [[nm, f"{-v:+.1f}"] for (_, nm, _, v) in sorted(out_det, key=lambda t: -t[3])] or [["(no valued players)", "0.0"]]]]
             decs.append(dict(d=d, ch="trade", net=round(net,1), h=(desc or "trade")[:130],
-                             vin=round(vin,1), vout=round(vout,1)))
+                             vin=round(vin,1), vout=round(vout,1), sides=sides,
+                             pids=[p for (p, _, _) in ins_det] + [p for (p, _, _, _) in out_det]))
     # draft
     dr_real = dr_exp = 0.0
     for p in drafts[tid]:
@@ -251,7 +269,10 @@ for reg in cfg["regimes"]:
         net = realized - exp; ynet[yr] += net
         if abs(net) >= 1.2:
             decs.append(dict(d=f"{yr}-06-15", ch="draft", net=round(net,1),
-                             h=f"Drafted {p['person_name']} (#{pk} overall, {yr})"))
+                             h=f"Drafted {p['person_name']} (#{pk} overall, {yr})",
+                             sides=[["Realized on club", [[p["person_name"], f"{realized:+.1f}"]]],
+                                    ["Slot expectation", [[f"pick #{pk}, maturity-adjusted", f"{-exp:+.1f}"]]]],
+                             pids=[p["person_id"]]))
     dr_net = dr_real - dr_exp
     total = tr_net + dr_net + wv_net
     w = l = div = 0

@@ -96,8 +96,12 @@ for r in res:
             notes.append("QO signing, draft comp charged")
         note = (", " + ", ".join(notes)) if notes else ""
         net += n; matched += 1
+        fasides = [["Production (LVM on club, elapsed seasons)", [[x["person_name"], f"{realized:+.1f}"]]],
+                   ["Contract cost in wins" + (" (QO draft comp included)" if (pn, off) in QO else ""),
+                    [[f"${tot:.0f}M over {yrs} yr at market $/win", f"{-(implied + (QO_CHARGE if (pn, off) in QO else 0)):+.1f}"]]]]
         decs.append(dict(d=x["date"], ch="fa", net=round(n, 1),
-                         h=f"Signed {x['person_name']} · {yrs} yr / ${tot:.1f}M ({off}-{str(off+1)[2:]} winter, {src}{note})"))
+                         h=f"Signed {x['person_name']} · {yrs} yr / ${tot:.1f}M ({off}-{str(off+1)[2:]} winter, {src}{note})",
+                         sides=fasides, pids=[x["person_id"]]))
     covered = matched >= 8
     r["chan"]["fa"] = dict(net=round(net, 1) if covered else 0,
                            g=grade(net / r["seasons"]) if covered else None,
