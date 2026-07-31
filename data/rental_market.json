@@ -1,0 +1,2423 @@
+{
+ "n": 237,
+ "eras": [
+  {
+   "era": "2005-2011",
+   "n": 6,
+   "n_fit": 3,
+   "pooled_ratio": 0.0,
+   "median_ratio": 0.0,
+   "bust_rate": 0.5,
+   "avg_received": 0.48,
+   "avg_paid": 0.0
+  },
+  {
+   "era": "2012-2016",
+   "n": 16,
+   "n_fit": 8,
+   "pooled_ratio": 1.292,
+   "median_ratio": 0.12,
+   "bust_rate": 0.467,
+   "avg_received": 0.89,
+   "avg_paid": 1.15
+  },
+  {
+   "era": "2017-2021",
+   "n": 89,
+   "n_fit": 41,
+   "pooled_ratio": 0.862,
+   "median_ratio": 0.0,
+   "bust_rate": 0.512,
+   "avg_received": 0.76,
+   "avg_paid": 0.66
+  },
+  {
+   "era": "2022-2025",
+   "n": 126,
+   "n_fit": 46,
+   "pooled_ratio": 0.325,
+   "median_ratio": 0.0,
+   "bust_rate": 0.623,
+   "avg_received": 0.68,
+   "avg_paid": 0.22
+  }
+ ],
+ "star_market": {
+  "n": 8,
+  "pooled_ratio": 0.793,
+  "avg_received": 1.91,
+  "avg_paid": 1.52
+ },
+ "deals": [
+  {
+   "d": "2017-07-18",
+   "buyer": "ARI",
+   "yr": 2017,
+   "rental": "J.D. Martinez",
+   "received": 3.12,
+   "extra": 0,
+   "paid": -0.4,
+   "desc": "Detroit Tigers traded RF J.D. Martinez to Arizona Diamondbacks for 3B Dawel Lugo, SS Jose King and SS Sergio Alcantara."
+  },
+  {
+   "d": "2017-07-31",
+   "buyer": "ARI",
+   "yr": 2017,
+   "rental": "Adam Rosales",
+   "received": -0.17,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Oakland Athletics traded SS Adam Rosales to Arizona Diamondbacks for RHP Jeferson Mejia."
+  },
+  {
+   "d": "2017-07-31",
+   "buyer": "ARI",
+   "yr": 2017,
+   "rental": "David Hernandez",
+   "received": 0.18,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Los Angeles Angels traded RHP David Hernandez to Arizona Diamondbacks for RHP Luis Madero."
+  },
+  {
+   "d": "2018-06-06",
+   "buyer": "ARI",
+   "yr": 2018,
+   "rental": "Jon Jay",
+   "received": 0.24,
+   "extra": 0,
+   "paid": 0.43,
+   "desc": "Kansas City Royals traded LF Jon Jay to Arizona Diamondbacks for Elvis Luciano and Gabe Speier."
+  },
+  {
+   "d": "2018-07-31",
+   "buyer": "ARI",
+   "yr": 2018,
+   "rental": "Jake Diekman",
+   "received": 0.06,
+   "extra": 0,
+   "paid": -0.02,
+   "desc": "Texas Rangers traded LHP Jake Diekman to Arizona Diamondbacks for RHP Wei-Chieh Huang and Player To Be Named Later."
+  },
+  {
+   "d": "2018-08-30",
+   "buyer": "ARI",
+   "yr": 2018,
+   "rental": "Chris Stewart",
+   "received": -0.02,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Atlanta Braves traded C Chris Stewart to Arizona Diamondbacks for cash."
+  },
+  {
+   "d": "2023-08-01",
+   "buyer": "ARI",
+   "yr": 2023,
+   "rental": "Tommy Pham",
+   "received": 0.29,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "New York Mets traded CF Tommy Pham and cash to Arizona Diamondbacks for SS Jeremy Rodriguez."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "ARI",
+   "yr": 2024,
+   "rental": "Josh Bell",
+   "received": 0.65,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Miami Marlins traded 1B Josh Bell to Arizona Diamondbacks for Player To Be Named Later."
+  },
+  {
+   "d": "2018-07-30",
+   "buyer": "ATL",
+   "yr": 2018,
+   "rental": "Brad Brach",
+   "received": 0.55,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Baltimore Orioles traded RHP Brad Brach to Atlanta Braves for Future Considerations."
+  },
+  {
+   "d": "2018-08-29",
+   "buyer": "ATL",
+   "yr": 2018,
+   "rental": "Lucas Duda",
+   "received": 0.14,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Kansas City Royals traded 1B Lucas Duda to Atlanta Braves for cash."
+  },
+  {
+   "d": "2019-07-30",
+   "buyer": "ATL",
+   "yr": 2019,
+   "rental": "Chris Martin",
+   "received": 0.75,
+   "extra": 0,
+   "paid": 0.12,
+   "desc": "Texas Rangers traded RHP Chris Martin to Atlanta Braves for LHP Kolby Allard."
+  },
+  {
+   "d": "2019-07-31",
+   "buyer": "ATL",
+   "yr": 2019,
+   "rental": "John Ryan Murphy",
+   "received": -0.02,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Arizona Diamondbacks traded C John Ryan Murphy to Atlanta Braves for cash."
+  },
+  {
+   "d": "2021-07-15",
+   "buyer": "ATL",
+   "yr": 2021,
+   "rental": "Joc Pederson",
+   "received": 0.28,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Chicago Cubs traded CF Joc Pederson to Atlanta Braves for 1B Bryce Ball."
+  },
+  {
+   "d": "2021-07-30",
+   "buyer": "ATL",
+   "yr": 2021,
+   "rental": "Richard Rodr\u00edguez",
+   "received": -0.26,
+   "extra": 0,
+   "paid": -0.48,
+   "desc": "Pittsburgh Pirates traded RHP Richard Rodriguez to Atlanta Braves for RHP Bryse Wilson and RHP Ricky DeVito."
+  },
+  {
+   "d": "2021-07-30",
+   "buyer": "ATL",
+   "yr": 2021,
+   "rental": "Eddie Rosario",
+   "received": 0.92,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Cleveland Indians traded LF Eddie Rosario and cash to Atlanta Braves for 3B Pablo Sandoval."
+  },
+  {
+   "d": "2021-07-30",
+   "buyer": "ATL",
+   "yr": 2021,
+   "rental": "Jorge Soler",
+   "received": 1.43,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Kansas City Royals traded RF Jorge Soler to Atlanta Braves for RHP Kasey Kalich."
+  },
+  {
+   "d": "2022-07-01",
+   "buyer": "ATL",
+   "yr": 2022,
+   "rental": "Silvino Bracho",
+   "received": -0.19,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Boston Red Sox traded RHP Silvino Bracho to Atlanta Braves for cash."
+  },
+  {
+   "d": "2022-08-01",
+   "buyer": "ATL",
+   "yr": 2022,
+   "rental": "Ehire Adrianza",
+   "received": 0.01,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Washington Nationals traded SS Ehire Adrianza to Atlanta Braves for 2B Trey Harris."
+  },
+  {
+   "d": "2022-08-02",
+   "buyer": "ATL",
+   "yr": 2022,
+   "rental": "Robbie Grossman",
+   "received": 0.21,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Detroit Tigers traded LF Robbie Grossman to Atlanta Braves for LHP Kris Anglin."
+  },
+  {
+   "d": "2023-08-01",
+   "buyer": "ATL",
+   "yr": 2023,
+   "rental": "Brad Hand",
+   "received": 0.27,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Colorado Rockies traded LHP Brad Hand to Atlanta Braves for RHP Alec Barger."
+  },
+  {
+   "d": "2024-07-29",
+   "buyer": "ATL",
+   "yr": 2024,
+   "rental": "Luke Jackson",
+   "received": 0.28,
+   "extra": 1.02,
+   "paid": 0.0,
+   "desc": "Atlanta Braves traded LHP Tyler Matzek and 3B Sabin Ceballos to San Francisco Giants for RF Jorge Soler and RHP Luke Jac"
+  },
+  {
+   "d": "2025-07-28",
+   "buyer": "ATL",
+   "yr": 2025,
+   "rental": "Carlos Carrasco",
+   "received": -0.17,
+   "extra": 0,
+   "paid": 0,
+   "desc": "New York Yankees traded RHP Carlos Carrasco to Atlanta Braves for cash."
+  },
+  {
+   "d": "2025-07-30",
+   "buyer": "ATL",
+   "yr": 2025,
+   "rental": "Tyler Kinley",
+   "received": 0.7,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Colorado Rockies traded RHP Tyler Kinley to Atlanta Braves for RHP Austin Smith."
+  },
+  {
+   "d": "2023-07-19",
+   "buyer": "BAL",
+   "yr": 2023,
+   "rental": "Shintaro Fujinami",
+   "received": 0.4,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Oakland Athletics traded RHP Shintaro Fujinami to Baltimore Orioles for LHP Easton Lucas."
+  },
+  {
+   "d": "2023-08-01",
+   "buyer": "BAL",
+   "yr": 2023,
+   "rental": "Jack Flaherty",
+   "received": 0.2,
+   "extra": 0,
+   "paid": -0.64,
+   "desc": "St. Louis Cardinals traded RHP Jack Flaherty to Baltimore Orioles for 2B C\u00e9sar Prieto, LHP Drew Rom and RHP Zack Showalt"
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "BAL",
+   "yr": 2024,
+   "rental": "Eloy Jim\u00e9nez",
+   "received": -0.43,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Chicago White Sox traded LF Eloy Jim\u00e9nez and cash to Baltimore Orioles for LHP Trey McGough."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "BAL",
+   "yr": 2024,
+   "rental": "Austin Slater",
+   "received": 0.14,
+   "extra": 0.16,
+   "paid": 0,
+   "desc": "Cincinnati Reds traded LF Austin Slater, SS Livan Soto and cash to Baltimore Orioles for Player To Be Named Later."
+  },
+  {
+   "d": "2024-07-06",
+   "buyer": "BOS",
+   "yr": 2024,
+   "rental": "Trey Wingenter",
+   "received": -0.1,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Detroit Tigers traded RHP Trey Wingenter to Boston Red Sox."
+  },
+  {
+   "d": "2024-07-26",
+   "buyer": "BOS",
+   "yr": 2024,
+   "rental": "James Paxton",
+   "received": 0.23,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Los Angeles Dodgers traded LHP James Paxton to Boston Red Sox for SS Moises Bolivar."
+  },
+  {
+   "d": "2024-07-27",
+   "buyer": "BOS",
+   "yr": 2024,
+   "rental": "Danny Jansen",
+   "received": 0.36,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Toronto Blue Jays traded C Danny Jansen to Boston Red Sox for SS Cutter Coffey, SS Eddinson Paulino and RHP Gilberto Bat"
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "BOS",
+   "yr": 2024,
+   "rental": "Lucas Sims",
+   "received": -0.16,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Cincinnati Reds traded RHP Lucas Sims to Boston Red Sox for RHP Ovis Portes."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "BOS",
+   "yr": 2024,
+   "rental": "Luis Garc\u00eda",
+   "received": -0.0,
+   "extra": 0,
+   "paid": 0.54,
+   "desc": "Los Angeles Angels traded RHP Luis Garc\u00eda to Boston Red Sox for SS Matthew Lugo, 1B Niko Kavadas, RHP Ryan Zeferjahn and"
+  },
+  {
+   "d": "2025-06-11",
+   "buyer": "BOS",
+   "yr": 2025,
+   "rental": "Jorge Alcala",
+   "received": -0.08,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Minnesota Twins traded RHP Jorge Alcala to Boston Red Sox for IF Andy Lugo."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "BOS",
+   "yr": 2025,
+   "rental": "Steven Matz",
+   "received": 0.07,
+   "extra": 0,
+   "paid": -0.01,
+   "desc": "St. Louis Cardinals traded LHP Steven Matz to Boston Red Sox for 1B Blaze Jordan."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "BOS",
+   "yr": 2025,
+   "rental": "Dustin May",
+   "received": -0.08,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Los Angeles Dodgers traded RHP Dustin May to Boston Red Sox for RF James Tibbs III and OF Zach Ehrhard."
+  },
+  {
+   "d": "2023-07-31",
+   "buyer": "CHC",
+   "yr": 2023,
+   "rental": "Jeimer Candelario",
+   "received": 0.73,
+   "extra": 0,
+   "paid": 1.41,
+   "desc": "Washington Nationals traded 3B Jeimer Candelario and cash to Chicago Cubs for LHP DJ Herz and SS Kevin Made."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "CHC",
+   "yr": 2025,
+   "rental": "Taylor Rogers",
+   "received": 0.07,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Pittsburgh Pirates traded LHP Taylor Rogers to Chicago Cubs for RF Ivan Brethowr."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "CHC",
+   "yr": 2025,
+   "rental": "Michael Soroka",
+   "received": 0.02,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Washington Nationals traded RHP Michael Soroka to Chicago Cubs for SS Ronny Cruz and LF Christian Franklin."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "CHC",
+   "yr": 2025,
+   "rental": "Willi Castro",
+   "received": -0.48,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Minnesota Twins traded LF Willi Castro to Chicago Cubs for RHP Sam Armstrong and RHP Ryan Gallagher."
+  },
+  {
+   "d": "2025-06-13",
+   "buyer": "CWS",
+   "yr": 2025,
+   "rental": "Aaron Civale",
+   "received": 0.67,
+   "extra": 0,
+   "paid": 2.97,
+   "desc": "Chicago White Sox traded 1B Andrew Vaughn to Milwaukee Brewers for RHP Aaron Civale and cash."
+  },
+  {
+   "d": "2021-07-28",
+   "buyer": "CIN",
+   "yr": 2021,
+   "rental": "Mychal Givens",
+   "received": 0.22,
+   "extra": 0,
+   "paid": -0.24,
+   "desc": "Colorado Rockies traded RHP Mychal Givens to Cincinnati Reds for RHP Case Williams and RHP Noah Davis."
+  },
+  {
+   "d": "2021-08-31",
+   "buyer": "CIN",
+   "yr": 2021,
+   "rental": "Delino DeShields",
+   "received": 0.41,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Boston Red Sox traded CF Delino DeShields to Cincinnati Reds for cash."
+  },
+  {
+   "d": "2022-08-02",
+   "buyer": "CIN",
+   "yr": 2022,
+   "rental": "Austin Romine",
+   "received": -0.51,
+   "extra": 0,
+   "paid": 0,
+   "desc": "St. Louis Cardinals traded C Austin Romine to Cincinnati Reds for cash."
+  },
+  {
+   "d": "2024-07-07",
+   "buyer": "CIN",
+   "yr": 2024,
+   "rental": "Austin Slater",
+   "received": -0.27,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Cincinnati Reds traded LHP Alex Young to San Francisco Giants for LF Austin Slater and cash."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "CIN",
+   "yr": 2024,
+   "rental": "Jakob Junis",
+   "received": 0.88,
+   "extra": 0.04,
+   "paid": 0.48,
+   "desc": "Cincinnati Reds traded RHP Frankie Montas to Milwaukee Brewers for RHP Jakob Junis, OF Joey Wiemer and cash."
+  },
+  {
+   "d": "2025-07-30",
+   "buyer": "CIN",
+   "yr": 2025,
+   "rental": "Zack Littell",
+   "received": 0.24,
+   "extra": 0,
+   "paid": 0.03,
+   "desc": "Tampa Bay Rays traded RHP Zack Littell to Cincinnati Reds for RHP Brian Van Belle and LHP Adam Serwinowski."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "CIN",
+   "yr": 2025,
+   "rental": "Miguel Andujar",
+   "received": 0.99,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Athletics traded LF Miguel Andujar to Cincinnati Reds for RHP Kenya Huggins."
+  },
+  {
+   "d": "2016-08-31",
+   "buyer": "CLE",
+   "yr": 2016,
+   "rental": "Coco Crisp",
+   "received": 0.2,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Oakland Athletics traded LF Coco Crisp and cash to Cleveland Indians for LHP Colt Hynes."
+  },
+  {
+   "d": "2017-07-31",
+   "buyer": "CLE",
+   "yr": 2017,
+   "rental": "Joe Smith",
+   "received": 0.75,
+   "extra": 0,
+   "paid": 0.36,
+   "desc": "Toronto Blue Jays traded RHP Joe Smith to Cleveland Indians for LHP Thomas Pannone and 2B Samad Taylor."
+  },
+  {
+   "d": "2017-08-09",
+   "buyer": "CLE",
+   "yr": 2017,
+   "rental": "Jay Bruce",
+   "received": 0.69,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "New York Mets traded RF Jay Bruce to Cleveland Indians for RHP Ryder Ryan."
+  },
+  {
+   "d": "2018-07-06",
+   "buyer": "CLE",
+   "yr": 2018,
+   "rental": "James Hoyt",
+   "received": 0,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Houston Astros traded RHP James Hoyt to Cleveland Indians for RHP Tommy DeJuneas."
+  },
+  {
+   "d": "2018-08-31",
+   "buyer": "CLE",
+   "yr": 2018,
+   "rental": "Josh Donaldson",
+   "received": 0.68,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Toronto Blue Jays traded 3B Josh Donaldson to Cleveland Indians for Player To Be Named Later."
+  },
+  {
+   "d": "2019-07-31",
+   "buyer": "CLE",
+   "yr": 2019,
+   "rental": "Yasiel Puig",
+   "received": 0.84,
+   "extra": 3.37,
+   "paid": 2.45,
+   "desc": "Cincinnati Reds Traded CF Taylor Trammell to San Diego Padres; San Diego Padres Traded RF Franmil Reyes, LHP Logan Allen"
+  },
+  {
+   "d": "2022-06-28",
+   "buyer": "CLE",
+   "yr": 2022,
+   "rental": "Sandy Le\u00f3n",
+   "received": 0.11,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Cincinnati Reds traded C Sandy Leon to Cleveland Guardians."
+  },
+  {
+   "d": "2023-08-04",
+   "buyer": "CLE",
+   "yr": 2023,
+   "rental": "Kole Calhoun",
+   "received": -0.13,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Los Angeles Dodgers traded RF Kole Calhoun to Cleveland Guardians for cash."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "CLE",
+   "yr": 2024,
+   "rental": "Alex Cobb",
+   "received": 0.33,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "San Francisco Giants traded RHP Alex Cobb to Cleveland Guardians for LHP Jacob Bresnahan."
+  },
+  {
+   "d": "2024-07-29",
+   "buyer": "DET",
+   "yr": 2024,
+   "rental": "Ricky Vanasco",
+   "received": 0.04,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Los Angeles Dodgers traded RHP Ricky Vanasco to Detroit Tigers for cash."
+  },
+  {
+   "d": "2025-07-28",
+   "buyer": "DET",
+   "yr": 2025,
+   "rental": "Chris Paddack",
+   "received": -0.67,
+   "extra": 0.0,
+   "paid": 0.0,
+   "desc": "Minnesota Twins traded RHP Chris Paddack and RHP Randy Dobnak to Detroit Tigers for C Enrique Jimenez."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "DET",
+   "yr": 2025,
+   "rental": "Charlie Morton",
+   "received": -0.01,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Baltimore Orioles traded RHP Charlie Morton to Detroit Tigers for LHP Micah Ashman."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "DET",
+   "yr": 2025,
+   "rental": "Rafael Montero",
+   "received": 0.17,
+   "extra": 0,
+   "paid": 0.3,
+   "desc": "Atlanta Braves traded RHP Rafael Montero to Detroit Tigers for SS Jim Jarvis."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "DET",
+   "yr": 2025,
+   "rental": "Kyle Finnegan",
+   "received": 0.66,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Washington Nationals traded RHP Kyle Finnegan to Detroit Tigers for RHP R.J. Sales and RHP Josh Randall."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "DET",
+   "yr": 2025,
+   "rental": "Paul Sewald",
+   "received": -0.08,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Cleveland Guardians traded RHP Paul Sewald to Detroit Tigers for Future Considerations."
+  },
+  {
+   "d": "2024-07-29",
+   "buyer": "HOU",
+   "yr": 2024,
+   "rental": "Yusei Kikuchi",
+   "received": 1.4,
+   "extra": 0,
+   "paid": 0.47,
+   "desc": "Toronto Blue Jays traded LHP Yusei Kikuchi to Houston Astros for RHP Jake Bloss, OF Joey Loperfido and 2B Will Wagner."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "HOU",
+   "yr": 2024,
+   "rental": "Caleb Ferguson",
+   "received": 0.54,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "New York Yankees traded LHP Caleb Ferguson to Houston Astros for RHP Kelly Austin and Future Considerations. Internation"
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "HOU",
+   "yr": 2025,
+   "rental": "Ram\u00f3n Ur\u00edas",
+   "received": 0.06,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Baltimore Orioles traded 3B Ram\u00f3n Ur\u00edas to Houston Astros for RHP Twine Palmer."
+  },
+  {
+   "d": "2024-07-29",
+   "buyer": "KC",
+   "yr": 2024,
+   "rental": "Michael Lorenzen",
+   "received": 0.38,
+   "extra": 0,
+   "paid": 0.15,
+   "desc": "Texas Rangers traded RHP Michael Lorenzen to Kansas City Royals for LHP Walter Pennington."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "KC",
+   "yr": 2024,
+   "rental": "Paul DeJong",
+   "received": 0.34,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Chicago White Sox traded SS Paul DeJong to Kansas City Royals for RHP Jarold Rosado."
+  },
+  {
+   "d": "2024-08-31",
+   "buyer": "KC",
+   "yr": 2024,
+   "rental": "Yuli Gurriel",
+   "received": -0.05,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Atlanta Braves traded 1B Yuli Gurriel to Kansas City Royals."
+  },
+  {
+   "d": "2025-07-16",
+   "buyer": "KC",
+   "yr": 2025,
+   "rental": "Adam Frazier",
+   "received": 0.78,
+   "extra": 0,
+   "paid": -0.34,
+   "desc": "Pittsburgh Pirates traded 2B Adam Frazier to Kansas City Royals for SS Cam Devanney."
+  },
+  {
+   "d": "2025-07-26",
+   "buyer": "KC",
+   "yr": 2025,
+   "rental": "Randal Grichuk",
+   "received": -0.53,
+   "extra": 0,
+   "paid": -0.23,
+   "desc": "Arizona Diamondbacks traded RF Randal Grichuk to Kansas City Royals for RHP Andrew Hoffmann."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "KC",
+   "yr": 2025,
+   "rental": "Mike Yastrzemski",
+   "received": 1.14,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "San Francisco Giants traded RF Mike Yastrzemski to Kansas City Royals for RHP Yunior Marte."
+  },
+  {
+   "d": "2022-07-04",
+   "buyer": "LAA",
+   "yr": 2022,
+   "rental": "Touki Toussaint",
+   "received": 0.04,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Atlanta Braves traded RHP Touki Toussaint to Los Angeles Angels."
+  },
+  {
+   "d": "2022-08-02",
+   "buyer": "LAA",
+   "yr": 2022,
+   "rental": "Jesse Chavez",
+   "received": 0.01,
+   "extra": 0.11,
+   "paid": 6.78,
+   "desc": "Los Angeles Angels traded RHP Raisel Iglesias to Atlanta Braves for RHP Jesse Chavez and LHP Tucker Davidson."
+  },
+  {
+   "d": "2023-06-24",
+   "buyer": "LAA",
+   "yr": 2023,
+   "rental": "Eduardo Escobar",
+   "received": -0.48,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "New York Mets traded 3B Eduardo Escobar and cash to Los Angeles Angels for RHP Coleman Crow and RHP Landon Marceaux."
+  },
+  {
+   "d": "2023-06-25",
+   "buyer": "LAA",
+   "yr": 2023,
+   "rental": "Mike Moustakas",
+   "received": -0.17,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Colorado Rockies traded 3B Mike Moustakas to Los Angeles Angels for RHP Connor Van Scoyoc."
+  },
+  {
+   "d": "2023-07-26",
+   "buyer": "LAA",
+   "yr": 2023,
+   "rental": "Reynaldo L\u00f3pez, Lucas Giolito",
+   "received": -0.25,
+   "extra": 0,
+   "paid": 1.24,
+   "desc": "Chicago White Sox traded RHP Lucas Giolito and RHP Reynaldo L\u00f3pez to Los Angeles Angels for C Edgar Quero and LHP Ky Bus"
+  },
+  {
+   "d": "2023-07-30",
+   "buyer": "LAA",
+   "yr": 2023,
+   "rental": "Randal Grichuk, C.J. Cron",
+   "received": -0.76,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Colorado Rockies traded 1B C.J. Cron, RF Randal Grichuk and cash to Los Angeles Angels for LHP Mason Albright and RHP Ja"
+  },
+  {
+   "d": "2023-08-01",
+   "buyer": "LAA",
+   "yr": 2023,
+   "rental": "Dominic Leone",
+   "received": -0.04,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "New York Mets traded RHP Dominic Leone and cash to Los Angeles Angels for SS Jeremiah Jackson."
+  },
+  {
+   "d": "2025-07-30",
+   "buyer": "LAA",
+   "yr": 2025,
+   "rental": "Andrew Chafin, Luis Garc\u00eda",
+   "received": 0.87,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Washington Nationals traded LHP Andrew Chafin and RHP Luis Garc\u00eda to Los Angeles Angels for LHP Jake Eder and 1B Sam Bro"
+  },
+  {
+   "d": "2015-07-30",
+   "buyer": "LAD",
+   "yr": 2015,
+   "rental": "Bronson Arroyo",
+   "received": 0,
+   "extra": 8.02,
+   "paid": 0.22,
+   "desc": "Atlanta Braves traded LHP Alex Wood, RHP Jim Johnson, LHP Luis Avilan, 2B Jose Peraza, RHP Bronson Arroyo and cash to Lo"
+  },
+  {
+   "d": "2015-08-19",
+   "buyer": "LAD",
+   "yr": 2015,
+   "rental": "Chase Utley",
+   "received": 0.25,
+   "extra": 0,
+   "paid": -0.04,
+   "desc": "Philadelphia Phillies traded 2B Chase Utley and cash to Los Angeles Dodgers for RHP John Richy and 2B Darnell Sweeney."
+  },
+  {
+   "d": "2015-08-31",
+   "buyer": "LAD",
+   "yr": 2015,
+   "rental": "Chris Heisey",
+   "received": 0.05,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Toronto Blue Jays traded LF Chris Heisey to Los Angeles Dodgers for Player To Be Named Later."
+  },
+  {
+   "d": "2016-08-01",
+   "buyer": "LAD",
+   "yr": 2016,
+   "rental": "Josh Reddick, Rich Hill",
+   "received": 0.75,
+   "extra": 0,
+   "paid": 0.09,
+   "desc": "Oakland Athletics traded RF Josh Reddick and Rich Hill to Los Angeles Dodgers for RHP Frankie Montas, RHP Grant Holmes a"
+  },
+  {
+   "d": "2016-08-01",
+   "buyer": "LAD",
+   "yr": 2016,
+   "rental": "Jesse Chavez",
+   "received": 0.35,
+   "extra": 0,
+   "paid": -0.41,
+   "desc": "Toronto Blue Jays traded RHP Jesse Chavez and cash to Los Angeles Dodgers for RHP Mike Bolsinger."
+  },
+  {
+   "d": "2017-07-31",
+   "buyer": "LAD",
+   "yr": 2017,
+   "rental": "Yu Darvish",
+   "received": 0.76,
+   "extra": 0,
+   "paid": -0.46,
+   "desc": "Texas Rangers traded RHP Yu Darvish to Los Angeles Dodgers for 2B Willie Calhoun, RHP A.J. Alexy and SS Brendon Davis."
+  },
+  {
+   "d": "2017-07-31",
+   "buyer": "LAD",
+   "yr": 2017,
+   "rental": "Tony Watson",
+   "received": 0.34,
+   "extra": 0,
+   "paid": 1.93,
+   "desc": "Pittsburgh Pirates traded LHP Tony Watson to Los Angeles Dodgers for RHP Angel German and 3B Oneil Cruz."
+  },
+  {
+   "d": "2017-08-19",
+   "buyer": "LAD",
+   "yr": 2017,
+   "rental": "Curtis Granderson",
+   "received": 0.12,
+   "extra": 0,
+   "paid": 0,
+   "desc": "New York Mets traded CF Curtis Granderson to Los Angeles Dodgers for Player To Be Named Later."
+  },
+  {
+   "d": "2018-07-18",
+   "buyer": "LAD",
+   "yr": 2018,
+   "rental": "Manny Machado",
+   "received": 2.01,
+   "extra": 0,
+   "paid": 2.7,
+   "desc": "Baltimore Orioles traded SS Manny Machado to Los Angeles Dodgers for 2B Breyvic Valera, RF Yusniel Diaz, RHP Zach Pop, R"
+  },
+  {
+   "d": "2018-07-31",
+   "buyer": "LAD",
+   "yr": 2018,
+   "rental": "Brian Dozier",
+   "received": 0.26,
+   "extra": 0,
+   "paid": 1.1,
+   "desc": "Minnesota Twins traded 2B Brian Dozier to Los Angeles Dodgers for 2B Logan Forsythe, OF Luke Raley and LHP Devin Smeltze"
+  },
+  {
+   "d": "2018-07-31",
+   "buyer": "LAD",
+   "yr": 2018,
+   "rental": "John Axford",
+   "received": 0.06,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Toronto Blue Jays traded RHP John Axford to Los Angeles Dodgers for RHP Corey Copping."
+  },
+  {
+   "d": "2018-08-31",
+   "buyer": "LAD",
+   "yr": 2018,
+   "rental": "Ryan Madson",
+   "received": 0.3,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Washington Nationals traded RHP Ryan Madson to Los Angeles Dodgers for RHP Andrew Istler."
+  },
+  {
+   "d": "2019-07-31",
+   "buyer": "LAD",
+   "yr": 2019,
+   "rental": "Jedd Gyorko",
+   "received": -0.37,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "St. Louis Cardinals traded 3B Jedd Gyorko, cash and Future Considerations to Los Angeles Dodgers for LHP Tony Cingrani a"
+  },
+  {
+   "d": "2021-07-29",
+   "buyer": "LAD",
+   "yr": 2021,
+   "rental": "Danny Duffy",
+   "received": 0,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Kansas City Royals traded LHP Danny Duffy and cash to Los Angeles Dodgers for Player To Be Named Later."
+  },
+  {
+   "d": "2021-07-30",
+   "buyer": "LAD",
+   "yr": 2021,
+   "rental": "Max Scherzer",
+   "received": 1.93,
+   "extra": 8.88,
+   "paid": 6.39,
+   "desc": "Washington Nationals traded RHP Max Scherzer and SS Trea Turner to Los Angeles Dodgers for C Keibert Ruiz, RHP Josiah Gr"
+  },
+  {
+   "d": "2021-08-31",
+   "buyer": "LAD",
+   "yr": 2021,
+   "rental": "Andrew Vasquez",
+   "received": 0.1,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Minnesota Twins traded LHP Andrew Vasquez to Los Angeles Dodgers for C Stevie Berman."
+  },
+  {
+   "d": "2022-07-30",
+   "buyer": "LAD",
+   "yr": 2022,
+   "rental": "Chris Martin",
+   "received": 1.1,
+   "extra": 0,
+   "paid": 0.19,
+   "desc": "Chicago Cubs traded RHP Chris Martin to Los Angeles Dodgers for 2B Zach McKinstry."
+  },
+  {
+   "d": "2022-08-02",
+   "buyer": "LAD",
+   "yr": 2022,
+   "rental": "Joey Gallo",
+   "received": 0.13,
+   "extra": 0,
+   "paid": -0.19,
+   "desc": "New York Yankees traded LF Joey Gallo to Los Angeles Dodgers for RHP Clayton Beeter."
+  },
+  {
+   "d": "2023-07-25",
+   "buyer": "LAD",
+   "yr": 2023,
+   "rental": "Enrique Hern\u00e1ndez",
+   "received": 0.11,
+   "extra": 0,
+   "paid": 0.12,
+   "desc": "Boston Red Sox traded CF Enrique Hern\u00e1ndez to Los Angeles Dodgers for RHP Nick Robertson and RHP Justin Hagenman."
+  },
+  {
+   "d": "2023-07-26",
+   "buyer": "LAD",
+   "yr": 2023,
+   "rental": "Amed Rosario",
+   "received": 0.36,
+   "extra": 0,
+   "paid": -0.74,
+   "desc": "Cleveland Guardians traded SS Amed Rosario to Los Angeles Dodgers for RHP Noah Syndergaard and cash."
+  },
+  {
+   "d": "2023-07-28",
+   "buyer": "LAD",
+   "yr": 2023,
+   "rental": "Lance Lynn, Joe Kelly",
+   "received": -0.1,
+   "extra": 0,
+   "paid": -1.57,
+   "desc": "Chicago White Sox traded RHP Lance Lynn and RHP Joe Kelly to Los Angeles Dodgers for RF Trayce Thompson, RHP Nick Nastri"
+  },
+  {
+   "d": "2024-06-12",
+   "buyer": "LAD",
+   "yr": 2024,
+   "rental": "Cavan Biggio",
+   "received": -0.06,
+   "extra": 0,
+   "paid": 1.87,
+   "desc": "Los Angeles Dodgers traded RHP Braydon Fisher to Toronto Blue Jays for 2B Cavan Biggio and cash."
+  },
+  {
+   "d": "2024-07-29",
+   "buyer": "LAD",
+   "yr": 2024,
+   "rental": "Amed Rosario",
+   "received": 0.04,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Los Angeles Dodgers traded RHP Michael Flynn to Tampa Bay Rays for SS Amed Rosario."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "LAD",
+   "yr": 2024,
+   "rental": "Jack Flaherty",
+   "received": 0.59,
+   "extra": 0,
+   "paid": -0.26,
+   "desc": "Detroit Tigers traded RHP Jack Flaherty to Los Angeles Dodgers for C Thayron Liranzo and SS Trey Sweeney."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "LAD",
+   "yr": 2024,
+   "rental": "Kevin Kiermaier",
+   "received": -0.12,
+   "extra": 0,
+   "paid": 0.58,
+   "desc": "Toronto Blue Jays traded CF Kevin Kiermaier and cash to Los Angeles Dodgers for LHP Ryan Yarbrough."
+  },
+  {
+   "d": "2023-07-27",
+   "buyer": "MIL",
+   "yr": 2023,
+   "rental": "Carlos Santana",
+   "received": 0.56,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Pittsburgh Pirates traded 1B Carlos Santana to Milwaukee Brewers for SS Jhonny Severino."
+  },
+  {
+   "d": "2023-08-01",
+   "buyer": "MIL",
+   "yr": 2023,
+   "rental": "Andrew Chafin",
+   "received": -0.09,
+   "extra": 0,
+   "paid": -0.04,
+   "desc": "Arizona Diamondbacks traded LHP Andrew Chafin to Milwaukee Brewers for RHP Peter Strzelecki."
+  },
+  {
+   "d": "2025-07-28",
+   "buyer": "MIL",
+   "yr": 2025,
+   "rental": "Danny Jansen",
+   "received": 0.63,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Tampa Bay Rays traded C Danny Jansen and cash to Milwaukee Brewers for 2B Jadher Areinamo."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "MIL",
+   "yr": 2025,
+   "rental": "Jordan Montgomery, Shelby Miller",
+   "received": 0.07,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Arizona Diamondbacks traded RHP Shelby Miller and LHP Jordan Montgomery to Milwaukee Brewers for Player To Be Named Late"
+  },
+  {
+   "d": "2017-07-24",
+   "buyer": "MIN",
+   "yr": 2017,
+   "rental": "Jaime Garc\u00eda",
+   "received": 0.21,
+   "extra": 0.0,
+   "paid": 1.32,
+   "desc": "Atlanta Braves traded cash, C Anthony Recker and Jaime Garcia to Minnesota Twins for RHP Huascar Ynoa."
+  },
+  {
+   "d": "2018-08-30",
+   "buyer": "MIN",
+   "yr": 2018,
+   "rental": "Chris Gimenez",
+   "received": 0.1,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Minnesota Twins traded C Bobby Wilson to Chicago Cubs for C Chris Gimenez and Player To Be Named Later."
+  },
+  {
+   "d": "2019-07-27",
+   "buyer": "MIN",
+   "yr": 2019,
+   "rental": "Sergio Romo",
+   "received": 0.54,
+   "extra": 0.0,
+   "paid": -1.67,
+   "desc": "Miami Marlins traded RHP Sergio Romo, RHP Chris Vallimont and Player To Be Named Later to Minnesota Twins for 1B Lewin D"
+  },
+  {
+   "d": "2019-07-31",
+   "buyer": "MIN",
+   "yr": 2019,
+   "rental": "Sam Dyson",
+   "received": -0.16,
+   "extra": 0,
+   "paid": -0.68,
+   "desc": "San Francisco Giants traded RHP Sam Dyson to Minnesota Twins for RF Jaylin Davis, RHP Kai-Wei Teng and RHP Prelander Ber"
+  },
+  {
+   "d": "2021-07-30",
+   "buyer": "MIN",
+   "yr": 2021,
+   "rental": "John Gant",
+   "received": 0.48,
+   "extra": 0.0,
+   "paid": 0.1,
+   "desc": "Minnesota Twins traded LHP J.A. Happ and cash to St. Louis Cardinals for RHP John Gant and LHP Evan Sisk."
+  },
+  {
+   "d": "2022-08-02",
+   "buyer": "MIN",
+   "yr": 2022,
+   "rental": "Michael Fulmer",
+   "received": 0.23,
+   "extra": 0,
+   "paid": 0.35,
+   "desc": "Detroit Tigers traded RHP Michael Fulmer to Minnesota Twins for RHP Sawyer Gipson-Long."
+  },
+  {
+   "d": "2022-08-02",
+   "buyer": "MIN",
+   "yr": 2022,
+   "rental": "Sandy Le\u00f3n",
+   "received": -0.08,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Cleveland Guardians traded C Sandy Leon to Minnesota Twins for RHP Ian Hamilton."
+  },
+  {
+   "d": "2024-07-09",
+   "buyer": "NYM",
+   "yr": 2024,
+   "rental": "Phil Maton",
+   "received": 0.82,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Tampa Bay Rays traded RHP Phil Maton to New York Mets for cash."
+  },
+  {
+   "d": "2024-07-26",
+   "buyer": "NYM",
+   "yr": 2024,
+   "rental": "Ryne Stanek",
+   "received": 0.13,
+   "extra": 0,
+   "paid": -0.09,
+   "desc": "Seattle Mariners traded RHP Ryne Stanek to New York Mets for OF Rhylan Thomas."
+  },
+  {
+   "d": "2024-07-28",
+   "buyer": "NYM",
+   "yr": 2024,
+   "rental": "Jesse Winker",
+   "received": 0.19,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "New York Mets traded RHP Tyler Stuart to Washington Nationals for LF Jesse Winker."
+  },
+  {
+   "d": "2025-07-25",
+   "buyer": "NYM",
+   "yr": 2025,
+   "rental": "Gregory Soto",
+   "received": 0.45,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Baltimore Orioles traded LHP Gregory Soto to New York Mets for RHP Wellington Aracena and RHP Cameron Foster."
+  },
+  {
+   "d": "2025-07-30",
+   "buyer": "NYM",
+   "yr": 2025,
+   "rental": "Ryan Helsley",
+   "received": -0.0,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "St. Louis Cardinals traded RHP Ryan Helsley to New York Mets for SS Jesus Baez, RHP Frank Elissalt and RHP Nate Dohm."
+  },
+  {
+   "d": "2025-07-30",
+   "buyer": "NYM",
+   "yr": 2025,
+   "rental": "Tyler Rogers",
+   "received": 0.58,
+   "extra": 0,
+   "paid": 0.41,
+   "desc": "San Francisco Giants traded RHP Tyler Rogers to New York Mets for RHP Blade Tidwell, RHP Jos\u00e9 Butt\u00f3 and CF Drew Gilbert."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "NYM",
+   "yr": 2025,
+   "rental": "Cedric Mullins",
+   "received": -0.17,
+   "extra": 0,
+   "paid": 0.54,
+   "desc": "Baltimore Orioles traded CF Cedric Mullins to New York Mets for RHP Raimon Gomez, RHP Anthony Nunez and RHP Chandler Mar"
+  },
+  {
+   "d": "2009-06-30",
+   "buyer": "NYY",
+   "yr": 2009,
+   "rental": "Eric Hinske",
+   "received": 0.57,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Pittsburgh Pirates traded RF Eric Hinske to New York Yankees."
+  },
+  {
+   "d": "2009-07-31",
+   "buyer": "NYY",
+   "yr": 2009,
+   "rental": "Jerry Hairston Jr.",
+   "received": 0.36,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Charleston RiverDogs Traded C Chase Weems to Reds Organization and Cincinnati Reds Traded 3B Jerry Hairston to New York "
+  },
+  {
+   "d": "2010-07-31",
+   "buyer": "NYY",
+   "yr": 2010,
+   "rental": "Austin Kearns",
+   "received": 0.14,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Cleveland Indians traded LF Austin Kearns to New York Yankees for Player To Be Named Later."
+  },
+  {
+   "d": "2010-07-31",
+   "buyer": "NYY",
+   "yr": 2010,
+   "rental": "Kerry Wood",
+   "received": 0.51,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Cleveland Indians traded RHP Kerry Wood to New York Yankees."
+  },
+  {
+   "d": "2010-07-31",
+   "buyer": "NYY",
+   "yr": 2010,
+   "rental": "Lance Berkman",
+   "received": 0.08,
+   "extra": 0.0,
+   "paid": 0.01,
+   "desc": "Houston Astros traded cash and 1B Lance Berkman to New York Yankees for Jimmy Paredes and RHP Mark Melancon."
+  },
+  {
+   "d": "2011-06-30",
+   "buyer": "NYY",
+   "yr": 2011,
+   "rental": "Sergio Mitre",
+   "received": -0.02,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Milwaukee Brewers traded RHP Sergio Mitre to New York Yankees."
+  },
+  {
+   "d": "2012-07-23",
+   "buyer": "NYY",
+   "yr": 2012,
+   "rental": "Ichiro Suzuki",
+   "received": 1.14,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Seattle Mariners Traded RF Ichiro Suzuki to New York Yankees; New York Yankees Traded RHP D.J. Mitchell to Seattle Marin"
+  },
+  {
+   "d": "2012-07-31",
+   "buyer": "NYY",
+   "yr": 2012,
+   "rental": "Casey McGehee",
+   "received": -0.3,
+   "extra": 0,
+   "paid": 0.37,
+   "desc": "New York Yankees traded RHP Chad Qualls to Pittsburgh Pirates for 1B Casey McGehee."
+  },
+  {
+   "d": "2014-07-06",
+   "buyer": "NYY",
+   "yr": 2014,
+   "rental": "Brandon McCarthy",
+   "received": 1.62,
+   "extra": 0,
+   "paid": 0.66,
+   "desc": "Arizona Diamondbacks traded RHP Brandon McCarthy and cash to New York Yankees for LHP Vidal Nuno."
+  },
+  {
+   "d": "2014-07-22",
+   "buyer": "NYY",
+   "yr": 2014,
+   "rental": "Chase Headley",
+   "received": 1.72,
+   "extra": 0,
+   "paid": 8.23,
+   "desc": "San Diego Padres traded Chase Headley and cash to New York Yankees for 3B Yangervis Solarte and RHP Rafael De Paula."
+  },
+  {
+   "d": "2014-07-24",
+   "buyer": "NYY",
+   "yr": 2014,
+   "rental": "Chris Capuano",
+   "received": 0.67,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Colorado Rockies traded LHP Chris Capuano to New York Yankees for cash."
+  },
+  {
+   "d": "2014-07-31",
+   "buyer": "NYY",
+   "yr": 2014,
+   "rental": "Stephen Drew",
+   "received": -0.55,
+   "extra": 0,
+   "paid": -0.26,
+   "desc": "Boston Red Sox traded SS Stephen Drew and cash to New York Yankees for 3B Kelly Johnson."
+  },
+  {
+   "d": "2017-07-19",
+   "buyer": "NYY",
+   "yr": 2017,
+   "rental": "Todd Frazier",
+   "received": 1.4,
+   "extra": 5.75,
+   "paid": 0.35,
+   "desc": "Chicago White Sox traded 3B Todd Frazier, RHP David Robertson and RHP Tommy Kahnle to New York Yankees for Tyler Clippar"
+  },
+  {
+   "d": "2017-07-30",
+   "buyer": "NYY",
+   "yr": 2017,
+   "rental": "Jaime Garc\u00eda",
+   "received": 0.17,
+   "extra": 0,
+   "paid": -0.18,
+   "desc": "Minnesota Twins traded LHP Jaime Garcia to New York Yankees for LHP Dietrich Enns and RHP Zack Littell."
+  },
+  {
+   "d": "2017-08-31",
+   "buyer": "NYY",
+   "yr": 2017,
+   "rental": "Erik Kratz",
+   "received": 0.14,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Cleveland Indians traded C Erik Kratz to New York Yankees for cash."
+  },
+  {
+   "d": "2018-07-24",
+   "buyer": "NYY",
+   "yr": 2018,
+   "rental": "Zack Britton",
+   "received": 0.31,
+   "extra": 0,
+   "paid": 0.81,
+   "desc": "Baltimore Orioles traded LHP Zach Britton to New York Yankees for RHP Cody Carroll, RHP Dillon Tate and LHP Josh Rogers."
+  },
+  {
+   "d": "2018-07-26",
+   "buyer": "NYY",
+   "yr": 2018,
+   "rental": "J.A. Happ",
+   "received": 0.69,
+   "extra": 0,
+   "paid": -0.37,
+   "desc": "Toronto Blue Jays traded J.A. Happ to New York Yankees for LF Billy McKinney and 3B Brandon Drury."
+  },
+  {
+   "d": "2018-07-30",
+   "buyer": "NYY",
+   "yr": 2018,
+   "rental": "Lance Lynn",
+   "received": 1.82,
+   "extra": 0,
+   "paid": 0.42,
+   "desc": "Minnesota Twins traded RHP Lance Lynn and cash to New York Yankees for 1B Tyler Austin and RHP Luis Rijo."
+  },
+  {
+   "d": "2018-08-31",
+   "buyer": "NYY",
+   "yr": 2018,
+   "rental": "Adeiny Hechavarr\u00eda",
+   "received": -0.05,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Pittsburgh Pirates traded cash and SS Adeiny Hechavarria to New York Yankees for Future Considerations."
+  },
+  {
+   "d": "2018-08-31",
+   "buyer": "NYY",
+   "yr": 2018,
+   "rental": "Andrew McCutchen",
+   "received": 0.84,
+   "extra": 0,
+   "paid": -0.0,
+   "desc": "San Francisco Giants traded RF Andrew McCutchen and cash to New York Yankees for 2B Abiatal Avelino and RHP Juan De Paul"
+  },
+  {
+   "d": "2019-06-15",
+   "buyer": "NYY",
+   "yr": 2019,
+   "rental": "Edwin Encarnaci\u00f3n",
+   "received": 0.7,
+   "extra": 0,
+   "paid": -0.13,
+   "desc": "Seattle Mariners traded 1B Edwin Encarnacion and cash to New York Yankees for Juan Then."
+  },
+  {
+   "d": "2021-07-29",
+   "buyer": "NYY",
+   "yr": 2021,
+   "rental": "Joely Rodr\u00edguez",
+   "received": 0.49,
+   "extra": 0.24,
+   "paid": 9.67,
+   "desc": "New York Yankees traded RHP Glenn Otto, 2B Josh H. Smith, SS Ezequiel Duran and 2B Trevor Hauver to Texas Rangers for LH"
+  },
+  {
+   "d": "2021-07-29",
+   "buyer": "NYY",
+   "yr": 2021,
+   "rental": "Anthony Rizzo",
+   "received": 0.62,
+   "extra": 0,
+   "paid": -0.31,
+   "desc": "New York Yankees traded RHP Alexander Vizcaino and CF Kevin Alcantara to Chicago Cubs for 1B Anthony Rizzo and cash."
+  },
+  {
+   "d": "2021-07-30",
+   "buyer": "NYY",
+   "yr": 2021,
+   "rental": "Andrew Heaney",
+   "received": -0.7,
+   "extra": 0,
+   "paid": -0.23,
+   "desc": "Los Angeles Angels traded LHP Andrew Heaney and cash to New York Yankees for RHP Janson Junk and RHP Elvis Peguero."
+  },
+  {
+   "d": "2022-07-27",
+   "buyer": "NYY",
+   "yr": 2022,
+   "rental": "Andrew Benintendi",
+   "received": 0.2,
+   "extra": 0,
+   "paid": 0.09,
+   "desc": "Kansas City Royals traded LF Andrew Benintendi to New York Yankees for RHP Chandler Champlain, LHP T.J. Sikkema and RHP "
+  },
+  {
+   "d": "2023-08-01",
+   "buyer": "NYY",
+   "yr": 2023,
+   "rental": "Keynan Middleton",
+   "received": 0.33,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Chicago White Sox traded RHP Keynan Middleton to New York Yankees for RHP Juan Carela."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "NYY",
+   "yr": 2024,
+   "rental": "Enyel De Los Santos",
+   "received": -0.11,
+   "extra": 0.0,
+   "paid": -0.53,
+   "desc": "San Diego Padres traded RHP Enyel De Los Santos and RHP Thomas Balboni Jr. to New York Yankees for OF Brandon Lockridge."
+  },
+  {
+   "d": "2025-07-26",
+   "buyer": "NYY",
+   "yr": 2025,
+   "rental": "Amed Rosario",
+   "received": 0.2,
+   "extra": 0,
+   "paid": 0.73,
+   "desc": "Washington Nationals traded 3B Amed Rosario to New York Yankees for RHP Clayton Beeter and CF Browm Martinez."
+  },
+  {
+   "d": "2025-07-30",
+   "buyer": "NYY",
+   "yr": 2025,
+   "rental": "Austin Slater",
+   "received": -0.41,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Chicago White Sox traded LF Austin Slater to New York Yankees for RHP Gage Ziehl."
+  },
+  {
+   "d": "2016-07-17",
+   "buyer": "ATH",
+   "yr": 2016,
+   "rental": "Ross Detwiler",
+   "received": 0.37,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Cleveland Indians traded LHP Ross Detwiler to Oakland Athletics for cash."
+  },
+  {
+   "d": "2018-07-21",
+   "buyer": "ATH",
+   "yr": 2018,
+   "rental": "Jeurys Familia",
+   "received": 0.85,
+   "extra": 0,
+   "paid": -0.16,
+   "desc": "New York Mets traded RHP Jeurys Familia to Oakland Athletics for RHP Bobby Wahl, 3B Will Toffey and Future Consideration"
+  },
+  {
+   "d": "2018-08-05",
+   "buyer": "ATH",
+   "yr": 2018,
+   "rental": "Shawn Kelley",
+   "received": 0.58,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Washington Nationals traded RHP Shawn Kelley and cash to Oakland Athletics for Future Considerations."
+  },
+  {
+   "d": "2018-08-06",
+   "buyer": "ATH",
+   "yr": 2018,
+   "rental": "Mike Fiers",
+   "received": 0.14,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Detroit Tigers traded RHP Mike Fiers to Oakland Athletics for Future Considerations."
+  },
+  {
+   "d": "2018-08-31",
+   "buyer": "ATH",
+   "yr": 2018,
+   "rental": "Cory Gearrin",
+   "received": 0.08,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Texas Rangers traded RHP Cory Gearrin to Oakland Athletics for RHP Abdiel Mendoza and RHP Teodoro Ortega."
+  },
+  {
+   "d": "2019-07-14",
+   "buyer": "ATH",
+   "yr": 2019,
+   "rental": "Homer Bailey",
+   "received": 1.58,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Kansas City Royals traded RHP Homer Bailey to Oakland Athletics for SS Kevin Merrell."
+  },
+  {
+   "d": "2019-07-27",
+   "buyer": "ATH",
+   "yr": 2019,
+   "rental": "Jake Diekman",
+   "received": 0.35,
+   "extra": 0,
+   "paid": 1.15,
+   "desc": "Kansas City Royals traded LHP Jake Diekman to Oakland Athletics for Dairon Blanco and Ismael Aquino."
+  },
+  {
+   "d": "2019-07-31",
+   "buyer": "ATH",
+   "yr": 2019,
+   "rental": "Tanner Roark",
+   "received": -0.03,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Cincinnati Reds traded RHP Tanner Roark to Oakland Athletics."
+  },
+  {
+   "d": "2020-08-29",
+   "buyer": "ATH",
+   "yr": 2020,
+   "rental": "Tommy La Stella",
+   "received": 0.65,
+   "extra": 0,
+   "paid": -0.23,
+   "desc": "Los Angeles Angels traded 2B Tommy La Stella to Oakland Athletics for Franklin Barreto."
+  },
+  {
+   "d": "2020-08-31",
+   "buyer": "ATH",
+   "yr": 2020,
+   "rental": "Mike Minor",
+   "received": 0.3,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Texas Rangers traded LHP Mike Minor and cash to Oakland Athletics for Player To Be Named Later, Player To Be Named Later"
+  },
+  {
+   "d": "2021-07-26",
+   "buyer": "ATH",
+   "yr": 2021,
+   "rental": "Andrew Chafin",
+   "received": 0.63,
+   "extra": 0,
+   "paid": 1.79,
+   "desc": "Chicago Cubs traded LHP Andrew Chafin to Oakland Athletics for 1B Greg Deichmann and RHP Daniel Palencia."
+  },
+  {
+   "d": "2021-07-28",
+   "buyer": "ATH",
+   "yr": 2021,
+   "rental": "Starling Marte",
+   "received": 1.44,
+   "extra": 0,
+   "paid": 6.35,
+   "desc": "Miami Marlins traded LF Starling Marte to Oakland Athletics for LHP Jesus Luzardo."
+  },
+  {
+   "d": "2021-07-30",
+   "buyer": "ATH",
+   "yr": 2021,
+   "rental": "Josh Harrison, Yan Gomes",
+   "received": 0.37,
+   "extra": 0,
+   "paid": 0.9,
+   "desc": "Washington Nationals traded C Yan Gomes, 2B Josh Harrison and cash to Oakland Athletics for RHP Richard Guasch, RHP Seth"
+  },
+  {
+   "d": "2021-07-30",
+   "buyer": "PHI",
+   "yr": 2021,
+   "rental": "Ian Kennedy",
+   "received": -0.25,
+   "extra": 1.72,
+   "paid": -1.1,
+   "desc": "Texas Rangers traded RHP Hans Crouse, RHP Ian Kennedy, RHP Kyle Gibson and cash to Philadelphia Phillies for RHP Spencer"
+  },
+  {
+   "d": "2021-07-30",
+   "buyer": "PHI",
+   "yr": 2021,
+   "rental": "Freddy Galvis",
+   "received": 0.36,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Baltimore Orioles traded SS Freddy Galvis to Philadelphia Phillies for RHP Tyler Burch."
+  },
+  {
+   "d": "2022-08-02",
+   "buyer": "PHI",
+   "yr": 2022,
+   "rental": "David Robertson",
+   "received": 0.34,
+   "extra": 0,
+   "paid": 4.73,
+   "desc": "Chicago Cubs traded RHP David Robertson to Philadelphia Phillies for RHP Ben Brown."
+  },
+  {
+   "d": "2022-08-02",
+   "buyer": "PHI",
+   "yr": 2022,
+   "rental": "Noah Syndergaard",
+   "received": 0.83,
+   "extra": 0,
+   "paid": 1.05,
+   "desc": "Los Angeles Angels traded RHP Noah Syndergaard to Philadelphia Phillies for CF Mickey Moniak and RF Jadiel Sanchez."
+  },
+  {
+   "d": "2023-08-01",
+   "buyer": "PHI",
+   "yr": 2023,
+   "rental": "Michael Lorenzen",
+   "received": -0.24,
+   "extra": 0,
+   "paid": 0.29,
+   "desc": "Detroit Tigers traded RHP Michael Lorenzen to Philadelphia Phillies for 2B Hao-Yu  Lee."
+  },
+  {
+   "d": "2024-07-26",
+   "buyer": "PHI",
+   "yr": 2024,
+   "rental": "Austin Hays",
+   "received": 0.03,
+   "extra": 0,
+   "paid": 0.76,
+   "desc": "Baltimore Orioles traded RF Austin Hays to Philadelphia Phillies for RHP Seranthony Dom\u00ednguez and CF Cristian Pache."
+  },
+  {
+   "d": "2024-07-27",
+   "buyer": "PHI",
+   "yr": 2024,
+   "rental": "Carlos Est\u00e9vez",
+   "received": 0.3,
+   "extra": 0,
+   "paid": -0.84,
+   "desc": "Los Angeles Angels traded RHP Carlos Est\u00e9vez to Philadelphia Phillies for RHP George Klassen and LHP Samuel Aldegheri."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "PHI",
+   "yr": 2025,
+   "rental": "Harrison Bader",
+   "received": 1.54,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Minnesota Twins traded LF Harrison Bader to Philadelphia Phillies for RHP Geremy Villoria and OF Hendry Mendez."
+  },
+  {
+   "d": "2022-07-03",
+   "buyer": "PIT",
+   "yr": 2022,
+   "rental": "Manny Banuelos",
+   "received": 0.45,
+   "extra": 0,
+   "paid": 0,
+   "desc": "New York Yankees traded LHP Manny Banuelos to Pittsburgh Pirates for cash."
+  },
+  {
+   "d": "2024-07-29",
+   "buyer": "PIT",
+   "yr": 2024,
+   "rental": "Jalen Beeks",
+   "received": 0.46,
+   "extra": 0,
+   "paid": -0.42,
+   "desc": "Colorado Rockies traded LHP Jalen Beeks to Pittsburgh Pirates for LHP Luis Peralta."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "PIT",
+   "yr": 2024,
+   "rental": "Bryan De La Cruz",
+   "received": -0.83,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Miami Marlins traded RF Bryan De La Cruz to Pittsburgh Pirates for RHP Jun-Seok Shim and 3B Garret Forrester."
+  },
+  {
+   "d": "2025-07-30",
+   "buyer": "PIT",
+   "yr": 2025,
+   "rental": "Taylor Rogers",
+   "received": 0,
+   "extra": 0.0,
+   "paid": -0.72,
+   "desc": "Pittsburgh Pirates traded 3B Ke'Bryan Hayes to Cincinnati Reds for LHP Taylor Rogers, SS Sammy Stafura and cash."
+  },
+  {
+   "d": "2020-08-29",
+   "buyer": "SD",
+   "yr": 2020,
+   "rental": "Trevor Rosenthal",
+   "received": 0.6,
+   "extra": 0,
+   "paid": 1.98,
+   "desc": "Kansas City Royals traded RHP Trevor Rosenthal to San Diego Padres for CF Edward Olivares and Player To Be Named Later."
+  },
+  {
+   "d": "2020-08-30",
+   "buyer": "SD",
+   "yr": 2020,
+   "rental": "Mitch Moreland",
+   "received": -0.32,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Boston Red Sox traded 1B Mitch Moreland to San Diego Padres for 3B Hudson Potts and CF Jeisson Rosario."
+  },
+  {
+   "d": "2020-08-31",
+   "buyer": "SD",
+   "yr": 2020,
+   "rental": "Jason Castro",
+   "received": -0.01,
+   "extra": 0,
+   "paid": -0.33,
+   "desc": "Los Angeles Angels traded C Jason Castro to San Diego Padres for RHP Gerardo Reyes."
+  },
+  {
+   "d": "2021-07-30",
+   "buyer": "SD",
+   "yr": 2021,
+   "rental": "Jake Marisnick",
+   "received": -0.25,
+   "extra": 0,
+   "paid": -0.48,
+   "desc": "San Diego Padres traded RHP Anderson Espinoza to Chicago Cubs for CF Jake Marisnick."
+  },
+  {
+   "d": "2021-07-30",
+   "buyer": "SD",
+   "yr": 2021,
+   "rental": "Daniel Hudson",
+   "received": 0.17,
+   "extra": 0,
+   "paid": 0.85,
+   "desc": "Washington Nationals traded RHP Daniel Hudson to San Diego Padres for RHP Mason Thompson."
+  },
+  {
+   "d": "2022-08-02",
+   "buyer": "SD",
+   "yr": 2022,
+   "rental": "Josh Bell",
+   "received": -0.59,
+   "extra": 7.63,
+   "paid": 29.98,
+   "desc": "Washington Nationals traded LF Juan Soto and 1B Josh Bell to San Diego Padres for 1B Luke Voit, LHP MacKenzie Gore, SS C"
+  },
+  {
+   "d": "2022-08-02",
+   "buyer": "SD",
+   "yr": 2022,
+   "rental": "Brandon Drury",
+   "received": 0.79,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Cincinnati Reds traded 2B Brandon Drury to San Diego Padres for SS Victor Acosta."
+  },
+  {
+   "d": "2023-08-01",
+   "buyer": "SD",
+   "yr": 2023,
+   "rental": "Rich Hill, Ji Man Choi",
+   "received": -0.84,
+   "extra": 0,
+   "paid": 0.13,
+   "desc": "Pittsburgh Pirates traded LHP Rich Hill and DH Ji Man Choi to San Diego Padres for LHP Jackson Wolf, 1B Alfonso Rivas an"
+  },
+  {
+   "d": "2023-08-01",
+   "buyer": "SD",
+   "yr": 2023,
+   "rental": "Garrett Cooper",
+   "received": 0.15,
+   "extra": 0.44,
+   "paid": 1.0,
+   "desc": "Miami Marlins traded 1B Garrett Cooper and RHP Sean Reynolds to San Diego Padres for LHP Ryan Weathers."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "SD",
+   "yr": 2024,
+   "rental": "Tanner Scott",
+   "received": 0.84,
+   "extra": 0.66,
+   "paid": 0.01,
+   "desc": "Miami Marlins traded LHP Tanner Scott and RHP Bryan Hoeing to San Diego Padres for RHP Adam Mazur, 2B Jay Beshears, LHP "
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "SD",
+   "yr": 2024,
+   "rental": "Mart\u00edn P\u00e9rez",
+   "received": 0.16,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Pittsburgh Pirates traded LHP Mart\u00edn P\u00e9rez to San Diego Padres for LHP Ronaldys Jimenez."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "SD",
+   "yr": 2025,
+   "rental": "Ryan O'Hearn",
+   "received": 0.58,
+   "extra": 1.02,
+   "paid": 0.0,
+   "desc": "Baltimore Orioles traded 1B Ryan O'Hearn, RF Ram\u00f3n Laureano and cash to San Diego Padres for LHP Boston Bateman, RHP Tys"
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "SD",
+   "yr": 2025,
+   "rental": "Nestor Cortes",
+   "received": -0.62,
+   "extra": 0.0,
+   "paid": 0.25,
+   "desc": "Milwaukee Brewers traded LHP Nestor Cortes, SS Jorge Quintana and cash to San Diego Padres for LF Brandon Lockridge."
+  },
+  {
+   "d": "2016-07-26",
+   "buyer": "SEA",
+   "yr": 2016,
+   "rental": "Drew Storen",
+   "received": 0.51,
+   "extra": 0,
+   "paid": 0.64,
+   "desc": "Toronto Blue Jays traded RHP Drew Storen and cash to Seattle Mariners for RHP Joaquin Benoit."
+  },
+  {
+   "d": "2017-08-06",
+   "buyer": "SEA",
+   "yr": 2017,
+   "rental": "Yonder Alonso",
+   "received": 0.49,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Oakland Athletics traded 1B Yonder Alonso to Seattle Mariners for CF Boog Powell."
+  },
+  {
+   "d": "2018-07-30",
+   "buyer": "SEA",
+   "yr": 2018,
+   "rental": "Adam Warren",
+   "received": 0.07,
+   "extra": 0,
+   "paid": 0,
+   "desc": "New York Yankees traded RHP Adam Warren to Seattle Mariners for Future Considerations."
+  },
+  {
+   "d": "2018-07-30",
+   "buyer": "SEA",
+   "yr": 2018,
+   "rental": "Zach Duke",
+   "received": 0.21,
+   "extra": 0,
+   "paid": -0.17,
+   "desc": "Minnesota Twins traded LHP Zach Duke and cash to Seattle Mariners for RHP Chase De Jong and 1B Ryan Costello."
+  },
+  {
+   "d": "2018-07-31",
+   "buyer": "SEA",
+   "yr": 2018,
+   "rental": "Cameron Maybin",
+   "received": -0.04,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Miami Marlins traded LF Cameron Maybin to Seattle Mariners for SS Bryson Brigman and Future Considerations."
+  },
+  {
+   "d": "2021-07-27",
+   "buyer": "SEA",
+   "yr": 2021,
+   "rental": "Joe Smith",
+   "received": 0.54,
+   "extra": -1.46,
+   "paid": 2.73,
+   "desc": "Houston Astros traded 3B Abraham Toro, RHP Joe Smith,  and  to Seattle Mariners for RHP Kendall Graveman and RHP Rafael "
+  },
+  {
+   "d": "2021-07-28",
+   "buyer": "SEA",
+   "yr": 2021,
+   "rental": "Tyler Anderson",
+   "received": 0.53,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Pittsburgh Pirates traded LHP Tyler Anderson to Seattle Mariners for C Carter Bins and RHP Joaquin Tejada."
+  },
+  {
+   "d": "2022-06-05",
+   "buyer": "SEA",
+   "yr": 2022,
+   "rental": "Ryan Borucki",
+   "received": -0.14,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Toronto Blue Jays traded LHP Ryan Borucki to Seattle Mariners for 3B Tyler Keenan."
+  },
+  {
+   "d": "2022-06-27",
+   "buyer": "SEA",
+   "yr": 2022,
+   "rental": "Carlos Santana",
+   "received": 0.23,
+   "extra": 0,
+   "paid": 0.3,
+   "desc": "Seattle Mariners traded RHP Wyatt Mills and RHP William Fleming to Kansas City Royals for 1B Carlos Santana and cash."
+  },
+  {
+   "d": "2022-08-02",
+   "buyer": "SEA",
+   "yr": 2022,
+   "rental": "Matthew Boyd, Curt Casali",
+   "received": 0.32,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "San Francisco Giants traded LHP Matthew Boyd and C Curt Casali to Seattle Mariners for RHP Michael Stryffeler and C Andy"
+  },
+  {
+   "d": "2024-07-26",
+   "buyer": "SEA",
+   "yr": 2024,
+   "rental": "Yimi Garc\u00eda",
+   "received": -0.23,
+   "extra": 0,
+   "paid": 0.28,
+   "desc": "Toronto Blue Jays traded RHP Yimi Garc\u00eda to Seattle Mariners for OF Jonatan Clase and C Jacob Sharp."
+  },
+  {
+   "d": "2024-07-29",
+   "buyer": "SEA",
+   "yr": 2024,
+   "rental": "Justin Turner",
+   "received": 0.67,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Toronto Blue Jays traded 3B Justin Turner and cash to Seattle Mariners for OF RJ Schreck."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "SEA",
+   "yr": 2024,
+   "rental": "JT Chargois",
+   "received": 0.11,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Miami Marlins traded RHP JT Chargois to Seattle Mariners for RHP Will Schomberg."
+  },
+  {
+   "d": "2025-07-24",
+   "buyer": "SEA",
+   "yr": 2025,
+   "rental": "Josh Naylor",
+   "received": 1.13,
+   "extra": 0,
+   "paid": 1.34,
+   "desc": "Arizona Diamondbacks traded 1B Josh Naylor to Seattle Mariners for LHP Brandyn Garcia and RHP Ashton Izzi."
+  },
+  {
+   "d": "2025-07-30",
+   "buyer": "SEA",
+   "yr": 2025,
+   "rental": "Caleb Ferguson",
+   "received": 0.45,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Pittsburgh Pirates traded LHP Caleb Ferguson to Seattle Mariners for RHP Jeter Martinez."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "SEA",
+   "yr": 2025,
+   "rental": "Eugenio Su\u00e1rez",
+   "received": -0.33,
+   "extra": 0,
+   "paid": -0.79,
+   "desc": "Arizona Diamondbacks traded 3B Eugenio Su\u00e1rez to Seattle Mariners for 1B Tyler Locklear, RHP Hunter Cranton and RHP Juan"
+  },
+  {
+   "d": "2017-06-17",
+   "buyer": "TB",
+   "yr": 2017,
+   "rental": "Trevor Plouffe",
+   "received": -0.5,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Oakland Athletics traded 3B Trevor Plouffe to Tampa Bay Rays."
+  },
+  {
+   "d": "2017-07-22",
+   "buyer": "TB",
+   "yr": 2017,
+   "rental": "Sergio Romo",
+   "received": 0.82,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Los Angeles Dodgers traded RHP Sergio Romo to Tampa Bay Rays for cash."
+  },
+  {
+   "d": "2017-07-27",
+   "buyer": "TB",
+   "yr": 2017,
+   "rental": "Lucas Duda",
+   "received": 0.02,
+   "extra": 0,
+   "paid": 1.06,
+   "desc": "New York Mets traded 1B Lucas Duda to Tampa Bay Rays for RHP Drew Smith."
+  },
+  {
+   "d": "2017-07-28",
+   "buyer": "TB",
+   "yr": 2017,
+   "rental": "Steve Cishek",
+   "received": 0.88,
+   "extra": 0,
+   "paid": -0.32,
+   "desc": "Seattle Mariners traded RHP Steve Cishek to Tampa Bay Rays for RHP Erasmo Ramirez."
+  },
+  {
+   "d": "2019-07-28",
+   "buyer": "TB",
+   "yr": 2019,
+   "rental": "Eric Sogard",
+   "received": 0.31,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Toronto Blue Jays traded 2B Eric Sogard to Tampa Bay Rays for Player To Be Named Later and Player To Be Named Later."
+  },
+  {
+   "d": "2020-08-18",
+   "buyer": "TB",
+   "yr": 2020,
+   "rental": "Edgar Garc\u00eda",
+   "received": -0.32,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Philadelphia Phillies traded RHP Edgar Garcia to Tampa Bay Rays for Player To Be Named Later."
+  },
+  {
+   "d": "2021-07-22",
+   "buyer": "TB",
+   "yr": 2021,
+   "rental": "Nelson Cruz",
+   "received": -0.13,
+   "extra": 0.09,
+   "paid": 12.19,
+   "desc": "Tampa Bay Rays traded RHP Drew Strotman and RHP Joe Ryan to Minnesota Twins for DH Nelson Cruz and RHP Calvin Faucher."
+  },
+  {
+   "d": "2021-07-23",
+   "buyer": "TB",
+   "yr": 2021,
+   "rental": "Tommy Hunter",
+   "received": 0,
+   "extra": 0.0,
+   "paid": 0.53,
+   "desc": "Tampa Bay Rays traded LHP Rich Hill to New York Mets for RHP Tommy Hunter and C Matt Dyer."
+  },
+  {
+   "d": "2022-07-30",
+   "buyer": "TB",
+   "yr": 2022,
+   "rental": "David Peralta",
+   "received": 0.02,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Arizona Diamondbacks traded LF David Peralta to Tampa Bay Rays for C Christian Cerda."
+  },
+  {
+   "d": "2023-06-02",
+   "buyer": "TB",
+   "yr": 2023,
+   "rental": "Robert Stephenson",
+   "received": 1.25,
+   "extra": 0,
+   "paid": -0.49,
+   "desc": "Tampa Bay Rays traded SS Alika Williams to Pittsburgh Pirates for RHP Robert Stephenson."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "TB",
+   "yr": 2024,
+   "rental": "Dylan Carlson",
+   "received": -0.1,
+   "extra": 0,
+   "paid": 0.33,
+   "desc": "St. Louis Cardinals traded CF Dylan Carlson to Tampa Bay Rays for RHP Shawn Armstrong."
+  },
+  {
+   "d": "2025-07-22",
+   "buyer": "TB",
+   "yr": 2025,
+   "rental": "Stuart Fairchild",
+   "received": 0,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Atlanta Braves traded RF Stuart Fairchild to Tampa Bay Rays for cash."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "TB",
+   "yr": 2025,
+   "rental": "Adrian Houser",
+   "received": 0.51,
+   "extra": 0,
+   "paid": -0.14,
+   "desc": "Chicago White Sox traded RHP Adrian Houser to Tampa Bay Rays for 1B Curtis Mead, RHP Duncan Davitt and RHP Ben Peoples."
+  },
+  {
+   "d": "2023-07-30",
+   "buyer": "TEX",
+   "yr": 2023,
+   "rental": "Chris Stratton, Jordan Montgomery",
+   "received": 1.88,
+   "extra": 0,
+   "paid": 0.51,
+   "desc": "St. Louis Cardinals traded LHP Jordan Montgomery and RHP Chris Stratton to Texas Rangers for LHP John King, RHP Tekoah R"
+  },
+  {
+   "d": "2023-08-01",
+   "buyer": "TEX",
+   "yr": 2023,
+   "rental": "Austin Hedges",
+   "received": -0.25,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Pittsburgh Pirates traded C Austin Hedges to Texas Rangers for Future Considerations. International Signing Bonus Cap Sp"
+  },
+  {
+   "d": "2024-07-28",
+   "buyer": "TEX",
+   "yr": 2024,
+   "rental": "Carson Kelly",
+   "received": 0.32,
+   "extra": 0,
+   "paid": -0.01,
+   "desc": "Detroit Tigers traded C Carson Kelly to Texas Rangers for C Liam Hicks and RHP Tyler Owens."
+  },
+  {
+   "d": "2024-07-30",
+   "buyer": "TEX",
+   "yr": 2024,
+   "rental": "Andrew Chafin",
+   "received": -0.09,
+   "extra": 0,
+   "paid": 0.27,
+   "desc": "Detroit Tigers traded LHP Andrew Chafin to Texas Rangers for RHP Joseph Montalvo and RHP Chase Lee."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "TEX",
+   "yr": 2025,
+   "rental": "Merrill Kelly",
+   "received": 0.62,
+   "extra": 0,
+   "paid": -0.27,
+   "desc": "Arizona Diamondbacks traded RHP Merrill Kelly to Texas Rangers for LHP Kohl Drake, LHP Mitch Bratt and RHP David Hagaman"
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "TEX",
+   "yr": 2025,
+   "rental": "Danny Coulombe",
+   "received": -0.2,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Minnesota Twins traded LHP Danny Coulombe to Texas Rangers for LHP Garrett Horn."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "TEX",
+   "yr": 2025,
+   "rental": "Phil Maton",
+   "received": 0.65,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "St. Louis Cardinals traded RHP Phil Maton to Texas Rangers for LHP Mason Molina, RHP Skylar Hales and Future Considerati"
+  },
+  {
+   "d": "2016-08-01",
+   "buyer": "TOR",
+   "yr": 2016,
+   "rental": "Scott Feldman",
+   "received": 0.17,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Houston Astros traded RHP Scott Feldman to Toronto Blue Jays for RHP Guadalupe Chavez."
+  },
+  {
+   "d": "2016-08-26",
+   "buyer": "TOR",
+   "yr": 2016,
+   "rental": "Dioner Navarro",
+   "received": -0.18,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Chicago White Sox traded C Dioner Navarro to Toronto Blue Jays for LHP Colton Turner."
+  },
+  {
+   "d": "2017-07-03",
+   "buyer": "TOR",
+   "yr": 2017,
+   "rental": "Miguel Montero",
+   "received": -0.32,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Chicago Cubs traded C Miguel Montero to Toronto Blue Jays for Player To Be Named Later."
+  },
+  {
+   "d": "2017-08-19",
+   "buyer": "TOR",
+   "yr": 2017,
+   "rental": "Tom Koehler",
+   "received": 0.41,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Miami Marlins traded cash and RHP Tom Koehler to Toronto Blue Jays for RHP Osman Gutierrez."
+  },
+  {
+   "d": "2020-08-27",
+   "buyer": "TOR",
+   "yr": 2020,
+   "rental": "Taijuan Walker",
+   "received": 0.39,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Seattle Mariners traded RHP Taijuan Walker to Toronto Blue Jays for Player To Be Named Later."
+  },
+  {
+   "d": "2020-08-31",
+   "buyer": "TOR",
+   "yr": 2020,
+   "rental": "Robbie Ray",
+   "received": 0.03,
+   "extra": 0,
+   "paid": -0.07,
+   "desc": "Arizona Diamondbacks traded LHP Robbie Ray and cash to Toronto Blue Jays for LHP Travis Bergen."
+  },
+  {
+   "d": "2020-08-31",
+   "buyer": "TOR",
+   "yr": 2020,
+   "rental": "Jonathan Villar",
+   "received": -0.36,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Miami Marlins traded Jonathan Villar to Toronto Blue Jays for Player To Be Named Later. Marlins acquired Griffin Conine "
+  },
+  {
+   "d": "2021-06-29",
+   "buyer": "TOR",
+   "yr": 2021,
+   "rental": "Corey Dickerson",
+   "received": 0.52,
+   "extra": 1.78,
+   "paid": -0.77,
+   "desc": "Miami Marlins traded LF Corey Dickerson, RHP Adam Cimber and cash to Toronto Blue Jays for 2B Joe Panik and RHP Andrew M"
+  },
+  {
+   "d": "2021-07-30",
+   "buyer": "TOR",
+   "yr": 2021,
+   "rental": "Joakim Soria",
+   "received": -0.03,
+   "extra": 0,
+   "paid": 0,
+   "desc": "Arizona Diamondbacks traded RHP Joakim Soria to Toronto Blue Jays for Player To Be Named Later and Player To Be Named La"
+  },
+  {
+   "d": "2023-07-30",
+   "buyer": "TOR",
+   "yr": 2023,
+   "rental": "Jordan Hicks",
+   "received": 0.47,
+   "extra": 0,
+   "paid": 0.02,
+   "desc": "St. Louis Cardinals traded RHP Jordan Hicks to Toronto Blue Jays for RHP Adam Kloffenstein and RHP Sem Robberse."
+  },
+  {
+   "d": "2025-07-29",
+   "buyer": "TOR",
+   "yr": 2025,
+   "rental": "Seranthony Dom\u00ednguez",
+   "received": 0.43,
+   "extra": 0,
+   "paid": 0.0,
+   "desc": "Baltimore Orioles traded RHP Seranthony Dom\u00ednguez and cash to Toronto Blue Jays for RHP Juaron Watts-Brown."
+  },
+  {
+   "d": "2025-07-31",
+   "buyer": "TOR",
+   "yr": 2025,
+   "rental": "Ty France",
+   "received": 0.0,
+   "extra": 2.61,
+   "paid": -0.19,
+   "desc": "Minnesota Twins traded RHP Louis Varland and 1B Ty France to Toronto Blue Jays for LF Alan Roden and LHP Kendry Rojas."
+  }
+ ]
+}
