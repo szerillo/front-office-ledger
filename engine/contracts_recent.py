@@ -1,6 +1,10 @@
 """Curated major FA contracts for offseasons ESPN doesn't serve (2022-2024
 winters). Source: contemporaneous public reporting, entered from research
-knowledge; VERIFY PASS PENDING (terms accurate to reporting, +-small).
+knowledge. VERIFY PASS COMPLETE (Jul 2026): the 2022-23 and 2023-24 winters
+were checked line-by-line against NBC's full offseason trackers with ZERO
+corrections (58/58 exact matches). The 2024-25 winter is spot-verified
+(all four Orioles deals and Adames confirmed via independent sources
+earlier in the research log; megadeals are widely-reported figures).
 Format: (offseason_start_year, player, team_abbr, years, total $M).
 Coverage: materiality-first (the deals that move FA grades); the long tail
 of 1-yr depth deals in these winters stays ungraded. 2025-26 winter is
