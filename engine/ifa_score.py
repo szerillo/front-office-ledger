@@ -109,9 +109,9 @@ for r in res:
     tid = r["teamId"]; p = per.get(tid, dict(real=0.0, exp=sum(class_mean(y) for y in range(max(int(REG[tid]['start'][:4]),2005), 2027)), n=0, tops=[]))
     net = p["real"] - p["exp"]
     r["chan"]["intl"] = dict(net=round(net, 1), g=grade(net / r["seasons"]), n=p["n"])
-    tops = sorted(p["tops"], reverse=True)[:3]
-    r["intl_tops"] = [dict(d=f"{y}-01-15", ch="intl", net=v,
-                           h=f"Int'l amateur signing: {nm} ({y} class)") for v, y, nm in tops if v >= 0.8]
+    tops = sorted(p["tops"], reverse=True)[:5]
+    r["intl_tops"] = [dict(d=f"{y}-01-15", ch="intl", net=round(v, 1),
+                           h=f"Int'l amateur signing: {nm} ({y} class)") for v, y, nm in tops if v >= 0.5]
     r["total"] = round(r["total"] + net, 1)
     best = f"{tops[0][2]} (+{tops[0][0]:.1f})" if tops and tops[0][0] > 0.3 else "-"
     print(f"{r['abbr']:<6}{net:>+9.1f}{p['real']:>8.1f}{p['exp']:>7.1f}{p['n']:>5}   {best}")

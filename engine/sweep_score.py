@@ -108,7 +108,7 @@ for reg in cfg["regimes"]:
     tid = reg["teamId"]; start = max(reg["start"], "2005-01-01")
     rows = [dict(r) for r in con.execute(
         "select * from sweep_tx where team_id=? and date>=? and type_desc in "
-        "('Trade','Claimed Off Waivers','Rule 5 Selection','Signed as Free Agent')",
+        "('Trade','Claimed Off Waivers','Rule 5 Selection','Signed as Free Agent','Declared Free Agency')",
         (tid, start))]
     regime_rows[tid] = rows
     for r in rows:
@@ -196,7 +196,7 @@ for reg in cfg["regimes"]:
     ynet = defaultdict(float)
     # trades
     trades = defaultdict(list)
-    seen_fa = set(); fa_raw = 0.0; n_fa = 0
+    seen_fa = set(); fa_raw = 0.0; n_fa = 0; walk = []
     n_wv = n_r5 = 0; wv_net = 0.0
     for r in regime_rows[tid]:
         t = r["type_desc"]; yr = int(r["date"][:4])
@@ -215,6 +215,15 @@ for reg in cfg["regimes"]:
             v = val(r["person_id"], names if pick else {r["to_team"]}, yr, yr+3, inside=True)
             r5n = (v if pick else -v)
             wv_net += r5n; n_r5 += 1; ynet[yr] += r5n
+        elif t == "Declared Free Agency":
+            pid = r["person_id"]
+            if pid:
+                played_here = val(pid, names, yr - 2, yr, inside=True)
+                if played_here > 0.5:
+                    lost = val(pid, names, yr + 1, yr + 3, inside=False)
+                    if lost > 1.0:
+                        walk.append(dict(d=r["date"], ch="walk", net=round(-lost, 1),
+                            h=f"Let {r['person_name']} walk as a free agent · {lost:.1f} LVM elsewhere over the next 3 seasons"))
         elif t == "Signed as Free Agent":
             key = (r["date"], r["person_id"])
             if key in seen_fa or "minor league" in (r["description"] or "").lower(): continue
@@ -251,6 +260,12 @@ for reg in cfg["regimes"]:
         if rec: w += rec[0]; l += rec[1]; div += rec[2]
     wpct = w / (w + l) if (w + l) else 0.5
     decs.sort(key=lambda x: -abs(x["net"]))
+    walk.sort(key=lambda x: x["net"])
+    def chbw(ch, n=5):
+        pool = [d for d in decs if d["ch"] == ch]
+        best = sorted([d for d in pool if d["net"] > 0], key=lambda x: -x["net"])[:n]
+        worst = sorted([d for d in pool if d["net"] < 0], key=lambda x: x["net"])[:n]
+        return dict(best=best, worst=worst)
     results.append(dict(
         id=reg["abbr"].lower(), teamId=tid, exec=reg["exec"], team=reg["team"], abbr=reg["abbr"],
         start=y_start, seasons=seasons, flags=reg.get("flags", []),
@@ -264,6 +279,8 @@ for reg in cfg["regimes"]:
         success=dict(wpct=f"{wpct:.3f}".lstrip('0'), div=div, g=success_grade(wpct, div), w=w, l=l),
         cum=[round(sum(ynet[y] for y in range(y_start, yy + 1)), 1) for yy in range(y_start, 2027)],
         top=decs[:8],
+        led=dict(trade=chbw("trade"), draft=chbw("draft"), waiver=chbw("waiver", 4)),
+        walk=walk[:5],
     ))
     print(f"{reg['abbr']}: trades {tr_net:+.1f} | draft {dr_net:+.1f} | waiver {wv_net:+.1f} "
           f"| FA raw {fa_raw:+.1f} (ungraded) | total {total:+.1f} over {seasons} yrs", flush=True)

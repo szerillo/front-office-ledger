@@ -108,6 +108,8 @@ for r in res:
         r["forGrade"] = grade_comp(r["total"] / r["seasons"])
     decs.sort(key=lambda d: -abs(d["net"]))
     r["fa_tops"] = decs[:4]
+    r["fa_led"] = dict(best=sorted([d for d in decs if d["net"] > 0], key=lambda x: -x["net"])[:5],
+                       worst=sorted([d for d in decs if d["net"] < 0], key=lambda x: x["net"])[:5])
     best = decs[0]["h"][:40] + f" ({decs[0]['net']:+.1f})" if decs else "-"
     worst = min(decs, key=lambda d: d["net"])["net"] if decs else 0
     print(f"{r['abbr']:<5}{(net if covered else 0):>+8.1f}{matched:>9}{len(majors):>8}   {best} / worst {worst:+.1f}")
