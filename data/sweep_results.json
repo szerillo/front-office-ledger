@@ -25,13 +25,20 @@
     "n": 85
    },
    "fa": {
-    "net": 47.3,
-    "g": null,
-    "n": 88
+    "net": -16.6,
+    "g": 30,
+    "n": 20,
+    "majors": 87,
+    "raw": 47.3
+   },
+   "intl": {
+    "net": -5.8,
+    "g": 40,
+    "n": 9
    }
   },
-  "total": -0.2,
-  "forGrade": 50,
+  "total": -22.6,
+  "forGrade": 35,
   "success": {
    "wpct": ".485",
    "div": 0,
@@ -109,6 +116,40 @@
     "net": 4.7,
     "h": "Drafted Ryne Nelson (#56 overall, 2019)"
    }
+  ],
+  "intl_tops": [
+   {
+    "d": "2018-01-15",
+    "ch": "intl",
+    "net": 2.11,
+    "h": "Int'l amateur signing: Justin Martinez (2018 class)"
+   }
+  ],
+  "fa_tops": [
+   {
+    "d": "2019-12-17",
+    "ch": "fa",
+    "net": -10.1,
+    "h": "Signed Madison Bumgarner \u00b7 5 yr / $85.0M (2019-20 winter, espn)"
+   },
+   {
+    "d": "2023-12-08",
+    "ch": "fa",
+    "net": -2.9,
+    "h": "Signed Eduardo Rodriguez \u00b7 4 yr / $80.0M (2023-24 winter, curated)"
+   },
+   {
+    "d": "2017-01-13",
+    "ch": "fa",
+    "net": 2.8,
+    "h": "Signed Chris Iannetta \u00b7 1 yr / $1.7M (2016-17 winter, espn)"
+   },
+   {
+    "d": "2024-12-30",
+    "ch": "fa",
+    "net": -2.8,
+    "h": "Signed Corbin Burnes \u00b7 6 yr / $210.0M (2024-25 winter, curated)"
+   }
   ]
  },
  {
@@ -137,12 +178,19 @@
     "n": 103
    },
    "fa": {
-    "net": 63.8,
-    "g": null,
-    "n": 92
+    "net": 0.6,
+    "g": 50,
+    "n": 21,
+    "majors": 91,
+    "raw": 63.8
+   },
+   "intl": {
+    "net": -3.4,
+    "g": 45,
+    "n": 2
    }
   },
-  "total": 67.9,
+  "total": 65.1,
   "forGrade": 75,
   "success": {
    "wpct": ".557",
@@ -222,6 +270,33 @@
     "vin": 4.6,
     "vout": -0.0
    }
+  ],
+  "intl_tops": [],
+  "fa_tops": [
+   {
+    "d": "2019-11-14",
+    "ch": "fa",
+    "net": -4.3,
+    "h": "Signed Will Smith \u00b7 3 yr / $39.0M (2019-20 winter, espn)"
+   },
+   {
+    "d": "2018-11-26",
+    "ch": "fa",
+    "net": 2.9,
+    "h": "Signed Josh Donaldson \u00b7 1 yr / $23.0M (2018-19 winter, espn)"
+   },
+   {
+    "d": "2019-12-04",
+    "ch": "fa",
+    "net": -2.2,
+    "h": "Signed Cole Hamels \u00b7 1 yr / $18.0M (2019-20 winter, espn)"
+   },
+   {
+    "d": "2020-11-16",
+    "ch": "fa",
+    "net": -1.9,
+    "h": "Signed Drew Smyly \u00b7 1 yr / $11.0M (2020-21 winter, espn)"
+   }
   ]
  },
  {
@@ -250,12 +325,19 @@
     "n": 182
    },
    "fa": {
-    "net": 11.8,
-    "g": null,
-    "n": 49
+    "net": -4.1,
+    "g": 45,
+    "n": 8,
+    "majors": 49,
+    "raw": 11.8
+   },
+   "intl": {
+    "net": 0.4,
+    "g": 50,
+    "n": 3
    }
   },
-  "total": 57.8,
+  "total": 54.1,
   "forGrade": 75,
   "success": {
    "wpct": ".446",
@@ -332,6 +414,40 @@
     "net": 4.5,
     "h": "Drafted Jordan Westburg (#30 overall, 2020)"
    }
+  ],
+  "intl_tops": [
+   {
+    "d": "2021-01-15",
+    "ch": "intl",
+    "net": 1.92,
+    "h": "Int'l amateur signing: Samuel Basallo (2021 class)"
+   }
+  ],
+  "fa_tops": [
+   {
+    "d": "2024-12-16",
+    "ch": "fa",
+    "net": -1.7,
+    "h": "Signed Tomoyuki Sugano \u00b7 1 yr / $13.0M (2024-25 winter, curated)"
+   },
+   {
+    "d": "2024-12-10",
+    "ch": "fa",
+    "net": -1.6,
+    "h": "Signed Tyler O'Neill \u00b7 3 yr / $49.5M (2024-25 winter, curated)"
+   },
+   {
+    "d": "2020-01-07",
+    "ch": "fa",
+    "net": 1.4,
+    "h": "Signed Jose Iglesias \u00b7 1 yr / $3.0M (2019-20 winter, espn)"
+   },
+   {
+    "d": "2025-01-03",
+    "ch": "fa",
+    "net": -1.2,
+    "h": "Signed Charlie Morton \u00b7 1 yr / $15.0M (2024-25 winter, curated)"
+   }
   ]
  },
  {
@@ -360,9 +476,16 @@
     "n": 21
    },
    "fa": {
-    "net": 14.0,
+    "net": 0,
     "g": null,
-    "n": 16
+    "n": 3,
+    "majors": 16,
+    "raw": 14.0
+   },
+   "intl": {
+    "net": 0.0,
+    "g": 50,
+    "n": 0
    }
   },
   "total": -6.3,
@@ -445,6 +568,27 @@
     "vin": 2.1,
     "vout": 4.3
    }
+  ],
+  "intl_tops": [],
+  "fa_tops": [
+   {
+    "d": "2024-12-28",
+    "ch": "fa",
+    "net": -3.1,
+    "h": "Signed Walker Buehler \u00b7 1 yr / $21.0M (2024-25 winter, curated)"
+   },
+   {
+    "d": "2024-01-03",
+    "ch": "fa",
+    "net": -2.4,
+    "h": "Signed Lucas Giolito \u00b7 2 yr / $38.5M (2023-24 winter, curated)"
+   },
+   {
+    "d": "2025-02-15",
+    "ch": "fa",
+    "net": -0.4,
+    "h": "Signed Alex Bregman \u00b7 3 yr / $120.0M (2024-25 winter, curated)"
+   }
   ]
  },
  {
@@ -475,12 +619,19 @@
     "n": 64
    },
    "fa": {
-    "net": 72.1,
-    "g": null,
-    "n": 85
+    "net": -6.0,
+    "g": 35,
+    "n": 14,
+    "majors": 80,
+    "raw": 72.1
+   },
+   "intl": {
+    "net": 0.1,
+    "g": 50,
+    "n": 2
    }
   },
-  "total": -23.0,
+  "total": -28.9,
   "forGrade": 30,
   "success": {
    "wpct": ".508",
@@ -561,6 +712,33 @@
     "vin": 0.2,
     "vout": 3.3
    }
+  ],
+  "intl_tops": [],
+  "fa_tops": [
+   {
+    "d": "2024-02-27",
+    "ch": "fa",
+    "net": -3.8,
+    "h": "Signed Cody Bellinger \u00b7 3 yr / $80.0M (2023-24 winter, curated)"
+   },
+   {
+    "d": "2021-12-01",
+    "ch": "fa",
+    "net": -3.3,
+    "h": "Signed Marcus Stroman \u00b7 3 yr / $71.0M (2021-22 winter, espn)"
+   },
+   {
+    "d": "2022-12-14",
+    "ch": "fa",
+    "net": 1.8,
+    "h": "Signed Cody Bellinger \u00b7 1 yr / $17.5M (2022-23 winter, curated)"
+   },
+   {
+    "d": "2021-12-01",
+    "ch": "fa",
+    "net": 1.2,
+    "h": "Signed Yan Gomes \u00b7 2 yr / $13.0M (2021-22 winter, espn)"
+   }
   ]
  },
  {
@@ -589,9 +767,16 @@
     "n": 52
    },
    "fa": {
-    "net": 10.3,
+    "net": 0,
     "g": null,
-    "n": 27
+    "n": 0,
+    "majors": 27,
+    "raw": 10.3
+   },
+   "intl": {
+    "net": 0.0,
+    "g": 50,
+    "n": 0
    }
   },
   "total": -11.0,
@@ -672,7 +857,9 @@
     "net": 1.7,
     "h": "Drafted Sam Antonacci (#140 overall, 2024)"
    }
-  ]
+  ],
+  "intl_tops": [],
+  "fa_tops": []
  },
  {
   "id": "cin",
@@ -700,12 +887,19 @@
     "n": 57
    },
    "fa": {
-    "net": 16.8,
+    "net": 0,
     "g": null,
-    "n": 54
+    "n": 3,
+    "majors": 52,
+    "raw": 16.8
+   },
+   "intl": {
+    "net": -0.4,
+    "g": 50,
+    "n": 0
    }
   },
-  "total": -7.4,
+  "total": -7.8,
   "forGrade": 40,
   "success": {
    "wpct": ".479",
@@ -780,6 +974,27 @@
     "vin": 0.0,
     "vout": 2.7
    }
+  ],
+  "intl_tops": [],
+  "fa_tops": [
+   {
+    "d": "2023-12-01",
+    "ch": "fa",
+    "net": 1.9,
+    "h": "Signed Nick Martinez \u00b7 2 yr / $26.0M (2023-24 winter, curated)"
+   },
+   {
+    "d": "2022-03-20",
+    "ch": "fa",
+    "net": 0.1,
+    "h": "Signed Donovan Solano \u00b7 1 yr / $4.5M (2021-22 winter, espn)"
+   },
+   {
+    "d": "2022-03-23",
+    "ch": "fa",
+    "net": -0.1,
+    "h": "Signed Hunter Strickland \u00b7 1 yr / $1.8M (2021-22 winter, espn)"
+   }
   ]
  },
  {
@@ -810,13 +1025,20 @@
     "n": 74
    },
    "fa": {
-    "net": 27.3,
-    "g": null,
-    "n": 44
+    "net": -5.6,
+    "g": 45,
+    "n": 15,
+    "majors": 42,
+    "raw": 27.3
+   },
+   "intl": {
+    "net": -4.1,
+    "g": 45,
+    "n": 6
    }
   },
-  "total": 14.7,
-  "forGrade": 60,
+  "total": 5.0,
+  "forGrade": 55,
   "success": {
    "wpct": ".549",
    "div": 6,
@@ -897,6 +1119,40 @@
     "vin": 3.7,
     "vout": 11.6
    }
+  ],
+  "intl_tops": [
+   {
+    "d": "2017-01-15",
+    "ch": "intl",
+    "net": 3.4,
+    "h": "Int'l amateur signing: Brayan Rocchio (2017 class)"
+   }
+  ],
+  "fa_tops": [
+   {
+    "d": "2022-12-12",
+    "ch": "fa",
+    "net": -3.8,
+    "h": "Signed Josh Bell \u00b7 2 yr / $33.0M (2022-23 winter, curated)"
+   },
+   {
+    "d": "2017-01-05",
+    "ch": "fa",
+    "net": -2.1,
+    "h": "Signed Edwin Encarnaci\u00f3n \u00b7 3 yr / $60.0M (2016-17 winter, espn)"
+   },
+   {
+    "d": "2016-01-05",
+    "ch": "fa",
+    "net": 1.4,
+    "h": "Signed Mike Napoli \u00b7 1 yr / $7.0M (2015-16 winter, espn)"
+   },
+   {
+    "d": "2017-12-23",
+    "ch": "fa",
+    "net": -1.0,
+    "h": "Signed Yonder Alonso \u00b7 2 yr / $16.0M (2017-18 winter, espn)"
+   }
   ]
  },
  {
@@ -927,9 +1183,16 @@
     "n": 12
    },
    "fa": {
-    "net": 1.8,
+    "net": 0,
     "g": null,
-    "n": 4
+    "n": 0,
+    "majors": 4,
+    "raw": 1.8
+   },
+   "intl": {
+    "net": 0.0,
+    "g": 50,
+    "n": 0
    }
   },
   "total": 8.0,
@@ -988,7 +1251,9 @@
     "net": -0.1,
     "h": "Colorado Rockies claimed LHP Sammy Peralta off waivers from Milwaukee Brewers."
    }
-  ]
+  ],
+  "intl_tops": [],
+  "fa_tops": []
  },
  {
   "id": "det",
@@ -1016,9 +1281,16 @@
     "n": 57
    },
    "fa": {
-    "net": 28.1,
+    "net": 0,
     "g": null,
-    "n": 25
+    "n": 3,
+    "majors": 25,
+    "raw": 28.1
+   },
+   "intl": {
+    "net": -0.0,
+    "g": 50,
+    "n": 0
    }
   },
   "total": 5.2,
@@ -1094,6 +1366,27 @@
     "vin": 0,
     "vout": 1.0
    }
+  ],
+  "intl_tops": [],
+  "fa_tops": [
+   {
+    "d": "2024-12-27",
+    "ch": "fa",
+    "net": 1.9,
+    "h": "Signed Gleyber Torres \u00b7 1 yr / $15.0M (2024-25 winter, curated)"
+   },
+   {
+    "d": "2025-11-18",
+    "ch": "fa",
+    "net": 1.9,
+    "h": "Signed Gleyber Torres \u00b7 1 yr / $15.0M (2024-25 winter, curated)"
+   },
+   {
+    "d": "2025-02-07",
+    "ch": "fa",
+    "net": 0.6,
+    "h": "Signed Jack Flaherty \u00b7 2 yr / $35.0M (2024-25 winter, curated)"
+   }
   ]
  },
  {
@@ -1122,9 +1415,16 @@
     "n": 33
    },
    "fa": {
-    "net": 10.2,
+    "net": 0,
     "g": null,
-    "n": 16
+    "n": 2,
+    "majors": 16,
+    "raw": 10.2
+   },
+   "intl": {
+    "net": 0.0,
+    "g": 50,
+    "n": 0
    }
   },
   "total": 5.6,
@@ -1201,6 +1501,21 @@
     "vin": 1.4,
     "vout": 0.5
    }
+  ],
+  "intl_tops": [],
+  "fa_tops": [
+   {
+    "d": "2024-01-22",
+    "ch": "fa",
+    "net": -1.6,
+    "h": "Signed Josh Hader \u00b7 5 yr / $95.0M (2023-24 winter, curated)"
+   },
+   {
+    "d": "2024-12-23",
+    "ch": "fa",
+    "net": -1.4,
+    "h": "Signed Christian Walker \u00b7 3 yr / $60.0M (2024-25 winter, curated)"
+   }
   ]
  },
  {
@@ -1229,9 +1544,16 @@
     "n": 24
    },
    "fa": {
-    "net": 20.1,
+    "net": 0,
     "g": null,
-    "n": 20
+    "n": 2,
+    "majors": 19,
+    "raw": 20.1
+   },
+   "intl": {
+    "net": -0.0,
+    "g": 50,
+    "n": 0
    }
   },
   "total": -5.6,
@@ -1311,6 +1633,21 @@
     "vin": -0.6,
     "vout": 0.9
    }
+  ],
+  "intl_tops": [],
+  "fa_tops": [
+   {
+    "d": "2023-12-18",
+    "ch": "fa",
+    "net": 2.4,
+    "h": "Signed Michael Wacha \u00b7 2 yr / $32.0M (2023-24 winter, curated)"
+   },
+   {
+    "d": "2023-12-14",
+    "ch": "fa",
+    "net": 1.3,
+    "h": "Signed Seth Lugo \u00b7 3 yr / $45.0M (2023-24 winter, curated)"
+   }
   ]
  },
  {
@@ -1339,13 +1676,20 @@
     "n": 67
    },
    "fa": {
-    "net": 17.0,
-    "g": null,
-    "n": 69
+    "net": -6.5,
+    "g": 35,
+    "n": 11,
+    "majors": 69,
+    "raw": 17.0
+   },
+   "intl": {
+    "net": 1.0,
+    "g": 50,
+    "n": 3
    }
   },
-  "total": -2.5,
-  "forGrade": 45,
+  "total": -8.0,
+  "forGrade": 40,
   "success": {
    "wpct": ".437",
    "div": 0,
@@ -1421,6 +1765,40 @@
     "vin": 0.0,
     "vout": 1.9
    }
+  ],
+  "intl_tops": [
+   {
+    "d": "2021-01-15",
+    "ch": "intl",
+    "net": 1.21,
+    "h": "Int'l amateur signing: Walbert Ure\u00f1a (2021 class)"
+   }
+  ],
+  "fa_tops": [
+   {
+    "d": "2024-01-23",
+    "ch": "fa",
+    "net": -2.2,
+    "h": "Signed Robert Stephenson \u00b7 3 yr / $33.0M (2023-24 winter, curated)"
+   },
+   {
+    "d": "2021-11-16",
+    "ch": "fa",
+    "net": -1.5,
+    "h": "Signed Noah Syndergaard \u00b7 1 yr / $21.0M (2021-22 winter, espn)"
+   },
+   {
+    "d": "2022-03-19",
+    "ch": "fa",
+    "net": -1.1,
+    "h": "Signed Ryan Tepera \u00b7 2 yr / $14.0M (2021-22 winter, espn)"
+   },
+   {
+    "d": "2021-11-22",
+    "ch": "fa",
+    "net": -0.6,
+    "h": "Signed Aaron Loup \u00b7 2 yr / $17.0M (2021-22 winter, espn)"
+   }
   ]
  },
  {
@@ -1449,12 +1827,19 @@
     "n": 118
    },
    "fa": {
-    "net": 180.0,
-    "g": null,
-    "n": 105
+    "net": -11.3,
+    "g": 40,
+    "n": 34,
+    "majors": 102,
+    "raw": 180.0
+   },
+   "intl": {
+    "net": 3.3,
+    "g": 55,
+    "n": 14
    }
   },
-  "total": 78.2,
+  "total": 70.2,
   "forGrade": 75,
   "success": {
    "wpct": ".614",
@@ -1539,6 +1924,46 @@
     "vin": 0,
     "vout": 7.0
    }
+  ],
+  "intl_tops": [
+   {
+    "d": "2018-01-15",
+    "ch": "intl",
+    "net": 8.0,
+    "h": "Int'l amateur signing: Andy Pages (2018 class)"
+   },
+   {
+    "d": "2018-01-15",
+    "ch": "intl",
+    "net": 1.52,
+    "h": "Int'l amateur signing: Edgardo Henriquez (2018 class)"
+   }
+  ],
+  "fa_tops": [
+   {
+    "d": "2021-02-11",
+    "ch": "fa",
+    "net": -10.9,
+    "h": "Signed Trevor Bauer \u00b7 3 yr / $102.0M (2020-21 winter, espn)"
+   },
+   {
+    "d": "2022-03-18",
+    "ch": "fa",
+    "net": 9.5,
+    "h": "Signed Freddie Freeman \u00b7 6 yr / $162.0M (2021-22 winter, espn)"
+   },
+   {
+    "d": "2023-12-11",
+    "ch": "fa",
+    "net": 7.1,
+    "h": "Signed Shohei Ohtani \u00b7 10 yr / $700.0M (2023-24 winter, curated)"
+   },
+   {
+    "d": "2015-12-30",
+    "ch": "fa",
+    "net": -5.7,
+    "h": "Signed Scott Kazmir \u00b7 3 yr / $48.0M (2015-16 winter, espn)"
+   }
   ]
  },
  {
@@ -1567,9 +1992,16 @@
     "n": 61
    },
    "fa": {
-    "net": -0.9,
+    "net": 0,
     "g": null,
-    "n": 9
+    "n": 0,
+    "majors": 9,
+    "raw": -0.9
+   },
+   "intl": {
+    "net": 0.0,
+    "g": 50,
+    "n": 0
    }
   },
   "total": 1.6,
@@ -1648,7 +2080,9 @@
     "vin": 0.0,
     "vout": 2.0
    }
-  ]
+  ],
+  "intl_tops": [],
+  "fa_tops": []
  },
  {
   "id": "mil",
@@ -1676,9 +2110,16 @@
     "n": 28
    },
    "fa": {
-    "net": 18.9,
+    "net": 0,
     "g": null,
-    "n": 28
+    "n": 1,
+    "majors": 28,
+    "raw": 18.9
+   },
+   "intl": {
+    "net": -0.0,
+    "g": 50,
+    "n": 0
    }
   },
   "total": 38.5,
@@ -1762,6 +2203,15 @@
     "vin": 2.1,
     "vout": 0.0
    }
+  ],
+  "intl_tops": [],
+  "fa_tops": [
+   {
+    "d": "2024-01-26",
+    "ch": "fa",
+    "net": -2.0,
+    "h": "Signed Rhys Hoskins \u00b7 2 yr / $34.0M (2023-24 winter, curated)"
+   }
   ]
  },
  {
@@ -1790,13 +2240,20 @@
     "n": 105
    },
    "fa": {
-    "net": 72.8,
-    "g": null,
-    "n": 68
+    "net": -11.3,
+    "g": 35,
+    "n": 29,
+    "majors": 67,
+    "raw": 72.8
+   },
+   "intl": {
+    "net": -6.6,
+    "g": 40,
+    "n": 2
    }
   },
-  "total": -2.7,
-  "forGrade": 50,
+  "total": -20.6,
+  "forGrade": 40,
   "success": {
    "wpct": ".493",
    "div": 3,
@@ -1880,6 +2337,33 @@
     "vin": 0,
     "vout": 5.4
    }
+  ],
+  "intl_tops": [],
+  "fa_tops": [
+   {
+    "d": "2020-01-22",
+    "ch": "fa",
+    "net": -6.1,
+    "h": "Signed Josh Donaldson \u00b7 4 yr / $92.0M (2019-20 winter, espn)"
+   },
+   {
+    "d": "2019-01-02",
+    "ch": "fa",
+    "net": 3.0,
+    "h": "Signed Nelson Cruz \u00b7 1 yr / $14.3M (2018-19 winter, espn)"
+   },
+   {
+    "d": "2023-01-11",
+    "ch": "fa",
+    "net": -2.8,
+    "h": "Signed Carlos Correa \u00b7 6 yr / $200.0M (2022-23 winter, curated)"
+   },
+   {
+    "d": "2019-11-14",
+    "ch": "fa",
+    "net": -2.3,
+    "h": "Signed Jake Odorizzi \u00b7 1 yr / $17.8M (2019-20 winter, espn)"
+   }
   ]
  },
  {
@@ -1908,13 +2392,20 @@
     "n": 48
    },
    "fa": {
-    "net": 35.8,
-    "g": null,
-    "n": 41
+    "net": -3.1,
+    "g": 35,
+    "n": 9,
+    "majors": 41,
+    "raw": 35.8
+   },
+   "intl": {
+    "net": 0.0,
+    "g": 50,
+    "n": 0
    }
   },
-  "total": 0.4,
-  "forGrade": 50,
+  "total": -2.7,
+  "forGrade": 45,
   "success": {
    "wpct": ".492",
    "div": 0,
@@ -1989,6 +2480,33 @@
     "vin": 1.0,
     "vout": 0
    }
+  ],
+  "intl_tops": [],
+  "fa_tops": [
+   {
+    "d": "2024-01-12",
+    "ch": "fa",
+    "net": -2.1,
+    "h": "Signed Sean Manaea \u00b7 3 yr / $75.0M (2024-25 winter, curated)"
+   },
+   {
+    "d": "2024-12-27",
+    "ch": "fa",
+    "net": -2.1,
+    "h": "Signed Sean Manaea \u00b7 3 yr / $75.0M (2024-25 winter, curated)"
+   },
+   {
+    "d": "2024-12-04",
+    "ch": "fa",
+    "net": -1.9,
+    "h": "Signed Frankie Montas \u00b7 2 yr / $34.0M (2024-25 winter, curated)"
+   },
+   {
+    "d": "2025-02-12",
+    "ch": "fa",
+    "net": 1.7,
+    "h": "Signed Pete Alonso \u00b7 2 yr / $54.0M (2024-25 winter, curated)"
+   }
   ]
  },
  {
@@ -2019,13 +2537,20 @@
     "n": 165
    },
    "fa": {
-    "net": 263.0,
-    "g": null,
-    "n": 126
+    "net": -29.0,
+    "g": 35,
+    "n": 53,
+    "majors": 123,
+    "raw": 263.0
+   },
+   "intl": {
+    "net": -1.7,
+    "g": 50,
+    "n": 41
    }
   },
-  "total": 83.3,
-  "forGrade": 70,
+  "total": 52.6,
+  "forGrade": 65,
   "success": {
    "wpct": ".573",
    "div": 8,
@@ -2116,6 +2641,52 @@
     "vin": 9.5,
     "vout": -0.6
    }
+  ],
+  "intl_tops": [
+   {
+    "d": "2012-01-15",
+    "ch": "intl",
+    "net": 12.88,
+    "h": "Int'l amateur signing: Luis Severino (2012 class)"
+   },
+   {
+    "d": "2016-01-15",
+    "ch": "intl",
+    "net": 3.88,
+    "h": "Int'l amateur signing: Jonathan Lo\u00e1isiga (2016 class)"
+   },
+   {
+    "d": "2011-01-15",
+    "ch": "intl",
+    "net": 1.69,
+    "h": "Int'l amateur signing: Miguel Andujar (2011 class)"
+   }
+  ],
+  "fa_tops": [
+   {
+    "d": "2022-12-20",
+    "ch": "fa",
+    "net": 15.3,
+    "h": "Signed Aaron Judge \u00b7 9 yr / $360.0M (2022-23 winter, curated)"
+   },
+   {
+    "d": "2013-12-07",
+    "ch": "fa",
+    "net": -12.0,
+    "h": "Signed Jacoby Ellsbury \u00b7 7 yr / $153.0M (2013-14 winter, espn)"
+   },
+   {
+    "d": "2019-12-18",
+    "ch": "fa",
+    "net": -8.2,
+    "h": "Signed Gerrit Cole \u00b7 9 yr / $324.0M (2019-20 winter, espn)"
+   },
+   {
+    "d": "2019-01-14",
+    "ch": "fa",
+    "net": 5.5,
+    "h": "Signed DJ LeMahieu \u00b7 2 yr / $24.0M (2018-19 winter, espn)"
+   }
   ]
  },
  {
@@ -2144,12 +2715,19 @@
     "n": 113
    },
    "fa": {
-    "net": 31.8,
-    "g": null,
-    "n": 60
+    "net": 2.0,
+    "g": 50,
+    "n": 23,
+    "majors": 60,
+    "raw": 31.8
+   },
+   "intl": {
+    "net": -7.5,
+    "g": 40,
+    "n": 5
    }
   },
-  "total": 19.5,
+  "total": 14.0,
   "forGrade": 60,
   "success": {
    "wpct": ".464",
@@ -2231,6 +2809,33 @@
     "vin": -0.1,
     "vout": 7.8
    }
+  ],
+  "intl_tops": [],
+  "fa_tops": [
+   {
+    "d": "2017-12-07",
+    "ch": "fa",
+    "net": 1.9,
+    "h": "Signed Yusmeiro Petit \u00b7 2 yr / $10.0M (2017-18 winter, espn)"
+   },
+   {
+    "d": "2018-03-19",
+    "ch": "fa",
+    "net": 1.9,
+    "h": "Signed Trevor Cahill \u00b7 1 yr / $1.2M (2017-18 winter, espn)"
+   },
+   {
+    "d": "2019-02-13",
+    "ch": "fa",
+    "net": 1.8,
+    "h": "Signed Brett Anderson \u00b7 1 yr / $1.5M (2018-19 winter, espn)"
+   },
+   {
+    "d": "2015-11-20",
+    "ch": "fa",
+    "net": 1.5,
+    "h": "Signed Rich Hill \u00b7 1 yr / $6.0M (2015-16 winter, espn)"
+   }
   ]
  },
  {
@@ -2259,12 +2864,19 @@
     "n": 60
    },
    "fa": {
-    "net": 78.3,
-    "g": null,
-    "n": 43
+    "net": -3.5,
+    "g": 40,
+    "n": 9,
+    "majors": 40,
+    "raw": 78.3
+   },
+   "intl": {
+    "net": -0.4,
+    "g": 50,
+    "n": 1
    }
   },
-  "total": 11.6,
+  "total": 7.7,
   "forGrade": 60,
   "success": {
    "wpct": ".549",
@@ -2345,6 +2957,33 @@
     "vin": 0.1,
     "vout": 2.1
    }
+  ],
+  "intl_tops": [],
+  "fa_tops": [
+   {
+    "d": "2022-03-20",
+    "ch": "fa",
+    "net": 6.2,
+    "h": "Signed Kyle Schwarber \u00b7 4 yr / $79.0M (2021-22 winter, espn)"
+   },
+   {
+    "d": "2022-12-16",
+    "ch": "fa",
+    "net": -5.9,
+    "h": "Signed Taijuan Walker \u00b7 4 yr / $72.0M (2022-23 winter, curated)"
+   },
+   {
+    "d": "2022-12-08",
+    "ch": "fa",
+    "net": 5.1,
+    "h": "Signed Trea Turner \u00b7 11 yr / $300.0M (2022-23 winter, curated)"
+   },
+   {
+    "d": "2021-02-10",
+    "ch": "fa",
+    "net": -3.0,
+    "h": "Signed Didi Gregorius \u00b7 2 yr / $28.0M (2020-21 winter, espn)"
+   }
   ]
  },
  {
@@ -2373,12 +3012,19 @@
     "n": 106
    },
    "fa": {
-    "net": 14.6,
+    "net": 0,
     "g": null,
-    "n": 53
+    "n": 5,
+    "majors": 53,
+    "raw": 14.6
+   },
+   "intl": {
+    "net": 1.6,
+    "g": 55,
+    "n": 3
    }
   },
-  "total": 13.0,
+  "total": 14.6,
   "forGrade": 60,
   "success": {
    "wpct": ".429",
@@ -2456,6 +3102,40 @@
     "vin": -0.1,
     "vout": 3.5
    }
+  ],
+  "intl_tops": [
+   {
+    "d": "2021-01-15",
+    "ch": "intl",
+    "net": 1.91,
+    "h": "Int'l amateur signing: Esmerlyn Valdez (2021 class)"
+   }
+  ],
+  "fa_tops": [
+   {
+    "d": "2021-11-29",
+    "ch": "fa",
+    "net": 1.9,
+    "h": "Signed Jose Quintana \u00b7 1 yr / $2.0M (2021-22 winter, espn)"
+   },
+   {
+    "d": "2020-01-31",
+    "ch": "fa",
+    "net": -0.7,
+    "h": "Signed JT Riddle \u00b7 1 yr / $0.8M (2019-20 winter, espn)"
+   },
+   {
+    "d": "2020-01-09",
+    "ch": "fa",
+    "net": -0.2,
+    "h": "Signed Guillermo Heredia \u00b7 1 yr / $1.0M (2019-20 winter, espn)"
+   },
+   {
+    "d": "2021-12-01",
+    "ch": "fa",
+    "net": -0.2,
+    "h": "Signed Roberto P\u00e9rez \u00b7 1 yr / $5.0M (2021-22 winter, espn)"
+   }
   ]
  },
  {
@@ -2484,12 +3164,19 @@
     "n": 80
    },
    "fa": {
-    "net": 98.8,
-    "g": null,
-    "n": 92
+    "net": -12.5,
+    "g": 35,
+    "n": 27,
+    "majors": 89,
+    "raw": 98.8
+   },
+   "intl": {
+    "net": 1.7,
+    "g": 50,
+    "n": 16
    }
   },
-  "total": -42.3,
+  "total": -53.1,
   "forGrade": 30,
   "success": {
    "wpct": ".487",
@@ -2578,6 +3265,46 @@
     "vin": 5.2,
     "vout": 14.5
    }
+  ],
+  "intl_tops": [
+   {
+    "d": "2016-01-15",
+    "ch": "intl",
+    "net": 6.11,
+    "h": "Int'l amateur signing: Adrian Morejon (2016 class)"
+   },
+   {
+    "d": "2021-01-15",
+    "ch": "intl",
+    "net": 1.3,
+    "h": "Int'l amateur signing: Bradgley Rodriguez (2021 class)"
+   }
+  ],
+  "fa_tops": [
+   {
+    "d": "2018-02-19",
+    "ch": "fa",
+    "net": -13.6,
+    "h": "Signed Eric Hosmer \u00b7 8 yr / $144.0M (2017-18 winter, espn)"
+   },
+   {
+    "d": "2015-02-11",
+    "ch": "fa",
+    "net": -9.2,
+    "h": "Signed James Shields \u00b7 4 yr / $75.0M (2014-15 winter, espn)"
+   },
+   {
+    "d": "2019-02-21",
+    "ch": "fa",
+    "net": 4.9,
+    "h": "Signed Manny Machado \u00b7 10 yr / $300.0M (2018-19 winter, espn)"
+   },
+   {
+    "d": "2018-01-06",
+    "ch": "fa",
+    "net": 3.4,
+    "h": "Signed Craig Stammen \u00b7 2 yr / $4.5M (2017-18 winter, espn)"
+   }
   ]
  },
  {
@@ -2606,9 +3333,16 @@
     "n": 15
    },
    "fa": {
-    "net": 11.5,
+    "net": 0,
     "g": null,
-    "n": 14
+    "n": 2,
+    "majors": 14,
+    "raw": 11.5
+   },
+   "intl": {
+    "net": 0.0,
+    "g": 50,
+    "n": 0
    }
   },
   "total": -2.3,
@@ -2678,6 +3412,21 @@
     "net": 0.1,
     "h": "San Francisco Giants claimed C Sam Huff off waivers from Texas Rangers."
    }
+  ],
+  "intl_tops": [],
+  "fa_tops": [
+   {
+    "d": "2024-12-10",
+    "ch": "fa",
+    "net": 1.0,
+    "h": "Signed Willy Adames \u00b7 7 yr / $182.0M (2024-25 winter, curated)"
+   },
+   {
+    "d": "2025-01-11",
+    "ch": "fa",
+    "net": 0.7,
+    "h": "Signed Justin Verlander \u00b7 1 yr / $15.0M (2024-25 winter, curated)"
+   }
   ]
  },
  {
@@ -2706,12 +3455,19 @@
     "n": 184
    },
    "fa": {
-    "net": 34.7,
-    "g": null,
-    "n": 66
+    "net": -12.5,
+    "g": 35,
+    "n": 17,
+    "majors": 65,
+    "raw": 34.7
+   },
+   "intl": {
+    "net": 11.9,
+    "g": 65,
+    "n": 8
    }
   },
-  "total": 24.5,
+  "total": 23.9,
   "forGrade": 65,
   "success": {
    "wpct": ".515",
@@ -2793,6 +3549,40 @@
     "vin": -0.7,
     "vout": 9.1
    }
+  ],
+  "intl_tops": [
+   {
+    "d": "2017-01-15",
+    "ch": "intl",
+    "net": 19.08,
+    "h": "Int'l amateur signing: Julio Rodr\u00edguez (2017 class)"
+   }
+  ],
+  "fa_tops": [
+   {
+    "d": "2021-11-30",
+    "ch": "fa",
+    "net": -8.4,
+    "h": "Signed Robbie Ray \u00b7 5 yr / $115.0M (2021-22 winter, espn)"
+   },
+   {
+    "d": "2019-01-02",
+    "ch": "fa",
+    "net": -3.2,
+    "h": "Signed Yusei Kikuchi \u00b7 3 yr / $43.0M (2018-19 winter, espn)"
+   },
+   {
+    "d": "2016-12-03",
+    "ch": "fa",
+    "net": -1.2,
+    "h": "Signed Marc Rzepczynski \u00b7 2 yr / $11.0M (2016-17 winter, espn)"
+   },
+   {
+    "d": "2019-01-10",
+    "ch": "fa",
+    "net": 1.2,
+    "h": "Signed Tim Beckham \u00b7 1 yr / $1.8M (2018-19 winter, espn)"
+   }
   ]
  },
  {
@@ -2823,9 +3613,16 @@
     "n": 12
    },
    "fa": {
-    "net": 2.7,
+    "net": 0,
     "g": null,
-    "n": 4
+    "n": 0,
+    "majors": 4,
+    "raw": 2.7
+   },
+   "intl": {
+    "net": 0.0,
+    "g": 50,
+    "n": 0
    }
   },
   "total": -5.1,
@@ -2888,7 +3685,9 @@
     "net": 0.3,
     "h": "Minnesota Twins claimed RHP Zak Kent off waivers from St. Louis Cardinals."
    }
-  ]
+  ],
+  "intl_tops": [],
+  "fa_tops": []
  },
  {
   "id": "tb",
@@ -2916,13 +3715,20 @@
     "n": 83
    },
    "fa": {
-    "net": 48.3,
-    "g": null,
-    "n": 53
+    "net": 16.9,
+    "g": 70,
+    "n": 14,
+    "majors": 51,
+    "raw": 48.3
+   },
+   "intl": {
+    "net": 1.5,
+    "g": 50,
+    "n": 2
    }
   },
-  "total": -0.0,
-  "forGrade": 50,
+  "total": 18.4,
+  "forGrade": 60,
   "success": {
    "wpct": ".540",
    "div": 3,
@@ -3006,6 +3812,40 @@
     "vin": 9.5,
     "vout": 0.2
    }
+  ],
+  "intl_tops": [
+   {
+    "d": "2017-01-15",
+    "ch": "intl",
+    "net": 8.09,
+    "h": "Int'l amateur signing: Wander Franco (2017 class)"
+   }
+  ],
+  "fa_tops": [
+   {
+    "d": "2020-12-16",
+    "ch": "fa",
+    "net": 3.3,
+    "h": "Signed Mike Zunino \u00b7 1 yr / $3.0M (2020-21 winter, espn)"
+   },
+   {
+    "d": "2018-12-21",
+    "ch": "fa",
+    "net": 2.9,
+    "h": "Signed Charlie Morton \u00b7 2 yr / $30.0M (2018-19 winter, espn)"
+   },
+   {
+    "d": "2017-02-07",
+    "ch": "fa",
+    "net": 2.8,
+    "h": "Signed Logan Morrison \u00b7 1 yr / $2.5M (2016-17 winter, espn)"
+   },
+   {
+    "d": "2016-12-12",
+    "ch": "fa",
+    "net": 2.4,
+    "h": "Signed Wilson Ramos \u00b7 2 yr / $12.5M (2016-17 winter, espn)"
+   }
   ]
  },
  {
@@ -3036,9 +3876,16 @@
     "n": 38
    },
    "fa": {
-    "net": 46.5,
+    "net": 0,
     "g": null,
-    "n": 36
+    "n": 5,
+    "majors": 35,
+    "raw": 46.5
+   },
+   "intl": {
+    "net": -0.0,
+    "g": 50,
+    "n": 0
    }
   },
   "total": 4.8,
@@ -3116,6 +3963,33 @@
     "vin": 1.4,
     "vout": -0.3
    }
+  ],
+  "intl_tops": [],
+  "fa_tops": [
+   {
+    "d": "2022-12-02",
+    "ch": "fa",
+    "net": -7.3,
+    "h": "Signed Jacob deGrom \u00b7 5 yr / $185.0M (2022-23 winter, curated)"
+   },
+   {
+    "d": "2022-11-15",
+    "ch": "fa",
+    "net": 3.4,
+    "h": "Signed Mart\u00edn P\u00e9rez \u00b7 1 yr / $4.0M (2021-22 winter, espn)"
+   },
+   {
+    "d": "2022-12-27",
+    "ch": "fa",
+    "net": 1.2,
+    "h": "Signed Nathan Eovaldi \u00b7 2 yr / $34.0M (2022-23 winter, curated)"
+   },
+   {
+    "d": "2024-12-12",
+    "ch": "fa",
+    "net": 0.9,
+    "h": "Signed Nathan Eovaldi \u00b7 3 yr / $75.0M (2024-25 winter, curated)"
+   }
   ]
  },
  {
@@ -3144,12 +4018,19 @@
     "n": 103
    },
    "fa": {
-    "net": 77.2,
-    "g": null,
-    "n": 74
+    "net": -7.1,
+    "g": 40,
+    "n": 25,
+    "majors": 74,
+    "raw": 77.2
+   },
+   "intl": {
+    "net": 8.2,
+    "g": 60,
+    "n": 9
    }
   },
-  "total": 20.2,
+  "total": 21.3,
   "forGrade": 60,
   "success": {
    "wpct": ".514",
@@ -3235,6 +4116,40 @@
     "vin": 3.2,
     "vout": 0
    }
+  ],
+  "intl_tops": [
+   {
+    "d": "2016-01-15",
+    "ch": "intl",
+    "net": 14.09,
+    "h": "Int'l amateur signing: Alejandro Kirk (2016 class)"
+   }
+  ],
+  "fa_tops": [
+   {
+    "d": "2021-12-01",
+    "ch": "fa",
+    "net": 7.2,
+    "h": "Signed Kevin Gausman \u00b7 5 yr / $110.0M (2021-22 winter, espn)"
+   },
+   {
+    "d": "2019-12-27",
+    "ch": "fa",
+    "net": -4.9,
+    "h": "Signed Hyun Jin Ryu \u00b7 4 yr / $80.0M (2019-20 winter, espn)"
+   },
+   {
+    "d": "2021-01-30",
+    "ch": "fa",
+    "net": 4.3,
+    "h": "Signed Marcus Semien \u00b7 1 yr / $18.0M (2020-21 winter, espn)"
+   },
+   {
+    "d": "2019-12-18",
+    "ch": "fa",
+    "net": -3.9,
+    "h": "Signed Tanner Roark \u00b7 2 yr / $24.0M (2019-20 winter, espn)"
+   }
   ]
  },
  {
@@ -3265,9 +4180,16 @@
     "n": 20
    },
    "fa": {
-    "net": 0.1,
+    "net": 0,
     "g": null,
-    "n": 5
+    "n": 0,
+    "majors": 5,
+    "raw": 0.1
+   },
+   "intl": {
+    "net": 0.0,
+    "g": 50,
+    "n": 0
    }
   },
   "total": -1.2,
@@ -3340,6 +4262,8 @@
     "net": -0.2,
     "h": "Boston Red Sox claimed 2B Mickey Gasper off waivers from Washington Nationals."
    }
-  ]
+  ],
+  "intl_tops": [],
+  "fa_tops": []
  }
 ]
