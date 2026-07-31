@@ -150,6 +150,60 @@
     "net": -2.8,
     "h": "Signed Corbin Burnes \u00b7 6 yr / $210.0M (2024-25 winter, curated)"
    }
+  ],
+  "dev": {
+   "net": 13.6,
+   "g": 40,
+   "n": 31,
+   "seasons": 9.8,
+   "rate": 1.38,
+   "lgRate": 2.52,
+   "farmNow": 3.5,
+   "farmN": 2,
+   "flows": {
+    "developed_in": 27,
+    "traded_out_ranked": 4,
+    "graduated": 14,
+    "fell_off": 4
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": 2.9,
+    "h": "Corbin Carroll #19 -> #2"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": -2.9,
+    "h": "Druw Jones #15 -> #78"
+   },
+   {
+    "d": "2022-02-01",
+    "ch": "dev",
+    "net": 2.6,
+    "h": "Alek Thomas #80 -> #18"
+   },
+   {
+    "d": "2020-02-01",
+    "ch": "dev",
+    "net": 2.6,
+    "h": "Kristian Robinson enters top 100 at #43 (own international signing)"
+   },
+   {
+    "d": "2019-02-01",
+    "ch": "dev",
+    "net": 1.9,
+    "h": "Jazz Chisholm enters top 100 at #60 (own international signing)"
+   },
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": 1.9,
+    "h": "Brandon Pfaadt enters top 100 at #59 (own draft pick #149 (2020))"
+   }
   ]
  },
  {
@@ -296,6 +350,60 @@
     "ch": "fa",
     "net": -1.9,
     "h": "Signed Drew Smyly \u00b7 1 yr / $11.0M (2020-21 winter, espn)"
+   }
+  ],
+  "dev": {
+   "net": 18.7,
+   "g": 45,
+   "n": 31,
+   "seasons": 8.8,
+   "rate": 2.13,
+   "lgRate": 2.52,
+   "farmNow": 6.8,
+   "farmN": 3,
+   "flows": {
+    "developed_in": 29,
+    "graduated": 29,
+    "fell_off": 1,
+    "traded_out_ranked": 1
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2020-02-01",
+    "ch": "dev",
+    "net": 2.2,
+    "h": "Drew Waters #86 -> #26"
+   },
+   {
+    "d": "2018-02-01",
+    "ch": "dev",
+    "net": -1.8,
+    "h": "Kevin Maitan #32 -> #87"
+   },
+   {
+    "d": "2018-02-01",
+    "ch": "dev",
+    "net": 1.8,
+    "h": "Luiz Gohara enters top 100 at #49 (acquired as prospect)"
+   },
+   {
+    "d": "2019-02-01",
+    "ch": "dev",
+    "net": 1.7,
+    "h": "Austin Riley #97 -> #38"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 1.7,
+    "h": "AJ Smith-Shawver enters top 100 at #69 (own draft pick #217 (2021))"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 1.7,
+    "h": "Eric Hartman enters top 100 at #74 (own draft pick #611 (2024))"
    }
   ]
  },
@@ -448,6 +556,60 @@
     "net": -1.2,
     "h": "Signed Charlie Morton \u00b7 1 yr / $15.0M (2024-25 winter, curated)"
    }
+  ],
+  "dev": {
+   "net": 35.2,
+   "g": 70,
+   "n": 35,
+   "seasons": 7.8,
+   "rate": 4.53,
+   "lgRate": 2.52,
+   "farmNow": 7.7,
+   "farmN": 4,
+   "flows": {
+    "developed_in": 24,
+    "graduated": 16,
+    "traded_out_ranked": 1,
+    "fell_off": 2
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2020-02-01",
+    "ch": "dev",
+    "net": 5.7,
+    "h": "Adley Rutschman enters top 100 at #4 (acquired as prospect)"
+   },
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": 5.7,
+    "h": "Gunnar Henderson #64 -> #1"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 4.1,
+    "h": "Samuel Basallo enters top 100 at #17 (own international signing)"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 3.0,
+    "h": "Coby Mayo enters top 100 at #30 (own draft pick #103 (2020))"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 2.8,
+    "h": "Jackson Holliday #12 -> #1"
+   },
+   {
+    "d": "2022-02-01",
+    "ch": "dev",
+    "net": 2.4,
+    "h": "Grayson Rodriguez #27 -> #6"
+   }
   ]
  },
  {
@@ -588,6 +750,60 @@
     "ch": "fa",
     "net": -0.4,
     "h": "Signed Alex Bregman \u00b7 3 yr / $120.0M (2024-25 winter, curated)"
+   }
+  ],
+  "dev": {
+   "net": 17.6,
+   "g": 75,
+   "n": 12,
+   "seasons": 2.8,
+   "rate": 6.17,
+   "lgRate": 2.52,
+   "farmNow": 10.7,
+   "farmN": 3,
+   "flows": {
+    "developed_in": 34,
+    "traded_out_ranked": 4,
+    "graduated": 24,
+    "fell_off": 5
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 5.4,
+    "h": "Kristian Campbell enters top 100 at #7 (own draft pick #132 (2023))"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 4.0,
+    "h": "Franklin Arias #76 -> #7"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 3.3,
+    "h": "Roman Anthony #24 -> #2"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 2.1,
+    "h": "Anthony Eyanson enters top 100 at #49 (own draft pick #87 (2025))"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.5,
+    "h": "Franklin Arias enters top 100 at #76 (own international signing)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 1.4,
+    "h": "Justin Gonzales enters top 100 at #81 (own international signing)"
    }
   ]
  },
@@ -739,6 +955,60 @@
     "net": 1.2,
     "h": "Signed Yan Gomes \u00b7 2 yr / $13.0M (2021-22 winter, espn)"
    }
+  ],
+  "dev": {
+   "net": 13.0,
+   "g": 50,
+   "n": 27,
+   "seasons": 5.8,
+   "rate": 2.25,
+   "lgRate": 2.52,
+   "farmNow": 6.5,
+   "farmN": 3,
+   "flows": {
+    "developed_in": 33,
+    "graduated": 23,
+    "traded_out_ranked": 4,
+    "fell_off": 5
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": -3.2,
+    "h": "Brennen Davis #15 -> #92"
+   },
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": 2.8,
+    "h": "Pete Crow-Armstrong enters top 100 at #28 (acquired as prospect)"
+   },
+   {
+    "d": "2022-02-01",
+    "ch": "dev",
+    "net": 2.4,
+    "h": "Brennen Davis #60 -> #15"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 1.9,
+    "h": "Josiah Hartshorn enters top 100 at #61 (own draft pick #181 (2025))"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 1.9,
+    "h": "Owen Caissie enters top 100 at #47 (acquired as prospect)"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.8,
+    "h": "Matt Shaw #54 -> #19"
+   }
   ]
  },
  {
@@ -859,7 +1129,60 @@
    }
   ],
   "intl_tops": [],
-  "fa_tops": []
+  "fa_tops": [],
+  "dev": {
+   "net": 8.2,
+   "g": 50,
+   "n": 10,
+   "seasons": 3.0,
+   "rate": 2.72,
+   "lgRate": 2.52,
+   "farmNow": 10.0,
+   "farmN": 3,
+   "flows": {
+    "developed_in": 22,
+    "graduated": 21,
+    "fell_off": 4
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 3.4,
+    "h": "Caleb Bonemer enters top 100 at #16 (own draft pick #43 (2024))"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": -2.4,
+    "h": "Colson Montgomery #9 -> #39"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 2.4,
+    "h": "Colson Montgomery #38 -> #9"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.9,
+    "h": "Noah Schultz #50 -> #16"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.6,
+    "h": "Braden Montgomery enters top 100 at #55 (acquired as prospect)"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.3,
+    "h": "Edgar Quero enters top 100 at #66 (acquired as prospect)"
+   }
+  ]
  },
  {
   "id": "cin",
@@ -994,6 +1317,60 @@
     "ch": "fa",
     "net": -0.1,
     "h": "Signed Hunter Strickland \u00b7 1 yr / $1.8M (2021-22 winter, espn)"
+   }
+  ],
+  "dev": {
+   "net": 7.7,
+   "g": 40,
+   "n": 24,
+   "seasons": 5.8,
+   "rate": 1.31,
+   "lgRate": 2.52,
+   "farmNow": 7.0,
+   "farmN": 2,
+   "flows": {
+    "developed_in": 29,
+    "graduated": 23,
+    "traded_out_ranked": 1,
+    "fell_off": 3
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 3.6,
+    "h": "Alfredo Duno enters top 100 at #23 (own international signing)"
+   },
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": 3.5,
+    "h": "Elly De La Cruz #76 -> #10"
+   },
+   {
+    "d": "2022-02-01",
+    "ch": "dev",
+    "net": 2.1,
+    "h": "Hunter Greene #70 -> #22"
+   },
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": 2.0,
+    "h": "Edwin Arroyo enters top 100 at #44 (acquired as prospect)"
+   },
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": -1.6,
+    "h": "Noelvi Marte #11 -> #29"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 1.1,
+    "h": "Connor Phillips enters top 100 at #70 (acquired as prospect)"
    }
   ]
  },
@@ -1153,6 +1530,60 @@
     "net": -1.0,
     "h": "Signed Yonder Alonso \u00b7 2 yr / $16.0M (2017-18 winter, espn)"
    }
+  ],
+  "dev": {
+   "net": 27.4,
+   "g": 50,
+   "n": 40,
+   "seasons": 10.8,
+   "rate": 2.52,
+   "lgRate": 2.52,
+   "farmNow": 14.0,
+   "farmN": 6,
+   "flows": {
+    "developed_in": 25,
+    "graduated": 16,
+    "traded_out_ranked": 3,
+    "fell_off": 3
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2022-02-01",
+    "ch": "dev",
+    "net": 2.2,
+    "h": "George Valera enters top 100 at #47 (originated in org)"
+   },
+   {
+    "d": "2018-02-01",
+    "ch": "dev",
+    "net": 2.1,
+    "h": "Francisco Mej\u00eda #40 -> #11"
+   },
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": 2.1,
+    "h": "Gavin Williams enters top 100 at #42 (acquired as prospect)"
+   },
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": 2.0,
+    "h": "Daniel Espino #53 -> #16"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.9,
+    "h": "Jaison Chourio enters top 100 at #60 (own international signing)"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.9,
+    "h": "Angel Genao enters top 100 at #62 (own international signing)"
+   }
   ]
  },
  {
@@ -1253,7 +1684,37 @@
    }
   ],
   "intl_tops": [],
-  "fa_tops": []
+  "fa_tops": [],
+  "dev": {
+   "net": -0.7,
+   "g": 30,
+   "n": 2,
+   "seasons": 1.0,
+   "rate": -0.72,
+   "lgRate": 2.52,
+   "farmNow": 9.1,
+   "farmN": 3,
+   "flows": {
+    "developed_in": 30,
+    "fell_off": 8,
+    "graduated": 19,
+    "traded_out_ranked": 1
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": -1.6,
+    "h": "Charlie Condon #29 -> #70"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 0.9,
+    "h": "Ethan Holliday enters top 100 at #17 (own draft pick #4 (2025))"
+   }
+  ]
  },
  {
   "id": "det",
@@ -1387,6 +1848,59 @@
     "net": 0.6,
     "h": "Signed Jack Flaherty \u00b7 2 yr / $35.0M (2024-25 winter, curated)"
    }
+  ],
+  "dev": {
+   "net": 8.2,
+   "g": 45,
+   "n": 16,
+   "seasons": 3.9,
+   "rate": 2.1,
+   "lgRate": 2.52,
+   "farmNow": 11.1,
+   "farmN": 3,
+   "flows": {
+    "developed_in": 22,
+    "graduated": 16,
+    "fell_off": 5
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 2.5,
+    "h": "Jackson Jobe #25 -> #5"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 2.4,
+    "h": "Kevin McGonigle enters top 100 at #28 (own draft pick #37 (2023))"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 1.7,
+    "h": "Jackson Jobe #63 -> #25"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.2,
+    "h": "Max Clark #13 -> #6"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": -1.2,
+    "h": "Max Clark #6 -> #13"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": -1.1,
+    "h": "Thayron Liranzo fell off (last #82, no debut)"
+   }
   ]
  },
  {
@@ -1515,6 +2029,36 @@
     "ch": "fa",
     "net": -1.4,
     "h": "Signed Christian Walker \u00b7 3 yr / $60.0M (2024-25 winter, curated)"
+   }
+  ],
+  "dev": {
+   "net": 1.6,
+   "g": 35,
+   "n": 2,
+   "seasons": 3.6,
+   "rate": 0.43,
+   "lgRate": 2.52,
+   "farmNow": 4.0,
+   "farmN": 2,
+   "flows": {
+    "graduated": 19,
+    "developed_in": 26,
+    "traded_out_ranked": 2,
+    "fell_off": 3
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 1.7,
+    "h": "Kevin Alvarez enters top 100 at #68 (own international signing)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": -0.1,
+    "h": "Xavier Neyens enters top 100 at #83 (own draft pick #21 (2025))"
    }
   ]
  },
@@ -1647,6 +2191,60 @@
     "ch": "fa",
     "net": 1.3,
     "h": "Signed Seth Lugo \u00b7 3 yr / $45.0M (2023-24 winter, curated)"
+   }
+  ],
+  "dev": {
+   "net": -1.0,
+   "g": 35,
+   "n": 11,
+   "seasons": 3.9,
+   "rate": -0.26,
+   "lgRate": 2.52,
+   "farmNow": 7.2,
+   "farmN": 4,
+   "flows": {
+    "developed_in": 27,
+    "graduated": 13,
+    "fell_off": 8,
+    "traded_out_ranked": 2
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 1.8,
+    "h": "Kendry Chourio enters top 100 at #66 (own international signing)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": -1.7,
+    "h": "Blake Mitchell fell off (last #48, no debut)"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": -1.4,
+    "h": "Gavin Cross fell off (last #62, no debut)"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": -1.4,
+    "h": "Blake Mitchell enters top 100 at #94 (own draft pick #8 (2023))"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.3,
+    "h": "Blake Mitchell #94 -> #48"
+   },
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": -1.2,
+    "h": "Asa Lacy fell off (last #72, no debut)"
    }
   ]
  },
@@ -1798,6 +2396,60 @@
     "ch": "fa",
     "net": -0.6,
     "h": "Signed Aaron Loup \u00b7 2 yr / $17.0M (2021-22 winter, espn)"
+   }
+  ],
+  "dev": {
+   "net": 3.4,
+   "g": 35,
+   "n": 9,
+   "seasons": 5.8,
+   "rate": 0.59,
+   "lgRate": 2.52,
+   "farmNow": 3.1,
+   "farmN": 1,
+   "flows": {
+    "developed_in": 16,
+    "graduated": 12,
+    "fell_off": 3,
+    "traded_out_ranked": 1
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2022-02-01",
+    "ch": "dev",
+    "net": 2.2,
+    "h": "Reid Detmers #73 -> #21"
+   },
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": 1.7,
+    "h": "Logan O'Hoppe enters top 100 at #53 (acquired as prospect)"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.6,
+    "h": "Caden Dana enters top 100 at #78 (own draft pick #328 (2022))"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": -1.2,
+    "h": "Tyler Bremner enters top 100 at #42 (own draft pick #2 (2025))"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": -1.1,
+    "h": "Nolan Schanuel enters top 100 at #95 (own draft pick #11 (2023))"
+   },
+   {
+    "d": "2021-02-01",
+    "ch": "dev",
+    "net": 1.1,
+    "h": "Reid Detmers enters top 100 at #73 (acquired as prospect)"
    }
   ]
  },
@@ -1964,6 +2616,60 @@
     "net": -5.7,
     "h": "Signed Scott Kazmir \u00b7 3 yr / $48.0M (2015-16 winter, espn)"
    }
+  ],
+  "dev": {
+   "net": 79.3,
+   "g": 80,
+   "n": 60,
+   "seasons": 11.8,
+   "rate": 6.7,
+   "lgRate": 2.52,
+   "farmNow": 30.8,
+   "farmN": 8,
+   "flows": {
+    "developed_in": 40,
+    "graduated": 24,
+    "traded_out_ranked": 4,
+    "fell_off": 4
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 7.5,
+    "h": "Roki Sasaki enters top 100 at #1 (own international signing)"
+   },
+   {
+    "d": "2020-02-01",
+    "ch": "dev",
+    "net": 5.2,
+    "h": "Gavin Lux #70 -> #2"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 4.3,
+    "h": "Mike Sirota enters top 100 at #11 (acquired as prospect)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 3.9,
+    "h": "Eduardo Quintero enters top 100 at #19 (own international signing)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 3.6,
+    "h": "Emil Morales enters top 100 at #24 (own international signing)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 3.5,
+    "h": "Josue De Paula #40 -> #4"
+   }
   ]
  },
  {
@@ -2082,7 +2788,60 @@
    }
   ],
   "intl_tops": [],
-  "fa_tops": []
+  "fa_tops": [],
+  "dev": {
+   "net": -1.6,
+   "g": 30,
+   "n": 9,
+   "seasons": 2.8,
+   "rate": -0.57,
+   "lgRate": 2.52,
+   "farmNow": 13.2,
+   "farmN": 4,
+   "flows": {
+    "developed_in": 19,
+    "graduated": 15,
+    "fell_off": 9
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.7,
+    "h": "Thomas White enters top 100 at #41 (own draft pick #35 (2023))"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": -1.4,
+    "h": "Jacob Berry fell off (last #61, no debut)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": -1.1,
+    "h": "Starlyn Caba fell off (last #81, no debut)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 1.1,
+    "h": "Thomas White #41 -> #21"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": -1.1,
+    "h": "Noble Meyer fell off (last #85, no debut)"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": -0.8,
+    "h": "Noble Meyer #57 -> #85"
+   }
+  ]
  },
  {
   "id": "mil",
@@ -2211,6 +2970,60 @@
     "ch": "fa",
     "net": -2.0,
     "h": "Signed Rhys Hoskins \u00b7 2 yr / $34.0M (2023-24 winter, curated)"
+   }
+  ],
+  "dev": {
+   "net": 20.3,
+   "g": 75,
+   "n": 13,
+   "seasons": 3.8,
+   "rate": 5.26,
+   "lgRate": 2.52,
+   "farmNow": 19.2,
+   "farmN": 5,
+   "flows": {
+    "developed_in": 28,
+    "traded_out_ranked": 1,
+    "graduated": 20,
+    "fell_off": 5
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 5.4,
+    "h": "Jes\u00fas Made #56 -> #1"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 4.0,
+    "h": "Luis Pe\u00f1a enters top 100 at #18 (own international signing)"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 2.6,
+    "h": "Jacob Misiorowski enters top 100 at #33 (own draft pick #63 (2022))"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 2.1,
+    "h": "Jes\u00fas Made enters top 100 at #56 (own international signing)"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 2.1,
+    "h": "Cooper Pratt enters top 100 at #57 (own draft pick #182 (2023))"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": -2.0,
+    "h": "Jacob Misiorowski #33 -> #100"
    }
   ]
  },
@@ -2364,6 +3177,59 @@
     "net": -2.3,
     "h": "Signed Jake Odorizzi \u00b7 1 yr / $17.8M (2019-20 winter, espn)"
    }
+  ],
+  "dev": {
+   "net": 4.3,
+   "g": 35,
+   "n": 37,
+   "seasons": 9.8,
+   "rate": 0.44,
+   "lgRate": 2.52,
+   "farmNow": 14.0,
+   "farmN": 4,
+   "flows": {
+    "developed_in": 24,
+    "graduated": 18,
+    "fell_off": 6
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2019-02-01",
+    "ch": "dev",
+    "net": 4.1,
+    "h": "Alex Kirilloff #98 -> #9"
+   },
+   {
+    "d": "2019-02-01",
+    "ch": "dev",
+    "net": 2.2,
+    "h": "Royce Lewis #20 -> #5"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": -2.1,
+    "h": "Walker Jenkins #3 -> #14"
+   },
+   {
+    "d": "2020-02-01",
+    "ch": "dev",
+    "net": -2.1,
+    "h": "Alex Kirilloff #9 -> #32"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 2.0,
+    "h": "Walker Jenkins enters top 100 at #10 (own draft pick #5 (2023))"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 1.8,
+    "h": "Kaelen Culpepper enters top 100 at #29 (own draft pick #21 (2024))"
+   }
   ]
  },
  {
@@ -2506,6 +3372,60 @@
     "ch": "fa",
     "net": 1.7,
     "h": "Signed Pete Alonso \u00b7 2 yr / $54.0M (2024-25 winter, curated)"
+   }
+  ],
+  "dev": {
+   "net": 0.9,
+   "g": 35,
+   "n": 10,
+   "seasons": 2.8,
+   "rate": 0.31,
+   "lgRate": 2.52,
+   "farmNow": 3.9,
+   "farmN": 2,
+   "flows": {
+    "graduated": 21,
+    "developed_in": 26,
+    "traded_out_ranked": 2,
+    "fell_off": 3
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": -2.0,
+    "h": "Kevin Parada fell off (last #36, no debut)"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.9,
+    "h": "Brandon Sproat enters top 100 at #46 (own draft pick #56 (2023))"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 1.7,
+    "h": "Drew Gilbert enters top 100 at #53 (acquired as prospect)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 1.5,
+    "h": "Jonah Tong enters top 100 at #76 (own draft pick #209 (2022))"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": -0.9,
+    "h": "Alex Ram\u00edrez fell off (last #96, no debut)"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": -0.9,
+    "h": "Ryan Clifford fell off (last #97, no debut)"
    }
   ]
  },
@@ -2687,6 +3607,60 @@
     "net": 5.5,
     "h": "Signed DJ LeMahieu \u00b7 2 yr / $24.0M (2018-19 winter, espn)"
    }
+  ],
+  "dev": {
+   "net": 44.6,
+   "g": 55,
+   "n": 63,
+   "seasons": 15.5,
+   "rate": 2.88,
+   "lgRate": 2.52,
+   "farmNow": 10.8,
+   "farmN": 4,
+   "flows": {
+    "developed_in": 29,
+    "graduated": 17,
+    "fell_off": 9,
+    "traded_out_ranked": 2
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2011-02-01",
+    "ch": "dev",
+    "net": 5.2,
+    "h": "Jesus Montero enters top 100 at #9 (own international signing)"
+   },
+   {
+    "d": "2022-02-01",
+    "ch": "dev",
+    "net": 4.2,
+    "h": "Anthony Volpe enters top 100 at #8 (own draft pick #30 (2019))"
+   },
+   {
+    "d": "2015-02-01",
+    "ch": "dev",
+    "net": 3.6,
+    "h": "Luis Severino enters top 100 at #23 (own international signing)"
+   },
+   {
+    "d": "2017-02-01",
+    "ch": "dev",
+    "net": 3.2,
+    "h": "Gleyber Torres #28 -> #3"
+   },
+   {
+    "d": "2016-02-01",
+    "ch": "dev",
+    "net": 3.2,
+    "h": "Jorge Mateo enters top 100 at #30 (own international signing)"
+   },
+   {
+    "d": "2011-02-01",
+    "ch": "dev",
+    "net": 3.1,
+    "h": "Gary S\u00e1nchez enters top 100 at #32 (own international signing)"
+   }
   ]
  },
  {
@@ -2836,6 +3810,60 @@
     "net": 1.5,
     "h": "Signed Rich Hill \u00b7 1 yr / $6.0M (2015-16 winter, espn)"
    }
+  ],
+  "dev": {
+   "net": 4.0,
+   "g": 35,
+   "n": 24,
+   "seasons": 10.8,
+   "rate": 0.37,
+   "lgRate": 2.52,
+   "farmNow": 3.9,
+   "farmN": 1,
+   "flows": {
+    "graduated": 16,
+    "developed_in": 14,
+    "traded_out_ranked": 2,
+    "fell_off": 2
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2019-02-01",
+    "ch": "dev",
+    "net": 2.7,
+    "h": "Jes\u00fas Luzardo #60 -> #12"
+   },
+   {
+    "d": "2016-02-01",
+    "ch": "dev",
+    "net": 2.3,
+    "h": "Franklin Barreto #85 -> #23"
+   },
+   {
+    "d": "2019-02-01",
+    "ch": "dev",
+    "net": 2.2,
+    "h": "Sean Murphy enters top 100 at #45 (own draft pick #83 (2016))"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.4,
+    "h": "Jacob Wilson #68 -> #31"
+   },
+   {
+    "d": "2018-02-01",
+    "ch": "dev",
+    "net": 1.4,
+    "h": "A.J. Puk #69 -> #32"
+   },
+   {
+    "d": "2017-02-01",
+    "ch": "dev",
+    "net": -1.4,
+    "h": "Franklin Barreto #23 -> #52"
+   }
   ]
  },
  {
@@ -2983,6 +4011,60 @@
     "ch": "fa",
     "net": -3.0,
     "h": "Signed Didi Gregorius \u00b7 2 yr / $28.0M (2020-21 winter, espn)"
+   }
+  ],
+  "dev": {
+   "net": 12.2,
+   "g": 45,
+   "n": 18,
+   "seasons": 5.7,
+   "rate": 2.15,
+   "lgRate": 2.52,
+   "farmNow": 7.4,
+   "farmN": 3,
+   "flows": {
+    "developed_in": 30,
+    "graduated": 17,
+    "traded_out_ranked": 4,
+    "fell_off": 7
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": 3.7,
+    "h": "Andrew Painter enters top 100 at #6 (own draft pick #13 (2021))"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 2.0,
+    "h": "Andrew Painter #27 -> #8"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.5,
+    "h": "Aidan Miller #61 -> #27"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 1.4,
+    "h": "Starlyn Caba enters top 100 at #81 (own international signing)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 1.2,
+    "h": "Francisco Renteria enters top 100 at #87 (own international signing)"
+   },
+   {
+    "d": "2022-02-01",
+    "ch": "dev",
+    "net": 1.2,
+    "h": "Bryson Stott #86 -> #45"
    }
   ]
  },
@@ -3135,6 +4217,60 @@
     "ch": "fa",
     "net": -0.2,
     "h": "Signed Roberto P\u00e9rez \u00b7 1 yr / $5.0M (2021-22 winter, espn)"
+   }
+  ],
+  "dev": {
+   "net": 16.3,
+   "g": 50,
+   "n": 32,
+   "seasons": 6.8,
+   "rate": 2.41,
+   "lgRate": 2.52,
+   "farmNow": 11.6,
+   "farmN": 3,
+   "flows": {
+    "developed_in": 32,
+    "graduated": 22,
+    "fell_off": 4,
+    "traded_out_ranked": 1
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 3.3,
+    "h": "Edward Florentino enters top 100 at #28 (own international signing)"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 3.2,
+    "h": "Bubba Chandler #93 -> #15"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 2.9,
+    "h": "Seth Hernandez enters top 100 at #6 (own draft pick #6 (2025))"
+   },
+   {
+    "d": "2021-02-01",
+    "ch": "dev",
+    "net": 2.5,
+    "h": "Ke'Bryan Hayes #41 -> #9"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 2.0,
+    "h": "Paul Skenes enters top 100 at #3 (own draft pick #1 (2023))"
+   },
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": 1.6,
+    "h": "Endy Rodr\u00edguez enters top 100 at #55 (acquired as prospect)"
    }
   ]
  },
@@ -3305,6 +4441,60 @@
     "net": 3.4,
     "h": "Signed Craig Stammen \u00b7 2 yr / $4.5M (2017-18 winter, espn)"
    }
+  ],
+  "dev": {
+   "net": 37.2,
+   "g": 60,
+   "n": 51,
+   "seasons": 12.0,
+   "rate": 3.1,
+   "lgRate": 2.52,
+   "farmNow": 11.1,
+   "farmN": 2,
+   "flows": {
+    "graduated": 18,
+    "developed_in": 28,
+    "fell_off": 2,
+    "traded_out_ranked": 5
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2018-02-01",
+    "ch": "dev",
+    "net": 5.3,
+    "h": "Fernando Tatis enters top 100 at #8 (own international signing)"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 5.1,
+    "h": "Ethan Salas enters top 100 at #8 (originated in org)"
+   },
+   {
+    "d": "2022-02-01",
+    "ch": "dev",
+    "net": -4.5,
+    "h": "MacKenzie Gore #6 -> #86"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 4.0,
+    "h": "Leo De Vries enters top 100 at #18 (own international signing)"
+   },
+   {
+    "d": "2016-02-01",
+    "ch": "dev",
+    "net": 3.0,
+    "h": "Trea Turner #62 -> #11"
+   },
+   {
+    "d": "2018-02-01",
+    "ch": "dev",
+    "net": 2.9,
+    "h": "Luis Ur\u00edas enters top 100 at #36 (own international signing)"
+   }
   ]
  },
  {
@@ -3426,6 +4616,53 @@
     "ch": "fa",
     "net": 0.7,
     "h": "Signed Justin Verlander \u00b7 1 yr / $15.0M (2024-25 winter, curated)"
+   }
+  ],
+  "dev": {
+   "net": 11.6,
+   "g": 75,
+   "n": 5,
+   "seasons": 1.9,
+   "rate": 5.98,
+   "lgRate": 2.52,
+   "farmNow": 13.1,
+   "farmN": 4,
+   "flows": {
+    "developed_in": 20,
+    "graduated": 11,
+    "fell_off": 3
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 4.3,
+    "h": "Josuar Gonzalez enters top 100 at #15 (own international signing)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 3.1,
+    "h": "Luis Hern\u00e1ndez enters top 100 at #31 (own international signing)"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 2.5,
+    "h": "Bryce Eldridge #96 -> #24"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 2.4,
+    "h": "Jhonny Level enters top 100 at #46 (own international signing)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": -0.8,
+    "h": "James Tibbs enters top 100 at #90 (own draft pick #13 (2024))"
    }
   ]
  },
@@ -3583,6 +4820,60 @@
     "net": 1.2,
     "h": "Signed Tim Beckham \u00b7 1 yr / $1.8M (2018-19 winter, espn)"
    }
+  ],
+  "dev": {
+   "net": 35.9,
+   "g": 60,
+   "n": 41,
+   "seasons": 10.9,
+   "rate": 3.29,
+   "lgRate": 2.52,
+   "farmNow": 24.6,
+   "farmN": 6,
+   "flows": {
+    "developed_in": 29,
+    "graduated": 22,
+    "fell_off": 3,
+    "traded_out_ranked": 2
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2022-02-01",
+    "ch": "dev",
+    "net": 4.8,
+    "h": "Noelvi Marte enters top 100 at #11 (own international signing)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 4.7,
+    "h": "Ryan Sloan enters top 100 at #8 (own draft pick #55 (2024))"
+   },
+   {
+    "d": "2020-02-01",
+    "ch": "dev",
+    "net": 4.0,
+    "h": "Julio Rodr\u00edguez enters top 100 at #18 (own international signing)"
+   },
+   {
+    "d": "2020-02-01",
+    "ch": "dev",
+    "net": 2.8,
+    "h": "Jarred Kelenic #56 -> #11"
+   },
+   {
+    "d": "2021-02-01",
+    "ch": "dev",
+    "net": 2.6,
+    "h": "Emerson Hancock enters top 100 at #31 (acquired as prospect)"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 2.6,
+    "h": "Lazaro Montes enters top 100 at #42 (own international signing)"
+   }
   ]
  },
  {
@@ -3687,7 +4978,42 @@
    }
   ],
   "intl_tops": [],
-  "fa_tops": []
+  "fa_tops": [],
+  "dev": {
+   "net": -2.3,
+   "g": 30,
+   "n": 3,
+   "seasons": 1.0,
+   "rate": -2.27,
+   "lgRate": 2.52,
+   "farmNow": 12.4,
+   "farmN": 3,
+   "flows": {
+    "developed_in": 25,
+    "graduated": 20,
+    "fell_off": 4
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": -1.8,
+    "h": "Quinn Mathews fell off (last #45, no debut)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": -1.2,
+    "h": "Tink Hence fell off (last #77, no debut)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 0.7,
+    "h": "Liam Doyle enters top 100 at #22 (own draft pick #5 (2025))"
+   }
+  ]
  },
  {
   "id": "tb",
@@ -3846,6 +5172,60 @@
     "net": 2.4,
     "h": "Signed Wilson Ramos \u00b7 2 yr / $12.5M (2016-17 winter, espn)"
    }
+  ],
+  "dev": {
+   "net": 29.3,
+   "g": 55,
+   "n": 47,
+   "seasons": 9.8,
+   "rate": 3.0,
+   "lgRate": 2.52,
+   "farmNow": 7.8,
+   "farmN": 2,
+   "flows": {
+    "developed_in": 30,
+    "graduated": 24,
+    "fell_off": 12,
+    "traded_out_ranked": 3
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 5.7,
+    "h": "Junior Caminero enters top 100 at #4 (acquired as prospect)"
+   },
+   {
+    "d": "2019-02-01",
+    "ch": "dev",
+    "net": 4.5,
+    "h": "Wander Franco enters top 100 at #13 (own international signing)"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 4.1,
+    "h": "Theo Gillen #99 -> #9"
+   },
+   {
+    "d": "2022-02-01",
+    "ch": "dev",
+    "net": 3.5,
+    "h": "Shane Baz #89 -> #12"
+   },
+   {
+    "d": "2020-02-01",
+    "ch": "dev",
+    "net": 3.0,
+    "h": "Wander Franco #13 -> #1"
+   },
+   {
+    "d": "2021-02-01",
+    "ch": "dev",
+    "net": -2.7,
+    "h": "Brendan McKay #15 -> #71"
+   }
   ]
  },
  {
@@ -3989,6 +5369,60 @@
     "ch": "fa",
     "net": 0.9,
     "h": "Signed Nathan Eovaldi \u00b7 3 yr / $75.0M (2024-25 winter, curated)"
+   }
+  ],
+  "dev": {
+   "net": 10.9,
+   "g": 50,
+   "n": 17,
+   "seasons": 4.0,
+   "rate": 2.71,
+   "lgRate": 2.52,
+   "farmNow": 9.6,
+   "farmN": 3,
+   "flows": {
+    "developed_in": 37,
+    "graduated": 22,
+    "fell_off": 8,
+    "traded_out_ranked": 6
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 3.3,
+    "h": "Evan Carter #41 -> #5"
+   },
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": -2.7,
+    "h": "Jack Leiter #17 -> #78"
+   },
+   {
+    "d": "2024-02-01",
+    "ch": "dev",
+    "net": 2.5,
+    "h": "Wyatt Langford enters top 100 at #6 (own draft pick #4 (2023))"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 2.5,
+    "h": "Sebastian Walcott #71 -> #17"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 2.2,
+    "h": "Alejandro Rosario enters top 100 at #50 (own draft pick #144 (2023))"
+   },
+   {
+    "d": "2025-02-01",
+    "ch": "dev",
+    "net": 2.0,
+    "h": "Kumar Rocker enters top 100 at #44 (acquired as prospect)"
    }
   ]
  },
@@ -4150,6 +5584,60 @@
     "net": -3.9,
     "h": "Signed Tanner Roark \u00b7 2 yr / $24.0M (2019-20 winter, espn)"
    }
+  ],
+  "dev": {
+   "net": 28.6,
+   "g": 50,
+   "n": 30,
+   "seasons": 10.7,
+   "rate": 2.68,
+   "lgRate": 2.52,
+   "farmNow": 8.6,
+   "farmN": 3,
+   "flows": {
+    "developed_in": 31,
+    "graduated": 19,
+    "traded_out_ranked": 7,
+    "fell_off": 3
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2022-02-01",
+    "ch": "dev",
+    "net": 5.5,
+    "h": "Gabriel Moreno enters top 100 at #7 (own international signing)"
+   },
+   {
+    "d": "2018-02-01",
+    "ch": "dev",
+    "net": 4.0,
+    "h": "Bo Bichette enters top 100 at #14 (own draft pick #66 (2016))"
+   },
+   {
+    "d": "2020-02-01",
+    "ch": "dev",
+    "net": 3.8,
+    "h": "Nate Pearson #76 -> #8"
+   },
+   {
+    "d": "2018-02-01",
+    "ch": "dev",
+    "net": 3.5,
+    "h": "Vladimir Guerrero #34 -> #3"
+   },
+   {
+    "d": "2021-02-01",
+    "ch": "dev",
+    "net": 3.2,
+    "h": "Austin Martin enters top 100 at #22 (acquired as prospect)"
+   },
+   {
+    "d": "2023-02-01",
+    "ch": "dev",
+    "net": 2.8,
+    "h": "Ricky Tiedemann enters top 100 at #32 (own draft pick #91 (2021))"
+   }
   ]
  },
  {
@@ -4264,6 +5752,42 @@
    }
   ],
   "intl_tops": [],
-  "fa_tops": []
+  "fa_tops": [],
+  "dev": {
+   "net": 4.5,
+   "g": 70,
+   "n": 3,
+   "seasons": 1.0,
+   "rate": 4.52,
+   "lgRate": 2.52,
+   "farmNow": 15.6,
+   "farmN": 4,
+   "flows": {
+    "developed_in": 26,
+    "graduated": 17,
+    "traded_out_ranked": 3,
+    "fell_off": 4
+   }
+  },
+  "dev_tops": [
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 2.0,
+    "h": "Eli Willits enters top 100 at #3 (own draft pick #1 (2025))"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 1.4,
+    "h": "Travis Sykora #70 -> #32"
+   },
+   {
+    "d": "2026-02-01",
+    "ch": "dev",
+    "net": 1.1,
+    "h": "Jarlin Susana #79 -> #45"
+   }
+  ]
  }
 ]
