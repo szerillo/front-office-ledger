@@ -10,8 +10,15 @@ Sweep v1 rules (documented; versioned):
           realized = LVM while on drafting org; expectation = slot curve x
           maturity schedule. FA: raw LVM captured [y, y+3], UNGRADED pending a
           contracts feed. Success: W% + division titles from standings feed.
-KNOWN CRUDENESS (v1): windows are calendar approximations, not control
-windows; surrendered value past team control counts against (5-yr cap
+SWEEP v2: trades use CONTROL WINDOWS (value counts while the player stays
+with the club, 6-season cap, stopping when he leaves the org: a re-signing
+is a new decision), win-curve LEVERAGE (each delivered season weighted by
+L(w) = 0.5 + 1.3*exp(-(w-89)^2/200) at the receiving club's win total, so
+wins delivered to a contender count up to ~1.8x and wins to a 70-win club
+~0.65x) and 10%/yr TIME DISCOUNTING back to the deal date, per methodology
+v0.2. FA/waiver channels stay unweighted (cost and value accrue in the same
+seasons, so leverage cancels to first order there).
+LEGACY CRUDENESS (v1): windows were calendar approximations (5-yr cap
 mitigates); no leverage/discounting (v0.2 applies at the decision page
 level, not yet in the sweep); LVM gaps as documented in ledger_war.py.
 """
@@ -139,6 +146,46 @@ for yr in range(2005, 2027):
             wl[(t["team"]["id"], yr)] = [t.get("wins",0), t.get("losses",0), 1 if str(t.get("divisionRank"))=="1" else 0]
 print("standings loaded", flush=True)
 
+NAME2TID = {}
+for _reg in cfg["regimes"]:
+    NAME2TID[_reg["team"]] = _reg["teamId"]
+    for _al in ALIAS.get(_reg["teamId"], set()):
+        NAME2TID[_al] = _reg["teamId"]
+
+import math
+def lev(team_name_or_names, yr):
+    """win-curve leverage at the receiving club's final win total (proxy
+    for decision-time projection); 1.0 when unknown (minors, pre-2005)."""
+    if isinstance(team_name_or_names, set):
+        tids = {NAME2TID.get(n) for n in team_name_or_names} - {None}
+        tid = next(iter(tids), None)
+    else:
+        tid = NAME2TID.get(team_name_or_names)
+    rec = wl.get((tid, yr)) if tid else None
+    if not rec or (rec[0] + rec[1]) < 100: return 1.0
+    w = rec[0] * 162 / (rec[0] + rec[1])
+    return 0.5 + 1.3 * math.exp(-((w - 89) ** 2) / 200.0)
+
+def val_control(pid, teams, y0, cap=6, weight=True):
+    """value on `teams` from y0 while continuously in the org (control
+    window): stops the first season the player logs MLB time only elsewhere
+    after the deal year. Each season weighted by leverage x 0.9^(yr-y0)."""
+    rec = LVM.get(int(pid)) if pid else None
+    if not rec: return 0.0
+    byyear = {}
+    for yr, tm, v in rec["rows"]:
+        byyear.setdefault(yr, []).append((tm, v))
+    tot = 0.0
+    for yr in range(y0, y0 + cap):
+        rows = byyear.get(yr, [])
+        here = [v for (tm, v) in rows if tm in teams]
+        if rows and not here and yr > y0:
+            break                      # left the org: window closes
+        if here:
+            wgt = (lev(teams, yr) * (0.9 ** (yr - y0))) if weight else 1.0
+            tot += sum(here) * wgt
+    return tot
+
 results = []
 for reg in cfg["regimes"]:
     tid = reg["teamId"]; names = ALIAS.get(tid, {reg["team"]})
@@ -179,8 +226,8 @@ for reg in cfg["regimes"]:
         pids_in  = {x["person_id"] for x in rs if x["to_team"] in names and x["person_id"]}
         outs = {x["person_id"]: x["to_team"] for x in rs
                 if x["from_team"] in names and x["person_id"] and x["to_team"]}
-        vin  = sum(val(p, names, yr, yr+5, inside=True) for p in pids_in)
-        vout = sum(val(p, {dest}, yr, yr+5, inside=True) for p, dest in outs.items())
+        vin  = sum(val_control(p, names, yr) for p in pids_in)
+        vout = sum(val_control(p, {dest}, yr) for p, dest in outs.items())
         net = vin - vout; tr_net += net; ynet[yr] += net
         if abs(net) >= 0.8:
             decs.append(dict(d=d, ch="trade", net=round(net,1), h=(desc or "trade")[:130],
