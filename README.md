@@ -13,6 +13,12 @@ A decision-level accounting system for sports front offices. Every draft pick, t
 
 **THE 30-REGIME SWEEP (new):** every active MLB front office scored automatically. `ingest/sweep_ingest.py` pulls all 30 clubs' transactions from each regime's start (108k rows, floor 2005), `engine/sweep_score.py` values 13k players with Ledger WAR v0 and grades trades / drafts / waivers per regime (FA pending a contracts feed), and `ingest/integrate_sweep.py` splices the results into the prototype leaderboard. Regime table: `data/regimes.json`; results: `data/sweep_results.json`.
 
+**IFA CHANNEL (new, sweep v1.2):** international amateur signings graded as their own channel. Signings auto-classified from the feed (minor-league deal, age <= 23 at signing, born outside draft territory, first pro appearance); realized value on the signing org graded against the league's realized value per signing class among observed regimes, which works because bonus pools are near-equal since 2017 (pre-2017 classes flagged uncapped). `engine/ifa_score.py`.
+
+**FA CHANNEL GRADED (sweep v1.3):** 1,594 real contracts (ESPN free-agent tables 2006-2021, parsed by `engine/fa_grade.py` from `data/contracts_espn.csv`, plus curated majors for the 2022-2024 winters in `engine/contracts_recent.py`, verify pass pending). Signings graded as realized LVM on the signing org minus contract-implied wins; regimes with fewer than 8 matched deals stay pending. All five channels now grade.
+
+**RETROSHEET BACKFILL INGESTED:** the full 1873-2022 transaction archive (101,594 rows) is loaded as `retro_tx` and shipped in `data/retrosheet_tranDB.zip`. The information used here was obtained free of charge from and is copyrighted by Retrosheet. Interested parties may contact Retrosheet at www.retrosheet.org.
+
 **Methodology version: v0.2** (win-curve leverage, time discounting, retention rights, net-of-cost contracts, perspective rule). See `docs/methodology-v02-addendum.md`. The v0.3 target: empirical market-price baselines for trades (the rental-return curve) that consolidate the lens stack; see `docs/design.md` section 3.4b.
 
 **The one missing stage: valuation.** Per-person per-season WAR keyed off the crosswalk. Paths: a FanGraphs data license, or self-computed open WAR from Retrosheet event files. B-Ref and FanGraphs block unlicensed programmatic access (verified); do not build on scraping.
