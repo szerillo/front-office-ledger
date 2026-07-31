@@ -25,7 +25,9 @@ A decision-level accounting system for sports front offices. Every draft pick, t
 
 **SWEEP v2:** three rigor upgrades to every number on the site. (1) Trades now use control windows: value counts while the player stays with the club (6-season cap) and the window closes the first season he logs MLB time only elsewhere, so a re-signing is a new decision instead of leaking into the trade grade. (2) Win-curve leverage and time discounting apply sweep-wide on trades: each delivered season is weighted by L(w) at the receiving club's win total (wins delivered to a contender count up to ~1.8x, wins to a 70-win club ~0.65x) and discounted 10%/yr back to the deal date. (3) The Success grade now includes real postseason detail ingested from the league schedule feed 2005-2025 (`engine/postseason.py`, `data/postseason.json`): berths, series wins, pennants, and titles blend with W% and division titles. FA and waiver channels stay unweighted (cost and value accrue in the same seasons, so leverage cancels to first order).
 
-**Methodology version: v0.2** (win-curve leverage, time discounting, retention rights, net-of-cost contracts, perspective rule). See `docs/methodology-v02-addendum.md`. The v0.3 target: empirical market-price baselines for trades (the rental-return curve) that consolidate the lens stack; see `docs/design.md` section 3.4b.
+**METHODOLOGY v0.3, THE EMPIRICAL RENTAL MARKET:** 237 deadline rental deals classified exactly from the feed (acquired Jun-Aug, declared free agency within five months), receipt measured as rest-of-season Ledger WAR on the buyer, price as what the surrendered players actually became for the seller. Findings: a star rental win costs about 0.8 realized wins; the median deadline rental costs approximately nothing that ever materializes; over half of rental buys deliver under 0.3 wins. The trade lens stack consolidates to "paid vs the market at the time" plus "realized vs paid"; Boston's Betts return was market rate, and the criticism was never the price. `engine/rental_baseline.py`, `data/rental_market.json`, `docs/methodology-v03-addendum.md`. Recent-era ratios disclosed as right-censored while surrendered prospects mature.
+
+**Methodology version: v0.2 base + v0.3 rental baseline** (win-curve leverage, time discounting, retention rights, net-of-cost contracts, perspective rule). See `docs/methodology-v02-addendum.md`. The v0.3 target: empirical market-price baselines for trades (the rental-return curve) that consolidate the lens stack; see `docs/design.md` section 3.4b.
 
 **The one missing stage: valuation.** Per-person per-season WAR keyed off the crosswalk. Paths: a FanGraphs data license, or self-computed open WAR from Retrosheet event files. B-Ref and FanGraphs block unlicensed programmatic access (verified); do not build on scraping.
 
@@ -59,6 +61,8 @@ A decision-level accounting system for sports front offices. Every draft pick, t
 2. ~~Historical prospect-rank archive → development credit, farm-system flows~~ DONE (DEV pillar, sweep v1.5); still to come from the same archive: the v0.3 rental-market baseline
 3. ~~Extensions channel~~ DONE (sweep v1.6, class-market baselines + QO charges + CBT deferral costing)
 4. Regime table curation 2000 to present (the moat: nobody maintains this publicly)
-5. Retrosheet backfill for pre-2005 history; NBA schema pilot; v0.3 rental-market baseline from the prospect archive
+5. ~~v0.3 rental-market baseline~~ DONE (empirical deadline market from the archive)
+6. Historical regimes: curate the regime table back to ~2005 and sweep past regimes (waiting until current-regime product is fully built, per plan)
+7. Retrosheet backfill for pre-2005 history; NBA schema pilot
 
 Full detail: `docs/design.md`.
