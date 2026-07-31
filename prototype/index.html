@@ -133,6 +133,21 @@
   .ledger tbody tr:hover td{background:var(--surface-2)}
   .ttype{font-size:11px; color:var(--muted)}
 
+  /* ---------- mobile pass (v1.8) ---------- */
+  .lb-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch}
+  @media (max-width:760px){
+    body{font-size:14px}
+    header h1{font-size:22px}
+    nav{flex-wrap:wrap; gap:2px}
+    nav button{padding:8px 10px; font-size:12px}
+    section{padding:14px 12px}
+    .controls{flex-wrap:wrap; gap:8px}
+    .tiles{grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px}
+    #lb{min-width:900px}
+    .card{padding:12px}
+    footer{font-size:11px; padding:14px 12px}
+  }
+
   /* ---------- open/closed chips ---------- */
   .chip{display:inline-block; font-size:9.5px; font-weight:700; letter-spacing:0.5px;
     border-radius:4px; padding:1px 6px; margin-left:6px; vertical-align:1px}
@@ -261,7 +276,7 @@
       </select>
     </div>
     <div class="card" style="padding:6px 8px">
-      <table id="lb">
+      <div class="lb-wrap"><table id="lb">
         <thead>
           <tr>
             <th class="rk">#</th><th>Regime</th><th>Tenure</th>
@@ -274,7 +289,7 @@
           </tr>
         </thead>
         <tbody></tbody>
-      </table>
+      </table></div>
     </div>
     <div class="sub" style="margin-top:10px">Click any regime for its full report card. <span class="badge-ss">SS</span> = small-sample regime (&lt; 3 seasons); shown, never hidden.</div>
   </section>
@@ -350,17 +365,23 @@
       <p>A marginal win is worth 3–4× more at 89 projected wins than at 70 or 105, so acquired WAR is multiplied by a leverage curve, L(w) = 0.5 + 1.3·e<sup>−(w−89)²/200</sup>, peaking at 1.80, evaluated at the acquirer's <strong>projected wins on the decision date</strong>: the front office is graded on the leverage it thought it was buying. Future-year value discounts to the decision date at 10%/yr (6–14% sensitivity shown): a 2029 prospect win was never worth a 2024 pennant-race win to a defending champion, and win-now is a rational preference the ledger must price, not a bias to correct. Together these fixed v0.1's systematic bias (deadline buys punished, sell-side hauls flattered) and flipped the Burnes trade from "worst decision of the tenure" (−2.9) to a fair playoff-push price (+1.2). Every parameter (curve shape, discount rate, projected wins per case) is versioned and public.</p>
       <h3>Retention rights &amp; opportunity cost</h3>
       <p>A trade transfers a third asset beyond the control windows: the <strong>exclusive right to extend the player</strong>. Pricing it at zero produces indefensible verdicts: the windows-only ledger says Boston "won" the Betts trade. Every trade therefore shows three ledgers: windows-only; <strong>option-inclusive</strong> (realized extension surplus flows to the acquirer once the right is exercised, the headline number); and the seller's counterfactual, charged p(retain) × forfeited extension surplus, where p is a documented, versioned judgment drawn from negotiation reporting. The same machinery scores passive retention failures (letting a star walk is charged p-weighted forfeited surplus with the comp pick credited), so "traded him with team control left" and "let him leave for nothing" become directly comparable. Under this accounting deals stop being zero-sum: in the Betts case both front offices beat their realistic alternatives, which is the honest and more interesting answer.</p>
+      <h3>The rental market (v0.3)</h3>
+      <p>The lens stack now has an empirical anchor: 237 deadline rental deals classified exactly from the league feed (acquired June-August, declared free agency within five months), with the buyer's receipt measured as rest-of-season Ledger WAR and the price as what the surrendered players actually became for the seller. Findings: a <strong>star rental win costs about 0.8 realized wins</strong>; the <strong>median deadline rental costs approximately nothing that ever materializes</strong>; and more than half of rental buys deliver under 0.3 wins. With a market price in hand, a trade grades on two questions: <strong>paid vs. the market at the time</strong>, and <strong>realized vs. paid</strong>. Applied to the canonical case: Boston's return for one expected year of Betts was roughly market rate; the ledger's criticism was never the price, it is the decision to be a seller of that asset at all. Full study: methodology v0.3 addendum in the repo; the recent-era ratio is disclosed as right-censored while surrendered prospects mature.</p>
+      <h3>Player development (DEV)</h3>
+      <p>Development is a third top-level grade beside FOR and Success, because turning a 16-year-old into a top-100 prospect is neither an acquisition nor an on-field result. Prospects are marked to market on a rank-to-surplus-wins curve using the MLB Pipeline top-100 archive (2011-2026, 1,548 rank-rows), with the holding org derived from minor-league rosters, not the rankings. Entry credit is net of acquisition cost (own draft pick vs. the pick-value curve; own international signing; acquired as prospect) with an <strong>inherited screen</strong>: a prospect developed to the list under a predecessor earns the new regime nothing at entry. Rank moves accrue to the org holding the player, graduation to MLB is a neutral exit, and falling off without debuting is charged. Credit stays home when the prospect is later traded, which is the point. Grades are league-relative because development is positive-sum (about +2.5 wins of prospect value per club-season league-wide).</p>
+      <h3>Extensions, the sixth channel</h3>
+      <p>An extension is not a free-agent signing: the club shops the <strong>extension market for that service class</strong>, which trades at a deep structural discount to open-market $/win. Grading Acu&ntilde;a's 8/$100M against FA prices would call every pre-arb extension a triumph; grading it against what pre-arb extensions typically pay isolates the skill. Class discounts (pre-debut 0.35, early 0.45, arb 0.60, veteran 0.90 of market $/win) are documented assumptions, tunable as the book grows. Deferral-heavy deals are costed at CBT/present value (Betts $306.7M, and Ohtani $460.8M in the FA channel), and qualifying-offer signings carry a draft-compensation charge, because the pick surrendered is a baseball asset even when the dollars are ownership's.</p>
       <h3>Attribution rules</h3>
       <p>A regime is graded only on its own decisions; inherited players are excluded. Extensions, non-tenders, and passive losses (a free agent walking, a player lost on waivers) are decisions too. Recent regimes carry a small-sample badge rather than being hidden, and the leaderboard defaults to realized value only, with projected-remaining value shown separately. Every rating is clickable down to the individual decisions that produced it, and every methodology version is archived so grades are reproducible. The two Betts decisions on the Dodgers card are scored with real data as a proof of concept; the trade and the extension are separate, chainable decisions, and that one example shows why: on windows alone the deal reads as an overpay, while the full chain reads as one of the great decisions of the era. Same inputs, different lenses, both on the page.</p>
       <h3>Two grades, on purpose</h3>
       <p><strong>FOR (Front Office Rating)</strong> measures decision quality: value added versus expectation across the six channels. <strong>Team Success</strong> measures on-field results during the tenure: winning percentage, division titles, playoff appearances, playoff series wins, pennants, and World Series. They are deliberately separate: a front office can out-decide the league and still miss Octobers (payroll, luck, timing), or ride inherited stars to banners. The gap between the two grades is often the most interesting number on the page. Grades display as letters (A+ through F) mapped from the underlying 20–80 scouting scale, which stays available on hover.</p>
       <h3>Historical depth</h3>
       <p>The ledger is designed to backfill decade by decade; transactions exist back to the 1870s (Retrosheet), so historical regimes (Weiss, Rickey, Schuerholz, Gillick) sit on the same scale as active ones. Channel definitions adapt by era: before the 1965 amateur draft, the "draft" channel reads as amateur and international signings. Era-specific $/WAR baselines keep cross-era comparisons honest.</p>
-      <p style="color:var(--s4)"><strong>Reminder:</strong> every number in this prototype is illustrative sample data, not a computed rating.</p>
+      <p style="color:var(--s4)"><strong>Data status:</strong> the leaderboard and all 27 cards badged COMPUTED are generated end-to-end by Ledger WAR v0 and sweep v2 from the live MLB Stats API feed (plus the curated Dodgers, Orioles, and Brewers cards, whose decision pages are hand-verified). Sample values persist only where labeled: parts of the curated decision pages, the Trees tab, and the Champions tab's contribution estimates.</p>
     </div>
   </section>
 
-  <footer>Front Office Ledger · prototype v1.7 · sweep v2 (control windows, win-curve leverage and 10%/yr discounting on trades, real postseason detail in Success) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · sample data except entries badged REAL DATA (the Betts decisions on the Dodgers card; the full Orioles/Elias card, approximate WAR inputs, see proof-of-concept reports). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
+  <footer>Front Office Ledger · prototype v1.8 · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · sample data except entries badged REAL DATA (the Betts decisions on the Dodgers card; the full Orioles/Elias card, approximate WAR inputs, see proof-of-concept reports). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
 </div>
 
 <!-- decision modal -->
