@@ -13,18 +13,14 @@ which is the honest cost of a bad signing. Unmatched major-league signings
 counted. A regime's FA channel gets a letter only when >= 8 signings
 matched; below that it stays pending.
 """
-import csv, json, sqlite3, unicodedata
+import csv, json, sqlite3
 from collections import defaultdict
 from contracts_recent import RECENT
+from contracts_ext import QO, FA_CBT
+from fa_grade_lib import norm, DPW
 
-def norm(n):
-    n = unicodedata.normalize('NFKD', n or "")
-    n = ''.join(c for c in n if not unicodedata.combining(c))
-    return n.lower().replace('.', '').replace('-', ' ').strip()
-
-DPW = {2006:4.2,2007:4.5,2008:4.7,2009:4.7,2010:5.0,2011:5.2,2012:5.5,2013:6.0,
-       2014:6.5,2015:7.0,2016:7.7,2017:8.0,2018:8.2,2019:8.0,2020:8.0,2021:8.5,
-       2022:8.5,2023:9.0,2024:9.3,2025:9.5,2026:9.7}
+QO_CHARGE = 1.0  # wins: draft-comp forfeited signing a QO'd free agent
+                 # (second-round-pick value on our pick curve; flat v1)
 
 cfg = json.load(open("/home/claude/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
@@ -85,16 +81,23 @@ for r in res:
             if hit: break
         if not hit: continue
         off, yrs, tot, src = hit
-        aav = tot / yrs
+        cbt = FA_CBT.get((pn, off))
+        aav = (cbt if cbt else tot) / yrs
         seasons = [y for y in range(off + 1, min(off + yrs, 2025) + 1)]
         if not seasons: continue
         implied = sum(aav / DPW[y] for y in seasons)
         rec = LVM.get(x["person_id"])
         realized = sum(v for (y, tm, v) in rec["rows"] if tm in names and y in seasons) if rec else 0.0
         n = realized - implied
+        notes = []
+        if cbt: notes.append(f"CBT ${cbt:.0f}M used for cost")
+        if (pn, off) in QO:
+            n -= QO_CHARGE
+            notes.append("QO signing, draft comp charged")
+        note = (", " + ", ".join(notes)) if notes else ""
         net += n; matched += 1
         decs.append(dict(d=x["date"], ch="fa", net=round(n, 1),
-                         h=f"Signed {x['person_name']} · {yrs} yr / ${tot:.1f}M ({off}-{str(off+1)[2:]} winter, {src})"))
+                         h=f"Signed {x['person_name']} · {yrs} yr / ${tot:.1f}M ({off}-{str(off+1)[2:]} winter, {src}{note})"))
     covered = matched >= 8
     r["chan"]["fa"] = dict(net=round(net, 1) if covered else 0,
                            g=grade(net / r["seasons"]) if covered else None,
