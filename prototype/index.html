@@ -238,6 +238,7 @@
       <button class="on" data-view="leaderboard">Leaderboard</button>
       <button data-view="report">Regime Report Cards</button>
       <button data-view="trees">Transaction Trees</button>
+      <button data-view="dna">Org DNA</button>
       <button data-view="champs">Champions</button>
       <button data-view="method">Methodology</button>
     </nav>
@@ -354,6 +355,29 @@
     <div id="champwrap"></div>
   </section>
 
+  <!-- ================= ORG DNA ================= -->
+  <section id="view-dna" hidden>
+    <h2>Org DNA · What Each Front Office Is Actually Good At</h2>
+    <div class="sub">Channel value split arms vs bats, development effects measured on movers (does a player get better after arriving?), retention leakage, injury profiles, draft-room fingerprints, and buy-low tendencies. Every cell computed from the ledger. Development deltas are org tendencies, not causal claims. <span class="badge-real" style="margin-left:0">COMPUTED</span></div>
+    <div class="lb-wrap"><table id="dnatable" style="margin-top:12px"><thead><tr>
+      <th>Org</th><th>Archetype</th>
+      <th class="num" title="Draft net WAR: arms / bats">Draft A/B</th>
+      <th class="num" title="Trade acquisitions net: arms / bats">Trades in A/B</th>
+      <th class="num" title="Pitcher Ledger WAR delta after arriving, wins/season">Pit dev</th>
+      <th class="num" title="Defense delta after arriving, runs/season">Def dev</th>
+      <th class="num" title="Hitter Ledger WAR delta after arriving, wins/season">Bat dev</th>
+      <th class="num" title="Retention grade: wins lost to walked free agents vs league rate (display only, scale effects disclosed)">Ret</th>
+      <th class="num" title="IL placements per season (pitchers / hitters)">IL/yr</th>
+      <th class="num" title="Share of top-10-round picks signed above slot value">Overslot</th>
+      <th class="num" title="Share of veteran trade targets acquired after a down year">Buys dips</th>
+      <th title="Most similar regime by DNA profile">Comp</th>
+    </tr></thead><tbody></tbody></table></div>
+    <h3 style="margin-top:22px">Head to head · trade records between sitting regimes</h3>
+    <div class="sub">Deals between two current regimes while both were in office; net from the row regime's seat, unweighted control-window value. Minimum two deals.</div>
+    <div class="controls" style="margin:10px 0"><label for="h2hsel">Regime</label><select id="h2hsel"></select></div>
+    <div id="h2hwrap"></div>
+  </section>
+
   <!-- ================= METHODOLOGY ================= -->
   <section id="view-method" hidden>
     <h2>Methodology (abridged)</h2>
@@ -385,7 +409,7 @@
     </div>
   </section>
 
-  <footer>Front Office Ledger · prototype v2.6 · Regime DNA (archetype tags, arms/bats channel splits, mover development deltas) · Ledger WAR v1 (defense via SABR Defensive Index where published, Statcast fielding runs + catcher framing elsewhere, Statcast baserunning; pre-2014 seasons remain bat-only, disclosed) · process-vs-outcome verdicts on trades · transaction trees auto-generated for all 30 regimes · decision chains as inline trees (each piece's next move on this regime's ledger, expandable in place) · at-the-time snapshots (contemporaneous Pipeline ranks) · comprehensive per-channel card ledgers · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · all leaderboard and card values computed end-to-end from the live feed; curated decision pages on the Dodgers, Orioles, and Brewers cards are hand-verified. Illustrative values persist only where labeled (Archive-era leaderboard rows). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
+  <footer>Front Office Ledger · prototype v2.7 · Org DNA tab (arms/bats splits, mover deltas incl. hitting, retention leakage, injury profiles, draft-room fingerprints, buy-low rates, regime comps, head-to-head trade records) · Regime DNA (archetype tags, arms/bats channel splits, mover development deltas) · Ledger WAR v1 (defense via SABR Defensive Index where published, Statcast fielding runs + catcher framing elsewhere, Statcast baserunning; pre-2014 seasons remain bat-only, disclosed) · process-vs-outcome verdicts on trades · transaction trees auto-generated for all 30 regimes · decision chains as inline trees (each piece's next move on this regime's ledger, expandable in place) · at-the-time snapshots (contemporaneous Pipeline ranks) · comprehensive per-channel card ledgers · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · all leaderboard and card values computed end-to-end from the live feed; curated decision pages on the Dodgers, Orioles, and Brewers cards are hand-verified. Illustrative values persist only where labeled (Archive-era leaderboard rows). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
 </div>
 
 <!-- decision modal -->
@@ -1064,6 +1088,14 @@ const AUTO_REGIMES = [
 "net": 21.0,
 "g": 75,
 "n": 3
+},
+"ret": {
+"net": 0,
+"g": 65,
+"n": 16,
+"lost": 39.8,
+"rel": 1.08,
+"display_only": true
 }
 },
 "dev": {
@@ -1234,9 +1266,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"670370",
 "608348",
 "596133",
-"670370",
 "502671"
 ],
 "note": "Auto-scored: value in +9.4 vs value out +22.1, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.9 at the time."
@@ -1794,9 +1826,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"670370",
 "608348",
 "596133",
-"670370",
 "502671"
 ],
 "att": {
@@ -3180,6 +3212,24 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.19,
 "n": 47
+},
+"devBat": {
+"v": 0.33,
+"n": 34
+},
+"inj": {
+"pit": 23.2,
+"bat": 22.1
+},
+"draftRoom": {
+"n": 96,
+"overslot": 0.16,
+"slotUse": 0.93,
+"prep": 0.17
+},
+"buyLow": {
+"vets": 10,
+"rate": 0.4
 }
 },
 "dnaTags": [
@@ -3187,6 +3237,68 @@ const AUTO_REGIMES = [
 "Drafts bats",
 "Trades for bats",
 "Signs bats well"
+],
+"h2h": [
+{
+"opp": "TOR",
+"exec": "Ross Atkins",
+"n": 7,
+"net": 5.2
+},
+{
+"opp": "MIN",
+"exec": "Derek Falvey",
+"n": 5,
+"net": 4.1
+},
+{
+"opp": "SEA",
+"exec": "Jerry Dipoto",
+"n": 10,
+"net": -2.7
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 8,
+"net": -1.9
+},
+{
+"opp": "BAL",
+"exec": "Mike Elias",
+"n": 2,
+"net": -1.5
+},
+{
+"opp": "ATH",
+"exec": "David Forst",
+"n": 3,
+"net": -1.3
+},
+{
+"opp": "PIT",
+"exec": "Ben Cherington",
+"n": 5,
+"net": 1.3
+},
+{
+"opp": "NYY",
+"exec": "Brian Cashman",
+"n": 3,
+"net": 1.1
+},
+{
+"opp": "MIA",
+"exec": "Peter Bendix",
+"n": 3,
+"net": 1.1
+},
+{
+"opp": "CLE",
+"exec": "Chris Antonetti",
+"n": 4,
+"net": -0.7
+}
 ]
 },
 {
@@ -3242,6 +3354,14 @@ const AUTO_REGIMES = [
 "net": 19.6,
 "g": 75,
 "n": 7
+},
+"ret": {
+"net": 0,
+"g": 30,
+"n": 26,
+"lost": 75.8,
+"rel": -3.64,
+"display_only": true
 }
 },
 "dev": {
@@ -3933,8 +4053,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"503285",
 "592332",
+"503285",
 "623465",
 "656340",
 "669145",
@@ -4054,10 +4174,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"518586",
 "431148",
 "408236",
 "435221",
+"518586",
 "461314"
 ],
 "att": {
@@ -5353,12 +5473,92 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.14,
 "n": 42
+},
+"devBat": {
+"v": 0.09,
+"n": 34
+},
+"inj": {
+"pit": 27.6,
+"bat": 22.1
+},
+"draftRoom": {
+"n": 77,
+"overslot": 0.29,
+"slotUse": 1.08,
+"prep": 0.18
+},
+"buyLow": {
+"vets": 18,
+"rate": 0.78
 }
 },
 "dnaTags": [
 "Draft machine, both sides",
 "Trades for bats",
 "Signs bats well"
+],
+"h2h": [
+{
+"opp": "ATH",
+"exec": "David Forst",
+"n": 6,
+"net": 29.7
+},
+{
+"opp": "BOS",
+"exec": "Craig Breslow",
+"n": 2,
+"net": 13.8
+},
+{
+"opp": "LAA",
+"exec": "Perry Minasian",
+"n": 13,
+"net": 8.8
+},
+{
+"opp": "DET",
+"exec": "Scott Harris",
+"n": 2,
+"net": 3.5
+},
+{
+"opp": "CHC",
+"exec": "Jed Hoyer",
+"n": 2,
+"net": 2.6
+},
+{
+"opp": "CWS",
+"exec": "Chris Getz",
+"n": 2,
+"net": 1.8
+},
+{
+"opp": "HOU",
+"exec": "Dana Brown",
+"n": 4,
+"net": 1.8
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 4,
+"net": -1.0
+},
+{
+"opp": "TEX",
+"exec": "Chris Young",
+"n": 7,
+"net": 0.9
+},
+{
+"opp": "KC",
+"exec": "J.J. Picollo",
+"n": 5,
+"net": 0.8
+}
 ]
 },
 {
@@ -5414,6 +5614,14 @@ const AUTO_REGIMES = [
 "net": 2.3,
 "g": 65,
 "n": 4
+},
+"ret": {
+"net": 0,
+"g": 75,
+"n": 6,
+"lost": 8.3,
+"rel": 1.96,
+"display_only": true
 }
 },
 "dev": {
@@ -6010,9 +6218,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"690916",
-"700113",
 "669711",
+"700113",
+"690916",
 "657077"
 ],
 "att": {
@@ -6183,9 +6391,9 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "808366",
-"696486",
-"663855",
 "690986",
+"663855",
+"696486",
 "646240"
 ],
 "att": {
@@ -6240,9 +6448,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"678011",
 "702332",
 "655316",
-"678011",
 "675660",
 "690986",
 "666152"
@@ -6740,11 +6948,91 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": -0.01,
 "n": 37
+},
+"devBat": {
+"v": -0.02,
+"n": 32
+},
+"inj": {
+"pit": 45.2,
+"bat": 30.8
+},
+"draftRoom": {
+"n": 21,
+"overslot": 0.19,
+"slotUse": 1.23,
+"prep": 0.05
+},
+"buyLow": {
+"vets": 10,
+"rate": 0.6
 }
 },
 "dnaTags": [
 "Gloves fade here",
 "Trades for arms"
+],
+"h2h": [
+{
+"opp": "ATL",
+"exec": "Alex Anthopoulos",
+"n": 2,
+"net": -13.8
+},
+{
+"opp": "NYY",
+"exec": "Brian Cashman",
+"n": 2,
+"net": 6.0
+},
+{
+"opp": "MIL",
+"exec": "Matt Arnold",
+"n": 4,
+"net": -4.9
+},
+{
+"opp": "STL",
+"exec": "Chaim Bloom",
+"n": 3,
+"net": 4.7
+},
+{
+"opp": "NYM",
+"exec": "David Stearns",
+"n": 6,
+"net": 2.3
+},
+{
+"opp": "CWS",
+"exec": "Chris Getz",
+"n": 6,
+"net": -1.9
+},
+{
+"opp": "MIN",
+"exec": "Derek Falvey",
+"n": 3,
+"net": 1.2
+},
+{
+"opp": "ATH",
+"exec": "David Forst",
+"n": 3,
+"net": -1.2
+},
+{
+"opp": "SEA",
+"exec": "Jerry Dipoto",
+"n": 2,
+"net": -0.9
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 4,
+"net": 0.6
+}
 ]
 },
 {
@@ -6800,6 +7088,14 @@ const AUTO_REGIMES = [
 "net": 7.2,
 "g": 70,
 "n": 3
+},
+"ret": {
+"net": 0,
+"g": 70,
+"n": 10,
+"lost": 21.5,
+"rel": 1.37,
+"display_only": true
 }
 },
 "dev": {
@@ -6894,8 +7190,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"622075",
 "683737",
+"622075",
 "701328",
 "814307"
 ],
@@ -6990,11 +7286,11 @@ const AUTO_REGIMES = [
 "+0.0"
 ],
 [
-"Ismael Mena",
+"Reginald Preciado",
 "+0.0"
 ],
 [
-"Reginald Preciado",
+"Ismael Mena",
 "+0.0"
 ],
 [
@@ -7023,10 +7319,10 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "605200",
-"691190",
 "691262",
-"683357",
+"691190",
 "678220",
+"683357",
 "506433",
 "605170"
 ],
@@ -7329,8 +7625,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"622075",
 "683737",
+"622075",
 "701328",
 "814307"
 ],
@@ -7531,11 +7827,11 @@ const AUTO_REGIMES = [
 "+0.0"
 ],
 [
-"Ismael Mena",
+"Reginald Preciado",
 "+0.0"
 ],
 [
-"Reginald Preciado",
+"Ismael Mena",
 "+0.0"
 ],
 [
@@ -7564,10 +7860,10 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "605200",
-"691190",
 "691262",
-"683357",
+"691190",
 "678220",
+"683357",
 "506433",
 "605170"
 ],
@@ -7689,8 +7985,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"682634",
 "669805",
+"682634",
 "519203"
 ],
 "att": {
@@ -8582,11 +8878,91 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": -0.02,
 "n": 52
+},
+"devBat": {
+"v": 0.15,
+"n": 25
+},
+"inj": {
+"pit": 45.3,
+"bat": 31.6
+},
+"draftRoom": {
+"n": 50,
+"overslot": 0.24,
+"slotUse": 1.02,
+"prep": 0.12
+},
+"buyLow": {
+"vets": 5,
+"rate": null
 }
 },
 "dnaTags": [
 "Makes defenders better",
 "Trades for arms"
+],
+"h2h": [
+{
+"opp": "NYY",
+"exec": "Brian Cashman",
+"n": 5,
+"net": -9.6
+},
+{
+"opp": "SD",
+"exec": "A.J. Preller",
+"n": 4,
+"net": -9.1
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 4,
+"net": 8.2
+},
+{
+"opp": "PHI",
+"exec": "Dave Dombrowski",
+"n": 5,
+"net": 4.4
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 5,
+"net": -2.9
+},
+{
+"opp": "ATL",
+"exec": "Alex Anthopoulos",
+"n": 2,
+"net": -2.6
+},
+{
+"opp": "PIT",
+"exec": "Ben Cherington",
+"n": 4,
+"net": -2.2
+},
+{
+"opp": "HOU",
+"exec": "Dana Brown",
+"n": 4,
+"net": -2.2
+},
+{
+"opp": "SEA",
+"exec": "Jerry Dipoto",
+"n": 4,
+"net": 1.8
+},
+{
+"opp": "ATH",
+"exec": "David Forst",
+"n": 3,
+"net": 1.2
+}
 ]
 },
 {
@@ -8642,6 +9018,14 @@ const AUTO_REGIMES = [
 "net": 0,
 "g": null,
 "n": 0
+},
+"ret": {
+"net": 0,
+"g": 80,
+"n": 6,
+"lost": 4.3,
+"rel": 3.55,
+"display_only": true
 }
 },
 "dev": {
@@ -8773,8 +9157,8 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "800316",
-"800419",
 "678246",
+"800419",
 "656629",
 "502054",
 "607200"
@@ -8824,8 +9208,8 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "621051",
-"694214",
 "689672",
+"694214",
 "683568",
 "656302"
 ],
@@ -8923,11 +9307,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"803035",
 "669699",
-"670032",
 "694363",
 "647336",
-"803035",
+"670032",
 "607481"
 ],
 "note": "Auto-scored: value in +0.2 vs value out +3.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -9022,8 +9406,8 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "800316",
-"800419",
 "678246",
+"800419",
 "656629",
 "502054",
 "607200"
@@ -9162,8 +9546,8 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "621051",
-"694214",
 "689672",
+"694214",
 "683568",
 "656302"
 ],
@@ -9273,11 +9657,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"803035",
 "669699",
-"670032",
 "694363",
 "647336",
-"803035",
+"670032",
 "607481"
 ],
 "att": {
@@ -9763,11 +10147,91 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.05,
 "n": 35
+},
+"devBat": {
+"v": 0.06,
+"n": 43
+},
+"inj": {
+"pit": 44.0,
+"bat": 34.0
+},
+"draftRoom": {
+"n": 21,
+"overslot": 0.43,
+"slotUse": 0.83,
+"prep": 0.14
+},
+"buyLow": {
+"vets": 4,
+"rate": null
 }
 },
 "dnaTags": [
 "Gloves fade here",
 "Trades for bats"
+],
+"h2h": [
+{
+"opp": "SD",
+"exec": "A.J. Preller",
+"n": 2,
+"net": -8.5
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 7,
+"net": 2.8
+},
+{
+"opp": "PHI",
+"exec": "Dave Dombrowski",
+"n": 5,
+"net": -2.2
+},
+{
+"opp": "BOS",
+"exec": "Craig Breslow",
+"n": 6,
+"net": 1.9
+},
+{
+"opp": "MIL",
+"exec": "Matt Arnold",
+"n": 2,
+"net": -1.9
+},
+{
+"opp": "ATL",
+"exec": "Alex Anthopoulos",
+"n": 2,
+"net": -1.8
+},
+{
+"opp": "HOU",
+"exec": "Dana Brown",
+"n": 2,
+"net": -0.7
+},
+{
+"opp": "NYM",
+"exec": "David Stearns",
+"n": 3,
+"net": -0.5
+},
+{
+"opp": "BAL",
+"exec": "Mike Elias",
+"n": 2,
+"net": 0.5
+},
+{
+"opp": "TOR",
+"exec": "Ross Atkins",
+"n": 4,
+"net": -0.3
+}
 ]
 },
 {
@@ -9823,6 +10287,14 @@ const AUTO_REGIMES = [
 "net": 0,
 "g": null,
 "n": 1
+},
+"ret": {
+"net": 0,
+"g": 60,
+"n": 14,
+"lost": 25.6,
+"rel": 0.62,
+"display_only": true
 }
 },
 "dev": {
@@ -9918,8 +10390,8 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "668715",
-"680727",
 "687952",
+"680727",
 "641816"
 ],
 "note": "Auto-scored: value in +6.9 vs value out +0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -9999,10 +10471,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"682622",
+"681097",
 "686651",
 "695490",
-"681097",
+"682622",
 "622491"
 ],
 "note": "Auto-scored: value in -0.5 vs value out +15.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +5.3 at the time."
@@ -10277,8 +10749,8 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "668715",
-"680727",
 "687952",
+"680727",
 "641816"
 ],
 "att": {
@@ -10399,8 +10871,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"570666",
-"458677"
+"458677",
+"570666"
 ],
 "att": {
 "out": 0,
@@ -10496,10 +10968,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"682622",
+"681097",
 "686651",
 "695490",
-"681097",
+"682622",
 "622491"
 ],
 "att": {
@@ -11354,12 +11826,92 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": -0.22,
 "n": 35
+},
+"devBat": {
+"v": 0.11,
+"n": 35
+},
+"inj": {
+"pit": 46.0,
+"bat": 41.8
+},
+"draftRoom": {
+"n": 56,
+"overslot": 0.14,
+"slotUse": 0.95,
+"prep": 0.12
+},
+"buyLow": {
+"vets": 7,
+"rate": null
 }
 },
 "dnaTags": [
 "Arms regress here",
 "Drafts arms",
 "Trades for arms"
+],
+"h2h": [
+{
+"opp": "SEA",
+"exec": "Jerry Dipoto",
+"n": 9,
+"net": -11.3
+},
+{
+"opp": "MIN",
+"exec": "Derek Falvey",
+"n": 3,
+"net": -3.0
+},
+{
+"opp": "ATH",
+"exec": "David Forst",
+"n": 3,
+"net": 2.3
+},
+{
+"opp": "LAA",
+"exec": "Perry Minasian",
+"n": 3,
+"net": -2.2
+},
+{
+"opp": "PIT",
+"exec": "Ben Cherington",
+"n": 3,
+"net": -2.2
+},
+{
+"opp": "CLE",
+"exec": "Chris Antonetti",
+"n": 4,
+"net": 1.9
+},
+{
+"opp": "SD",
+"exec": "A.J. Preller",
+"n": 2,
+"net": -1.2
+},
+{
+"opp": "MIA",
+"exec": "Peter Bendix",
+"n": 2,
+"net": 1.2
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 3,
+"net": 0.7
+},
+{
+"opp": "MIL",
+"exec": "Matt Arnold",
+"n": 2,
+"net": 0.5
+}
 ]
 },
 {
@@ -11415,6 +11967,14 @@ const AUTO_REGIMES = [
 "net": 32.3,
 "g": 80,
 "n": 3
+},
+"ret": {
+"net": 0,
+"g": 70,
+"n": 22,
+"lost": 37.5,
+"rel": 1.7,
+"display_only": true
 }
 },
 "dev": {
@@ -11530,12 +12090,12 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"680911",
-"647304",
-"676282",
-"595978",
-"672356",
 "615698",
+"595978",
+"647304",
+"672356",
+"676282",
+"680911",
 "605182",
 "656185"
 ],
@@ -11930,12 +12490,12 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"680911",
-"647304",
-"676282",
-"595978",
-"672356",
 "615698",
+"595978",
+"647304",
+"672356",
+"676282",
+"680911",
 "605182",
 "656185"
 ],
@@ -12252,8 +12812,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"641343",
 "467793",
+"641343",
 "642121",
 "429665",
 "650490"
@@ -13552,6 +14112,24 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.19,
 "n": 30
+},
+"devBat": {
+"v": 0.38,
+"n": 26
+},
+"inj": {
+"pit": 14.8,
+"bat": 13.3
+},
+"draftRoom": {
+"n": 94,
+"overslot": 0.28,
+"slotUse": 1.25,
+"prep": 0.18
+},
+"buyLow": {
+"vets": 15,
+"rate": 0.33
 }
 },
 "dnaTags": [
@@ -13559,6 +14137,68 @@ const AUTO_REGIMES = [
 "Makes defenders better",
 "Drafts arms",
 "Trades for arms"
+],
+"h2h": [
+{
+"opp": "SD",
+"exec": "A.J. Preller",
+"n": 10,
+"net": 20.7
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 9,
+"net": -13.5
+},
+{
+"opp": "TOR",
+"exec": "Ross Atkins",
+"n": 12,
+"net": -3.0
+},
+{
+"opp": "PIT",
+"exec": "Ben Cherington",
+"n": 4,
+"net": -2.8
+},
+{
+"opp": "SEA",
+"exec": "Jerry Dipoto",
+"n": 6,
+"net": 2.5
+},
+{
+"opp": "NYY",
+"exec": "Brian Cashman",
+"n": 8,
+"net": 2.4
+},
+{
+"opp": "TEX",
+"exec": "Chris Young",
+"n": 2,
+"net": 2.2
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 5,
+"net": -2.1
+},
+{
+"opp": "CIN",
+"exec": "Nick Krall",
+"n": 4,
+"net": -1.9
+},
+{
+"opp": "BAL",
+"exec": "Mike Elias",
+"n": 3,
+"net": 1.4
+}
 ]
 },
 {
@@ -13614,6 +14254,14 @@ const AUTO_REGIMES = [
 "net": 0,
 "g": null,
 "n": 0
+},
+"ret": {
+"net": 0,
+"g": 80,
+"n": 0,
+"lost": 0.0,
+"rel": 5.28,
+"display_only": true
 }
 },
 "dev": {
@@ -14047,11 +14695,30 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.05,
 "n": 32
+},
+"devBat": {
+"v": 0.72,
+"n": 21
+},
+"inj": {
+"pit": 45.7,
+"bat": 27.1
+},
+"draftRoom": {
+"n": 0,
+"overslot": null,
+"slotUse": null,
+"prep": null
+},
+"buyLow": {
+"vets": 1,
+"rate": null
 }
 },
 "dnaTags": [
 "Makes defenders better"
-]
+],
+"h2h": []
 },
 {
 "id": "det",
@@ -14106,6 +14773,14 @@ const AUTO_REGIMES = [
 "net": 0,
 "g": null,
 "n": 1
+},
+"ret": {
+"net": 0,
+"g": 45,
+"n": 7,
+"lost": 19.9,
+"rel": -0.41,
+"display_only": true
 }
 },
 "dev": {
@@ -14235,8 +14910,8 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "664848",
-"663837",
 "665155",
+"663837",
 "642397",
 "665019"
 ],
@@ -14564,8 +15239,8 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "664848",
-"663837",
 "665155",
+"663837",
 "642397",
 "665019"
 ],
@@ -15524,6 +16199,24 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.23,
 "n": 29
+},
+"devBat": {
+"v": 0.22,
+"n": 27
+},
+"inj": {
+"pit": 40.0,
+"bat": 25.1
+},
+"draftRoom": {
+"n": 33,
+"overslot": 0.27,
+"slotUse": 1.15,
+"prep": 0.36
+},
+"buyLow": {
+"vets": 2,
+"rate": null
 }
 },
 "dnaTags": [
@@ -15531,6 +16224,68 @@ const AUTO_REGIMES = [
 "Gloves fade here",
 "Drafts bats",
 "Trades for bats"
+],
+"h2h": [
+{
+"opp": "ATL",
+"exec": "Alex Anthopoulos",
+"n": 2,
+"net": -3.5
+},
+{
+"opp": "PHI",
+"exec": "Dave Dombrowski",
+"n": 6,
+"net": 2.4
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 5,
+"net": -1.5
+},
+{
+"opp": "MIL",
+"exec": "Matt Arnold",
+"n": 3,
+"net": 1.1
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 6,
+"net": -1.0
+},
+{
+"opp": "BAL",
+"exec": "Mike Elias",
+"n": 5,
+"net": -0.9
+},
+{
+"opp": "MIN",
+"exec": "Derek Falvey",
+"n": 2,
+"net": -0.5
+},
+{
+"opp": "TOR",
+"exec": "Ross Atkins",
+"n": 3,
+"net": 0.3
+},
+{
+"opp": "TEX",
+"exec": "Chris Young",
+"n": 3,
+"net": -0.1
+},
+{
+"opp": "BOS",
+"exec": "Craig Breslow",
+"n": 3,
+"net": -0.0
+}
 ]
 },
 {
@@ -15586,6 +16341,14 @@ const AUTO_REGIMES = [
 "net": 0,
 "g": null,
 "n": 1
+},
+"ret": {
+"net": 0,
+"g": 50,
+"n": 11,
+"lost": 19.0,
+"rel": -0.16,
+"display_only": true
 }
 },
 "dev": {
@@ -15733,8 +16496,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"701358",
 "670623",
+"701358",
 "669713",
 "663656"
 ],
@@ -16089,8 +16852,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"701358",
 "670623",
+"701358",
 "669713",
 "663656"
 ],
@@ -16784,11 +17547,91 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.28,
 "n": 26
+},
+"devBat": {
+"v": 0.17,
+"n": 21
+},
+"inj": {
+"pit": 40.0,
+"bat": 24.0
+},
+"draftRoom": {
+"n": 28,
+"overslot": 0.25,
+"slotUse": 1.0,
+"prep": 0.11
+},
+"buyLow": {
+"vets": 2,
+"rate": null
 }
 },
 "dnaTags": [
 "Pitching lab",
 "Trades for arms"
+],
+"h2h": [
+{
+"opp": "CHC",
+"exec": "Jed Hoyer",
+"n": 4,
+"net": 2.2
+},
+{
+"opp": "ATL",
+"exec": "Alex Anthopoulos",
+"n": 4,
+"net": -1.8
+},
+{
+"opp": "TOR",
+"exec": "Ross Atkins",
+"n": 4,
+"net": 1.1
+},
+{
+"opp": "CWS",
+"exec": "Chris Getz",
+"n": 2,
+"net": 0.7
+},
+{
+"opp": "NYY",
+"exec": "Brian Cashman",
+"n": 3,
+"net": 0.7
+},
+{
+"opp": "SD",
+"exec": "A.J. Preller",
+"n": 2,
+"net": -0.5
+},
+{
+"opp": "MIA",
+"exec": "Peter Bendix",
+"n": 3,
+"net": 0.2
+},
+{
+"opp": "WSH",
+"exec": "Paul Toboni",
+"n": 2,
+"net": -0.2
+},
+{
+"opp": "BAL",
+"exec": "Mike Elias",
+"n": 2,
+"net": 0.1
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 3,
+"net": -0.1
+}
 ]
 },
 {
@@ -16844,6 +17687,14 @@ const AUTO_REGIMES = [
 "net": 0,
 "g": null,
 "n": 1
+},
+"ret": {
+"net": 0,
+"g": 80,
+"n": 5,
+"lost": 3.5,
+"rel": 4.26,
+"display_only": true
 }
 },
 "dev": {
@@ -17008,8 +17859,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"663568",
 "686701",
+"663568",
 "666023"
 ],
 "note": "Auto-scored: value in +2.7 vs value out +0.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -17332,8 +18183,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"663568",
 "686701",
+"663568",
 "666023"
 ],
 "att": {
@@ -17494,8 +18345,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"663697",
 "686894",
+"663697",
 "663903"
 ],
 "att": {
@@ -17621,8 +18472,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"681895",
 "674444",
+"681895",
 "572191"
 ],
 "att": {
@@ -18031,11 +18882,91 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": -0.03,
 "n": 30
+},
+"devBat": {
+"v": 0.05,
+"n": 30
+},
+"inj": {
+"pit": 37.1,
+"bat": 19.7
+},
+"draftRoom": {
+"n": 33,
+"overslot": 0.18,
+"slotUse": 0.94,
+"prep": 0.15
+},
+"buyLow": {
+"vets": 5,
+"rate": null
 }
 },
 "dnaTags": [
 "Trades for arms",
 "Signs arms well"
+],
+"h2h": [
+{
+"opp": "BAL",
+"exec": "Mike Elias",
+"n": 7,
+"net": -6.1
+},
+{
+"opp": "ATH",
+"exec": "David Forst",
+"n": 2,
+"net": 1.9
+},
+{
+"opp": "SF",
+"exec": "Buster Posey",
+"n": 2,
+"net": 1.2
+},
+{
+"opp": "SD",
+"exec": "A.J. Preller",
+"n": 2,
+"net": 1.1
+},
+{
+"opp": "ATL",
+"exec": "Alex Anthopoulos",
+"n": 5,
+"net": -0.8
+},
+{
+"opp": "CHC",
+"exec": "Jed Hoyer",
+"n": 3,
+"net": 0.5
+},
+{
+"opp": "PIT",
+"exec": "Ben Cherington",
+"n": 4,
+"net": 0.4
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 2,
+"net": -0.4
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 2,
+"net": -0.3
+},
+{
+"opp": "PHI",
+"exec": "Dave Dombrowski",
+"n": 4,
+"net": -0.2
+}
 ]
 },
 {
@@ -18091,6 +19022,14 @@ const AUTO_REGIMES = [
 "net": 0,
 "g": null,
 "n": 0
+},
+"ret": {
+"net": 0,
+"g": 30,
+"n": 8,
+"lost": 45.0,
+"rel": -2.9,
+"display_only": true
 }
 },
 "dev": {
@@ -19600,10 +20539,84 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": -0.03,
 "n": 53
+},
+"devBat": {
+"v": -0.26,
+"n": 37
+},
+"inj": {
+"pit": 34.5,
+"bat": 43.6
+},
+"draftRoom": {
+"n": 49,
+"overslot": 0.22,
+"slotUse": 0.91,
+"prep": 0.12
+},
+"buyLow": {
+"vets": 8,
+"rate": 0.12
 }
 },
 "dnaTags": [
 "Drafts bats"
+],
+"h2h": [
+{
+"opp": "PHI",
+"exec": "Dave Dombrowski",
+"n": 4,
+"net": -9.3
+},
+{
+"opp": "ATL",
+"exec": "Alex Anthopoulos",
+"n": 13,
+"net": -8.8
+},
+{
+"opp": "BAL",
+"exec": "Mike Elias",
+"n": 4,
+"net": 2.7
+},
+{
+"opp": "CIN",
+"exec": "Nick Krall",
+"n": 3,
+"net": 1.9
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 3,
+"net": -0.8
+},
+{
+"opp": "BOS",
+"exec": "Craig Breslow",
+"n": 3,
+"net": 0.6
+},
+{
+"opp": "NYY",
+"exec": "Brian Cashman",
+"n": 5,
+"net": 0.2
+},
+{
+"opp": "PIT",
+"exec": "Ben Cherington",
+"n": 3,
+"net": 0.1
+},
+{
+"opp": "CWS",
+"exec": "Chris Getz",
+"n": 2,
+"net": -0.0
+}
 ]
 },
 {
@@ -19659,6 +20672,14 @@ const AUTO_REGIMES = [
 "net": 0,
 "g": null,
 "n": 0
+},
+"ret": {
+"net": 0,
+"g": 80,
+"n": 1,
+"lost": 0.4,
+"rel": 5.11,
+"display_only": true
 }
 },
 "dev": {
@@ -19837,8 +20858,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"800254",
 "682663",
+"800254",
 "691858",
 "665862"
 ],
@@ -19860,15 +20881,15 @@ const AUTO_REGIMES = [
 "+3.8"
 ],
 [
-"Nathan Martorella",
-"+0.0"
-],
-[
 "Dillon Head",
 "+0.0"
 ],
 [
 "Woo-Suk Go",
+"+0.0"
+],
+[
+"Nathan Martorella",
 "+0.0"
 ]
 ]
@@ -19884,10 +20905,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"805300",
-"687210",
 "702977",
 "808970",
+"687210",
+"805300",
 "650333"
 ],
 "note": "Auto-scored: value in +3.8 vs value out +8.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -20120,8 +21141,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"681393",
 "669065",
+"681393",
 "669432"
 ],
 "att": {
@@ -20257,8 +21278,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"800254",
 "682663",
+"800254",
 "691858",
 "665862"
 ],
@@ -20286,15 +21307,15 @@ const AUTO_REGIMES = [
 "+3.8"
 ],
 [
-"Nathan Martorella",
-"+0.0"
-],
-[
 "Dillon Head",
 "+0.0"
 ],
 [
 "Woo-Suk Go",
+"+0.0"
+],
+[
+"Nathan Martorella",
 "+0.0"
 ]
 ]
@@ -20310,10 +21331,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"805300",
-"687210",
 "702977",
 "808970",
+"687210",
+"805300",
 "650333"
 ],
 "att": {
@@ -20336,11 +21357,11 @@ const AUTO_REGIMES = [
 "Acquired (control-window value, leverage-weighted)",
 [
 [
-"Juan Matheus",
+"Dillon Lewis",
 "+0.0"
 ],
 [
-"Dillon Lewis",
+"Dylan Jasso",
 "+0.0"
 ],
 [
@@ -20348,7 +21369,7 @@ const AUTO_REGIMES = [
 "+0.0"
 ],
 [
-"Dylan Jasso",
+"Juan Matheus",
 "+0.0"
 ]
 ]
@@ -20364,10 +21385,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"801276",
 "827665",
-"800957",
 "815734",
+"800957",
+"801276",
 "677960"
 ],
 "att": {
@@ -20410,8 +21431,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"691277",
 "801464",
+"691277",
 "640462"
 ],
 "att": {
@@ -20724,11 +21745,91 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.32,
 "n": 41
+},
+"devBat": {
+"v": 0.36,
+"n": 40
+},
+"inj": {
+"pit": 41.6,
+"bat": 31.2
+},
+"draftRoom": {
+"n": 22,
+"overslot": 0.18,
+"slotUse": 1.08,
+"prep": 0.14
+},
+"buyLow": {
+"vets": 1,
+"rate": null
 }
 },
 "dnaTags": [
 "Pitching lab",
 "Trades for bats"
+],
+"h2h": [
+{
+"opp": "NYY",
+"exec": "Brian Cashman",
+"n": 3,
+"net": -7.3
+},
+{
+"opp": "PHI",
+"exec": "Dave Dombrowski",
+"n": 2,
+"net": -6.5
+},
+{
+"opp": "SD",
+"exec": "A.J. Preller",
+"n": 2,
+"net": -2.6
+},
+{
+"opp": "ATH",
+"exec": "David Forst",
+"n": 2,
+"net": 1.5
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 2,
+"net": 1.3
+},
+{
+"opp": "CIN",
+"exec": "Nick Krall",
+"n": 2,
+"net": -1.2
+},
+{
+"opp": "PIT",
+"exec": "Ben Cherington",
+"n": 2,
+"net": -1.1
+},
+{
+"opp": "ARI",
+"exec": "Mike Hazen",
+"n": 3,
+"net": -1.1
+},
+{
+"opp": "CHC",
+"exec": "Jed Hoyer",
+"n": 3,
+"net": -1.0
+},
+{
+"opp": "CLE",
+"exec": "Chris Antonetti",
+"n": 2,
+"net": -0.7
+}
 ]
 },
 {
@@ -20784,6 +21885,14 @@ const AUTO_REGIMES = [
 "net": 0,
 "g": null,
 "n": 1
+},
+"ret": {
+"net": 0,
+"g": 30,
+"n": 31,
+"lost": 68.0,
+"rel": -1.88,
+"display_only": true
 }
 },
 "dev": {
@@ -20877,8 +21986,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"677868",
 "543243",
+"677868",
 "695534"
 ],
 "note": "Auto-scored: value in +11.5 vs value out -0.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -20919,8 +22028,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"675977",
 "657746",
+"675977",
 "676534",
 "443558"
 ],
@@ -20998,8 +22107,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"665482",
 "660896",
+"665482",
 "519151"
 ],
 "note": "Auto-scored: value in +0.4 vs value out +7.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -21263,8 +22372,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"677868",
 "543243",
+"677868",
 "695534"
 ],
 "att": {
@@ -21311,8 +22420,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"675977",
 "657746",
+"675977",
 "676534",
 "443558"
 ],
@@ -21399,8 +22508,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"805102",
 "641154",
+"805102",
 "691191",
 "650333"
 ],
@@ -21448,8 +22557,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"663978",
 "641941",
+"663978",
 "573124",
 "667670"
 ],
@@ -21539,8 +22648,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"665482",
 "660896",
+"665482",
 "519151"
 ],
 "att": {
@@ -22806,12 +23915,92 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.17,
 "n": 35
+},
+"devBat": {
+"v": -0.06,
+"n": 24
+},
+"inj": {
+"pit": 26.3,
+"bat": 32.2
+},
+"draftRoom": {
+"n": 90,
+"overslot": 0.27,
+"slotUse": 1.0,
+"prep": 0.18
+},
+"buyLow": {
+"vets": 11,
+"rate": 0.55
 }
 },
 "dnaTags": [
 "Pitching lab",
 "Drafts bats",
 "Trades for arms"
+],
+"h2h": [
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 7,
+"net": 19.8
+},
+{
+"opp": "BAL",
+"exec": "Mike Elias",
+"n": 6,
+"net": -8.3
+},
+{
+"opp": "TOR",
+"exec": "Ross Atkins",
+"n": 7,
+"net": -6.9
+},
+{
+"opp": "MIL",
+"exec": "Matt Arnold",
+"n": 2,
+"net": -5.4
+},
+{
+"opp": "SD",
+"exec": "A.J. Preller",
+"n": 4,
+"net": 4.6
+},
+{
+"opp": "ARI",
+"exec": "Mike Hazen",
+"n": 5,
+"net": -4.1
+},
+{
+"opp": "CIN",
+"exec": "Nick Krall",
+"n": 3,
+"net": 3.0
+},
+{
+"opp": "NYY",
+"exec": "Brian Cashman",
+"n": 5,
+"net": 2.6
+},
+{
+"opp": "BOS",
+"exec": "Craig Breslow",
+"n": 3,
+"net": -1.2
+},
+{
+"opp": "PHI",
+"exec": "Dave Dombrowski",
+"n": 6,
+"net": -1.1
+}
 ]
 },
 {
@@ -22867,6 +24056,14 @@ const AUTO_REGIMES = [
 "net": 0,
 "g": null,
 "n": 0
+},
+"ret": {
+"net": 0,
+"g": 45,
+"n": 10,
+"lost": 14.2,
+"rel": -0.41,
+"display_only": true
 }
 },
 "dev": {
@@ -22954,8 +24151,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"621438",
 "605288",
+"621438",
 "689441"
 ],
 "note": "Auto-scored: value in +3.9 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -23290,8 +24487,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"621438",
 "605288",
+"621438",
 "689441"
 ],
 "att": {
@@ -24370,11 +25567,91 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": -0.17,
 "n": 32
+},
+"devBat": {
+"v": -0.02,
+"n": 29
+},
+"inj": {
+"pit": 44.4,
+"bat": 22.0
+},
+"draftRoom": {
+"n": 18,
+"overslot": 0.33,
+"slotUse": 1.2,
+"prep": 0.22
+},
+"buyLow": {
+"vets": 6,
+"rate": null
 }
 },
 "dnaTags": [
 "Arms regress here",
 "Trades for arms"
+],
+"h2h": [
+{
+"opp": "MIL",
+"exec": "Matt Arnold",
+"n": 3,
+"net": 3.6
+},
+{
+"opp": "BOS",
+"exec": "Craig Breslow",
+"n": 6,
+"net": -2.3
+},
+{
+"opp": "ATH",
+"exec": "David Forst",
+"n": 3,
+"net": 1.1
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 6,
+"net": -1.0
+},
+{
+"opp": "PIT",
+"exec": "Ben Cherington",
+"n": 2,
+"net": 0.9
+},
+{
+"opp": "MIN",
+"exec": "Derek Falvey",
+"n": 3,
+"net": -0.7
+},
+{
+"opp": "CWS",
+"exec": "Chris Getz",
+"n": 3,
+"net": 0.5
+},
+{
+"opp": "BAL",
+"exec": "Mike Elias",
+"n": 3,
+"net": -0.4
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 2,
+"net": -0.2
+},
+{
+"opp": "SEA",
+"exec": "Jerry Dipoto",
+"n": 3,
+"net": 0.2
+}
 ]
 },
 {
@@ -24430,6 +25707,14 @@ const AUTO_REGIMES = [
 "net": -12.4,
 "g": 45,
 "n": 2
+},
+"ret": {
+"net": 0,
+"g": 50,
+"n": 39,
+"lost": 114.7,
+"rel": -0.06,
+"display_only": true
 }
 },
 "dev": {
@@ -24627,9 +25912,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"502085",
 "453943",
 "592454",
-"502085",
 "461325",
 "622738",
 "624420",
@@ -25044,9 +26329,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"502085",
 "453943",
 "592454",
-"502085",
 "461325",
 "622738",
 "624420",
@@ -26676,12 +27961,92 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": -0.02,
 "n": 46
+},
+"devBat": {
+"v": -0.11,
+"n": 37
+},
+"inj": {
+"pit": 12.8,
+"bat": 14.0
+},
+"draftRoom": {
+"n": 81,
+"overslot": 0.23,
+"slotUse": 0.92,
+"prep": 0.07
+},
+"buyLow": {
+"vets": 43,
+"rate": 0.44
 }
 },
 "dnaTags": [
 "Drafts bats",
 "Trades for bats",
 "Signs bats well"
+],
+"h2h": [
+{
+"opp": "PIT",
+"exec": "Ben Cherington",
+"n": 7,
+"net": 11.6
+},
+{
+"opp": "CHC",
+"exec": "Jed Hoyer",
+"n": 5,
+"net": 9.6
+},
+{
+"opp": "TOR",
+"exec": "Ross Atkins",
+"n": 6,
+"net": 9.5
+},
+{
+"opp": "MIA",
+"exec": "Peter Bendix",
+"n": 3,
+"net": 7.3
+},
+{
+"opp": "BOS",
+"exec": "Craig Breslow",
+"n": 2,
+"net": -6.0
+},
+{
+"opp": "CLE",
+"exec": "Chris Antonetti",
+"n": 8,
+"net": 3.1
+},
+{
+"opp": "SD",
+"exec": "A.J. Preller",
+"n": 7,
+"net": 2.8
+},
+{
+"opp": "MIL",
+"exec": "Matt Arnold",
+"n": 4,
+"net": -2.8
+},
+{
+"opp": "MIN",
+"exec": "Derek Falvey",
+"n": 5,
+"net": -2.6
+},
+{
+"opp": "ATH",
+"exec": "David Forst",
+"n": 5,
+"net": 2.5
+}
 ]
 },
 {
@@ -26737,6 +28102,14 @@ const AUTO_REGIMES = [
 "net": -0.1,
 "g": 50,
 "n": 4
+},
+"ret": {
+"net": 0,
+"g": 55,
+"n": 20,
+"lost": 50.3,
+"rel": 0.49,
+"display_only": true
 }
 },
 "dev": {
@@ -26913,10 +28286,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"680743",
 "665506",
 "669127",
 "683155",
-"680743",
 "621566"
 ],
 "note": "Auto-scored: value in +6.0 vs value out +21.9, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +7.7 at the time."
@@ -26961,10 +28334,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656657",
 "669912",
-"680684",
+"656657",
 "675656",
+"680684",
 "656305"
 ],
 "note": "Auto-scored: value in -0.8 vs value out +12.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -27017,11 +28390,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"665923",
-"666205",
-"683690",
-"676206",
 "444489",
+"666205",
+"676206",
+"683690",
+"665923",
 "669221",
 "606303"
 ],
@@ -27432,10 +28805,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"680743",
 "665506",
 "669127",
 "683155",
-"680743",
 "621566"
 ],
 "att": {
@@ -27486,10 +28859,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656657",
 "669912",
-"680684",
+"656657",
 "675656",
+"680684",
 "656305"
 ],
 "att": {
@@ -27548,11 +28921,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"665923",
-"666205",
-"683690",
-"676206",
 "444489",
+"666205",
+"676206",
+"683690",
+"665923",
 "669221",
 "606303"
 ],
@@ -28818,6 +30191,24 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.19,
 "n": 45
+},
+"devBat": {
+"v": -0.15,
+"n": 37
+},
+"inj": {
+"pit": 19.7,
+"bat": 17.8
+},
+"draftRoom": {
+"n": 88,
+"overslot": 0.28,
+"slotUse": 1.0,
+"prep": 0.15
+},
+"buyLow": {
+"vets": 12,
+"rate": 0.58
 }
 },
 "dnaTags": [
@@ -28825,6 +30216,68 @@ const AUTO_REGIMES = [
 "Gloves fade here",
 "Drafts bats",
 "Trades for arms"
+],
+"h2h": [
+{
+"opp": "ATL",
+"exec": "Alex Anthopoulos",
+"n": 6,
+"net": -20.9
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 9,
+"net": -9.7
+},
+{
+"opp": "SD",
+"exec": "A.J. Preller",
+"n": 8,
+"net": -8.8
+},
+{
+"opp": "TOR",
+"exec": "Ross Atkins",
+"n": 5,
+"net": -8.2
+},
+{
+"opp": "MIL",
+"exec": "Matt Arnold",
+"n": 4,
+"net": -5.0
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 8,
+"net": 3.8
+},
+{
+"opp": "PHI",
+"exec": "Dave Dombrowski",
+"n": 2,
+"net": 3.0
+},
+{
+"opp": "NYY",
+"exec": "Brian Cashman",
+"n": 5,
+"net": 2.9
+},
+{
+"opp": "ARI",
+"exec": "Mike Hazen",
+"n": 3,
+"net": 2.6
+},
+{
+"opp": "KC",
+"exec": "J.J. Picollo",
+"n": 2,
+"net": -2.0
+}
 ]
 },
 {
@@ -28880,6 +30333,14 @@ const AUTO_REGIMES = [
 "net": 4.1,
 "g": 60,
 "n": 3
+},
+"ret": {
+"net": 0,
+"g": 65,
+"n": 12,
+"lost": 24.4,
+"rel": 0.83,
+"display_only": true
 }
 },
 "dev": {
@@ -29543,9 +31004,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"502043",
 "453178",
 "668968",
+"502043",
 "678622",
 "666151",
 "675921"
@@ -30581,11 +32042,91 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": -0.23,
 "n": 25
+},
+"devBat": {
+"v": -0.02,
+"n": 21
+},
+"inj": {
+"pit": 27.6,
+"bat": 30.4
+},
+"draftRoom": {
+"n": 47,
+"overslot": 0.21,
+"slotUse": 1.09,
+"prep": 0.23
+},
+"buyLow": {
+"vets": 6,
+"rate": null
 }
 },
 "dnaTags": [
 "Arms regress here",
 "Trades for arms"
+],
+"h2h": [
+{
+"opp": "LAA",
+"exec": "Perry Minasian",
+"n": 4,
+"net": 9.3
+},
+{
+"opp": "MIA",
+"exec": "Peter Bendix",
+"n": 2,
+"net": 6.5
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 5,
+"net": 5.2
+},
+{
+"opp": "CHC",
+"exec": "Jed Hoyer",
+"n": 5,
+"net": -4.4
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 8,
+"net": 3.5
+},
+{
+"opp": "DET",
+"exec": "Scott Harris",
+"n": 6,
+"net": -2.4
+},
+{
+"opp": "PIT",
+"exec": "Ben Cherington",
+"n": 5,
+"net": -2.2
+},
+{
+"opp": "CWS",
+"exec": "Chris Getz",
+"n": 5,
+"net": 2.2
+},
+{
+"opp": "NYY",
+"exec": "Brian Cashman",
+"n": 3,
+"net": 1.7
+},
+{
+"opp": "BAL",
+"exec": "Mike Elias",
+"n": 5,
+"net": -1.5
+}
 ]
 },
 {
@@ -30641,6 +32182,14 @@ const AUTO_REGIMES = [
 "net": -3.1,
 "g": 45,
 "n": 4
+},
+"ret": {
+"net": 0,
+"g": 80,
+"n": 10,
+"lost": 9.6,
+"rel": 3.8,
+"display_only": true
 }
 },
 "dev": {
@@ -30736,9 +32285,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"664040",
 "682254",
-"663968",
-"664040"
+"663968"
 ],
 "note": "Auto-scored: value in +6.9 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
@@ -30776,8 +32325,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"660636",
 "660829",
+"660636",
 "605280"
 ],
 "note": "Auto-scored: value in -0.0 vs value out +7.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -30802,11 +32351,11 @@ const AUTO_REGIMES = [
 "+1.2"
 ],
 [
-"Omar Cruz",
+"Hudson Head",
 "+0.0"
 ],
 [
-"Hudson Head",
+"Omar Cruz",
 "+0.0"
 ],
 [
@@ -30826,11 +32375,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"682848",
-"670280",
-"678316",
 "687431",
+"678316",
+"682848",
 "666148",
+"670280",
 "605397"
 ],
 "note": "Auto-scored: value in +5.5 vs value out +12.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -30875,10 +32424,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"672710",
 "683500",
-"675986",
 "664337",
+"675986",
+"672710",
 "592791"
 ],
 "note": "Auto-scored: value in -0.3 vs value out +4.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -31145,9 +32694,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"664040",
 "682254",
-"663968",
-"664040"
+"663968"
 ],
 "att": {
 "out": 0,
@@ -31306,8 +32855,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"681895",
 "801978",
+"681895",
 "663559"
 ],
 "att": {
@@ -31352,8 +32901,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"660636",
 "660829",
+"660636",
 "605280"
 ],
 "att": {
@@ -31384,11 +32933,11 @@ const AUTO_REGIMES = [
 "+1.2"
 ],
 [
-"Omar Cruz",
+"Hudson Head",
 "+0.0"
 ],
 [
-"Hudson Head",
+"Omar Cruz",
 "+0.0"
 ],
 [
@@ -31408,11 +32957,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"682848",
-"670280",
-"678316",
 "687431",
+"678316",
+"682848",
 "666148",
+"670280",
 "605397"
 ],
 "att": {
@@ -31463,10 +33012,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"672710",
 "683500",
-"675986",
 "664337",
+"675986",
+"672710",
 "592791"
 ],
 "att": {
@@ -31532,11 +33081,11 @@ const AUTO_REGIMES = [
 "+0.4"
 ],
 [
-"Brian Sanchez",
+"Edgleen Perez",
 "+0.0"
 ],
 [
-"Edgleen Perez",
+"Brian Sanchez",
 "+0.0"
 ]
 ]
@@ -31552,9 +33101,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"804668",
-"809331",
 "814297",
+"809331",
+"804668",
 "670280"
 ],
 "att": {
@@ -32472,11 +34021,91 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": -0.0,
 "n": 56
+},
+"devBat": {
+"v": 0.27,
+"n": 36
+},
+"inj": {
+"pit": 38.0,
+"bat": 40.3
+},
+"draftRoom": {
+"n": 60,
+"overslot": 0.18,
+"slotUse": 0.93,
+"prep": 0.17
+},
+"buyLow": {
+"vets": 2,
+"rate": null
 }
 },
 "dnaTags": [
 "Drafts arms",
 "Trades for arms"
+],
+"h2h": [
+{
+"opp": "NYY",
+"exec": "Brian Cashman",
+"n": 7,
+"net": -11.6
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 4,
+"net": 3.6
+},
+{
+"opp": "CLE",
+"exec": "Chris Antonetti",
+"n": 4,
+"net": 2.8
+},
+{
+"opp": "CHC",
+"exec": "Jed Hoyer",
+"n": 4,
+"net": 2.2
+},
+{
+"opp": "PHI",
+"exec": "Dave Dombrowski",
+"n": 5,
+"net": 2.2
+},
+{
+"opp": "CIN",
+"exec": "Nick Krall",
+"n": 3,
+"net": 2.2
+},
+{
+"opp": "MIL",
+"exec": "Matt Arnold",
+"n": 2,
+"net": -2.0
+},
+{
+"opp": "TOR",
+"exec": "Ross Atkins",
+"n": 6,
+"net": -1.6
+},
+{
+"opp": "ARI",
+"exec": "Mike Hazen",
+"n": 5,
+"net": -1.3
+},
+{
+"opp": "MIA",
+"exec": "Peter Bendix",
+"n": 2,
+"net": 1.1
+}
 ]
 },
 {
@@ -32532,6 +34161,14 @@ const AUTO_REGIMES = [
 "net": -16.1,
 "g": 35,
 "n": 6
+},
+"ret": {
+"net": 0,
+"g": 30,
+"n": 38,
+"lost": 102.1,
+"rel": -3.6,
+"display_only": true
 }
 },
 "dev": {
@@ -32632,8 +34269,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"630105",
 "502054",
+"630105",
 "669364",
 "592669"
 ],
@@ -32851,8 +34488,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"543148",
 "461314",
+"543148",
 "621107",
 "518735",
 "543921"
@@ -33121,8 +34758,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"630105",
 "502054",
+"630105",
 "669364",
 "592669"
 ],
@@ -33478,8 +35115,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"543148",
 "461314",
+"543148",
 "621107",
 "518735",
 "543921"
@@ -33583,8 +35220,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"605137",
 "665742",
+"605137",
 "669022",
 "682928",
 "690987",
@@ -34840,11 +36477,91 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.29,
 "n": 55
+},
+"devBat": {
+"v": -0.3,
+"n": 39
+},
+"inj": {
+"pit": 25.7,
+"bat": 15.7
+},
+"draftRoom": {
+"n": 90,
+"overslot": 0.14,
+"slotUse": 0.86,
+"prep": 0.3
+},
+"buyLow": {
+"vets": 24,
+"rate": 0.42
 }
 },
 "dnaTags": [
 "Pitching lab",
 "Trades for arms"
+],
+"h2h": [
+{
+"opp": "SEA",
+"exec": "Jerry Dipoto",
+"n": 9,
+"net": -20.6
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 8,
+"net": 20.3
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 3,
+"net": -13.0
+},
+{
+"opp": "ATH",
+"exec": "David Forst",
+"n": 8,
+"net": 10.9
+},
+{
+"opp": "CHC",
+"exec": "Jed Hoyer",
+"n": 4,
+"net": 9.1
+},
+{
+"opp": "CWS",
+"exec": "Chris Getz",
+"n": 2,
+"net": 8.5
+},
+{
+"opp": "MIN",
+"exec": "Derek Falvey",
+"n": 4,
+"net": -4.6
+},
+{
+"opp": "TOR",
+"exec": "Ross Atkins",
+"n": 6,
+"net": -3.6
+},
+{
+"opp": "NYY",
+"exec": "Brian Cashman",
+"n": 7,
+"net": -2.8
+},
+{
+"opp": "MIA",
+"exec": "Peter Bendix",
+"n": 2,
+"net": 2.6
+}
 ]
 },
 {
@@ -34900,6 +36617,14 @@ const AUTO_REGIMES = [
 "net": 0,
 "g": null,
 "n": 0
+},
+"ret": {
+"net": 0,
+"g": 80,
+"n": 1,
+"lost": 1.9,
+"rel": 4.04,
+"display_only": true
 }
 },
 "dev": {
@@ -35630,9 +37355,47 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.1,
 "n": 29
+},
+"devBat": {
+"v": -0.01,
+"n": 34
+},
+"inj": {
+"pit": 30.7,
+"bat": 30.7
+},
+"draftRoom": {
+"n": 8,
+"overslot": 0.12,
+"slotUse": 1.24,
+"prep": 0.12
+},
+"buyLow": {
+"vets": 1,
+"rate": null
 }
 },
-"dnaTags": []
+"dnaTags": [],
+"h2h": [
+{
+"opp": "KC",
+"exec": "J.J. Picollo",
+"n": 2,
+"net": -1.2
+},
+{
+"opp": "MIA",
+"exec": "Peter Bendix",
+"n": 3,
+"net": -0.3
+},
+{
+"opp": "NYM",
+"exec": "David Stearns",
+"n": 2,
+"net": 0.1
+}
+]
 },
 {
 "id": "sea",
@@ -35687,6 +37450,14 @@ const AUTO_REGIMES = [
 "net": 3.6,
 "g": 55,
 "n": 5
+},
+"ret": {
+"net": 0,
+"g": 75,
+"n": 12,
+"lost": 29.5,
+"rel": 2.47,
+"display_only": true
 }
 },
 "dev": {
@@ -35800,8 +37571,8 @@ const AUTO_REGIMES = [
 "pids": [
 "664034",
 "620443",
-"666211",
 "662253",
+"666211",
 "656186",
 "613534",
 "543592"
@@ -35984,8 +37755,8 @@ const AUTO_REGIMES = [
 "pids": [
 "639373",
 "457803",
-"461872",
 "643290",
+"461872",
 "672284",
 "429664",
 "621242"
@@ -36268,8 +38039,8 @@ const AUTO_REGIMES = [
 "pids": [
 "664034",
 "620443",
-"666211",
 "662253",
+"666211",
 "656186",
 "613534",
 "543592"
@@ -36597,8 +38368,8 @@ const AUTO_REGIMES = [
 "pids": [
 "639373",
 "457803",
-"461872",
 "643290",
+"461872",
 "672284",
 "429664",
 "621242"
@@ -36682,8 +38453,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"571745",
 "543101",
+"571745",
 "592662"
 ],
 "att": {
@@ -37810,12 +39581,92 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.15,
 "n": 66
+},
+"devBat": {
+"v": -0.17,
+"n": 43
+},
+"inj": {
+"pit": 20.1,
+"bat": 19.2
+},
+"draftRoom": {
+"n": 90,
+"overslot": 0.19,
+"slotUse": 0.87,
+"prep": 0.17
+},
+"buyLow": {
+"vets": 22,
+"rate": 0.27
 }
 },
 "dnaTags": [
 "Pitching lab",
 "Drafts arms",
 "Trades for arms"
+],
+"h2h": [
+{
+"opp": "SD",
+"exec": "A.J. Preller",
+"n": 9,
+"net": 20.6
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 14,
+"net": -18.0
+},
+{
+"opp": "CIN",
+"exec": "Nick Krall",
+"n": 9,
+"net": 11.3
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 22,
+"net": -7.3
+},
+{
+"opp": "BAL",
+"exec": "Mike Elias",
+"n": 6,
+"net": 3.7
+},
+{
+"opp": "ARI",
+"exec": "Mike Hazen",
+"n": 10,
+"net": 2.7
+},
+{
+"opp": "CHC",
+"exec": "Jed Hoyer",
+"n": 4,
+"net": -1.8
+},
+{
+"opp": "PIT",
+"exec": "Ben Cherington",
+"n": 4,
+"net": 1.0
+},
+{
+"opp": "MIL",
+"exec": "Matt Arnold",
+"n": 3,
+"net": 0.9
+},
+{
+"opp": "BOS",
+"exec": "Craig Breslow",
+"n": 2,
+"net": 0.9
+}
 ]
 },
 {
@@ -37871,6 +39722,14 @@ const AUTO_REGIMES = [
 "net": 0,
 "g": null,
 "n": 0
+},
+"ret": {
+"net": 0,
+"g": 80,
+"n": 1,
+"lost": 0.6,
+"rel": 4.43,
+"display_only": true
 }
 },
 "dev": {
@@ -38016,8 +39875,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"820832",
 "690928",
+"820832",
 "823369",
 "575929"
 ],
@@ -38068,11 +39927,11 @@ const AUTO_REGIMES = [
 "Acquired (control-window value, leverage-weighted)",
 [
 [
-"Richard Fitts",
+"Brandon Clarke",
 "+0.0"
 ],
 [
-"Brandon Clarke",
+"Richard Fitts",
 "+0.0"
 ]
 ]
@@ -38088,8 +39947,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"690916",
 "700251",
+"690916",
 "543243"
 ],
 "note": "Auto-scored: value in +0.0 vs value out +2.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -38248,8 +40107,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"820832",
 "690928",
+"820832",
 "823369",
 "575929"
 ],
@@ -38312,11 +40171,11 @@ const AUTO_REGIMES = [
 "Acquired (control-window value, leverage-weighted)",
 [
 [
-"Richard Fitts",
+"Brandon Clarke",
 "+0.0"
 ],
 [
-"Brandon Clarke",
+"Richard Fitts",
 "+0.0"
 ]
 ]
@@ -38332,8 +40191,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"690916",
 "700251",
+"690916",
 "543243"
 ],
 "att": {
@@ -38428,11 +40287,43 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.5,
 "n": 20
+},
+"devBat": {
+"v": -0.12,
+"n": 20
+},
+"inj": {
+"pit": 14.3,
+"bat": 7.1
+},
+"draftRoom": {
+"n": 0,
+"overslot": null,
+"slotUse": null,
+"prep": null
+},
+"buyLow": {
+"vets": 0,
+"rate": null
 }
 },
 "dnaTags": [
 "Pitching lab",
 "Gloves fade here"
+],
+"h2h": [
+{
+"opp": "BOS",
+"exec": "Craig Breslow",
+"n": 3,
+"net": -4.7
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 3,
+"net": 0.1
+}
 ]
 },
 {
@@ -38488,6 +40379,14 @@ const AUTO_REGIMES = [
 "net": 7.2,
 "g": 60,
 "n": 2
+},
+"ret": {
+"net": 0,
+"g": 65,
+"n": 14,
+"lost": 39.7,
+"rel": 1.1,
+"display_only": true
 }
 },
 "dev": {
@@ -38624,9 +40523,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"665799",
 "605480",
 "642232",
+"665799",
 "592767"
 ],
 "note": "Auto-scored: value in +15.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -38702,8 +40601,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"669364",
 "592669",
+"669364",
 "630105",
 "502054"
 ],
@@ -38792,10 +40691,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"675448",
-"677961",
-"672715",
 "642336",
+"677961",
+"675448",
+"672715",
 "605483"
 ],
 "note": "Auto-scored: value in +1.0 vs value out +10.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +4.4 at the time."
@@ -39044,9 +40943,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"665799",
 "605480",
 "642232",
+"665799",
 "592767"
 ],
 "att": {
@@ -39170,8 +41069,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"668227",
 "500874",
+"668227",
 "669461",
 "678614"
 ],
@@ -39221,8 +41120,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"669364",
 "592669",
+"669364",
 "630105",
 "502054"
 ],
@@ -39323,10 +41222,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"675448",
-"677961",
-"672715",
 "642336",
+"677961",
+"675448",
+"672715",
 "605483"
 ],
 "att": {
@@ -39373,8 +41272,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656876",
 "656420",
+"656876",
 "670950",
 "642715"
 ],
@@ -40520,6 +42419,24 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.29,
 "n": 61
+},
+"devBat": {
+"v": -0.01,
+"n": 42
+},
+"inj": {
+"pit": 30.4,
+"bat": 29.7
+},
+"draftRoom": {
+"n": 97,
+"overslot": 0.1,
+"slotUse": 0.9,
+"prep": 0.19
+},
+"buyLow": {
+"vets": 14,
+"rate": 0.79
 }
 },
 "dnaTags": [
@@ -40527,6 +42444,68 @@ const AUTO_REGIMES = [
 "Gloves fade here",
 "Trades for bats",
 "Signs arms well"
+],
+"h2h": [
+{
+"opp": "SD",
+"exec": "A.J. Preller",
+"n": 8,
+"net": -20.3
+},
+{
+"opp": "MIN",
+"exec": "Derek Falvey",
+"n": 7,
+"net": -19.8
+},
+{
+"opp": "SEA",
+"exec": "Jerry Dipoto",
+"n": 22,
+"net": 16.7
+},
+{
+"opp": "CLE",
+"exec": "Chris Antonetti",
+"n": 9,
+"net": 16.7
+},
+{
+"opp": "ATH",
+"exec": "David Forst",
+"n": 9,
+"net": 9.3
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 15,
+"net": 7.5
+},
+{
+"opp": "PIT",
+"exec": "Ben Cherington",
+"n": 4,
+"net": -3.6
+},
+{
+"opp": "PHI",
+"exec": "Dave Dombrowski",
+"n": 8,
+"net": -3.5
+},
+{
+"opp": "CHC",
+"exec": "Jed Hoyer",
+"n": 5,
+"net": 2.9
+},
+{
+"opp": "CWS",
+"exec": "Chris Getz",
+"n": 7,
+"net": -2.8
+}
 ]
 },
 {
@@ -40582,6 +42561,14 @@ const AUTO_REGIMES = [
 "net": 0,
 "g": null,
 "n": 0
+},
+"ret": {
+"net": 0,
+"g": 65,
+"n": 17,
+"lost": 14.5,
+"rel": 1.14,
+"display_only": true
 }
 },
 "dev": {
@@ -40678,8 +42665,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"608717",
 "656756",
+"608717",
 "667463",
 "695336",
 "694358"
@@ -41074,8 +43061,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"608717",
 "656756",
+"608717",
 "667463",
 "695336",
 "694358"
@@ -42015,12 +44002,86 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": -0.35,
 "n": 32
+},
+"devBat": {
+"v": 0.25,
+"n": 26
+},
+"inj": {
+"pit": 46.6,
+"bat": 38.0
+},
+"draftRoom": {
+"n": 28,
+"overslot": 0.32,
+"slotUse": 0.99,
+"prep": 0.11
+},
+"buyLow": {
+"vets": 5,
+"rate": null
 }
 },
 "dnaTags": [
 "Arms regress here",
 "Drafts bats",
 "Trades for arms"
+],
+"h2h": [
+{
+"opp": "CLE",
+"exec": "Chris Antonetti",
+"n": 2,
+"net": -2.2
+},
+{
+"opp": "ATL",
+"exec": "Alex Anthopoulos",
+"n": 7,
+"net": -0.9
+},
+{
+"opp": "MIA",
+"exec": "Peter Bendix",
+"n": 2,
+"net": 0.5
+},
+{
+"opp": "PIT",
+"exec": "Ben Cherington",
+"n": 4,
+"net": -0.2
+},
+{
+"opp": "TOR",
+"exec": "Ross Atkins",
+"n": 3,
+"net": 0.2
+},
+{
+"opp": "PHI",
+"exec": "Dave Dombrowski",
+"n": 3,
+"net": -0.1
+},
+{
+"opp": "CWS",
+"exec": "Chris Getz",
+"n": 2,
+"net": 0.1
+},
+{
+"opp": "DET",
+"exec": "Scott Harris",
+"n": 3,
+"net": 0.1
+},
+{
+"opp": "CIN",
+"exec": "Nick Krall",
+"n": 4,
+"net": 0.0
+}
 ]
 },
 {
@@ -42076,6 +44137,14 @@ const AUTO_REGIMES = [
 "net": -5.3,
 "g": 45,
 "n": 3
+},
+"ret": {
+"net": 0,
+"g": 55,
+"n": 25,
+"lost": 52.6,
+"rel": 0.27,
+"display_only": true
 }
 },
 "dev": {
@@ -42219,8 +44288,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"493114",
 "606192",
+"493114",
 "434538"
 ],
 "note": "Auto-scored: value in +11.0 vs value out +0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -42647,8 +44716,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"493114",
 "606192",
+"493114",
 "434538"
 ],
 "att": {
@@ -44204,11 +46273,91 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": -0.06,
 "n": 53
+},
+"devBat": {
+"v": -0.05,
+"n": 43
+},
+"inj": {
+"pit": 24.8,
+"bat": 16.8
+},
+"draftRoom": {
+"n": 85,
+"overslot": 0.22,
+"slotUse": 0.92,
+"prep": 0.12
+},
+"buyLow": {
+"vets": 18,
+"rate": 0.5
 }
 },
 "dnaTags": [
 "Drafts bats",
 "Trades for arms"
+],
+"h2h": [
+{
+"opp": "NYY",
+"exec": "Brian Cashman",
+"n": 6,
+"net": -9.5
+},
+{
+"opp": "MIN",
+"exec": "Derek Falvey",
+"n": 7,
+"net": 6.9
+},
+{
+"opp": "ATH",
+"exec": "David Forst",
+"n": 5,
+"net": 6.8
+},
+{
+"opp": "ARI",
+"exec": "Mike Hazen",
+"n": 7,
+"net": -5.2
+},
+{
+"opp": "CLE",
+"exec": "Chris Antonetti",
+"n": 12,
+"net": 4.4
+},
+{
+"opp": "LAD",
+"exec": "Andrew Friedman",
+"n": 12,
+"net": 4.2
+},
+{
+"opp": "SD",
+"exec": "A.J. Preller",
+"n": 6,
+"net": 3.6
+},
+{
+"opp": "PIT",
+"exec": "Ben Cherington",
+"n": 6,
+"net": 1.6
+},
+{
+"opp": "BAL",
+"exec": "Mike Elias",
+"n": 3,
+"net": 1.5
+},
+{
+"opp": "TB",
+"exec": "Erik Neander",
+"n": 4,
+"net": -1.4
+}
 ]
 },
 {
@@ -44264,6 +46413,14 @@ const AUTO_REGIMES = [
 "net": 0,
 "g": null,
 "n": 0
+},
+"ret": {
+"net": 0,
+"g": 80,
+"n": 0,
+"lost": 0.0,
+"rel": 5.28,
+"display_only": true
 }
 },
 "dev": {
@@ -44362,15 +46519,15 @@ const AUTO_REGIMES = [
 "+0.0"
 ],
 [
+"Yeremy Cabrera",
+"+0.0"
+],
+[
 "Gavin Fien",
 "+0.0"
 ],
 [
 "Alejandro Rosario",
-"+0.0"
-],
-[
-"Yeremy Cabrera",
 "+0.0"
 ]
 ]
@@ -44388,9 +46545,9 @@ const AUTO_REGIMES = [
 "pids": [
 "694673",
 "803849",
+"800393",
 "815818",
 "691730",
-"800393",
 "669022"
 ],
 "note": "Auto-scored: value in +0.1 vs value out +2.6, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +4.6 at the time."
@@ -44655,15 +46812,15 @@ const AUTO_REGIMES = [
 "+0.0"
 ],
 [
+"Yeremy Cabrera",
+"+0.0"
+],
+[
 "Gavin Fien",
 "+0.0"
 ],
 [
 "Alejandro Rosario",
-"+0.0"
-],
-[
-"Yeremy Cabrera",
 "+0.0"
 ]
 ]
@@ -44681,9 +46838,9 @@ const AUTO_REGIMES = [
 "pids": [
 "694673",
 "803849",
+"800393",
 "815818",
 "691730",
-"800393",
 "669022"
 ],
 "att": {
@@ -45043,10 +47200,42 @@ const AUTO_REGIMES = [
 "devPit": {
 "v": 0.06,
 "n": 36
+},
+"devBat": {
+"v": 0.51,
+"n": 30
+},
+"inj": {
+"pit": 27.1,
+"bat": 8.6
+},
+"draftRoom": {
+"n": 0,
+"overslot": null,
+"slotUse": null,
+"prep": null
+},
+"buyLow": {
+"vets": 0,
+"rate": null
 }
 },
 "dnaTags": [
 "Makes defenders better"
+],
+"h2h": [
+{
+"opp": "NYY",
+"exec": "Brian Cashman",
+"n": 2,
+"net": 0.4
+},
+{
+"opp": "HOU",
+"exec": "Dana Brown",
+"n": 2,
+"net": 0.2
+}
 ]
 }
 ];
@@ -45073,10 +47262,11 @@ document.querySelectorAll('nav button').forEach(b=>{
 });
 function switchView(v, regimeId){
   document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on', x.dataset.view===v));
-  ['leaderboard','report','trees','champs','method'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
+  ['leaderboard','report','trees','champs','method','dna'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
   if(v==='report'){ if(regimeId) $('#teamsel').value = regimeId; renderReport($('#teamsel').value); }
   if(v==='trees') renderTrees();
   if(v==='champs') renderChamp($('#champsel').value);
+  if(v==='dna') renderDnaTab();
   window.scrollTo({top:0});
 }
 
@@ -45112,6 +47302,7 @@ function renderLB(){
       <td><div class="execcell"><span class="nm">${r.exec}${r.smallSample?'<span class="badge-ss" title="Small sample: under 3 seasons">SS</span>':''}</span><span class="tm">${r.team}</span></div></td>
       <td>${r.start}–${r.end||''}&nbsp;<span style="color:var(--muted)">(${r.seasons} yr${r.titles?` · ${r.titles} WS`:''})</span></td>
       ${CHANNELS.map(c=>{const ch=r.chan[c.key];return `<td class="num">${gradeChip(ch.g)}</td>`;}).join('')}
+      <td class="num" title="${r.chan.ret?`${r.chan.ret.lost} wins walked out the door (${r.chan.ret.n} departures); ${r.chan.ret.rel>=0?'leaks less':'leaks more'} than league average`:'retention pending'}">${gradeChip(r.chan.ret?r.chan.ret.g:null)}</td>
       <td>${bar}</td>
       <td class="num" title="${(dv=>dv?`${fmtW(dv.net)} prospect value created · ${dv.n} graded moves · farm now ${fmtW(dv.farmNow)}`:'development grading needs the regime to overlap the top-100 archive (2011+)')(devOf(r))}">${gradeChip((devOf(r)||{}).g==null?null:devOf(r).g)}</td>
       <td class="num" title="${sTip}">${gradeChip(s.g)}</td>
@@ -45219,6 +47410,64 @@ function renderDna(r){
     <div style="color:var(--ink-2); font-size:12.5px; margin-top:8px">${devline}</div>
     <div style="color:var(--muted); font-size:11.5px; margin-top:6px">Mover deltas are org tendencies, not causal claims: clubs pick players they think they can fix, and the deltas are attributed to the organization (coaching infrastructure outlives GMs). Minimum 6 movers to display.</div>
   </div>`;
+}
+
+function dnaVector(r){
+  const d = r.dna || {};
+  const f = (o,k)=> (o && o[k]) || 0;
+  return [f(d.draft,'pit'), f(d.draft,'bat'), f(d.trade_in,'pit'), f(d.trade_in,'bat'),
+          f(d.trade_out,'pit'), f(d.trade_out,'bat'), f(d.fa,'pit'), f(d.fa,'bat'),
+          (d.devPit&&d.devPit.v||0)*20, (d.devDef&&d.devDef.v||0)*3, (d.devBat&&d.devBat.v||0)*20];
+}
+function dnaComp(r, all){
+  const v = dnaVector(r);
+  let best=null, bs=-2;
+  all.forEach(o=>{
+    if(o.id===r.id) return;
+    const w = dnaVector(o);
+    let dot=0, nv=0, nw=0;
+    for(let i=0;i<v.length;i++){ dot+=v[i]*w[i]; nv+=v[i]*v[i]; nw+=w[i]*w[i]; }
+    const sim = (nv&&nw) ? dot/Math.sqrt(nv*nw) : 0;
+    if(sim>bs){ bs=sim; best=o; }
+  });
+  return best ? `${best.exec} (${Math.round(bs*100)}%)` : '-';
+}
+let dnaTabInit = false;
+function renderDnaTab(){
+  const all = [...REGIMES, ...AUTO_REGIMES].filter(r=>r.dna && r.dna.draft);
+  const tb = $('#dnatable tbody'); tb.innerHTML='';
+  const fmt2 = (o)=> o && o.v!=null ? `<span class="${o.v>=0?'pos':'neg'}">${o.v>=0?'+':''}${o.v}</span>` : '·';
+  all.sort((a,b)=>a.team.localeCompare(b.team)).forEach(r=>{
+    const d = r.dna;
+    const dr = d.draftRoom||{}, bl = d.buyLow||{}, inj = d.inj||{};
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td><div class="execcell"><span class="nm">${r.team.split(' ').pop()}</span><span class="tm">${r.exec}</span></div></td>
+      <td style="max-width:210px; font-size:12px">${(r.dnaTags||[]).join(' · ')||'<span style="color:var(--muted)">balanced</span>'}</td>
+      <td class="num">${fmtW(d.draft.pit)} / ${fmtW(d.draft.bat)}</td>
+      <td class="num">${fmtW(d.trade_in.pit)} / ${fmtW(d.trade_in.bat)}</td>
+      <td class="num">${fmt2(d.devPit)}</td><td class="num">${fmt2(d.devDef)}</td><td class="num">${fmt2(d.devBat)}</td>
+      <td class="num">${gradeChip(r.chan.ret?r.chan.ret.g:null)}</td>
+      <td class="num">${inj.pit!=null?inj.pit+' / '+inj.bat:'·'}</td>
+      <td class="num">${dr.overslot!=null?Math.round(dr.overslot*100)+'%':'·'}</td>
+      <td class="num">${bl.rate!=null?Math.round(bl.rate*100)+'%':'·'}</td>
+      <td style="font-size:12px">${dnaComp(r, all)}</td>`;
+    tr.addEventListener('click', ()=>switchView('report', r.id));
+    tb.appendChild(tr);
+  });
+  const sel = $('#h2hsel');
+  if(!dnaTabInit){
+    dnaTabInit = true;
+    all.sort((a,b)=>a.team.localeCompare(b.team)).forEach(r=>{
+      const o=document.createElement('option'); o.value=r.id; o.textContent=`${r.team} · ${r.exec}`; sel.appendChild(o);
+    });
+    sel.addEventListener('change', renderH2h);
+  }
+  renderH2h();
+}
+function renderH2h(){
+  const r = [...REGIMES, ...AUTO_REGIMES].find(x=>x.id===$('#h2hsel').value) || AUTO_REGIMES[0];
+  const rows = (r.h2h||[]).map(p=>`<tr><td>${p.exec} <span style="color:var(--muted)">(${p.opp})</span></td><td class="num">${p.n}</td><td class="num ${p.net>=0?'pos':'neg'}">${fmtW(p.net)}</td><td style="font-size:12px; color:var(--muted)">${p.net>=2?'owns the matchup':p.net<=-2?'should stop answering the phone':'even'}</td></tr>`).join('');
+  $('#h2hwrap').innerHTML = rows ? `<div class="card"><table><thead><tr><th>Counterparty</th><th class="num">Deals</th><th class="num">Net (this seat)</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>` : '<div class="card" style="padding:14px; color:var(--muted)">No repeat trade partners among sitting regimes yet.</div>';
 }
 
 /* ---- channel diverging bar chart ---- */
