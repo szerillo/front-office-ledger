@@ -22,6 +22,8 @@ from fa_grade_lib import norm, DPW
 QO_CHARGE = 1.0  # wins: draft-comp forfeited signing a QO'd free agent
                  # (second-round-pick value on our pick curve; flat v1)
 
+POS = json.load(open("/home/claude/positions.json"))
+PITPOS = {"RHP", "LHP", "SP", "RP"}
 cfg = json.load(open("/home/claude/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 REG = {r["teamId"]: r for r in cfg["regimes"]}
@@ -72,6 +74,7 @@ for r in res:
         k = (x["date"], x["person_id"])
         if k not in seen: seen.add(k); majors.append(x)
     net = 0.0; matched = 0; decs = []
+    fa_dna = dict(pit=0.0, bat=0.0)
     for x in majors:
         pn = norm(x["person_name"]); ty = int(x["date"][:4])
         hit = None
@@ -96,6 +99,7 @@ for r in res:
             notes.append("QO signing, draft comp charged")
         note = (", " + ", ".join(notes)) if notes else ""
         net += n; matched += 1
+        fa_dna["pit" if POS.get(str(x["person_id"])) in PITPOS else "bat"] += n
         fasides = [["Production (LVM on club, elapsed seasons)", [[x["person_name"], f"{realized:+.1f}"]]],
                    ["Contract cost in wins" + (" (QO draft comp included)" if (pn, off) in QO else ""),
                     [[f"${tot:.0f}M over {yrs} yr at market $/win", f"{-(implied + (QO_CHARGE if (pn, off) in QO else 0)):+.1f}"]]]]
@@ -112,6 +116,7 @@ for r in res:
         r["forGrade"] = grade_comp(r["total"] / r["seasons"])
     decs.sort(key=lambda d: -abs(d["net"]))
     r["fa_tops"] = decs[:4]
+    r.setdefault("dna", {})["fa"] = {k: round(v, 1) for k, v in fa_dna.items()}
     r["fa_led"] = dict(best=sorted([d for d in decs if d["net"] > 0], key=lambda x: -x["net"])[:5],
                        worst=sorted([d for d in decs if d["net"] < 0], key=lambda x: x["net"])[:5])
     best = decs[0]["h"][:40] + f" ({decs[0]['net']:+.1f})" if decs else "-"

@@ -146,6 +146,11 @@ for yr in range(2005, 2027):
             wl[(t["team"]["id"], yr)] = [t.get("wins",0), t.get("losses",0), 1 if str(t.get("divisionRank"))=="1" else 0]
 print("standings loaded", flush=True)
 
+POS = json.load(open("/home/claude/positions.json"))
+PITPOS = {"RHP", "LHP", "SP", "RP"}
+def ptype(pid):
+    return "pit" if POS.get(str(pid)) in PITPOS else "bat"
+
 # at-the-time prospect marks (Pipeline archive, for process-vs-outcome verdicts)
 import math as _math
 _V_ANCHOR = [(1,8.0),(3,7.0),(5,6.5),(10,5.5),(15,4.8),(25,4.0),(40,3.2),
@@ -227,6 +232,8 @@ for reg in cfg["regimes"]:
     # trades
     trades = defaultdict(list)
     seen_fa = set(); fa_raw = 0.0; n_fa = 0; walk = []
+    dna = dict(draft=dict(pit=0.0, bat=0.0), trade_in=dict(pit=0.0, bat=0.0),
+               trade_out=dict(pit=0.0, bat=0.0), waiver=dict(pit=0.0, bat=0.0))
     n_wv = n_r5 = 0; wv_net = 0.0
     for r in regime_rows[tid]:
         t = r["type_desc"]; yr = int(r["date"][:4])
@@ -237,6 +244,7 @@ for reg in cfg["regimes"]:
             v = val(r["person_id"], names if claim else {r["to_team"]}, yr, yr+3, inside=True)
             net = v if claim else -v
             wv_net += net; n_wv += 1; ynet[yr] += net
+            dna["waiver"][ptype(r["person_id"])] += net
             if abs(net) > 0.05:
                 decs.append(dict(d=r["date"], ch="waiver", net=round(net,1),
                                  h=(r["description"] or "waiver claim")[:110],
@@ -279,6 +287,8 @@ for reg in cfg["regimes"]:
         out_det = [(p, pname.get(p, "?"), dest, val_control(p, {dest}, yr)) for p, dest in outs.items()]
         vin  = sum(v for (_, _, v) in ins_det)
         vout = sum(v for (_, _, _, v) in out_det)
+        for (p, _, v) in ins_det: dna["trade_in"][ptype(p)] += v
+        for (p, _, _, v) in out_det: dna["trade_out"][ptype(p)] += v
         net = vin - vout; tr_net += net; ynet[yr] += net
         if abs(net) >= 0.8:
             att_out = [(nm, att_mark(p, d)) for (p, nm, _, _) in out_det]
@@ -303,6 +313,7 @@ for reg in cfg["regimes"]:
         exp = slot_expectation(pk) * maturity(yr)
         dr_real += realized; dr_exp += exp
         net = realized - exp; ynet[yr] += net
+        dna["draft"][ptype(p["person_id"])] += net
         if abs(net) >= 1.2:
             decs.append(dict(d=f"{yr}-06-15", ch="draft", net=round(net,1),
                              h=f"Drafted {p['person_name']} (#{pk} overall, {yr})",
@@ -338,6 +349,7 @@ for reg in cfg["regimes"]:
         top=decs[:8],
         led=dict(trade=chbw("trade"), draft=chbw("draft"), waiver=chbw("waiver", 4)),
         walk=walk[:5],
+        dna={k: {t: round(x, 1) for t, x in v.items()} for k, v in dna.items()},
     ))
     print(f"{reg['abbr']}: trades {tr_net:+.1f} | draft {dr_net:+.1f} | waiver {wv_net:+.1f} "
           f"| FA raw {fa_raw:+.1f} (ungraded) | total {total:+.1f} over {seasons} yrs", flush=True)
