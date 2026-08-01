@@ -330,7 +330,11 @@
   <!-- ================= TRANSACTION TREES ================= -->
   <section id="view-trees" hidden>
     <h2>Transaction Trees · How One Decision Becomes the Next</h2>
-    <div class="sub">Assets don't die when they're traded; they compound. Each tree follows a chain of decisions across generations, with every branch marked <span class="chip chip-open" style="margin-left:2px">OPEN</span> (value still accruing) or <span class="chip chip-closed" style="margin-left:2px">CLOSED</span> (window finished; the number is final). Solid cards are value captured by the regime; dashed cards are value that flowed out. All three trees below are real. <span class="badge-real" style="margin-left:0">REAL DATA</span></div>
+    <div class="sub">Assets don't die when they're traded; they compound. Each tree follows a chain of decisions across generations, with every branch marked <span class="chip chip-open" style="margin-left:2px">OPEN</span> (value still accruing) or <span class="chip chip-closed" style="margin-left:2px">CLOSED</span> (window finished; the number is final). Solid cards are value captured by the regime; dashed cards are value that flowed out. Pick any regime to generate its trees from the computed ledger, or view the curated showcase trees. <span class="badge-real" style="margin-left:0">COMPUTED</span></div>
+    <div class="controls" style="margin:12px 0">
+      <label for="treesel">Regime</label>
+      <select id="treesel"><option value="curated">Curated showcase trees</option></select>
+    </div>
     <div id="treeswrap"></div>
     <div class="tree-legend">
       <span>■ solid card: value captured by the regime</span>
@@ -381,7 +385,7 @@
     </div>
   </section>
 
-  <footer>Front Office Ledger · prototype v2.2 · decision chains as inline trees (each piece's next move on this regime's ledger, expandable in place) · at-the-time snapshots (contemporaneous Pipeline ranks) · comprehensive per-channel card ledgers · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · all leaderboard and card values computed end-to-end from the live feed; curated decision pages on the Dodgers, Orioles, and Brewers cards are hand-verified. Illustrative values persist only where labeled (Archive-era leaderboard rows). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
+  <footer>Front Office Ledger · prototype v2.3 · transaction trees auto-generated for all 30 regimes · decision chains as inline trees (each piece's next move on this regime's ledger, expandable in place) · at-the-time snapshots (contemporaneous Pipeline ranks) · comprehensive per-channel card ledgers · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · all leaderboard and card values computed end-to-end from the live feed; curated decision pages on the Dodgers, Orioles, and Brewers cards are hand-verified. Illustrative values persist only where labeled (Archive-era leaderboard rows). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
 </div>
 
 <!-- decision modal -->
@@ -629,12 +633,69 @@ function tnode(n){
   if(n.kids && n.kids.length) h += `<div class="tbranch">${n.kids.map(tnode).join('')}</div>`;
   return h;
 }
-let treesRendered = false;
+function autoChainKids(pid, afterDate, r, depth, seen){
+  const ab = abOf(r);
+  const m = nextMoveFor(pid, afterDate, ab);
+  if(!m || depth > 3) return null;
+  const key = pid + '|' + m[0];
+  if(seen.has(key)) return null;
+  seen.add(key);
+  const nm = (typeof PLAYER_NAMES !== 'undefined' && PLAYER_NAMES[pid]) || 'Player';
+  const dec = findDecision(r, pid, m[0]);
+  const other = m[2] === ab ? m[3] : m[2];
+  const verb = (TY_VERB[m[1]] || m[1]) + (other && other !== ab ? ' ' + other : '');
+  if(dec){
+    const kids = (dec.pids || []).map(p2 => autoChainKids(p2, m[0], r, depth + 1, seen)).filter(Boolean);
+    return {via: m[0] + ' · ' + nm + ' ' + verb, nm: dec.h.replace(/<[^>]*>/g, '').slice(0, 90),
+            wv: fmtW(dec.war), status: dec.open ? 'open' : 'closed', kids: kids,
+            outflow: dec.war < 0};
+  }
+  return {via: m[0], nm: nm + ' · ' + verb, wv: null,
+          status: m[1] === 'Declared Free Agency' || m[1] === 'Released' ? 'closed' : 'open',
+          outflow: (m[1] === 'Declared Free Agency' || m[1] === 'Released' || (m[1] === 'Trade' && m[2] === ab))};
+}
+function autoTreesFor(r){
+  const pools = [];
+  if(r.chanLedgers) ['trade'].forEach(k => pools.push(...(r.chanLedgers[k].best||[]), ...(r.chanLedgers[k].worst||[])));
+  const roots = [];
+  pools.sort((a,b) => Math.abs(b.war) - Math.abs(a.war));
+  for(const dec of pools.slice(0, 6)){
+    const seen = new Set();
+    const kids = (dec.pids || []).map(p => autoChainKids(p, dec.d, r, 0, seen)).filter(Boolean);
+    roots.push({title: dec.h.replace(/<[^>]*>/g, '').slice(0, 100),
+                sub: `${dec.d} · net ${fmtW(dec.war)} on this ledger · ${dec.open?'OPEN':'CLOSED'}` + (kids.length ? '' : ' · every piece is still in place or left the ledger quietly'),
+                root: {nm: dec.d + ' · ' + (dec.t || 'trade').split(' ·')[0], status: dec.open ? 'open' : 'closed',
+                       kids: kids.length ? kids : [{nm: 'No subsequent moves on this regime\'s ledger yet', wv: null, status: dec.open ? 'open' : 'closed'}]}});
+  }
+  return roots;
+}
+let treesInit = false;
 function renderTrees(){
-  if(treesRendered) return; treesRendered = true;
-  $('#treeswrap').innerHTML = TREES.map(t=>
-    `<div class="card tree-card"><div class="tree-title">${t.title}</div><div class="tree-sub">${t.sub}</div>${tnode(t.root)}</div>`
-  ).join('');
+  const sel = $('#treesel');
+  if(!treesInit){
+    treesInit = true;
+    [...REGIMES, ...AUTO_REGIMES].sort((a,b)=>a.team.localeCompare(b.team)).forEach(r=>{
+      const o = document.createElement('option');
+      o.value = r.id; o.textContent = r.team + ' · ' + r.exec;
+      sel.appendChild(o);
+    });
+    sel.addEventListener('change', renderTrees);
+  }
+  const v = sel.value;
+  if(v === 'curated'){
+    $('#treeswrap').innerHTML = TREES.map(t=>
+      `<div class="card tree-card"><div class="tree-title">${t.title}</div><div class="tree-sub">${t.sub}</div>${tnode(t.root)}</div>`
+    ).join('');
+    return;
+  }
+  const r = REGIMES.find(x=>x.id===v) || AUTO_REGIMES.find(x=>x.id===v);
+  if(!r || !r.chanLedgers){
+    $('#treeswrap').innerHTML = '<div class="card" style="padding:16px; color:var(--muted)">Auto-generated trees need the computed chain data; this curated card uses the showcase trees above.</div>';
+    return;
+  }
+  const trees = autoTreesFor(r);
+  $('#treeswrap').innerHTML = `<div class="sub" style="margin-bottom:10px">The regime's six biggest trades by absolute net, with each piece's onward chain generated from the ledger. <span class="badge-real" style="margin-left:0">COMPUTED</span></div>` +
+    trees.map(t=>`<div class="card tree-card"><div class="tree-title">${t.title}</div><div class="tree-sub">${t.sub}</div>${tnode(t.root)}</div>`).join('');
 }
 
 /* =========================================================
