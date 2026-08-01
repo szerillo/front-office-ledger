@@ -239,6 +239,7 @@
       <button data-view="report">Regime Report Cards</button>
       <button data-view="trees">Transaction Trees</button>
       <button data-view="dna">Org DNA</button>
+      <button data-view="h2h">Head to Head</button>
       <button data-view="champs">Champions</button>
       <button data-view="method">Methodology</button>
     </nav>
@@ -358,22 +359,29 @@
   <!-- ================= ORG DNA ================= -->
   <section id="view-dna" hidden>
     <h2>Org DNA · What Each Front Office Is Actually Good At</h2>
-    <div class="sub">Channel value split arms vs bats, development effects measured on movers (does a player get better after arriving?), retention leakage, injury profiles, draft-room fingerprints, and buy-low tendencies. Every cell computed from the ledger. Development deltas are org tendencies, not causal claims. <span class="badge-real" style="margin-left:0">COMPUTED</span></div>
+    <div class="sub">Every organization has a shape: what it drafts well, what it trades for, and what happens to players after they arrive. Each cell below is computed from the ledger. <strong>How to read it:</strong> value columns are net wins above expectation, split into pitching and hitting. The three "players improve here" columns measure movers: a player's performance in his first two seasons after joining the org versus his last two elsewhere, so a positive number means this org tends to make players better. Development numbers are org tendencies (coaching infrastructure outlives GMs), not causal proof. <span class="badge-real" style="margin-left:0">COMPUTED</span></div>
     <div class="lb-wrap"><table id="dnatable" style="margin-top:12px"><thead><tr>
       <th>Org</th><th>Archetype</th>
-      <th class="num" title="Draft net WAR: arms / bats">Draft A/B</th>
-      <th class="num" title="Trade acquisitions net: arms / bats">Trades in A/B</th>
-      <th class="num" title="Pitcher Ledger WAR delta after arriving, wins/season">Pit dev</th>
-      <th class="num" title="Defense delta after arriving, runs/season">Def dev</th>
-      <th class="num" title="Hitter Ledger WAR delta after arriving, wins/season">Bat dev</th>
-      <th class="num" title="Retention grade: wins lost to walked free agents vs league rate (display only, scale effects disclosed)">Ret</th>
-      <th class="num" title="IL placements per season (pitchers / hitters)">IL/yr</th>
-      <th class="num" title="Share of top-10-round picks signed above slot value">Overslot</th>
-      <th class="num" title="Share of veteran trade targets acquired after a down year">Buys dips</th>
-      <th title="Most similar regime by DNA profile">Comp</th>
+      <th class="num" title="Net WAR above slot expectation from drafted players, split by player type">Draft value</th>
+      <th class="num" title="Net WAR from players acquired in trades, split by player type">Trade acquisitions</th>
+      <th class="num" title="Pitcher performance change after joining this org, wins per season, measured on movers">Pitchers improve here</th>
+      <th class="num" title="Defensive runs change after joining this org, runs per season, measured on movers">Defense improves here</th>
+      <th class="num" title="Hitter performance change after joining this org, wins per season, measured on movers">Hitters improve here</th>
+      <th class="num" title="Wins lost to free agents who walked, graded vs the league rate. Context grade only: employing stars means more walkable value">Keeps its talent</th>
+      <th class="num" title="Injured-list placements per season during the tenure">IL stints per year</th>
+      <th class="num" title="Share of top-10-round picks signed above slot value">Overslot picks</th>
+      <th class="num" title="Share of veteran trade targets acquired coming off a down season">Buys after a down year</th>
+      <th title="The sitting regime with the most similar DNA profile">Closest profile</th>
     </tr></thead><tbody></tbody></table></div>
-    <h3 style="margin-top:22px">Head to head · trade records between sitting regimes</h3>
-    <div class="sub">Deals between two current regimes while both were in office; net from the row regime's seat, unweighted control-window value. Minimum two deals.</div>
+  </section>
+
+  <!-- ================= HEAD TO HEAD ================= -->
+  <section id="view-h2h" hidden>
+    <h2>Head to Head · Trade Records Between Sitting Front Offices</h2>
+    <div class="sub">Every deal between two current regimes while both were in office, netted from each seat (unweighted control-window value, so the two seats are symmetric). A matchup needs two deals to appear. <span class="badge-real" style="margin-left:0">COMPUTED</span></div>
+    <h3 style="margin-top:18px">The most lopsided trading relationships in the sport</h3>
+    <div id="h2htop"></div>
+    <h3 style="margin-top:22px">Pick a front office</h3>
     <div class="controls" style="margin:10px 0"><label for="h2hsel">Regime</label><select id="h2hsel"></select></div>
     <div id="h2hwrap"></div>
   </section>
@@ -409,7 +417,7 @@
     </div>
   </section>
 
-  <footer>Front Office Ledger · prototype v2.7 · Org DNA tab (arms/bats splits, mover deltas incl. hitting, retention leakage, injury profiles, draft-room fingerprints, buy-low rates, regime comps, head-to-head trade records) · Regime DNA (archetype tags, arms/bats channel splits, mover development deltas) · Ledger WAR v1 (defense via SABR Defensive Index where published, Statcast fielding runs + catcher framing elsewhere, Statcast baserunning; pre-2014 seasons remain bat-only, disclosed) · process-vs-outcome verdicts on trades · transaction trees auto-generated for all 30 regimes · decision chains as inline trees (each piece's next move on this regime's ledger, expandable in place) · at-the-time snapshots (contemporaneous Pipeline ranks) · comprehensive per-channel card ledgers · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · all leaderboard and card values computed end-to-end from the live feed; curated decision pages on the Dodgers, Orioles, and Brewers cards are hand-verified. Illustrative values persist only where labeled (Archive-era leaderboard rows). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
+  <footer>Front Office Ledger · prototype v2.8 · Head to Head tab (trade records between sitting regimes, most lopsided relationships) · Org DNA tab (plain-language columns) (arms/bats splits, mover deltas incl. hitting, retention leakage, injury profiles, draft-room fingerprints, buy-low rates, regime comps, head-to-head trade records) · Regime DNA (archetype tags, arms/bats channel splits, mover development deltas) · Ledger WAR v1 (defense via SABR Defensive Index where published, Statcast fielding runs + catcher framing elsewhere, Statcast baserunning; pre-2014 seasons remain bat-only, disclosed) · process-vs-outcome verdicts on trades · transaction trees auto-generated for all 30 regimes · decision chains as inline trees (each piece's next move on this regime's ledger, expandable in place) · at-the-time snapshots (contemporaneous Pipeline ranks) · comprehensive per-channel card ledgers · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · all leaderboard and card values computed end-to-end from the live feed; curated decision pages on the Dodgers, Orioles, and Brewers cards are hand-verified. Illustrative values persist only where labeled (Archive-era leaderboard rows). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
 </div>
 
 <!-- decision modal -->
@@ -47262,11 +47270,12 @@ document.querySelectorAll('nav button').forEach(b=>{
 });
 function switchView(v, regimeId){
   document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on', x.dataset.view===v));
-  ['leaderboard','report','trees','champs','method','dna'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
+  ['leaderboard','report','trees','champs','method','dna','h2h'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
   if(v==='report'){ if(regimeId) $('#teamsel').value = regimeId; renderReport($('#teamsel').value); }
   if(v==='trees') renderTrees();
   if(v==='champs') renderChamp($('#champsel').value);
   if(v==='dna') renderDnaTab();
+  if(v==='h2h') renderH2hTab();
   window.scrollTo({top:0});
 }
 
@@ -47433,27 +47442,43 @@ function dnaComp(r, all){
   return best ? `${best.exec} (${Math.round(bs*100)}%)` : '-';
 }
 let dnaTabInit = false;
+const AB = (p,b)=>`<div style="white-space:nowrap">Arms <span class="${p>=0?'pos':'neg'}">${fmtW(p)}</span></div><div style="white-space:nowrap">Bats <span class="${b>=0?'pos':'neg'}">${fmtW(b)}</span></div>`;
 function renderDnaTab(){
   const all = [...REGIMES, ...AUTO_REGIMES].filter(r=>r.dna && r.dna.draft);
   const tb = $('#dnatable tbody'); tb.innerHTML='';
-  const fmt2 = (o)=> o && o.v!=null ? `<span class="${o.v>=0?'pos':'neg'}">${o.v>=0?'+':''}${o.v}</span>` : '·';
+  const fmt2 = (o)=> o && o.v!=null ? `<span class="${o.v>=0?'pos':'neg'}">${o.v>=0?'+':''}${o.v}</span>` : '<span title="under 6 movers with data">·</span>';
   all.sort((a,b)=>a.team.localeCompare(b.team)).forEach(r=>{
     const d = r.dna;
     const dr = d.draftRoom||{}, bl = d.buyLow||{}, inj = d.inj||{};
     const tr = document.createElement('tr');
     tr.innerHTML = `<td><div class="execcell"><span class="nm">${r.team.split(' ').pop()}</span><span class="tm">${r.exec}</span></div></td>
-      <td style="max-width:210px; font-size:12px">${(r.dnaTags||[]).join(' · ')||'<span style="color:var(--muted)">balanced</span>'}</td>
-      <td class="num">${fmtW(d.draft.pit)} / ${fmtW(d.draft.bat)}</td>
-      <td class="num">${fmtW(d.trade_in.pit)} / ${fmtW(d.trade_in.bat)}</td>
+      <td style="max-width:190px; font-size:12px">${(r.dnaTags||[]).join(' · ')||'<span style="color:var(--muted)">balanced profile</span>'}</td>
+      <td class="num" style="font-size:12px">${AB(d.draft.pit, d.draft.bat)}</td>
+      <td class="num" style="font-size:12px">${AB(d.trade_in.pit, d.trade_in.bat)}</td>
       <td class="num">${fmt2(d.devPit)}</td><td class="num">${fmt2(d.devDef)}</td><td class="num">${fmt2(d.devBat)}</td>
       <td class="num">${gradeChip(r.chan.ret?r.chan.ret.g:null)}</td>
-      <td class="num">${inj.pit!=null?inj.pit+' / '+inj.bat:'·'}</td>
+      <td class="num" title="${inj.pit!=null?inj.pit+' pitcher, '+inj.bat+' hitter IL stints per season':''}">${inj.pit!=null?(inj.pit+inj.bat).toFixed(0):'·'}</td>
       <td class="num">${dr.overslot!=null?Math.round(dr.overslot*100)+'%':'·'}</td>
       <td class="num">${bl.rate!=null?Math.round(bl.rate*100)+'%':'·'}</td>
       <td style="font-size:12px">${dnaComp(r, all)}</td>`;
     tr.addEventListener('click', ()=>switchView('report', r.id));
     tb.appendChild(tr);
   });
+}
+function h2hVerdict(net){
+  if(net >= 2) return '<span class="pos">ahead in the matchup</span>';
+  if(net <= -2) return '<span class="neg">behind in the matchup</span>';
+  return '<span style="color:var(--muted)">roughly even</span>';
+}
+function renderH2hTab(){
+  const all = [...REGIMES, ...AUTO_REGIMES].filter(r=>r.h2h);
+  // league-wide most lopsided (dedupe directed pairs: keep the winning seat's view)
+  const pairs = [];
+  all.forEach(r=>(r.h2h||[]).forEach(p=>{ if(p.n>=3 && p.net>1.5) pairs.push({a:r, p}); }));
+  pairs.sort((x,y)=>y.p.net - x.p.net);
+  $('#h2htop').innerHTML = `<div class="card"><table><thead><tr><th>Winning seat</th><th>Counterparty</th><th class="num">Deals</th><th class="num">Net advantage</th></tr></thead><tbody>${
+    pairs.slice(0,10).map(({a,p})=>`<tr><td><strong>${a.exec}</strong> <span style="color:var(--muted)">(${a.team})</span></td><td>${p.exec} <span style="color:var(--muted)">(${p.opp})</span></td><td class="num">${p.n}</td><td class="num pos">${fmtW(p.net)}</td></tr>`).join('')
+  }</tbody></table></div>`;
   const sel = $('#h2hsel');
   if(!dnaTabInit){
     dnaTabInit = true;
@@ -47466,7 +47491,7 @@ function renderDnaTab(){
 }
 function renderH2h(){
   const r = [...REGIMES, ...AUTO_REGIMES].find(x=>x.id===$('#h2hsel').value) || AUTO_REGIMES[0];
-  const rows = (r.h2h||[]).map(p=>`<tr><td>${p.exec} <span style="color:var(--muted)">(${p.opp})</span></td><td class="num">${p.n}</td><td class="num ${p.net>=0?'pos':'neg'}">${fmtW(p.net)}</td><td style="font-size:12px; color:var(--muted)">${p.net>=2?'owns the matchup':p.net<=-2?'should stop answering the phone':'even'}</td></tr>`).join('');
+  const rows = (r.h2h||[]).map(p=>`<tr><td>${p.exec} <span style="color:var(--muted)">(${p.opp})</span></td><td class="num">${p.n}</td><td class="num ${p.net>=0?'pos':'neg'}">${fmtW(p.net)}</td><td style="font-size:12px">${h2hVerdict(p.net)}</td></tr>`).join('');
   $('#h2hwrap').innerHTML = rows ? `<div class="card"><table><thead><tr><th>Counterparty</th><th class="num">Deals</th><th class="num">Net (this seat)</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>` : '<div class="card" style="padding:14px; color:var(--muted)">No repeat trade partners among sitting regimes yet.</div>';
 }
 
