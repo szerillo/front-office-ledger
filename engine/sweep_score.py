@@ -146,6 +146,36 @@ for yr in range(2005, 2027):
             wl[(t["team"]["id"], yr)] = [t.get("wins",0), t.get("losses",0), 1 if str(t.get("divisionRank"))=="1" else 0]
 print("standings loaded", flush=True)
 
+# at-the-time prospect marks (Pipeline archive, for process-vs-outcome verdicts)
+import math as _math
+_V_ANCHOR = [(1,8.0),(3,7.0),(5,6.5),(10,5.5),(15,4.8),(25,4.0),(40,3.2),
+             (50,2.8),(75,2.0),(100,1.5)]
+def _vrank(rank):
+    a = _V_ANCHOR
+    if rank <= a[0][0]: return a[0][1]
+    if rank >= a[-1][0]: return a[-1][1]
+    for (x0,y0),(x1,y1) in zip(a, a[1:]):
+        if x0 <= rank <= x1:
+            f = (_math.log(rank)-_math.log(x0))/(_math.log(x1)-_math.log(x0))
+            return y0 + f*(y1-y0)
+try:
+    _ranks_raw = json.load(open("/home/claude/prospect_ranks.json"))
+    PRANK = {}
+    for _rr in _ranks_raw:
+        PRANK.setdefault(str(_rr["pid"]), {})[_rr["year"]] = _rr["rank"]
+except Exception:
+    PRANK = {}
+def att_mark(pid, deal_date):
+    """prospect mark at the time of the deal: the nearest preseason list at
+    or before the deal (offseason deals read the next list)."""
+    rk = PRANK.get(str(pid))
+    if not rk: return None
+    y, m = int(deal_date[:4]), int(deal_date[5:7])
+    list_y = y + 1 if m >= 10 else y
+    for cand in (list_y, list_y - 1):
+        if cand in rk: return _vrank(rk[cand])
+    return None
+
 NAME2TID = {}
 for _reg in cfg["regimes"]:
     NAME2TID[_reg["team"]] = _reg["teamId"]
@@ -251,13 +281,19 @@ for reg in cfg["regimes"]:
         vout = sum(v for (_, _, _, v) in out_det)
         net = vin - vout; tr_net += net; ynet[yr] += net
         if abs(net) >= 0.8:
+            att_out = [(nm, att_mark(p, d)) for (p, nm, _, _) in out_det]
+            att_in  = [(nm, att_mark(p, d)) for (p, nm, _) in ins_det]
+            att = dict(out=round(sum(v for (_, v) in att_out if v), 1),
+                       n_out=sum(1 for (_, v) in att_out if v),
+                       inn=round(sum(v for (_, v) in att_in if v), 1),
+                       n_in=sum(1 for (_, v) in att_in if v))
             dests = sorted({dest for (_, _, dest, _) in out_det})
             sides = [["Acquired (control-window value, leverage-weighted)",
                       [[nm, f"{v:+.1f}"] for (_, nm, v) in sorted(ins_det, key=lambda t: -t[2])] or [["(no valued players)", "0.0"]]],
                      ["Surrendered · value realized on " + (", ".join(dests) if dests else "counterparty"),
                       [[nm, f"{-v:+.1f}"] for (_, nm, _, v) in sorted(out_det, key=lambda t: -t[3])] or [["(no valued players)", "0.0"]]]]
             decs.append(dict(d=d, ch="trade", net=round(net,1), h=(desc or "trade")[:130],
-                             vin=round(vin,1), vout=round(vout,1), sides=sides,
+                             vin=round(vin,1), vout=round(vout,1), sides=sides, att=att,
                              pids=[p for (p, _, _) in ins_det] + [p for (p, _, _, _) in out_det]))
     # draft
     dr_real = dr_exp = 0.0
