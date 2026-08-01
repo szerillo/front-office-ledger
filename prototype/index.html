@@ -385,7 +385,7 @@
     </div>
   </section>
 
-  <footer>Front Office Ledger · prototype v2.3 · transaction trees auto-generated for all 30 regimes · decision chains as inline trees (each piece's next move on this regime's ledger, expandable in place) · at-the-time snapshots (contemporaneous Pipeline ranks) · comprehensive per-channel card ledgers · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · all leaderboard and card values computed end-to-end from the live feed; curated decision pages on the Dodgers, Orioles, and Brewers cards are hand-verified. Illustrative values persist only where labeled (Archive-era leaderboard rows). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
+  <footer>Front Office Ledger · prototype v2.4 · process-vs-outcome verdicts on trades (surrendered pieces priced at their deal-date Pipeline marks) · transaction trees auto-generated for all 30 regimes · decision chains as inline trees (each piece's next move on this regime's ledger, expandable in place) · at-the-time snapshots (contemporaneous Pipeline ranks) · comprehensive per-channel card ledgers · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · all leaderboard and card values computed end-to-end from the live feed; curated decision pages on the Dodgers, Orioles, and Brewers cards are hand-verified. Illustrative values persist only where labeled (Archive-era leaderboard rows). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
 </div>
 
 <!-- decision modal -->
@@ -1156,7 +1156,7 @@ const AUTO_REGIMES = [
 "pids": [
 "668678"
 ],
-"note": "Auto-scored: value in +14.2 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +14.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-12-23",
@@ -1194,7 +1194,7 @@ const AUTO_REGIMES = [
 "666971",
 "662139"
 ],
-"note": "Auto-scored: value in +18.1 vs value out +5.5, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +18.1 vs value out +5.5, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +6.0 at the time."
 },
 {
 "d": "2017-07-18",
@@ -1237,7 +1237,7 @@ const AUTO_REGIMES = [
 "666593",
 "642727"
 ],
-"note": "Auto-scored: value in +5.3 vs value out -0.2, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +5.3 vs value out -0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -1277,12 +1277,12 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"608348",
-"596133",
 "670370",
+"596133",
+"608348",
 "502671"
 ],
-"note": "Auto-scored: value in +9.0 vs value out +20.7, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +9.0 vs value out +20.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.9 at the time."
 },
 {
 "d": "2020-08-31",
@@ -1315,7 +1315,7 @@ const AUTO_REGIMES = [
 "664157",
 "592662"
 ],
-"note": "Auto-scored: value in -0.1 vs value out +5.4, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -0.1 vs value out +5.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -1572,7 +1572,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "668678"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +14.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-12-23",
@@ -1609,7 +1616,14 @@ const AUTO_REGIMES = [
 "672515",
 "666971",
 "662139"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 6.0,
+"n_in": 1
+},
+"note": "Auto-scored: value in +18.1 vs value out +5.5, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +6.0 at the time."
 },
 {
 "d": "2017-07-18",
@@ -1651,7 +1665,14 @@ const AUTO_REGIMES = [
 "608475",
 "666593",
 "642727"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +5.3 vs value out -0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-11-22",
@@ -1688,7 +1709,14 @@ const AUTO_REGIMES = [
 "553993",
 "672841",
 "664874"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +6.1 vs value out +0.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2018-07-27",
@@ -1730,7 +1758,14 @@ const AUTO_REGIMES = [
 "661395",
 "670797",
 "670622"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +8.2 vs value out +3.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -1770,11 +1805,18 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"608348",
-"596133",
 "670370",
+"596133",
+"608348",
 "502671"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 2.9,
+"n_in": 1
+},
+"note": "Auto-scored: value in +9.0 vs value out +20.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.9 at the time."
 },
 {
 "d": "2020-08-31",
@@ -1806,7 +1848,14 @@ const AUTO_REGIMES = [
 "pids": [
 "664157",
 "592662"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.1 vs value out +5.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2019-07-31",
@@ -1837,7 +1886,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "665862"
-]
+],
+"att": {
+"out": 2.4,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +4.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.4 wins at the time; they realized +4.3 for the counterparty, so the outcome tracked the marks, this one is on the process."
 },
 {
 "d": "2018-05-15",
@@ -1868,7 +1924,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "657031"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +3.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2016-11-23",
@@ -1910,12 +1973,19 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"592836",
 "606466",
+"592836",
 "516416",
 "657205",
 "571745"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +18.9 vs value out +21.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -3258,7 +3328,7 @@ const AUTO_REGIMES = [
 "683155",
 "669127"
 ],
-"note": "Auto-scored: value in +19.7 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +19.7 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 2 ranked piece(s) surrendered carried a Pipeline mark of about +7.7 wins at the time; they realized +0.0 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
 "d": "2023-12-30",
@@ -3291,7 +3361,7 @@ const AUTO_REGIMES = [
 "519242",
 "687093"
 ],
-"note": "Auto-scored: value in +16.6 vs value out -0.7, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +16.6 vs value out -0.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-08-02",
@@ -3329,7 +3399,7 @@ const AUTO_REGIMES = [
 "656353",
 "445926"
 ],
-"note": "Auto-scored: value in +7.3 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +7.3 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -3389,7 +3459,7 @@ const AUTO_REGIMES = [
 "676206",
 "661388"
 ],
-"note": "Auto-scored: value in +5.8 vs value out +24.9, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +5.8 vs value out +24.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -3662,7 +3732,14 @@ const AUTO_REGIMES = [
 "665506",
 "683155",
 "669127"
-]
+],
+"att": {
+"out": 7.7,
+"n_out": 2,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +19.7 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 2 ranked piece(s) surrendered carried a Pipeline mark of about +7.7 wins at the time; they realized +0.0 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
 "d": "2023-12-30",
@@ -3694,7 +3771,14 @@ const AUTO_REGIMES = [
 "pids": [
 "519242",
 "687093"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +16.6 vs value out -0.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-08-02",
@@ -3731,7 +3815,14 @@ const AUTO_REGIMES = [
 "628452",
 "656353",
 "445926"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +7.3 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-04-06",
@@ -3768,7 +3859,14 @@ const AUTO_REGIMES = [
 "606115",
 "622256",
 "656977"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +4.4 vs value out -0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-12-07",
@@ -3805,7 +3903,14 @@ const AUTO_REGIMES = [
 "641729",
 "669234",
 "663977"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +4.1 vs value out +0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -3864,7 +3969,14 @@ const AUTO_REGIMES = [
 "683690",
 "676206",
 "661388"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +5.8 vs value out +24.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2017-12-16",
@@ -3882,11 +3994,11 @@ const AUTO_REGIMES = [
 "+3.4"
 ],
 [
-"Scott Kazmir",
+"Adri\u00e1n Gonz\u00e1lez",
 "+0.0"
 ],
 [
-"Adri\u00e1n Gonz\u00e1lez",
+"Scott Kazmir",
 "+0.0"
 ],
 [
@@ -3906,12 +4018,19 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"431148",
-"408236",
 "435221",
+"408236",
 "518586",
+"431148",
 "461314"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +3.2 vs value out +5.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-07-17",
@@ -3942,7 +4061,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "656848"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +1.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-05-19",
@@ -3973,7 +4099,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "607345"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -1.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -5306,7 +5439,7 @@ const AUTO_REGIMES = [
 "690928",
 "823369"
 ],
-"note": "Auto-scored: value in +5.3 vs value out +0.3, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +5.3 vs value out +0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-12-11",
@@ -5354,7 +5487,7 @@ const AUTO_REGIMES = [
 "682790",
 "691019"
 ],
-"note": "Auto-scored: value in +9.2 vs value out +4.8, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +9.2 vs value out +4.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 2 ranked piece(s) surrendered carried a Pipeline mark of about +6.2 wins at the time; they realized +4.8 for the counterparty, so the outcome tracked the marks, this one is on the process."
 },
 {
 "d": "2023-12-08",
@@ -5392,7 +5525,7 @@ const AUTO_REGIMES = [
 "673257",
 "687798"
 ],
-"note": "Auto-scored: value in +4.2 vs value out +0.1, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +4.2 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -5427,7 +5560,7 @@ const AUTO_REGIMES = [
 "687093",
 "519242"
 ],
-"note": "Auto-scored: value in -0.7 vs value out +16.6, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -0.7 vs value out +16.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-02-17",
@@ -5460,7 +5593,7 @@ const AUTO_REGIMES = [
 "689818",
 "670167"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +3.2, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +3.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -5659,7 +5792,14 @@ const AUTO_REGIMES = [
 "820832",
 "690928",
 "823369"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +5.3 vs value out +0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-12-11",
@@ -5706,7 +5846,14 @@ const AUTO_REGIMES = [
 "695731",
 "682790",
 "691019"
-]
+],
+"att": {
+"out": 6.2,
+"n_out": 2,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +9.2 vs value out +4.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 2 ranked piece(s) surrendered carried a Pipeline mark of about +6.2 wins at the time; they realized +4.8 for the counterparty, so the outcome tracked the marks, this one is on the process."
 },
 {
 "d": "2023-12-08",
@@ -5743,7 +5890,14 @@ const AUTO_REGIMES = [
 "641933",
 "673257",
 "687798"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +4.2 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-12-11",
@@ -5775,7 +5929,14 @@ const AUTO_REGIMES = [
 "pids": [
 "665966",
 "695684"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +4.1 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-12-05",
@@ -5813,11 +5974,18 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"669711",
 "700113",
 "690916",
-"669711",
 "657077"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +3.6 vs value out -0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -5851,7 +6019,14 @@ const AUTO_REGIMES = [
 "pids": [
 "687093",
 "519242"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.7 vs value out +16.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-02-17",
@@ -5883,7 +6058,14 @@ const AUTO_REGIMES = [
 "pids": [
 "689818",
 "670167"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +3.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-06-15",
@@ -5901,11 +6083,11 @@ const AUTO_REGIMES = [
 "+0.7"
 ],
 [
-"Jose Bello",
+"James Tibbs III",
 "+0.0"
 ],
 [
-"James Tibbs III",
+"Jose Bello",
 "+0.0"
 ],
 [
@@ -5925,12 +6107,19 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"808366",
 "690986",
-"696486",
 "663855",
+"696486",
+"808366",
 "646240"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 4.1,
+"n_in": 1
+},
+"note": "Auto-scored: value in +0.3 vs value out +3.4, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +4.1 at the time."
 },
 {
 "d": "2025-04-07",
@@ -5962,7 +6151,14 @@ const AUTO_REGIMES = [
 "pids": [
 "806983",
 "682990"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +3.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-05-27",
@@ -5993,7 +6189,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "656794"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +1.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -6605,7 +6808,7 @@ const AUTO_REGIMES = [
 "701328",
 "814307"
 ],
-"note": "Auto-scored: value in +12.4 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +12.4 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.8 at the time."
 },
 {
 "d": "2022-08-02",
@@ -6638,7 +6841,7 @@ const AUTO_REGIMES = [
 "676962",
 "502085"
 ],
-"note": "Auto-scored: value in +5.8 vs value out +0.6, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +5.8 vs value out +0.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-07-30",
@@ -6676,7 +6879,7 @@ const AUTO_REGIMES = [
 "592866",
 "595879"
 ],
-"note": "Auto-scored: value in +8.8 vs value out +4.3, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +8.8 vs value out +4.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -6692,7 +6895,7 @@ const AUTO_REGIMES = [
 "Acquired (control-window value, leverage-weighted)",
 [
 [
-"Yeison Santana",
+"Reginald Preciado",
 "+0.0"
 ],
 [
@@ -6700,7 +6903,7 @@ const AUTO_REGIMES = [
 "+0.0"
 ],
 [
-"Reginald Preciado",
+"Yeison Santana",
 "+0.0"
 ],
 [
@@ -6728,15 +6931,15 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"678220",
 "605200",
-"691190",
-"683357",
 "691262",
+"683357",
+"691190",
+"678220",
 "506433",
 "605170"
 ],
-"note": "Auto-scored: value in -0.6 vs value out +11.9, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -0.6 vs value out +11.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-12-17",
@@ -6769,7 +6972,7 @@ const AUTO_REGIMES = [
 "547001",
 "641355"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +7.4, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +7.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-07-29",
@@ -6807,7 +7010,7 @@ const AUTO_REGIMES = [
 "682634",
 "519203"
 ],
-"note": "Auto-scored: value in -0.3 vs value out +4.3, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -0.3 vs value out +4.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -7044,7 +7247,14 @@ const AUTO_REGIMES = [
 "622075",
 "701328",
 "814307"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 2.8,
+"n_in": 1
+},
+"note": "Auto-scored: value in +12.4 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.8 at the time."
 },
 {
 "d": "2022-08-02",
@@ -7076,7 +7286,14 @@ const AUTO_REGIMES = [
 "pids": [
 "676962",
 "502085"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +5.8 vs value out +0.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-07-30",
@@ -7113,7 +7330,14 @@ const AUTO_REGIMES = [
 "691718",
 "592866",
 "595879"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +8.8 vs value out +4.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-07-28",
@@ -7155,7 +7379,14 @@ const AUTO_REGIMES = [
 "694494",
 "685801",
 "666624"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.6 vs value out -0.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-05-14",
@@ -7187,7 +7418,14 @@ const AUTO_REGIMES = [
 "pids": [
 "668338",
 "670237"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.3 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -7203,7 +7441,7 @@ const AUTO_REGIMES = [
 "Acquired (control-window value, leverage-weighted)",
 [
 [
-"Yeison Santana",
+"Reginald Preciado",
 "+0.0"
 ],
 [
@@ -7211,7 +7449,7 @@ const AUTO_REGIMES = [
 "+0.0"
 ],
 [
-"Reginald Preciado",
+"Yeison Santana",
 "+0.0"
 ],
 [
@@ -7239,14 +7477,21 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"678220",
 "605200",
-"691190",
-"683357",
 "691262",
+"683357",
+"691190",
+"678220",
 "506433",
 "605170"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.6 vs value out +11.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-12-17",
@@ -7278,7 +7523,14 @@ const AUTO_REGIMES = [
 "pids": [
 "547001",
 "641355"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +7.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-07-29",
@@ -7315,7 +7567,14 @@ const AUTO_REGIMES = [
 "669805",
 "682634",
 "519203"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.3 vs value out +4.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-03-25",
@@ -7347,7 +7606,14 @@ const AUTO_REGIMES = [
 "pids": [
 "606019",
 "623912"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.1 vs value out +4.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-03-27",
@@ -7379,7 +7645,14 @@ const AUTO_REGIMES = [
 "pids": [
 "664346",
 "656716"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +4.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -8353,7 +8626,7 @@ const AUTO_REGIMES = [
 "502054",
 "607200"
 ],
-"note": "Auto-scored: value in +5.3 vs value out +2.2, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +5.3 vs value out +2.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +3.3 at the time."
 },
 {
 "d": "2025-12-18",
@@ -8385,7 +8658,7 @@ const AUTO_REGIMES = [
 "pids": [
 "671976"
 ],
-"note": "Auto-scored: value in +3.0 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +3.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -8435,7 +8708,7 @@ const AUTO_REGIMES = [
 "621051",
 "656302"
 ],
-"note": "Auto-scored: value in -0.3 vs value out +12.4, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -0.3 vs value out +12.4, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +1.8 at the time."
 },
 {
 "d": "2024-12-11",
@@ -8477,13 +8750,13 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"695731",
-"691019",
-"805367",
 "682790",
+"691019",
+"695731",
+"805367",
 "676979"
 ],
-"note": "Auto-scored: value in +4.8 vs value out +9.2, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +4.8 vs value out +9.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +6.2 at the time."
 },
 {
 "d": "2026-03-28",
@@ -8516,7 +8789,7 @@ const AUTO_REGIMES = [
 "695722",
 "678554"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +4.2, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +4.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [],
@@ -8575,7 +8848,14 @@ const AUTO_REGIMES = [
 "656629",
 "502054",
 "607200"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 3.3,
+"n_in": 1
+},
+"note": "Auto-scored: value in +5.3 vs value out +2.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +3.3 at the time."
 },
 {
 "d": "2025-12-18",
@@ -8606,7 +8886,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "671976"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +3.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2026-02-01",
@@ -8640,10 +8927,17 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"689818",
 "663855",
+"689818",
 "695721"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.9 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -8692,7 +8986,14 @@ const AUTO_REGIMES = [
 "694214",
 "621051",
 "656302"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 1.8,
+"n_in": 1
+},
+"note": "Auto-scored: value in -0.3 vs value out +12.4, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +1.8 at the time."
 },
 {
 "d": "2024-12-11",
@@ -8734,12 +9035,19 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"695731",
-"691019",
-"805367",
 "682790",
+"691019",
+"695731",
+"805367",
 "676979"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 6.2,
+"n_in": 2
+},
+"note": "Auto-scored: value in +4.8 vs value out +9.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +6.2 at the time."
 },
 {
 "d": "2026-03-28",
@@ -8771,7 +9079,14 @@ const AUTO_REGIMES = [
 "pids": [
 "695722",
 "678554"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +4.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-06-13",
@@ -8803,7 +9118,14 @@ const AUTO_REGIMES = [
 "pids": [
 "650644",
 "683734"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.3 vs value out +3.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-11-16",
@@ -8849,13 +9171,20 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"647336",
 "694363",
 "669699",
-"670032",
 "803035",
+"647336",
+"670032",
 "607481"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.2 vs value out +3.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -9410,7 +9739,7 @@ const AUTO_REGIMES = [
 "687952",
 "641816"
 ],
-"note": "Auto-scored: value in +6.9 vs value out +0.4, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +6.9 vs value out +0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-04-12",
@@ -9443,7 +9772,7 @@ const AUTO_REGIMES = [
 "666181",
 "687628"
 ],
-"note": "Auto-scored: value in +3.5 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +3.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -9488,12 +9817,12 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "686651",
+"695490",
 "682622",
 "681097",
-"695490",
 "622491"
 ],
-"note": "Auto-scored: value in +1.0 vs value out +16.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +1.0 vs value out +16.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +5.3 at the time."
 },
 {
 "d": "2022-03-13",
@@ -9531,7 +9860,7 @@ const AUTO_REGIMES = [
 "543243",
 "677868"
 ],
-"note": "Auto-scored: value in -0.6 vs value out +11.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -0.6 vs value out +11.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -9768,7 +10097,14 @@ const AUTO_REGIMES = [
 "680727",
 "687952",
 "641816"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +6.9 vs value out +0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-04-12",
@@ -9800,7 +10136,14 @@ const AUTO_REGIMES = [
 "pids": [
 "666181",
 "687628"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +3.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-01-07",
@@ -9832,7 +10175,14 @@ const AUTO_REGIMES = [
 "pids": [
 "666158",
 "701527"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.3 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-07-31",
@@ -9864,7 +10214,14 @@ const AUTO_REGIMES = [
 "pids": [
 "594580",
 "671212"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-07-28",
@@ -9898,9 +10255,16 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"570666",
-"458677"
-]
+"458677",
+"570666"
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.7 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -9945,11 +10309,18 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "686651",
+"695490",
 "682622",
 "681097",
-"695490",
 "622491"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 5.3,
+"n_in": 1
+},
+"note": "Auto-scored: value in +1.0 vs value out +16.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +5.3 at the time."
 },
 {
 "d": "2022-03-13",
@@ -9986,7 +10357,14 @@ const AUTO_REGIMES = [
 "695534",
 "543243",
 "677868"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.6 vs value out +11.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2020-12-07",
@@ -10018,7 +10396,14 @@ const AUTO_REGIMES = [
 "pids": [
 "598287",
 "628452"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +2.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-12-08",
@@ -10049,7 +10434,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "666165"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +2.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-03-14",
@@ -10092,11 +10484,18 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "641584",
-"643290",
 "682227",
+"643290",
 "608385",
 "553993"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +4.5 vs value out +6.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -10949,16 +11348,16 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"676282",
-"615698",
-"672356",
-"680911",
-"647304",
 "595978",
+"680911",
+"672356",
+"647304",
+"615698",
+"676282",
 "605182",
 "656185"
 ],
-"note": "Auto-scored: value in +13.3 vs value out +0.7, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +13.3 vs value out +0.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2019-12-15",
@@ -10996,7 +11395,7 @@ const AUTO_REGIMES = [
 "661403",
 "446372"
 ],
-"note": "Auto-scored: value in +9.9 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +9.9 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -11036,7 +11435,7 @@ const AUTO_REGIMES = [
 "664208",
 "673237"
 ],
-"note": "Auto-scored: value in -2.5 vs value out +16.8, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -2.5 vs value out +16.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-11-19",
@@ -11069,7 +11468,7 @@ const AUTO_REGIMES = [
 "668964",
 "691406"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +8.9, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +8.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -11349,15 +11748,22 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"676282",
-"615698",
-"672356",
-"680911",
-"647304",
 "595978",
+"680911",
+"672356",
+"647304",
+"615698",
+"676282",
 "605182",
 "656185"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +13.3 vs value out +0.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2019-12-15",
@@ -11394,7 +11800,14 @@ const AUTO_REGIMES = [
 "592261",
 "661403",
 "446372"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +9.9 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2018-07-19",
@@ -11428,10 +11841,17 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"543272",
 "643256",
+"543272",
 "642336"
-]
+],
+"att": {
+"out": 5.3,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +5.4 vs value out +0.5, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +5.3 wins at the time; they realized +0.5 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
 "d": "2015-12-18",
@@ -11462,7 +11882,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "519096"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +4.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2016-07-31",
@@ -11509,7 +11936,14 @@ const AUTO_REGIMES = [
 "640449",
 "621294",
 "656954"
-]
+],
+"att": {
+"out": 3.9,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +5.1 vs value out +1.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +3.9 wins at the time; they realized +1.3 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 }
 ],
 "worst": [
@@ -11548,7 +11982,14 @@ const AUTO_REGIMES = [
 "664702",
 "664208",
 "673237"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -2.5 vs value out +16.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-11-19",
@@ -11580,7 +12021,14 @@ const AUTO_REGIMES = [
 "pids": [
 "668964",
 "691406"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +8.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2018-12-13",
@@ -11622,12 +12070,19 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"641343",
 "467793",
+"641343",
 "642121",
 "429665",
 "650490"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 2.3,
+"n_in": 1
+},
+"note": "Auto-scored: value in +5.8 vs value out +10.5, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.3 at the time."
 },
 {
 "d": "2023-04-12",
@@ -11659,7 +12114,14 @@ const AUTO_REGIMES = [
 "pids": [
 "687628",
 "666181"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +3.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2020-01-08",
@@ -11690,7 +12152,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "606992"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +2.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -12996,7 +13465,7 @@ const AUTO_REGIMES = [
 "664983",
 "701056"
 ],
-"note": "Auto-scored: value in +1.5 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +1.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2026-01-28",
@@ -13029,7 +13498,7 @@ const AUTO_REGIMES = [
 "681198",
 "683409"
 ],
-"note": "Auto-scored: value in +1.4 vs value out +0.3, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +1.4 vs value out +0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [],
@@ -13164,7 +13633,14 @@ const AUTO_REGIMES = [
 "pids": [
 "664983",
 "701056"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2026-01-28",
@@ -13196,7 +13672,14 @@ const AUTO_REGIMES = [
 "pids": [
 "681198",
 "683409"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.4 vs value out +0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": []
@@ -13458,7 +13941,7 @@ const AUTO_REGIMES = [
 "656716",
 "664346"
 ],
-"note": "Auto-scored: value in +4.2 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +4.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-01-07",
@@ -13506,7 +13989,7 @@ const AUTO_REGIMES = [
 "642397",
 "665019"
 ],
-"note": "Auto-scored: value in +6.0 vs value out +2.1, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +6.0 vs value out +2.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-07-31",
@@ -13544,7 +14027,7 @@ const AUTO_REGIMES = [
 "701680",
 "695620"
 ],
-"note": "Auto-scored: value in +1.4 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +1.4 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -13584,7 +14067,7 @@ const AUTO_REGIMES = [
 "669234",
 "641729"
 ],
-"note": "Auto-scored: value in +0.3 vs value out +4.1, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.3 vs value out +4.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -13780,7 +14263,14 @@ const AUTO_REGIMES = [
 "pids": [
 "656716",
 "664346"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +4.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-01-07",
@@ -13827,7 +14317,14 @@ const AUTO_REGIMES = [
 "664848",
 "642397",
 "665019"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +6.0 vs value out +2.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-07-31",
@@ -13864,7 +14361,14 @@ const AUTO_REGIMES = [
 "640448",
 "701680",
 "695620"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.4 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-11-04",
@@ -13896,7 +14400,14 @@ const AUTO_REGIMES = [
 "pids": [
 "592192",
 "700183"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.1 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -13935,7 +14446,14 @@ const AUTO_REGIMES = [
 "663977",
 "669234",
 "641729"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.3 vs value out +4.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-07-30",
@@ -13972,7 +14490,14 @@ const AUTO_REGIMES = [
 "700242",
 "699073",
 "656427"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.4 vs value out +0.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-07-28",
@@ -14009,7 +14534,14 @@ const AUTO_REGIMES = [
 "677976",
 "663978",
 "806992"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -1.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-02-12",
@@ -14040,7 +14572,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "669438"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +1.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-07-31",
@@ -14071,7 +14610,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "608650"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +0.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -14786,7 +15332,7 @@ const AUTO_REGIMES = [
 "621043",
 "694392"
 ],
-"note": "Auto-scored: value in +4.3 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +4.3 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-08-01",
@@ -14824,7 +15370,7 @@ const AUTO_REGIMES = [
 "691775",
 "687551"
 ],
-"note": "Auto-scored: value in +2.5 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +2.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-12-13",
@@ -14862,12 +15408,12 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"701358",
-"670623",
 "669713",
+"670623",
+"701358",
 "663656"
 ],
-"note": "Auto-scored: value in +8.5 vs value out +6.2, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +8.5 vs value out +6.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.5 at the time."
 }
 ],
 "worstTrades": [
@@ -14902,7 +15448,7 @@ const AUTO_REGIMES = [
 "669397",
 "643289"
 ],
-"note": "Auto-scored: value in -0.0 vs value out +1.4, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -0.0 vs value out +1.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -15129,7 +15675,14 @@ const AUTO_REGIMES = [
 "pids": [
 "621043",
 "694392"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +4.3 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-08-01",
@@ -15166,7 +15719,14 @@ const AUTO_REGIMES = [
 "434378",
 "691775",
 "687551"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-12-13",
@@ -15204,11 +15764,18 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"701358",
-"670623",
 "669713",
+"670623",
+"701358",
 "663656"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 2.5,
+"n_in": 1
+},
+"note": "Auto-scored: value in +8.5 vs value out +6.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.5 at the time."
 },
 {
 "d": "2024-07-29",
@@ -15250,7 +15817,14 @@ const AUTO_REGIMES = [
 "814005",
 "695238",
 "694388"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.5 vs value out +0.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-07-30",
@@ -15282,7 +15856,14 @@ const AUTO_REGIMES = [
 "pids": [
 "657571",
 "675502"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -15316,7 +15897,14 @@ const AUTO_REGIMES = [
 "pids": [
 "669397",
 "643289"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.0 vs value out +1.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -15994,7 +16582,7 @@ const AUTO_REGIMES = [
 "686930",
 "801406"
 ],
-"note": "Auto-scored: value in +3.5 vs value out -0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +3.5 vs value out -0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-02-17",
@@ -16027,7 +16615,7 @@ const AUTO_REGIMES = [
 "670167",
 "689818"
 ],
-"note": "Auto-scored: value in +3.2 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +3.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-07-31",
@@ -16065,7 +16653,7 @@ const AUTO_REGIMES = [
 "686701",
 "666023"
 ],
-"note": "Auto-scored: value in +2.7 vs value out +0.2, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +2.7 vs value out +0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -16099,7 +16687,7 @@ const AUTO_REGIMES = [
 "pids": [
 "656811"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +6.7, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +6.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -16305,7 +16893,14 @@ const AUTO_REGIMES = [
 "694361",
 "686930",
 "801406"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +3.5 vs value out -0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-02-17",
@@ -16337,7 +16932,14 @@ const AUTO_REGIMES = [
 "pids": [
 "670167",
 "689818"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +3.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-07-31",
@@ -16374,7 +16976,14 @@ const AUTO_REGIMES = [
 "663568",
 "686701",
 "666023"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.7 vs value out +0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-07-29",
@@ -16406,7 +17015,14 @@ const AUTO_REGIMES = [
 "pids": [
 "547179",
 "679156"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.0 vs value out +0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-07-31",
@@ -16438,7 +17054,14 @@ const AUTO_REGIMES = [
 "pids": [
 "573262",
 "805074"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.7 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -16471,7 +17094,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "656811"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +6.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-12-19",
@@ -16503,7 +17133,14 @@ const AUTO_REGIMES = [
 "pids": [
 "621381",
 "680742"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.4 vs value out +1.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-07-31",
@@ -16540,7 +17177,14 @@ const AUTO_REGIMES = [
 "663559",
 "681895",
 "801978"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.3 vs value out +1.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-08-01",
@@ -16577,7 +17221,14 @@ const AUTO_REGIMES = [
 "694947",
 "689275",
 "605130"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +1.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-11-22",
@@ -16614,7 +17265,14 @@ const AUTO_REGIMES = [
 "663697",
 "686894",
 "663903"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.1 vs value out +3.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -17129,7 +17787,7 @@ const AUTO_REGIMES = [
 "502171",
 "663330"
 ],
-"note": "Auto-scored: value in +2.8 vs value out -0.3, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +2.8 vs value out -0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2020-12-07",
@@ -17162,7 +17820,7 @@ const AUTO_REGIMES = [
 "628452",
 "598287"
 ],
-"note": "Auto-scored: value in +2.5 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +2.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -17197,7 +17855,7 @@ const AUTO_REGIMES = [
 "681351",
 "669016"
 ],
-"note": "Auto-scored: value in +3.1 vs value out +11.8, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +3.1 vs value out +11.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.7 wins at the time; they realized +11.8 for the counterparty, so the pieces outperformed their marks, bad luck more than bad process."
 },
 {
 "d": "2022-08-02",
@@ -17231,11 +17889,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656353",
 "445926",
+"656353",
 "628452"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +7.3, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +7.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-11-19",
@@ -17268,7 +17926,7 @@ const AUTO_REGIMES = [
 "680570",
 "621493"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +2.2, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +2.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -17495,7 +18153,14 @@ const AUTO_REGIMES = [
 "pids": [
 "502171",
 "663330"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.8 vs value out -0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2020-12-07",
@@ -17527,7 +18192,14 @@ const AUTO_REGIMES = [
 "pids": [
 "628452",
 "598287"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-07-30",
@@ -17561,10 +18233,17 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"665625",
 "676083",
+"665625",
 "571760"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.3 vs value out -1.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -17598,7 +18277,14 @@ const AUTO_REGIMES = [
 "pids": [
 "681351",
 "669016"
-]
+],
+"att": {
+"out": 2.7,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +3.1 vs value out +11.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.7 wins at the time; they realized +11.8 for the counterparty, so the pieces outperformed their marks, bad luck more than bad process."
 },
 {
 "d": "2022-08-02",
@@ -17632,10 +18318,17 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656353",
 "445926",
+"656353",
 "628452"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +7.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-11-19",
@@ -17667,7 +18360,14 @@ const AUTO_REGIMES = [
 "pids": [
 "680570",
 "621493"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +2.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-11-23",
@@ -17709,7 +18409,14 @@ const AUTO_REGIMES = [
 "694372",
 "676083",
 "665625"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.8 vs value out +2.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-03-23",
@@ -17741,7 +18448,14 @@ const AUTO_REGIMES = [
 "pids": [
 "666120",
 "660761"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.1 vs value out +1.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -18542,7 +19256,7 @@ const AUTO_REGIMES = [
 "701604",
 "808717"
 ],
-"note": "Auto-scored: value in +2.3 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +2.3 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -18558,11 +19272,11 @@ const AUTO_REGIMES = [
 "Acquired (control-window value, leverage-weighted)",
 [
 [
-"Starlyn Caba",
+"Emaarion Boyd",
 "+0.0"
 ],
 [
-"Emaarion Boyd",
+"Starlyn Caba",
 "+0.0"
 ]
 ]
@@ -18582,12 +19296,12 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"806965",
 "702708",
+"806965",
 "682192",
 "666200"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +10.8, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +10.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +1.9 at the time."
 },
 {
 "d": "2024-07-27",
@@ -18625,12 +19339,12 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"682663",
 "800254",
 "691858",
+"682663",
 "665862"
 ],
-"note": "Auto-scored: value in +3.7 vs value out +10.2, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +3.7 vs value out +10.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-05-04",
@@ -18648,15 +19362,15 @@ const AUTO_REGIMES = [
 "+2.6"
 ],
 [
+"Nathan Martorella",
+"+0.0"
+],
+[
 "Woo-Suk Go",
 "+0.0"
 ],
 [
 "Dillon Head",
-"+0.0"
-],
-[
-"Nathan Martorella",
 "+0.0"
 ]
 ]
@@ -18672,13 +19386,13 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"808970",
-"702977",
 "805300",
 "687210",
+"808970",
+"702977",
 "650333"
 ],
-"note": "Auto-scored: value in +2.6 vs value out +8.8, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +2.6 vs value out +8.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -18759,7 +19473,14 @@ const AUTO_REGIMES = [
 "660644",
 "701604",
 "808717"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.3 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-03-26",
@@ -18790,7 +19511,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "663969"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.9 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-07-30",
@@ -18824,10 +19552,17 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"669065",
 "681393",
+"669065",
 "669432"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +5.4 vs value out +4.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-07-17",
@@ -18858,7 +19593,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "656848"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.3 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-12-30",
@@ -18890,7 +19632,14 @@ const AUTO_REGIMES = [
 "pids": [
 "665923",
 "830809"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.1 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -18906,11 +19655,11 @@ const AUTO_REGIMES = [
 "Acquired (control-window value, leverage-weighted)",
 [
 [
-"Starlyn Caba",
+"Emaarion Boyd",
 "+0.0"
 ],
 [
-"Emaarion Boyd",
+"Starlyn Caba",
 "+0.0"
 ]
 ]
@@ -18930,11 +19679,18 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"806965",
 "702708",
+"806965",
 "682192",
 "666200"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 1.9,
+"n_in": 1
+},
+"note": "Auto-scored: value in +0.0 vs value out +10.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +1.9 at the time."
 },
 {
 "d": "2024-07-27",
@@ -18972,11 +19728,18 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"682663",
 "800254",
 "691858",
+"682663",
 "665862"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +3.7 vs value out +10.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-05-04",
@@ -18994,15 +19757,15 @@ const AUTO_REGIMES = [
 "+2.6"
 ],
 [
+"Nathan Martorella",
+"+0.0"
+],
+[
 "Woo-Suk Go",
 "+0.0"
 ],
 [
 "Dillon Head",
-"+0.0"
-],
-[
-"Nathan Martorella",
 "+0.0"
 ]
 ]
@@ -19018,12 +19781,19 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"808970",
-"702977",
 "805300",
 "687210",
+"808970",
+"702977",
 "650333"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.6 vs value out +8.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2026-01-13",
@@ -19041,11 +19811,11 @@ const AUTO_REGIMES = [
 "+0.0"
 ],
 [
-"Dylan Jasso",
+"Dillon Lewis",
 "+0.0"
 ],
 [
-"Dillon Lewis",
+"Dylan Jasso",
 "+0.0"
 ],
 [
@@ -19066,11 +19836,18 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "801276",
-"815734",
 "827665",
+"815734",
 "800957",
 "677960"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +2.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-07-30",
@@ -19116,13 +19893,20 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"800049",
 "702281",
-"810891",
 "688363",
+"800049",
+"810891",
 "656945",
 "663773"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 3.4,
+"n_in": 1
+},
+"note": "Auto-scored: value in +0.0 vs value out +2.5, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +3.4 at the time."
 }
 ]
 },
@@ -19586,7 +20370,7 @@ const AUTO_REGIMES = [
 "676534",
 "443558"
 ],
-"note": "Auto-scored: value in +11.7 vs value out -0.1, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +11.7 vs value out -0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-03-13",
@@ -19624,7 +20408,7 @@ const AUTO_REGIMES = [
 "677868",
 "695534"
 ],
-"note": "Auto-scored: value in +11.0 vs value out -0.6, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +11.0 vs value out -0.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -19664,7 +20448,7 @@ const AUTO_REGIMES = [
 "668885",
 "621244"
 ],
-"note": "Auto-scored: value in +2.4 vs value out +9.9, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +2.4 vs value out +9.9, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +6.0 at the time."
 },
 {
 "d": "2018-07-27",
@@ -19702,7 +20486,7 @@ const AUTO_REGIMES = [
 "660896",
 "519151"
 ],
-"note": "Auto-scored: value in +0.7 vs value out +7.7, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.7 vs value out +7.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-04-30",
@@ -19734,7 +20518,7 @@ const AUTO_REGIMES = [
 "pids": [
 "656730"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +6.9, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +6.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -19971,7 +20755,14 @@ const AUTO_REGIMES = [
 "657746",
 "676534",
 "443558"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +11.7 vs value out -0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-03-13",
@@ -20008,7 +20799,14 @@ const AUTO_REGIMES = [
 "543243",
 "677868",
 "695534"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +11.0 vs value out -0.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2018-02-17",
@@ -20040,7 +20838,14 @@ const AUTO_REGIMES = [
 "pids": [
 "543606",
 "650339"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +5.7 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-01-20",
@@ -20078,11 +20883,18 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"641154",
 "691191",
+"641154",
 "805102",
 "650333"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +13.1 vs value out +8.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-04-07",
@@ -20124,7 +20936,14 @@ const AUTO_REGIMES = [
 "663978",
 "573124",
 "667670"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +6.1 vs value out +1.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -20163,7 +20982,14 @@ const AUTO_REGIMES = [
 "680573",
 "668885",
 "621244"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 6.0,
+"n_in": 2
+},
+"note": "Auto-scored: value in +2.4 vs value out +9.9, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +6.0 at the time."
 },
 {
 "d": "2018-07-27",
@@ -20200,7 +21026,14 @@ const AUTO_REGIMES = [
 "665482",
 "660896",
 "519151"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.7 vs value out +7.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-04-30",
@@ -20231,7 +21064,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "656730"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +6.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-08-02",
@@ -20273,7 +21113,14 @@ const AUTO_REGIMES = [
 "687952",
 "668715",
 "680727"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.4 vs value out +6.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-08-02",
@@ -20320,7 +21167,14 @@ const AUTO_REGIMES = [
 "693725",
 "666974",
 "700249"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.2 vs value out +6.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -21548,7 +22402,7 @@ const AUTO_REGIMES = [
 "623211",
 "702906"
 ],
-"note": "Auto-scored: value in +2.1 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +2.1 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-12-20",
@@ -21582,11 +22436,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"605288",
 "621438",
+"605288",
 "689441"
 ],
-"note": "Auto-scored: value in +2.0 vs value out +0.1, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +2.0 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-05-31",
@@ -21618,7 +22472,7 @@ const AUTO_REGIMES = [
 "pids": [
 "620443"
 ],
-"note": "Auto-scored: value in +1.5 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +1.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -21653,7 +22507,7 @@ const AUTO_REGIMES = [
 "686825",
 "686580"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +3.5, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +3.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-11-24",
@@ -21686,7 +22540,7 @@ const AUTO_REGIMES = [
 "543760",
 "607043"
 ],
-"note": "Auto-scored: value in -0.2 vs value out +1.8, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -0.2 vs value out +1.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-07-26",
@@ -21718,7 +22572,7 @@ const AUTO_REGIMES = [
 "pids": [
 "642121"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +1.8, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +1.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -21883,7 +22737,14 @@ const AUTO_REGIMES = [
 "pids": [
 "623211",
 "702906"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.1 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-12-20",
@@ -21917,10 +22778,17 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"605288",
 "621438",
+"605288",
 "689441"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.0 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-05-31",
@@ -21951,7 +22819,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "620443"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-07-09",
@@ -21982,7 +22857,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "664208"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-07-26",
@@ -22014,7 +22896,14 @@ const AUTO_REGIMES = [
 "pids": [
 "592773",
 "689041"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.9 vs value out -0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -22048,7 +22937,14 @@ const AUTO_REGIMES = [
 "pids": [
 "686825",
 "686580"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +3.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-11-24",
@@ -22080,7 +22976,14 @@ const AUTO_REGIMES = [
 "pids": [
 "543760",
 "607043"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.2 vs value out +1.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-07-26",
@@ -22111,7 +23014,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "642121"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +1.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-11-19",
@@ -22143,7 +23053,14 @@ const AUTO_REGIMES = [
 "pids": [
 "642350",
 "679358"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.6 vs value out +0.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-04-09",
@@ -22174,7 +23091,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "543859"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +0.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -23045,7 +23969,7 @@ const AUTO_REGIMES = [
 "544369",
 "572888"
 ],
-"note": "Auto-scored: value in +16.0 vs value out +2.5, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +16.0 vs value out +2.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2012-01-23",
@@ -23088,7 +24012,7 @@ const AUTO_REGIMES = [
 "524968",
 "456051"
 ],
-"note": "Auto-scored: value in +10.2 vs value out -1.9, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +10.2 vs value out -1.9, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +5.2 wins at the time; they realized -1.9 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome. Acquired ranked pieces were marked +5.0 at the time."
 },
 {
 "d": "2016-07-25",
@@ -23130,13 +24054,13 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"650402",
 "476589",
 "622197",
-"650402",
 "641856",
 "547973"
 ],
-"note": "Auto-scored: value in +12.1 vs value out +1.3, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +12.1 vs value out +1.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +5.5 at the time."
 }
 ],
 "worstTrades": [
@@ -23181,7 +24105,7 @@ const AUTO_REGIMES = [
 "457706",
 "457435"
 ],
-"note": "Auto-scored: value in +20.2 vs value out +34.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +20.2 vs value out +34.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -23439,7 +24363,14 @@ const AUTO_REGIMES = [
 "pids": [
 "544369",
 "572888"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +16.0 vs value out +2.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2012-01-23",
@@ -23481,7 +24412,14 @@ const AUTO_REGIMES = [
 "501381",
 "524968",
 "456051"
-]
+],
+"att": {
+"out": 5.2,
+"n_out": 1,
+"inn": 5.0,
+"n_in": 1
+},
+"note": "Auto-scored: value in +10.2 vs value out -1.9, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +5.2 wins at the time; they realized -1.9 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome. Acquired ranked pieces were marked +5.0 at the time."
 },
 {
 "d": "2016-07-25",
@@ -23523,12 +24461,19 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"650402",
 "476589",
 "622197",
-"650402",
 "641856",
 "547973"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 5.5,
+"n_in": 2
+},
+"note": "Auto-scored: value in +12.1 vs value out +1.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +5.5 at the time."
 },
 {
 "d": "2017-07-19",
@@ -23579,13 +24524,20 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "502085",
-"592454",
 "453943",
+"592454",
 "461325",
 "622738",
 "624420",
 "666164"
-]
+],
+"att": {
+"out": 3.3,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +9.8 vs value out +0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +3.3 wins at the time; they realized +0.2 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
 "d": "2015-11-11",
@@ -23617,7 +24569,14 @@ const AUTO_REGIMES = [
 "pids": [
 "543305",
 "571974"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +9.1 vs value out -0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -23661,7 +24620,14 @@ const AUTO_REGIMES = [
 "453178",
 "457706",
 "457435"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +20.2 vs value out +34.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2014-11-12",
@@ -23693,7 +24659,14 @@ const AUTO_REGIMES = [
 "pids": [
 "458677",
 "465041"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.6 vs value out +12.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-07-29",
@@ -23739,13 +24712,20 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"608336",
 "570257",
+"608336",
 "669386",
 "657248",
 "677649",
 "669701"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.4 vs value out +9.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2012-02-19",
@@ -23779,10 +24759,17 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"553870",
 "514981",
+"553870",
 "150359"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.1 vs value out +8.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2019-01-21",
@@ -23819,7 +24806,14 @@ const AUTO_REGIMES = [
 "643418",
 "543243",
 "665665"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +7.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -25247,7 +26241,7 @@ const AUTO_REGIMES = [
 "622246",
 "641924"
 ],
-"note": "Auto-scored: value in +10.4 vs value out +0.6, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +10.4 vs value out +0.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2015-11-25",
@@ -25280,7 +26274,7 @@ const AUTO_REGIMES = [
 "476704",
 "657680"
 ],
-"note": "Auto-scored: value in +9.4 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +9.4 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -25324,13 +26318,13 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"669127",
+"680743",
 "683155",
 "665506",
-"680743",
-"669127",
 "621566"
 ],
-"note": "Auto-scored: value in +7.2 vs value out +19.7, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +7.2 vs value out +19.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +7.7 at the time."
 },
 {
 "d": "2022-03-16",
@@ -25372,13 +26366,13 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656657",
-"669912",
 "680684",
 "675656",
+"656657",
+"669912",
 "656305"
 ],
-"note": "Auto-scored: value in -1.0 vs value out +10.8, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -1.0 vs value out +10.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-12-12",
@@ -25428,15 +26422,15 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"683690",
-"665923",
 "444489",
 "666205",
+"665923",
 "676206",
+"683690",
 "669221",
 "606303"
 ],
-"note": "Auto-scored: value in -0.2 vs value out +9.7, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -0.2 vs value out +9.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -25637,7 +26631,14 @@ const AUTO_REGIMES = [
 "501981",
 "622246",
 "641924"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +10.4 vs value out +0.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2015-11-25",
@@ -25669,7 +26670,14 @@ const AUTO_REGIMES = [
 "pids": [
 "476704",
 "657680"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +9.4 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2015-11-20",
@@ -25701,7 +26709,14 @@ const AUTO_REGIMES = [
 "pids": [
 "521230",
 "445926"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +6.5 vs value out +0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2017-11-20",
@@ -25733,7 +26748,14 @@ const AUTO_REGIMES = [
 "pids": [
 "657656",
 "669064"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +6.2 vs value out -0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-01-30",
@@ -25764,7 +26786,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "608344"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +4.1 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -25808,12 +26837,19 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"669127",
+"680743",
 "683155",
 "665506",
-"680743",
-"669127",
 "621566"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 7.7,
+"n_in": 2
+},
+"note": "Auto-scored: value in +7.2 vs value out +19.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +7.7 at the time."
 },
 {
 "d": "2022-03-16",
@@ -25855,12 +26891,19 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656657",
-"669912",
 "680684",
 "675656",
+"656657",
+"669912",
 "656305"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -1.0 vs value out +10.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-12-12",
@@ -25910,14 +26953,21 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"683690",
-"665923",
 "444489",
 "666205",
+"665923",
 "676206",
+"683690",
 "669221",
 "606303"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.2 vs value out +9.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2019-12-02",
@@ -25949,7 +26999,14 @@ const AUTO_REGIMES = [
 "pids": [
 "664119",
 "595777"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.0 vs value out +8.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2017-12-11",
@@ -25980,7 +27037,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "621563"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +7.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -27269,7 +28333,7 @@ const AUTO_REGIMES = [
 "702708",
 "806965"
 ],
-"note": "Auto-scored: value in +10.8 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +10.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +1.9 wins at the time; they realized +0.0 for the counterparty, so the outcome tracked the marks, this one is on the process."
 },
 {
 "d": "2022-08-02",
@@ -27302,7 +28366,7 @@ const AUTO_REGIMES = [
 "669016",
 "681351"
 ],
-"note": "Auto-scored: value in +11.8 vs value out +3.1, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +11.8 vs value out +3.1, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.7 at the time."
 },
 {
 "d": "2020-12-29",
@@ -27335,7 +28399,7 @@ const AUTO_REGIMES = [
 "621237",
 "664076"
 ],
-"note": "Auto-scored: value in +6.2 vs value out -0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +6.2 vs value out -0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -27370,7 +28434,7 @@ const AUTO_REGIMES = [
 "502085",
 "676962"
 ],
-"note": "Auto-scored: value in +0.6 vs value out +5.8, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.6 vs value out +5.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-01-07",
@@ -27412,13 +28476,13 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"642397",
 "665019",
+"642397",
 "665155",
 "663837",
 "664848"
 ],
-"note": "Auto-scored: value in +2.1 vs value out +6.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +2.1 vs value out +6.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -27686,7 +28750,14 @@ const AUTO_REGIMES = [
 "682192",
 "702708",
 "806965"
-]
+],
+"att": {
+"out": 1.9,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +10.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +1.9 wins at the time; they realized +0.0 for the counterparty, so the outcome tracked the marks, this one is on the process."
 },
 {
 "d": "2022-08-02",
@@ -27718,7 +28789,14 @@ const AUTO_REGIMES = [
 "pids": [
 "669016",
 "681351"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 2.7,
+"n_in": 1
+},
+"note": "Auto-scored: value in +11.8 vs value out +3.1, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.7 at the time."
 },
 {
 "d": "2020-12-29",
@@ -27750,7 +28828,14 @@ const AUTO_REGIMES = [
 "pids": [
 "621237",
 "664076"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +6.2 vs value out -0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-07-30",
@@ -27796,13 +28881,20 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"453178",
 "668968",
 "502043",
-"453178",
 "678622",
 "666151",
 "675921"
-]
+],
+"att": {
+"out": 3.1,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.3 vs value out -0.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +3.1 wins at the time; they realized -0.8 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
 "d": "2021-11-19",
@@ -27840,11 +28932,18 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656793",
 "664848",
+"656793",
 "683638",
 "681198"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.6 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -27878,7 +28977,14 @@ const AUTO_REGIMES = [
 "pids": [
 "502085",
 "676962"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.6 vs value out +5.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-01-07",
@@ -27920,12 +29026,19 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"642397",
 "665019",
+"642397",
 "665155",
 "663837",
 "664848"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.1 vs value out +6.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-08-01",
@@ -27957,7 +29070,14 @@ const AUTO_REGIMES = [
 "pids": [
 "666801",
 "663559"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.7 vs value out +1.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-03-26",
@@ -27988,7 +29108,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "663969"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +1.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-01-09",
@@ -28020,7 +29147,14 @@ const AUTO_REGIMES = [
 "pids": [
 "628708",
 "669062"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.3 vs value out +2.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -28956,11 +30090,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"682254",
 "664040",
+"682254",
 "663968"
 ],
-"note": "Auto-scored: value in +6.1 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +6.1 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-04-02",
@@ -28993,7 +30127,7 @@ const AUTO_REGIMES = [
 "663698",
 "814088"
 ],
-"note": "Auto-scored: value in +4.3 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +4.3 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -29033,7 +30167,7 @@ const AUTO_REGIMES = [
 "660829",
 "605280"
 ],
-"note": "Auto-scored: value in +0.3 vs value out +7.8, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.3 vs value out +7.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-01-19",
@@ -29055,7 +30189,7 @@ const AUTO_REGIMES = [
 "+1.3"
 ],
 [
-"Omar Cruz",
+"Hudson Head",
 "+0.0"
 ],
 [
@@ -29063,7 +30197,7 @@ const AUTO_REGIMES = [
 "+0.0"
 ],
 [
-"Hudson Head",
+"Omar Cruz",
 "+0.0"
 ]
 ]
@@ -29079,14 +30213,14 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"678316",
-"666148",
+"682848",
 "670280",
 "687431",
-"682848",
+"666148",
+"678316",
 "605397"
 ],
-"note": "Auto-scored: value in +5.6 vs value out +12.1, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +5.6 vs value out +12.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-01-24",
@@ -29128,13 +30262,13 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"664337",
-"683500",
 "672710",
 "675986",
+"683500",
+"664337",
 "592791"
 ],
-"note": "Auto-scored: value in -0.1 vs value out +4.9, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -0.1 vs value out +4.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -29398,10 +30532,17 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"682254",
 "664040",
+"682254",
 "663968"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +6.1 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-04-02",
@@ -29433,7 +30574,14 @@ const AUTO_REGIMES = [
 "pids": [
 "663698",
 "814088"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +4.3 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-12-18",
@@ -29465,7 +30613,14 @@ const AUTO_REGIMES = [
 "pids": [
 "656582",
 "694356"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.1 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-08-01",
@@ -29497,7 +30652,14 @@ const AUTO_REGIMES = [
 "pids": [
 "663559",
 "666801"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.2 vs value out -0.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-12-10",
@@ -29539,7 +30701,14 @@ const AUTO_REGIMES = [
 "691776",
 "682847",
 "702604"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +3.2 vs value out +1.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -29578,7 +30747,14 @@ const AUTO_REGIMES = [
 "660636",
 "660829",
 "605280"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.3 vs value out +7.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-01-19",
@@ -29600,7 +30776,7 @@ const AUTO_REGIMES = [
 "+1.3"
 ],
 [
-"Omar Cruz",
+"Hudson Head",
 "+0.0"
 ],
 [
@@ -29608,7 +30784,7 @@ const AUTO_REGIMES = [
 "+0.0"
 ],
 [
-"Hudson Head",
+"Omar Cruz",
 "+0.0"
 ]
 ]
@@ -29624,13 +30800,20 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"678316",
-"666148",
+"682848",
 "670280",
 "687431",
-"682848",
+"666148",
+"678316",
 "605397"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +5.6 vs value out +12.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-01-24",
@@ -29672,12 +30855,19 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"664337",
-"683500",
 "672710",
 "675986",
+"683500",
+"664337",
 "592791"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.1 vs value out +4.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-08-01",
@@ -29719,7 +30909,14 @@ const AUTO_REGIMES = [
 "670912",
 "608717",
 "500779"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.0 vs value out +4.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-07-31",
@@ -29737,11 +30934,11 @@ const AUTO_REGIMES = [
 "+0.5"
 ],
 [
-"Edgleen Perez",
+"Brian Sanchez",
 "+0.0"
 ],
 [
-"Brian Sanchez",
+"Edgleen Perez",
 "+0.0"
 ]
 ]
@@ -29757,11 +30954,18 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"804668",
-"814297",
 "809331",
+"814297",
+"804668",
 "670280"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.5 vs value out +3.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -30796,12 +32000,12 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"502054",
 "630105",
+"502054",
 "669364",
 "592669"
 ],
-"note": "Auto-scored: value in +14.9 vs value out -0.2, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +14.9 vs value out -0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.1 wins at the time; they realized -0.2 for the counterparty, so the outcome tracked the marks, this one is on the process."
 },
 {
 "d": "2019-12-06",
@@ -30833,7 +32037,7 @@ const AUTO_REGIMES = [
 "pids": [
 "630105"
 ],
-"note": "Auto-scored: value in +13.6 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +13.6 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-03-13",
@@ -30881,7 +32085,7 @@ const AUTO_REGIMES = [
 "694214",
 "621051"
 ],
-"note": "Auto-scored: value in +12.4 vs value out -0.3, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +12.4 vs value out -0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +1.8 wins at the time; they realized -0.3 for the counterparty, so the outcome tracked the marks, this one is on the process."
 }
 ],
 "worstTrades": [
@@ -30915,7 +32119,7 @@ const AUTO_REGIMES = [
 "pids": [
 "607208"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +20.7, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +20.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.4 wins at the time; they realized +20.7 for the counterparty, so the pieces outperformed their marks, bad luck more than bad process."
 },
 {
 "d": "2020-08-31",
@@ -30965,15 +32169,15 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656186",
-"613534",
 "543592",
+"613534",
+"656186",
 "620443",
 "662253",
 "664034",
 "666211"
 ],
-"note": "Auto-scored: value in +4.3 vs value out +22.2, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +4.3 vs value out +22.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.5 wins at the time; they realized +22.2 for the counterparty, so the pieces outperformed their marks, bad luck more than bad process."
 },
 {
 "d": "2014-12-18",
@@ -31015,13 +32219,13 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"461314",
 "543148",
+"461314",
 "621107",
 "518735",
 "543921"
 ],
-"note": "Auto-scored: value in +3.7 vs value out +17.7, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +3.7 vs value out +17.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -31285,11 +32489,18 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"502054",
 "630105",
+"502054",
 "669364",
 "592669"
-]
+],
+"att": {
+"out": 2.1,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +14.9 vs value out -0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.1 wins at the time; they realized -0.2 for the counterparty, so the outcome tracked the marks, this one is on the process."
 },
 {
 "d": "2019-12-06",
@@ -31320,7 +32531,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "630105"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +13.6 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-03-13",
@@ -31367,7 +32585,14 @@ const AUTO_REGIMES = [
 "683568",
 "694214",
 "621051"
-]
+],
+"att": {
+"out": 1.8,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +12.4 vs value out -0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +1.8 wins at the time; they realized -0.3 for the counterparty, so the outcome tracked the marks, this one is on the process."
 },
 {
 "d": "2020-12-29",
@@ -31417,14 +32642,21 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"506433",
 "605170",
+"506433",
 "691262",
 "691190",
 "605200",
 "678220",
 "683357"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +11.9 vs value out -0.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2016-06-04",
@@ -31458,10 +32690,17 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"665487",
 "605304",
+"665487",
 "448306"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +6.9 vs value out -3.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -31494,7 +32733,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "607208"
-]
+],
+"att": {
+"out": 2.4,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +20.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.4 wins at the time; they realized +20.7 for the counterparty, so the pieces outperformed their marks, bad luck more than bad process."
 },
 {
 "d": "2020-08-31",
@@ -31544,14 +32790,21 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656186",
-"613534",
 "543592",
+"613534",
+"656186",
 "620443",
 "662253",
 "664034",
 "666211"
-]
+],
+"att": {
+"out": 2.5,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +4.3 vs value out +22.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.5 wins at the time; they realized +22.2 for the counterparty, so the pieces outperformed their marks, bad luck more than bad process."
 },
 {
 "d": "2014-12-18",
@@ -31593,12 +32846,19 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"461314",
 "543148",
+"461314",
 "621107",
 "518735",
 "543921"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +3.7 vs value out +17.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-08-02",
@@ -31660,7 +32920,14 @@ const AUTO_REGIMES = [
 "695578",
 "703186",
 "572228"
-]
+],
+"att": {
+"out": 10.7,
+"n_out": 3,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +9.9 vs value out +19.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 3 ranked piece(s) surrendered carried a Pipeline mark of about +10.7 wins at the time; they realized +19.7 for the counterparty, so the pieces outperformed their marks, bad luck more than bad process."
 },
 {
 "d": "2015-12-08",
@@ -31692,7 +32959,14 @@ const AUTO_REGIMES = [
 "pids": [
 "445055",
 "576397"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.8 vs value out +10.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -33090,7 +34364,7 @@ const AUTO_REGIMES = [
 "690986",
 "808366"
 ],
-"note": "Auto-scored: value in +3.4 vs value out +0.3, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +3.4 vs value out +0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +4.1 wins at the time; they realized +0.3 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 }
 ],
 "worstTrades": [
@@ -33125,7 +34399,7 @@ const AUTO_REGIMES = [
 "805074",
 "573262"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +1.7, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +1.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -33367,7 +34641,14 @@ const AUTO_REGIMES = [
 "696486",
 "690986",
 "808366"
-]
+],
+"att": {
+"out": 4.1,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +3.4 vs value out +0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +4.1 wins at the time; they realized +0.3 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 }
 ],
 "worst": [
@@ -33401,7 +34682,14 @@ const AUTO_REGIMES = [
 "pids": [
 "805074",
 "573262"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +1.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -33844,15 +35132,15 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"620443",
 "666211",
-"662253",
+"620443",
 "664034",
+"662253",
 "656186",
 "613534",
 "543592"
 ],
-"note": "Auto-scored: value in +22.2 vs value out +4.3, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +22.2 vs value out +4.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.5 at the time."
 },
 {
 "d": "2022-07-30",
@@ -33900,7 +35188,7 @@ const AUTO_REGIMES = [
 "681097",
 "686651"
 ],
-"note": "Auto-scored: value in +16.0 vs value out +1.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +16.0 vs value out +1.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +5.3 wins at the time; they realized +1.0 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 }
 ],
 "worstTrades": [
@@ -33945,7 +35233,7 @@ const AUTO_REGIMES = [
 "642232",
 "605480"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +14.4, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +14.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2016-06-19",
@@ -33978,7 +35266,7 @@ const AUTO_REGIMES = [
 "545346",
 "621035"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +12.1, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +12.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2018-12-03",
@@ -34028,15 +35316,15 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"457803",
 "672284",
 "461872",
-"457803",
-"639373",
 "643290",
+"639373",
 "429664",
 "621242"
 ],
-"note": "Auto-scored: value in -0.8 vs value out +8.6, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -0.8 vs value out +8.6, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +4.2 at the time."
 }
 ],
 "bestAcq": [
@@ -34312,14 +35600,21 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"620443",
 "666211",
-"662253",
+"620443",
 "664034",
+"662253",
 "656186",
 "613534",
 "543592"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 2.5,
+"n_in": 1
+},
+"note": "Auto-scored: value in +22.2 vs value out +4.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.5 at the time."
 },
 {
 "d": "2022-07-30",
@@ -34366,7 +35661,14 @@ const AUTO_REGIMES = [
 "695490",
 "681097",
 "686651"
-]
+],
+"att": {
+"out": 5.3,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +16.0 vs value out +1.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +5.3 wins at the time; they realized +1.0 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
 "d": "2024-07-26",
@@ -34403,7 +35705,14 @@ const AUTO_REGIMES = [
 "668227",
 "811315",
 "806223"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +8.6 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2019-03-29",
@@ -34435,7 +35744,14 @@ const AUTO_REGIMES = [
 "pids": [
 "608596",
 "675196"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +5.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2020-09-17",
@@ -34466,7 +35782,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "666374"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +5.7 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -34510,7 +35833,14 @@ const AUTO_REGIMES = [
 "665799",
 "642232",
 "605480"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +14.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2016-06-19",
@@ -34542,7 +35872,14 @@ const AUTO_REGIMES = [
 "pids": [
 "545346",
 "621035"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +12.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2018-12-03",
@@ -34592,14 +35929,21 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"457803",
 "672284",
 "461872",
-"457803",
-"639373",
 "643290",
+"639373",
 "429664",
 "621242"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 4.2,
+"n_in": 2
+},
+"note": "Auto-scored: value in -0.8 vs value out +8.6, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +4.2 at the time."
 },
 {
 "d": "2015-11-05",
@@ -34651,7 +35995,14 @@ const AUTO_REGIMES = [
 "543543",
 "489149",
 "543144"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.8 vs value out +8.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-11-22",
@@ -34688,7 +36039,14 @@ const AUTO_REGIMES = [
 "664874",
 "672841",
 "553993"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.6 vs value out +6.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -35874,7 +37232,7 @@ const AUTO_REGIMES = [
 "666277",
 "701552"
 ],
-"note": "Auto-scored: value in +0.9 vs value out -0.5, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.9 vs value out -0.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2026-01-06",
@@ -35906,7 +37264,7 @@ const AUTO_REGIMES = [
 "pids": [
 "677865"
 ],
-"note": "Auto-scored: value in +0.9 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.9 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -35951,7 +37309,7 @@ const AUTO_REGIMES = [
 "690928",
 "575929"
 ],
-"note": "Auto-scored: value in +0.3 vs value out +5.3, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.3 vs value out +5.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-11-25",
@@ -35965,11 +37323,11 @@ const AUTO_REGIMES = [
 "Acquired (control-window value, leverage-weighted)",
 [
 [
-"Richard Fitts",
+"Brandon Clarke",
 "+0.0"
 ],
 [
-"Brandon Clarke",
+"Richard Fitts",
 "+0.0"
 ]
 ]
@@ -35985,11 +37343,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"690916",
 "700251",
+"690916",
 "543243"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +2.8, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +2.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2026-01-13",
@@ -36022,7 +37380,7 @@ const AUTO_REGIMES = [
 "822956",
 "571448"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +2.6, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +2.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -36093,7 +37451,14 @@ const AUTO_REGIMES = [
 "pids": [
 "666277",
 "701552"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.9 vs value out -0.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2026-01-06",
@@ -36124,7 +37489,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "677865"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.9 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -36168,7 +37540,14 @@ const AUTO_REGIMES = [
 "820832",
 "690928",
 "575929"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.3 vs value out +5.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-11-25",
@@ -36182,11 +37561,11 @@ const AUTO_REGIMES = [
 "Acquired (control-window value, leverage-weighted)",
 [
 [
-"Richard Fitts",
+"Brandon Clarke",
 "+0.0"
 ],
 [
-"Brandon Clarke",
+"Richard Fitts",
 "+0.0"
 ]
 ]
@@ -36202,10 +37581,17 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"690916",
 "700251",
+"690916",
 "543243"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +2.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2026-01-13",
@@ -36237,7 +37623,14 @@ const AUTO_REGIMES = [
 "pids": [
 "822956",
 "571448"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +2.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2026-02-02",
@@ -36251,15 +37644,15 @@ const AUTO_REGIMES = [
 "Acquired (control-window value, leverage-weighted)",
 [
 [
+"Colton Ledbetter",
+"+0.0"
+],
+[
 "Jurrangelo Cijntje",
 "+0.0"
 ],
 [
 "Tai Peete",
-"+0.0"
-],
-[
-"Colton Ledbetter",
 "+0.0"
 ]
 ]
@@ -36275,11 +37668,18 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"807742",
 "701388",
 "806191",
-"807742",
 "680977"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +1.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -36489,7 +37889,7 @@ const AUTO_REGIMES = [
 "640457",
 "502042"
 ],
-"note": "Auto-scored: value in +17.4 vs value out +0.8, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +17.4 vs value out +0.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +8.6 at the time."
 },
 {
 "d": "2017-01-11",
@@ -36528,11 +37928,11 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "605480",
-"642232",
 "665799",
+"642232",
 "592767"
 ],
-"note": "Auto-scored: value in +14.4 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +14.4 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-04-05",
@@ -36565,7 +37965,7 @@ const AUTO_REGIMES = [
 "670623",
 "640457"
 ],
-"note": "Auto-scored: value in +12.1 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +12.1 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -36610,7 +38010,7 @@ const AUTO_REGIMES = [
 "630105",
 "502054"
 ],
-"note": "Auto-scored: value in -0.2 vs value out +14.9, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -0.2 vs value out +14.9, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.1 at the time."
 },
 {
 "d": "2021-07-22",
@@ -36653,7 +38053,7 @@ const AUTO_REGIMES = [
 "657746",
 "675977"
 ],
-"note": "Auto-scored: value in -0.1 vs value out +11.7, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -0.1 vs value out +11.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -36854,7 +38254,14 @@ const AUTO_REGIMES = [
 "607192",
 "640457",
 "502042"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 8.6,
+"n_in": 2
+},
+"note": "Auto-scored: value in +17.4 vs value out +0.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +8.6 at the time."
 },
 {
 "d": "2017-01-11",
@@ -36893,10 +38300,17 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "605480",
-"642232",
 "665799",
+"642232",
 "592767"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +14.4 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-04-05",
@@ -36928,7 +38342,14 @@ const AUTO_REGIMES = [
 "pids": [
 "670623",
 "640457"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +12.1 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2018-12-13",
@@ -36965,7 +38386,14 @@ const AUTO_REGIMES = [
 "650490",
 "642121",
 "641343"
-]
+],
+"att": {
+"out": 2.3,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +9.7 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.3 wins at the time; they realized +0.0 for the counterparty, so the outcome tracked the marks, this one is on the process."
 },
 {
 "d": "2020-01-09",
@@ -37007,7 +38435,14 @@ const AUTO_REGIMES = [
 "500874",
 "669461",
 "678614"
-]
+],
+"att": {
+"out": 2.5,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +12.4 vs value out +2.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.5 wins at the time; they realized +2.8 for the counterparty, so the outcome tracked the marks, this one is on the process."
 }
 ],
 "worst": [
@@ -37051,7 +38486,14 @@ const AUTO_REGIMES = [
 "669364",
 "630105",
 "502054"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 2.1,
+"n_in": 1
+},
+"note": "Auto-scored: value in -0.2 vs value out +14.9, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.1 at the time."
 },
 {
 "d": "2021-07-22",
@@ -37093,7 +38535,14 @@ const AUTO_REGIMES = [
 "443558",
 "657746",
 "675977"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.1 vs value out +11.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-05-21",
@@ -37131,11 +38580,18 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656420",
 "656876",
+"656420",
 "670950",
 "642715"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +15.0 vs value out +23.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-07-26",
@@ -37172,7 +38628,14 @@ const AUTO_REGIMES = [
 "806223",
 "811315",
 "668227"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +8.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2020-12-29",
@@ -37214,12 +38677,19 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"677961",
-"642336",
-"675448",
 "672715",
+"675448",
+"642336",
+"677961",
 "605483"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 4.4,
+"n_in": 1
+},
+"note": "Auto-scored: value in +2.7 vs value out +10.9, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +4.4 at the time."
 }
 ]
 },
@@ -38428,13 +39898,13 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656756",
 "608717",
+"656756",
 "667463",
 "695336",
 "694358"
 ],
-"note": "Auto-scored: value in +3.4 vs value out +0.8, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +3.4 vs value out +0.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2026-01-22",
@@ -38487,7 +39957,7 @@ const AUTO_REGIMES = [
 "694673",
 "800393"
 ],
-"note": "Auto-scored: value in +2.7 vs value out +0.1, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +2.7 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 2 ranked piece(s) surrendered carried a Pipeline mark of about +4.6 wins at the time; they realized +0.1 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
 "d": "2025-11-24",
@@ -38520,7 +39990,7 @@ const AUTO_REGIMES = [
 "607043",
 "543760"
 ],
-"note": "Auto-scored: value in +1.8 vs value out -0.2, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +1.8 vs value out -0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -38554,7 +40024,7 @@ const AUTO_REGIMES = [
 "pids": [
 "670036"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +3.1, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +3.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-01-02",
@@ -38587,7 +40057,7 @@ const AUTO_REGIMES = [
 "695766",
 "681982"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +2.1, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +2.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -38824,12 +40294,19 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656756",
 "608717",
+"656756",
 "667463",
 "695336",
 "694358"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +3.4 vs value out +0.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2026-01-22",
@@ -38881,7 +40358,14 @@ const AUTO_REGIMES = [
 "803849",
 "694673",
 "800393"
-]
+],
+"att": {
+"out": 4.6,
+"n_out": 2,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.7 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 2 ranked piece(s) surrendered carried a Pipeline mark of about +4.6 wins at the time; they realized +0.1 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
 "d": "2025-11-24",
@@ -38913,7 +40397,14 @@ const AUTO_REGIMES = [
 "pids": [
 "607043",
 "543760"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.8 vs value out -0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-12-22",
@@ -38945,7 +40436,14 @@ const AUTO_REGIMES = [
 "pids": [
 "676395",
 "663993"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +1.5 vs value out -0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-07-30",
@@ -38977,7 +40475,14 @@ const AUTO_REGIMES = [
 "pids": [
 "453286",
 "682668"
-]
+],
+"att": {
+"out": 2.1,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +2.3 vs value out +0.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.1 wins at the time; they realized +0.8 for the counterparty, so the outcome tracked the marks, this one is on the process."
 }
 ],
 "worst": [
@@ -39010,7 +40515,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "670036"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +3.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2025-01-02",
@@ -39042,7 +40554,14 @@ const AUTO_REGIMES = [
 "pids": [
 "695766",
 "681982"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +2.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2024-07-29",
@@ -39074,7 +40593,14 @@ const AUTO_REGIMES = [
 "pids": [
 "679156",
 "547179"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.2 vs value out +2.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -39782,11 +41308,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"493114",
 "606192",
+"493114",
 "434538"
 ],
-"note": "Auto-scored: value in +12.3 vs value out +0.2, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +12.3 vs value out +0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-03-16",
@@ -39834,7 +41360,7 @@ const AUTO_REGIMES = [
 "675656",
 "656657"
 ],
-"note": "Auto-scored: value in +10.8 vs value out -0.5, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +10.8 vs value out -0.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-07-30",
@@ -39872,7 +41398,7 @@ const AUTO_REGIMES = [
 "668885",
 "680573"
 ],
-"note": "Auto-scored: value in +9.9 vs value out +2.4, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +9.9 vs value out +2.4, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 2 ranked piece(s) surrendered carried a Pipeline mark of about +6.0 wins at the time; they realized +2.4 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 }
 ],
 "worstTrades": [
@@ -39912,7 +41438,7 @@ const AUTO_REGIMES = [
 "666971",
 "672515"
 ],
-"note": "Auto-scored: value in +5.5 vs value out +18.1, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +5.5 vs value out +18.1, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +6.0 wins at the time; they realized +18.1 for the counterparty, so the pieces outperformed their marks, bad luck more than bad process."
 },
 {
 "d": "2018-08-04",
@@ -39944,7 +41470,7 @@ const AUTO_REGIMES = [
 "pids": [
 "570482"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +6.4, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +6.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -40204,10 +41730,17 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"493114",
 "606192",
+"493114",
 "434538"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +12.3 vs value out +0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2022-03-16",
@@ -40254,7 +41787,14 @@ const AUTO_REGIMES = [
 "669912",
 "675656",
 "656657"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +10.8 vs value out -0.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-07-30",
@@ -40291,7 +41831,14 @@ const AUTO_REGIMES = [
 "621244",
 "668885",
 "680573"
-]
+],
+"att": {
+"out": 6.0,
+"n_out": 2,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +9.9 vs value out +2.4, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 2 ranked piece(s) surrendered carried a Pipeline mark of about +6.0 wins at the time; they realized +2.4 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
 "d": "2020-08-31",
@@ -40323,7 +41870,14 @@ const AUTO_REGIMES = [
 "pids": [
 "592662",
 "664157"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +5.4 vs value out -0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2021-06-29",
@@ -40361,11 +41915,18 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"643256",
 "572816",
+"643256",
 "605412",
 "687534"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +4.0 vs value out -0.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -40404,7 +41965,14 @@ const AUTO_REGIMES = [
 "662139",
 "666971",
 "672515"
-]
+],
+"att": {
+"out": 6.0,
+"n_out": 1,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +5.5 vs value out +18.1, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +6.0 wins at the time; they realized +18.1 for the counterparty, so the pieces outperformed their marks, bad luck more than bad process."
 },
 {
 "d": "2018-08-04",
@@ -40435,7 +42003,14 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "570482"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +6.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-08-01",
@@ -40467,7 +42042,14 @@ const AUTO_REGIMES = [
 "pids": [
 "657557",
 "694335"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -1.5 vs value out +2.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2019-07-28",
@@ -40504,7 +42086,14 @@ const AUTO_REGIMES = [
 "680573",
 "641743",
 "573186"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.4 vs value out +3.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2023-07-26",
@@ -40536,7 +42125,14 @@ const AUTO_REGIMES = [
 "pids": [
 "669200",
 "663423"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.0 vs value out +2.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
@@ -41855,7 +43451,7 @@ const AUTO_REGIMES = [
 "678554",
 "695722"
 ],
-"note": "Auto-scored: value in +4.2 vs value out +0.0, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +4.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worstTrades": [
@@ -41875,15 +43471,15 @@ const AUTO_REGIMES = [
 "+0.1"
 ],
 [
-"Gavin Fien",
-"+0.0"
-],
-[
 "Devin Fitz-Gerald",
 "+0.0"
 ],
 [
 "Yeremy Cabrera",
+"+0.0"
+],
+[
+"Gavin Fien",
 "+0.0"
 ],
 [
@@ -41903,14 +43499,14 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"815818",
 "694673",
 "803849",
 "800393",
+"815818",
 "691730",
 "669022"
 ],
-"note": "Auto-scored: value in +0.1 vs value out +2.7, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.1 vs value out +2.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +4.6 at the time."
 },
 {
 "d": "2025-12-15",
@@ -41943,7 +43539,7 @@ const AUTO_REGIMES = [
 "691384",
 "687562"
 ],
-"note": "Auto-scored: value in +0.0 vs value out +2.1, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in +0.0 vs value out +2.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2026-02-10",
@@ -41976,7 +43572,7 @@ const AUTO_REGIMES = [
 "701552",
 "666277"
 ],
-"note": "Auto-scored: value in -0.5 vs value out +0.9, control windows (value counts while the player stays with the club, 6-season cap), each delivered season weighted by win-curve leverage at the receiving club and discounted 10%/yr to the deal date."
+"note": "Auto-scored: value in -0.5 vs value out +0.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "bestAcq": [
@@ -42141,7 +43737,14 @@ const AUTO_REGIMES = [
 "pids": [
 "678554",
 "695722"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +4.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
 "worst": [
@@ -42161,15 +43764,15 @@ const AUTO_REGIMES = [
 "+0.1"
 ],
 [
-"Gavin Fien",
-"+0.0"
-],
-[
 "Devin Fitz-Gerald",
 "+0.0"
 ],
 [
 "Yeremy Cabrera",
+"+0.0"
+],
+[
+"Gavin Fien",
 "+0.0"
 ],
 [
@@ -42189,13 +43792,20 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"815818",
 "694673",
 "803849",
 "800393",
+"815818",
 "691730",
 "669022"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 4.6,
+"n_in": 2
+},
+"note": "Auto-scored: value in +0.1 vs value out +2.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +4.6 at the time."
 },
 {
 "d": "2025-12-15",
@@ -42227,7 +43837,14 @@ const AUTO_REGIMES = [
 "pids": [
 "691384",
 "687562"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in +0.0 vs value out +2.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
 "d": "2026-02-10",
@@ -42259,7 +43876,14 @@ const AUTO_REGIMES = [
 "pids": [
 "701552",
 "666277"
-]
+],
+"att": {
+"out": 0,
+"n_out": 0,
+"inn": 0,
+"n_in": 0
+},
+"note": "Auto-scored: value in -0.5 vs value out +0.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
 },
