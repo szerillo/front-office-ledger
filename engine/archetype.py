@@ -167,7 +167,7 @@ for reg in cfg["regimes"]:
             if key in seen: continue
             seen.add(key)
             vin = sum(val_control(x["person_id"], names, yr) for x in rs
-                      if x["to_team"] in names and x["person_id"])
+                      if x["to_team"] in names and x["person_id"] and NAME2TID.get(x["from_team"]) == opp)
             vout = sum(val_control(x["person_id"], {x["to_team"]}, yr) for x in rs
                        if x["from_team"] in names and x["person_id"] and NAME2TID.get(x["to_team"]) == opp)
             h2h[(tid, opp)]["n"] += 1
