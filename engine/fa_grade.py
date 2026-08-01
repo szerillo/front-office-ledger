@@ -26,7 +26,7 @@ cfg = json.load(open("/home/claude/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 REG = {r["teamId"]: r for r in cfg["regimes"]}
 ABBR2TID = {r["abbr"]: r["teamId"] for r in cfg["regimes"]}
-LVM = json.load(open("/home/claude/lvm_cache.json"))
+LVM = {k: v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
 
 # contracts: key (player_norm, offseason) -> (tid, years, total)
 contracts = defaultdict(list)

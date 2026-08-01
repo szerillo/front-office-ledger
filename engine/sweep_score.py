@@ -127,7 +127,7 @@ for reg in cfg["regimes"]:
 print(f"universe: {len(universe)} persons", flush=True)
 import os
 if os.path.exists("/home/claude/lvm_cache.json"):
-    LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items()}
+    LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
     missing = sorted(universe - set(LVM))
     if missing: LVM.update(player_team_seasons(missing))
 else:

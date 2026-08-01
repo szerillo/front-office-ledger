@@ -31,7 +31,7 @@ from collections import defaultdict
 cfg = json.load(open("/home/claude/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 REG = {r["teamId"]: r for r in cfg["regimes"]}
-LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items()}
+LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
 con = sqlite3.connect("/home/claude/ledger.sqlite"); con.row_factory = sqlite3.Row
 
 # FA declarations: pid -> [dates]

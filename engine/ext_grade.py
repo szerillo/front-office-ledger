@@ -38,7 +38,7 @@ cfg = json.load(open("/home/claude/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 REG = {r["teamId"]: r for r in cfg["regimes"]}
 ABBR2TID = {r["abbr"]: r["teamId"] for r in cfg["regimes"]}
-LVM = json.load(open("/home/claude/lvm_cache.json"))
+LVM = {k: v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
 NAME2PIDS = {}
 for pid, rec in LVM.items():
     NAME2PIDS.setdefault(norm(rec.get("name", "")), []).append(pid)
@@ -50,7 +50,7 @@ FEED2PIDS = {}
 for nm, pid in con2.execute("select distinct person_name, person_id from sweep_tx where person_id is not null and person_name is not null"):
     FEED2PIDS.setdefault(norm(nm), []).append(str(pid))
 EXTCACHE_P = "/home/claude/ext_lvm_cache.json"
-EXTCACHE = json.load(open(EXTCACHE_P)) if os.path.exists(EXTCACHE_P) else {}
+EXTCACHE = {k: v for k, v in (json.load(open(EXTCACHE_P)) if os.path.exists(EXTCACHE_P) else {}).items() if not str(k).startswith("__")}
 
 def resolve(player, tid, sy, yrs):
     """Same-name players exist (two Jose Ramirezes, two Will Smiths):
