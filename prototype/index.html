@@ -385,7 +385,7 @@
     </div>
   </section>
 
-  <footer>Front Office Ledger · prototype v2.5 · Ledger WAR v1 (defense via SABR Defensive Index where published, Statcast fielding runs + catcher framing elsewhere, Statcast baserunning; pre-2014 seasons remain bat-only, disclosed) · process-vs-outcome verdicts on trades · transaction trees auto-generated for all 30 regimes · decision chains as inline trees (each piece's next move on this regime's ledger, expandable in place) · at-the-time snapshots (contemporaneous Pipeline ranks) · comprehensive per-channel card ledgers · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · all leaderboard and card values computed end-to-end from the live feed; curated decision pages on the Dodgers, Orioles, and Brewers cards are hand-verified. Illustrative values persist only where labeled (Archive-era leaderboard rows). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
+  <footer>Front Office Ledger · prototype v2.6 · Regime DNA (archetype tags, arms/bats channel splits, mover development deltas) · Ledger WAR v1 (defense via SABR Defensive Index where published, Statcast fielding runs + catcher framing elsewhere, Statcast baserunning; pre-2014 seasons remain bat-only, disclosed) · process-vs-outcome verdicts on trades · transaction trees auto-generated for all 30 regimes · decision chains as inline trees (each piece's next move on this regime's ledger, expandable in place) · at-the-time snapshots (contemporaneous Pipeline ranks) · comprehensive per-channel card ledgers · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · all leaderboard and card values computed end-to-end from the live feed; curated decision pages on the Dodgers, Orioles, and Brewers cards are hand-verified. Illustrative values persist only where labeled (Archive-era leaderboard rows). Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
 </div>
 
 <!-- decision modal -->
@@ -1234,9 +1234,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"670370",
-"596133",
 "608348",
+"596133",
+"670370",
 "502671"
 ],
 "note": "Auto-scored: value in +9.4 vs value out +22.1, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.9 at the time."
@@ -1794,9 +1794,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"670370",
-"596133",
 "608348",
+"596133",
+"670370",
 "502671"
 ],
 "att": {
@@ -3151,6 +3151,42 @@ const AUTO_REGIMES = [
 "455104"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": -2.5,
+"bat": 14.3
+},
+"trade_in": {
+"pit": 25.1,
+"bat": 69.4
+},
+"trade_out": {
+"pit": 24.2,
+"bat": 73.2
+},
+"waiver": {
+"pit": -7.1,
+"bat": 7.8
+},
+"fa": {
+"pit": -20.8,
+"bat": 5.1
+},
+"devDef": {
+"v": null,
+"n": 4
+},
+"devPit": {
+"v": 0.19,
+"n": 47
+}
+},
+"dnaTags": [
+"Pitching lab",
+"Drafts bats",
+"Trades for bats",
+"Signs bats well"
 ]
 },
 {
@@ -3994,11 +4030,11 @@ const AUTO_REGIMES = [
 "+3.3"
 ],
 [
-"Adri\u00e1n Gonz\u00e1lez",
+"Scott Kazmir",
 "+0.0"
 ],
 [
-"Scott Kazmir",
+"Adri\u00e1n Gonz\u00e1lez",
 "+0.0"
 ],
 [
@@ -4018,10 +4054,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"408236",
 "518586",
-"435221",
 "431148",
+"408236",
+"435221",
 "461314"
 ],
 "att": {
@@ -5288,6 +5324,41 @@ const AUTO_REGIMES = [
 "455119"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": 14.8,
+"bat": 10.2
+},
+"trade_in": {
+"pit": 35.3,
+"bat": 64.7
+},
+"trade_out": {
+"pit": 7.0,
+"bat": 27.0
+},
+"waiver": {
+"pit": 2.9,
+"bat": -1.4
+},
+"fa": {
+"pit": -6.1,
+"bat": 5.0
+},
+"devDef": {
+"v": 0.8,
+"n": 12
+},
+"devPit": {
+"v": 0.14,
+"n": 42
+}
+},
+"dnaTags": [
+"Draft machine, both sides",
+"Trades for bats",
+"Signs bats well"
 ]
 },
 {
@@ -5940,8 +6011,8 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "690916",
-"669711",
 "700113",
+"669711",
 "657077"
 ],
 "att": {
@@ -6112,9 +6183,9 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "808366",
-"690986",
 "696486",
 "663855",
+"690986",
 "646240"
 ],
 "att": {
@@ -6169,9 +6240,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"678011",
 "702332",
 "655316",
+"678011",
 "675660",
 "690986",
 "666152"
@@ -6640,6 +6711,40 @@ const AUTO_REGIMES = [
 "608324"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": 1.8,
+"bat": -0.1
+},
+"trade_in": {
+"pit": 18.8,
+"bat": 18.0
+},
+"trade_out": {
+"pit": 14.8,
+"bat": 25.6
+},
+"waiver": {
+"pit": 0.2,
+"bat": -0.6
+},
+"fa": {
+"pit": -5.6,
+"bat": -1.3
+},
+"devDef": {
+"v": -1.62,
+"n": 13
+},
+"devPit": {
+"v": -0.01,
+"n": 37
+}
+},
+"dnaTags": [
+"Gloves fade here",
+"Trades for arms"
 ]
 },
 {
@@ -6885,7 +6990,7 @@ const AUTO_REGIMES = [
 "+0.0"
 ],
 [
-"Yeison Santana",
+"Ismael Mena",
 "+0.0"
 ],
 [
@@ -6893,7 +6998,7 @@ const AUTO_REGIMES = [
 "+0.0"
 ],
 [
-"Ismael Mena",
+"Yeison Santana",
 "+0.0"
 ],
 [
@@ -6917,11 +7022,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"678220",
 "605200",
-"691262",
 "691190",
+"691262",
 "683357",
+"678220",
 "506433",
 "605170"
 ],
@@ -7426,7 +7531,7 @@ const AUTO_REGIMES = [
 "+0.0"
 ],
 [
-"Yeison Santana",
+"Ismael Mena",
 "+0.0"
 ],
 [
@@ -7434,7 +7539,7 @@ const AUTO_REGIMES = [
 "+0.0"
 ],
 [
-"Ismael Mena",
+"Yeison Santana",
 "+0.0"
 ],
 [
@@ -7458,11 +7563,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"678220",
 "605200",
-"691262",
 "691190",
+"691262",
 "683357",
+"678220",
 "506433",
 "605170"
 ],
@@ -8448,6 +8553,40 @@ const AUTO_REGIMES = [
 "643565"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": -0.2,
+"bat": -0.4
+},
+"trade_in": {
+"pit": 30.2,
+"bat": 18.7
+},
+"trade_out": {
+"pit": 43.8,
+"bat": 15.2
+},
+"waiver": {
+"pit": -5.5,
+"bat": 4.3
+},
+"fa": {
+"pit": -3.3,
+"bat": 0.4
+},
+"devDef": {
+"v": 1.46,
+"n": 12
+},
+"devPit": {
+"v": -0.02,
+"n": 52
+}
+},
+"dnaTags": [
+"Makes defenders better",
+"Trades for arms"
 ]
 },
 {
@@ -8605,11 +8744,11 @@ const AUTO_REGIMES = [
 "+4.6"
 ],
 [
-"Jeral Perez",
+"Alexander Albertus",
 "+0.0"
 ],
 [
-"Alexander Albertus",
+"Jeral Perez",
 "+0.0"
 ]
 ]
@@ -8633,8 +8772,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"800419",
 "800316",
+"800419",
 "678246",
 "656629",
 "502054",
@@ -8684,10 +8823,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"689672",
-"694214",
-"683568",
 "621051",
+"694214",
+"689672",
+"683568",
 "656302"
 ],
 "note": "Auto-scored: value in -0.3 vs value out +12.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +1.8 at the time."
@@ -8732,10 +8871,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"805367",
-"695731",
 "691019",
 "682790",
+"695731",
+"805367",
 "676979"
 ],
 "note": "Auto-scored: value in +5.8 vs value out +8.9, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +6.2 at the time."
@@ -8784,11 +8923,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"670032",
 "669699",
+"670032",
+"694363",
 "647336",
 "803035",
-"694363",
 "607481"
 ],
 "note": "Auto-scored: value in +0.2 vs value out +3.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -8854,11 +8993,11 @@ const AUTO_REGIMES = [
 "+4.6"
 ],
 [
-"Jeral Perez",
+"Alexander Albertus",
 "+0.0"
 ],
 [
-"Alexander Albertus",
+"Jeral Perez",
 "+0.0"
 ]
 ]
@@ -8882,8 +9021,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"800419",
 "800316",
+"800419",
 "678246",
 "656629",
 "502054",
@@ -9022,10 +9161,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"689672",
-"694214",
-"683568",
 "621051",
+"694214",
+"689672",
+"683568",
 "656302"
 ],
 "att": {
@@ -9076,10 +9215,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"805367",
-"695731",
 "691019",
 "682790",
+"695731",
+"805367",
 "676979"
 ],
 "att": {
@@ -9134,11 +9273,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"670032",
 "669699",
+"670032",
+"694363",
 "647336",
 "803035",
-"694363",
 "607481"
 ],
 "att": {
@@ -9595,6 +9734,40 @@ const AUTO_REGIMES = [
 "641302"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": -0.1,
+"bat": 1.5
+},
+"trade_in": {
+"pit": 2.3,
+"bat": 12.5
+},
+"trade_out": {
+"pit": 32.6,
+"bat": 3.3
+},
+"waiver": {
+"pit": 3.4,
+"bat": -3.5
+},
+"fa": {
+"pit": 0.0,
+"bat": 0.0
+},
+"devDef": {
+"v": -2.64,
+"n": 10
+},
+"devPit": {
+"v": 0.05,
+"n": 35
+}
+},
+"dnaTags": [
+"Gloves fade here",
+"Trades for bats"
 ]
 },
 {
@@ -9744,9 +9917,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"687952",
 "668715",
 "680727",
+"687952",
 "641816"
 ],
 "note": "Auto-scored: value in +6.9 vs value out +0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -9826,10 +9999,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"682622",
 "686651",
 "695490",
 "681097",
-"682622",
 "622491"
 ],
 "note": "Auto-scored: value in -0.5 vs value out +15.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +5.3 at the time."
@@ -10103,9 +10276,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"687952",
 "668715",
 "680727",
+"687952",
 "641816"
 ],
 "att": {
@@ -10226,8 +10399,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"458677",
-"570666"
+"570666",
+"458677"
 ],
 "att": {
 "out": 0,
@@ -10323,10 +10496,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"682622",
 "686651",
 "695490",
 "681097",
-"682622",
 "622491"
 ],
 "att": {
@@ -11152,6 +11325,41 @@ const AUTO_REGIMES = [
 "592206"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": 7.7,
+"bat": 2.0
+},
+"trade_in": {
+"pit": 15.9,
+"bat": 9.3
+},
+"trade_out": {
+"pit": 35.9,
+"bat": 10.9
+},
+"waiver": {
+"pit": 0.5,
+"bat": -0.9
+},
+"fa": {
+"pit": 1.8,
+"bat": 0.0
+},
+"devDef": {
+"v": -1.26,
+"n": 13
+},
+"devPit": {
+"v": -0.22,
+"n": 35
+}
+},
+"dnaTags": [
+"Arms regress here",
+"Drafts arms",
+"Trades for arms"
 ]
 },
 {
@@ -11322,12 +11530,12 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"680911",
+"647304",
+"676282",
+"595978",
 "672356",
 "615698",
-"680911",
-"676282",
-"647304",
-"595978",
 "605182",
 "656185"
 ],
@@ -11365,8 +11573,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"592261",
 "661403",
+"592261",
 "446372"
 ],
 "note": "Auto-scored: value in +9.9 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -11722,12 +11930,12 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"680911",
+"647304",
+"676282",
+"595978",
 "672356",
 "615698",
-"680911",
-"676282",
-"647304",
-"595978",
 "605182",
 "656185"
 ],
@@ -11771,8 +11979,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"592261",
 "661403",
+"592261",
 "446372"
 ],
 "att": {
@@ -13315,6 +13523,42 @@ const AUTO_REGIMES = [
 "467793"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": 39.9,
+"bat": 6.7
+},
+"trade_in": {
+"pit": 52.3,
+"bat": 27.2
+},
+"trade_out": {
+"pit": 17.3,
+"bat": 41.2
+},
+"waiver": {
+"pit": 1.4,
+"bat": -10.5
+},
+"fa": {
+"pit": -0.5,
+"bat": -6.8
+},
+"devDef": {
+"v": 2.48,
+"n": 14
+},
+"devPit": {
+"v": 0.19,
+"n": 30
+}
+},
+"dnaTags": [
+"Pitching lab",
+"Makes defenders better",
+"Drafts arms",
+"Trades for arms"
 ]
 },
 {
@@ -13774,7 +14018,40 @@ const AUTO_REGIMES = [
 "worst": []
 }
 },
-"walk": []
+"walk": [],
+"dna": {
+"draft": {
+"pit": 0.0,
+"bat": 0.0
+},
+"trade_in": {
+"pit": 0.4,
+"bat": 3.2
+},
+"trade_out": {
+"pit": 0.6,
+"bat": -0.2
+},
+"waiver": {
+"pit": 0.2,
+"bat": 1.3
+},
+"fa": {
+"pit": 0.0,
+"bat": 0.0
+},
+"devDef": {
+"v": 1.52,
+"n": 8
+},
+"devPit": {
+"v": 0.05,
+"n": 32
+}
+},
+"dnaTags": [
+"Makes defenders better"
+]
 },
 {
 "id": "det",
@@ -13957,8 +14234,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"663837",
 "664848",
+"663837",
 "665155",
 "642397",
 "665019"
@@ -13999,8 +14276,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"669234",
 "663977",
+"669234",
 "641729"
 ],
 "note": "Auto-scored: value in -0.2 vs value out +4.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -14286,8 +14563,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"663837",
 "664848",
+"663837",
 "665155",
 "642397",
 "665019"
@@ -14455,8 +14732,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"669234",
 "663977",
+"669234",
 "641729"
 ],
 "att": {
@@ -15218,6 +15495,42 @@ const AUTO_REGIMES = [
 "605177"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": -0.2,
+"bat": 3.1
+},
+"trade_in": {
+"pit": 4.8,
+"bat": 7.6
+},
+"trade_out": {
+"pit": 9.2,
+"bat": -0.5
+},
+"waiver": {
+"pit": 3.5,
+"bat": 4.0
+},
+"fa": {
+"pit": 0.7,
+"bat": 2.6
+},
+"devDef": {
+"v": -1.95,
+"n": 12
+},
+"devPit": {
+"v": 0.23,
+"n": 29
+}
+},
+"dnaTags": [
+"Pitching lab",
+"Gloves fade here",
+"Drafts bats",
+"Trades for bats"
 ]
 },
 {
@@ -15420,8 +15733,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"670623",
 "701358",
+"670623",
 "669713",
 "663656"
 ],
@@ -15776,8 +16089,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"670623",
 "701358",
+"670623",
 "669713",
 "663656"
 ],
@@ -16442,6 +16755,40 @@ const AUTO_REGIMES = [
 "657571"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": -0.6,
+"bat": -0.3
+},
+"trade_in": {
+"pit": 12.1,
+"bat": 5.3
+},
+"trade_out": {
+"pit": 0.3,
+"bat": 8.6
+},
+"waiver": {
+"pit": -0.1,
+"bat": 1.0
+},
+"fa": {
+"pit": -2.6,
+"bat": -2.8
+},
+"devDef": {
+"v": null,
+"n": 1
+},
+"devPit": {
+"v": 0.28,
+"n": 26
+}
+},
+"dnaTags": [
+"Pitching lab",
+"Trades for arms"
 ]
 },
 {
@@ -17147,8 +17494,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"686894",
 "663697",
+"686894",
 "663903"
 ],
 "att": {
@@ -17655,6 +18002,40 @@ const AUTO_REGIMES = [
 "641745"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": -0.4,
+"bat": -1.3
+},
+"trade_in": {
+"pit": 10.7,
+"bat": 5.9
+},
+"trade_out": {
+"pit": 7.4,
+"bat": 8.9
+},
+"waiver": {
+"pit": -4.1,
+"bat": -3.1
+},
+"fa": {
+"pit": 4.5,
+"bat": 0.0
+},
+"devDef": {
+"v": 0.82,
+"n": 15
+},
+"devPit": {
+"v": -0.03,
+"n": 30
+}
+},
+"dnaTags": [
+"Trades for arms",
+"Signs arms well"
 ]
 },
 {
@@ -18224,8 +18605,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"665625",
 "676083",
+"665625",
 "571760"
 ],
 "att": {
@@ -19190,6 +19571,39 @@ const AUTO_REGIMES = [
 "547179"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": -2.1,
+"bat": 12.7
+},
+"trade_in": {
+"pit": 4.4,
+"bat": -0.3
+},
+"trade_out": {
+"pit": 13.9,
+"bat": 14.1
+},
+"waiver": {
+"pit": -3.2,
+"bat": 2.2
+},
+"fa": {
+"pit": -6.2,
+"bat": -1.7
+},
+"devDef": {
+"v": -1.0,
+"n": 13
+},
+"devPit": {
+"v": -0.03,
+"n": 53
+}
+},
+"dnaTags": [
+"Drafts bats"
 ]
 },
 {
@@ -19403,11 +19817,11 @@ const AUTO_REGIMES = [
 "+3.7"
 ],
 [
-"Jared Serna",
+"Abrahan Ramirez",
 "+0.0"
 ],
 [
-"Abrahan Ramirez",
+"Jared Serna",
 "+0.0"
 ]
 ]
@@ -19423,9 +19837,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"800254",
 "682663",
 "691858",
-"800254",
 "665862"
 ],
 "note": "Auto-scored: value in +3.7 vs value out +12.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -19446,11 +19860,11 @@ const AUTO_REGIMES = [
 "+3.8"
 ],
 [
-"Dillon Head",
+"Nathan Martorella",
 "+0.0"
 ],
 [
-"Nathan Martorella",
+"Dillon Head",
 "+0.0"
 ],
 [
@@ -19471,8 +19885,8 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "805300",
-"702977",
 "687210",
+"702977",
 "808970",
 "650333"
 ],
@@ -19706,8 +20120,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"669065",
 "681393",
+"669065",
 "669432"
 ],
 "att": {
@@ -19823,11 +20237,11 @@ const AUTO_REGIMES = [
 "+3.7"
 ],
 [
-"Jared Serna",
+"Abrahan Ramirez",
 "+0.0"
 ],
 [
-"Abrahan Ramirez",
+"Jared Serna",
 "+0.0"
 ]
 ]
@@ -19843,9 +20257,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"800254",
 "682663",
 "691858",
-"800254",
 "665862"
 ],
 "att": {
@@ -19872,11 +20286,11 @@ const AUTO_REGIMES = [
 "+3.8"
 ],
 [
-"Dillon Head",
+"Nathan Martorella",
 "+0.0"
 ],
 [
-"Nathan Martorella",
+"Dillon Head",
 "+0.0"
 ],
 [
@@ -19897,8 +20311,8 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "805300",
-"702977",
 "687210",
+"702977",
 "808970",
 "650333"
 ],
@@ -19922,15 +20336,15 @@ const AUTO_REGIMES = [
 "Acquired (control-window value, leverage-weighted)",
 [
 [
-"Brendan Jones",
-"+0.0"
-],
-[
 "Juan Matheus",
 "+0.0"
 ],
 [
 "Dillon Lewis",
+"+0.0"
+],
+[
+"Brendan Jones",
 "+0.0"
 ],
 [
@@ -19950,9 +20364,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"800957",
 "801276",
 "827665",
+"800957",
 "815734",
 "677960"
 ],
@@ -20281,7 +20695,41 @@ const AUTO_REGIMES = [
 "worst": []
 }
 },
-"walk": []
+"walk": [],
+"dna": {
+"draft": {
+"pit": -0.0,
+"bat": -0.1
+},
+"trade_in": {
+"pit": 2.4,
+"bat": 16.5
+},
+"trade_out": {
+"pit": 23.9,
+"bat": 24.8
+},
+"waiver": {
+"pit": 9.0,
+"bat": 9.2
+},
+"fa": {
+"pit": 0.0,
+"bat": 0.0
+},
+"devDef": {
+"v": -0.08,
+"n": 22
+},
+"devPit": {
+"v": 0.32,
+"n": 41
+}
+},
+"dnaTags": [
+"Pitching lab",
+"Trades for bats"
+]
 },
 {
 "id": "min",
@@ -20429,8 +20877,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"543243",
 "677868",
+"543243",
 "695534"
 ],
 "note": "Auto-scored: value in +11.5 vs value out -0.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -20550,8 +20998,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"660896",
 "665482",
+"660896",
 "519151"
 ],
 "note": "Auto-scored: value in +0.4 vs value out +7.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -20815,8 +21263,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"543243",
 "677868",
+"543243",
 "695534"
 ],
 "att": {
@@ -21000,8 +21448,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"641941",
 "663978",
+"641941",
 "573124",
 "667670"
 ],
@@ -21091,8 +21539,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"660896",
 "665482",
+"660896",
 "519151"
 ],
 "att": {
@@ -22329,6 +22777,41 @@ const AUTO_REGIMES = [
 "543257"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": -1.8,
+"bat": 8.1
+},
+"trade_in": {
+"pit": 66.1,
+"bat": 17.2
+},
+"trade_out": {
+"pit": 55.8,
+"bat": 42.9
+},
+"waiver": {
+"pit": -7.9,
+"bat": 8.9
+},
+"fa": {
+"pit": -3.3,
+"bat": -10.0
+},
+"devDef": {
+"v": -0.1,
+"n": 11
+},
+"devPit": {
+"v": 0.17,
+"n": 35
+}
+},
+"dnaTags": [
+"Pitching lab",
+"Drafts bats",
+"Trades for arms"
 ]
 },
 {
@@ -23858,6 +24341,40 @@ const AUTO_REGIMES = [
 "664208"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": -0.0,
+"bat": 1.0
+},
+"trade_in": {
+"pit": 8.5,
+"bat": 5.6
+},
+"trade_out": {
+"pit": 8.4,
+"bat": -1.0
+},
+"waiver": {
+"pit": -1.1,
+"bat": -1.0
+},
+"fa": {
+"pit": -3.8,
+"bat": -1.2
+},
+"devDef": {
+"v": 0.05,
+"n": 10
+},
+"devPit": {
+"v": -0.17,
+"n": 32
+}
+},
+"dnaTags": [
+"Arms regress here",
+"Trades for arms"
 ]
 },
 {
@@ -24055,8 +24572,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"553883",
 "501381",
+"553883",
 "524968",
 "456051"
 ],
@@ -24110,8 +24627,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"592454",
 "453943",
+"592454",
 "502085",
 "461325",
 "622738",
@@ -24466,8 +24983,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"553883",
 "501381",
+"553883",
 "524968",
 "456051"
 ],
@@ -24527,8 +25044,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"592454",
 "453943",
+"592454",
 "502085",
 "461325",
 "622738",
@@ -26130,6 +26647,41 @@ const AUTO_REGIMES = [
 "113028"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": 8.3,
+"bat": 62.9
+},
+"trade_in": {
+"pit": 101.3,
+"bat": 175.0
+},
+"trade_out": {
+"pit": 81.4,
+"bat": 123.3
+},
+"waiver": {
+"pit": -1.6,
+"bat": -8.7
+},
+"fa": {
+"pit": -35.9,
+"bat": 4.3
+},
+"devDef": {
+"v": -0.81,
+"n": 19
+},
+"devPit": {
+"v": -0.02,
+"n": 46
+}
+},
+"dnaTags": [
+"Drafts bats",
+"Trades for bats",
+"Signs bats well"
 ]
 },
 {
@@ -26361,10 +26913,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"680743",
-"683155",
 "665506",
 "669127",
+"683155",
+"680743",
 "621566"
 ],
 "note": "Auto-scored: value in +6.0 vs value out +21.9, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +7.7 at the time."
@@ -26409,10 +26961,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"669912",
-"675656",
-"680684",
 "656657",
+"669912",
+"680684",
+"675656",
 "656305"
 ],
 "note": "Auto-scored: value in -0.8 vs value out +12.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -26465,11 +27017,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"665923",
 "666205",
 "683690",
-"444489",
 "676206",
-"665923",
+"444489",
 "669221",
 "606303"
 ],
@@ -26880,10 +27432,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"680743",
-"683155",
 "665506",
 "669127",
+"683155",
+"680743",
 "621566"
 ],
 "att": {
@@ -26934,10 +27486,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"669912",
-"675656",
-"680684",
 "656657",
+"669912",
+"680684",
+"675656",
 "656305"
 ],
 "att": {
@@ -26996,11 +27548,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"665923",
 "666205",
 "683690",
-"444489",
 "676206",
-"665923",
+"444489",
 "669221",
 "606303"
 ],
@@ -28237,6 +28789,42 @@ const AUTO_REGIMES = [
 "605177"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": -3.4,
+"bat": 12.8
+},
+"trade_in": {
+"pit": 49.9,
+"bat": 41.3
+},
+"trade_out": {
+"pit": 56.6,
+"bat": 63.2
+},
+"waiver": {
+"pit": 3.9,
+"bat": 7.6
+},
+"fa": {
+"pit": 4.0,
+"bat": -1.6
+},
+"devDef": {
+"v": -1.87,
+"n": 13
+},
+"devPit": {
+"v": 0.19,
+"n": 45
+}
+},
+"dnaTags": [
+"Pitching lab",
+"Gloves fade here",
+"Drafts bats",
+"Trades for arms"
 ]
 },
 {
@@ -28955,9 +29543,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"668968",
-"453178",
 "502043",
+"453178",
+"668968",
 "678622",
 "666151",
 "675921"
@@ -29964,6 +30552,40 @@ const AUTO_REGIMES = [
 "457705"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": 1.5,
+"bat": -2.3
+},
+"trade_in": {
+"pit": 30.1,
+"bat": 29.5
+},
+"trade_out": {
+"pit": 16.4,
+"bat": 12.2
+},
+"waiver": {
+"pit": 2.4,
+"bat": 1.2
+},
+"fa": {
+"pit": 1.9,
+"bat": -16.4
+},
+"devDef": {
+"v": -0.88,
+"n": 9
+},
+"devPit": {
+"v": -0.23,
+"n": 25
+}
+},
+"dnaTags": [
+"Arms regress here",
+"Trades for arms"
 ]
 },
 {
@@ -30114,9 +30736,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"664040",
+"682254",
 "663968",
-"682254"
+"664040"
 ],
 "note": "Auto-scored: value in +6.9 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
@@ -30154,8 +30776,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"660829",
 "660636",
+"660829",
 "605280"
 ],
 "note": "Auto-scored: value in -0.0 vs value out +7.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -30180,15 +30802,15 @@ const AUTO_REGIMES = [
 "+1.2"
 ],
 [
+"Omar Cruz",
+"+0.0"
+],
+[
 "Hudson Head",
 "+0.0"
 ],
 [
 "Drake Fellows",
-"+0.0"
-],
-[
-"Omar Cruz",
 "+0.0"
 ]
 ]
@@ -30204,11 +30826,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"682848",
+"670280",
+"678316",
 "687431",
 "666148",
-"670280",
-"682848",
-"678316",
 "605397"
 ],
 "note": "Auto-scored: value in +5.5 vs value out +12.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -30253,9 +30875,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"675986",
 "672710",
 "683500",
+"675986",
 "664337",
 "592791"
 ],
@@ -30523,9 +31145,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"664040",
+"682254",
 "663968",
-"682254"
+"664040"
 ],
 "att": {
 "out": 0,
@@ -30730,8 +31352,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"660829",
 "660636",
+"660829",
 "605280"
 ],
 "att": {
@@ -30762,15 +31384,15 @@ const AUTO_REGIMES = [
 "+1.2"
 ],
 [
+"Omar Cruz",
+"+0.0"
+],
+[
 "Hudson Head",
 "+0.0"
 ],
 [
 "Drake Fellows",
-"+0.0"
-],
-[
-"Omar Cruz",
 "+0.0"
 ]
 ]
@@ -30786,11 +31408,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"682848",
+"670280",
+"678316",
 "687431",
 "666148",
-"670280",
-"682848",
-"678316",
 "605397"
 ],
 "att": {
@@ -30841,9 +31463,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"675986",
 "672710",
 "683500",
+"675986",
 "664337",
 "592791"
 ],
@@ -30910,11 +31532,11 @@ const AUTO_REGIMES = [
 "+0.4"
 ],
 [
-"Edgleen Perez",
+"Brian Sanchez",
 "+0.0"
 ],
 [
-"Brian Sanchez",
+"Edgleen Perez",
 "+0.0"
 ]
 ]
@@ -30930,9 +31552,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"814297",
 "804668",
 "809331",
+"814297",
 "670280"
 ],
 "att": {
@@ -31821,6 +32443,40 @@ const AUTO_REGIMES = [
 "670059"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": 15.4,
+"bat": -3.7
+},
+"trade_in": {
+"pit": 16.9,
+"bat": 11.4
+},
+"trade_out": {
+"pit": 39.2,
+"bat": 8.8
+},
+"waiver": {
+"pit": 5.1,
+"bat": -9.4
+},
+"fa": {
+"pit": 1.9,
+"bat": -1.6
+},
+"devDef": {
+"v": -0.87,
+"n": 16
+},
+"devPit": {
+"v": -0.0,
+"n": 56
+}
+},
+"dnaTags": [
+"Drafts arms",
+"Trades for arms"
 ]
 },
 {
@@ -32145,8 +32801,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656186",
 "543592",
+"656186",
 "613534",
 "620443",
 "662253",
@@ -32195,8 +32851,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"461314",
 "543148",
+"461314",
 "621107",
 "518735",
 "543921"
@@ -32766,8 +33422,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656186",
 "543592",
+"656186",
 "613534",
 "620443",
 "662253",
@@ -32822,8 +33478,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"461314",
 "543148",
+"461314",
 "621107",
 "518735",
 "543921"
@@ -32927,8 +33583,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"665742",
 "605137",
+"665742",
 "669022",
 "682928",
 "690987",
@@ -34155,6 +34811,40 @@ const AUTO_REGIMES = [
 "640455"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": -21.7,
+"bat": -13.8
+},
+"trade_in": {
+"pit": 102.2,
+"bat": 87.7
+},
+"trade_out": {
+"pit": 90.6,
+"bat": 106.8
+},
+"waiver": {
+"pit": 10.8,
+"bat": -4.8
+},
+"fa": {
+"pit": -4.2,
+"bat": -12.2
+},
+"devDef": {
+"v": -0.59,
+"n": 19
+},
+"devPit": {
+"v": 0.29,
+"n": 55
+}
+},
+"dnaTags": [
+"Pitching lab",
+"Trades for arms"
 ]
 },
 {
@@ -34911,7 +35601,38 @@ const AUTO_REGIMES = [
 "605483"
 ]
 }
-]
+],
+"dna": {
+"draft": {
+"pit": 0.0,
+"bat": 0.0
+},
+"trade_in": {
+"pit": 0.8,
+"bat": 3.6
+},
+"trade_out": {
+"pit": 3.4,
+"bat": 1.8
+},
+"waiver": {
+"pit": -0.7,
+"bat": -1.6
+},
+"fa": {
+"pit": 0.7,
+"bat": 0.3
+},
+"devDef": {
+"v": 0.73,
+"n": 16
+},
+"devPit": {
+"v": 0.1,
+"n": 29
+}
+},
+"dnaTags": []
 },
 {
 "id": "sea",
@@ -35077,10 +35798,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"664034",
+"620443",
 "666211",
 "662253",
-"620443",
-"664034",
 "656186",
 "613534",
 "543592"
@@ -35261,11 +35982,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"457803",
-"672284",
-"643290",
-"461872",
 "639373",
+"457803",
+"461872",
+"643290",
+"672284",
 "429664",
 "621242"
 ],
@@ -35545,10 +36266,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
+"664034",
+"620443",
 "666211",
 "662253",
-"620443",
-"664034",
 "656186",
 "613534",
 "543592"
@@ -35874,11 +36595,11 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"457803",
-"672284",
-"643290",
-"461872",
 "639373",
+"457803",
+"461872",
+"643290",
+"672284",
 "429664",
 "621242"
 ],
@@ -35961,8 +36682,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"543101",
 "571745",
+"543101",
 "592662"
 ],
 "att": {
@@ -37060,6 +37781,41 @@ const AUTO_REGIMES = [
 "624428"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": 27.7,
+"bat": 7.6
+},
+"trade_in": {
+"pit": 91.0,
+"bat": 70.5
+},
+"trade_out": {
+"pit": 56.8,
+"bat": 94.7
+},
+"waiver": {
+"pit": -0.8,
+"bat": -0.6
+},
+"fa": {
+"pit": -15.3,
+"bat": 0.4
+},
+"devDef": {
+"v": 0.32,
+"n": 15
+},
+"devPit": {
+"v": 0.15,
+"n": 66
+}
+},
+"dnaTags": [
+"Pitching lab",
+"Drafts arms",
+"Trades for arms"
 ]
 },
 {
@@ -37261,8 +38017,8 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "820832",
-"823369",
 "690928",
+"823369",
 "575929"
 ],
 "note": "Auto-scored: value in +0.3 vs value out +4.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -37493,8 +38249,8 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "820832",
-"823369",
 "690928",
+"823369",
 "575929"
 ],
 "att": {
@@ -37643,7 +38399,41 @@ const AUTO_REGIMES = [
 "worst": []
 }
 },
-"walk": []
+"walk": [],
+"dna": {
+"draft": {
+"pit": 0.0,
+"bat": 0.0
+},
+"trade_in": {
+"pit": 2.0,
+"bat": 0.0
+},
+"trade_out": {
+"pit": 2.1,
+"bat": 8.5
+},
+"waiver": {
+"pit": 0.3,
+"bat": 0.0
+},
+"fa": {
+"pit": 0.0,
+"bat": 0.0
+},
+"devDef": {
+"v": -2.92,
+"n": 8
+},
+"devPit": {
+"v": 0.5,
+"n": 20
+}
+},
+"dnaTags": [
+"Pitching lab",
+"Gloves fade here"
+]
 },
 {
 "id": "tb",
@@ -37834,9 +38624,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"642232",
 "665799",
 "605480",
+"642232",
 "592767"
 ],
 "note": "Auto-scored: value in +15.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -38002,10 +38792,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"677961",
 "675448",
-"642336",
+"677961",
 "672715",
+"642336",
 "605483"
 ],
 "note": "Auto-scored: value in +1.0 vs value out +10.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +4.4 at the time."
@@ -38254,9 +39044,9 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"642232",
 "665799",
 "605480",
+"642232",
 "592767"
 ],
 "att": {
@@ -38533,10 +39323,10 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"677961",
 "675448",
-"642336",
+"677961",
 "672715",
+"642336",
 "605483"
 ],
 "att": {
@@ -38583,8 +39373,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"656420",
 "656876",
+"656420",
 "670950",
 "642715"
 ],
@@ -38608,11 +39398,11 @@ const AUTO_REGIMES = [
 "Acquired (control-window value, leverage-weighted)",
 [
 [
-"Marcus Johnson",
+"Santiago Suarez",
 "+0.0"
 ],
 [
-"Santiago Suarez",
+"Marcus Johnson",
 "+0.0"
 ]
 ]
@@ -38632,8 +39422,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"687189",
 "800571",
+"687189",
 "608638",
 "669364"
 ],
@@ -39701,6 +40491,42 @@ const AUTO_REGIMES = [
 "543521"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": 1.8,
+"bat": -4.8
+},
+"trade_in": {
+"pit": 97.4,
+"bat": 117.2
+},
+"trade_out": {
+"pit": 90.0,
+"bat": 102.2
+},
+"waiver": {
+"pit": -1.2,
+"bat": 0.2
+},
+"fa": {
+"pit": 8.5,
+"bat": 8.4
+},
+"devDef": {
+"v": -1.6,
+"n": 20
+},
+"devPit": {
+"v": 0.29,
+"n": 61
+}
+},
+"dnaTags": [
+"Pitching lab",
+"Gloves fade here",
+"Trades for bats",
+"Signs arms well"
 ]
 },
 {
@@ -41160,6 +41986,41 @@ const AUTO_REGIMES = [
 "641598"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": -0.1,
+"bat": 6.9
+},
+"trade_in": {
+"pit": 11.1,
+"bat": 2.1
+},
+"trade_out": {
+"pit": 8.9,
+"bat": 0.3
+},
+"waiver": {
+"pit": -1.3,
+"bat": -3.1
+},
+"fa": {
+"pit": -3.0,
+"bat": 0.0
+},
+"devDef": {
+"v": 0.28,
+"n": 6
+},
+"devPit": {
+"v": -0.35,
+"n": 32
+}
+},
+"dnaTags": [
+"Arms regress here",
+"Drafts bats",
+"Trades for arms"
 ]
 },
 {
@@ -41358,8 +42219,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"606192",
 "493114",
+"606192",
 "434538"
 ],
 "note": "Auto-scored: value in +11.0 vs value out +0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
@@ -41786,8 +42647,8 @@ const AUTO_REGIMES = [
 ]
 ],
 "pids": [
-"606192",
 "493114",
+"606192",
 "434538"
 ],
 "att": {
@@ -43314,6 +44175,40 @@ const AUTO_REGIMES = [
 "571927"
 ]
 }
+],
+"dna": {
+"draft": {
+"pit": -10.6,
+"bat": 7.4
+},
+"trade_in": {
+"pit": 56.2,
+"bat": 50.0
+},
+"trade_out": {
+"pit": 22.9,
+"bat": 33.6
+},
+"waiver": {
+"pit": -3.1,
+"bat": 2.0
+},
+"fa": {
+"pit": -3.8,
+"bat": -9.0
+},
+"devDef": {
+"v": -1.03,
+"n": 21
+},
+"devPit": {
+"v": -0.06,
+"n": 53
+}
+},
+"dnaTags": [
+"Drafts bats",
+"Trades for arms"
 ]
 },
 {
@@ -43463,15 +44358,15 @@ const AUTO_REGIMES = [
 "+0.1"
 ],
 [
+"Devin Fitz-Gerald",
+"+0.0"
+],
+[
 "Gavin Fien",
 "+0.0"
 ],
 [
 "Alejandro Rosario",
-"+0.0"
-],
-[
-"Devin Fitz-Gerald",
 "+0.0"
 ],
 [
@@ -43492,9 +44387,9 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "694673",
+"803849",
 "815818",
 "691730",
-"803849",
 "800393",
 "669022"
 ],
@@ -43756,15 +44651,15 @@ const AUTO_REGIMES = [
 "+0.1"
 ],
 [
+"Devin Fitz-Gerald",
+"+0.0"
+],
+[
 "Gavin Fien",
 "+0.0"
 ],
 [
 "Alejandro Rosario",
-"+0.0"
-],
-[
-"Devin Fitz-Gerald",
 "+0.0"
 ],
 [
@@ -43785,9 +44680,9 @@ const AUTO_REGIMES = [
 ],
 "pids": [
 "694673",
+"803849",
 "815818",
 "691730",
-"803849",
 "800393",
 "669022"
 ],
@@ -44119,7 +45014,40 @@ const AUTO_REGIMES = [
 "worst": []
 }
 },
-"walk": []
+"walk": [],
+"dna": {
+"draft": {
+"pit": 0.0,
+"bat": 0.0
+},
+"trade_in": {
+"pit": 2.8,
+"bat": 0.9
+},
+"trade_out": {
+"pit": 6.5,
+"bat": -0.1
+},
+"waiver": {
+"pit": -0.2,
+"bat": 0.3
+},
+"fa": {
+"pit": 0.0,
+"bat": 0.0
+},
+"devDef": {
+"v": 1.12,
+"n": 12
+},
+"devPit": {
+"v": 0.06,
+"n": 36
+}
+},
+"dnaTags": [
+"Makes defenders better"
+]
 }
 ];
 
@@ -44242,6 +45170,7 @@ function renderReport(id){
   renderCumChart(r);
   renderLedgers(r);
   renderDev(r);
+  renderDna(r);
 }
 
 
@@ -44266,6 +45195,30 @@ function renderDev(r){
     <div style="color:var(--muted); font-size:12.5px; margin-bottom:8px">${flowline || 'Prospect flows during this regime'}</div>
     <table><thead><tr><th>List</th><th>Development event</th><th class="num">Value</th></tr></thead>
     <tbody>${tops.map(t=>`<tr><td style="white-space:nowrap">${t.d.slice(0,4)}</td><td>${t.h}</td><td class="num ${t.war>=0?'pos':'neg'}">${fmtW(t.war)}</td></tr>`).join('')}</tbody></table></div>`;
+}
+
+function renderDna(r){
+  let host = $('#dnapanel');
+  if(!host){
+    host = document.createElement('div'); host.id='dnapanel';
+    $('#rc-tiles').parentNode.appendChild(host);
+  }
+  const dna = r.dna;
+  if(!dna || !dna.draft){ host.innerHTML=''; return; }
+  const tags = (r.dnaTags||[]).map(t=>`<span class="chip chip-open" style="margin:0 6px 6px 0; font-size:11.5px">${t}</span>`).join('') || '<span style="color:var(--muted); font-size:12.5px">No strong tendencies yet (small sample or balanced profile)</span>';
+  const rows = [
+    ['Draft', dna.draft], ['Trades, acquired', dna.trade_in],
+    ['Trades, surrendered', dna.trade_out], ['Free agency (net of cost)', dna.fa||{pit:0,bat:0}],
+    ['Waiver / minor', dna.waiver]
+  ].map(([lbl,v])=>`<tr><td>${lbl}</td><td class="num ${ (v.pit||0)>=0?'pos':'neg'}">${fmtW(v.pit||0)}</td><td class="num ${(v.bat||0)>=0?'pos':'neg'}">${fmtW(v.bat||0)}</td></tr>`).join('');
+  const dd = dna.devDef||{}, dp = dna.devPit||{};
+  const devline = `${dp.v!=null?`Pitchers arriving here move <strong class="${dp.v>=0?'pos':'neg'}">${dp.v>=0?'+':''}${dp.v}</strong> wins/season vs their prior form (${dp.n} movers). `:''}${dd.v!=null?`Position players' defense moves <strong class="${dd.v>=0?'pos':'neg'}">${dd.v>=0?'+':''}${dd.v}</strong> runs/season after arriving (${dd.n} movers).`:''}`;
+  host.innerHTML = `<div class="card" style="margin-top:14px"><h3 style="margin:2px 0 8px">Regime DNA <span class="badge-real">COMPUTED · CHANNEL x PLAYER-TYPE SPLITS + MOVER DELTAS</span></h3>
+    <div style="margin-bottom:8px">${tags}</div>
+    <table><thead><tr><th>Channel</th><th class="num">Arms (net WAR)</th><th class="num">Bats (net WAR)</th></tr></thead><tbody>${rows}</tbody></table>
+    <div style="color:var(--ink-2); font-size:12.5px; margin-top:8px">${devline}</div>
+    <div style="color:var(--muted); font-size:11.5px; margin-top:6px">Mover deltas are org tendencies, not causal claims: clubs pick players they think they can fix, and the deltas are attributed to the organization (coaching infrastructure outlives GMs). Minimum 6 movers to display.</div>
+  </div>`;
 }
 
 /* ---- channel diverging bar chart ---- */
