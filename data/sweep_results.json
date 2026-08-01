@@ -40,6 +40,14 @@
     "net": 21.0,
     "g": 75,
     "n": 3
+   },
+   "ret": {
+    "net": 0,
+    "g": 65,
+    "n": 16,
+    "lost": 39.8,
+    "rel": 1.08,
+    "display_only": true
    }
   },
   "total": 9.6,
@@ -220,9 +228,9 @@
      "n_in": 1
     },
     "pids": [
+     "670370",
      "608348",
      "596133",
-     "670370",
      "502671"
     ]
    },
@@ -626,9 +634,9 @@
        "n_in": 1
       },
       "pids": [
+       "670370",
        "608348",
        "596133",
-       "670370",
        "502671"
       ]
      },
@@ -1505,6 +1513,24 @@
    "devPit": {
     "v": 0.19,
     "n": 47
+   },
+   "devBat": {
+    "v": 0.33,
+    "n": 34
+   },
+   "inj": {
+    "pit": 23.2,
+    "bat": 22.1
+   },
+   "draftRoom": {
+    "n": 96,
+    "overslot": 0.16,
+    "slotUse": 0.93,
+    "prep": 0.17
+   },
+   "buyLow": {
+    "vets": 10,
+    "rate": 0.4
    }
   },
   "titles": 0,
@@ -2095,6 +2121,92 @@
     "net": 1.9,
     "h": "Brandon Pfaadt enters top 100 at #59 (own draft pick #149 (2020))"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 7,
+    "net": 5.2
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 5,
+    "net": 4.1
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 10,
+    "net": -2.7
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 8,
+    "net": -1.9
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 2,
+    "net": -1.5
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 3,
+    "net": -1.3
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 5,
+    "net": 1.3
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 3,
+    "net": 1.1
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 3,
+    "net": 1.1
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 4,
+    "net": -0.7
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 5,
+    "net": 0.3
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 3,
+    "net": 0.2
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 3,
+    "net": 0.0
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 3,
+    "net": -0.0
+   }
   ]
  },
  {
@@ -2138,6 +2250,14 @@
     "net": 19.6,
     "g": 75,
     "n": 7
+   },
+   "ret": {
+    "net": 0,
+    "g": 30,
+    "n": 26,
+    "lost": 75.8,
+    "rel": -3.64,
+    "display_only": true
    }
   },
   "total": 107.3,
@@ -2710,8 +2830,8 @@
        "n_in": 0
       },
       "pids": [
-       "503285",
        "592332",
+       "503285",
        "623465",
        "656340",
        "669145",
@@ -2829,10 +2949,10 @@
        "n_in": 0
       },
       "pids": [
-       "518586",
        "431148",
        "408236",
        "435221",
+       "518586",
        "461314"
       ]
      },
@@ -3593,6 +3713,24 @@
    "devPit": {
     "v": 0.14,
     "n": 42
+   },
+   "devBat": {
+    "v": 0.09,
+    "n": 34
+   },
+   "inj": {
+    "pit": 27.6,
+    "bat": 22.1
+   },
+   "draftRoom": {
+    "n": 77,
+    "overslot": 0.29,
+    "slotUse": 1.08,
+    "prep": 0.18
+   },
+   "buyLow": {
+    "vets": 18,
+    "rate": 0.78
    }
   },
   "titles": 1,
@@ -4212,6 +4350,116 @@
     "net": 1.7,
     "h": "Eric Hartman enters top 100 at #74 (own draft pick #611 (2024))"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 6,
+    "net": 29.7
+   },
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 2,
+    "net": 13.8
+   },
+   {
+    "opp": "LAA",
+    "exec": "Perry Minasian",
+    "n": 13,
+    "net": 8.8
+   },
+   {
+    "opp": "DET",
+    "exec": "Scott Harris",
+    "n": 2,
+    "net": 3.5
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 2,
+    "net": 2.6
+   },
+   {
+    "opp": "CWS",
+    "exec": "Chris Getz",
+    "n": 2,
+    "net": 1.8
+   },
+   {
+    "opp": "HOU",
+    "exec": "Dana Brown",
+    "n": 4,
+    "net": 1.8
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 4,
+    "net": -1.0
+   },
+   {
+    "opp": "TEX",
+    "exec": "Chris Young",
+    "n": 7,
+    "net": 0.9
+   },
+   {
+    "opp": "KC",
+    "exec": "J.J. Picollo",
+    "n": 5,
+    "net": 0.8
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 4,
+    "net": 0.7
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 5,
+    "net": -0.7
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 6,
+    "net": 0.6
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 9,
+    "net": -0.4
+   },
+   {
+    "opp": "ARI",
+    "exec": "Mike Hazen",
+    "n": 5,
+    "net": -0.3
+   },
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 4,
+    "net": -0.2
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 2,
+    "net": -0.2
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 3,
+    "net": -0.0
+   }
   ]
  },
  {
@@ -4255,6 +4503,14 @@
     "net": 0.0,
     "g": null,
     "n": 2
+   },
+   "ret": {
+    "net": 0,
+    "g": 80,
+    "n": 8,
+    "lost": 7.7,
+    "rel": 4.26,
+    "display_only": true
    }
   },
   "total": 46.9,
@@ -4435,11 +4691,11 @@
         "+1.2"
        ],
        [
-        "Juan Rojas",
+        "Juan Nu\u00f1ez",
         "+0.0"
        ],
        [
-        "Juan Nu\u00f1ez",
+        "Juan Rojas",
         "+0.0"
        ]
       ]
@@ -4461,10 +4717,10 @@
      "n_in": 0
     },
     "pids": [
-     "700249",
-     "700357",
-     "666974",
      "693725",
+     "700357",
+     "700249",
+     "666974",
      "605347"
     ]
    },
@@ -4635,11 +4891,11 @@
           "+1.2"
          ],
          [
-          "Juan Rojas",
+          "Juan Nu\u00f1ez",
           "+0.0"
          ],
          [
-          "Juan Nu\u00f1ez",
+          "Juan Rojas",
           "+0.0"
          ]
         ]
@@ -4661,10 +4917,10 @@
        "n_in": 0
       },
       "pids": [
-       "700249",
-       "700357",
-       "666974",
        "693725",
+       "700357",
+       "700249",
+       "666974",
        "605347"
       ]
      },
@@ -4715,9 +4971,9 @@
       },
       "pids": [
        "680694",
+       "676755",
        "686745",
        "686599",
-       "676755",
        "605164"
       ]
      },
@@ -5555,6 +5811,24 @@
    "devPit": {
     "v": 0.05,
     "n": 32
+   },
+   "devBat": {
+    "v": 0.19,
+    "n": 39
+   },
+   "inj": {
+    "pit": 31.9,
+    "bat": 27.1
+   },
+   "draftRoom": {
+    "n": 76,
+    "overslot": 0.2,
+    "slotUse": 1.05,
+    "prep": 0.12
+   },
+   "buyLow": {
+    "vets": 6,
+    "rate": null
    }
   },
   "titles": 0,
@@ -5983,6 +6257,140 @@
     "net": 2.4,
     "h": "Grayson Rodriguez #27 -> #6"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 6,
+    "net": 8.3
+   },
+   {
+    "opp": "KC",
+    "exec": "J.J. Picollo",
+    "n": 7,
+    "net": 6.1
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 6,
+    "net": -3.7
+   },
+   {
+    "opp": "LAA",
+    "exec": "Perry Minasian",
+    "n": 4,
+    "net": -2.7
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 3,
+    "net": -2.4
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 6,
+    "net": -2.2
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 4,
+    "net": 1.8
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 3,
+    "net": -1.5
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 5,
+    "net": 1.5
+   },
+   {
+    "opp": "ARI",
+    "exec": "Mike Hazen",
+    "n": 2,
+    "net": 1.5
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 3,
+    "net": -1.4
+   },
+   {
+    "opp": "DET",
+    "exec": "Scott Harris",
+    "n": 5,
+    "net": 0.9
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 5,
+    "net": 0.7
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 2,
+    "net": 0.6
+   },
+   {
+    "opp": "CWS",
+    "exec": "Chris Getz",
+    "n": 2,
+    "net": -0.5
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 3,
+    "net": 0.5
+   },
+   {
+    "opp": "NYM",
+    "exec": "David Stearns",
+    "n": 3,
+    "net": 0.4
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 4,
+    "net": -0.1
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 2,
+    "net": 0.1
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 5,
+    "net": 0.1
+   },
+   {
+    "opp": "HOU",
+    "exec": "Dana Brown",
+    "n": 2,
+    "net": -0.1
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 2,
+    "net": 0.1
+   }
   ]
  },
  {
@@ -6026,6 +6434,14 @@
     "net": 2.3,
     "g": 65,
     "n": 4
+   },
+   "ret": {
+    "net": 0,
+    "g": 75,
+    "n": 6,
+    "lost": 8.3,
+    "rel": 1.96,
+    "display_only": true
    }
   },
   "total": 0.4,
@@ -6295,9 +6711,9 @@
      "n_in": 0
     },
     "pids": [
-     "690916",
-     "700113",
      "669711",
+     "700113",
+     "690916",
      "657077"
     ]
    },
@@ -6605,9 +7021,9 @@
        "n_in": 0
       },
       "pids": [
-       "690916",
-       "700113",
        "669711",
+       "700113",
+       "690916",
        "657077"
       ]
      }
@@ -6774,9 +7190,9 @@
       },
       "pids": [
        "808366",
-       "696486",
-       "663855",
        "690986",
+       "663855",
+       "696486",
        "646240"
       ]
      },
@@ -6830,9 +7246,9 @@
        "n_in": 0
       },
       "pids": [
+       "678011",
        "702332",
        "655316",
-       "678011",
        "675660",
        "690986",
        "666152"
@@ -7143,6 +7559,24 @@
    "devPit": {
     "v": -0.01,
     "n": 37
+   },
+   "devBat": {
+    "v": -0.02,
+    "n": 32
+   },
+   "inj": {
+    "pit": 45.2,
+    "bat": 30.8
+   },
+   "draftRoom": {
+    "n": 21,
+    "overslot": 0.19,
+    "slotUse": 1.23,
+    "prep": 0.05
+   },
+   "buyLow": {
+    "vets": 10,
+    "rate": 0.6
    }
   },
   "titles": 0,
@@ -7430,6 +7864,98 @@
     "net": 1.4,
     "h": "Justin Gonzales enters top 100 at #81 (own international signing)"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 2,
+    "net": -13.8
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 2,
+    "net": 6.0
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 4,
+    "net": -4.9
+   },
+   {
+    "opp": "STL",
+    "exec": "Chaim Bloom",
+    "n": 3,
+    "net": 4.7
+   },
+   {
+    "opp": "NYM",
+    "exec": "David Stearns",
+    "n": 6,
+    "net": 2.3
+   },
+   {
+    "opp": "CWS",
+    "exec": "Chris Getz",
+    "n": 6,
+    "net": -1.9
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 3,
+    "net": 1.2
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 3,
+    "net": -1.2
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 2,
+    "net": -0.9
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 4,
+    "net": 0.6
+   },
+   {
+    "opp": "LAA",
+    "exec": "Perry Minasian",
+    "n": 3,
+    "net": -0.6
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 4,
+    "net": 0.5
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 2,
+    "net": -0.2
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 2,
+    "net": 0.1
+   },
+   {
+    "opp": "DET",
+    "exec": "Scott Harris",
+    "n": 3,
+    "net": 0.0
+   }
   ]
  },
  {
@@ -7475,6 +8001,14 @@
     "net": 7.2,
     "g": 70,
     "n": 3
+   },
+   "ret": {
+    "net": 0,
+    "g": 70,
+    "n": 10,
+    "lost": 21.5,
+    "rel": 1.37,
+    "display_only": true
    }
   },
   "total": -7.5,
@@ -7542,8 +8076,8 @@
      "n_in": 1
     },
     "pids": [
-     "622075",
      "683737",
+     "622075",
      "701328",
      "814307"
     ]
@@ -7564,11 +8098,11 @@
         "+0.0"
        ],
        [
-        "Ismael Mena",
+        "Reginald Preciado",
         "+0.0"
        ],
        [
-        "Reginald Preciado",
+        "Ismael Mena",
         "+0.0"
        ],
        [
@@ -7603,10 +8137,10 @@
     },
     "pids": [
      "605200",
-     "691190",
      "691262",
-     "683357",
+     "691190",
      "678220",
+     "683357",
      "506433",
      "605170"
     ]
@@ -7806,8 +8340,8 @@
      "n_in": 0
     },
     "pids": [
-     "682634",
      "669805",
+     "682634",
      "519203"
     ]
    },
@@ -7895,8 +8429,8 @@
        "n_in": 1
       },
       "pids": [
-       "622075",
        "683737",
+       "622075",
        "701328",
        "814307"
       ]
@@ -8086,11 +8620,11 @@
           "+0.0"
          ],
          [
-          "Ismael Mena",
+          "Reginald Preciado",
           "+0.0"
          ],
          [
-          "Reginald Preciado",
+          "Ismael Mena",
           "+0.0"
          ],
          [
@@ -8125,10 +8659,10 @@
       },
       "pids": [
        "605200",
-       "691190",
        "691262",
-       "683357",
+       "691190",
        "678220",
+       "683357",
        "506433",
        "605170"
       ]
@@ -8247,8 +8781,8 @@
        "n_in": 0
       },
       "pids": [
-       "682634",
        "669805",
+       "682634",
        "519203"
       ]
      },
@@ -8681,6 +9215,24 @@
    "devPit": {
     "v": -0.02,
     "n": 52
+   },
+   "devBat": {
+    "v": 0.15,
+    "n": 25
+   },
+   "inj": {
+    "pit": 45.3,
+    "bat": 31.6
+   },
+   "draftRoom": {
+    "n": 50,
+    "overslot": 0.24,
+    "slotUse": 1.02,
+    "prep": 0.12
+   },
+   "buyLow": {
+    "vets": 5,
+    "rate": null
    }
   },
   "titles": 0,
@@ -9248,6 +9800,116 @@
     "net": 1.8,
     "h": "Matt Shaw #54 -> #19"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 5,
+    "net": -9.6
+   },
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 4,
+    "net": -9.1
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 4,
+    "net": 8.2
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 5,
+    "net": 4.4
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 5,
+    "net": -2.9
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 2,
+    "net": -2.6
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 4,
+    "net": -2.2
+   },
+   {
+    "opp": "HOU",
+    "exec": "Dana Brown",
+    "n": 4,
+    "net": -2.2
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 4,
+    "net": 1.8
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 3,
+    "net": 1.2
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 2,
+    "net": -1.1
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 3,
+    "net": 1.0
+   },
+   {
+    "opp": "KC",
+    "exec": "J.J. Picollo",
+    "n": 3,
+    "net": -0.5
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 2,
+    "net": -0.3
+   },
+   {
+    "opp": "ARI",
+    "exec": "Mike Hazen",
+    "n": 3,
+    "net": -0.2
+   },
+   {
+    "opp": "CWS",
+    "exec": "Chris Getz",
+    "n": 3,
+    "net": -0.2
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 5,
+    "net": -0.1
+   },
+   {
+    "opp": "NYM",
+    "exec": "David Stearns",
+    "n": 3,
+    "net": -0.1
+   }
   ]
  },
  {
@@ -9291,6 +9953,14 @@
     "net": 0,
     "g": null,
     "n": 0
+   },
+   "ret": {
+    "net": 0,
+    "g": 80,
+    "n": 6,
+    "lost": 4.3,
+    "rel": 3.55,
+    "display_only": true
    }
   },
   "total": -18.5,
@@ -9360,8 +10030,8 @@
     },
     "pids": [
      "621051",
-     "694214",
      "689672",
+     "694214",
      "683568",
      "656302"
     ]
@@ -9506,11 +10176,11 @@
      "n_in": 0
     },
     "pids": [
+     "803035",
      "669699",
-     "670032",
      "694363",
      "647336",
-     "803035",
+     "670032",
      "607481"
     ]
    },
@@ -9641,8 +10311,8 @@
     },
     "pids": [
      "800316",
-     "800419",
      "678246",
+     "800419",
      "656629",
      "502054",
      "607200"
@@ -9778,8 +10448,8 @@
       },
       "pids": [
        "800316",
-       "800419",
        "678246",
+       "800419",
        "656629",
        "502054",
        "607200"
@@ -9915,8 +10585,8 @@
       },
       "pids": [
        "621051",
-       "694214",
        "689672",
+       "694214",
        "683568",
        "656302"
       ]
@@ -10024,11 +10694,11 @@
        "n_in": 0
       },
       "pids": [
+       "803035",
        "669699",
-       "670032",
        "694363",
        "647336",
-       "803035",
+       "670032",
        "607481"
       ]
      },
@@ -10471,6 +11141,24 @@
    "devPit": {
     "v": 0.05,
     "n": 35
+   },
+   "devBat": {
+    "v": 0.06,
+    "n": 43
+   },
+   "inj": {
+    "pit": 44.0,
+    "bat": 34.0
+   },
+   "draftRoom": {
+    "n": 21,
+    "overslot": 0.43,
+    "slotUse": 0.83,
+    "prep": 0.14
+   },
+   "buyLow": {
+    "vets": 4,
+    "rate": null
    }
   },
   "titles": 0,
@@ -10533,6 +11221,92 @@
     "net": 1.3,
     "h": "Edgar Quero enters top 100 at #66 (acquired as prospect)"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 2,
+    "net": -8.5
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 7,
+    "net": 2.8
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 5,
+    "net": -2.2
+   },
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 6,
+    "net": 1.9
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 2,
+    "net": -1.9
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 2,
+    "net": -1.8
+   },
+   {
+    "opp": "HOU",
+    "exec": "Dana Brown",
+    "n": 2,
+    "net": -0.7
+   },
+   {
+    "opp": "NYM",
+    "exec": "David Stearns",
+    "n": 3,
+    "net": -0.5
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 2,
+    "net": 0.5
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 4,
+    "net": -0.3
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 3,
+    "net": 0.2
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 2,
+    "net": -0.1
+   },
+   {
+    "opp": "TEX",
+    "exec": "Chris Young",
+    "n": 2,
+    "net": -0.1
+   },
+   {
+    "opp": "LAA",
+    "exec": "Perry Minasian",
+    "n": 2,
+    "net": 0.0
+   }
   ]
  },
  {
@@ -10576,6 +11350,14 @@
     "net": 0,
     "g": null,
     "n": 1
+   },
+   "ret": {
+    "net": 0,
+    "g": 60,
+    "n": 14,
+    "lost": 25.6,
+    "rel": 0.62,
+    "display_only": true
    }
   },
   "total": -12.3,
@@ -10647,10 +11429,10 @@
      "n_in": 1
     },
     "pids": [
-     "682622",
+     "681097",
      "686651",
      "695490",
-     "681097",
+     "682622",
      "622491"
     ]
    },
@@ -10740,8 +11522,8 @@
     },
     "pids": [
      "668715",
-     "680727",
      "687952",
+     "680727",
      "641816"
     ]
    },
@@ -10946,8 +11728,8 @@
       },
       "pids": [
        "668715",
-       "680727",
        "687952",
+       "680727",
        "641816"
       ]
      },
@@ -11065,8 +11847,8 @@
        "n_in": 0
       },
       "pids": [
-       "570666",
-       "458677"
+       "458677",
+       "570666"
       ]
      },
      {
@@ -11160,10 +11942,10 @@
        "n_in": 1
       },
       "pids": [
-       "682622",
+       "681097",
        "686651",
        "695490",
-       "681097",
+       "682622",
        "622491"
       ]
      },
@@ -11865,6 +12647,24 @@
    "devPit": {
     "v": -0.22,
     "n": 35
+   },
+   "devBat": {
+    "v": 0.11,
+    "n": 35
+   },
+   "inj": {
+    "pit": 46.0,
+    "bat": 41.8
+   },
+   "draftRoom": {
+    "n": 56,
+    "overslot": 0.14,
+    "slotUse": 0.95,
+    "prep": 0.12
+   },
+   "buyLow": {
+    "vets": 7,
+    "rate": null
    }
   },
   "titles": 0,
@@ -12106,6 +12906,110 @@
     "net": 1.1,
     "h": "Connor Phillips enters top 100 at #70 (acquired as prospect)"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 9,
+    "net": -11.3
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 3,
+    "net": -3.0
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 3,
+    "net": 2.3
+   },
+   {
+    "opp": "LAA",
+    "exec": "Perry Minasian",
+    "n": 3,
+    "net": -2.2
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 3,
+    "net": -2.2
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 4,
+    "net": 1.9
+   },
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 2,
+    "net": -1.2
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 2,
+    "net": 1.2
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 3,
+    "net": 0.7
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 2,
+    "net": 0.5
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 3,
+    "net": -0.5
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 4,
+    "net": 0.4
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 4,
+    "net": 0.2
+   },
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 2,
+    "net": 0.2
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 4,
+    "net": 0.1
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 3,
+    "net": 0.0
+   },
+   {
+    "opp": "TEX",
+    "exec": "Chris Young",
+    "n": 4,
+    "net": 0.0
+   }
   ]
  },
  {
@@ -12151,6 +13055,14 @@
     "net": 32.3,
     "g": 80,
     "n": 3
+   },
+   "ret": {
+    "net": 0,
+    "g": 70,
+    "n": 22,
+    "lost": 37.5,
+    "rel": 1.7,
+    "display_only": true
    }
   },
   "total": 78.6,
@@ -12297,12 +13209,12 @@
      "n_in": 0
     },
     "pids": [
-     "680911",
-     "647304",
-     "676282",
-     "595978",
-     "672356",
      "615698",
+     "595978",
+     "647304",
+     "672356",
+     "676282",
+     "680911",
      "605182",
      "656185"
     ]
@@ -12551,12 +13463,12 @@
        "n_in": 0
       },
       "pids": [
-       "680911",
-       "647304",
-       "676282",
-       "595978",
-       "672356",
        "615698",
+       "595978",
+       "647304",
+       "672356",
+       "676282",
+       "680911",
        "605182",
        "656185"
       ]
@@ -12866,8 +13778,8 @@
        "n_in": 1
       },
       "pids": [
-       "641343",
        "467793",
+       "641343",
        "642121",
        "429665",
        "650490"
@@ -13660,6 +14572,24 @@
    "devPit": {
     "v": 0.19,
     "n": 30
+   },
+   "devBat": {
+    "v": 0.38,
+    "n": 26
+   },
+   "inj": {
+    "pit": 14.8,
+    "bat": 13.3
+   },
+   "draftRoom": {
+    "n": 94,
+    "overslot": 0.28,
+    "slotUse": 1.25,
+    "prep": 0.18
+   },
+   "buyLow": {
+    "vets": 15,
+    "rate": 0.33
    }
   },
   "titles": 0,
@@ -14250,6 +15180,110 @@
     "net": 1.9,
     "h": "Angel Genao enters top 100 at #62 (own international signing)"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 10,
+    "net": 20.7
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 9,
+    "net": -13.5
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 12,
+    "net": -3.0
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 4,
+    "net": -2.8
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 6,
+    "net": 2.5
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 8,
+    "net": 2.4
+   },
+   {
+    "opp": "TEX",
+    "exec": "Chris Young",
+    "n": 2,
+    "net": 2.2
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 5,
+    "net": -2.1
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 4,
+    "net": -1.9
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 3,
+    "net": 1.4
+   },
+   {
+    "opp": "ARI",
+    "exec": "Mike Hazen",
+    "n": 4,
+    "net": 0.7
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 2,
+    "net": -0.7
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 2,
+    "net": 0.7
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 2,
+    "net": 0.3
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 2,
+    "net": 0.2
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 4,
+    "net": 0.1
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 2,
+    "net": 0.0
+   }
   ]
  },
  {
@@ -14295,6 +15329,14 @@
     "net": 0,
     "g": null,
     "n": 0
+   },
+   "ret": {
+    "net": 0,
+    "g": 80,
+    "n": 0,
+    "lost": 0.0,
+    "rel": 5.28,
+    "display_only": true
    }
   },
   "total": 4.7,
@@ -14688,6 +15730,24 @@
    "devPit": {
     "v": 0.05,
     "n": 32
+   },
+   "devBat": {
+    "v": 0.72,
+    "n": 21
+   },
+   "inj": {
+    "pit": 45.7,
+    "bat": 27.1
+   },
+   "draftRoom": {
+    "n": 0,
+    "overslot": null,
+    "slotUse": null,
+    "prep": null
+   },
+   "buyLow": {
+    "vets": 1,
+    "rate": null
    }
   },
   "titles": 0,
@@ -14727,7 +15787,8 @@
     "net": 0.9,
     "h": "Ethan Holliday enters top 100 at #17 (own draft pick #4 (2025))"
    }
-  ]
+  ],
+  "h2h": []
  },
  {
   "id": "det",
@@ -14770,6 +15831,14 @@
     "net": 0,
     "g": null,
     "n": 1
+   },
+   "ret": {
+    "net": 0,
+    "g": 45,
+    "n": 7,
+    "lost": 19.9,
+    "rel": -0.41,
+    "display_only": true
    }
   },
   "total": 9.4,
@@ -14979,8 +16048,8 @@
     },
     "pids": [
      "664848",
-     "663837",
      "665155",
+     "663837",
      "642397",
      "665019"
     ]
@@ -15175,8 +16244,8 @@
       },
       "pids": [
        "664848",
-       "663837",
        "665155",
+       "663837",
        "642397",
        "665019"
       ]
@@ -15954,6 +17023,24 @@
    "devPit": {
     "v": 0.23,
     "n": 29
+   },
+   "devBat": {
+    "v": 0.22,
+    "n": 27
+   },
+   "inj": {
+    "pit": 40.0,
+    "bat": 25.1
+   },
+   "draftRoom": {
+    "n": 33,
+    "overslot": 0.27,
+    "slotUse": 1.15,
+    "prep": 0.36
+   },
+   "buyLow": {
+    "vets": 2,
+    "rate": null
    }
   },
   "titles": 0,
@@ -16222,6 +17309,68 @@
     "net": -1.1,
     "h": "Thayron Liranzo fell off (last #82, no debut)"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 2,
+    "net": -3.5
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 6,
+    "net": 2.4
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 5,
+    "net": -1.5
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 3,
+    "net": 1.1
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 6,
+    "net": -1.0
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 5,
+    "net": -0.9
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 2,
+    "net": -0.5
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 3,
+    "net": 0.3
+   },
+   {
+    "opp": "TEX",
+    "exec": "Chris Young",
+    "n": 3,
+    "net": -0.1
+   },
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 3,
+    "net": -0.0
+   }
   ]
  },
  {
@@ -16265,6 +17414,14 @@
     "net": 0,
     "g": null,
     "n": 1
+   },
+   "ret": {
+    "net": 0,
+    "g": 50,
+    "n": 11,
+    "lost": 19.0,
+    "rel": -0.16,
+    "display_only": true
    }
   },
   "total": 8.2,
@@ -16410,8 +17567,8 @@
      "n_in": 1
     },
     "pids": [
-     "701358",
      "670623",
+     "701358",
      "669713",
      "663656"
     ]
@@ -16716,8 +17873,8 @@
        "n_in": 1
       },
       "pids": [
-       "701358",
        "670623",
+       "701358",
        "669713",
        "663656"
       ]
@@ -17268,6 +18425,24 @@
    "devPit": {
     "v": 0.28,
     "n": 26
+   },
+   "devBat": {
+    "v": 0.17,
+    "n": 21
+   },
+   "inj": {
+    "pit": 40.0,
+    "bat": 24.0
+   },
+   "draftRoom": {
+    "n": 28,
+    "overslot": 0.25,
+    "slotUse": 1.0,
+    "prep": 0.11
+   },
+   "buyLow": {
+    "vets": 2,
+    "rate": null
    }
   },
   "titles": 0,
@@ -17455,6 +18630,74 @@
     "net": -0.1,
     "h": "Xavier Neyens enters top 100 at #83 (own draft pick #21 (2025))"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 4,
+    "net": 2.2
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 4,
+    "net": -1.8
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 4,
+    "net": 1.1
+   },
+   {
+    "opp": "CWS",
+    "exec": "Chris Getz",
+    "n": 2,
+    "net": 0.7
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 3,
+    "net": 0.7
+   },
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 2,
+    "net": -0.5
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 3,
+    "net": 0.2
+   },
+   {
+    "opp": "WSH",
+    "exec": "Paul Toboni",
+    "n": 2,
+    "net": -0.2
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 2,
+    "net": 0.1
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 3,
+    "net": -0.1
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 3,
+    "net": -0.1
+   }
   ]
  },
  {
@@ -17498,6 +18741,14 @@
     "net": 0,
     "g": null,
     "n": 1
+   },
+   "ret": {
+    "net": 0,
+    "g": 80,
+    "n": 5,
+    "lost": 3.5,
+    "rel": 4.26,
+    "display_only": true
    }
   },
   "total": -8.7,
@@ -17740,8 +18991,8 @@
      "n_in": 0
     },
     "pids": [
-     "663568",
      "686701",
+     "663568",
      "666023"
     ]
    },
@@ -17949,8 +19200,8 @@
        "n_in": 0
       },
       "pids": [
-       "663568",
        "686701",
+       "663568",
        "666023"
       ]
      },
@@ -18107,8 +19358,8 @@
        "n_in": 0
       },
       "pids": [
-       "663697",
        "686894",
+       "663697",
        "663903"
       ]
      },
@@ -18231,8 +19482,8 @@
        "n_in": 0
       },
       "pids": [
-       "681895",
        "674444",
+       "681895",
        "572191"
       ]
      }
@@ -18511,6 +19762,24 @@
    "devPit": {
     "v": -0.03,
     "n": 30
+   },
+   "devBat": {
+    "v": 0.05,
+    "n": 30
+   },
+   "inj": {
+    "pit": 37.1,
+    "bat": 19.7
+   },
+   "draftRoom": {
+    "n": 33,
+    "overslot": 0.18,
+    "slotUse": 0.94,
+    "prep": 0.15
+   },
+   "buyLow": {
+    "vets": 5,
+    "rate": null
    }
   },
   "titles": 0,
@@ -18722,6 +19991,80 @@
     "net": -1.2,
     "h": "Asa Lacy fell off (last #72, no debut)"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 7,
+    "net": -6.1
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 2,
+    "net": 1.9
+   },
+   {
+    "opp": "SF",
+    "exec": "Buster Posey",
+    "n": 2,
+    "net": 1.2
+   },
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 2,
+    "net": 1.1
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 5,
+    "net": -0.8
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 3,
+    "net": 0.5
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 4,
+    "net": 0.4
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 2,
+    "net": -0.4
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 2,
+    "net": -0.3
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 4,
+    "net": -0.2
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 5,
+    "net": -0.2
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 4,
+    "net": 0.0
+   }
   ]
  },
  {
@@ -18765,6 +20108,14 @@
     "net": 0,
     "g": null,
     "n": 0
+   },
+   "ret": {
+    "net": 0,
+    "g": 30,
+    "n": 8,
+    "lost": 45.0,
+    "rel": -2.9,
+    "display_only": true
    }
   },
   "total": -21.8,
@@ -19962,6 +21313,24 @@
    "devPit": {
     "v": -0.03,
     "n": 53
+   },
+   "devBat": {
+    "v": -0.26,
+    "n": 37
+   },
+   "inj": {
+    "pit": 34.5,
+    "bat": 43.6
+   },
+   "draftRoom": {
+    "n": 49,
+    "overslot": 0.22,
+    "slotUse": 0.91,
+    "prep": 0.12
+   },
+   "buyLow": {
+    "vets": 8,
+    "rate": 0.12
    }
   },
   "titles": 0,
@@ -20318,6 +21687,62 @@
     "net": 1.1,
     "h": "Reid Detmers enters top 100 at #73 (acquired as prospect)"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 4,
+    "net": -9.3
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 13,
+    "net": -8.8
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 4,
+    "net": 2.7
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 3,
+    "net": 1.9
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 3,
+    "net": -0.8
+   },
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 3,
+    "net": 0.6
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 5,
+    "net": 0.2
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 3,
+    "net": 0.1
+   },
+   {
+    "opp": "CWS",
+    "exec": "Chris Getz",
+    "n": 2,
+    "net": -0.0
+   }
   ]
  },
  {
@@ -20361,6 +21786,14 @@
     "net": 19.4,
     "g": 70,
     "n": 3
+   },
+   "ret": {
+    "net": 0,
+    "g": 30,
+    "n": 37,
+    "lost": 154.7,
+    "rel": -8.17,
+    "display_only": true
    }
   },
   "total": 104.9,
@@ -20520,9 +21953,9 @@
      "n_in": 0
     },
     "pids": [
-     "518735",
-     "621107",
      "543921",
+     "621107",
+     "518735",
      "543148",
      "461314"
     ]
@@ -20577,11 +22010,11 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Jackson Ferris",
+        "Zyhir Hope",
         "+0.0"
        ],
        [
-        "Zyhir Hope",
+        "Jackson Ferris",
         "+0.0"
        ]
       ]
@@ -20607,8 +22040,8 @@
      "n_in": 0
     },
     "pids": [
-     "701328",
      "814307",
+     "701328",
      "622075",
      "683737"
     ]
@@ -20701,9 +22134,9 @@
     },
     "pids": [
      "622072",
-     "606299",
-     "501593",
      "462382",
+     "501593",
+     "606299",
      "276520",
      "621064",
      "493343",
@@ -20851,9 +22284,9 @@
        "n_in": 0
       },
       "pids": [
-       "518735",
-       "621107",
        "543921",
+       "621107",
+       "518735",
        "543148",
        "461314"
       ]
@@ -20955,9 +22388,9 @@
       },
       "pids": [
        "622072",
-       "606299",
-       "501593",
        "462382",
+       "501593",
+       "606299",
        "276520",
        "621064",
        "493343",
@@ -21016,11 +22449,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Jackson Ferris",
+          "Zyhir Hope",
           "+0.0"
          ],
          [
-          "Zyhir Hope",
+          "Jackson Ferris",
           "+0.0"
          ]
         ]
@@ -21046,8 +22479,8 @@
        "n_in": 0
       },
       "pids": [
-       "701328",
        "814307",
+       "701328",
        "622075",
        "683737"
       ]
@@ -21929,6 +23362,24 @@
    "devPit": {
     "v": 0.02,
     "n": 46
+   },
+   "devBat": {
+    "v": -0.16,
+    "n": 32
+   },
+   "inj": {
+    "pit": 29.0,
+    "bat": 19.9
+   },
+   "draftRoom": {
+    "n": 84,
+    "overslot": 0.24,
+    "slotUse": 0.91,
+    "prep": 0.12
+   },
+   "buyLow": {
+    "vets": 34,
+    "rate": 0.5
    }
   },
   "titles": 3,
@@ -22548,6 +23999,134 @@
     "net": 3.5,
     "h": "Josue De Paula #40 -> #4"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 14,
+    "net": 18.0
+   },
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 3,
+    "net": 13.0
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 4,
+    "net": -8.2
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 15,
+    "net": -7.6
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 12,
+    "net": -4.2
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 8,
+    "net": 3.9
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 5,
+    "net": 2.1
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 6,
+    "net": -1.7
+   },
+   {
+    "opp": "DET",
+    "exec": "Scott Harris",
+    "n": 5,
+    "net": 1.5
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 2,
+    "net": -1.3
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 10,
+    "net": -1.0
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 4,
+    "net": 1.0
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 4,
+    "net": -0.9
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 3,
+    "net": -0.7
+   },
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 4,
+    "net": -0.6
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 5,
+    "net": -0.4
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 2,
+    "net": -0.4
+   },
+   {
+    "opp": "KC",
+    "exec": "J.J. Picollo",
+    "n": 2,
+    "net": 0.3
+   },
+   {
+    "opp": "NYM",
+    "exec": "David Stearns",
+    "n": 2,
+    "net": 0.2
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 2,
+    "net": -0.1
+   },
+   {
+    "opp": "ARI",
+    "exec": "Mike Hazen",
+    "n": 3,
+    "net": 0.0
+   }
   ]
  },
  {
@@ -22591,6 +24170,14 @@
     "net": 0,
     "g": null,
     "n": 0
+   },
+   "ret": {
+    "net": 0,
+    "g": 80,
+    "n": 1,
+    "lost": 0.4,
+    "rel": 5.11,
+    "display_only": true
    }
   },
   "total": -7.0,
@@ -22732,8 +24319,8 @@
      "n_in": 0
     },
     "pids": [
-     "800254",
      "682663",
+     "800254",
      "691858",
      "665862"
     ]
@@ -22754,15 +24341,15 @@
         "+3.8"
        ],
        [
-        "Nathan Martorella",
-        "+0.0"
-       ],
-       [
         "Dillon Head",
         "+0.0"
        ],
        [
         "Woo-Suk Go",
+        "+0.0"
+       ],
+       [
+        "Nathan Martorella",
         "+0.0"
        ]
       ]
@@ -22784,10 +24371,10 @@
      "n_in": 0
     },
     "pids": [
-     "805300",
-     "687210",
      "702977",
      "808970",
+     "687210",
+     "805300",
      "650333"
     ]
    },
@@ -22803,11 +24390,11 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Juan Matheus",
+        "Dillon Lewis",
         "+0.0"
        ],
        [
-        "Dillon Lewis",
+        "Dylan Jasso",
         "+0.0"
        ],
        [
@@ -22815,7 +24402,7 @@
         "+0.0"
        ],
        [
-        "Dylan Jasso",
+        "Juan Matheus",
         "+0.0"
        ]
       ]
@@ -22837,10 +24424,10 @@
      "n_in": 0
     },
     "pids": [
-     "801276",
      "827665",
-     "800957",
      "815734",
+     "800957",
+     "801276",
      "677960"
     ]
    },
@@ -22959,8 +24546,8 @@
      "n_in": 0
     },
     "pids": [
-     "691277",
      "801464",
+     "691277",
      "640462"
     ]
    }
@@ -23129,8 +24716,8 @@
        "n_in": 0
       },
       "pids": [
-       "681393",
        "669065",
+       "681393",
        "669432"
       ]
      },
@@ -23263,8 +24850,8 @@
        "n_in": 0
       },
       "pids": [
-       "800254",
        "682663",
+       "800254",
        "691858",
        "665862"
       ]
@@ -23285,15 +24872,15 @@
           "+3.8"
          ],
          [
-          "Nathan Martorella",
-          "+0.0"
-         ],
-         [
           "Dillon Head",
           "+0.0"
          ],
          [
           "Woo-Suk Go",
+          "+0.0"
+         ],
+         [
+          "Nathan Martorella",
           "+0.0"
          ]
         ]
@@ -23315,10 +24902,10 @@
        "n_in": 0
       },
       "pids": [
-       "805300",
-       "687210",
        "702977",
        "808970",
+       "687210",
+       "805300",
        "650333"
       ]
      },
@@ -23334,11 +24921,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Juan Matheus",
+          "Dillon Lewis",
           "+0.0"
          ],
          [
-          "Dillon Lewis",
+          "Dylan Jasso",
           "+0.0"
          ],
          [
@@ -23346,7 +24933,7 @@
           "+0.0"
          ],
          [
-          "Dylan Jasso",
+          "Juan Matheus",
           "+0.0"
          ]
         ]
@@ -23368,10 +24955,10 @@
        "n_in": 0
       },
       "pids": [
-       "801276",
        "827665",
-       "800957",
        "815734",
+       "800957",
+       "801276",
        "677960"
       ]
      },
@@ -23413,8 +25000,8 @@
        "n_in": 0
       },
       "pids": [
-       "691277",
        "801464",
+       "691277",
        "640462"
       ]
      }
@@ -23692,6 +25279,24 @@
    "devPit": {
     "v": 0.32,
     "n": 41
+   },
+   "devBat": {
+    "v": 0.36,
+    "n": 40
+   },
+   "inj": {
+    "pit": 41.6,
+    "bat": 31.2
+   },
+   "draftRoom": {
+    "n": 22,
+    "overslot": 0.18,
+    "slotUse": 1.08,
+    "prep": 0.14
+   },
+   "buyLow": {
+    "vets": 1,
+    "rate": null
    }
   },
   "titles": 0,
@@ -23754,6 +25359,116 @@
     "net": -0.8,
     "h": "Noble Meyer #57 -> #85"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 3,
+    "net": -7.3
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 2,
+    "net": -6.5
+   },
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 2,
+    "net": -2.6
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 2,
+    "net": 1.5
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 2,
+    "net": 1.3
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 2,
+    "net": -1.2
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 2,
+    "net": -1.1
+   },
+   {
+    "opp": "ARI",
+    "exec": "Mike Hazen",
+    "n": 3,
+    "net": -1.1
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 3,
+    "net": -1.0
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 2,
+    "net": -0.7
+   },
+   {
+    "opp": "TEX",
+    "exec": "Chris Young",
+    "n": 2,
+    "net": -0.5
+   },
+   {
+    "opp": "SF",
+    "exec": "Buster Posey",
+    "n": 3,
+    "net": 0.3
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 6,
+    "net": -0.2
+   },
+   {
+    "opp": "HOU",
+    "exec": "Dana Brown",
+    "n": 3,
+    "net": -0.2
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 2,
+    "net": -0.2
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 2,
+    "net": -0.1
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 4,
+    "net": 0.0
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 3,
+    "net": -0.0
+   }
   ]
  },
  {
@@ -23797,6 +25512,14 @@
     "net": -0.9,
     "g": 45,
     "n": 2
+   },
+   "ret": {
+    "net": 0,
+    "g": 40,
+    "n": 9,
+    "lost": 20.7,
+    "rel": -0.65,
+    "display_only": true
    }
   },
   "total": 54.2,
@@ -23862,8 +25585,8 @@
      "n_in": 0
     },
     "pids": [
-     "661388",
      "687866",
+     "661388",
      "606303",
      "665923"
     ]
@@ -24189,8 +25912,8 @@
        "n_in": 0
       },
       "pids": [
-       "661388",
        "687866",
+       "661388",
        "606303",
        "665923"
       ]
@@ -24930,6 +26653,24 @@
    "devPit": {
     "v": 0.31,
     "n": 39
+   },
+   "devBat": {
+    "v": 0.42,
+    "n": 48
+   },
+   "inj": {
+    "pit": 44.9,
+    "bat": 24.9
+   },
+   "draftRoom": {
+    "n": 34,
+    "overslot": 0.15,
+    "slotUse": 0.87,
+    "prep": 0.29
+   },
+   "buyLow": {
+    "vets": 8,
+    "rate": 0.62
    }
   },
   "titles": 0,
@@ -25089,6 +26830,116 @@
     "net": -2.0,
     "h": "Jacob Misiorowski #33 -> #100"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 4,
+    "net": 24.8
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 2,
+    "net": 5.4
+   },
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 4,
+    "net": 4.9
+   },
+   {
+    "opp": "NYM",
+    "exec": "David Stearns",
+    "n": 3,
+    "net": -3.6
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 4,
+    "net": 2.8
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 3,
+    "net": 2.4
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 2,
+    "net": 2.0
+   },
+   {
+    "opp": "CWS",
+    "exec": "Chris Getz",
+    "n": 2,
+    "net": 1.9
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 7,
+    "net": 1.5
+   },
+   {
+    "opp": "DET",
+    "exec": "Scott Harris",
+    "n": 3,
+    "net": -1.1
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 3,
+    "net": -0.9
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 4,
+    "net": 0.9
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 2,
+    "net": 0.7
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 2,
+    "net": -0.5
+   },
+   {
+    "opp": "KC",
+    "exec": "J.J. Picollo",
+    "n": 5,
+    "net": 0.2
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 4,
+    "net": -0.1
+   },
+   {
+    "opp": "HOU",
+    "exec": "Dana Brown",
+    "n": 3,
+    "net": 0.1
+   },
+   {
+    "opp": "ARI",
+    "exec": "Mike Hazen",
+    "n": 3,
+    "net": 0.0
+   }
   ]
  },
  {
@@ -25132,6 +26983,14 @@
     "net": 0,
     "g": null,
     "n": 1
+   },
+   "ret": {
+    "net": 0,
+    "g": 30,
+    "n": 31,
+    "lost": 68.0,
+    "rel": -1.88,
+    "display_only": true
    }
   },
   "total": -28.7,
@@ -25228,8 +27087,8 @@
      "n_in": 0
     },
     "pids": [
-     "677868",
      "543243",
+     "677868",
      "695534"
     ]
    },
@@ -25275,8 +27134,8 @@
      "n_in": 0
     },
     "pids": [
-     "675977",
      "657746",
+     "675977",
      "676534",
      "443558"
     ]
@@ -25362,8 +27221,8 @@
      "n_in": 0
     },
     "pids": [
-     "665482",
      "660896",
+     "665482",
      "519151"
     ]
    },
@@ -25547,8 +27406,8 @@
        "n_in": 0
       },
       "pids": [
-       "677868",
        "543243",
+       "677868",
        "695534"
       ]
      },
@@ -25594,8 +27453,8 @@
        "n_in": 0
       },
       "pids": [
-       "675977",
        "657746",
+       "675977",
        "676534",
        "443558"
       ]
@@ -25680,8 +27539,8 @@
        "n_in": 0
       },
       "pids": [
-       "805102",
        "641154",
+       "805102",
        "691191",
        "650333"
       ]
@@ -25728,8 +27587,8 @@
        "n_in": 0
       },
       "pids": [
-       "663978",
        "641941",
+       "663978",
        "573124",
        "667670"
       ]
@@ -25817,8 +27676,8 @@
        "n_in": 0
       },
       "pids": [
-       "665482",
        "660896",
+       "665482",
        "519151"
       ]
      },
@@ -26672,6 +28531,24 @@
    "devPit": {
     "v": 0.17,
     "n": 35
+   },
+   "devBat": {
+    "v": -0.06,
+    "n": 24
+   },
+   "inj": {
+    "pit": 26.3,
+    "bat": 32.2
+   },
+   "draftRoom": {
+    "n": 90,
+    "overslot": 0.27,
+    "slotUse": 1.0,
+    "prep": 0.18
+   },
+   "buyLow": {
+    "vets": 11,
+    "rate": 0.55
    }
   },
   "titles": 0,
@@ -27173,6 +29050,110 @@
     "net": 1.8,
     "h": "Kaelen Culpepper enters top 100 at #29 (own draft pick #21 (2024))"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 7,
+    "net": 19.8
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 6,
+    "net": -8.3
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 7,
+    "net": -6.9
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 2,
+    "net": -5.4
+   },
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 4,
+    "net": 4.6
+   },
+   {
+    "opp": "ARI",
+    "exec": "Mike Hazen",
+    "n": 5,
+    "net": -4.1
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 3,
+    "net": 3.0
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 5,
+    "net": 2.6
+   },
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 3,
+    "net": -1.2
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 6,
+    "net": -1.1
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 10,
+    "net": 1.0
+   },
+   {
+    "opp": "NYM",
+    "exec": "David Stearns",
+    "n": 3,
+    "net": 0.7
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 2,
+    "net": -0.5
+   },
+   {
+    "opp": "DET",
+    "exec": "Scott Harris",
+    "n": 2,
+    "net": 0.5
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 4,
+    "net": -0.1
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 9,
+    "net": -0.0
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 4,
+    "net": -0.0
+   }
   ]
  },
  {
@@ -27216,6 +29197,14 @@
     "net": 0,
     "g": null,
     "n": 0
+   },
+   "ret": {
+    "net": 0,
+    "g": 45,
+    "n": 10,
+    "lost": 14.2,
+    "rel": -0.41,
+    "display_only": true
    }
   },
   "total": 0.5,
@@ -27276,8 +29265,8 @@
      "n_in": 0
     },
     "pids": [
-     "621438",
      "605288",
+     "621438",
      "689441"
     ]
    },
@@ -27577,8 +29566,8 @@
        "n_in": 0
       },
       "pids": [
-       "621438",
        "605288",
+       "621438",
        "689441"
       ]
      },
@@ -28353,6 +30342,24 @@
    "devPit": {
     "v": -0.17,
     "n": 32
+   },
+   "devBat": {
+    "v": -0.02,
+    "n": 29
+   },
+   "inj": {
+    "pit": 44.4,
+    "bat": 22.0
+   },
+   "draftRoom": {
+    "n": 18,
+    "overslot": 0.33,
+    "slotUse": 1.2,
+    "prep": 0.22
+   },
+   "buyLow": {
+    "vets": 6,
+    "rate": null
    }
   },
   "titles": 0,
@@ -28767,6 +30774,86 @@
     "net": -0.9,
     "h": "Ryan Clifford fell off (last #97, no debut)"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 3,
+    "net": 3.6
+   },
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 6,
+    "net": -2.3
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 3,
+    "net": 1.1
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 6,
+    "net": -1.0
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 2,
+    "net": 0.9
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 3,
+    "net": -0.7
+   },
+   {
+    "opp": "CWS",
+    "exec": "Chris Getz",
+    "n": 3,
+    "net": 0.5
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 3,
+    "net": -0.4
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 2,
+    "net": -0.2
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 3,
+    "net": 0.2
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 3,
+    "net": 0.2
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 3,
+    "net": 0.1
+   },
+   {
+    "opp": "SF",
+    "exec": "Buster Posey",
+    "n": 2,
+    "net": -0.1
+   }
   ]
  },
  {
@@ -28812,6 +30899,14 @@
     "net": -12.4,
     "g": 45,
     "n": 2
+   },
+   "ret": {
+    "net": 0,
+    "g": 50,
+    "n": 39,
+    "lost": 114.7,
+    "rel": -0.06,
+    "display_only": true
    }
   },
   "total": 86.4,
@@ -29127,9 +31222,9 @@
      "n_in": 0
     },
     "pids": [
+     "502085",
      "453943",
      "592454",
-     "502085",
      "461325",
      "622738",
      "624420",
@@ -29318,9 +31413,9 @@
        "n_in": 0
       },
       "pids": [
+       "502085",
        "453943",
        "592454",
-       "502085",
        "461325",
        "622738",
        "624420",
@@ -30347,6 +32442,24 @@
    "devPit": {
     "v": -0.02,
     "n": 46
+   },
+   "devBat": {
+    "v": -0.11,
+    "n": 37
+   },
+   "inj": {
+    "pit": 12.8,
+    "bat": 14.0
+   },
+   "draftRoom": {
+    "n": 81,
+    "overslot": 0.23,
+    "slotUse": 0.92,
+    "prep": 0.07
+   },
+   "buyLow": {
+    "vets": 43,
+    "rate": 0.44
    }
   },
   "titles": 1,
@@ -31024,6 +33137,134 @@
     "net": 3.1,
     "h": "Gary S\u00e1nchez enters top 100 at #32 (own international signing)"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 7,
+    "net": 11.6
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 5,
+    "net": 9.6
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 6,
+    "net": 9.5
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 3,
+    "net": 7.3
+   },
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 2,
+    "net": -6.0
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 8,
+    "net": 3.1
+   },
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 7,
+    "net": 2.8
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 4,
+    "net": -2.8
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 5,
+    "net": -2.6
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 5,
+    "net": 2.5
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 9,
+    "net": 2.1
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 6,
+    "net": 1.7
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 3,
+    "net": -1.7
+   },
+   {
+    "opp": "ARI",
+    "exec": "Mike Hazen",
+    "n": 3,
+    "net": -0.8
+   },
+   {
+    "opp": "HOU",
+    "exec": "Dana Brown",
+    "n": 3,
+    "net": -0.7
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 8,
+    "net": -0.6
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 2,
+    "net": -0.6
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 4,
+    "net": -0.4
+   },
+   {
+    "opp": "WSH",
+    "exec": "Paul Toboni",
+    "n": 2,
+    "net": -0.4
+   },
+   {
+    "opp": "LAA",
+    "exec": "Perry Minasian",
+    "n": 5,
+    "net": -0.2
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 2,
+    "net": 0.2
+   }
   ]
  },
  {
@@ -31067,6 +33308,14 @@
     "net": -0.1,
     "g": 50,
     "n": 4
+   },
+   "ret": {
+    "net": 0,
+    "g": 55,
+    "n": 20,
+    "lost": 50.3,
+    "rel": 0.49,
+    "display_only": true
    }
   },
   "total": -14.3,
@@ -31143,10 +33392,10 @@
      "n_in": 2
     },
     "pids": [
+     "680743",
      "665506",
      "669127",
      "683155",
-     "680743",
      "621566"
     ]
    },
@@ -31196,10 +33445,10 @@
      "n_in": 0
     },
     "pids": [
-     "656657",
      "669912",
-     "680684",
+     "656657",
      "675656",
+     "680684",
      "656305"
     ]
    },
@@ -31257,11 +33506,11 @@
      "n_in": 0
     },
     "pids": [
-     "665923",
-     "666205",
-     "683690",
-     "676206",
      "444489",
+     "666205",
+     "676206",
+     "683690",
+     "665923",
      "669221",
      "606303"
     ]
@@ -31688,10 +33937,10 @@
        "n_in": 2
       },
       "pids": [
+       "680743",
        "665506",
        "669127",
        "683155",
-       "680743",
        "621566"
       ]
      },
@@ -31741,10 +33990,10 @@
        "n_in": 0
       },
       "pids": [
-       "656657",
        "669912",
-       "680684",
+       "656657",
        "675656",
+       "680684",
        "656305"
       ]
      },
@@ -31802,11 +34051,11 @@
        "n_in": 0
       },
       "pids": [
-       "665923",
-       "666205",
-       "683690",
-       "676206",
        "444489",
+       "666205",
+       "676206",
+       "683690",
+       "665923",
        "669221",
        "606303"
       ]
@@ -32613,6 +34862,24 @@
    "devPit": {
     "v": 0.19,
     "n": 45
+   },
+   "devBat": {
+    "v": -0.15,
+    "n": 37
+   },
+   "inj": {
+    "pit": 19.7,
+    "bat": 17.8
+   },
+   "draftRoom": {
+    "n": 88,
+    "overslot": 0.28,
+    "slotUse": 1.0,
+    "prep": 0.15
+   },
+   "buyLow": {
+    "vets": 12,
+    "rate": 0.58
    }
   },
   "titles": 0,
@@ -33156,6 +35423,128 @@
     "net": -1.4,
     "h": "Franklin Barreto #23 -> #52"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 6,
+    "net": -20.9
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 9,
+    "net": -9.7
+   },
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 8,
+    "net": -8.8
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 5,
+    "net": -8.2
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 4,
+    "net": -5.0
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 8,
+    "net": 3.8
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 2,
+    "net": 3.0
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 5,
+    "net": 2.9
+   },
+   {
+    "opp": "ARI",
+    "exec": "Mike Hazen",
+    "n": 3,
+    "net": 2.6
+   },
+   {
+    "opp": "KC",
+    "exec": "J.J. Picollo",
+    "n": 2,
+    "net": -2.0
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 4,
+    "net": -1.9
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 3,
+    "net": -1.7
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 7,
+    "net": 1.5
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 2,
+    "net": -1.5
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 3,
+    "net": -1.2
+   },
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 3,
+    "net": 1.2
+   },
+   {
+    "opp": "NYM",
+    "exec": "David Stearns",
+    "n": 3,
+    "net": -0.8
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 3,
+    "net": 0.6
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 2,
+    "net": 0.4
+   },
+   {
+    "opp": "CWS",
+    "exec": "Chris Getz",
+    "n": 2,
+    "net": 0.1
+   }
   ]
  },
  {
@@ -33199,6 +35588,14 @@
     "net": 4.1,
     "g": 60,
     "n": 3
+   },
+   "ret": {
+    "net": 0,
+    "g": 65,
+    "n": 12,
+    "lost": 24.4,
+    "rel": 0.83,
+    "display_only": true
    }
   },
   "total": 23.0,
@@ -33556,9 +35953,9 @@
      "n_in": 0
     },
     "pids": [
-     "502043",
      "453178",
      "668968",
+     "502043",
      "678622",
      "666151",
      "675921"
@@ -33780,9 +36177,9 @@
        "n_in": 0
       },
       "pids": [
-       "502043",
        "453178",
        "668968",
+       "502043",
        "678622",
        "666151",
        "675921"
@@ -34473,6 +36870,24 @@
    "devPit": {
     "v": -0.23,
     "n": 25
+   },
+   "devBat": {
+    "v": -0.02,
+    "n": 21
+   },
+   "inj": {
+    "pit": 27.6,
+    "bat": 30.4
+   },
+   "draftRoom": {
+    "n": 47,
+    "overslot": 0.21,
+    "slotUse": 1.09,
+    "prep": 0.23
+   },
+   "buyLow": {
+    "vets": 6,
+    "rate": null
    }
   },
   "titles": 0,
@@ -34923,6 +37338,128 @@
     "net": 1.2,
     "h": "Bryson Stott #86 -> #45"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "LAA",
+    "exec": "Perry Minasian",
+    "n": 4,
+    "net": 9.3
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 2,
+    "net": 6.5
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 5,
+    "net": 5.2
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 5,
+    "net": -4.4
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 8,
+    "net": 3.5
+   },
+   {
+    "opp": "DET",
+    "exec": "Scott Harris",
+    "n": 6,
+    "net": -2.4
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 5,
+    "net": -2.2
+   },
+   {
+    "opp": "CWS",
+    "exec": "Chris Getz",
+    "n": 5,
+    "net": 2.2
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 3,
+    "net": 1.7
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 5,
+    "net": -1.5
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 6,
+    "net": 1.1
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 5,
+    "net": -0.8
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 2,
+    "net": 0.5
+   },
+   {
+    "opp": "KC",
+    "exec": "J.J. Picollo",
+    "n": 4,
+    "net": 0.2
+   },
+   {
+    "opp": "NYM",
+    "exec": "David Stearns",
+    "n": 3,
+    "net": -0.2
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 4,
+    "net": 0.1
+   },
+   {
+    "opp": "TEX",
+    "exec": "Chris Young",
+    "n": 3,
+    "net": 0.1
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 3,
+    "net": -0.0
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 3,
+    "net": 0.0
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 2,
+    "net": 0.0
+   }
   ]
  },
  {
@@ -34966,6 +37503,14 @@
     "net": -3.1,
     "g": 45,
     "n": 4
+   },
+   "ret": {
+    "net": 0,
+    "g": 80,
+    "n": 10,
+    "lost": 9.6,
+    "rel": 3.8,
+    "display_only": true
    }
   },
   "total": -13.6,
@@ -35059,8 +37604,8 @@
      "n_in": 0
     },
     "pids": [
-     "660636",
      "660829",
+     "660636",
      "605280"
     ]
    },
@@ -35106,9 +37651,9 @@
      "n_in": 0
     },
     "pids": [
+     "664040",
      "682254",
-     "663968",
-     "664040"
+     "663968"
     ]
    },
    {
@@ -35131,11 +37676,11 @@
         "+1.2"
        ],
        [
-        "Omar Cruz",
+        "Hudson Head",
         "+0.0"
        ],
        [
-        "Hudson Head",
+        "Omar Cruz",
         "+0.0"
        ],
        [
@@ -35161,11 +37706,11 @@
      "n_in": 0
     },
     "pids": [
-     "682848",
-     "670280",
-     "678316",
      "687431",
+     "678316",
+     "682848",
      "666148",
+     "670280",
      "605397"
     ]
    },
@@ -35215,10 +37760,10 @@
      "n_in": 0
     },
     "pids": [
-     "672710",
      "683500",
-     "675986",
      "664337",
+     "675986",
+     "672710",
      "592791"
     ]
    },
@@ -35364,9 +37909,9 @@
        "n_in": 0
       },
       "pids": [
+       "664040",
        "682254",
-       "663968",
-       "664040"
+       "663968"
       ]
      },
      {
@@ -35521,8 +38066,8 @@
        "n_in": 0
       },
       "pids": [
-       "681895",
        "801978",
+       "681895",
        "663559"
       ]
      }
@@ -35566,8 +38111,8 @@
        "n_in": 0
       },
       "pids": [
-       "660636",
        "660829",
+       "660636",
        "605280"
       ]
      },
@@ -35591,11 +38136,11 @@
           "+1.2"
          ],
          [
-          "Omar Cruz",
+          "Hudson Head",
           "+0.0"
          ],
          [
-          "Hudson Head",
+          "Omar Cruz",
           "+0.0"
          ],
          [
@@ -35621,11 +38166,11 @@
        "n_in": 0
       },
       "pids": [
-       "682848",
-       "670280",
-       "678316",
        "687431",
+       "678316",
+       "682848",
        "666148",
+       "670280",
        "605397"
       ]
      },
@@ -35675,10 +38220,10 @@
        "n_in": 0
       },
       "pids": [
-       "672710",
        "683500",
-       "675986",
        "664337",
+       "675986",
+       "672710",
        "592791"
       ]
      },
@@ -35736,11 +38281,11 @@
           "+0.4"
          ],
          [
-          "Brian Sanchez",
+          "Edgleen Perez",
           "+0.0"
          ],
          [
-          "Edgleen Perez",
+          "Brian Sanchez",
           "+0.0"
          ]
         ]
@@ -35762,9 +38307,9 @@
        "n_in": 0
       },
       "pids": [
-       "804668",
-       "809331",
        "814297",
+       "809331",
+       "804668",
        "670280"
       ]
      }
@@ -36335,6 +38880,24 @@
    "devPit": {
     "v": -0.0,
     "n": 56
+   },
+   "devBat": {
+    "v": 0.27,
+    "n": 36
+   },
+   "inj": {
+    "pit": 38.0,
+    "bat": 40.3
+   },
+   "draftRoom": {
+    "n": 60,
+    "overslot": 0.18,
+    "slotUse": 0.93,
+    "prep": 0.17
+   },
+   "buyLow": {
+    "vets": 2,
+    "rate": null
    }
   },
   "titles": 0,
@@ -36786,6 +39349,140 @@
     "net": 1.6,
     "h": "Endy Rodr\u00edguez enters top 100 at #55 (acquired as prospect)"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 7,
+    "net": -11.6
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 4,
+    "net": 3.6
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 4,
+    "net": 2.8
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 4,
+    "net": 2.2
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 5,
+    "net": 2.2
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 3,
+    "net": 2.2
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 2,
+    "net": -2.0
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 6,
+    "net": -1.6
+   },
+   {
+    "opp": "ARI",
+    "exec": "Mike Hazen",
+    "n": 5,
+    "net": -1.3
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 2,
+    "net": 1.1
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 4,
+    "net": -1.0
+   },
+   {
+    "opp": "NYM",
+    "exec": "David Stearns",
+    "n": 2,
+    "net": -0.9
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 3,
+    "net": -0.6
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 6,
+    "net": -0.6
+   },
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 8,
+    "net": 0.5
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 2,
+    "net": 0.5
+   },
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 4,
+    "net": -0.5
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 2,
+    "net": 0.4
+   },
+   {
+    "opp": "KC",
+    "exec": "J.J. Picollo",
+    "n": 4,
+    "net": -0.4
+   },
+   {
+    "opp": "TEX",
+    "exec": "Chris Young",
+    "n": 4,
+    "net": 0.2
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 4,
+    "net": 0.1
+   },
+   {
+    "opp": "LAA",
+    "exec": "Perry Minasian",
+    "n": 3,
+    "net": -0.1
+   }
   ]
  },
  {
@@ -36829,6 +39526,14 @@
     "net": -16.1,
     "g": 35,
     "n": 6
+   },
+   "ret": {
+    "net": 0,
+    "g": 30,
+    "n": 38,
+    "lost": 102.1,
+    "rel": -3.6,
+    "display_only": true
    }
   },
   "total": -68.1,
@@ -37006,8 +39711,8 @@
      "n_in": 0
     },
     "pids": [
-     "543148",
      "461314",
+     "543148",
      "621107",
      "518735",
      "543921"
@@ -37055,8 +39760,8 @@
      "n_in": 0
     },
     "pids": [
-     "630105",
      "502054",
+     "630105",
      "669364",
      "592669"
     ]
@@ -37298,8 +40003,8 @@
        "n_in": 0
       },
       "pids": [
-       "630105",
        "502054",
+       "630105",
        "669364",
        "592669"
       ]
@@ -37648,8 +40353,8 @@
        "n_in": 0
       },
       "pids": [
-       "543148",
        "461314",
+       "543148",
        "621107",
        "518735",
        "543921"
@@ -37751,8 +40456,8 @@
        "n_in": 0
       },
       "pids": [
-       "605137",
        "665742",
+       "605137",
        "669022",
        "682928",
        "690987",
@@ -38386,6 +41091,24 @@
    "devPit": {
     "v": 0.29,
     "n": 55
+   },
+   "devBat": {
+    "v": -0.3,
+    "n": 39
+   },
+   "inj": {
+    "pit": 25.7,
+    "bat": 15.7
+   },
+   "draftRoom": {
+    "n": 90,
+    "overslot": 0.14,
+    "slotUse": 0.86,
+    "prep": 0.3
+   },
+   "buyLow": {
+    "vets": 24,
+    "rate": 0.42
    }
   },
   "titles": 0,
@@ -39092,6 +41815,104 @@
     "net": 2.9,
     "h": "Luis Ur\u00edas enters top 100 at #36 (own international signing)"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 9,
+    "net": -20.6
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 8,
+    "net": 20.3
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 3,
+    "net": -13.0
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 8,
+    "net": 10.9
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 4,
+    "net": 9.1
+   },
+   {
+    "opp": "CWS",
+    "exec": "Chris Getz",
+    "n": 2,
+    "net": 8.5
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 4,
+    "net": -4.6
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 6,
+    "net": -3.6
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 7,
+    "net": -2.8
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 2,
+    "net": 2.6
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 2,
+    "net": 1.2
+   },
+   {
+    "opp": "KC",
+    "exec": "J.J. Picollo",
+    "n": 2,
+    "net": -1.1
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 8,
+    "net": 0.7
+   },
+   {
+    "opp": "HOU",
+    "exec": "Dana Brown",
+    "n": 2,
+    "net": 0.5
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 4,
+    "net": 0.2
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 10,
+    "net": -0.1
+   }
   ]
  },
  {
@@ -39135,6 +41956,14 @@
     "net": 0,
     "g": null,
     "n": 0
+   },
+   "ret": {
+    "net": 0,
+    "g": 80,
+    "n": 1,
+    "lost": 1.9,
+    "rel": 4.04,
+    "display_only": true
    }
   },
   "total": -4.7,
@@ -39735,6 +42564,24 @@
    "devPit": {
     "v": 0.1,
     "n": 29
+   },
+   "devBat": {
+    "v": -0.01,
+    "n": 34
+   },
+   "inj": {
+    "pit": 30.7,
+    "bat": 30.7
+   },
+   "draftRoom": {
+    "n": 8,
+    "overslot": 0.12,
+    "slotUse": 1.24,
+    "prep": 0.12
+   },
+   "buyLow": {
+    "vets": 1,
+    "rate": null
    }
   },
   "titles": 0,
@@ -39909,6 +42756,26 @@
     "net": -0.8,
     "h": "James Tibbs enters top 100 at #90 (own draft pick #13 (2024))"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "KC",
+    "exec": "J.J. Picollo",
+    "n": 2,
+    "net": -1.2
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 3,
+    "net": -0.3
+   },
+   {
+    "opp": "NYM",
+    "exec": "David Stearns",
+    "n": 2,
+    "net": 0.1
+   }
   ]
  },
  {
@@ -39952,6 +42819,14 @@
     "net": 3.6,
     "g": 55,
     "n": 5
+   },
+   "ret": {
+    "net": 0,
+    "g": 75,
+    "n": 12,
+    "lost": 29.5,
+    "rel": 2.47,
+    "display_only": true
    }
   },
   "total": 47.3,
@@ -40067,8 +42942,8 @@
     "pids": [
      "664034",
      "620443",
-     "666211",
      "662253",
+     "666211",
      "656186",
      "613534",
      "543592"
@@ -40327,8 +43202,8 @@
     "pids": [
      "639373",
      "457803",
-     "461872",
      "643290",
+     "461872",
      "672284",
      "429664",
      "621242"
@@ -40394,8 +43269,8 @@
       "pids": [
        "664034",
        "620443",
-       "666211",
        "662253",
+       "666211",
        "656186",
        "613534",
        "543592"
@@ -40716,8 +43591,8 @@
       "pids": [
        "639373",
        "457803",
-       "461872",
        "643290",
+       "461872",
        "672284",
        "429664",
        "621242"
@@ -40799,8 +43674,8 @@
        "n_in": 0
       },
       "pids": [
-       "571745",
        "543101",
+       "571745",
        "592662"
       ]
      }
@@ -41400,6 +44275,24 @@
    "devPit": {
     "v": 0.15,
     "n": 66
+   },
+   "devBat": {
+    "v": -0.17,
+    "n": 43
+   },
+   "inj": {
+    "pit": 20.1,
+    "bat": 19.2
+   },
+   "draftRoom": {
+    "n": 90,
+    "overslot": 0.19,
+    "slotUse": 0.87,
+    "prep": 0.17
+   },
+   "buyLow": {
+    "vets": 22,
+    "rate": 0.27
    }
   },
   "titles": 0,
@@ -42019,6 +44912,128 @@
     "net": 2.6,
     "h": "Lazaro Montes enters top 100 at #42 (own international signing)"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 9,
+    "net": 20.6
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 14,
+    "net": -18.0
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 9,
+    "net": 11.3
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 22,
+    "net": -7.3
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 6,
+    "net": 3.7
+   },
+   {
+    "opp": "ARI",
+    "exec": "Mike Hazen",
+    "n": 10,
+    "net": 2.7
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 4,
+    "net": -1.8
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 4,
+    "net": 1.0
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 3,
+    "net": 0.9
+   },
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 2,
+    "net": 0.9
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 7,
+    "net": -0.8
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 12,
+    "net": 0.8
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 6,
+    "net": 0.7
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 4,
+    "net": -0.7
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 8,
+    "net": 0.6
+   },
+   {
+    "opp": "NYM",
+    "exec": "David Stearns",
+    "n": 3,
+    "net": -0.2
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 9,
+    "net": 0.0
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 3,
+    "net": 0.0
+   },
+   {
+    "opp": "KC",
+    "exec": "J.J. Picollo",
+    "n": 4,
+    "net": -0.0
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 3,
+    "net": 0.0
+   }
   ]
  },
  {
@@ -42064,6 +45079,14 @@
     "net": 0,
     "g": null,
     "n": 0
+   },
+   "ret": {
+    "net": 0,
+    "g": 80,
+    "n": 1,
+    "lost": 0.6,
+    "rel": 4.43,
+    "display_only": true
    }
   },
   "total": -8.1,
@@ -42126,8 +45149,8 @@
      "n_in": 0
     },
     "pids": [
-     "820832",
      "690928",
+     "820832",
      "823369",
      "575929"
     ]
@@ -42182,11 +45205,11 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Richard Fitts",
+        "Brandon Clarke",
         "+0.0"
        ],
        [
-        "Brandon Clarke",
+        "Richard Fitts",
         "+0.0"
        ]
       ]
@@ -42208,8 +45231,8 @@
      "n_in": 0
     },
     "pids": [
-     "690916",
      "700251",
+     "690916",
      "543243"
     ]
    },
@@ -42440,8 +45463,8 @@
        "n_in": 0
       },
       "pids": [
-       "820832",
        "690928",
+       "820832",
        "823369",
        "575929"
       ]
@@ -42496,11 +45519,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Richard Fitts",
+          "Brandon Clarke",
           "+0.0"
          ],
          [
-          "Brandon Clarke",
+          "Richard Fitts",
           "+0.0"
          ]
         ]
@@ -42522,8 +45545,8 @@
        "n_in": 0
       },
       "pids": [
-       "690916",
        "700251",
+       "690916",
        "543243"
       ]
      }
@@ -42597,6 +45620,24 @@
    "devPit": {
     "v": 0.5,
     "n": 20
+   },
+   "devBat": {
+    "v": -0.12,
+    "n": 20
+   },
+   "inj": {
+    "pit": 14.3,
+    "bat": 7.1
+   },
+   "draftRoom": {
+    "n": 0,
+    "overslot": null,
+    "slotUse": null,
+    "prep": null
+   },
+   "buyLow": {
+    "vets": 0,
+    "rate": null
    }
   },
   "titles": 0,
@@ -42641,6 +45682,20 @@
     "net": 0.7,
     "h": "Liam Doyle enters top 100 at #22 (own draft pick #5 (2025))"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 3,
+    "net": -4.7
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 3,
+    "net": 0.1
+   }
   ]
  },
  {
@@ -42684,6 +45739,14 @@
     "net": 7.2,
     "g": 60,
     "n": 2
+   },
+   "ret": {
+    "net": 0,
+    "g": 65,
+    "n": 14,
+    "lost": 39.7,
+    "rel": 1.1,
+    "display_only": true
    }
   },
   "total": 44.7,
@@ -42798,8 +45861,8 @@
      "n_in": 1
     },
     "pids": [
-     "669364",
      "592669",
+     "669364",
      "630105",
      "502054"
     ]
@@ -42846,9 +45909,9 @@
      "n_in": 0
     },
     "pids": [
-     "665799",
      "605480",
      "642232",
+     "665799",
      "592767"
     ]
    },
@@ -43050,10 +46113,10 @@
      "n_in": 1
     },
     "pids": [
-     "675448",
-     "677961",
-     "672715",
      "642336",
+     "677961",
+     "675448",
+     "672715",
      "605483"
     ]
    }
@@ -43146,9 +46209,9 @@
        "n_in": 0
       },
       "pids": [
-       "665799",
        "605480",
        "642232",
+       "665799",
        "592767"
       ]
      },
@@ -43269,8 +46332,8 @@
        "n_in": 0
       },
       "pids": [
-       "668227",
        "500874",
+       "668227",
        "669461",
        "678614"
       ]
@@ -43319,8 +46382,8 @@
        "n_in": 1
       },
       "pids": [
-       "669364",
        "592669",
+       "669364",
        "630105",
        "502054"
       ]
@@ -43419,10 +46482,10 @@
        "n_in": 1
       },
       "pids": [
-       "675448",
-       "677961",
-       "672715",
        "642336",
+       "677961",
+       "675448",
+       "672715",
        "605483"
       ]
      },
@@ -43468,8 +46531,8 @@
        "n_in": 0
       },
       "pids": [
-       "656876",
        "656420",
+       "656876",
        "670950",
        "642715"
       ]
@@ -44234,6 +47297,24 @@
    "devPit": {
     "v": 0.29,
     "n": 61
+   },
+   "devBat": {
+    "v": -0.01,
+    "n": 42
+   },
+   "inj": {
+    "pit": 30.4,
+    "bat": 29.7
+   },
+   "draftRoom": {
+    "n": 97,
+    "overslot": 0.1,
+    "slotUse": 0.9,
+    "prep": 0.19
+   },
+   "buyLow": {
+    "vets": 14,
+    "rate": 0.79
    }
   },
   "titles": 0,
@@ -44708,6 +47789,158 @@
     "net": -2.7,
     "h": "Brendan McKay #15 -> #71"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 8,
+    "net": -20.3
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 7,
+    "net": -19.8
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 22,
+    "net": 16.7
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 9,
+    "net": 16.7
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 9,
+    "net": 9.3
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 15,
+    "net": 7.5
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 4,
+    "net": -3.6
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 8,
+    "net": -3.5
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 5,
+    "net": 2.9
+   },
+   {
+    "opp": "CWS",
+    "exec": "Chris Getz",
+    "n": 7,
+    "net": -2.8
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 6,
+    "net": 2.2
+   },
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 9,
+    "net": -1.9
+   },
+   {
+    "opp": "MIL",
+    "exec": "Matt Arnold",
+    "n": 7,
+    "net": -1.5
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 4,
+    "net": 1.4
+   },
+   {
+    "opp": "ARI",
+    "exec": "Mike Hazen",
+    "n": 8,
+    "net": 1.2
+   },
+   {
+    "opp": "DET",
+    "exec": "Scott Harris",
+    "n": 6,
+    "net": 1.0
+   },
+   {
+    "opp": "NYM",
+    "exec": "David Stearns",
+    "n": 6,
+    "net": 1.0
+   },
+   {
+    "opp": "LAA",
+    "exec": "Perry Minasian",
+    "n": 3,
+    "net": 0.8
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 9,
+    "net": 0.4
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 4,
+    "net": 0.4
+   },
+   {
+    "opp": "KC",
+    "exec": "J.J. Picollo",
+    "n": 2,
+    "net": 0.4
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 6,
+    "net": 0.2
+   },
+   {
+    "opp": "BOS",
+    "exec": "Craig Breslow",
+    "n": 2,
+    "net": -0.1
+   },
+   {
+    "opp": "HOU",
+    "exec": "Dana Brown",
+    "n": 3,
+    "net": 0.1
+   },
+   {
+    "opp": "STL",
+    "exec": "Chaim Bloom",
+    "n": 3,
+    "net": 0.0
+   }
   ]
  },
  {
@@ -44753,6 +47986,14 @@
     "net": 0,
     "g": null,
     "n": 0
+   },
+   "ret": {
+    "net": 0,
+    "g": 65,
+    "n": 17,
+    "lost": 14.5,
+    "rel": 1.14,
+    "display_only": true
    }
   },
   "total": 6.2,
@@ -44917,8 +48158,8 @@
      "n_in": 0
     },
     "pids": [
-     "608717",
      "656756",
+     "608717",
      "667463",
      "695336",
      "694358"
@@ -45146,8 +48387,8 @@
        "n_in": 0
       },
       "pids": [
-       "608717",
        "656756",
+       "608717",
        "667463",
        "695336",
        "694358"
@@ -45879,6 +49120,24 @@
    "devPit": {
     "v": -0.35,
     "n": 32
+   },
+   "devBat": {
+    "v": 0.25,
+    "n": 26
+   },
+   "inj": {
+    "pit": 46.6,
+    "bat": 38.0
+   },
+   "draftRoom": {
+    "n": 28,
+    "overslot": 0.32,
+    "slotUse": 0.99,
+    "prep": 0.11
+   },
+   "buyLow": {
+    "vets": 5,
+    "rate": null
    }
   },
   "titles": 1,
@@ -46206,6 +49465,62 @@
     "net": 2.0,
     "h": "Kumar Rocker enters top 100 at #44 (acquired as prospect)"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 2,
+    "net": -2.2
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 7,
+    "net": -0.9
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 2,
+    "net": 0.5
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 4,
+    "net": -0.2
+   },
+   {
+    "opp": "TOR",
+    "exec": "Ross Atkins",
+    "n": 3,
+    "net": 0.2
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 3,
+    "net": -0.1
+   },
+   {
+    "opp": "CWS",
+    "exec": "Chris Getz",
+    "n": 2,
+    "net": 0.1
+   },
+   {
+    "opp": "DET",
+    "exec": "Scott Harris",
+    "n": 3,
+    "net": 0.1
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 4,
+    "net": 0.0
+   }
   ]
  },
  {
@@ -46249,6 +49564,14 @@
     "net": -5.3,
     "g": 45,
     "n": 3
+   },
+   "ret": {
+    "net": 0,
+    "g": 55,
+    "n": 25,
+    "lost": 52.6,
+    "rel": 0.27,
+    "display_only": true
    }
   },
   "total": 38.1,
@@ -46442,8 +49765,8 @@
      "n_in": 0
     },
     "pids": [
-     "493114",
      "606192",
+     "493114",
      "434538"
     ]
    },
@@ -46698,8 +50021,8 @@
        "n_in": 0
       },
       "pids": [
-       "493114",
        "606192",
+       "493114",
        "434538"
       ]
      },
@@ -47735,6 +51058,24 @@
    "devPit": {
     "v": -0.06,
     "n": 53
+   },
+   "devBat": {
+    "v": -0.05,
+    "n": 43
+   },
+   "inj": {
+    "pit": 24.8,
+    "bat": 16.8
+   },
+   "draftRoom": {
+    "n": 85,
+    "overslot": 0.22,
+    "slotUse": 0.92,
+    "prep": 0.12
+   },
+   "buyLow": {
+    "vets": 18,
+    "rate": 0.5
    }
   },
   "titles": 0,
@@ -48331,6 +51672,128 @@
     "net": 2.8,
     "h": "Ricky Tiedemann enters top 100 at #32 (own draft pick #91 (2021))"
    }
+  ],
+  "h2h": [
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 6,
+    "net": -9.5
+   },
+   {
+    "opp": "MIN",
+    "exec": "Derek Falvey",
+    "n": 7,
+    "net": 6.9
+   },
+   {
+    "opp": "ATH",
+    "exec": "David Forst",
+    "n": 5,
+    "net": 6.8
+   },
+   {
+    "opp": "ARI",
+    "exec": "Mike Hazen",
+    "n": 7,
+    "net": -5.2
+   },
+   {
+    "opp": "CLE",
+    "exec": "Chris Antonetti",
+    "n": 12,
+    "net": 4.4
+   },
+   {
+    "opp": "LAD",
+    "exec": "Andrew Friedman",
+    "n": 12,
+    "net": 4.2
+   },
+   {
+    "opp": "SD",
+    "exec": "A.J. Preller",
+    "n": 6,
+    "net": 3.6
+   },
+   {
+    "opp": "PIT",
+    "exec": "Ben Cherington",
+    "n": 6,
+    "net": 1.6
+   },
+   {
+    "opp": "BAL",
+    "exec": "Mike Elias",
+    "n": 3,
+    "net": 1.5
+   },
+   {
+    "opp": "TB",
+    "exec": "Erik Neander",
+    "n": 4,
+    "net": -1.4
+   },
+   {
+    "opp": "CHC",
+    "exec": "Jed Hoyer",
+    "n": 2,
+    "net": 1.1
+   },
+   {
+    "opp": "HOU",
+    "exec": "Dana Brown",
+    "n": 4,
+    "net": -1.1
+   },
+   {
+    "opp": "SEA",
+    "exec": "Jerry Dipoto",
+    "n": 12,
+    "net": -0.8
+   },
+   {
+    "opp": "PHI",
+    "exec": "Dave Dombrowski",
+    "n": 5,
+    "net": 0.8
+   },
+   {
+    "opp": "DET",
+    "exec": "Scott Harris",
+    "n": 3,
+    "net": -0.3
+   },
+   {
+    "opp": "CWS",
+    "exec": "Chris Getz",
+    "n": 4,
+    "net": 0.3
+   },
+   {
+    "opp": "CIN",
+    "exec": "Nick Krall",
+    "n": 4,
+    "net": -0.2
+   },
+   {
+    "opp": "TEX",
+    "exec": "Chris Young",
+    "n": 3,
+    "net": -0.2
+   },
+   {
+    "opp": "MIA",
+    "exec": "Peter Bendix",
+    "n": 2,
+    "net": 0.2
+   },
+   {
+    "opp": "ATL",
+    "exec": "Alex Anthopoulos",
+    "n": 3,
+    "net": 0.0
+   }
   ]
  },
  {
@@ -48376,6 +51839,14 @@
     "net": 0,
     "g": null,
     "n": 0
+   },
+   "ret": {
+    "net": 0,
+    "g": 80,
+    "n": 0,
+    "lost": 0.0,
+    "rel": 5.28,
+    "display_only": true
    }
   },
   "total": -2.6,
@@ -48454,15 +51925,15 @@
         "+0.0"
        ],
        [
+        "Yeremy Cabrera",
+        "+0.0"
+       ],
+       [
         "Gavin Fien",
         "+0.0"
        ],
        [
         "Alejandro Rosario",
-        "+0.0"
-       ],
-       [
-        "Yeremy Cabrera",
         "+0.0"
        ]
       ]
@@ -48486,9 +51957,9 @@
     "pids": [
      "694673",
      "803849",
+     "800393",
      "815818",
      "691730",
-     "800393",
      "669022"
     ]
    },
@@ -48748,15 +52219,15 @@
           "+0.0"
          ],
          [
+          "Yeremy Cabrera",
+          "+0.0"
+         ],
+         [
           "Gavin Fien",
           "+0.0"
          ],
          [
           "Alejandro Rosario",
-          "+0.0"
-         ],
-         [
-          "Yeremy Cabrera",
           "+0.0"
          ]
         ]
@@ -48780,9 +52251,9 @@
       "pids": [
        "694673",
        "803849",
+       "800393",
        "815818",
        "691730",
-       "800393",
        "669022"
       ]
      },
@@ -49107,6 +52578,24 @@
    "devPit": {
     "v": 0.06,
     "n": 36
+   },
+   "devBat": {
+    "v": 0.51,
+    "n": 30
+   },
+   "inj": {
+    "pit": 27.1,
+    "bat": 8.6
+   },
+   "draftRoom": {
+    "n": 0,
+    "overslot": null,
+    "slotUse": null,
+    "prep": null
+   },
+   "buyLow": {
+    "vets": 0,
+    "rate": null
    }
   },
   "titles": 0,
@@ -49151,6 +52640,20 @@
     "ch": "dev",
     "net": 1.1,
     "h": "Jarlin Susana #79 -> #45"
+   }
+  ],
+  "h2h": [
+   {
+    "opp": "NYY",
+    "exec": "Brian Cashman",
+    "n": 2,
+    "net": 0.4
+   },
+   {
+    "opp": "HOU",
+    "exec": "Dana Brown",
+    "n": 2,
+    "net": 0.2
    }
   ]
  }
