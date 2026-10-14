@@ -1,76 +1,1108 @@
 {
- "comment": "Historical MLB front-office regimes with 2005+ data overlap. Head of baseball operations per club, start/end month precision where reliably known, flags: approx = boundary month approximate. Curated Oct 2026 from contemporaneous reporting; the data floor is 2005-01-01 so earlier starts are truncated by the scorer and flagged truncated. Regimes under 2 seasons of 2005+ overlap are excluded.",
+ "comment": "Historical regimes, 1998-2024. Transaction floor 1998-01-01 (feed 2009+, Retrosheet backfill 1985-2008; rows before 1998 serve provenance only). Regimes seated before 1998 are truncated and flagged with their true start. Dates are month-precise; 'approx' marks records where the exact day is uncertain.",
  "regimes": [
-  {"teamId": 111, "team": "Boston Red Sox", "abbr": "BOS", "exec": "Theo Epstein", "start": "2005-01-01", "end": "2011-10-21", "flags": ["truncated"], "trueStart": "2002-11"},
-  {"teamId": 111, "team": "Boston Red Sox", "abbr": "BOS", "exec": "Ben Cherington", "start": "2011-10-25", "end": "2015-08-18"},
-  {"teamId": 111, "team": "Boston Red Sox", "abbr": "BOS", "exec": "Dave Dombrowski", "start": "2015-08-19", "end": "2019-09-08"},
-  {"teamId": 111, "team": "Boston Red Sox", "abbr": "BOS", "exec": "Chaim Bloom", "start": "2019-10-28", "end": "2023-09-14"},
-  {"teamId": 112, "team": "Chicago Cubs", "abbr": "CHC", "exec": "Jim Hendry", "start": "2005-01-01", "end": "2011-08-19", "flags": ["truncated"], "trueStart": "2002-07"},
-  {"teamId": 112, "team": "Chicago Cubs", "abbr": "CHC", "exec": "Theo Epstein", "start": "2011-10-12", "end": "2020-11-17"},
-  {"teamId": 121, "team": "New York Mets", "abbr": "NYM", "exec": "Omar Minaya", "start": "2005-01-01", "end": "2010-10-04", "flags": ["truncated"], "trueStart": "2004-09"},
-  {"teamId": 121, "team": "New York Mets", "abbr": "NYM", "exec": "Sandy Alderson", "start": "2010-10-29", "end": "2018-06-26"},
-  {"teamId": 121, "team": "New York Mets", "abbr": "NYM", "exec": "Brodie Van Wagenen", "start": "2018-10-29", "end": "2020-11-06"},
-  {"teamId": 121, "team": "New York Mets", "abbr": "NYM", "exec": "Billy Eppler", "start": "2021-11-18", "end": "2023-09-30", "flags": ["approx"]},
-  {"teamId": 133, "team": "Athletics", "abbr": "ATH", "exec": "Billy Beane", "start": "2005-01-01", "end": "2015-11-05", "flags": ["truncated"], "trueStart": "1997-10"},
-  {"teamId": 137, "team": "San Francisco Giants", "abbr": "SF", "exec": "Brian Sabean", "start": "2005-01-01", "end": "2018-09-30", "flags": ["truncated"], "trueStart": "1996-09"},
-  {"teamId": 137, "team": "San Francisco Giants", "abbr": "SF", "exec": "Farhan Zaidi", "start": "2018-11-06", "end": "2024-09-30"},
-  {"teamId": 117, "team": "Houston Astros", "abbr": "HOU", "exec": "Ed Wade", "start": "2007-09-20", "end": "2011-11-27"},
-  {"teamId": 117, "team": "Houston Astros", "abbr": "HOU", "exec": "Jeff Luhnow", "start": "2011-12-08", "end": "2020-01-13"},
-  {"teamId": 117, "team": "Houston Astros", "abbr": "HOU", "exec": "James Click", "start": "2020-02-03", "end": "2022-11-11"},
-  {"teamId": 119, "team": "Los Angeles Dodgers", "abbr": "LAD", "exec": "Ned Colletti", "start": "2005-11-16", "end": "2014-10-14"},
-  {"teamId": 138, "team": "St. Louis Cardinals", "abbr": "STL", "exec": "Walt Jocketty", "start": "2005-01-01", "end": "2007-10-03", "flags": ["truncated"], "trueStart": "1994-10"},
-  {"teamId": 138, "team": "St. Louis Cardinals", "abbr": "STL", "exec": "John Mozeliak", "start": "2008-01-01", "end": "2025-09-30", "flags": ["approx"]},
-  {"teamId": 120, "team": "Washington Nationals", "abbr": "WSH", "exec": "Jim Bowden", "start": "2005-01-01", "end": "2009-03-01", "flags": ["truncated"], "trueStart": "2004-11"},
-  {"teamId": 120, "team": "Washington Nationals", "abbr": "WSH", "exec": "Mike Rizzo", "start": "2009-03-02", "end": "2025-07-01", "flags": ["approx"]},
-  {"teamId": 146, "team": "Miami Marlins", "abbr": "MIA", "exec": "Larry Beinfest", "start": "2005-01-01", "end": "2013-09-27", "flags": ["truncated"], "trueStart": "2002-02"},
-  {"teamId": 146, "team": "Miami Marlins", "abbr": "MIA", "exec": "Michael Hill", "start": "2013-09-28", "end": "2020-10-04"},
-  {"teamId": 146, "team": "Miami Marlins", "abbr": "MIA", "exec": "Kim Ng", "start": "2020-11-13", "end": "2023-10-16"},
-  {"teamId": 140, "team": "Texas Rangers", "abbr": "TEX", "exec": "Jon Daniels", "start": "2005-10-04", "end": "2020-12-04"},
-  {"teamId": 108, "team": "Los Angeles Angels", "abbr": "LAA", "exec": "Bill Stoneman", "start": "2005-01-01", "end": "2007-10-14", "flags": ["truncated"], "trueStart": "1999-10"},
-  {"teamId": 108, "team": "Los Angeles Angels", "abbr": "LAA", "exec": "Tony Reagins", "start": "2007-10-15", "end": "2011-09-30"},
-  {"teamId": 108, "team": "Los Angeles Angels", "abbr": "LAA", "exec": "Jerry Dipoto", "start": "2011-10-28", "end": "2015-07-01"},
-  {"teamId": 108, "team": "Los Angeles Angels", "abbr": "LAA", "exec": "Billy Eppler", "start": "2015-10-04", "end": "2020-09-27"},
-  {"teamId": 108, "team": "Los Angeles Angels", "abbr": "LAA", "exec": "Perry Minasian", "start": "2020-11-12", "end": "2026-06-26"},
-  {"teamId": 142, "team": "Minnesota Twins", "abbr": "MIN", "exec": "Terry Ryan", "start": "2005-01-01", "end": "2007-09-13", "flags": ["truncated"], "trueStart": "1994-09"},
-  {"teamId": 142, "team": "Minnesota Twins", "abbr": "MIN", "exec": "Bill Smith", "start": "2007-09-14", "end": "2011-11-07"},
-  {"teamId": 142, "team": "Minnesota Twins", "abbr": "MIN", "exec": "Terry Ryan (second term)", "start": "2011-11-08", "end": "2016-07-18"},
-  {"teamId": 142, "team": "Minnesota Twins", "abbr": "MIN", "exec": "Derek Falvey", "start": "2016-10-03", "end": "2026-01-30"},
-  {"teamId": 136, "team": "Seattle Mariners", "abbr": "SEA", "exec": "Bill Bavasi", "start": "2005-01-01", "end": "2008-06-16", "flags": ["truncated"], "trueStart": "2003-11"},
-  {"teamId": 136, "team": "Seattle Mariners", "abbr": "SEA", "exec": "Jack Zduriencik", "start": "2008-10-22", "end": "2015-08-28"},
-  {"teamId": 135, "team": "San Diego Padres", "abbr": "SD", "exec": "Kevin Towers", "start": "2005-01-01", "end": "2009-10-03", "flags": ["truncated"], "trueStart": "1995-11"},
-  {"teamId": 135, "team": "San Diego Padres", "abbr": "SD", "exec": "Jed Hoyer", "start": "2009-10-26", "end": "2011-12-06"},
-  {"teamId": 135, "team": "San Diego Padres", "abbr": "SD", "exec": "Josh Byrnes", "start": "2011-12-07", "end": "2014-06-22"},
-  {"teamId": 145, "team": "Chicago White Sox", "abbr": "CWS", "exec": "Ken Williams", "start": "2005-01-01", "end": "2012-10-25", "flags": ["truncated"], "trueStart": "2000-10"},
-  {"teamId": 145, "team": "Chicago White Sox", "abbr": "CWS", "exec": "Rick Hahn", "start": "2012-10-26", "end": "2023-08-22"},
-  {"teamId": 114, "team": "Cleveland Guardians", "abbr": "CLE", "exec": "Mark Shapiro", "start": "2005-01-01", "end": "2010-10-15", "flags": ["truncated"], "trueStart": "2001-11"},
-  {"teamId": 114, "team": "Cleveland Guardians", "abbr": "CLE", "exec": "Chris Antonetti (GM era)", "start": "2010-10-16", "end": "2015-09-30", "flags": ["approx"]},
-  {"teamId": 144, "team": "Atlanta Braves", "abbr": "ATL", "exec": "John Schuerholz", "start": "2005-01-01", "end": "2007-10-11", "flags": ["truncated"], "trueStart": "1990-10"},
-  {"teamId": 144, "team": "Atlanta Braves", "abbr": "ATL", "exec": "Frank Wren", "start": "2007-10-12", "end": "2014-09-22"},
-  {"teamId": 144, "team": "Atlanta Braves", "abbr": "ATL", "exec": "John Hart / John Coppolella", "start": "2014-10-01", "end": "2017-10-02", "flags": ["approx"]},
-  {"teamId": 143, "team": "Philadelphia Phillies", "abbr": "PHI", "exec": "Pat Gillick", "start": "2005-11-02", "end": "2008-10-31"},
-  {"teamId": 143, "team": "Philadelphia Phillies", "abbr": "PHI", "exec": "Ruben Amaro Jr.", "start": "2008-11-03", "end": "2015-09-10"},
-  {"teamId": 143, "team": "Philadelphia Phillies", "abbr": "PHI", "exec": "Matt Klentak", "start": "2015-10-26", "end": "2020-10-03"},
-  {"teamId": 110, "team": "Baltimore Orioles", "abbr": "BAL", "exec": "Andy MacPhail", "start": "2007-06-20", "end": "2011-10-30"},
-  {"teamId": 110, "team": "Baltimore Orioles", "abbr": "BAL", "exec": "Dan Duquette", "start": "2011-11-08", "end": "2018-10-03"},
-  {"teamId": 139, "team": "Tampa Bay Rays", "abbr": "TB", "exec": "Andrew Friedman", "start": "2005-11-03", "end": "2014-10-14"},
-  {"teamId": 139, "team": "Tampa Bay Rays", "abbr": "TB", "exec": "Matt Silverman", "start": "2014-10-15", "end": "2016-11-07", "flags": ["smallish"]},
-  {"teamId": 118, "team": "Kansas City Royals", "abbr": "KC", "exec": "Dayton Moore", "start": "2006-06-08", "end": "2022-09-21"},
-  {"teamId": 116, "team": "Detroit Tigers", "abbr": "DET", "exec": "Dave Dombrowski", "start": "2005-01-01", "end": "2015-08-04", "flags": ["truncated"], "trueStart": "2002-04"},
-  {"teamId": 116, "team": "Detroit Tigers", "abbr": "DET", "exec": "Al Avila", "start": "2015-08-05", "end": "2021-08-10", "flags": ["approx"]},
-  {"teamId": 158, "team": "Milwaukee Brewers", "abbr": "MIL", "exec": "Doug Melvin", "start": "2005-01-01", "end": "2015-08-31", "flags": ["truncated"], "trueStart": "2002-09"},
-  {"teamId": 158, "team": "Milwaukee Brewers", "abbr": "MIL", "exec": "David Stearns", "start": "2015-09-21", "end": "2022-10-26"},
-  {"teamId": 113, "team": "Cincinnati Reds", "abbr": "CIN", "exec": "Wayne Krivsky", "start": "2006-02-08", "end": "2008-04-22", "flags": ["smallish"]},
-  {"teamId": 113, "team": "Cincinnati Reds", "abbr": "CIN", "exec": "Walt Jocketty", "start": "2008-04-23", "end": "2016-12-27"},
-  {"teamId": 113, "team": "Cincinnati Reds", "abbr": "CIN", "exec": "Dick Williams", "start": "2016-12-28", "end": "2022-10-04", "flags": ["approx"]},
-  {"teamId": 134, "team": "Pittsburgh Pirates", "abbr": "PIT", "exec": "Dave Littlefield", "start": "2005-01-01", "end": "2007-09-07", "flags": ["truncated"], "trueStart": "2001-07"},
-  {"teamId": 134, "team": "Pittsburgh Pirates", "abbr": "PIT", "exec": "Neal Huntington", "start": "2007-09-25", "end": "2019-10-28"},
-  {"teamId": 115, "team": "Colorado Rockies", "abbr": "COL", "exec": "Dan O'Dowd", "start": "2005-01-01", "end": "2014-10-08", "flags": ["truncated"], "trueStart": "1999-09"},
-  {"teamId": 115, "team": "Colorado Rockies", "abbr": "COL", "exec": "Jeff Bridich", "start": "2014-10-09", "end": "2021-04-26"},
-  {"teamId": 115, "team": "Colorado Rockies", "abbr": "COL", "exec": "Bill Schmidt", "start": "2021-05-03", "end": "2025-10-01", "flags": ["approx"]},
-  {"teamId": 109, "team": "Arizona Diamondbacks", "abbr": "ARI", "exec": "Josh Byrnes", "start": "2005-10-28", "end": "2010-07-01"},
-  {"teamId": 109, "team": "Arizona Diamondbacks", "abbr": "ARI", "exec": "Kevin Towers", "start": "2010-09-22", "end": "2014-09-05"},
-  {"teamId": 109, "team": "Arizona Diamondbacks", "abbr": "ARI", "exec": "Dave Stewart", "start": "2014-09-25", "end": "2016-10-03", "flags": ["smallish"]},
-  {"teamId": 141, "team": "Toronto Blue Jays", "abbr": "TOR", "exec": "J.P. Ricciardi", "start": "2005-01-01", "end": "2009-10-03", "flags": ["truncated"], "trueStart": "2001-11"},
-  {"teamId": 141, "team": "Toronto Blue Jays", "abbr": "TOR", "exec": "Alex Anthopoulos", "start": "2009-10-04", "end": "2015-10-29"}
+  {
+   "teamId": 111,
+   "team": "Boston Red Sox",
+   "abbr": "BOS",
+   "exec": "Theo Epstein",
+   "start": "2002-11-25",
+   "end": "2011-10-21",
+   "flags": []
+  },
+  {
+   "teamId": 111,
+   "team": "Boston Red Sox",
+   "abbr": "BOS",
+   "exec": "Ben Cherington",
+   "start": "2011-10-25",
+   "end": "2015-08-18"
+  },
+  {
+   "teamId": 111,
+   "team": "Boston Red Sox",
+   "abbr": "BOS",
+   "exec": "Dave Dombrowski",
+   "start": "2015-08-19",
+   "end": "2019-09-08"
+  },
+  {
+   "teamId": 111,
+   "team": "Boston Red Sox",
+   "abbr": "BOS",
+   "exec": "Chaim Bloom",
+   "start": "2019-10-28",
+   "end": "2023-09-14"
+  },
+  {
+   "teamId": 112,
+   "team": "Chicago Cubs",
+   "abbr": "CHC",
+   "exec": "Jim Hendry",
+   "start": "2002-07-01",
+   "end": "2011-08-19",
+   "flags": []
+  },
+  {
+   "teamId": 112,
+   "team": "Chicago Cubs",
+   "abbr": "CHC",
+   "exec": "Theo Epstein",
+   "start": "2011-10-12",
+   "end": "2020-11-17"
+  },
+  {
+   "teamId": 121,
+   "team": "New York Mets",
+   "abbr": "NYM",
+   "exec": "Omar Minaya",
+   "start": "2004-09-01",
+   "end": "2010-10-04",
+   "flags": []
+  },
+  {
+   "teamId": 121,
+   "team": "New York Mets",
+   "abbr": "NYM",
+   "exec": "Sandy Alderson",
+   "start": "2010-10-29",
+   "end": "2018-06-26"
+  },
+  {
+   "teamId": 121,
+   "team": "New York Mets",
+   "abbr": "NYM",
+   "exec": "Brodie Van Wagenen",
+   "start": "2018-10-29",
+   "end": "2020-11-06"
+  },
+  {
+   "teamId": 121,
+   "team": "New York Mets",
+   "abbr": "NYM",
+   "exec": "Billy Eppler",
+   "start": "2021-11-18",
+   "end": "2023-09-30",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 133,
+   "team": "Athletics",
+   "abbr": "ATH",
+   "exec": "Billy Beane",
+   "start": "1998-01-01",
+   "end": "2015-11-05",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1997-10"
+  },
+  {
+   "teamId": 137,
+   "team": "San Francisco Giants",
+   "abbr": "SF",
+   "exec": "Brian Sabean",
+   "start": "1998-01-01",
+   "end": "2018-09-30",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1996-09"
+  },
+  {
+   "teamId": 137,
+   "team": "San Francisco Giants",
+   "abbr": "SF",
+   "exec": "Farhan Zaidi",
+   "start": "2018-11-06",
+   "end": "2024-09-30"
+  },
+  {
+   "teamId": 117,
+   "team": "Houston Astros",
+   "abbr": "HOU",
+   "exec": "Ed Wade",
+   "start": "2007-09-20",
+   "end": "2011-11-27"
+  },
+  {
+   "teamId": 117,
+   "team": "Houston Astros",
+   "abbr": "HOU",
+   "exec": "Jeff Luhnow",
+   "start": "2011-12-08",
+   "end": "2020-01-13"
+  },
+  {
+   "teamId": 117,
+   "team": "Houston Astros",
+   "abbr": "HOU",
+   "exec": "James Click",
+   "start": "2020-02-03",
+   "end": "2022-11-11"
+  },
+  {
+   "teamId": 119,
+   "team": "Los Angeles Dodgers",
+   "abbr": "LAD",
+   "exec": "Ned Colletti",
+   "start": "2005-11-16",
+   "end": "2014-10-14"
+  },
+  {
+   "teamId": 138,
+   "team": "St. Louis Cardinals",
+   "abbr": "STL",
+   "exec": "Walt Jocketty",
+   "start": "1998-01-01",
+   "end": "2007-10-03",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1994-10"
+  },
+  {
+   "teamId": 138,
+   "team": "St. Louis Cardinals",
+   "abbr": "STL",
+   "exec": "John Mozeliak",
+   "start": "2008-01-01",
+   "end": "2025-09-30",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 120,
+   "team": "Washington Nationals",
+   "abbr": "WSH",
+   "exec": "Jim Bowden",
+   "start": "2004-11-01",
+   "end": "2009-03-01",
+   "flags": []
+  },
+  {
+   "teamId": 120,
+   "team": "Washington Nationals",
+   "abbr": "WSH",
+   "exec": "Mike Rizzo",
+   "start": "2009-03-02",
+   "end": "2025-07-01",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 146,
+   "team": "Miami Marlins",
+   "abbr": "MIA",
+   "exec": "Larry Beinfest",
+   "start": "2002-02-01",
+   "end": "2013-09-27",
+   "flags": []
+  },
+  {
+   "teamId": 146,
+   "team": "Miami Marlins",
+   "abbr": "MIA",
+   "exec": "Michael Hill",
+   "start": "2013-09-28",
+   "end": "2020-10-04"
+  },
+  {
+   "teamId": 146,
+   "team": "Miami Marlins",
+   "abbr": "MIA",
+   "exec": "Kim Ng",
+   "start": "2020-11-13",
+   "end": "2023-10-16"
+  },
+  {
+   "teamId": 140,
+   "team": "Texas Rangers",
+   "abbr": "TEX",
+   "exec": "Jon Daniels",
+   "start": "2005-10-04",
+   "end": "2020-12-04"
+  },
+  {
+   "teamId": 108,
+   "team": "Los Angeles Angels",
+   "abbr": "LAA",
+   "exec": "Bill Stoneman",
+   "start": "1999-10-01",
+   "end": "2007-10-14",
+   "flags": []
+  },
+  {
+   "teamId": 108,
+   "team": "Los Angeles Angels",
+   "abbr": "LAA",
+   "exec": "Tony Reagins",
+   "start": "2007-10-15",
+   "end": "2011-09-30"
+  },
+  {
+   "teamId": 108,
+   "team": "Los Angeles Angels",
+   "abbr": "LAA",
+   "exec": "Jerry Dipoto",
+   "start": "2011-10-28",
+   "end": "2015-07-01"
+  },
+  {
+   "teamId": 108,
+   "team": "Los Angeles Angels",
+   "abbr": "LAA",
+   "exec": "Billy Eppler",
+   "start": "2015-10-04",
+   "end": "2020-09-27"
+  },
+  {
+   "teamId": 108,
+   "team": "Los Angeles Angels",
+   "abbr": "LAA",
+   "exec": "Perry Minasian",
+   "start": "2020-11-12",
+   "end": "2026-06-26"
+  },
+  {
+   "teamId": 142,
+   "team": "Minnesota Twins",
+   "abbr": "MIN",
+   "exec": "Terry Ryan",
+   "start": "1998-01-01",
+   "end": "2007-09-13",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1994-09"
+  },
+  {
+   "teamId": 142,
+   "team": "Minnesota Twins",
+   "abbr": "MIN",
+   "exec": "Bill Smith",
+   "start": "2007-09-14",
+   "end": "2011-11-07"
+  },
+  {
+   "teamId": 142,
+   "team": "Minnesota Twins",
+   "abbr": "MIN",
+   "exec": "Terry Ryan (second term)",
+   "start": "2011-11-08",
+   "end": "2016-07-18"
+  },
+  {
+   "teamId": 142,
+   "team": "Minnesota Twins",
+   "abbr": "MIN",
+   "exec": "Derek Falvey",
+   "start": "2016-10-03",
+   "end": "2026-01-30"
+  },
+  {
+   "teamId": 136,
+   "team": "Seattle Mariners",
+   "abbr": "SEA",
+   "exec": "Bill Bavasi",
+   "start": "2003-11-07",
+   "end": "2008-06-16",
+   "flags": []
+  },
+  {
+   "teamId": 136,
+   "team": "Seattle Mariners",
+   "abbr": "SEA",
+   "exec": "Jack Zduriencik",
+   "start": "2008-10-22",
+   "end": "2015-08-28"
+  },
+  {
+   "teamId": 135,
+   "team": "San Diego Padres",
+   "abbr": "SD",
+   "exec": "Kevin Towers",
+   "start": "1998-01-01",
+   "end": "2009-10-03",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1995-11"
+  },
+  {
+   "teamId": 135,
+   "team": "San Diego Padres",
+   "abbr": "SD",
+   "exec": "Jed Hoyer",
+   "start": "2009-10-26",
+   "end": "2011-12-06"
+  },
+  {
+   "teamId": 135,
+   "team": "San Diego Padres",
+   "abbr": "SD",
+   "exec": "Josh Byrnes",
+   "start": "2011-12-07",
+   "end": "2014-06-22"
+  },
+  {
+   "teamId": 145,
+   "team": "Chicago White Sox",
+   "abbr": "CWS",
+   "exec": "Ken Williams",
+   "start": "2000-10-01",
+   "end": "2012-10-25",
+   "flags": []
+  },
+  {
+   "teamId": 145,
+   "team": "Chicago White Sox",
+   "abbr": "CWS",
+   "exec": "Rick Hahn",
+   "start": "2012-10-26",
+   "end": "2023-08-22"
+  },
+  {
+   "teamId": 114,
+   "team": "Cleveland Guardians",
+   "abbr": "CLE",
+   "exec": "Mark Shapiro",
+   "start": "2001-11-01",
+   "end": "2010-10-15",
+   "flags": []
+  },
+  {
+   "teamId": 114,
+   "team": "Cleveland Guardians",
+   "abbr": "CLE",
+   "exec": "Chris Antonetti (GM era)",
+   "start": "2010-10-16",
+   "end": "2015-09-30",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 144,
+   "team": "Atlanta Braves",
+   "abbr": "ATL",
+   "exec": "John Schuerholz",
+   "start": "1998-01-01",
+   "end": "2007-10-11",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1990-10"
+  },
+  {
+   "teamId": 144,
+   "team": "Atlanta Braves",
+   "abbr": "ATL",
+   "exec": "Frank Wren",
+   "start": "2007-10-12",
+   "end": "2014-09-22"
+  },
+  {
+   "teamId": 144,
+   "team": "Atlanta Braves",
+   "abbr": "ATL",
+   "exec": "John Hart / John Coppolella",
+   "start": "2014-10-01",
+   "end": "2017-10-02",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 143,
+   "team": "Philadelphia Phillies",
+   "abbr": "PHI",
+   "exec": "Pat Gillick",
+   "start": "2005-11-02",
+   "end": "2008-10-31"
+  },
+  {
+   "teamId": 143,
+   "team": "Philadelphia Phillies",
+   "abbr": "PHI",
+   "exec": "Ruben Amaro Jr.",
+   "start": "2008-11-03",
+   "end": "2015-09-10"
+  },
+  {
+   "teamId": 143,
+   "team": "Philadelphia Phillies",
+   "abbr": "PHI",
+   "exec": "Matt Klentak",
+   "start": "2015-10-26",
+   "end": "2020-10-03"
+  },
+  {
+   "teamId": 110,
+   "team": "Baltimore Orioles",
+   "abbr": "BAL",
+   "exec": "Andy MacPhail",
+   "start": "2007-06-20",
+   "end": "2011-10-30"
+  },
+  {
+   "teamId": 110,
+   "team": "Baltimore Orioles",
+   "abbr": "BAL",
+   "exec": "Dan Duquette",
+   "start": "2011-11-08",
+   "end": "2018-10-03"
+  },
+  {
+   "teamId": 139,
+   "team": "Tampa Bay Rays",
+   "abbr": "TB",
+   "exec": "Andrew Friedman",
+   "start": "2005-11-03",
+   "end": "2014-10-14"
+  },
+  {
+   "teamId": 139,
+   "team": "Tampa Bay Rays",
+   "abbr": "TB",
+   "exec": "Matt Silverman",
+   "start": "2014-10-15",
+   "end": "2016-11-07",
+   "flags": [
+    "smallish"
+   ]
+  },
+  {
+   "teamId": 118,
+   "team": "Kansas City Royals",
+   "abbr": "KC",
+   "exec": "Dayton Moore",
+   "start": "2006-06-08",
+   "end": "2022-09-21"
+  },
+  {
+   "teamId": 116,
+   "team": "Detroit Tigers",
+   "abbr": "DET",
+   "exec": "Dave Dombrowski",
+   "start": "2002-04-01",
+   "end": "2015-08-04",
+   "flags": []
+  },
+  {
+   "teamId": 116,
+   "team": "Detroit Tigers",
+   "abbr": "DET",
+   "exec": "Al Avila",
+   "start": "2015-08-05",
+   "end": "2021-08-10",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 158,
+   "team": "Milwaukee Brewers",
+   "abbr": "MIL",
+   "exec": "Doug Melvin",
+   "start": "2002-09-01",
+   "end": "2015-08-31",
+   "flags": []
+  },
+  {
+   "teamId": 158,
+   "team": "Milwaukee Brewers",
+   "abbr": "MIL",
+   "exec": "David Stearns",
+   "start": "2015-09-21",
+   "end": "2022-10-26"
+  },
+  {
+   "teamId": 113,
+   "team": "Cincinnati Reds",
+   "abbr": "CIN",
+   "exec": "Wayne Krivsky",
+   "start": "2006-02-08",
+   "end": "2008-04-22",
+   "flags": [
+    "smallish"
+   ]
+  },
+  {
+   "teamId": 113,
+   "team": "Cincinnati Reds",
+   "abbr": "CIN",
+   "exec": "Walt Jocketty",
+   "start": "2008-04-23",
+   "end": "2016-12-27"
+  },
+  {
+   "teamId": 113,
+   "team": "Cincinnati Reds",
+   "abbr": "CIN",
+   "exec": "Dick Williams",
+   "start": "2016-12-28",
+   "end": "2022-10-04",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 134,
+   "team": "Pittsburgh Pirates",
+   "abbr": "PIT",
+   "exec": "Dave Littlefield",
+   "start": "2001-07-13",
+   "end": "2007-09-07",
+   "flags": []
+  },
+  {
+   "teamId": 134,
+   "team": "Pittsburgh Pirates",
+   "abbr": "PIT",
+   "exec": "Neal Huntington",
+   "start": "2007-09-25",
+   "end": "2019-10-28"
+  },
+  {
+   "teamId": 115,
+   "team": "Colorado Rockies",
+   "abbr": "COL",
+   "exec": "Dan O'Dowd",
+   "start": "1999-09-01",
+   "end": "2014-10-08",
+   "flags": []
+  },
+  {
+   "teamId": 115,
+   "team": "Colorado Rockies",
+   "abbr": "COL",
+   "exec": "Jeff Bridich",
+   "start": "2014-10-09",
+   "end": "2021-04-26"
+  },
+  {
+   "teamId": 115,
+   "team": "Colorado Rockies",
+   "abbr": "COL",
+   "exec": "Bill Schmidt",
+   "start": "2021-05-03",
+   "end": "2025-10-01",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 109,
+   "team": "Arizona Diamondbacks",
+   "abbr": "ARI",
+   "exec": "Josh Byrnes",
+   "start": "2005-10-28",
+   "end": "2010-07-01"
+  },
+  {
+   "teamId": 109,
+   "team": "Arizona Diamondbacks",
+   "abbr": "ARI",
+   "exec": "Kevin Towers",
+   "start": "2010-09-22",
+   "end": "2014-09-05"
+  },
+  {
+   "teamId": 109,
+   "team": "Arizona Diamondbacks",
+   "abbr": "ARI",
+   "exec": "Dave Stewart",
+   "start": "2014-09-25",
+   "end": "2016-10-03",
+   "flags": [
+    "smallish"
+   ]
+  },
+  {
+   "teamId": 141,
+   "team": "Toronto Blue Jays",
+   "abbr": "TOR",
+   "exec": "J.P. Ricciardi",
+   "start": "2001-11-14",
+   "end": "2009-10-03",
+   "flags": []
+  },
+  {
+   "teamId": 141,
+   "team": "Toronto Blue Jays",
+   "abbr": "TOR",
+   "exec": "Alex Anthopoulos",
+   "start": "2009-10-04",
+   "end": "2015-10-29"
+  },
+  {
+   "teamId": 108,
+   "team": "Los Angeles Angels",
+   "abbr": "LAA",
+   "exec": "Bill Bavasi",
+   "start": "1998-01-01",
+   "end": "1999-10-01",
+   "flags": [
+    "truncated",
+    "approx"
+   ],
+   "trueStart": "1994-10"
+  },
+  {
+   "teamId": 109,
+   "team": "Arizona Diamondbacks",
+   "abbr": "ARI",
+   "exec": "Joe Garagiola Jr.",
+   "start": "1998-01-01",
+   "end": "2005-08-31",
+   "flags": [
+    "truncated",
+    "approx"
+   ],
+   "trueStart": "1995-09"
+  },
+  {
+   "teamId": 110,
+   "team": "Baltimore Orioles",
+   "abbr": "BAL",
+   "exec": "Pat Gillick",
+   "start": "1998-01-01",
+   "end": "1998-10-31",
+   "flags": [
+    "truncated",
+    "smallish"
+   ],
+   "trueStart": "1995-11"
+  },
+  {
+   "teamId": 110,
+   "team": "Baltimore Orioles",
+   "abbr": "BAL",
+   "exec": "Frank Wren",
+   "start": "1998-11-01",
+   "end": "1999-10-31",
+   "flags": [
+    "smallish",
+    "approx"
+   ]
+  },
+  {
+   "teamId": 110,
+   "team": "Baltimore Orioles",
+   "abbr": "BAL",
+   "exec": "Syd Thrift",
+   "start": "1999-12-01",
+   "end": "2002-10-31",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 110,
+   "team": "Baltimore Orioles",
+   "abbr": "BAL",
+   "exec": "Jim Beattie / Mike Flanagan",
+   "start": "2002-12-01",
+   "end": "2007-06-19",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 111,
+   "team": "Boston Red Sox",
+   "abbr": "BOS",
+   "exec": "Dan Duquette",
+   "start": "1998-01-01",
+   "end": "2002-02-28",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1994-01"
+  },
+  {
+   "teamId": 111,
+   "team": "Boston Red Sox",
+   "abbr": "BOS",
+   "exec": "Mike Port (interim)",
+   "start": "2002-03-01",
+   "end": "2002-11-24",
+   "flags": [
+    "smallish",
+    "interim"
+   ]
+  },
+  {
+   "teamId": 112,
+   "team": "Chicago Cubs",
+   "abbr": "CHC",
+   "exec": "Ed Lynch",
+   "start": "1998-01-01",
+   "end": "2000-07-19",
+   "flags": [
+    "truncated",
+    "approx"
+   ],
+   "trueStart": "1994-10"
+  },
+  {
+   "teamId": 112,
+   "team": "Chicago Cubs",
+   "abbr": "CHC",
+   "exec": "Andy MacPhail (GM term)",
+   "start": "2000-07-20",
+   "end": "2002-07-05",
+   "flags": [
+    "smallish",
+    "approx"
+   ]
+  },
+  {
+   "teamId": 145,
+   "team": "Chicago White Sox",
+   "abbr": "CWS",
+   "exec": "Ron Schueler",
+   "start": "1998-01-01",
+   "end": "2000-10-23",
+   "flags": [
+    "truncated",
+    "approx"
+   ],
+   "trueStart": "1990-09"
+  },
+  {
+   "teamId": 113,
+   "team": "Cincinnati Reds",
+   "abbr": "CIN",
+   "exec": "Jim Bowden",
+   "start": "1998-01-01",
+   "end": "2003-07-28",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1992-10"
+  },
+  {
+   "teamId": 113,
+   "team": "Cincinnati Reds",
+   "abbr": "CIN",
+   "exec": "Dan O'Brien",
+   "start": "2003-10-27",
+   "end": "2006-01-23",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 114,
+   "team": "Cleveland Guardians",
+   "abbr": "CLE",
+   "exec": "John Hart",
+   "start": "1998-01-01",
+   "end": "2001-11-01",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1991-09"
+  },
+  {
+   "teamId": 115,
+   "team": "Colorado Rockies",
+   "abbr": "COL",
+   "exec": "Bob Gebhard",
+   "start": "1998-01-01",
+   "end": "1999-08-20",
+   "flags": [
+    "truncated",
+    "approx"
+   ],
+   "trueStart": "1991-09"
+  },
+  {
+   "teamId": 116,
+   "team": "Detroit Tigers",
+   "abbr": "DET",
+   "exec": "Randy Smith",
+   "start": "1998-01-01",
+   "end": "2002-04-08",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1995-10"
+  },
+  {
+   "teamId": 146,
+   "team": "Florida Marlins",
+   "abbr": "MIA",
+   "exec": "Dave Dombrowski",
+   "start": "1998-01-01",
+   "end": "2001-11-05",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1991-09"
+  },
+  {
+   "teamId": 117,
+   "team": "Houston Astros",
+   "abbr": "HOU",
+   "exec": "Gerry Hunsicker",
+   "start": "1998-01-01",
+   "end": "2004-11-01",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1995-11"
+  },
+  {
+   "teamId": 117,
+   "team": "Houston Astros",
+   "abbr": "HOU",
+   "exec": "Tim Purpura",
+   "start": "2004-11-02",
+   "end": "2007-09-19"
+  },
+  {
+   "teamId": 118,
+   "team": "Kansas City Royals",
+   "abbr": "KC",
+   "exec": "Herk Robinson",
+   "start": "1998-01-01",
+   "end": "2000-06-16",
+   "flags": [
+    "truncated",
+    "approx"
+   ],
+   "trueStart": "1990-09"
+  },
+  {
+   "teamId": 118,
+   "team": "Kansas City Royals",
+   "abbr": "KC",
+   "exec": "Allard Baird",
+   "start": "2000-06-17",
+   "end": "2006-05-30",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 119,
+   "team": "Los Angeles Dodgers",
+   "abbr": "LAD",
+   "exec": "Fred Claire",
+   "start": "1998-01-01",
+   "end": "1998-06-21",
+   "flags": [
+    "truncated",
+    "smallish"
+   ],
+   "trueStart": "1987-04"
+  },
+  {
+   "teamId": 119,
+   "team": "Los Angeles Dodgers",
+   "abbr": "LAD",
+   "exec": "Kevin Malone",
+   "start": "1998-09-01",
+   "end": "2001-04-25",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 119,
+   "team": "Los Angeles Dodgers",
+   "abbr": "LAD",
+   "exec": "Dan Evans",
+   "start": "2001-10-01",
+   "end": "2004-02-15",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 119,
+   "team": "Los Angeles Dodgers",
+   "abbr": "LAD",
+   "exec": "Paul DePodesta",
+   "start": "2004-02-16",
+   "end": "2005-10-29",
+   "flags": [
+    "smallish"
+   ]
+  },
+  {
+   "teamId": 158,
+   "team": "Milwaukee Brewers",
+   "abbr": "MIL",
+   "exec": "Sal Bando",
+   "start": "1998-01-01",
+   "end": "1999-08-12",
+   "flags": [
+    "truncated",
+    "approx"
+   ],
+   "trueStart": "1991-10"
+  },
+  {
+   "teamId": 158,
+   "team": "Milwaukee Brewers",
+   "abbr": "MIL",
+   "exec": "Dean Taylor",
+   "start": "1999-09-01",
+   "end": "2002-09-25",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 121,
+   "team": "New York Mets",
+   "abbr": "NYM",
+   "exec": "Steve Phillips",
+   "start": "1998-01-01",
+   "end": "2003-06-12",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1997-07"
+  },
+  {
+   "teamId": 121,
+   "team": "New York Mets",
+   "abbr": "NYM",
+   "exec": "Jim Duquette",
+   "start": "2003-06-13",
+   "end": "2004-09-29",
+   "flags": [
+    "smallish"
+   ]
+  },
+  {
+   "teamId": 143,
+   "team": "Philadelphia Phillies",
+   "abbr": "PHI",
+   "exec": "Ed Wade",
+   "start": "1998-01-01",
+   "end": "2005-11-01",
+   "flags": [
+    "approx"
+   ],
+   "trueStart": "1997-12"
+  },
+  {
+   "teamId": 134,
+   "team": "Pittsburgh Pirates",
+   "abbr": "PIT",
+   "exec": "Cam Bonifay",
+   "start": "1998-01-01",
+   "end": "2001-06-11",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1993-06"
+  },
+  {
+   "teamId": 136,
+   "team": "Seattle Mariners",
+   "abbr": "SEA",
+   "exec": "Woody Woodward",
+   "start": "1998-01-01",
+   "end": "1999-09-01",
+   "flags": [
+    "truncated",
+    "approx"
+   ],
+   "trueStart": "1988-07"
+  },
+  {
+   "teamId": 136,
+   "team": "Seattle Mariners",
+   "abbr": "SEA",
+   "exec": "Pat Gillick",
+   "start": "1999-10-25",
+   "end": "2003-11-01",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 139,
+   "team": "Tampa Bay Rays",
+   "abbr": "TB",
+   "exec": "Chuck LaMar",
+   "start": "1998-01-01",
+   "end": "2005-10-06",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1995-07"
+  },
+  {
+   "teamId": 140,
+   "team": "Texas Rangers",
+   "abbr": "TEX",
+   "exec": "Doug Melvin",
+   "start": "1998-01-01",
+   "end": "2001-10-02",
+   "flags": [
+    "truncated",
+    "approx"
+   ],
+   "trueStart": "1994-10"
+  },
+  {
+   "teamId": 140,
+   "team": "Texas Rangers",
+   "abbr": "TEX",
+   "exec": "John Hart",
+   "start": "2001-11-01",
+   "end": "2005-10-03",
+   "flags": [
+    "approx"
+   ]
+  },
+  {
+   "teamId": 141,
+   "team": "Toronto Blue Jays",
+   "abbr": "TOR",
+   "exec": "Gord Ash",
+   "start": "1998-01-01",
+   "end": "2001-11-13",
+   "flags": [
+    "truncated"
+   ],
+   "trueStart": "1995-09"
+  },
+  {
+   "teamId": 120,
+   "team": "Montreal Expos",
+   "abbr": "WSH",
+   "exec": "Jim Beattie",
+   "start": "1998-01-01",
+   "end": "2001-10-31",
+   "flags": [
+    "truncated",
+    "approx"
+   ],
+   "trueStart": "1995-10"
+  },
+  {
+   "teamId": 120,
+   "team": "Montreal Expos",
+   "abbr": "WSH",
+   "exec": "Omar Minaya (Expos)",
+   "start": "2002-02-12",
+   "end": "2004-09-29",
+   "flags": [
+    "approx"
+   ]
+  }
  ]
 }

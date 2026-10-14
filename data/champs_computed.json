@@ -1,6 +1,1017 @@
 {
  "cards": [
   {
+   "id": "nyy98",
+   "label": "1998 New York Yankees",
+   "team": "New York Yankees",
+   "year": 1998,
+   "result": "Won World Series",
+   "regime": "Brian Cashman",
+   "regimeNote": "title in year 1 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Bernie Williams",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1989",
+     "inh",
+     7.2,
+     "124288"
+    ],
+    [
+     "Derek Jeter",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1993",
+     "inh",
+     6.4,
+     "116539"
+    ],
+    [
+     "Paul O'Neill",
+     "trade",
+     "Cincinnati Reds traded Paul O'Neill, Joe De Berry to New York Yankees; New York Yankees traded ",
+     "1992-11-03",
+     "inh",
+     4.7,
+     "120028"
+    ],
+    [
+     "Scott Brosius",
+     "trade",
+     "New York Yankees traded player, Kenny Rogers to Oakland Athletics; Oakland Athletics traded Sco",
+     "1997-11-07",
+     "inh",
+     4.6,
+     "111515"
+    ],
+    [
+     "David Cone",
+     "fa",
+     "New York Yankees signed free agent David Cone. (Retrosheet archive)",
+     "1995-12-21",
+     "inh",
+     4.0,
+     "112552"
+    ],
+    [
+     "Chuck Knoblauch",
+     "trade",
+     "New York Yankees traded player, Brian Buchanan, Cristian Guzm\u00e1n, Eric Milton, Danny Mota to Min",
+     "1998-02-06",
+     "reg",
+     3.7,
+     "117197"
+    ],
+    [
+     "David Wells",
+     "fa",
+     "New York Yankees signed free agent David Wells. (Retrosheet archive)",
+     "1996-12-24",
+     "inh",
+     3.3,
+     "124071"
+    ],
+    [
+     "Jorge Posada",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1994",
+     "inh",
+     3.3,
+     "120691"
+    ],
+    [
+     "Tino Martinez",
+     "trade",
+     "Seattle Mariners traded Tino Martinez, Jim Mecir, Jeff Nelson to New York Yankees; New York Yan",
+     "1995-12-07",
+     "inh",
+     3.2,
+     "118362"
+    ],
+    [
+     "Darryl Strawberry",
+     "fa",
+     "New York Yankees signed free agent Darryl Strawberry. (Retrosheet archive)",
+     "1998-01-08",
+     "inh",
+     2.8,
+     "122864"
+    ],
+    [
+     "Orlando Hernandez",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1996",
+     "inh",
+     2.5,
+     "133340"
+    ],
+    [
+     "Andy Pettitte",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1993",
+     "inh",
+     2.0,
+     "120485"
+    ],
+    [
+     "Chad Curtis",
+     "trade",
+     "Cleveland Indians traded Chad Curtis to New York Yankees; New York Yankees traded David Weather",
+     "1997-06-09",
+     "inh",
+     2.0,
+     "112963"
+    ],
+    [
+     "Tim Raines Sr.",
+     "fa",
+     "New York Yankees signed free agent Tim Raines. (Retrosheet archive)",
+     "1998-01-15",
+     "inh",
+     1.7,
+     "120891"
+    ],
+    [
+     "Ramiro Mendoza",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1994",
+     "inh",
+     1.6,
+     "118947"
+    ],
+    [
+     "Shane Spencer",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1996",
+     "inh",
+     1.6,
+     "133341"
+    ]
+   ]
+  },
+  {
+   "id": "nyy99",
+   "label": "1999 New York Yankees",
+   "team": "New York Yankees",
+   "year": 1999,
+   "result": "Won World Series",
+   "regime": "Brian Cashman",
+   "regimeNote": "title in year 2 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Derek Jeter",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1993",
+     "inh",
+     8.7,
+     "116539"
+    ],
+    [
+     "Bernie Williams",
+     "fa",
+     "New York Yankees signed free agent Bernie Williams. (Retrosheet archive)",
+     "1998-11-25",
+     "reg",
+     7.0,
+     "124288"
+    ],
+    [
+     "Chuck Knoblauch",
+     "trade",
+     "New York Yankees traded player, Brian Buchanan, Cristian Guzm\u00e1n, Eric Milton, Danny Mota to Min",
+     "1998-02-06",
+     "reg",
+     4.8,
+     "117197"
+    ],
+    [
+     "David Cone",
+     "fa",
+     "New York Yankees signed free agent David Cone. (Retrosheet archive)",
+     "1998-11-11",
+     "reg",
+     2.9,
+     "112552"
+    ],
+    [
+     "Orlando Hernandez",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1996",
+     "inh",
+     2.7,
+     "133340"
+    ],
+    [
+     "Roger Clemens",
+     "trade",
+     "New York Yankees traded Homer Bush, Graeme Lloyd, David Wells to Toronto Blue Jays; Toronto Blu",
+     "1999-02-18",
+     "reg",
+     2.5,
+     "112388"
+    ],
+    [
+     "Ramiro Mendoza",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1994",
+     "inh",
+     2.3,
+     "118947"
+    ],
+    [
+     "Paul O'Neill",
+     "trade",
+     "Cincinnati Reds traded Paul O'Neill, Joe De Berry to New York Yankees; New York Yankees traded ",
+     "1992-11-03",
+     "inh",
+     2.3,
+     "120028"
+    ],
+    [
+     "Hideki Irabu",
+     "trade",
+     "New York Yankees traded player, Rafael Medina, Rub\u00e9n Rivera to San Diego Padres; San Diego Padr",
+     "1997-04-22",
+     "inh",
+     2.0,
+     "116400"
+    ],
+    [
+     "Mariano Rivera",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1993",
+     "inh",
+     2.0,
+     "121250"
+    ],
+    [
+     "Andy Pettitte",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1993",
+     "inh",
+     2.0,
+     "120485"
+    ],
+    [
+     "Jorge Posada",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1994",
+     "inh",
+     2.0,
+     "120691"
+    ],
+    [
+     "Mike Stanton",
+     "fa",
+     "New York Yankees signed free agent Mike Stanton. (Retrosheet archive)",
+     "1996-12-11",
+     "inh",
+     1.6,
+     "122681"
+    ],
+    [
+     "Tino Martinez",
+     "trade",
+     "Seattle Mariners traded Tino Martinez, Jim Mecir, Jeff Nelson to New York Yankees; New York Yan",
+     "1995-12-07",
+     "inh",
+     1.4,
+     "118362"
+    ],
+    [
+     "Chad Curtis",
+     "trade",
+     "Cleveland Indians traded Chad Curtis to New York Yankees; New York Yankees traded David Weather",
+     "1997-06-09",
+     "inh",
+     1.1,
+     "112963"
+    ]
+   ]
+  },
+  {
+   "id": "nyy00",
+   "label": "2000 New York Yankees",
+   "team": "New York Yankees",
+   "year": 2000,
+   "result": "Won World Series",
+   "regime": "Brian Cashman",
+   "regimeNote": "title in year 3 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Jorge Posada",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1994",
+     "inh",
+     6.6,
+     "120691"
+    ],
+    [
+     "Derek Jeter",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1993",
+     "inh",
+     5.9,
+     "116539"
+    ],
+    [
+     "Bernie Williams",
+     "fa",
+     "New York Yankees signed free agent Bernie Williams. (Retrosheet archive)",
+     "1998-11-25",
+     "reg",
+     5.6,
+     "124288"
+    ],
+    [
+     "Andy Pettitte",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1993",
+     "inh",
+     3.2,
+     "120485"
+    ],
+    [
+     "Roger Clemens",
+     "trade",
+     "New York Yankees traded Homer Bush, Graeme Lloyd, David Wells to Toronto Blue Jays; Toronto Blu",
+     "1999-02-18",
+     "reg",
+     3.1,
+     "112388"
+    ],
+    [
+     "David Justice",
+     "trade",
+     "New York Yankees traded Ricky Led\u00e9e, Jake Westbrook, Zach Day to Cleveland Indians; Cleveland I",
+     "2000-06-29",
+     "reg",
+     2.7,
+     "116798"
+    ],
+    [
+     "Mike Stanton",
+     "fa",
+     "New York Yankees signed free agent Mike Stanton. (Retrosheet archive)",
+     "1999-11-29",
+     "reg",
+     2.0,
+     "122681"
+    ],
+    [
+     "Mariano Rivera",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1993",
+     "inh",
+     2.0,
+     "121250"
+    ],
+    [
+     "Glenallen Hill",
+     "trade",
+     "New York Yankees traded Ben Ford, Oswaldo Mairena to Chicago Cubs; Chicago Cubs traded Glenalle",
+     "2000-07-21",
+     "reg",
+     1.8,
+     "115935"
+    ],
+    [
+     "Orlando Hernandez",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1996",
+     "inh",
+     1.7,
+     "133340"
+    ],
+    [
+     "Jeff Nelson",
+     "trade",
+     "Seattle Mariners traded Tino Martinez, Jim Mecir, Jeff Nelson to New York Yankees; New York Yan",
+     "1995-12-07",
+     "inh",
+     1.6,
+     "119704"
+    ],
+    [
+     "Chuck Knoblauch",
+     "trade",
+     "New York Yankees traded player, Brian Buchanan, Cristian Guzm\u00e1n, Eric Milton, Danny Mota to Min",
+     "1998-02-06",
+     "reg",
+     1.5,
+     "117197"
+    ]
+   ]
+  },
+  {
+   "id": "ari01",
+   "label": "2001 Arizona Diamondbacks",
+   "team": "Arizona Diamondbacks",
+   "year": 2001,
+   "result": "Won World Series",
+   "regime": "Joe Garagiola Jr.",
+   "regimeNote": "title in year 7 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Luis Gonzalez",
+     "trade",
+     "Detroit Tigers traded Luis Gonzalez to Arizona Diamondbacks; Arizona Diamondbacks traded Karim ",
+     "1998-12-28",
+     "reg",
+     9.2,
+     "114935"
+    ],
+    [
+     "Randy Johnson",
+     "fa",
+     "Arizona Diamondbacks signed free agent Randy Johnson. (Retrosheet archive)",
+     "1998-12-10",
+     "reg",
+     8.1,
+     "116615"
+    ],
+    [
+     "Curt Schilling",
+     "trade",
+     "Philadelphia Phillies traded Curt Schilling to Arizona Diamondbacks; Arizona Diamondbacks trade",
+     "2000-07-26",
+     "reg",
+     5.7,
+     "121811"
+    ],
+    [
+     "Reggie Sanders",
+     "fa",
+     "Arizona Diamondbacks signed free agent Reggie Sanders. (Retrosheet archive)",
+     "2001-01-11",
+     "reg",
+     2.6,
+     "121673"
+    ],
+    [
+     "Mark Grace",
+     "fa",
+     "Arizona Diamondbacks signed free agent Mark Grace. (Retrosheet archive)",
+     "2000-12-08",
+     "reg",
+     2.2,
+     "115007"
+    ],
+    [
+     "Byung-Hyun Kim",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1997",
+     "reg",
+     2.1,
+     "218294"
+    ],
+    [
+     "Jay Bell",
+     "fa",
+     "Arizona Diamondbacks signed free agent Jay Bell. (Retrosheet archive)",
+     "1997-11-17",
+     "reg",
+     2.0,
+     "110826"
+    ],
+    [
+     "Damian Miller",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1996",
+     "reg",
+     1.9,
+     "119064"
+    ],
+    [
+     "Steve Finley",
+     "fa",
+     "Arizona Diamondbacks signed free agent Steve Finley. (Retrosheet archive)",
+     "1998-12-18",
+     "reg",
+     1.6,
+     "114135"
+    ],
+    [
+     "Miguel Batista",
+     "fa",
+     "Arizona Diamondbacks signed free agent Miguel Batista. (Retrosheet archive)",
+     "2000-11-03",
+     "reg",
+     1.3,
+     "110683"
+    ],
+    [
+     "Craig Counsell",
+     "fa",
+     "Arizona Diamondbacks signed free agent Craig Counsell. (Retrosheet archive)",
+     "2000-03-20",
+     "reg",
+     1.2,
+     "112736"
+    ],
+    [
+     "Erubiel Durazo",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1997",
+     "reg",
+     1.2,
+     "220194"
+    ],
+    [
+     "Albie Lopez",
+     "trade",
+     "Tampa Bay Devil Rays traded Albie Lopez, Mike Difelice to Arizona Diamondbacks; Arizona Diamond",
+     "2001-07-25",
+     "reg",
+     1.2,
+     "117913"
+    ]
+   ]
+  },
+  {
+   "id": "laa02",
+   "label": "2002 Los Angeles Angels",
+   "team": "Los Angeles Angels",
+   "year": 2002,
+   "result": "Won World Series",
+   "regime": "Bill Stoneman",
+   "regimeNote": "title in year 4 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Troy Glaus",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1996",
+     "inh",
+     4.1,
+     "136267"
+    ],
+    [
+     "Tim Salmon",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1995",
+     "inh",
+     4.0,
+     "121640"
+    ],
+    [
+     "Garret Anderson",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1995",
+     "inh",
+     3.9,
+     "110236"
+    ],
+    [
+     "David Eckstein",
+     "intl",
+     "Anaheim Angels claimed David Eckstein off waivers. (Retrosheet archive)",
+     "2000-08-16",
+     "reg",
+     3.9,
+     "275930"
+    ],
+    [
+     "Jarrod Washburn",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1996",
+     "inh",
+     3.6,
+     "132220"
+    ],
+    [
+     "Adam Kennedy",
+     "trade",
+     "St. Louis Cardinals traded Kent Bottenfield, Adam Kennedy to Anaheim Angels; Anaheim Angels tra",
+     "2000-03-23",
+     "reg",
+     2.8,
+     "150456"
+    ],
+    [
+     "Brad Fullmer",
+     "trade",
+     "Anaheim Angels traded Brian Cooper to Toronto Blue Jays; Toronto Blue Jays traded Brad Fullmer ",
+     "2002-01-17",
+     "reg",
+     2.5,
+     "114485"
+    ],
+    [
+     "Scott Spiezio",
+     "fa",
+     "Anaheim Angels signed free agent Scott Spiezio. (Retrosheet archive)",
+     "2000-01-11",
+     "reg",
+     2.1,
+     "122596"
+    ],
+    [
+     "Kevin Appier",
+     "trade",
+     "Anaheim Angels traded Mo Vaughn to New York Mets; New York Mets traded Kevin Appier to Anaheim ",
+     "2001-12-27",
+     "reg",
+     2.0,
+     "110293"
+    ],
+    [
+     "John Lackey",
+     "draft",
+     "Drafted by the club, 1999",
+     "1999-06-15",
+     "inh",
+     1.6,
+     "407793"
+    ],
+    [
+     "Ben Weber",
+     "intl",
+     "Anaheim Angels claimed Ben Weber off waivers. (Retrosheet archive)",
+     "2000-08-30",
+     "reg",
+     1.6,
+     "276533"
+    ],
+    [
+     "Brendan Donnelly",
+     "fa",
+     "Anaheim Angels signed free agent Brendan Donnelly. (Retrosheet archive)",
+     "2001-01-20",
+     "reg",
+     1.5,
+     "407791"
+    ],
+    [
+     "Troy Percival",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1995",
+     "inh",
+     1.4,
+     "120401"
+    ],
+    [
+     "Darin Erstad",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1995",
+     "inh",
+     1.4,
+     "113889"
+    ],
+    [
+     "Aaron Sele",
+     "fa",
+     "Anaheim Angels signed free agent Aaron Sele. (Retrosheet archive)",
+     "2002-01-04",
+     "reg",
+     1.1,
+     "121986"
+    ]
+   ]
+  },
+  {
+   "id": "mia03",
+   "label": "2003 Miami Marlins",
+   "team": "Miami Marlins",
+   "year": 2003,
+   "result": "Won World Series",
+   "regime": "Larry Beinfest",
+   "regimeNote": "title in year 2 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Ivan Rodriguez",
+     "fa",
+     "Florida Marlins signed free agent Iv\u00e1n Rodr\u00edguez. (Retrosheet archive)",
+     "2003-01-28",
+     "reg",
+     5.2,
+     "121358"
+    ],
+    [
+     "Mike Lowell",
+     "trade",
+     "New York Yankees traded Mike Lowell to Florida Marlins; Florida Marlins traded Mark Johnson, To",
+     "1999-02-01",
+     "inh",
+     4.6,
+     "136780"
+    ],
+    [
+     "Derrek Lee",
+     "trade",
+     "Florida Marlins traded Kevin Brown to San Diego Padres; San Diego Padres traded Steve Hoff, Der",
+     "1997-12-15",
+     "inh",
+     4.1,
+     "117601"
+    ],
+    [
+     "Luis Castillo",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1994",
+     "inh",
+     4.0,
+     "112116"
+    ],
+    [
+     "Josh Beckett",
+     "draft",
+     "Drafted by the club, 1999",
+     "1999-06-15",
+     "inh",
+     3.1,
+     "277417"
+    ],
+    [
+     "Dontrelle Willis",
+     "trade",
+     "Florida Marlins traded Antonio Alfonseca, Matt Clement to Chicago Cubs; Chicago Cubs traded Jul",
+     "2002-03-27",
+     "reg",
+     3.1,
+     "425883"
+    ],
+    [
+     "Juan Pierre",
+     "trade",
+     "Colorado Rockies traded player, Juan Pierre, Mike Hampton to Florida Marlins; Florida Marlins t",
+     "2002-11-16",
+     "reg",
+     3.1,
+     "334393"
+    ],
+    [
+     "\u00c1lex Gonz\u00e1lez",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1996",
+     "inh",
+     2.5,
+     "136460"
+    ],
+    [
+     "Carl Pavano",
+     "trade",
+     "Florida Marlins traded player, Cliff Floyd, Wilton Guerrero, Claudio Vargas to Montreal Expos; ",
+     "2002-07-11",
+     "reg",
+     2.4,
+     "134321"
+    ],
+    [
+     "Brad Penny",
+     "trade",
+     "Florida Marlins traded Matt Mantei to Arizona Diamondbacks; Arizona Diamondbacks traded Vladimi",
+     "1999-07-08",
+     "inh",
+     2.1,
+     "207267"
+    ],
+    [
+     "Mark Redman",
+     "trade",
+     "Florida Marlins traded Gary Knotts, Nate Robertson, Rob Henkel to Detroit Tigers; Detroit Tiger",
+     "2003-01-11",
+     "reg",
+     2.0,
+     "150230"
+    ],
+    [
+     "Braden Looper",
+     "trade",
+     "St. Louis Cardinals traded Armando Almanza, Braden Looper, Pablo Ozuna to Florida Marlins; Flor",
+     "1998-12-14",
+     "inh",
+     1.7,
+     "131702"
+    ],
+    [
+     "Juan Encarnacion",
+     "trade",
+     "Florida Marlins traded Ryan Dempster to Cincinnati Reds; Cincinnati Reds traded Juan Encarnaci\u00f3",
+     "2002-07-11",
+     "reg",
+     1.7,
+     "113845"
+    ],
+    [
+     "Tim Spooneybarger",
+     "trade",
+     "Florida Marlins traded player, Mike Hampton to Atlanta Braves; Atlanta Braves traded Tim Spoone",
+     "2002-11-18",
+     "reg",
+     1.1,
+     "407486"
+    ],
+    [
+     "Ugueth Urbina",
+     "trade",
+     "Texas Rangers traded Ugueth Urbina to Florida Marlins; Florida Marlins traded Adri\u00e1n Gonz\u00e1lez, ",
+     "2003-07-11",
+     "reg",
+     1.1,
+     "123584"
+    ],
+    [
+     "Tommy Phelps",
+     "fa",
+     "Florida Marlins signed free agent Tommy Phelps. (Retrosheet archive)",
+     "2002-12-19",
+     "reg",
+     1.1,
+     "425882"
+    ]
+   ]
+  },
+  {
+   "id": "bos04",
+   "label": "2004 Boston Red Sox",
+   "team": "Boston Red Sox",
+   "year": 2004,
+   "result": "Won World Series",
+   "regime": "Theo Epstein",
+   "regimeNote": "title in year 3 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Curt Schilling",
+     "trade",
+     "Boston Red Sox traded Casey Fossum, Brandon Lyon, Jorge De La Rosa, Mike Goss to Arizona Diamon",
+     "2003-11-28",
+     "reg",
+     6.2,
+     "121811"
+    ],
+    [
+     "Manny Ramirez",
+     "fa",
+     "Boston Red Sox signed free agent Manny Ramirez. (Retrosheet archive)",
+     "2000-12-19",
+     "inh",
+     6.2,
+     "120903"
+    ],
+    [
+     "Pedro Mart\u00ednez",
+     "trade",
+     "Boston Red Sox traded Carl Pavano, Tony Armas to Montreal Expos; Montreal Expos traded Pedro Ma",
+     "1997-11-18",
+     "inh",
+     4.9,
+     "118377"
+    ],
+    [
+     "Johnny Damon",
+     "fa",
+     "Boston Red Sox signed free agent Johnny Damon. (Retrosheet archive)",
+     "2001-12-21",
+     "inh",
+     4.7,
+     "113028"
+    ],
+    [
+     "Jason Varitek",
+     "trade",
+     "Boston Red Sox traded Heathcliff Slocumb to Seattle Mariners; Seattle Mariners traded Derek Low",
+     "1997-07-31",
+     "inh",
+     4.6,
+     "123660"
+    ],
+    [
+     "David Ortiz",
+     "fa",
+     "Boston Red Sox signed free agent David Ortiz. (Retrosheet archive)",
+     "2003-01-22",
+     "reg",
+     4.6,
+     "120074"
+    ],
+    [
+     "Bronson Arroyo",
+     "intl",
+     "Boston Red Sox claimed Bronson Arroyo off waivers. (Retrosheet archive)",
+     "2003-02-04",
+     "reg",
+     3.5,
+     "276520"
+    ],
+    [
+     "Mark Bellhorn",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2002",
+     "inh",
+     3.4,
+     "110840"
+    ],
+    [
+     "Derek Lowe",
+     "trade",
+     "Boston Red Sox traded Heathcliff Slocumb to Seattle Mariners; Seattle Mariners traded Derek Low",
+     "1997-07-31",
+     "inh",
+     2.9,
+     "117955"
+    ],
+    [
+     "Kevin Millar",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2001",
+     "inh",
+     2.6,
+     "132788"
+    ],
+    [
+     "Bill Mueller",
+     "fa",
+     "Boston Red Sox signed free agent Bill Mueller. (Retrosheet archive)",
+     "2003-01-10",
+     "reg",
+     2.3,
+     "119482"
+    ],
+    [
+     "Keith Foulke",
+     "fa",
+     "Boston Red Sox signed free agent Keith Foulke. (Retrosheet archive)",
+     "2004-01-07",
+     "reg",
+     2.3,
+     "114342"
+    ],
+    [
+     "Doug Mirabelli",
+     "trade",
+     "Texas Rangers traded Doug Mirabelli to Boston Red Sox; Boston Red Sox traded Justin Duchscherer",
+     "2001-06-12",
+     "inh",
+     1.7,
+     "119182"
+    ],
+    [
+     "Mike Timlin",
+     "fa",
+     "Boston Red Sox signed free agent Mike Timlin. (Retrosheet archive)",
+     "2003-11-17",
+     "reg",
+     1.5,
+     "123348"
+    ],
+    [
+     "Tim Wakefield",
+     "fa",
+     "Boston Red Sox signed free agent Tim Wakefield. (Retrosheet archive)",
+     "2000-12-07",
+     "inh",
+     1.3,
+     "123801"
+    ],
+    [
+     "Nomar Garciaparra",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1994",
+     "inh",
+     1.3,
+     "114596"
+    ]
+   ]
+  },
+  {
    "id": "cws05",
    "label": "2005 Chicago White Sox",
    "team": "Chicago White Sox",
@@ -12,9 +1023,9 @@
    "roster": [
     [
      "Mark Buehrle",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1998",
+     "draft",
+     "Drafted by the club, 1998",
+     "1998-06-15",
      "inh",
      5.4,
      "279824"
@@ -84,9 +1095,9 @@
     ],
     [
      "Aaron Rowand",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1999",
+     "draft",
+     "Drafted by the club, 1998",
+     "1998-06-15",
      "inh",
      1.9,
      "400023"
@@ -168,9 +1179,9 @@
    "roster": [
     [
      "Albert Pujols",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1999",
+     "draft",
+     "Drafted by the club, 1999",
+     "1999-06-15",
      "reg",
      7.4,
      "405395"
@@ -195,9 +1206,9 @@
     ],
     [
      "Chris Duncan",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2003",
+     "draft",
+     "Drafted by the club, 1999",
+     "1999-06-15",
      "reg",
      2.6,
      "408219"
@@ -305,6 +1316,15 @@
      "136780"
     ],
     [
+     "Dustin Pedroia",
+     "draft",
+     "Drafted by the club, 2004",
+     "2004-06-15",
+     "reg",
+     3.4,
+     "456030"
+    ],
+    [
      "Daisuke Matsuzaka",
      "intl",
      "Amateur / minor-league signing (no major-league transaction on record)",
@@ -333,9 +1353,9 @@
     ],
     [
      "Kevin Youkilis",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2002",
+     "draft",
+     "Drafted by the club, 2001",
+     "2001-06-15",
      "inh",
      2.6,
      "425903"
@@ -360,9 +1380,9 @@
     ],
     [
      "Jonathan Papelbon",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2003",
+     "draft",
+     "Drafted by the club, 2003",
+     "2003-06-15",
      "reg",
      2.0,
      "449097"
@@ -417,27 +1437,27 @@
    "roster": [
     [
      "Chase Utley",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2001",
+     "draft",
+     "Drafted by the club, 2000",
+     "2000-06-15",
      "inh",
      6.3,
      "400284"
     ],
     [
      "Pat Burrell",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1998",
+     "draft",
+     "Drafted by the club, 1998",
+     "1998-06-15",
      "inh",
      3.9,
      "150100"
     ],
     [
      "Cole Hamels",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2004",
+     "draft",
+     "Drafted by the club, 2002",
+     "2002-06-15",
      "inh",
      3.8,
      "430935"
@@ -462,9 +1482,9 @@
     ],
     [
      "Ryan Howard",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2002",
+     "draft",
+     "Drafted by the club, 2001",
+     "2001-06-15",
      "inh",
      3.3,
      "429667"
@@ -489,9 +1509,9 @@
     ],
     [
      "Ryan Madson",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2001",
+     "draft",
+     "Drafted by the club, 1998",
+     "1998-06-15",
      "inh",
      1.9,
      "425492"
@@ -547,8 +1567,8 @@
     [
      "Derek Jeter",
      "intl",
-     "Acquired before the 1998 data floor (Retrosheet-backfilled era starts 1998)",
-     "pre-1998",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1993",
      "inh",
      6.5,
      "116539"
@@ -645,9 +1665,9 @@
     ],
     [
      "Phil Hughes",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2005",
+     "draft",
+     "Drafted by the club, 2004",
+     "2004-06-15",
      "reg",
      2.2,
      "461833"
@@ -774,12 +1794,21 @@
     ],
     [
      "Brian Wilson",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2004",
+     "draft",
+     "Drafted by the club, 2003",
+     "2003-06-15",
      "reg",
      2.3,
      "451216"
+    ],
+    [
+     "Matt Cain",
+     "draft",
+     "Drafted by the club, 2002",
+     "2002-06-15",
+     "reg",
+     2.1,
+     "430912"
     ],
     [
      "Sergio Romo",
@@ -801,9 +1830,9 @@
     ],
     [
      "Jonathan S\u00e1nchez",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2004",
+     "draft",
+     "Drafted by the club, 2004",
+     "2004-06-15",
      "reg",
      1.2,
      "456043"
@@ -849,9 +1878,9 @@
     ],
     [
      "Albert Pujols",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1999",
+     "draft",
+     "Drafted by the club, 1999",
+     "1999-06-15",
      "inh",
      5.2,
      "405395"
@@ -867,9 +1896,9 @@
     ],
     [
      "Yadier Molina",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2002",
+     "draft",
+     "Drafted by the club, 2000",
+     "2000-06-15",
      "inh",
      4.9,
      "425877"
@@ -939,9 +1968,9 @@
     ],
     [
      "Jason Motte",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2006",
+     "draft",
+     "Drafted by the club, 2003",
+     "2003-06-15",
      "inh",
      1.9,
      "435400"
@@ -1040,6 +2069,15 @@
      "340192"
     ],
     [
+     "Matt Cain",
+     "draft",
+     "Drafted by the club, 2002",
+     "2002-06-15",
+     "reg",
+     2.4,
+     "430912"
+    ],
+    [
      "Brandon Belt",
      "intl",
      "San Francisco Giants signed free agent 1B Brandon Belt to a minor league contract.",
@@ -1133,6 +2171,15 @@
    "computed": true,
    "roster": [
     [
+     "Dustin Pedroia",
+     "draft",
+     "Drafted by the club, 2004",
+     "2004-06-15",
+     "inh",
+     4.8,
+     "456030"
+    ],
+    [
      "David Ortiz",
      "fa",
      "Boston Red Sox signed free agent DH David Ortiz.",
@@ -1188,9 +2235,9 @@
     ],
     [
      "Jon Lester",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2004",
+     "draft",
+     "Drafted by the club, 2002",
+     "2002-06-15",
      "inh",
      3.4,
      "452657"
@@ -1266,15 +2313,6 @@
      "reg",
      1.5,
      "430404"
-    ],
-    [
-     "Junichi Tazawa",
-     "fa",
-     "Boston Red Sox signed free agent RHP Junichi Tazawa.",
-     "2008-12-04",
-     "inh",
-     1.4,
-     "547749"
     ]
    ]
   },
@@ -2936,17 +3974,17 @@
   }
  ],
  "lines": {
-  "n": 21,
-  "medianRegShare": 88,
-  "medianTenure": 7,
-  "earlyTitles": 3,
+  "n": 28,
+  "medianRegShare": 61,
+  "medianTenure": 6,
+  "earlyTitles": 8,
   "lateTitles": 9,
   "avgShare": {
-   "fa": 27.2,
-   "trade": 19.0,
-   "draft": 12.3,
-   "intl": 11.9,
-   "inherited": 29.6
+   "fa": 25.0,
+   "trade": 19.5,
+   "draft": 11.5,
+   "intl": 8.1,
+   "inherited": 35.8
   },
   "majorityFA": [
    "nyy09"
@@ -2956,11 +3994,117 @@
    "sf12",
    "sf14"
   ],
-  "mostInherited": "tex23",
+  "mostInherited": "nyy98",
   "mostBought": "nyy09",
   "mostHomegrown": "sf14",
   "mostTraded": "chc16",
   "rows": [
+   {
+    "id": "nyy98",
+    "yr": 1998,
+    "team": "New York Yankees",
+    "abbr": "NYY",
+    "exec": "Brian Cashman",
+    "tenure": 1,
+    "total": 54.6,
+    "regShare": 7,
+    "mix": {
+     "inherited": 50.9,
+     "trade": 3.7
+    }
+   },
+   {
+    "id": "nyy99",
+    "yr": 1999,
+    "team": "New York Yankees",
+    "abbr": "NYY",
+    "exec": "Brian Cashman",
+    "tenure": 2,
+    "total": 45.3,
+    "regShare": 38,
+    "mix": {
+     "inherited": 28.1,
+     "fa": 9.9,
+     "trade": 7.3
+    }
+   },
+   {
+    "id": "nyy00",
+    "yr": 2000,
+    "team": "New York Yankees",
+    "abbr": "NYY",
+    "exec": "Brian Cashman",
+    "tenure": 3,
+    "total": 37.7,
+    "regShare": 44,
+    "mix": {
+     "inherited": 21.0,
+     "fa": 7.6,
+     "trade": 9.1
+    }
+   },
+   {
+    "id": "ari01",
+    "yr": 2001,
+    "team": "Arizona Diamondbacks",
+    "abbr": "ARI",
+    "exec": "Joe Garagiola Jr.",
+    "tenure": 7,
+    "total": 40.3,
+    "regShare": 100,
+    "mix": {
+     "trade": 16.1,
+     "fa": 19.0,
+     "intl": 5.2
+    }
+   },
+   {
+    "id": "laa02",
+    "yr": 2002,
+    "team": "Los Angeles Angels",
+    "abbr": "LAA",
+    "exec": "Bill Stoneman",
+    "tenure": 4,
+    "total": 37.5,
+    "regShare": 47,
+    "mix": {
+     "inherited": 20.0,
+     "intl": 5.5,
+     "trade": 7.3,
+     "fa": 4.7
+    }
+   },
+   {
+    "id": "mia03",
+    "yr": 2003,
+    "team": "Miami Marlins",
+    "abbr": "MIA",
+    "exec": "Larry Beinfest",
+    "tenure": 2,
+    "total": 42.9,
+    "regShare": 48,
+    "mix": {
+     "fa": 6.3,
+     "inherited": 22.1,
+     "trade": 14.5
+    }
+   },
+   {
+    "id": "bos04",
+    "yr": 2004,
+    "team": "Boston Red Sox",
+    "abbr": "BOS",
+    "exec": "Theo Epstein",
+    "tenure": 3,
+    "total": 54.0,
+    "regShare": 38,
+    "mix": {
+     "trade": 6.2,
+     "inherited": 33.6,
+     "fa": 10.7,
+     "intl": 3.5
+    }
+   },
    {
     "id": "cws05",
     "yr": 2005,
@@ -2987,9 +4131,10 @@
     "total": 29.7,
     "regShare": 100,
     "mix": {
-     "intl": 11.1,
+     "draft": 10.0,
      "trade": 8.7,
-     "fa": 9.9
+     "fa": 9.9,
+     "intl": 1.1
     }
    },
    {
@@ -2999,14 +4144,14 @@
     "abbr": "BOS",
     "exec": "Theo Epstein",
     "tenure": 6,
-    "total": 41.5,
-    "regShare": 81,
+    "total": 44.9,
+    "regShare": 83,
     "mix": {
      "fa": 14.5,
      "trade": 12.9,
-     "intl": 5.3,
-     "inherited": 7.8,
-     "draft": 1.0
+     "draft": 6.4,
+     "intl": 3.3,
+     "inherited": 7.8
     }
    },
    {
@@ -3037,9 +4182,9 @@
     "mix": {
      "inherited": 6.5,
      "fa": 32.2,
-     "intl": 12.6,
+     "intl": 10.4,
      "trade": 3.6,
-     "draft": 2.3
+     "draft": 4.5
     }
    },
    {
@@ -3049,12 +4194,12 @@
     "abbr": "SF",
     "exec": "Brian Sabean",
     "tenure": 15,
-    "total": 37.0,
+    "total": 39.1,
     "regShare": 100,
     "mix": {
      "fa": 9.7,
-     "draft": 10.7,
-     "intl": 14.2,
+     "draft": 16.3,
+     "intl": 10.7,
      "trade": 2.4
     }
    },
@@ -3080,10 +4225,10 @@
     "abbr": "SF",
     "exec": "Brian Sabean",
     "tenure": 17,
-    "total": 39.3,
+    "total": 41.7,
     "regShare": 100,
     "mix": {
-     "draft": 14.2,
+     "draft": 16.6,
      "trade": 12.7,
      "intl": 9.8,
      "fa": 2.6
@@ -3096,11 +4241,11 @@
     "abbr": "BOS",
     "exec": "Ben Cherington",
     "tenure": 3,
-    "total": 47.3,
-    "regShare": 46,
+    "total": 50.7,
+    "regShare": 43,
     "mix": {
+     "inherited": 29.0,
      "fa": 19.9,
-     "inherited": 25.6,
      "trade": 1.8
     }
    },
