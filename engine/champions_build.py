@@ -111,7 +111,7 @@ for (yr, tid) in CHAMPS_WS:
         tag = "reg" if (d and not d.startswith("pre") and str(d).lstrip("~") >= tag_start) else "inh"
         if ch == "inherited": tag = "inh"
         bucket = "inherited" if tag == "inh" else ch
-        roster.append([nm, ch if ch != "inherited" else "intl", how, str(d), tag, round(w, 1)])
+        roster.append([nm, ch if ch != "inherited" else "intl", how, str(d), tag, round(w, 1), str(pid)])
     total = sum(r[5] for r in roster)
     mix = defaultdict(float)
     for r in roster:
