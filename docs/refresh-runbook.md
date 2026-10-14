@@ -20,11 +20,12 @@ Rebuild `ledger.sqlite` (not shipped; too big for the web upload flow):
 
     python3 sweep_ingest.py          # transactions, current regime windows
     python3 hist_ingest.py           # full 2005+ re-ingest (archive era)
-    python3 retro_backfill.py        # Retrosheet 1998-2008 (the API feed is
-                                     # empty pre-2009); needs data/retro2mlbam.json
-                                     # and data/retrosheet_tranDB.zip unzipped to
-                                     # /tmp/retro (tran.txt)
-    # draft_picks seeds from data/draft_picks.csv inside sweep_ingest
+    python3 retro_backfill.py        # Retrosheet 1985-2008 (the API feed is
+                                     # empty pre-2009; scoring floors at 1998);
+                                     # needs data/retro2mlbam.json and
+                                     # data/retrosheet_tranDB.zip (auto-unzips)
+    python3 draft_backfill.py        # drafts 1998-2004 from the draft endpoint
+    # draft_picks 2005+ seeds from data/draft_picks.csv inside sweep_ingest
 
 `lvm_cache.json` ships in `data/` at v1.5 (park factors + defense joined,
 `__lvm_v15__` marker). Do NOT run `lvm_v1.py` or `lvm_v15_rebuild.py` on it

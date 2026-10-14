@@ -81,3 +81,49 @@ received against what the surrendered players became for the seller, so a
 verdict reads against the market for deals of that shape instead of in a
 vacuum. Control buckets (rental / +1 / +2 / 3+ years) are measured from the
 feed as seasons to the player's next free-agency declaration.
+
+# v3.3 addendum: the 1998 floor, 28 championships, validation v2
+
+October 14, 2026, same build day as v3.2. Four extensions.
+
+## 1. The archive floor moves to 1998
+
+Retrosheet backfill extended to 1985-2008 (provenance) with scoring windows
+floored at 1998-01-01; drafts 1998-2004 backfilled from the Stats API draft
+endpoint (verified: Pat Burrell #1 in 1998, Bullington #1 in 2002); park
+factors extended to 1996 (pre-humidor Coors reads 1.26-1.31); the full value
+cache rebuilt over 28,149 players; Montreal Expos alias joined so Expos-era
+value rows land. The regime table (`data/regimes_hist.json`) now holds 110
+archive regimes, including ~40 new or unclamped 1998-2004 windows (dates are
+month-precise from documented GM history; 'approx' flags uncertainty, and
+regimes seated before 1998 stay truncated with true start shown). Cashman's
+ACTIVE window now runs from his real 1998-02-03 seat. Headline corrections
+the fuller windows produce: the complete Billy Beane record is -28 net over
+17.8 seasons (trades -54, waivers +14, drafts +12), Sabean's full window
+reaches +226, and Cashman's draft channel drops to +17 once his barren
+1999-2004 classes enter the book.
+
+## 2. 28 championship ledgers, and the era through-line
+
+All World Series winners 1998-2025. The strongest finding in the project:
+the median title core was 48% self-built in 1998-2009 and 90% self-built in
+2010-2025. The handed-down championship (1998 NYY 93% inherited, year one of
+Cashman's seat; 2023 TEX 85%) is going extinct.
+
+## 3. Validation v2: pooled design, honest intervals
+
+The predictive study now pools 574 regime-years from 112 active and archive
+regimes (futures bounded inside each regime's own window). Partial r of
+decision value on future W%, controlling for record to date: 0.276, with a
+cluster-bootstrap 95% interval of [0.164, 0.371] (B = 2000, resampling whole
+regimes, the honest interval given overlapping regime-years). Grouped 5-fold
+cross-validation (folds by regime) lifts out-of-sample R2 from 0.184 to
+0.245. The effect survives on held-out regimes. Accounting check on the
+full-coverage era (2015-2025): r = 0.853, MAE 5.3 wins.
+
+## 4. Comps v2 and shareability
+
+Trade comps now match on control bucket AND buyer posture (contender >= 85
+wins pace / mid / rebuilder < 75) in addition to size, phase, and era.
+The page itself gained Open Graph and Twitter cards with a generated
+preview image, a favicon, a first-visit intro, and a mobile pass.
