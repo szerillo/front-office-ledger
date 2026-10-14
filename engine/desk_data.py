@@ -77,6 +77,54 @@ for g in d.get("records", []):
         ab = TID2AB.get(t["team"]["id"])
         if ab: teams[ab] = t.get("wins", 81)
 
+# ---- contract book with platform context and realized outcomes ----
+import csv, unicodedata, sys
+sys.path.insert(0, "/home/claude")
+from contracts_recent import RECENT
+def norm(nm):
+    x = unicodedata.normalize("NFKD", nm or "").encode("ascii", "ignore").decode()
+    return x.lower().replace(".", "").replace(" jr", "").strip()
+NAME2PIDS = defaultdict(list)
+for pid, (d, lt, name) in BY.items():
+    NAME2PIDS[norm(name)].append(pid)
+TID2AB2 = {r["teamId"]: r["abbr"] for r in cfg["regimes"]}
+TEAMNAMES = {r["teamId"]: set(cfg["aliases"].get(str(r["teamId"]), [])) | {r["team"]} for r in cfg["regimes"]}
+def short_to_tid(short):
+    for r in cfg["regimes"]:
+        names = TEAMNAMES[r["teamId"]]
+        if any(short and short.lower() in nm.lower() for nm in names):
+            return r["teamId"]
+    return None
+raw_contracts = []
+with open("/home/claude/repo/data/contracts_espn.csv") as f:
+    for row in csv.DictReader(f):
+        tid = short_to_tid(row["to_team"])
+        if tid: raw_contracts.append((int(row["offseason"]), row["player"], tid, int(row["years"]), float(row["total_m"])))
+AB2TID = {r["abbr"]: r["teamId"] for r in cfg["regimes"]}
+for off, pl, ab, yrs, tot in RECENT:
+    raw_contracts.append((off, pl, AB2TID[ab], yrs, float(tot)))
+book = []
+for (off, pl, tid, yrs, tot) in raw_contracts:
+    cands = NAME2PIDS.get(norm(pl), [])
+    pid = None
+    if len(cands) == 1: pid = cands[0]
+    elif len(cands) > 1:
+        pid = max(cands, key=lambda p: abs(BY[p][0].get(off, 0)) + abs(BY[p][0].get(off - 1, 0)))
+    if pid is None: continue
+    d = BY[pid][0]
+    plat1 = round(d.get(off, 0), 1)             # platform season
+    plat2 = round(d.get(off - 1, 0), 1)         # season before
+    age = off - AGES.get(str(pid), 0)
+    if not (18 < age < 46): continue
+    names = TEAMNAMES.get(tid, set())
+    elapsed = min(yrs, 2026 - off)
+    realized = round(sum(v for (y, tm, v) in LVM[pid]["rows"]
+                         if off + 1 <= y <= off + elapsed and tm in names), 1) if elapsed > 0 else None
+    pit = 1 if POS.get(str(pid)) in PITPOS else 0
+    book.append([pl, off, TID2AB2.get(tid, ""), yrs, round(tot, 1), age, pit, plat1, plat2,
+                 realized if realized is not None else "", elapsed])
+print("contract book rows matched:", len(book), "of", len(raw_contracts))
+
 deals = json.load(open("/home/claude/deal_archive.json"))
 compact = [[x["yr"], x["ab"], x["ph"][0], x["ck"], x.get("po", "mid")[0], x["recv"], x["paid"], x["who"][:24]] for x in deals]
 
@@ -86,6 +134,9 @@ out = dict(
                 unrankedEV=PC["unranked_ev"], backtest=PC["backtest"]),
     market=dict(dpw={str(k): v for k, v in
                      {2026: 9.7, 2027: 10.0, 2028: 10.3, 2029: 10.6, 2030: 10.9, 2031: 11.2, 2032: 11.5}.items()},
+                dpwHist={str(k): v for k, v in {2006:4.2,2007:4.5,2008:4.7,2009:4.7,2010:5.0,2011:5.2,2012:5.5,2013:6.0,
+                     2014:6.5,2015:7.0,2016:7.7,2017:8.0,2018:8.2,2019:8.0,2020:8.0,2021:8.5,
+                     2022:8.5,2023:9.0,2024:9.3,2025:9.5,2026:9.7}.items()},
                 buckets={"rental": dict(ratio=0.8, bust=0.55), "+1": dict(ratio=0.99, bust=0.48),
                          "+2": dict(ratio=0.86, bust=0.39), "3+": dict(ratio=0.37, bust=0.71)},
                 extDiscount={"predebut": 0.35, "early": 0.45, "arb": 0.60, "vet": 0.90}),
@@ -94,6 +145,7 @@ out = dict(
     vrank=[[1, 8.0], [3, 7.0], [5, 6.5], [10, 5.5], [15, 4.8], [25, 4.0], [40, 3.2], [50, 2.8], [75, 2.0], [100, 1.5]],
     teams=teams,
     deals=compact,
+    book=book,
 )
 json.dump(out, open("/home/claude/desk_data.json", "w"), separators=(",", ":"))
 import os

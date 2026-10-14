@@ -212,8 +212,14 @@ def attach(path):
                 pout = {x["person_id"]: x["to_team"] for x in rows
                         if x["from_team"] in names and x["person_id"] and x["to_team"]}
                 if not pin and not pout: continue
-                pi = sum(remaining_proj(p, names, d["d"])[0] for p in pin)
-                po = sum(remaining_proj(p, {dest}, d["d"])[0] for p, dest in pout.items())
+                rin = [remaining_proj(p, names, d["d"]) for p in pin]
+                rout = [remaining_proj(p, {dest}, d["d"]) for p, dest in pout.items()]
+                pi = sum(x[0] for x in rin)
+                po = sum(x[0] for x in rout)
+                # settled = every window closed or empty of remaining value AND
+                # no piece still inside an open window (reason says proj/rank)
+                live = [x for x in rin + rout if x[0] > 0 or x[1].startswith(("proj", "rank", "unranked"))]
+                d["unsettled"] = bool(live)
                 net = round(pi - po, 1)
                 d["proj"] = dict(inn=round(pi, 1), out=round(po, 1), net=net,
                                  final=round(d["net"] + net, 1))
