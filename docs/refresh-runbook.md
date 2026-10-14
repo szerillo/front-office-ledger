@@ -20,6 +20,10 @@ Rebuild `ledger.sqlite` (not shipped; too big for the web upload flow):
 
     python3 sweep_ingest.py          # transactions, current regime windows
     python3 hist_ingest.py           # full 2005+ re-ingest (archive era)
+    python3 retro_backfill.py        # Retrosheet 1998-2008 (the API feed is
+                                     # empty pre-2009); needs data/retro2mlbam.json
+                                     # and data/retrosheet_tranDB.zip unzipped to
+                                     # /tmp/retro (tran.txt)
     # draft_picks seeds from data/draft_picks.csv inside sweep_ingest
 
 `lvm_cache.json` ships in `data/` at v1.5 (park factors + defense joined,
@@ -52,6 +56,8 @@ new facts are the completed postseason and any early offseason transactions.
     python3 ret2.py
     python3 validation.py
     python3 hist_score.py            # archive era
+    python3 champions_build.py       # championship provenance + through lines
+    python3 trade_comps.py           # market comps onto every graded trade
     python3 regen_v3.py              # splices everything into the prototype
 
 `run_chain.sh` in the repo root runs the middle block. After regen, update
