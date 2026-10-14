@@ -47,7 +47,15 @@ A decision-level accounting system for sports front offices. Every draft pick, t
 
 **TRADE MARKET COMPS (v3.2):** every graded trade's modal shows the three nearest deals by eventual value received, same season phase, from a 5,764-deal 1998-2023 buyer-seat archive, so each verdict reads against what deals of that shape usually cost. `engine/trade_comps.py`, `data/deal_archive.json`.
 
-**Methodology version: v0.2 base + v0.3 rental baseline + v0.4 controlled-years market + Ledger WAR v1.5 + archive sweep + retention v2 + unsigned-pick screen + Retrosheet backfill** (win-curve leverage, time discounting, retention rights, net-of-cost contracts, perspective rule). See `docs/methodology-v02-addendum.md`. The v0.3 target: empirical market-price baselines for trades (the rental-return curve) that consolidate the lens stack; see `docs/design.md` section 3.4b.
+**THE 1998 FLOOR (v3.3):** the archive now reaches 1998: Retrosheet backfill extended to 1985 (provenance) with scoring floored at 1998; drafts 1998-2004 backfilled from the Stats API draft endpoint (`ingest/draft_backfill.py`); park factors to 1996 (pre-humidor Coors 1.26-1.31); 28,149-player value cache; Expos alias joined. 110 archive regimes (`ingest/regimes_hist_v2.py` documents the curation), Cashman's active window from his real 1998-02 seat. The complete Beane record: -28 net over 17.8 seasons. Sabean's full window: +226.
+
+**28 CHAMPIONSHIP LEDGERS (v3.3):** every WS winner 1998-2025, each roster piece clickable into its onward chain. The era through-line: median title core 48% self-built 1998-2009, 90% 2010-2025. The inherited-core championship is going extinct.
+
+**VALIDATION v2 (v3.3):** predictive study pooled over 574 regime-years from 112 regimes; partial r 0.276 with cluster-bootstrap 95% CI [0.16, 0.37]; grouped 5-fold CV lifts out-of-sample R2 0.184 -> 0.245 on held-out regimes. Accounting (2015-2025 full-coverage era): r = 0.853, MAE 5.3 wins. `engine/validation.py`.
+
+**COMPS v2 + SHAREABILITY (v3.3):** trade comps matched on control bucket + buyer posture; OG/Twitter cards with generated preview image, favicon, first-visit intro, mobile pass.
+
+**Methodology version: v0.2 base + v0.3 rental baseline + v0.4 controlled-years market + Ledger WAR v1.5 + archive sweep (1998 floor) + retention v2 + unsigned-pick screen + Retrosheet backfill + validation v2** (win-curve leverage, time discounting, retention rights, net-of-cost contracts, perspective rule). See `docs/methodology-v02-addendum.md`. The v0.3 target: empirical market-price baselines for trades (the rental-return curve) that consolidate the lens stack; see `docs/design.md` section 3.4b.
 
 **Valuation: solved in-house.** Ledger WAR v1.5 (`engine/ledger_war.py` + `engine/lvm15.py`) is the self-computed open metric: wOBA batting + positional adjustments, FIP pitching anchored to league RA9, park factors, SDI/Statcast defense and framing, Statcast baserunning. B-Ref and FanGraphs block unlicensed programmatic access (verified); nothing here scrapes them, and the validation studies show the open metric holds (r = 0.80 against team records).
 
