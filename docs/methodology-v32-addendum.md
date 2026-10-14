@@ -160,3 +160,24 @@ Jefferson Rojas for Clay Holmes and Tyrone Taylor. The Mets' seat reads
 -2.3 realized (Holmes and Taylor produced for Chicago immediately) with
 projected final -6.4 (Rojas' rank expectation +4.3 against the veterans'
 remaining windows); the Cubs' seat projects +3.2 final.
+
+# v3.5 addendum: the Deal Desk
+
+October 14, 2026. The forward-looking half of the system: a Deal Desk tab
+where a hypothetical trade, free-agent signing, or extension gets a verdict
+assembled from the ledger's own machinery. Trade pieces can be MLB players
+(Ledger Projection v1 over adjustable control years), top-100 prospects by
+rank (the rank-to-surplus curve), or draft picks (the slot curve). The
+verdict: projected value each way, leverage-weighted at the club's current
+standing; a market-rate check against the control-bucket price curves from
+the 5,804-deal archive (with bust rates), flagged BELOW MARKET / MARKET
+RATE / ABOVE MARKET; the three nearest real comps and how they ended; and a
+counterparty card (trade grade, DNA tendencies, head-to-head record).
+Signings and extensions grade with the exact accounting of the FA and
+extension channels (market $/win forward table, QO charge, class discounts).
+Sandbox rules: proposals are evaluated client-side and never recorded, and
+real card grades never move on a forecast. Inside a club, the same
+architecture pointed at internal projections and pref lists is a deadline
+war-room tool. `engine/desk_data.py` builds the data pack
+(`data/desk_data.json`: 2,035 players with recent form, ages, and control
+defaults; curves; market constants; the compact deal archive).
