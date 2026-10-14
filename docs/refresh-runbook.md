@@ -61,6 +61,8 @@ new facts are the completed postseason and any early offseason transactions.
     python3 trade_comps.py           # market comps onto every graded trade
     python3 ages_fetch.py            # birth dates (only if the cache changed)
     python3 proj_v1.py               # Ledger Projection v1 onto open deals
+    python3 pt_fetch.py              # playing time -> durability factors
+                                     # (hits the people API ~150 times)
     python3 desk_data.py             # Deal Desk data pack (fetches prospect
                                      # orgs + standings from the API)
     python3 calib_suggest.py         # optional: re-backtest the term

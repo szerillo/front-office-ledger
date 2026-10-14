@@ -234,3 +234,41 @@ Every Desk verdict exports as a print-styled one-page memo (browser print /
 save as PDF): proposed terms or pieces, suggested terms, the full verdict
 tiles, market check, comps, counterparty card, payroll line, and the
 sandbox disclosure. Client-side only; nothing is recorded.
+
+# v3.7 addendum: durability, arb estimates, the draft room
+
+October 14, 2026, same build day as v3.6.
+
+## 1. Durability factor on Desk projections
+
+`engine/pt_fetch.py` pulls 2024-2026 playing time for the 2,035-player Desk
+pool (PA for hitters; IP and games for pitchers, starter vs reliever by
+IP/G). Each player carries an availability factor 0.7 + 0.3 x weighted
+recent availability (5/4/3 across observed seasons; PA/640 hitters, IP/165
+starters, IP/65 relievers, capped at 1), multiplied into every projected
+season at the Desk. Validation: projecting 2026 from 2024-25 with and
+without the factor across 1,081 players gives MAE 0.859 -> 0.848 and bias
++0.06 -> -0.01, with rank correlation slightly down (0.584 -> 0.563). It is
+a calibration fix for totals and dollars, published with both numbers.
+
+## 2. Arb and pre-arb estimates; extensions join the book
+
+The payroll layer adds estimated salaries for controlled players outside
+the contract book: league minimum pre-arb, arb years at 25/40/60% of
+projected market value (projected WAR x that season's $/win), free agency
+at six years of service. True MLB seasons ride along in the Desk data pack
+(the clamped control default is not a service record). The 61 major
+extensions from the extension channel's own list are merged into the
+contract book at CBT value where deferrals diverge, with a type flag so
+contract comps keep drawing from free-agent deals only. Club payrolls now
+read realistically (checked against five clubs across the spending range).
+
+## 3. The draft room
+
+A fourth Deal Desk mode prices pick packages on the maturity-adjusted slot
+curve the draft channel grades with (future drafts discounted 10%/yr):
+multi-pick packages both ways, pick-for-player via Ledger Projection v1,
+each side translated to its nearest single-pick equivalent, the slot-curve
+anchors printed on the verdict, and the variance warning stated plainly.
+Disclosed framing: MLB only permits trading Competitive Balance round
+picks, so this is the valuation chart a draft room argues from.
