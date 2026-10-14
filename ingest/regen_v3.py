@@ -57,6 +57,7 @@ def row(d):
     if d.get("sides"): r["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
     if d.get("pids"): r["pids"] = [str(p) for p in d["pids"] if p]
     if d.get("att"): r["att"] = d["att"]
+    if d.get("comps"): r["comps"] = d["comps"]
     if d["ch"] == "trade": r["note"] = trade_note(d)
     return r
 
@@ -93,6 +94,7 @@ for r in res:
                  h=esc(d["h"]) + " " + badge)
         if d.get("sides"): e["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
         if d.get("pids"): e["pids"] = [str(p) for p in d["pids"] if p]
+        if d.get("comps"): e["comps"] = d["comps"]
         if d["ch"] == "trade":
             e["note"] = trade_note(d)
             (best_tr if d["net"] >= 0 else worst_tr).append(e)
@@ -164,6 +166,7 @@ if os.path.exists("/home/claude/hist_results.json"):
                      h=esc(d["h"]) + " " + badge)
             if d.get("sides"): e["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
             if d.get("pids"): e["pids"] = [str(p) for p in d["pids"] if p]
+            if d.get("comps"): e["comps"] = d["comps"]
             if d["ch"] == "trade":
                 e["note"] = trade_note(d)
                 (best_tr if d["net"] >= 0 else worst_tr).append(e)
@@ -192,6 +195,7 @@ if os.path.exists("/home/claude/hist_results.json"):
                      h=esc(d["h"]) + ' <span class="badge-real">COMPUTED</span>')
             if d.get("sides"): e["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
             if d.get("pids"): e["pids"] = [str(p) for p in d["pids"] if p]
+            if d.get("comps"): e["comps"] = d["comps"]
             if d["ch"] == "trade": e["note"] = trade_note(d)
             return e
         led = r.get("led", {})
@@ -229,6 +233,13 @@ if os.path.exists("/home/claude/hist_results.json"):
         ))
     s = swap(s, "const LB_HIST = ", ";\n\n/* =", json.dumps(hist_cards, indent=0))
     print(f"archive cards: {len(hist_cards)}")
+
+# ---- computed champions + through lines ----
+if os.path.exists("/home/claude/champs_computed.json"):
+    champs = json.load(open("/home/claude/champs_computed.json"))
+    s = swap(s, "const CHAMPS_AUTO = ", ";\n\n// cross-title", json.dumps(champs["cards"], indent=0))
+    s = swap(s, "const CHAMP_LINES = ", ";\n\nconst ALL_CHAMPS", json.dumps(champs["lines"], indent=0))
+    print(f"computed champions: {len(champs['cards'])} cards + through lines")
 
 devmap = {r["id"]: dict(r.get("dev", {}), tops=[dict(d=t["d"], war=t["net"], h=esc(t["h"]))
           for t in r.get("dev_tops", [])[:5]]) for r in res if r["id"] in ("lad", "bal", "mil")}
