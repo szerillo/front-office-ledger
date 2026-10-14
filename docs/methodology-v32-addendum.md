@@ -127,3 +127,36 @@ Trade comps now match on control bucket AND buyer posture (contender >= 85
 wins pace / mid / rebuilder < 75) in addition to size, phase, and era.
 The page itself gained Open Graph and Twitter cards with a generated
 preview image, a favicon, a first-visit intro, and a mobile pass.
+
+# v3.4 addendum: Ledger Projection v1 (the forward view)
+
+October 14, 2026. Open deals now carry a projected rest-of-window and a
+projected final verdict beside the realized grade. The projection is
+self-built end to end; no licensed projection system is consulted.
+
+Components (`engine/proj_v1.py`, curves in `data/proj_curves.json`):
+
+- AGING CURVES by the delta method over the 28,149-player cache, hitters
+  and pitchers separately, 3-age smoothing, n >= 30 per point. The textbook
+  curve falls out: hitters peak at 27-28 and decline ~0.3 wins/yr through
+  the 30s; pitchers decline flatter. Survivorship bias is the delta
+  method's known weakness; the backtest is the arbiter.
+- BASE SKILL: Marcel-style 5/4/3 weighting of the last three seasons,
+  regressed 20% toward the population mean.
+- FORECAST: base walked forward on the aging curve, zero floor, 10%/yr
+  roster-uncertainty haircut beyond the first projected season. Control
+  windows from the feed (free-agency declarations) bound every projection.
+- PROSPECTS with no MLB track record: Pipeline-rank expectation (the same
+  rank-to-surplus curve the deal marks use). Unranked traded prospects:
+  the empirical mean outcome of 1,327 unranked traded pieces, 0.41 wins.
+- BACKTEST: projecting each season from only prior data gives r = 0.619
+  (2023, n = 1,093) and r = 0.667 (2025, n = 1,067) against actual
+  next-season WAR, MAE ~0.8 wins: competitive with public systems.
+
+Quarantine rule: the overlay is disclosed and the grades never move on a
+forecast. Realized value is the ledger; the projection is the heading.
+Worked example (the deal that prompted this): Cubs-Mets, Aug 3 2026,
+Jefferson Rojas for Clay Holmes and Tyrone Taylor. The Mets' seat reads
+-2.3 realized (Holmes and Taylor produced for Chicago immediately) with
+projected final -6.4 (Rojas' rank expectation +4.3 against the veterans'
+remaining windows); the Cubs' seat projects +3.2 final.

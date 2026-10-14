@@ -59,6 +59,8 @@ new facts are the completed postseason and any early offseason transactions.
     python3 hist_score.py            # archive era
     python3 champions_build.py       # championship provenance + through lines
     python3 trade_comps.py           # market comps onto every graded trade
+    python3 ages_fetch.py            # birth dates (only if the cache changed)
+    python3 proj_v1.py               # Ledger Projection v1 onto open deals
     python3 regen_v3.py              # splices everything into the prototype
 
 `run_chain.sh` in the repo root runs the middle block. After regen, update
