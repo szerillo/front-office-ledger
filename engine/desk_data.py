@@ -62,6 +62,25 @@ for pid, (d, last_team, name) in BY.items():
 players.sort(key=lambda p: -(abs(p[5]) + abs(p[6]) + abs(p[7])))
 print("desk players:", len(players))
 
+# resolve org for ranked prospects with no MLB track (no value rows -> no team abbr)
+import urllib.request as _ur, time as _t
+TID2AB_ALL = {r["teamId"]: r["abbr"] for r in cfg["regimes"]}
+need = [p for p in players if not p[2] and p[9]]
+for i in range(0, len(need), 50):
+    chunk = need[i:i+50]
+    ids = ",".join(str(p[1]) for p in chunk)
+    try:
+        d = json.load(_ur.urlopen(f"https://statsapi.mlb.com/api/v1/people?personIds={ids}&hydrate=currentTeam", timeout=40))
+        bypid = {pp["id"]: pp.get("currentTeam", {}) for pp in d.get("people", [])}
+        for p in chunk:
+            ct = bypid.get(p[1], {})
+            org = ct.get("parentOrgId") or (ct.get("id") if ct.get("id") in TID2AB_ALL else None)
+            if org in TID2AB_ALL: p[2] = TID2AB_ALL[org]
+    except Exception as e:
+        print("prospect org fetch failed:", e)
+    _t.sleep(0.5)
+print("prospect orgs resolved:", sum(1 for p in need if p[2]), "of", len(need))
+
 # team 2026 win totals
 import urllib.request, time
 def get(u, tries=3):
@@ -122,8 +141,21 @@ for (off, pl, tid, yrs, tot) in raw_contracts:
                          if off + 1 <= y <= off + elapsed and tm in names), 1) if elapsed > 0 else None
     pit = 1 if POS.get(str(pid)) in PITPOS else 0
     book.append([pl, off, TID2AB2.get(tid, ""), yrs, round(tot, 1), age, pit, plat1, plat2,
-                 realized if realized is not None else "", elapsed])
+                 realized if realized is not None else "", elapsed, pid])
 print("contract book rows matched:", len(book), "of", len(raw_contracts))
+
+# ---- committed payroll per club per season (book contracts, AAV spread) ----
+payroll = {}
+for row in book:
+    pl, off, ab, yrs, tot = row[0], row[1], row[2], row[3], row[4]
+    if not ab or off + yrs < 2026: continue
+    aav = tot / yrs
+    for season in range(max(2026, off + 1), min(off + yrs, 2031) + 1):
+        payroll.setdefault(ab, {}).setdefault(str(season), [0.0, 0])
+        payroll[ab][str(season)][0] += aav
+        payroll[ab][str(season)][1] += 1
+payroll = {ab: {s: [round(v, 1), n] for s, (v, n) in yrsmap.items()} for ab, yrsmap in payroll.items()}
+print("payroll clubs:", len(payroll), "| NYM 2027:", payroll.get("NYM", {}).get("2027"))
 
 deals = json.load(open("/home/claude/deal_archive.json"))
 compact = [[x["yr"], x["ab"], x["ph"][0], x["ck"], x.get("po", "mid")[0], x["recv"], x["paid"], x["who"][:24]] for x in deals]
@@ -146,6 +178,8 @@ out = dict(
     teams=teams,
     deals=compact,
     book=book,
+    payroll=payroll,
+    cbt={"2026": 244, "2027": None},  # 2027+ awaits the next CBA
 )
 json.dump(out, open("/home/claude/desk_data.json", "w"), separators=(",", ":"))
 import os
