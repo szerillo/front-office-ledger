@@ -8,7 +8,7 @@ because they had the most talent to lose. That is a payroll fact, not a
 decision grade, so v1 stayed display-only.
 
 v2 fix: condition on who left. From every "Declared Free Agency" event
-league-wide 2005-2023 (3 full future seasons observable), build the empirical
+league-wide 1998-2023 (3 full future seasons observable), build the empirical
 curve E[next-3yr LVM elsewhere | last-3yr LVM here]. A regime is then graded
 only on the GAP between what its departures went on to do and what the market
 expected departures of that caliber to do, plus a +1.0 win credit per
@@ -44,7 +44,7 @@ def val(pid, teams, y0, y1, inside=True):
 
 con = sqlite3.connect("/home/claude/ledger.sqlite"); con.row_factory = sqlite3.Row
 
-# ---- league expectation curve, all departures 2005-2023 ----
+# ---- league expectation curve, all departures 1998-2023 ----
 events = [dict(r) for r in con.execute(
     "select * from sweep_tx where type_desc='Declared Free Agency' and date<='2023-12-31'")]
 seen = set(); pairs = []
@@ -105,7 +105,7 @@ REG = {r["teamId"]: r for r in cfg["regimes"]}
 nets = []
 for r in res:
     tid = r["teamId"]
-    start = max(REG[tid]["start"], "2005-01-01")
+    start = max(REG[tid]["start"], "1998-01-01")
     names = TEAMS[tid]
     rows = [dict(x) for x in con.execute(
         "select * from sweep_tx where team_id=? and date>=? and type_desc='Declared Free Agency' and date<='2023-12-31'",

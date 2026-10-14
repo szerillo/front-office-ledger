@@ -1,6 +1,6 @@
 """
 HISTORICAL REGIME SWEEP ("Archive era"): score past MLB front offices
-2005-2024 with the same engine as the active 30-regime sweep, generalized
+1998-2024 with the same engine as the active 30-regime sweep, generalized
 to regime windows with END DATES.
 
 Rules, identical to sweep v2 where applicable:
@@ -17,7 +17,7 @@ Rules, identical to sweep v2 where applicable:
   DEV/EXT not scored for archive regimes (Pipeline-archive DEV and the
           extension book are built around active windows); disclosed.
 
-Data floor is 2005-01-01 (transaction feed reliability); regimes that
+Data floor is 1998-01-01 (feed 2009+, Retrosheet backfill before); regimes that
 started earlier are truncated and flagged, with trueStart shown.
 Writes hist_results.json.
 """
@@ -71,7 +71,7 @@ universe = set()
 regime_rows = {}
 drafts = {}
 for i, reg in enumerate(REGS):
-    tid = reg["teamId"]; start = max(reg["start"], "2005-01-01"); end = reg["end"]
+    tid = reg["teamId"]; start = max(reg["start"], "1998-01-01"); end = reg["end"]
     rows = [dict(r) for r in con.execute(
         "select * from sweep_tx where team_id=? and date>=? and date<=? and type_desc in "
         "('Trade','Claimed Off Waivers','Rule 5 Selection','Signed as Free Agent','Declared Free Agency')",
@@ -81,7 +81,7 @@ for i, reg in enumerate(REGS):
         if r["person_id"]: universe.add(int(r["person_id"]))
     names = ALIAS.get(tid, {reg["team"]})
     picks = []
-    for yr in range(max(int(start[:4]), 2005), int(end[:4]) + 1):
+    for yr in range(max(int(start[:4]), 1998), int(end[:4]) + 1):
         marker = f"{yr}-06-01"
         if start <= marker <= end:
             q = "select * from draft_picks where cast(year as int)=? and cast(round as int)<=5 and team in (%s)" % \
@@ -118,7 +118,7 @@ def val(pid, teams, y0, y1, inside=True):
     return tot
 
 wl = defaultdict(lambda: [0, 0, 0])
-for yr in range(2005, 2027):
+for yr in range(1998, 2027):
     try:
         d = get(f"{API}/standings?leagueId=103,104&season={yr}&standingsTypes=regularSeason")
     except Exception: continue
@@ -172,7 +172,7 @@ def frac_year(ds):
 results = []
 for i, reg in enumerate(REGS):
     tid = reg["teamId"]; names = ALIAS.get(tid, {reg["team"]})
-    start = max(reg["start"], "2005-01-01"); end = reg["end"]
+    start = max(reg["start"], "1998-01-01"); end = reg["end"]
     y_start, y_end = int(start[:4]), int(end[:4])
     seasons = max(0.7, round(frac_year(end) - frac_year(start), 1))
     # seasons the regime held the seat (for success record)

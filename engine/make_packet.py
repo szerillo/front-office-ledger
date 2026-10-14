@@ -65,10 +65,11 @@ E.append(Paragraph(
     "structural and the skill is choosing whom to lock up. International signings grade against their bonus-pool "
     "class. Waiver claims grade against zero, the cleanest read on pro scouting.", st_b))
 E.append(Paragraph(
-    "<b>Two eras, one engine.</b> Beyond the 30 active regimes, the same scorer runs over 71 archive regimes "
-    "(2005-2024) with their actual start and end dates: Sabean's draft rooms, Epstein in both cities, late-era "
-    "Beane, Luhnow's Houston. Careers are now comparable across eras on identical accounting, and every archive "
-    "card carries the same clickable decision ledgers and transaction trees as the active ones.", st_b))
+    "<b>Two eras, one engine.</b> Beyond the 30 active regimes, the same scorer runs over 110 archive regimes "
+    "(1998-2024) with their actual start and end dates: the complete Beane and Sabean windows, Epstein in both "
+    "cities, Gillick in three, Cashman's full 29-year seat. Careers are comparable across eras on identical "
+    "accounting, and every archive card carries the same clickable decision ledgers, market comps, and "
+    "transaction trees as the active ones.", st_b))
 E.append(Paragraph(
     "<b>Three top-level grades per regime.</b> FOR (decision quality vs expectation), DEV (player development: "
     "prospects marked to market yearly on a rank-to-surplus-wins curve built from sixteen seasons of MLB Pipeline "
@@ -93,10 +94,11 @@ tbl = Table([
                f"vs actual wins above a 48-win baseline, {A['n']} team-seasons (2015-2025).", st_stat),
      Paragraph(f"<b>r = {A['r']}</b> (R<super>2</super> = {A['r2']})<br/>slope {A['slope']}<br/>MAE {A['mae']} wins", st_stat)],
     [Paragraph("<b>Predictive check</b><br/>Does decision quality carry information about future results beyond the "
-               f"current record? {P['n']} pooled regime-years: net decision value per season through year t, "
+               f"current record? {P['n']} pooled regime-years across {P['regimes']} active and archive regimes: net decision value per season through year t, "
                "predicting the next two seasons' W% after controlling for W% to date.", st_stat),
-     Paragraph(f"<b>partial r = {P['partial_r']}</b><br/>R<super>2</super> {P['r2_base']} to {P['r2_full']}<br/>"
-               "decision quality is forward information", st_stat)],
+     Paragraph(f"<b>partial r = {P['partial_r']}</b> (95% CI {P['partial_r_ci'][0]} to {P['partial_r_ci'][1]})<br/>"
+               f"out-of-sample R<super>2</super> {P['oos_r2_base']} to {P['oos_r2_full']} (grouped 5-fold CV)<br/>"
+               "the effect survives on held-out regimes", st_stat)],
 ], colWidths=[4.7*inch, 2.1*inch])
 tbl.setStyle(TableStyle([
     ("BOX", (0,0), (-1,-1), 0.75, RULE), ("INNERGRID", (0,0), (-1,-1), 0.5, RULE),
@@ -111,8 +113,11 @@ E.append(Paragraph(
     "anchored to league RA9, park factors from home/away run environments (3-yr rolling, halved for the road "
     "split), defense from the SABR Defensive Index where published and Statcast fielding runs plus catcher framing "
     "elsewhere, and Statcast baserunning. Park factors (v1.5) and the archive sweep's full 25,000-player universe "
-    "tightened the accounting check from r = 0.80 to r = 0.86 (MAE 6.8 to 5.2 wins): fuller rosters sum closer to "
-    "team records, which is itself evidence the metric is additive the way WAR must be. Known gaps (defense coverage thins before "
+    "put the accounting check at r = 0.85 (MAE 5.3 wins) across 327 team-seasons: fuller rosters sum closer to "
+    "team records, which is itself evidence the metric is additive the way WAR must be. The predictive study now "
+    "carries real rigor: 574 pooled regime-years from 112 regimes, a cluster-bootstrap 95% interval on the "
+    "partial correlation of [0.16, 0.37], and grouped out-of-sample cross-validation (R-squared 0.184 to 0.245 on "
+    "held-out regimes). Known gaps (defense coverage thins before "
     "2016) are disclosed on the site rather than patched quietly. Pooled regime-years overlap, so the predictive "
     "check's effect size is the claim, not its p-value.", st_small))
 
@@ -133,10 +138,11 @@ for f in [
     "after arriving vs the two before), the reputations fall out of the data unprompted: Cleveland improves "
     "defenders by about +2.5 runs per season and arms by +0.19 wins; Milwaukee, Tampa Bay, and San Diego profile as "
     "pitching labs; Texas arms regress. None of this was curated.",
-    "<b>How titles actually get built, measured across all 21 champions 2005-2025:</b> the median champion was "
-    "88% built by its sitting regime and won in year seven of the tenure; nine of 21 titles came in year ten or "
-    "later, and free agency has been a majority channel exactly once (the 2009 Yankees). The most inherited title "
-    "is 2023 Texas, 85% Jon Daniels' core two seasons after the handoff: the sharpest attribution case in the book.",
+    "<b>How titles actually get built, measured across all 28 champions 1998-2025:</b> free agency has been a "
+    "majority channel exactly once (the 2009 Yankees), and the sharpest through-line is generational: the median "
+    "title core was 48% built by its sitting regime in 1998-2009 and 90% in 2010-2025. The inherited-core "
+    "championship (1998 Yankees, 93% handed down; 2023 Texas, 85% Jon Daniels' core) is going extinct: the modern "
+    "norm is that the regime that wins built the thing itself.",
     "<b>The system audits its own inputs.</b> Tracing the 2009 Yankees' roster exposed that the MLB transaction "
     "feed is empty before 2009; the fix was joining the Retrosheet archive (22,697 rows, 1998-2008, mapped to "
     "MLBAM ids via the Chadwick register), which put the Beckett-for-Hanley and Cabrera trades into the book and "
@@ -162,7 +168,7 @@ E.append(Paragraph(
 
 E.append(Paragraph("How it was built", st_h))
 E.append(Paragraph(
-    "Python ingestion and scoring over the MLB Stats API (244,000+ transaction rows, 30,000+ draft picks, 25,000+ "
+    "Python ingestion and scoring over the MLB Stats API and Retrosheet (282,000 transaction rows, 34,000 draft picks, 28,000 "
     "players valued), SQLite storage, a single-file front end with no frameworks, and zero scraping of licensed "
     "sources: when FanGraphs and Baseball-Reference proved off-limits to programmatic access, the answer was to "
     "build and validate an open value metric rather than take shortcuts. Supplementary archives were solved, not "

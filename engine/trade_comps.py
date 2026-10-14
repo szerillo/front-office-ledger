@@ -3,13 +3,14 @@ TRADE COMPS: every graded trade on a card gets the three most comparable
 deals from the full 1998-2023 league-wide archive, so a verdict can be read
 against the market for deals of that shape rather than in a vacuum.
 
-A deal's shape = (season phase: deadline Jun-Aug / offseason Oct-Mar /
-in-season other) x (control bucket of the headline acquired piece: rental,
-+1 yr, +2 yrs, 3+ yrs / prospect package) x magnitude (control-window wins
-the buyer eventually received). Comps are the nearest deals by received
-magnitude within the same phase and control bucket, from other clubs,
-penalized 0.15 wins per year of era distance. Outcome shown is the buyer's
-seat: received vs paid (what the surrendered players became for the seller).
+A deal's shape (v2) = season phase (deadline / offseason / in-season)
+x control bucket of the headline acquired piece (rental, +1, +2, 3+ yrs)
+x buyer posture that season (contender >= 85 wins pace, mid, rebuilder < 75)
+x magnitude (control-window wins the buyer eventually received). Comps are
+the nearest deals by received magnitude in the same phase, with penalties
+for control-bucket and posture mismatches and 0.15 wins per year of era
+distance, from other clubs. Outcome shown is the buyer's seat: received vs
+paid (what the surrendered players became for the seller).
 
 Writes comps onto every trade decision in sweep_results.json and
 hist_results.json (fields the regen passes through to the page), plus
@@ -23,6 +24,26 @@ cfg = json.load(open("/home/claude/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 ABBR = {r["teamId"]: r["abbr"] for r in cfg["regimes"]}
 con = sqlite3.connect("/home/claude/ledger.sqlite"); con.row_factory = sqlite3.Row
+
+# buyer win totals by (tid, yr) for posture
+import time, urllib.request
+def get(u, tries=3):
+    for a in range(tries):
+        try: return json.load(urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent":"Mozilla/5.0"}), timeout=40))
+        except Exception: time.sleep(2 + 2*a)
+    return {}
+WL = {}
+for yr in range(1998, 2027):
+    d = get(f"https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season={yr}&standingsTypes=regularSeason")
+    for g in d.get("records", []):
+        for t in g.get("teamRecords", []):
+            w, l = t.get("wins", 0), t.get("losses", 0)
+            if w + l >= 100:
+                WL[(t["team"]["id"], yr)] = w * 162 / (w + l)
+def posture(tid, yr):
+    w = WL.get((tid, yr))
+    if w is None: return "mid"
+    return "contend" if w >= 85 else ("rebuild" if w < 75 else "mid")
 
 fa_dates = defaultdict(list)
 for r in con.execute("select person_id, date from sweep_tx where type_desc='Declared Free Agency' and person_id is not null"):
@@ -72,34 +93,40 @@ for reg in cfg["regimes"]:
         best = max(acq, key=lambda x: val_control(int(x["person_id"]), names, yr))
         ctrl = max(control_years(x["person_id"], d) for x in acq)
         deals.append(dict(d=d, yr=yr, tid=tid, ab=ABBR[tid], ph=phase(d), ck=bucket(ctrl),
-                          recv=round(received, 1), paid=round(paid, 1),
+                          po=posture(tid, yr), recv=round(received, 1), paid=round(paid, 1),
                           who=(best["person_name"] or "?")))
 print(f"deal archive: {len(deals)} buyer-seat deals 1998-2023")
 
-# index by (phase, ctrl bucket)
+# index by phase
 IDX = defaultdict(list)
-for x in deals: IDX[(x["ph"], x["ck"])].append(x)
+for x in deals: IDX[x["ph"]].append(x)
+
+def deal_shape(tid, date):
+    """control bucket + posture of a decision's own deal, from the feed."""
+    names = ALIAS.get(tid, set())
+    rows = [dict(r) for r in con.execute(
+        "select person_id, to_team from sweep_tx where team_id=? and date=? and type_desc='Trade'", (tid, date))]
+    acq = [r["person_id"] for r in rows if r["to_team"] in names and r["person_id"]]
+    ck = bucket(max((control_years(p, date) for p in acq), default=6))
+    return ck, posture(tid, int(date[:4]))
 
 def find_comps(date, tid, vin, k=3):
     yr = int(date[:4])
-    pool = IDX.get((phase(date), None), None)
-    # bucket of the decision's own acquired pieces is unknown here; search all
-    # buckets in the same phase and let magnitude + era decide, excluding same team+date
+    ck0, po0 = deal_shape(tid, date)
     cands = []
-    for (ph, ck), xs in IDX.items():
-        if ph != phase(date): continue
-        for x in xs:
-            if x["tid"] == tid and abs(x["yr"] - yr) <= 0: continue
-            if x["d"] == date: continue
-            score = abs(x["recv"] - vin) + 0.15 * abs(x["yr"] - yr)
-            cands.append((score, x))
+    for x in IDX.get(phase(date), []):
+        if x["d"] == date and x["tid"] == tid: continue
+        score = (abs(x["recv"] - vin) + 0.15 * abs(x["yr"] - yr)
+                 + (0.0 if x["ck"] == ck0 else 2.5)
+                 + (0.0 if x["po"] == po0 else 1.2))
+        cands.append((score, x))
     cands.sort(key=lambda t: t[0])
     out, seen = [], set()
     for _, x in cands:
         key = (x["d"], x["tid"])
         if key in seen: continue
         seen.add(key)
-        out.append(dict(yr=x["yr"], ab=x["ab"], who=x["who"][:26], ck=x["ck"],
+        out.append(dict(yr=x["yr"], ab=x["ab"], who=x["who"][:26], ck=x["ck"], po=x["po"],
                         recv=x["recv"], paid=x["paid"]))
         if len(out) >= k: break
     return out

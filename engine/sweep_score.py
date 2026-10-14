@@ -105,7 +105,7 @@ con = sqlite3.connect(DB); con.row_factory = sqlite3.Row
 universe = set()
 regime_rows = {}
 for reg in cfg["regimes"]:
-    tid = reg["teamId"]; start = max(reg["start"], "2005-01-01")
+    tid = reg["teamId"]; start = max(reg["start"], "1998-01-01")
     rows = [dict(r) for r in con.execute(
         "select * from sweep_tx where team_id=? and date>=? and type_desc in "
         "('Trade','Claimed Off Waivers','Rule 5 Selection','Signed as Free Agent','Declared Free Agency')",
@@ -117,7 +117,7 @@ drafts = {}
 for reg in cfg["regimes"]:
     tid = reg["teamId"]
     names = ALIAS.get(tid, {reg["team"]})
-    y0 = max(int(reg["start"][:4]) + (0 if reg["start"][5:7] < "07" else 1), 2005)
+    y0 = max(int(reg["start"][:4]) + (0 if reg["start"][5:7] < "07" else 1), 1998)
     q = "select * from draft_picks where cast(year as int)>=? and cast(round as int)<=5 and team in (%s)" % \
         ",".join("?"*len(names))
     picks = [dict(r) for r in con.execute(q, (y0, *names))]
@@ -147,7 +147,7 @@ print(f"LVM ready for {len(LVM)} persons", flush=True)
 
 # standings for success
 wl = defaultdict(lambda: [0, 0, 0])  # (team, year) -> [w, l, divrank1]
-for yr in range(2005, 2027):
+for yr in range(1998, 2027):
     try:
         d = get(f"{API}/standings?leagueId=103,104&season={yr}&standingsTypes=regularSeason")
     except Exception: continue
@@ -234,7 +234,7 @@ def val_control(pid, teams, y0, cap=6, weight=True):
 results = []
 for reg in cfg["regimes"]:
     tid = reg["teamId"]; names = ALIAS.get(tid, {reg["team"]})
-    start = max(reg["start"], "2005-01-01"); y_start = int(start[:4])
+    start = max(reg["start"], "1998-01-01"); y_start = int(start[:4])
     seasons = round((END_YEAR + 1.0) - (y_start + (1 if start[5:7] > "07" else 0)), 1)
     seasons = max(seasons, 0.7)
     decs = []

@@ -1,6 +1,6 @@
 """SWEEP v2 part 1: real postseason detail in the Success grade.
 
-Pulls postseason series 2005-2025 from statsapi, derives per team-season:
+Pulls postseason series 1998-2026 from statsapi, derives per team-season:
 berth (played any postseason game), series wins (WC counts when won),
 pennant (won LCS), WS title. Blends into the Success grade:
 
@@ -36,7 +36,7 @@ def bump(tid, y, k, v=1):
     rec[k] = rec[k] + v if k == "sw" else max(rec[k], v)
 
 have_years = {y for (_, y) in PS}
-for yr in range(2005, 2027):
+for yr in range(1998, 2027):
     if yr in have_years and yr < 2026: continue
     d = get(f"https://statsapi.mlb.com/api/v1/schedule/postseason/series?season={yr}&fields=series,id,gameType,games,teams,away,home,team,id,isWinner")
     for s in d.get("series", []):
@@ -77,7 +77,7 @@ def sgrade(pts):
 print(f"\n{'team':<6}{'W%':>6}{'div':>4}{'PO':>4}{'SW':>4}{'pen':>4}{'WS':>4}   success")
 for r in res:
     tid = r["teamId"]
-    y0 = max(int(REG[tid]["start"][:4]), 2005)
+    y0 = max(int(REG[tid]["start"][:4]), 1998)
     if REG[tid]["start"][5:7] > "07": y0 += 1     # regime started after the season
     yrs = list(range(y0, 2026))
     po = sw = pen = ws = 0

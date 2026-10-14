@@ -1,6 +1,6 @@
 """
 CHAMPIONS, COMPUTED: roster provenance for every World Series winner
-2005-2025, plus cross-title through-lines.
+1998-2025, plus cross-title through-lines.
 
 For each title team: core contributors = players with >= 1.0 Ledger WAR v1.5
 in the championship season for that club. Each is traced to the club's LAST
@@ -9,7 +9,7 @@ Rule 5 claim from sweep_tx, or the club's draft pick from draft_picks).
 Channel taxonomy matches the Champions tab: fa, trade, draft, intl (int'l or
 minor-league find: waiver claims, amateur signings, no-record minor deals),
 inherited (acquired before the sitting regime took office). Players acquired
-before the 2005 transaction-feed floor are tagged to the data floor and
+before the 1985 provenance floor (Retrosheet) are tagged to the data floor and
 disclosed. The sitting regime comes from regimes.json / regimes_hist.json
 (the window containing the title season).
 
@@ -104,10 +104,10 @@ for (yr, tid) in CHAMPS_WS:
         else:
             # no record in the 2005+ feed and no draft row: amateur signing or pre-floor
             first_club_season = min((y for (y, tm, v) in LVM[pid]["rows"] if tm in names), default=yr)
-            if first_club_season >= 2000:
+            if first_club_season >= 1987:
                 ch = "intl"; d = f"~{first_club_season - 2}"; how = "Amateur / minor-league signing (no major-league transaction on record)"
             else:
-                ch = "inherited"; d = "pre-1998"; how = "Acquired before the 1998 data floor (Retrosheet-backfilled era starts 1998)"
+                ch = "inherited"; d = "pre-1985"; how = "Acquired before the 1985 provenance floor (Retrosheet backfill starts 1985)"
         tag = "reg" if (d and not d.startswith("pre") and str(d).lstrip("~") >= tag_start) else "inh"
         if ch == "inherited": tag = "inh"
         bucket = "inherited" if tag == "inh" else ch
