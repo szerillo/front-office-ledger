@@ -58,9 +58,19 @@ for pid, (d, last_team, name) in BY.items():
     players.append([name, pid, ab, 1 if POS.get(str(pid)) in PITPOS else 0,
                     age if 16 < age < 50 else 27,
                     round(d.get(2024, 0), 1), round(d.get(2025, 0), 1), round(d.get(2026, 0), 1),
-                    ctrl, RANKS.get(str(pid), 0)])
+                    ctrl, RANKS.get(str(pid), 0), mlb_seasons])  # mlb_seasons moved to idx 11 below
 players.sort(key=lambda p: -(abs(p[5]) + abs(p[6]) + abs(p[7])))
-print("desk players:", len(players))
+# reorder tail fields: durability at index 10 (from pt_fetch.py; 1.0 default),
+# true MLB seasons (service proxy, unclamped) at index 11
+try:
+    DUR = json.load(open("/home/claude/durability.json"))
+except Exception:
+    DUR = {}
+for p in players:
+    svc = p.pop(10)                      # mlb_seasons appended during build
+    p.append(DUR.get(str(p[1]), 1.0))    # idx 10: durability
+    p.append(svc)                        # idx 11: MLB seasons played
+print("desk players:", len(players), "| with durability:", sum(1 for p in players if p[10] != 1.0))
 
 # resolve org for ranked prospects with no MLB track (no value rows -> no team abbr)
 import urllib.request as _ur, time as _t
@@ -118,12 +128,21 @@ raw_contracts = []
 with open("/home/claude/repo/data/contracts_espn.csv") as f:
     for row in csv.DictReader(f):
         tid = short_to_tid(row["to_team"])
-        if tid: raw_contracts.append((int(row["offseason"]), row["player"], tid, int(row["years"]), float(row["total_m"])))
+        if tid: raw_contracts.append((int(row["offseason"]), row["player"], tid, int(row["years"]), float(row["total_m"]), 0))
 AB2TID = {r["abbr"]: r["teamId"] for r in cfg["regimes"]}
 for off, pl, ab, yrs, tot in RECENT:
-    raw_contracts.append((off, pl, AB2TID[ab], yrs, float(tot)))
+    raw_contracts.append((off, pl, AB2TID[ab], yrs, float(tot), 0))
+# extensions (contracts_ext.EXT): big guaranteed money the FA book never sees.
+# A spring signing (month <= 3) covers that season (off = year-1); later
+# signings start the next season. CBT value used where it diverges (deferrals).
+from contracts_ext import EXT
+for (dt, pl, ab, yrs, tot, cbt) in EXT:
+    y, m = int(dt[:4]), int(dt[5:7])
+    off = y - 1 if m <= 3 else y
+    if ab in AB2TID:
+        raw_contracts.append((off, pl, AB2TID[ab], yrs, float(cbt if cbt else tot), 1))
 book = []
-for (off, pl, tid, yrs, tot) in raw_contracts:
+for (off, pl, tid, yrs, tot, typ) in raw_contracts:
     cands = NAME2PIDS.get(norm(pl), [])
     pid = None
     if len(cands) == 1: pid = cands[0]
@@ -141,7 +160,7 @@ for (off, pl, tid, yrs, tot) in raw_contracts:
                          if off + 1 <= y <= off + elapsed and tm in names), 1) if elapsed > 0 else None
     pit = 1 if POS.get(str(pid)) in PITPOS else 0
     book.append([pl, off, TID2AB2.get(tid, ""), yrs, round(tot, 1), age, pit, plat1, plat2,
-                 realized if realized is not None else "", elapsed, pid])
+                 realized if realized is not None else "", elapsed, pid, typ])
 print("contract book rows matched:", len(book), "of", len(raw_contracts))
 
 # ---- committed payroll per club per season (book contracts, AAV spread) ----

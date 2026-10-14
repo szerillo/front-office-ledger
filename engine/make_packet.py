@@ -92,8 +92,20 @@ E.append(Paragraph(
     "a star rental win costs about 0.8 wins of eventually-realized value, the median deadline rental costs roughly "
     "nothing that ever materializes, and over half of rental buys deliver under 0.3 wins. Boston's return for one "
     "expected year of Mookie Betts was market rate; the ledger's criticism was never the price.", st_b))
+E.append(Paragraph(
+    "<b>A Deal Desk that does the work first.</b> Propose any trade, signing, or extension and the engine renders a "
+    "verdict from the ledger's own machinery: projected value over each piece's control (with a playing-time "
+    "durability factor), win-curve leverage at the club's standing, the market rate for deals of that shape with "
+    "bust rates, the nearest real comps and how they ended, and counterparty intelligence. For contracts it "
+    "proposes the terms itself: a calibrated Ledger offer blending market comps (the eight nearest real contracts "
+    "by form, age, and position, with realized outcomes) and the model's fair price, <b>backtested winter by "
+    "winter on 1,224 real signings 2010-2025</b> using only information available at the time (typical miss 0.8 "
+    "years, $3.6M of AAV; the star-contract shortfall the market itself produces is disclosed, not tuned away). "
+    "Every verdict shows the club's estimated payroll before and after (book money plus arb/pre-arb estimates) "
+    "against the CBT line, and exports as a one-page deal memo. A Horizon view walks every roster forward through "
+    "2031 on the aging curves, bounded by control and contract years: who falls off when, and what any proposed "
+    "move does to the window.", st_b))
 
-E.append(PageBreak())
 E.append(Paragraph("Validation", st_h))
 tbl = Table([
     [Paragraph("<b>Accounting check</b><br/>A WAR-class metric must sum to team record. Roster-summed Ledger WAR "
@@ -129,12 +141,13 @@ E.append(Paragraph(
 
 E.append(Paragraph("Findings the consensus did not already have", st_h))
 for f in [
-    "<b>The best draft room of the data era is Brian Sabean's San Francisco</b>, +127 wins over slot (Posey, "
-    "Bumgarner, the dynasty's core), surfaced by the archive sweep. Among active regimes it is Brian Cashman's, "
-    "at +53 above slot, while his FA channel grades below water net of cost: the checkbook narrative has the "
-    "mechanism backwards. (That number fell from +69 when the system caught itself crediting Gerrit Cole's "
-    "free-agent-era production to the 2008 pick that never signed; the unsigned-pick screen is now part of the "
-    "methodology, which is how a system like this is supposed to improve.)",
+    "<b>The best draft room of the data era is Brian Sabean's San Francisco</b>, +109 wins over slot (Posey, "
+    "Bumgarner, the dynasty's core), a nose ahead of Epstein's Boston at +104; among active regimes it is Chris "
+    "Antonetti's Cleveland at +44. Brian Cashman's full 29-year window tells the opposite of the public story: "
+    "trades +74 and drafts +17 above slot, while the checkbook grades 66 wins below water net of cost. (His draft "
+    "figure has fallen twice as the system improved: once when it caught itself crediting Gerrit Cole's "
+    "free-agent-era production to the 2008 pick that never signed, and again when the archive extension put his "
+    "barren 1999-2004 classes into the book. A system like this is supposed to correct itself in public.)",
     "<b>The Baltimore gap, quantified:</b> elite grades on decisions and development against a D in results through "
     "2026. Whether you weight the machine or the harvest is a values question; the ledger puts both numbers on one row.",
     "<b>The best extension in the book is Cleveland's 2017 Jose Ramirez deal</b> at about +20 wins against the "
@@ -164,9 +177,12 @@ E.append(PageBreak())
 E.append(Paragraph("What this machinery does inside a club", st_h))
 E.append(Paragraph(
     "The public site is the free-data proof. Pointed at internal data, the same architecture is a decision-support "
-    "system: <b>deadline pricing</b> (the live rental-market curve says what a win costs this July and whether an "
-    "offer clears the market that actually exists), <b>extension pricing</b> (class-market baselines with CBT-aware "
-    "deferral valuation), <b>counterparty preparation</b> (every GM's trade record, channel tendencies, buy-low "
+    "system, and the Deal Desk tab is that system already running on the free-data versions of its inputs: "
+    "<b>deadline pricing</b> (the live rental-market curve says what a win costs this July and whether an "
+    "offer clears the market that actually exists), <b>contract pricing</b> (suggested terms calibrated against "
+    "1,224 real signings, class-market extension baselines, CBT-aware deferral valuation, payroll and tax "
+    "proximity on every proposal), <b>roster-horizon planning</b> (the window, season by season, and what any "
+    "move does to it), <b>counterparty preparation</b> (every GM's trade record, channel tendencies, buy-low "
     "habits, and development effects before the call), <b>self-audit</b> (which channels actually produce, with "
     "process separated from outcome so scouting is not punished for variance), and <b>regime benchmarking</b> for "
     "ownership. Swap the public value metric for internal projections and the public prospect ranks for pref lists "
@@ -192,7 +208,10 @@ E.append(Paragraph(
     "prospects mature. Retention is graded but excluded from the composite until compensation picks are modeled, "
     "because raw leakage scales with how many stars a club employs. Archive regimes grade trade, draft, and waiver "
     "channels; their FA book and development grades await the historical contract and prospect-list backfill, and "
-    "regimes seated before the 2005 transaction-feed floor are truncated and flagged with their true start. The 2026 "
+    "regimes seated before the 2005 transaction-feed floor are truncated and flagged with their true start. Payroll "
+    "arb and pre-arb figures are estimates (league minimum pre-arb; arb years at 25/40/60% of projected market "
+    "value); the durability factor is a validated heuristic (it improves projection error and bias, at a small cost "
+    "in rank correlation, and both numbers are published). The 2026 "
     "postseason was in progress at this build. A system like this earns trust by labeling its own soft spots, and "
     "that principle is applied everywhere.", st_b))
 E.append(Spacer(1, 6))
