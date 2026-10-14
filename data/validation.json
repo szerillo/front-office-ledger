@@ -1,0 +1,21 @@
+{
+ "accounting": {
+  "n": 327,
+  "r": 0.804,
+  "r2": 0.647,
+  "slope": 0.842,
+  "mae": 6.75,
+  "mean_lvm": 27.5,
+  "mean_truth": 31.1
+ },
+ "predictive": {
+  "n": 134,
+  "coef_decision_value": 0.00269,
+  "coef_wpct": 0.393,
+  "r2_base": 0.282,
+  "r2_full": 0.367,
+  "r2_gain": 0.085,
+  "partial_r": 0.344,
+  "wins_effect": 0.87
+ }
+}
