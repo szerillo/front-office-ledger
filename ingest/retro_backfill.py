@@ -6,7 +6,8 @@ alone, and championship provenance before 2009 was untraceable. The repo has
 carried the Retrosheet transaction archive (1873-2022) since the backfill
 was first planned; this script finally joins it in.
 
-Maps Retrosheet rows 1998-01-01 .. 2008-12-31 into sweep_tx:
+Maps Retrosheet rows 1985-01-01 .. 2008-12-31 into sweep_tx (scoring windows
+floor at 1998; 1985-1997 rows serve provenance tracing only):
   T/Tp -> Trade            F/Fo -> Signed as Free Agent
   Fg   -> Declared Free Agency    W -> Claimed Off Waivers
   D    -> Rule 5 Selection        R -> Released
@@ -86,7 +87,7 @@ for raw in open(TRAN, encoding="latin-1"):
     f = next(csv.reader([raw]))
     if len(f) < 13: continue
     d = f[0]
-    if not (d.startswith(("1998","1999","200")) and d[:4] <= "2008"): continue
+    if not ("1985" <= d[:4] <= "2008"): continue
     if d[4:6] == "00": continue
     if d[6:8] == "00": d = d[:6] + "15"
     date = f"{d[:4]}-{d[4:6]}-{d[6:8]}"

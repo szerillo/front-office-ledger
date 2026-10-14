@@ -1,4 +1,4 @@
-"""Park factors from home/away run environments, 2005-2026. 3-yr centered
+"""Park factors from home/away run environments, 1996-2026. 3-yr centered
 rolling, regressed halfway to 1. Output parks.json {teamName: {year: PF}}."""
 import json, time, urllib.request
 def get(u, tries=3):
@@ -11,7 +11,7 @@ cfg = json.load(open("regimes.json"))
 raw = {}
 for reg in cfg["regimes"]:
     tid = reg["teamId"]
-    for yr in range(2004, 2027):
+    for yr in range(1995, 2027):
         hs = ha = as_ = aa = hg = ag = 0
         for grp in ("hitting", "pitching"):
             d = get(f"{API}/teams/{tid}/stats?stats=statSplits&sitCodes=h,a&group={grp}&season={yr}")
