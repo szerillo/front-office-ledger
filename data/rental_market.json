@@ -2289,5 +2289,46 @@
    "paid": 0.56,
    "desc": "Minnesota Twins traded RHP Louis Varland and 1B Ty France to Toronto Blue Jays for LF Alan Roden and LHP Kendry Rojas."
   }
- ]
+ ],
+ "controlled": {
+  "n": 1372,
+  "buckets": [
+   {
+    "ctrl": "deal yr + 1",
+    "n": 144,
+    "n_fit": 75,
+    "pooled_ratio": 0.988,
+    "median_ratio": 0.0,
+    "bust_rate": 0.479,
+    "avg_received": 1.75,
+    "avg_paid": 1.73
+   },
+   {
+    "ctrl": "deal yr + 2",
+    "n": 70,
+    "n_fit": 43,
+    "pooled_ratio": 0.861,
+    "median_ratio": 0.0,
+    "bust_rate": 0.386,
+    "avg_received": 2.43,
+    "avg_paid": 2.09
+   },
+   {
+    "ctrl": "deal yr + 3 or more",
+    "n": 1156,
+    "n_fit": 340,
+    "pooled_ratio": 0.368,
+    "median_ratio": 0.034,
+    "bust_rate": 0.706,
+    "avg_received": 3.71,
+    "avg_paid": 1.36
+   }
+  ],
+  "star_controlled": {
+   "n": 155,
+   "pooled_ratio": 0.313,
+   "avg_received": 7.27,
+   "avg_paid": 2.28
+  }
+ }
 }
