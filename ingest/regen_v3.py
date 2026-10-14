@@ -51,7 +51,7 @@ def trade_note(d):
 
 def row(d):
     r = dict(d=d["d"][:10], war=d["net"], real=True,
-             open=(int(d["d"][:4]) >= 2022 or "OPEN" in d["h"]),
+             open=d.get("unsettled", int(d["d"][:4]) >= 2021),
              t=CH_LABEL.get(d["ch"], "") + (" · Ledger WAR v1.5 · sweep v2" if d["ch"] != "walk" else " · passive loss, shown for context, not graded"),
              h=esc(d["h"]) + ' <span class="badge-real">COMPUTED</span>')
     if d.get("sides"): r["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
@@ -90,7 +90,7 @@ for r in res:
             + list(r.get("ext_tops", [])))
     for d in pool:
         e = dict(d=d["d"][:10], war=d["net"], real=True,
-                 open=(int(d["d"][:4]) >= 2022 or "OPEN" in d["h"]),
+                 open=d.get("unsettled", int(d["d"][:4]) >= 2021),
                  t=(CH_LABEL.get(d["ch"], d["ch"]) + " · Ledger WAR v1.5 · sweep v2"),
                  h=esc(d["h"]) + " " + badge)
         if d.get("sides"): e["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
@@ -163,7 +163,7 @@ if os.path.exists("/home/claude/hist_results.json"):
         best_tr, worst_tr, acq, loss = [], [], [], []
         for d in pool:
             e = dict(d=d["d"][:10], war=d["net"], real=True,
-                     open=(int(d["d"][:4]) >= 2022),
+                     open=d.get("unsettled", int(d["d"][:4]) >= 2021),
                      t=(CH_LABEL.get(d["ch"], d["ch"]) + " · Ledger WAR v1.5 · archive sweep"),
                      h=esc(d["h"]) + " " + badge)
             if d.get("sides"): e["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
@@ -193,7 +193,7 @@ if os.path.exists("/home/claude/hist_results.json"):
         suc.update(po=po, sw=sw, pen=pen, ws=ws, g=sgrade(pts))
         fa = r["chan"]["fa"]
         def hrow(d):
-            e = dict(d=d["d"][:10], war=d["net"], real=True, open=(int(d["d"][:4]) >= 2022),
+            e = dict(d=d["d"][:10], war=d["net"], real=True, open=d.get("unsettled", int(d["d"][:4]) >= 2021),
                      t=CH_LABEL.get(d["ch"], d["ch"]) + (" · Ledger WAR v1.5 · archive sweep" if d["ch"] != "walk" else " · passive loss, shown for context, not graded"),
                      h=esc(d["h"]) + ' <span class="badge-real">COMPUTED</span>')
             if d.get("sides"): e["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
