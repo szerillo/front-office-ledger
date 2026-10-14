@@ -7,7 +7,7 @@ from datetime import date
 
 UA = {"User-Agent": "FrontOfficeLedger-POC/0.1"}
 API = "https://statsapi.mlb.com/api/v1"
-END = "2026-07-21"
+END = "2026-10-14"
 
 def get(url, retries=4):
     for i in range(retries):
@@ -50,7 +50,7 @@ for reg in cfg["regimes"]:
 
 # extend drafts back to 2005
 have = {int(r[0]) for r in con.execute("select distinct year from draft_picks")}
-for yr in range(2005, 2019):
+for yr in range(2005, 2027):
     if yr in have: continue
     try:
         d = get(f"{API}/draft/{yr}")
