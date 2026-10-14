@@ -235,8 +235,10 @@ if os.path.exists("/home/claude/hist_results.json"):
     print(f"archive cards: {len(hist_cards)}")
 
 # ---- computed champions + through lines ----
+champ_cards_g = []
 if os.path.exists("/home/claude/champs_computed.json"):
     champs = json.load(open("/home/claude/champs_computed.json"))
+    champ_cards_g = champs["cards"]
     s = swap(s, "const CHAMPS_AUTO = ", ";\n\n// cross-title", json.dumps(champs["cards"], indent=0))
     s = swap(s, "const CHAMP_LINES = ", ";\n\nconst ALL_CHAMPS", json.dumps(champs["lines"], indent=0))
     print(f"computed champions: {len(champs['cards'])} cards + through lines")
@@ -268,6 +270,10 @@ def collect(o):
         for v in o: collect(v)
 collect(auto)
 collect(hist_cards)
+for _c in champ_cards_g:
+    for _row in _c.get("roster", []):
+        if len(_row) > 6 and _row[6] and _row[6] != "None":
+            pidset.add(str(_row[6]))
 con = sqlite3.connect("/home/claude/ledger.sqlite")
 MOVES, NAMES = {}, {}
 if pidset:
