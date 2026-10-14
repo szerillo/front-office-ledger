@@ -58,6 +58,7 @@ def row(d):
     if d.get("pids"): r["pids"] = [str(p) for p in d["pids"] if p]
     if d.get("att"): r["att"] = d["att"]
     if d.get("comps"): r["comps"] = d["comps"]
+    if d.get("proj"): r["proj"] = d["proj"]
     if d["ch"] == "trade": r["note"] = trade_note(d)
     return r
 
@@ -95,6 +96,7 @@ for r in res:
         if d.get("sides"): e["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
         if d.get("pids"): e["pids"] = [str(p) for p in d["pids"] if p]
         if d.get("comps"): e["comps"] = d["comps"]
+        if d.get("proj"): e["proj"] = d["proj"]
         if d["ch"] == "trade":
             e["note"] = trade_note(d)
             (best_tr if d["net"] >= 0 else worst_tr).append(e)
@@ -167,6 +169,7 @@ if os.path.exists("/home/claude/hist_results.json"):
             if d.get("sides"): e["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
             if d.get("pids"): e["pids"] = [str(p) for p in d["pids"] if p]
             if d.get("comps"): e["comps"] = d["comps"]
+            if d.get("proj"): e["proj"] = d["proj"]
             if d["ch"] == "trade":
                 e["note"] = trade_note(d)
                 (best_tr if d["net"] >= 0 else worst_tr).append(e)
@@ -196,6 +199,7 @@ if os.path.exists("/home/claude/hist_results.json"):
             if d.get("sides"): e["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
             if d.get("pids"): e["pids"] = [str(p) for p in d["pids"] if p]
             if d.get("comps"): e["comps"] = d["comps"]
+            if d.get("proj"): e["proj"] = d["proj"]
             if d["ch"] == "trade": e["note"] = trade_note(d)
             return e
         led = r.get("led", {})
