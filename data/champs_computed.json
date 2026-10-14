@@ -1,0 +1,3003 @@
+{
+ "cards": [
+  {
+   "id": "cws05",
+   "label": "2005 Chicago White Sox",
+   "team": "Chicago White Sox",
+   "year": 2005,
+   "result": "Won World Series",
+   "regime": "Ken Williams",
+   "regimeNote": "title in year 6 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Mark Buehrle",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1998",
+     "inh",
+     5.4
+    ],
+    [
+     "Paul Konerko",
+     "trade",
+     "Chicago White Sox traded Mike Cameron to Cincinnati Reds; Cincinnati Reds traded Paul Konerko t",
+     "1998-11-11",
+     "inh",
+     4.1
+    ],
+    [
+     "Freddy Garcia",
+     "trade",
+     "Chicago White Sox traded Jeremy Reed, Miguel Olivo, Mike Morse to Seattle Mariners; Seattle Mar",
+     "2004-06-27",
+     "reg",
+     3.5
+    ],
+    [
+     "Jon Garland",
+     "trade",
+     "Chicago White Sox traded Matt Karchner to Chicago Cubs; Chicago Cubs traded Jon Garland to Chic",
+     "1998-07-29",
+     "inh",
+     3.2
+    ],
+    [
+     "Jose Contreras",
+     "trade",
+     "New York Yankees traded player, Jos\u00e9 Contreras to Chicago White Sox; Chicago White Sox traded E",
+     "2004-07-31",
+     "reg",
+     2.9
+    ],
+    [
+     "Jermaine Dye",
+     "fa",
+     "Chicago White Sox signed free agent Jermaine Dye. (Retrosheet archive)",
+     "2004-12-09",
+     "reg",
+     2.8
+    ],
+    [
+     "Tadahito Iguchi",
+     "fa",
+     "Chicago White Sox signed free agent Tadahito Iguchi. (Retrosheet archive)",
+     "2005-01-27",
+     "reg",
+     2.6
+    ],
+    [
+     "A.J. Pierzynski",
+     "fa",
+     "Chicago White Sox signed free agent A. J. Pierzynski. (Retrosheet archive)",
+     "2005-01-06",
+     "reg",
+     2.0
+    ],
+    [
+     "Aaron Rowand",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1999",
+     "inh",
+     1.9
+    ],
+    [
+     "Neal Cotts",
+     "trade",
+     "Chicago White Sox traded player, Keith Foulke, Mark Johnson, Joe Valentine to Oakland Athletics",
+     "2002-12-03",
+     "reg",
+     1.7
+    ],
+    [
+     "Carl Everett",
+     "trade",
+     "Montreal Expos traded Carl Everett to Chicago White Sox; Chicago White Sox traded Gary Majewski",
+     "2004-07-18",
+     "reg",
+     1.6
+    ],
+    [
+     "Joe Crede",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1998",
+     "inh",
+     1.5
+    ],
+    [
+     "Juan Uribe",
+     "trade",
+     "Colorado Rockies traded Juan Uribe to Chicago White Sox; Chicago White Sox traded Aaron Miles t",
+     "2003-12-02",
+     "reg",
+     1.4
+    ],
+    [
+     "Cliff Politte",
+     "fa",
+     "Chicago White Sox signed free agent Cliff Politte. (Retrosheet archive)",
+     "2004-01-07",
+     "reg",
+     1.4
+    ],
+    [
+     "Bobby Jenks",
+     "intl",
+     "Chicago White Sox claimed Bobby Jenks off waivers. (Retrosheet archive)",
+     "2004-12-17",
+     "reg",
+     1.2
+    ],
+    [
+     "Dustin Hermanson",
+     "fa",
+     "Chicago White Sox signed free agent Dustin Hermanson. (Retrosheet archive)",
+     "2004-12-09",
+     "reg",
+     1.1
+    ]
+   ]
+  },
+  {
+   "id": "stl06",
+   "label": "2006 St. Louis Cardinals",
+   "team": "St. Louis Cardinals",
+   "year": 2006,
+   "result": "Won World Series",
+   "regime": "Walt Jocketty",
+   "regimeNote": "title in year 13 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Albert Pujols",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1999",
+     "reg",
+     7.4
+    ],
+    [
+     "Scott Rolen",
+     "trade",
+     "Philadelphia Phillies traded player, Scott Rolen, Doug Nickle to St. Louis Cardinals; St. Louis",
+     "2002-07-29",
+     "reg",
+     4.5
+    ],
+    [
+     "Chris Carpenter",
+     "fa",
+     "St. Louis Cardinals signed free agent Chris Carpenter. (Retrosheet archive)",
+     "2003-12-02",
+     "reg",
+     3.8
+    ],
+    [
+     "Chris Duncan",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2003",
+     "reg",
+     2.6
+    ],
+    [
+     "Jim Edmonds",
+     "trade",
+     "St. Louis Cardinals traded Kent Bottenfield, Adam Kennedy to Anaheim Angels; Anaheim Angels tra",
+     "2000-03-23",
+     "reg",
+     2.2
+    ],
+    [
+     "Adam Wainwright",
+     "trade",
+     "St. Louis Cardinals traded J. D. Drew, Eli Marrero to Atlanta Braves; Atlanta Braves traded Jas",
+     "2003-12-13",
+     "reg",
+     2.0
+    ],
+    [
+     "Braden Looper",
+     "fa",
+     "St. Louis Cardinals signed free agent Braden Looper. (Retrosheet archive)",
+     "2005-12-22",
+     "reg",
+     1.7
+    ],
+    [
+     "David Eckstein",
+     "fa",
+     "St. Louis Cardinals signed free agent David Eckstein. (Retrosheet archive)",
+     "2004-12-23",
+     "reg",
+     1.5
+    ],
+    [
+     "Scott Spiezio",
+     "fa",
+     "St. Louis Cardinals signed free agent Scott Spiezio. (Retrosheet archive)",
+     "2006-02-17",
+     "reg",
+     1.5
+    ],
+    [
+     "Jeff Suppan",
+     "fa",
+     "St. Louis Cardinals signed free agent Jeff Suppan. (Retrosheet archive)",
+     "2003-12-18",
+     "reg",
+     1.4
+    ],
+    [
+     "Hector Luna",
+     "intl",
+     "St. Louis Cardinals selected H\u00e9ctor Luna in the Rule 5 draft. (Retrosheet archive)",
+     "2003-12-15",
+     "reg",
+     1.1
+    ]
+   ]
+  },
+  {
+   "id": "bos07",
+   "label": "2007 Boston Red Sox",
+   "team": "Boston Red Sox",
+   "year": 2007,
+   "result": "Won World Series",
+   "regime": "Theo Epstein",
+   "regimeNote": "title in year 6 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "David Ortiz",
+     "fa",
+     "Boston Red Sox signed free agent David Ortiz. (Retrosheet archive)",
+     "2003-01-22",
+     "reg",
+     6.7
+    ],
+    [
+     "Josh Beckett",
+     "trade",
+     "Florida Marlins traded Josh Beckett, Mike Lowell, Guillermo Mota to Boston Red Sox; Boston Red ",
+     "2005-11-24",
+     "reg",
+     5.6
+    ],
+    [
+     "Mike Lowell",
+     "trade",
+     "Florida Marlins traded Josh Beckett, Mike Lowell, Guillermo Mota to Boston Red Sox; Boston Red ",
+     "2005-11-24",
+     "reg",
+     4.7
+    ],
+    [
+     "Daisuke Matsuzaka",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2005",
+     "reg",
+     3.3
+    ],
+    [
+     "Jason Varitek",
+     "fa",
+     "Boston Red Sox signed free agent Jason Varitek. (Retrosheet archive)",
+     "2004-12-24",
+     "reg",
+     3.0
+    ],
+    [
+     "Manny Ramirez",
+     "fa",
+     "Boston Red Sox signed free agent Manny Ramirez. (Retrosheet archive)",
+     "2000-12-19",
+     "inh",
+     3.0
+    ],
+    [
+     "Kevin Youkilis",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2002",
+     "inh",
+     2.6
+    ],
+    [
+     "Curt Schilling",
+     "trade",
+     "Boston Red Sox traded Casey Fossum, Brandon Lyon, Jorge De La Rosa, Mike Goss to Arizona Diamon",
+     "2003-11-28",
+     "reg",
+     2.6
+    ],
+    [
+     "Tim Wakefield",
+     "fa",
+     "Boston Red Sox signed free agent Tim Wakefield. (Retrosheet archive)",
+     "2000-12-07",
+     "inh",
+     2.2
+    ],
+    [
+     "Jonathan Papelbon",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2003",
+     "reg",
+     2.0
+    ],
+    [
+     "Hideki Okajima",
+     "fa",
+     "Boston Red Sox signed free agent Hideki Okajima. (Retrosheet archive)",
+     "2006-11-30",
+     "reg",
+     1.8
+    ],
+    [
+     "J.D. Drew",
+     "fa",
+     "Boston Red Sox signed free agent J. D. Drew. (Retrosheet archive)",
+     "2007-02-14",
+     "reg",
+     1.5
+    ],
+    [
+     "Julian Tavarez",
+     "fa",
+     "Boston Red Sox signed free agent Juli\u00e1n Tav\u00e1rez. (Retrosheet archive)",
+     "2006-01-18",
+     "reg",
+     1.5
+    ],
+    [
+     "Jacoby Ellsbury",
+     "draft",
+     "Drafted by the club, 2005",
+     "2005-06-15",
+     "reg",
+     1.0
+    ]
+   ]
+  },
+  {
+   "id": "phi08",
+   "label": "2008 Philadelphia Phillies",
+   "team": "Philadelphia Phillies",
+   "year": 2008,
+   "result": "Won World Series",
+   "regime": "Pat Gillick",
+   "regimeNote": "title in year 4 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Chase Utley",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2001",
+     "inh",
+     6.3
+    ],
+    [
+     "Pat Burrell",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1998",
+     "inh",
+     3.9
+    ],
+    [
+     "Cole Hamels",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2004",
+     "inh",
+     3.8
+    ],
+    [
+     "Jimmy Rollins",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1998",
+     "inh",
+     3.5
+    ],
+    [
+     "Shane Victorino",
+     "intl",
+     "Philadelphia Phillies selected Shane Victorino in the Rule 5 draft. (Retrosheet archive)",
+     "2004-12-13",
+     "inh",
+     3.5
+    ],
+    [
+     "Ryan Howard",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2002",
+     "inh",
+     3.3
+    ],
+    [
+     "Jayson Werth",
+     "fa",
+     "Philadelphia Phillies signed free agent Jayson Werth. (Retrosheet archive)",
+     "2006-12-19",
+     "reg",
+     2.9
+    ],
+    [
+     "Brad Lidge",
+     "trade",
+     "Houston Astros traded Brad Lidge, Eric Bruntlett to Philadelphia Phillies; Philadelphia Phillie",
+     "2007-11-07",
+     "reg",
+     2.3
+    ],
+    [
+     "Ryan Madson",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2001",
+     "inh",
+     1.9
+    ],
+    [
+     "Chris Coste",
+     "fa",
+     "Philadelphia Phillies signed free agent Chris Coste. (Retrosheet archive)",
+     "2005-11-15",
+     "reg",
+     1.6
+    ],
+    [
+     "Jamie Moyer",
+     "trade",
+     "Seattle Mariners traded Jamie Moyer to Philadelphia Phillies; Philadelphia Phillies traded Andr",
+     "2006-08-19",
+     "reg",
+     1.6
+    ],
+    [
+     "Chad Durbin",
+     "fa",
+     "Philadelphia Phillies signed free agent Chad Durbin. (Retrosheet archive)",
+     "2007-12-20",
+     "reg",
+     1.5
+    ],
+    [
+     "Greg Dobbs",
+     "intl",
+     "Philadelphia Phillies claimed Greg Dobbs off waivers. (Retrosheet archive)",
+     "2007-01-15",
+     "reg",
+     1.4
+    ]
+   ]
+  },
+  {
+   "id": "nyy09",
+   "label": "2009 New York Yankees",
+   "team": "New York Yankees",
+   "year": 2009,
+   "result": "Won World Series",
+   "regime": "Brian Cashman",
+   "regimeNote": "title in year 12 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Derek Jeter",
+     "intl",
+     "Acquired before the 1998 data floor (Retrosheet-backfilled era starts 1998)",
+     "pre-1998",
+     "inh",
+     6.5
+    ],
+    [
+     "Alex Rodriguez",
+     "fa",
+     "New York Yankees signed free agent Alex Rodriguez. (Retrosheet archive)",
+     "2007-12-13",
+     "reg",
+     5.7
+    ],
+    [
+     "CC Sabathia",
+     "fa",
+     "New York Yankees signed free agent CC Sabathia. (Retrosheet archive)",
+     "2008-12-20",
+     "reg",
+     5.3
+    ],
+    [
+     "Mark Teixeira",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2007",
+     "reg",
+     5.3
+    ],
+    [
+     "Robinson Can\u00f3",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2003",
+     "reg",
+     5.1
+    ],
+    [
+     "Johnny Damon",
+     "fa",
+     "New York Yankees signed free agent Johnny Damon. (Retrosheet archive)",
+     "2006-01-03",
+     "reg",
+     4.6
+    ],
+    [
+     "Jorge Posada",
+     "fa",
+     "New York Yankees signed free agent Jorge Posada. (Retrosheet archive)",
+     "2007-11-13",
+     "reg",
+     4.2
+    ],
+    [
+     "Nick Swisher",
+     "trade",
+     "New York Yankees traded Wilson Betemit, Jeff Marquez, Jhonny N\u00fa\u00f1ez to Chicago White Sox; Chicag",
+     "2008-11-13",
+     "reg",
+     3.6
+    ],
+    [
+     "Hideki Matsui",
+     "fa",
+     "New York Yankees signed free agent Hideki Matsui. (Retrosheet archive)",
+     "2002-12-19",
+     "reg",
+     3.3
+    ],
+    [
+     "Andy Pettitte",
+     "fa",
+     "New York Yankees signed free agent Andy Pettitte. (Retrosheet archive)",
+     "2007-12-12",
+     "reg",
+     2.9
+    ],
+    [
+     "A.J. Burnett",
+     "fa",
+     "New York Yankees signed free agent A. J. Burnett. (Retrosheet archive)",
+     "2008-12-12",
+     "reg",
+     2.7
+    ],
+    [
+     "Phil Hughes",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2005",
+     "reg",
+     2.2
+    ],
+    [
+     "Mariano Rivera",
+     "fa",
+     "New York Yankees signed free agent Mariano Rivera. (Retrosheet archive)",
+     "2007-11-19",
+     "reg",
+     1.9
+    ],
+    [
+     "Alfredo Aceves",
+     "fa",
+     "New York Yankees signed free agent Alfredo Aceves. (Retrosheet archive)",
+     "2008-02-01",
+     "reg",
+     1.6
+    ],
+    [
+     "David Robertson",
+     "draft",
+     "Drafted by the club, 2006",
+     "2006-06-15",
+     "reg",
+     1.2
+    ],
+    [
+     "Joba Chamberlain",
+     "draft",
+     "Drafted by the club, 2006",
+     "2006-06-15",
+     "reg",
+     1.1
+    ]
+   ]
+  },
+  {
+   "id": "sf10",
+   "label": "2010 San Francisco Giants",
+   "team": "San Francisco Giants",
+   "year": 2010,
+   "result": "Won World Series",
+   "regime": "Brian Sabean",
+   "regimeNote": "title in year 15 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Aubrey Huff",
+     "fa",
+     "San Francisco Giants signed free agent 1B Aubrey Huff.",
+     "2010-01-13",
+     "reg",
+     5.2
+    ],
+    [
+     "Buster Posey",
+     "draft",
+     "Drafted by the club, 2008",
+     "2008-06-15",
+     "reg",
+     4.8
+    ],
+    [
+     "Andres Torres",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2007",
+     "reg",
+     4.5
+    ],
+    [
+     "Juan Uribe",
+     "fa",
+     "San Francisco Giants signed free agent SS Juan Uribe.",
+     "2010-01-05",
+     "reg",
+     3.3
+    ],
+    [
+     "Tim Lincecum",
+     "draft",
+     "Drafted by the club, 2006",
+     "2006-06-15",
+     "reg",
+     3.2
+    ],
+    [
+     "Pat Burrell",
+     "intl",
+     "San Francisco Giants signed free agent LF Pat Burrell to a minor league contract.",
+     "2010-05-29",
+     "reg",
+     2.6
+    ],
+    [
+     "Pablo Sandoval",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2006",
+     "reg",
+     2.5
+    ],
+    [
+     "Freddy Sanchez",
+     "trade",
+     "Pittsburgh Pirates traded 2B Freddy Sanchez to San Francisco Giants.",
+     "2009-07-30",
+     "reg",
+     2.4
+    ],
+    [
+     "Brian Wilson",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2004",
+     "reg",
+     2.3
+    ],
+    [
+     "Sergio Romo",
+     "draft",
+     "Drafted by the club, 2005",
+     "2005-06-15",
+     "reg",
+     1.4
+    ],
+    [
+     "Madison Bumgarner",
+     "draft",
+     "Drafted by the club, 2007",
+     "2007-06-15",
+     "reg",
+     1.3
+    ],
+    [
+     "Jonathan S\u00e1nchez",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2004",
+     "reg",
+     1.2
+    ],
+    [
+     "Edgar Renteria",
+     "fa",
+     "San Francisco Giants signed free agent \u00c9dgar Renter\u00eda. (Retrosheet archive)",
+     "2008-12-04",
+     "reg",
+     1.2
+    ],
+    [
+     "Santiago Casilla",
+     "intl",
+     "San Francisco Giants signed free agent RHP Santiago Casilla to a minor league contract and invi",
+     "2010-01-21",
+     "reg",
+     1.1
+    ]
+   ]
+  },
+  {
+   "id": "stl11",
+   "label": "2011 St. Louis Cardinals",
+   "team": "St. Louis Cardinals",
+   "year": 2011,
+   "result": "Won World Series",
+   "regime": "John Mozeliak",
+   "regimeNote": "title in year 4 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Lance Berkman",
+     "fa",
+     "St. Louis Cardinals signed free agent 1B Lance Berkman.",
+     "2010-12-04",
+     "reg",
+     6.0
+    ],
+    [
+     "Albert Pujols",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~1999",
+     "inh",
+     5.2
+    ],
+    [
+     "Matt Holliday",
+     "fa",
+     "St. Louis Cardinals signed free agent LF Matt Holliday.",
+     "2010-01-08",
+     "reg",
+     5.1
+    ],
+    [
+     "Yadier Molina",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2002",
+     "inh",
+     4.9
+    ],
+    [
+     "Chris Carpenter",
+     "fa",
+     "St. Louis Cardinals signed free agent Chris Carpenter. (Retrosheet archive)",
+     "2003-12-02",
+     "inh",
+     4.1
+    ],
+    [
+     "Jon Jay",
+     "draft",
+     "Drafted by the club, 2006",
+     "2006-06-15",
+     "inh",
+     3.2
+    ],
+    [
+     "David Freese",
+     "trade",
+     "St. Louis Cardinals traded Jim Edmonds to San Diego Padres; San Diego Padres traded David Frees",
+     "2007-12-14",
+     "inh",
+     2.7
+    ],
+    [
+     "Jaime Garc\u00eda",
+     "draft",
+     "Drafted by the club, 2005",
+     "2005-06-15",
+     "inh",
+     2.7
+    ],
+    [
+     "Colby Rasmus",
+     "draft",
+     "Drafted by the club, 2005",
+     "2005-06-15",
+     "inh",
+     2.2
+    ],
+    [
+     "Allen Craig",
+     "draft",
+     "Drafted by the club, 2006",
+     "2006-06-15",
+     "inh",
+     2.0
+    ],
+    [
+     "Kyle Lohse",
+     "fa",
+     "St. Louis Cardinals signed free agent Kyle Lohse. (Retrosheet archive)",
+     "2008-03-13",
+     "reg",
+     1.9
+    ],
+    [
+     "Jason Motte",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2006",
+     "inh",
+     1.9
+    ],
+    [
+     "Ryan Theriot",
+     "trade",
+     "Los Angeles Dodgers traded 2B Ryan Theriot to St. Louis Cardinals for RHP Blake Hawksworth.",
+     "2010-11-30",
+     "reg",
+     1.7
+    ],
+    [
+     "Fernando Salas",
+     "intl",
+     "St. Louis Cardinals signed free agent RHP Fernando Salas to a minor league contract.",
+     "2007-04-05",
+     "inh",
+     1.4
+    ],
+    [
+     "Rafael Furcal",
+     "trade",
+     "Springfield Cardinals Traded RF Alex Castellanos to Chattanooga Lookouts and Los Angeles Dodger",
+     "2011-07-31",
+     "reg",
+     1.3
+    ],
+    [
+     "Nick Punto",
+     "fa",
+     "St. Louis Cardinals signed free agent 3B Nick Punto.",
+     "2011-01-21",
+     "reg",
+     1.3
+    ]
+   ]
+  },
+  {
+   "id": "sf12",
+   "label": "2012 San Francisco Giants",
+   "team": "San Francisco Giants",
+   "year": 2012,
+   "result": "Won World Series",
+   "regime": "Brian Sabean",
+   "regimeNote": "title in year 17 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Buster Posey",
+     "draft",
+     "Drafted by the club, 2008",
+     "2008-06-15",
+     "reg",
+     9.4
+    ],
+    [
+     "Melky Cabrera",
+     "trade",
+     "Kansas City Royals Traded LF Melky Cabrera to San Francisco Giants; San Francisco Giants Traded",
+     "2011-11-07",
+     "reg",
+     5.1
+    ],
+    [
+     "\u00c1ngel Pag\u00e1n",
+     "trade",
+     "San Francisco Giants traded RHP Ramon Ramirez and CF Andres Torres to New York Mets for CF Ange",
+     "2011-12-07",
+     "reg",
+     4.6
+    ],
+    [
+     "Pablo Sandoval",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2006",
+     "reg",
+     3.3
+    ],
+    [
+     "Marco Scutaro",
+     "trade",
+     "Colorado Rockies traded 2B Marco Scutaro to San Francisco Giants for 2B Charlie Culberson.",
+     "2012-07-28",
+     "reg",
+     3.0
+    ],
+    [
+     "Brandon Belt",
+     "intl",
+     "San Francisco Giants signed free agent 1B Brandon Belt to a minor league contract.",
+     "2009-08-17",
+     "reg",
+     2.3
+    ],
+    [
+     "Madison Bumgarner",
+     "draft",
+     "Drafted by the club, 2007",
+     "2007-06-15",
+     "reg",
+     2.0
+    ],
+    [
+     "Gr\u00e9gor Blanco",
+     "intl",
+     "San Francisco Giants signed free agent LF Gregor Blanco to a minor league contract and invited ",
+     "2012-01-18",
+     "reg",
+     1.8
+    ],
+    [
+     "Brandon Crawford",
+     "draft",
+     "Drafted by the club, 2008",
+     "2008-06-15",
+     "reg",
+     1.5
+    ],
+    [
+     "Jeremy Affeldt",
+     "fa",
+     "San Francisco Giants signed free agent Jeremy Affeldt. (Retrosheet archive)",
+     "2008-11-17",
+     "reg",
+     1.4
+    ],
+    [
+     "Sergio Romo",
+     "draft",
+     "Drafted by the club, 2005",
+     "2005-06-15",
+     "reg",
+     1.3
+    ],
+    [
+     "Joaquin Arias",
+     "intl",
+     "San Francisco Giants signed free agent 2B Joaquin Arias to a minor league contract and invited ",
+     "2011-12-11",
+     "reg",
+     1.2
+    ],
+    [
+     "Ryan Theriot",
+     "fa",
+     "San Francisco Giants signed free agent 2B Ryan Theriot.",
+     "2012-02-08",
+     "reg",
+     1.2
+    ],
+    [
+     "H\u00e9ctor S\u00e1nchez",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2009",
+     "reg",
+     1.2
+    ]
+   ]
+  },
+  {
+   "id": "bos13",
+   "label": "2013 Boston Red Sox",
+   "team": "Boston Red Sox",
+   "year": 2013,
+   "result": "Won World Series",
+   "regime": "Ben Cherington",
+   "regimeNote": "title in year 3 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "David Ortiz",
+     "fa",
+     "Boston Red Sox signed free agent DH David Ortiz.",
+     "2012-11-05",
+     "reg",
+     4.8
+    ],
+    [
+     "Jarrod Saltalamacchia",
+     "trade",
+     "Texas Rangers Traded C Jarrod Saltalamacchia to Boston Red Sox; Lowell Spinners Traded RHP Roma",
+     "2010-07-31",
+     "inh",
+     4.1
+    ],
+    [
+     "Jacoby Ellsbury",
+     "draft",
+     "Drafted by the club, 2005",
+     "2005-06-15",
+     "inh",
+     4.0
+    ],
+    [
+     "Shane Victorino",
+     "fa",
+     "Boston Red Sox signed free agent RF Shane Victorino.",
+     "2012-12-13",
+     "reg",
+     3.9
+    ],
+    [
+     "Daniel Nava",
+     "fa",
+     "Boston Red Sox signed free agent Daniel Nava. (Retrosheet archive)",
+     "2008-01-17",
+     "inh",
+     3.6
+    ],
+    [
+     "Mike Napoli",
+     "fa",
+     "Boston Red Sox signed free agent 1B Mike Napoli.",
+     "2013-01-22",
+     "reg",
+     3.4
+    ],
+    [
+     "Jon Lester",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2004",
+     "inh",
+     3.4
+    ],
+    [
+     "Stephen Drew",
+     "fa",
+     "Boston Red Sox signed free agent SS Stephen Drew.",
+     "2012-12-26",
+     "reg",
+     3.4
+    ],
+    [
+     "Koji Uehara",
+     "fa",
+     "Boston Red Sox signed free agent RHP Koji Uehara.",
+     "2012-12-18",
+     "reg",
+     2.9
+    ],
+    [
+     "Clay Buchholz",
+     "draft",
+     "Drafted by the club, 2005",
+     "2005-06-15",
+     "inh",
+     2.8
+    ],
+    [
+     "John Lackey",
+     "fa",
+     "Boston Red Sox signed free agent RHP John Lackey.",
+     "2009-12-16",
+     "inh",
+     2.4
+    ],
+    [
+     "F\u00e9lix Doubront",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2008",
+     "inh",
+     2.3
+    ],
+    [
+     "Mike Carp",
+     "trade",
+     "Seattle Mariners traded 1B Mike Carp to Boston Red Sox.",
+     "2013-02-20",
+     "reg",
+     1.8
+    ],
+    [
+     "Jose Iglesias",
+     "fa",
+     "Boston Red Sox signed free agent SS Jose Iglesias.",
+     "2009-09-08",
+     "inh",
+     1.6
+    ],
+    [
+     "Jonny Gomes",
+     "fa",
+     "Boston Red Sox signed free agent LF Jonny Gomes.",
+     "2012-12-01",
+     "reg",
+     1.5
+    ],
+    [
+     "Junichi Tazawa",
+     "fa",
+     "Boston Red Sox signed free agent RHP Junichi Tazawa.",
+     "2008-12-04",
+     "inh",
+     1.4
+    ]
+   ]
+  },
+  {
+   "id": "sf14",
+   "label": "2014 San Francisco Giants",
+   "team": "San Francisco Giants",
+   "year": 2014,
+   "result": "Won World Series",
+   "regime": "Brian Sabean",
+   "regimeNote": "title in year 19 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Buster Posey",
+     "draft",
+     "Drafted by the club, 2008",
+     "2008-06-15",
+     "reg",
+     7.5
+    ],
+    [
+     "Madison Bumgarner",
+     "draft",
+     "Drafted by the club, 2007",
+     "2007-06-15",
+     "reg",
+     4.3
+    ],
+    [
+     "Hunter Pence",
+     "trade",
+     "Philadelphia Phillies traded RF Hunter Pence to San Francisco Giants for RF Nate Schierholtz, C",
+     "2012-07-31",
+     "reg",
+     4.2
+    ],
+    [
+     "Pablo Sandoval",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2006",
+     "reg",
+     3.9
+    ],
+    [
+     "Michael Morse",
+     "fa",
+     "San Francisco Giants signed free agent LF Michael Morse.",
+     "2013-12-17",
+     "reg",
+     3.5
+    ],
+    [
+     "Brandon Crawford",
+     "draft",
+     "Drafted by the club, 2008",
+     "2008-06-15",
+     "reg",
+     3.2
+    ],
+    [
+     "\u00c1ngel Pag\u00e1n",
+     "fa",
+     "San Francisco Giants signed free agent CF Angel Pagan.",
+     "2012-12-07",
+     "reg",
+     2.6
+    ],
+    [
+     "Gr\u00e9gor Blanco",
+     "intl",
+     "San Francisco Giants signed free agent LF Gregor Blanco to a minor league contract and invited ",
+     "2012-01-18",
+     "reg",
+     2.4
+    ],
+    [
+     "Yusmeiro Petit",
+     "intl",
+     "San Francisco Giants signed free agent RHP Yusmeiro Petit to a minor league contract.",
+     "2011-11-28",
+     "reg",
+     1.9
+    ],
+    [
+     "Joe Panik",
+     "draft",
+     "Drafted by the club, 2011",
+     "2011-06-15",
+     "reg",
+     1.6
+    ],
+    [
+     "Jeremy Affeldt",
+     "fa",
+     "San Francisco Giants signed free agent Jeremy Affeldt. (Retrosheet archive)",
+     "2008-11-17",
+     "reg",
+     1.1
+    ]
+   ]
+  },
+  {
+   "id": "kc15",
+   "label": "2015 Kansas City Royals",
+   "team": "Kansas City Royals",
+   "year": 2015,
+   "result": "Won World Series",
+   "regime": "Dayton Moore",
+   "regimeNote": "title in year 10 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Lorenzo Cain",
+     "trade",
+     "Milwaukee Brewers Traded SS Alcides Escobar, RHP Jeremy Jeffress and CF Lorenzo Cain to Kansas ",
+     "2010-12-19",
+     "reg",
+     4.8
+    ],
+    [
+     "Mike Moustakas",
+     "draft",
+     "Drafted by the club, 2007",
+     "2007-06-15",
+     "reg",
+     4.5
+    ],
+    [
+     "Eric Hosmer",
+     "draft",
+     "Drafted by the club, 2008",
+     "2008-06-15",
+     "reg",
+     3.2
+    ],
+    [
+     "Kendrys Morales",
+     "fa",
+     "Kansas City Royals signed free agent DH Kendrys Morales.",
+     "2014-12-16",
+     "reg",
+     3.1
+    ],
+    [
+     "Edinson Volquez",
+     "fa",
+     "Kansas City Royals signed free agent RHP Edinson Volquez.",
+     "2014-12-29",
+     "reg",
+     2.8
+    ],
+    [
+     "Alex Gordon",
+     "draft",
+     "Drafted by the club, 2005",
+     "2005-06-15",
+     "inh",
+     2.2
+    ],
+    [
+     "Wade Davis",
+     "trade",
+     "Tampa Bay Rays traded RHP James Shields, RHP Wade Davis and Player To Be Named Later to Kansas ",
+     "2012-12-09",
+     "reg",
+     2.2
+    ],
+    [
+     "Ben Zobrist",
+     "trade",
+     "Oakland Athletics traded Ben Zobrist and cash to Kansas City Royals for RHP Aaron Brooks and LH",
+     "2015-07-28",
+     "reg",
+     2.0
+    ],
+    [
+     "Ryan Madson",
+     "intl",
+     "Kansas City Royals signed free agent RHP Ryan Madson to a minor league contract and invited him",
+     "2015-01-04",
+     "reg",
+     1.5
+    ],
+    [
+     "Kelvin Herrera",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2009",
+     "reg",
+     1.3
+    ],
+    [
+     "Franklin Morales",
+     "intl",
+     "Kansas City Royals signed free agent LHP Franklin Morales to a minor league contract and invite",
+     "2015-02-19",
+     "reg",
+     1.1
+    ],
+    [
+     "Danny Duffy",
+     "draft",
+     "Drafted by the club, 2007",
+     "2007-06-15",
+     "reg",
+     1.1
+    ]
+   ]
+  },
+  {
+   "id": "chc16",
+   "label": "2016 Chicago Cubs",
+   "team": "Chicago Cubs",
+   "year": 2016,
+   "result": "Won World Series",
+   "regime": "Theo Epstein",
+   "regimeNote": "title in year 6 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Kris Bryant",
+     "draft",
+     "Drafted by the club, 2013",
+     "2013-06-15",
+     "reg",
+     6.3
+    ],
+    [
+     "Anthony Rizzo",
+     "trade",
+     "Chicago Cubs traded RHP Andrew Cashner and LF Kyung-Min Na to San Diego Padres for 1B Anthony R",
+     "2012-01-06",
+     "reg",
+     6.2
+    ],
+    [
+     "Dexter Fowler",
+     "fa",
+     "Chicago Cubs signed free agent CF Dexter Fowler.",
+     "2016-02-25",
+     "reg",
+     5.1
+    ],
+    [
+     "Ben Zobrist",
+     "fa",
+     "Chicago Cubs signed free agent 2B Ben Zobrist.",
+     "2015-12-08",
+     "reg",
+     4.4
+    ],
+    [
+     "Addison Russell",
+     "trade",
+     "Chicago Cubs traded RHP Jason Hammel and RHP Jeff Samardzija to Oakland Athletics for SS Addiso",
+     "2014-07-05",
+     "reg",
+     4.4
+    ],
+    [
+     "Jake Arrieta",
+     "trade",
+     "Chicago Cubs traded RHP Scott Feldman and C Steve Clevenger to Baltimore Orioles for RHP Jake A",
+     "2013-07-02",
+     "reg",
+     3.7
+    ],
+    [
+     "Kyle Hendricks",
+     "trade",
+     "Chicago Cubs traded RHP Ryan Dempster to Texas Rangers for RHP Kyle Hendricks and 3B Christian ",
+     "2012-07-31",
+     "reg",
+     3.4
+    ],
+    [
+     "Jon Lester",
+     "fa",
+     "Chicago Cubs signed free agent LHP Jon Lester.",
+     "2014-12-15",
+     "reg",
+     3.3
+    ],
+    [
+     "Javier B\u00e1ez",
+     "draft",
+     "Drafted by the club, 2011",
+     "2011-06-15",
+     "inh",
+     2.8
+    ],
+    [
+     "John Lackey",
+     "fa",
+     "Chicago Cubs signed free agent RHP John Lackey.",
+     "2015-12-08",
+     "reg",
+     1.9
+    ],
+    [
+     "Willson Contreras",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2014",
+     "reg",
+     1.4
+    ],
+    [
+     "Aroldis Chapman",
+     "trade",
+     "New York Yankees traded LHP Aroldis Chapman to Chicago Cubs for RHP Adam Warren, SS Gleyber Tor",
+     "2016-07-25",
+     "reg",
+     1.3
+    ],
+    [
+     "David Ross",
+     "fa",
+     "Chicago Cubs signed free agent David Ross.",
+     "2014-12-23",
+     "reg",
+     1.2
+    ],
+    [
+     "Pedro Strop",
+     "trade",
+     "Chicago Cubs traded RHP Scott Feldman and C Steve Clevenger to Baltimore Orioles for RHP Jake A",
+     "2013-07-02",
+     "reg",
+     1.2
+    ],
+    [
+     "Justin Grimm",
+     "trade",
+     "Chicago Cubs traded RHP Matt Garza to Texas Rangers for RHP C.J. Edwards, RHP Justin Grimm, 1B ",
+     "2013-07-22",
+     "reg",
+     1.1
+    ],
+    [
+     "Jason Hammel",
+     "fa",
+     "Chicago Cubs signed free agent RHP Jason Hammel.",
+     "2014-12-12",
+     "reg",
+     1.0
+    ]
+   ]
+  },
+  {
+   "id": "hou17",
+   "label": "2017 Houston Astros",
+   "team": "Houston Astros",
+   "year": 2017,
+   "result": "Won World Series",
+   "regime": "Jeff Luhnow",
+   "regimeNote": "title in year 7 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Carlos Correa",
+     "draft",
+     "Drafted by the club, 2012",
+     "2012-06-15",
+     "reg",
+     5.5
+    ],
+    [
+     "Marwin Gonzalez",
+     "trade",
+     "Boston Red Sox Traded SS Marwin Gonzalez to Houston Astros and Oklahoma City RedHawks Traded RH",
+     "2011-12-08",
+     "reg",
+     5.5
+    ],
+    [
+     "Alex Bregman",
+     "draft",
+     "Drafted by the club, 2015",
+     "2015-06-15",
+     "reg",
+     5.1
+    ],
+    [
+     "Josh Reddick",
+     "fa",
+     "Houston Astros signed free agent RF Josh Reddick.",
+     "2016-11-23",
+     "reg",
+     3.9
+    ],
+    [
+     "George Springer",
+     "draft",
+     "Drafted by the club, 2011",
+     "2011-06-15",
+     "inh",
+     3.4
+    ],
+    [
+     "Brad Peacock",
+     "trade",
+     "Houston Astros traded SS Jed Lowrie and RHP Fernando Rodriguez to Oakland Athletics for 1B Chri",
+     "2013-02-04",
+     "reg",
+     3.2
+    ],
+    [
+     "Charlie Morton",
+     "fa",
+     "Houston Astros signed free agent RHP Charlie Morton.",
+     "2016-11-16",
+     "reg",
+     2.7
+    ],
+    [
+     "Lance McCullers Jr.",
+     "draft",
+     "Drafted by the club, 2012",
+     "2012-06-15",
+     "reg",
+     2.7
+    ],
+    [
+     "Brian McCann",
+     "trade",
+     "New York Yankees traded C Brian McCann and cash to Houston Astros for RHP Albert Abreu and RHP ",
+     "2016-11-17",
+     "reg",
+     2.4
+    ],
+    [
+     "Jake Marisnick",
+     "trade",
+     "Houston Astros traded RHP Jarred Cosart, LF Enrique Hernandez and OF Austin Wates to Miami Marl",
+     "2014-07-31",
+     "reg",
+     2.2
+    ],
+    [
+     "Yuli Gurriel",
+     "fa",
+     "Houston Astros signed free agent 2B Yulieski Gurriel.",
+     "2016-07-16",
+     "reg",
+     2.2
+    ],
+    [
+     "Dallas Keuchel",
+     "draft",
+     "Drafted by the club, 2009",
+     "2009-06-15",
+     "inh",
+     2.1
+    ],
+    [
+     "Ken Giles",
+     "trade",
+     "Philadelphia Phillies traded SS Jonathan Arauz and RHP Ken Giles to Houston Astros for LHP Bret",
+     "2015-12-12",
+     "reg",
+     2.0
+    ],
+    [
+     "Chris Devenski",
+     "trade",
+     "Chicago White Sox traded RHP Chris Devenski to Houston Astros.",
+     "2012-08-03",
+     "reg",
+     1.5
+    ]
+   ]
+  },
+  {
+   "id": "bos18",
+   "label": "2018 Boston Red Sox",
+   "team": "Boston Red Sox",
+   "year": 2018,
+   "result": "Won World Series",
+   "regime": "Dave Dombrowski",
+   "regimeNote": "title in year 4 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Mookie Betts",
+     "draft",
+     "Drafted by the club, 2011",
+     "2011-06-15",
+     "inh",
+     12.4
+    ],
+    [
+     "J.D. Martinez",
+     "fa",
+     "Boston Red Sox signed free agent LF J.D. Martinez.",
+     "2018-02-26",
+     "reg",
+     6.0
+    ],
+    [
+     "Chris Sale",
+     "trade",
+     "Chicago White Sox traded LHP Chris Sale to Boston Red Sox for CF Luis Alexander Basabe, RHP Mic",
+     "2016-12-06",
+     "reg",
+     5.8
+    ],
+    [
+     "Xander Bogaerts",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2011",
+     "inh",
+     5.5
+    ],
+    [
+     "Jackie Bradley Jr.",
+     "draft",
+     "Drafted by the club, 2011",
+     "2011-06-15",
+     "inh",
+     3.3
+    ],
+    [
+     "Andrew Benintendi",
+     "draft",
+     "Drafted by the club, 2015",
+     "2015-06-15",
+     "inh",
+     3.1
+    ],
+    [
+     "Rick Porcello",
+     "trade",
+     "Detroit Tigers traded RHP Rick Porcello to Boston Red Sox for LF Yoenis Cespedes, RHP Alex Wils",
+     "2014-12-11",
+     "inh",
+     2.9
+    ],
+    [
+     "David Price",
+     "fa",
+     "Boston Red Sox signed free agent LHP David Price.",
+     "2015-12-04",
+     "reg",
+     2.6
+    ],
+    [
+     "Eduardo Rodriguez",
+     "trade",
+     "Boston Red Sox traded LHP Andrew Miller to Baltimore Orioles for LHP Eduardo Rodriguez.",
+     "2014-07-31",
+     "inh",
+     2.4
+    ],
+    [
+     "Brock Holt",
+     "trade",
+     "Pittsburgh Pirates traded RHP Joel Hanrahan and 2B Brock Holt to Boston Red Sox for 2B Ivan De ",
+     "2012-12-26",
+     "inh",
+     2.2
+    ],
+    [
+     "Matt Barnes",
+     "draft",
+     "Drafted by the club, 2011",
+     "2011-06-15",
+     "inh",
+     1.8
+    ],
+    [
+     "Craig Kimbrel",
+     "trade",
+     "San Diego Padres traded RHP Craig Kimbrel to Boston Red Sox for 3B Carlos Asuaje, SS Javier Gue",
+     "2015-11-13",
+     "reg",
+     1.5
+    ],
+    [
+     "Nathan Eovaldi",
+     "trade",
+     "Tampa Bay Rays traded RHP Nathan Eovaldi to Boston Red Sox for LHP Jalen Beeks.",
+     "2018-07-25",
+     "reg",
+     1.5
+    ],
+    [
+     "Joe Kelly",
+     "trade",
+     "Boston Red Sox traded RHP John Lackey, LHP Corey Littrell and cash to St. Louis Cardinals for R",
+     "2014-07-31",
+     "inh",
+     1.3
+    ],
+    [
+     "Steve Pearce",
+     "trade",
+     "Toronto Blue Jays traded LF Steve Pearce and cash to Boston Red Sox for SS Santiago Espinal.",
+     "2018-06-28",
+     "reg",
+     1.2
+    ],
+    [
+     "Hector Vel\u00e1zquez",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2015",
+     "inh",
+     1.1
+    ]
+   ]
+  },
+  {
+   "id": "wsh19",
+   "label": "2019 Washington Nationals",
+   "team": "Washington Nationals",
+   "year": 2019,
+   "result": "Won World Series",
+   "regime": "Mike Rizzo",
+   "regimeNote": "title in year 11 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Anthony Rendon",
+     "draft",
+     "Drafted by the club, 2011",
+     "2011-06-15",
+     "reg",
+     7.6
+    ],
+    [
+     "Juan Soto",
+     "intl",
+     "Washington Nationals signed free agent OF Juan Soto to a minor league contract.",
+     "2015-07-02",
+     "reg",
+     6.0
+    ],
+    [
+     "Trea Turner",
+     "trade",
+     "San Diego Padres traded SS Trea Turner to Washington Nationals.",
+     "2015-06-14",
+     "reg",
+     5.2
+    ],
+    [
+     "Max Scherzer",
+     "fa",
+     "Washington Nationals signed free agent RHP Max Scherzer.",
+     "2015-01-21",
+     "reg",
+     5.2
+    ],
+    [
+     "Stephen Strasburg",
+     "draft",
+     "Drafted by the club, 2009",
+     "2009-06-15",
+     "reg",
+     4.6
+    ],
+    [
+     "Adam Eaton",
+     "trade",
+     "Chicago White Sox traded CF Adam Eaton to Washington Nationals for RHP Lucas Giolito, RHP Reyna",
+     "2016-12-07",
+     "reg",
+     3.7
+    ],
+    [
+     "Patrick Corbin",
+     "fa",
+     "Washington Nationals signed free agent LHP Patrick Corbin.",
+     "2018-12-07",
+     "reg",
+     3.5
+    ],
+    [
+     "Howie Kendrick",
+     "fa",
+     "Washington Nationals signed free agent 2B Howie Kendrick.",
+     "2018-01-18",
+     "reg",
+     3.4
+    ],
+    [
+     "Victor Robles",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2015",
+     "reg",
+     2.4
+    ],
+    [
+     "Wander Suero",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2016",
+     "reg",
+     1.9
+    ],
+    [
+     "Brian Dozier",
+     "fa",
+     "Washington Nationals signed free agent 2B Brian Dozier.",
+     "2019-01-13",
+     "reg",
+     1.9
+    ],
+    [
+     "Asdr\u00fabal Cabrera",
+     "fa",
+     "Washington Nationals signed free agent 3B Asdrubal Cabrera.",
+     "2019-08-06",
+     "reg",
+     1.8
+    ],
+    [
+     "Kurt Suzuki",
+     "fa",
+     "Washington Nationals signed free agent C Kurt Suzuki.",
+     "2018-11-20",
+     "reg",
+     1.5
+    ],
+    [
+     "An\u00edbal S\u00e1nchez",
+     "fa",
+     "Washington Nationals signed free agent RHP Anibal Sanchez.",
+     "2018-12-27",
+     "reg",
+     1.2
+    ]
+   ]
+  },
+  {
+   "id": "lad20",
+   "label": "2020 Los Angeles Dodgers",
+   "team": "Los Angeles Dodgers",
+   "year": 2020,
+   "result": "Won World Series",
+   "regime": "Andrew Friedman",
+   "regimeNote": "title in year 7 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Mookie Betts",
+     "trade",
+     "Los Angeles Dodgers traded CF Alex Verdugo, C Connor Wong and SS Jeter Downs to Boston Red Sox ",
+     "2020-02-10",
+     "reg",
+     3.8
+    ],
+    [
+     "Corey Seager",
+     "draft",
+     "Drafted by the club, 2012",
+     "2012-06-15",
+     "inh",
+     2.8
+    ],
+    [
+     "Chris Taylor",
+     "trade",
+     "Seattle Mariners traded SS Chris Taylor to Los Angeles Dodgers for RHP Zach Lee.",
+     "2016-06-19",
+     "reg",
+     1.8
+    ],
+    [
+     "Tony Gonsolin",
+     "draft",
+     "Drafted by the club, 2016",
+     "2016-06-15",
+     "reg",
+     1.6
+    ],
+    [
+     "Will Smith",
+     "draft",
+     "Drafted by the club, 2016",
+     "2016-06-15",
+     "reg",
+     1.5
+    ],
+    [
+     "AJ Pollock",
+     "fa",
+     "Los Angeles Dodgers signed free agent CF A.J. Pollock.",
+     "2019-01-26",
+     "reg",
+     1.4
+    ],
+    [
+     "Cody Bellinger",
+     "draft",
+     "Drafted by the club, 2013",
+     "2013-06-15",
+     "inh",
+     1.3
+    ],
+    [
+     "Clayton Kershaw",
+     "draft",
+     "Drafted by the club, 2006",
+     "2006-06-15",
+     "inh",
+     1.3
+    ],
+    [
+     "Justin Turner",
+     "fa",
+     "Los Angeles Dodgers signed free agent 3B Justin Turner.",
+     "2016-12-23",
+     "reg",
+     1.2
+    ],
+    [
+     "Julio Ur\u00edas",
+     "intl",
+     "Los Angeles Dodgers signed free agent LHP Julio Urias to a minor league contract.",
+     "2012-08-17",
+     "inh",
+     1.0
+    ]
+   ]
+  },
+  {
+   "id": "atl21",
+   "label": "2021 Atlanta Braves",
+   "team": "Atlanta Braves",
+   "year": 2021,
+   "result": "Won World Series",
+   "regime": "Alex Anthopoulos",
+   "regimeNote": "title in year 5 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Austin Riley",
+     "draft",
+     "Drafted by the club, 2015",
+     "2015-06-15",
+     "inh",
+     6.0
+    ],
+    [
+     "Freddie Freeman",
+     "draft",
+     "Drafted by the club, 2007",
+     "2007-06-15",
+     "inh",
+     5.2
+    ],
+    [
+     "Max Fried",
+     "trade",
+     "Atlanta Braves traded LF Justin Upton and RHP Aaron Northcraft to San Diego Padres for 2B Jace ",
+     "2014-12-19",
+     "inh",
+     4.3
+    ],
+    [
+     "Dansby Swanson",
+     "trade",
+     "Atlanta Braves traded RHP Shelby Miller and LHP Gabe Speier to Arizona Diamondbacks for RF Ende",
+     "2015-12-09",
+     "inh",
+     3.7
+    ],
+    [
+     "Charlie Morton",
+     "fa",
+     "Atlanta Braves signed free agent RHP Charlie Morton.",
+     "2020-11-24",
+     "reg",
+     3.7
+    ],
+    [
+     "A.J. Minter",
+     "draft",
+     "Drafted by the club, 2015",
+     "2015-06-15",
+     "inh",
+     1.5
+    ],
+    [
+     "Tyler Matzek",
+     "intl",
+     "Atlanta Braves signed free agent LHP Tyler Matzek to a minor league contract.",
+     "2019-08-15",
+     "reg",
+     1.5
+    ],
+    [
+     "Huascar Ynoa",
+     "trade",
+     "Atlanta Braves traded cash, C Anthony Recker and Jaime Garcia to Minnesota Twins for RHP Huasca",
+     "2017-07-24",
+     "inh",
+     1.5
+    ],
+    [
+     "Luke Jackson",
+     "fa",
+     "Atlanta Braves signed free agent RHP Luke Jackson.",
+     "2018-06-17",
+     "reg",
+     1.2
+    ],
+    [
+     "Jesse Chavez",
+     "intl",
+     "Atlanta Braves signed free agent RHP Jesse Chavez to a minor league contract.",
+     "2021-04-17",
+     "reg",
+     1.2
+    ],
+    [
+     "Adam Duvall",
+     "trade",
+     "Miami Marlins traded LF Adam Duvall to Atlanta Braves for C Alex Jackson.",
+     "2021-07-30",
+     "reg",
+     1.1
+    ],
+    [
+     "Ehire Adrianza",
+     "intl",
+     "Atlanta Braves signed free agent 3B Ehire Adrianza to a minor league contract and invited him t",
+     "2021-01-26",
+     "reg",
+     1.1
+    ],
+    [
+     "Ian Anderson",
+     "draft",
+     "Drafted by the club, 2016",
+     "2016-06-15",
+     "inh",
+     1.1
+    ]
+   ]
+  },
+  {
+   "id": "hou22",
+   "label": "2022 Houston Astros",
+   "team": "Houston Astros",
+   "year": 2022,
+   "result": "Won World Series",
+   "regime": "James Click",
+   "regimeNote": "title in year 3 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Alex Bregman",
+     "draft",
+     "Drafted by the club, 2015",
+     "2015-06-15",
+     "inh",
+     6.1
+    ],
+    [
+     "Yordan Alvarez",
+     "trade",
+     "Houston Astros traded RHP Josh Fields to Los Angeles Dodgers for 1B Yordan Alvarez.",
+     "2016-08-01",
+     "inh",
+     5.8
+    ],
+    [
+     "Justin Verlander",
+     "fa",
+     "Houston Astros signed free agent RHP Justin Verlander,  and.",
+     "2022-03-12",
+     "reg",
+     5.0
+    ],
+    [
+     "Kyle Tucker",
+     "draft",
+     "Drafted by the club, 2015",
+     "2015-06-15",
+     "inh",
+     4.8
+    ],
+    [
+     "Framber Valdez",
+     "intl",
+     "Houston Astros signed free agent LHP Framber Valdez to a minor league contract.",
+     "2015-03-19",
+     "inh",
+     4.4
+    ],
+    [
+     "Jeremy Pe\u00f1a",
+     "draft",
+     "Drafted by the club, 2018",
+     "2018-06-15",
+     "inh",
+     3.5
+    ],
+    [
+     "Cristian Javier",
+     "intl",
+     "Houston Astros signed free agent RHP Cristian Javier to a minor league contract.",
+     "2015-03-19",
+     "inh",
+     3.1
+    ],
+    [
+     "Chas McCormick",
+     "draft",
+     "Drafted by the club, 2017",
+     "2017-06-15",
+     "inh",
+     2.3
+    ],
+    [
+     "Bryan Abreu",
+     "intl",
+     "Houston Astros signed free agent RHP Bryan Abreu to a minor league contract.",
+     "2013-11-11",
+     "inh",
+     2.0
+    ],
+    [
+     "H\u00e9ctor Neris",
+     "fa",
+     "Houston Astros signed free agent RHP Hector Neris.",
+     "2021-12-01",
+     "reg",
+     2.0
+    ],
+    [
+     "Rafael Montero",
+     "trade",
+     "Houston Astros traded 3B Abraham Toro, RHP Joe Smith,  and  to Seattle Mariners for RHP Kendall",
+     "2021-07-27",
+     "reg",
+     1.8
+    ],
+    [
+     "Luis Garcia",
+     "intl",
+     "Houston Astros signed free agent RHP Luis Garcia to a minor league contract.",
+     "2017-07-02",
+     "inh",
+     1.8
+    ],
+    [
+     "Ryan Pressly",
+     "trade",
+     "Minnesota Twins traded RHP Ryan Pressly to Houston Astros for CF Gilberto Celestino and RHP Jor",
+     "2018-07-27",
+     "inh",
+     1.5
+    ],
+    [
+     "Aledmys D\u00edaz",
+     "trade",
+     "Houston Astros traded RHP Trent Thornton to Toronto Blue Jays for SS Aledmys Diaz.",
+     "2018-11-17",
+     "inh",
+     1.4
+    ],
+    [
+     "Ryne Stanek",
+     "fa",
+     "Houston Astros signed free agent RHP Ryne Stanek.",
+     "2021-01-07",
+     "reg",
+     1.2
+    ]
+   ]
+  },
+  {
+   "id": "tex23",
+   "label": "2023 Texas Rangers",
+   "team": "Texas Rangers",
+   "year": 2023,
+   "result": "Won World Series",
+   "regime": "Chris Young",
+   "regimeNote": "title in year 2 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Corey Seager",
+     "fa",
+     "Texas Rangers signed free agent SS Corey Seager.",
+     "2021-12-01",
+     "inh",
+     7.2
+    ],
+    [
+     "Marcus Semien",
+     "fa",
+     "Texas Rangers signed free agent SS Marcus Semien.",
+     "2021-12-01",
+     "inh",
+     6.2
+    ],
+    [
+     "Adolis Garc\u00eda",
+     "trade",
+     "St. Louis Cardinals traded RF Adolis Garcia to Texas Rangers for cash.",
+     "2019-12-21",
+     "inh",
+     4.4
+    ],
+    [
+     "Jonah Heim",
+     "trade",
+     "Oakland Athletics traded LF Khris Davis, C Jonah Heim and RHP Dane Acker to Texas Rangers for S",
+     "2021-02-06",
+     "inh",
+     3.7
+    ],
+    [
+     "Mitch Garver",
+     "trade",
+     "Minnesota Twins traded C Mitch Garver to Texas Rangers for 3B Isiah Kiner-Falefa and RHP Ronny ",
+     "2022-03-12",
+     "inh",
+     3.4
+    ],
+    [
+     "Josh Jung",
+     "draft",
+     "Drafted by the club, 2019",
+     "2019-06-15",
+     "inh",
+     2.9
+    ],
+    [
+     "Nathan Eovaldi",
+     "fa",
+     "Texas Rangers signed free agent RHP Nathan Eovaldi.",
+     "2022-12-27",
+     "reg",
+     2.5
+    ],
+    [
+     "Leody Taveras",
+     "intl",
+     "Texas Rangers signed free agent OF Leody Taveras to a minor league contract.",
+     "2015-07-02",
+     "inh",
+     2.4
+    ],
+    [
+     "Ezequiel Duran",
+     "trade",
+     "New York Yankees traded RHP Glenn Otto, 2B Josh H. Smith, SS Ezequiel Duran and 2B Trevor Hauve",
+     "2021-07-29",
+     "inh",
+     2.3
+    ],
+    [
+     "Dane Dunning",
+     "trade",
+     "Texas Rangers traded RHP Lance Lynn to Chicago White Sox for LHP Avery Weems and RHP Dane Dunni",
+     "2020-12-08",
+     "inh",
+     2.2
+    ],
+    [
+     "Nathaniel Lowe",
+     "trade",
+     "Tampa Bay Rays traded 1B Nate Lowe, 1B Jake Guenther and Player To Be Named Later to Texas Rang",
+     "2020-12-10",
+     "inh",
+     2.0
+    ],
+    [
+     "Jon Gray",
+     "fa",
+     "Texas Rangers signed free agent RHP Jon Gray.",
+     "2021-12-01",
+     "inh",
+     1.6
+    ],
+    [
+     "Travis Jankowski",
+     "intl",
+     "Texas Rangers signed free agent CF Travis Jankowski to a minor league contract and invited him ",
+     "2023-01-27",
+     "reg",
+     1.6
+    ],
+    [
+     "Jordan Montgomery",
+     "trade",
+     "St. Louis Cardinals traded LHP Jordan Montgomery and RHP Chris Stratton to Texas Rangers for LH",
+     "2023-07-30",
+     "reg",
+     1.5
+    ],
+    [
+     "Evan Carter",
+     "draft",
+     "Drafted by the club, 2020",
+     "2020-06-15",
+     "inh",
+     1.5
+    ],
+    [
+     "Will Smith",
+     "fa",
+     "Texas Rangers signed free agent LHP Will Smith.",
+     "2023-03-04",
+     "reg",
+     1.3
+    ]
+   ]
+  },
+  {
+   "id": "lad24",
+   "label": "2024 Los Angeles Dodgers",
+   "team": "Los Angeles Dodgers",
+   "year": 2024,
+   "result": "Won World Series",
+   "regime": "Andrew Friedman",
+   "regimeNote": "title in year 11 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Shohei Ohtani",
+     "fa",
+     "Los Angeles Dodgers signed free agent RHP Shohei Ohtani.",
+     "2023-12-11",
+     "reg",
+     11.6
+    ],
+    [
+     "Mookie Betts",
+     "trade",
+     "Los Angeles Dodgers traded CF Alex Verdugo, C Connor Wong and SS Jeter Downs to Boston Red Sox ",
+     "2020-02-10",
+     "reg",
+     5.5
+    ],
+    [
+     "Freddie Freeman",
+     "fa",
+     "Los Angeles Dodgers signed free agent 1B Freddie Freeman.",
+     "2022-03-18",
+     "reg",
+     4.0
+    ],
+    [
+     "Teoscar Hern\u00e1ndez",
+     "fa",
+     "Los Angeles Dodgers signed free agent LF Teoscar Hern\u00e1ndez.",
+     "2024-01-12",
+     "reg",
+     3.8
+    ],
+    [
+     "Will Smith",
+     "draft",
+     "Drafted by the club, 2016",
+     "2016-06-15",
+     "reg",
+     3.7
+    ],
+    [
+     "Tyler Glasnow",
+     "trade",
+     "Los Angeles Dodgers traded RHP Ryan Pepiot and OF Jonny DeLuca to Tampa Bay Rays for RHP Tyler ",
+     "2023-12-16",
+     "reg",
+     3.3
+    ],
+    [
+     "Miguel Rojas",
+     "trade",
+     "Miami Marlins traded SS Miguel Rojas to Los Angeles Dodgers for SS Jacob Amaya.",
+     "2023-01-11",
+     "reg",
+     2.8
+    ],
+    [
+     "Max Muncy",
+     "intl",
+     "Los Angeles Dodgers signed free agent 2B Max Muncy to a minor league contract.",
+     "2017-04-28",
+     "reg",
+     2.7
+    ],
+    [
+     "Yoshinobu Yamamoto",
+     "fa",
+     "Los Angeles Dodgers signed free agent RHP Yoshinobu Yamamoto.",
+     "2023-12-27",
+     "reg",
+     2.5
+    ],
+    [
+     "Gavin Stone",
+     "draft",
+     "Drafted by the club, 2020",
+     "2020-06-15",
+     "reg",
+     1.6
+    ],
+    [
+     "Andy Pages",
+     "intl",
+     "Los Angeles Dodgers signed free agent OF Andy Pages to a minor league contract.",
+     "2018-03-01",
+     "reg",
+     1.5
+    ],
+    [
+     "Alex Vesia",
+     "trade",
+     "traded  to Los Angeles Dodgers for .",
+     "2021-02-12",
+     "reg",
+     1.2
+    ],
+    [
+     "Evan Phillips",
+     "intl",
+     "Los Angeles Dodgers claimed RHP Evan Phillips off waivers from Tampa Bay Rays.",
+     "2021-08-16",
+     "reg",
+     1.1
+    ],
+    [
+     "Blake Treinen",
+     "fa",
+     "Los Angeles Dodgers signed free agent RHP Blake Treinen.",
+     "2021-01-05",
+     "reg",
+     1.1
+    ],
+    [
+     "Gavin Lux",
+     "draft",
+     "Drafted by the club, 2016",
+     "2016-06-15",
+     "reg",
+     1.1
+    ]
+   ]
+  },
+  {
+   "id": "lad25",
+   "label": "2025 Los Angeles Dodgers",
+   "team": "Los Angeles Dodgers",
+   "year": 2025,
+   "result": "Won World Series",
+   "regime": "Andrew Friedman",
+   "regimeNote": "title in year 12 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Shohei Ohtani",
+     "fa",
+     "Los Angeles Dodgers signed free agent RHP Shohei Ohtani.",
+     "2023-12-11",
+     "reg",
+     11.7
+    ],
+    [
+     "Yoshinobu Yamamoto",
+     "fa",
+     "Los Angeles Dodgers signed free agent RHP Yoshinobu Yamamoto.",
+     "2023-12-27",
+     "reg",
+     4.7
+    ],
+    [
+     "Will Smith",
+     "draft",
+     "Drafted by the club, 2016",
+     "2016-06-15",
+     "reg",
+     4.7
+    ],
+    [
+     "Mookie Betts",
+     "trade",
+     "Los Angeles Dodgers traded CF Alex Verdugo, C Connor Wong and SS Jeter Downs to Boston Red Sox ",
+     "2020-02-10",
+     "reg",
+     4.1
+    ],
+    [
+     "Andy Pages",
+     "intl",
+     "Los Angeles Dodgers signed free agent OF Andy Pages to a minor league contract.",
+     "2018-03-01",
+     "reg",
+     3.7
+    ],
+    [
+     "Freddie Freeman",
+     "fa",
+     "Los Angeles Dodgers signed free agent 1B Freddie Freeman.",
+     "2022-03-18",
+     "reg",
+     3.3
+    ],
+    [
+     "Max Muncy",
+     "intl",
+     "Los Angeles Dodgers signed free agent 2B Max Muncy to a minor league contract.",
+     "2017-04-28",
+     "reg",
+     3.0
+    ],
+    [
+     "Clayton Kershaw",
+     "fa",
+     "Los Angeles Dodgers signed free agent LHP Clayton Kershaw.",
+     "2025-02-13",
+     "reg",
+     2.1
+    ],
+    [
+     "Jack Dreyer",
+     "intl",
+     "Los Angeles Dodgers signed free agent LHP Jack Dreyer to a minor league contract.",
+     "2021-08-03",
+     "reg",
+     2.1
+    ],
+    [
+     "Blake Snell",
+     "fa",
+     "Los Angeles Dodgers signed free agent LHP Blake Snell.",
+     "2024-11-30",
+     "reg",
+     1.8
+    ],
+    [
+     "Justin Wrobleski",
+     "intl",
+     "Los Angeles Dodgers signed free agent LHP Justin Wrobleski to a minor league contract.",
+     "2021-07-26",
+     "reg",
+     1.7
+    ],
+    [
+     "Tyler Glasnow",
+     "trade",
+     "Los Angeles Dodgers traded RHP Ryan Pepiot and OF Jonny DeLuca to Tampa Bay Rays for RHP Tyler ",
+     "2023-12-16",
+     "reg",
+     1.5
+    ],
+    [
+     "Ben Casparius",
+     "draft",
+     "Drafted by the club, 2021",
+     "2021-06-15",
+     "reg",
+     1.4
+    ],
+    [
+     "Tommy Edman",
+     "trade",
+     "Los Angeles Dodgers traded 3B Miguel Vargas, SS Alexander Albertus, SS Jeral Perez and a player",
+     "2024-07-29",
+     "reg",
+     1.3
+    ],
+    [
+     "Miguel Rojas",
+     "trade",
+     "Miami Marlins traded SS Miguel Rojas to Los Angeles Dodgers for SS Jacob Amaya.",
+     "2023-01-11",
+     "reg",
+     1.3
+    ],
+    [
+     "Teoscar Hern\u00e1ndez",
+     "fa",
+     "Los Angeles Dodgers signed free agent LF Teoscar Hern\u00e1ndez.",
+     "2025-01-03",
+     "reg",
+     1.1
+    ]
+   ]
+  }
+ ],
+ "lines": {
+  "n": 21,
+  "medianRegShare": 88,
+  "medianTenure": 7,
+  "earlyTitles": 3,
+  "lateTitles": 9,
+  "avgShare": {
+   "fa": 27.2,
+   "trade": 19.0,
+   "draft": 12.3,
+   "intl": 11.9,
+   "inherited": 29.6
+  },
+  "majorityFA": [
+   "nyy09"
+  ],
+  "majorityHomegrown": [
+   "sf10",
+   "sf12",
+   "sf14"
+  ],
+  "mostInherited": "tex23",
+  "mostBought": "nyy09",
+  "mostHomegrown": "sf14",
+  "mostTraded": "chc16",
+  "rows": [
+   {
+    "id": "cws05",
+    "yr": 2005,
+    "team": "Chicago White Sox",
+    "abbr": "CWS",
+    "exec": "Ken Williams",
+    "tenure": 6,
+    "total": 38.3,
+    "regShare": 58,
+    "mix": {
+     "inherited": 16.1,
+     "trade": 11.1,
+     "fa": 9.9,
+     "intl": 1.2
+    }
+   },
+   {
+    "id": "stl06",
+    "yr": 2006,
+    "team": "St. Louis Cardinals",
+    "abbr": "STL",
+    "exec": "Walt Jocketty",
+    "tenure": 13,
+    "total": 29.7,
+    "regShare": 100,
+    "mix": {
+     "intl": 11.1,
+     "trade": 8.7,
+     "fa": 9.9
+    }
+   },
+   {
+    "id": "bos07",
+    "yr": 2007,
+    "team": "Boston Red Sox",
+    "abbr": "BOS",
+    "exec": "Theo Epstein",
+    "tenure": 6,
+    "total": 41.5,
+    "regShare": 81,
+    "mix": {
+     "fa": 14.5,
+     "trade": 12.9,
+     "intl": 5.3,
+     "inherited": 7.8,
+     "draft": 1.0
+    }
+   },
+   {
+    "id": "phi08",
+    "yr": 2008,
+    "team": "Philadelphia Phillies",
+    "abbr": "PHI",
+    "exec": "Pat Gillick",
+    "tenure": 4,
+    "total": 37.5,
+    "regShare": 30,
+    "mix": {
+     "inherited": 26.2,
+     "fa": 6.0,
+     "trade": 3.9,
+     "intl": 1.4
+    }
+   },
+   {
+    "id": "nyy09",
+    "yr": 2009,
+    "team": "New York Yankees",
+    "abbr": "NYY",
+    "exec": "Brian Cashman",
+    "tenure": 12,
+    "total": 57.2,
+    "regShare": 89,
+    "mix": {
+     "inherited": 6.5,
+     "fa": 32.2,
+     "intl": 12.6,
+     "trade": 3.6,
+     "draft": 2.3
+    }
+   },
+   {
+    "id": "sf10",
+    "yr": 2010,
+    "team": "San Francisco Giants",
+    "abbr": "SF",
+    "exec": "Brian Sabean",
+    "tenure": 15,
+    "total": 37.0,
+    "regShare": 100,
+    "mix": {
+     "fa": 9.7,
+     "draft": 10.7,
+     "intl": 14.2,
+     "trade": 2.4
+    }
+   },
+   {
+    "id": "stl11",
+    "yr": 2011,
+    "team": "St. Louis Cardinals",
+    "abbr": "STL",
+    "exec": "John Mozeliak",
+    "tenure": 4,
+    "total": 47.6,
+    "regShare": 36,
+    "mix": {
+     "fa": 14.3,
+     "inherited": 30.3,
+     "trade": 3.0
+    }
+   },
+   {
+    "id": "sf12",
+    "yr": 2012,
+    "team": "San Francisco Giants",
+    "abbr": "SF",
+    "exec": "Brian Sabean",
+    "tenure": 17,
+    "total": 39.3,
+    "regShare": 100,
+    "mix": {
+     "draft": 14.2,
+     "trade": 12.7,
+     "intl": 9.8,
+     "fa": 2.6
+    }
+   },
+   {
+    "id": "bos13",
+    "yr": 2013,
+    "team": "Boston Red Sox",
+    "abbr": "BOS",
+    "exec": "Ben Cherington",
+    "tenure": 3,
+    "total": 47.3,
+    "regShare": 46,
+    "mix": {
+     "fa": 19.9,
+     "inherited": 25.6,
+     "trade": 1.8
+    }
+   },
+   {
+    "id": "sf14",
+    "yr": 2014,
+    "team": "San Francisco Giants",
+    "abbr": "SF",
+    "exec": "Brian Sabean",
+    "tenure": 19,
+    "total": 36.2,
+    "regShare": 100,
+    "mix": {
+     "draft": 16.6,
+     "trade": 4.2,
+     "intl": 8.2,
+     "fa": 7.2
+    }
+   },
+   {
+    "id": "kc15",
+    "yr": 2015,
+    "team": "Kansas City Royals",
+    "abbr": "KC",
+    "exec": "Dayton Moore",
+    "tenure": 10,
+    "total": 29.8,
+    "regShare": 93,
+    "mix": {
+     "trade": 9.0,
+     "draft": 8.8,
+     "fa": 5.9,
+     "inherited": 2.2,
+     "intl": 3.9
+    }
+   },
+   {
+    "id": "chc16",
+    "yr": 2016,
+    "team": "Chicago Cubs",
+    "abbr": "CHC",
+    "exec": "Theo Epstein",
+    "tenure": 6,
+    "total": 48.7,
+    "regShare": 94,
+    "mix": {
+     "draft": 6.3,
+     "trade": 21.3,
+     "fa": 16.9,
+     "inherited": 2.8,
+     "intl": 1.4
+    }
+   },
+   {
+    "id": "hou17",
+    "yr": 2017,
+    "team": "Houston Astros",
+    "abbr": "HOU",
+    "exec": "Jeff Luhnow",
+    "tenure": 7,
+    "total": 44.4,
+    "regShare": 88,
+    "mix": {
+     "draft": 13.3,
+     "trade": 16.8,
+     "fa": 8.8,
+     "inherited": 5.5
+    }
+   },
+   {
+    "id": "bos18",
+    "yr": 2018,
+    "team": "Boston Red Sox",
+    "abbr": "BOS",
+    "exec": "Dave Dombrowski",
+    "tenure": 4,
+    "total": 54.6,
+    "regShare": 34,
+    "mix": {
+     "inherited": 36.0,
+     "fa": 8.6,
+     "trade": 10.0
+    }
+   },
+   {
+    "id": "wsh19",
+    "yr": 2019,
+    "team": "Washington Nationals",
+    "abbr": "WSH",
+    "exec": "Mike Rizzo",
+    "tenure": 11,
+    "total": 49.9,
+    "regShare": 100,
+    "mix": {
+     "draft": 12.2,
+     "intl": 10.3,
+     "trade": 8.9,
+     "fa": 18.5
+    }
+   },
+   {
+    "id": "lad20",
+    "yr": 2020,
+    "team": "Los Angeles Dodgers",
+    "abbr": "LAD",
+    "exec": "Andrew Friedman",
+    "tenure": 7,
+    "total": 17.7,
+    "regShare": 64,
+    "mix": {
+     "trade": 5.6,
+     "inherited": 6.4,
+     "draft": 3.1,
+     "fa": 2.6
+    }
+   },
+   {
+    "id": "atl21",
+    "yr": 2021,
+    "team": "Atlanta Braves",
+    "abbr": "ATL",
+    "exec": "Alex Anthopoulos",
+    "tenure": 5,
+    "total": 33.1,
+    "regShare": 30,
+    "mix": {
+     "inherited": 23.3,
+     "fa": 4.9,
+     "intl": 3.8,
+     "trade": 1.1
+    }
+   },
+   {
+    "id": "hou22",
+    "yr": 2022,
+    "team": "Houston Astros",
+    "abbr": "HOU",
+    "exec": "James Click",
+    "tenure": 3,
+    "total": 46.7,
+    "regShare": 21,
+    "mix": {
+     "inherited": 36.7,
+     "fa": 8.2,
+     "trade": 1.8
+    }
+   },
+   {
+    "id": "tex23",
+    "yr": 2023,
+    "team": "Texas Rangers",
+    "abbr": "TEX",
+    "exec": "Chris Young",
+    "tenure": 2,
+    "total": 46.7,
+    "regShare": 15,
+    "mix": {
+     "inherited": 39.8,
+     "fa": 3.8,
+     "intl": 1.6,
+     "trade": 1.5
+    }
+   },
+   {
+    "id": "lad24",
+    "yr": 2024,
+    "team": "Los Angeles Dodgers",
+    "abbr": "LAD",
+    "exec": "Andrew Friedman",
+    "tenure": 11,
+    "total": 47.5,
+    "regShare": 100,
+    "mix": {
+     "fa": 23.0,
+     "trade": 12.8,
+     "draft": 6.4,
+     "intl": 5.3
+    }
+   },
+   {
+    "id": "lad25",
+    "yr": 2025,
+    "team": "Los Angeles Dodgers",
+    "abbr": "LAD",
+    "exec": "Andrew Friedman",
+    "tenure": 12,
+    "total": 49.5,
+    "regShare": 100,
+    "mix": {
+     "fa": 24.7,
+     "draft": 6.1,
+     "trade": 8.2,
+     "intl": 10.5
+    }
+   }
+  ]
+ }
+}
