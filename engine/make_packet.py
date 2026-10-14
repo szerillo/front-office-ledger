@@ -133,6 +133,15 @@ for f in [
     "after arriving vs the two before), the reputations fall out of the data unprompted: Cleveland improves "
     "defenders by about +2.5 runs per season and arms by +0.19 wins; Milwaukee, Tampa Bay, and San Diego profile as "
     "pitching labs; Texas arms regress. None of this was curated.",
+    "<b>How titles actually get built, measured across all 21 champions 2005-2025:</b> the median champion was "
+    "88% built by its sitting regime and won in year seven of the tenure; nine of 21 titles came in year ten or "
+    "later, and free agency has been a majority channel exactly once (the 2009 Yankees). The most inherited title "
+    "is 2023 Texas, 85% Jon Daniels' core two seasons after the handoff: the sharpest attribution case in the book.",
+    "<b>The system audits its own inputs.</b> Tracing the 2009 Yankees' roster exposed that the MLB transaction "
+    "feed is empty before 2009; the fix was joining the Retrosheet archive (22,697 rows, 1998-2008, mapped to "
+    "MLBAM ids via the Chadwick register), which put the Beckett-for-Hanley and Cabrera trades into the book and "
+    "left the validation studies unchanged. Every graded trade also now carries market comps: the nearest deals "
+    "by size and phase from a 5,764-deal archive, so each verdict reads against what deals of that shape cost.",
     "<b>Head-to-head records exist and are lopsided.</b> Every trade between two sitting regimes, netted from each "
     "seat: some relationships run 20+ wins one-sided across a decade of deals. Counterparty selection is a skill "
     "the public conversation does not price.",
