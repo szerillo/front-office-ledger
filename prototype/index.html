@@ -435,6 +435,8 @@
       <p>The complement of the rental study: 1,372 deadline deals 2005-2023 where acquired players came with control beyond the season, with control measured from the feed (seasons until the player's first free-agency declaration, capped at six). The price curve by control: <strong>one extra year of control trades at about 1.0 wins paid per win received</strong> (the deadline premium on controlled players is real and larger than the 0.8 star-rental rate); two extra years at ~0.86; and the three-plus bucket, which is mostly the seller's seat buying prospect packages, at ~0.37 paid per win eventually received, with a 71% bust rate. In other words: sellers buy future wins at about a third of the price buyers pay for present ones, and they pay for that discount in variance. The biggest controlled buys in the archive (Turner, Arrieta, Verlander, Gallen, the Soto package) were all acquired at single-digit prices against double-digit returns. Full tables in <code>data/rental_market.json</code>.</p>
       <h3>Championship provenance (computed)</h3>
       <p>Every World Series winner 1998-2025 carries a computed roster ledger: core contributors (&ge; 1.0 Ledger WAR in the title season) traced to the club's last acquisition event (feed 2009+, Retrosheet backfill 1985-2008), with inherited meaning acquired before the sitting regime's true seat date. Across all 28 titles the median champion was 61% built by its sitting regime in year 6 of the tenure, and free agency has been a majority channel exactly once (the 2009 Yankees). The strongest through-line is generational: the median title core was 48% self-built in 1998-2009 but 90% self-built in 2010-2025. The handed-down championship (1998 Yankees: 93% inherited; 2023 Rangers: 85%) still happens, but the modern norm is the regime that wins built the thing itself.</p>
+      <h3>Ledger Projection v1 (the forward view on open deals)</h3>
+      <p>Open deals show, beside their realized grade, a projected rest-of-window and a projected final verdict. The projection is self-built (no licensed projection system is consulted): Marcel-style weighted recent form (5/4/3), regressed 20% to the population mean, walked forward on <strong>delta-method aging curves computed from our own 28,000-player cache</strong> (hitters peak at 27-28 and decline ~0.3 wins/yr through the 30s; pitchers decline flatter: the textbook curve, recovered independently), with a 10%/yr roster-uncertainty haircut and a zero floor. Prospects without an MLB track record carry their Pipeline-rank expectation from the same curve the deal marks use; unranked traded prospects carry the empirical mean outcome of 1,327 unranked traded pieces (0.41 wins). <strong>Backtested:</strong> projecting each season from only prior data gives r = 0.62 (2023) and r = 0.67 (2025) against actual next-season WAR, with MAE ~0.8 wins, competitive with public projection systems. The overlay is disclosed and quarantined: <strong>grades count realized value only and never move on a forecast.</strong></p>
       <h3>Trade market comps</h3>
       <p>Every graded trade on an active or archive card carries up to three market comps: the nearest deals by eventual value received, same season phase (deadline / offseason), drawn from the 1998-2023 league-wide archive of 5,764 buyer-seat deals. A verdict reads differently when you can see what deals of that size usually cost; the comps put each trade's price against the market that actually existed.</p>
       <h3>Player development (DEV)</h3>
@@ -459,7 +461,7 @@
     </div>
   </section>
 
-  <footer>Front Office Ledger · built by Sean Zerillo · prototype v3.3 · data through October 14, 2026 · archive floor extended to 1998 (110 past regimes; full Beane, Sabean, Cashman windows; parks to 1996; drafts backfilled 1998-2004) · 28 championship ledgers 1998-2025 with the era through-line (median title core 48% self-built 1998-2009, 90% 2010-2025) · validation v2 (574 pooled regime-years, cluster-bootstrap CI, grouped out-of-sample CV) · comps v2 (matched on control bucket + buyer posture) · Retrosheet transaction backfill 1998-2008 (the API feed is empty pre-2009; found and fixed, disclosed in Methodology) · computed championship provenance for all 21 titles 2005-2025 with cross-title through lines · trade market comps on every graded deal (nearest deals by size and phase, 5,764-deal archive) (full 2026 regular season; 2026 postseason in progress, Success grades will move with it) · Ledger WAR v1.5 (park factors: home/away run environments, 3-yr rolling, halved for the road split) · Archive era: 71 past regimes 2005-2024 scored by the same engine over their actual windows (Era filter on the leaderboard; full report cards and transaction trees) · Retention v2 (expectation-conditioned departures + QO comp credit, now in the FOR composite) · methodology v0.4 (controlled-years deadline market: 1,372 deals; sellers buy future wins at ~a third the price of present ones) · validation + predictive studies in Methodology · Head to Head tab (trade records between sitting regimes, most lopsided relationships) · Org DNA tab (plain-language columns) (arms/bats splits, mover deltas incl. hitting, retention leakage, injury profiles, draft-room fingerprints, buy-low rates, regime comps, head-to-head trade records) · Regime DNA (archetype tags, arms/bats channel splits, mover development deltas) · Ledger WAR v1 (defense via SABR Defensive Index where published, Statcast fielding runs + catcher framing elsewhere, Statcast baserunning; pre-2014 seasons remain bat-only, disclosed) · process-vs-outcome verdicts on trades · transaction trees auto-generated for all 30 regimes · decision chains as inline trees (each piece's next move on this regime's ledger, expandable in place) · at-the-time snapshots (contemporaneous Pipeline ranks) · comprehensive per-channel card ledgers · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · all leaderboard and card values, active and archive, computed end-to-end from the live feed; curated decision pages on the Dodgers, Orioles, and Brewers cards are hand-verified. Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
+  <footer>Front Office Ledger · built by Sean Zerillo · prototype v3.3 · data through October 14, 2026 · archive floor extended to 1998 (110 past regimes; full Beane, Sabean, Cashman windows; parks to 1996; drafts backfilled 1998-2004) · 28 championship ledgers 1998-2025 with the era through-line (median title core 48% self-built 1998-2009, 90% 2010-2025) · validation v2 (574 pooled regime-years, cluster-bootstrap CI, grouped out-of-sample CV) · comps v2 (matched on control bucket + buyer posture) · Ledger Projection v1 (self-built aging curves + Marcel-style forecasts; projected final verdicts on every open deal, disclosed overlay, backtested r ~0.64) · Retrosheet transaction backfill 1998-2008 (the API feed is empty pre-2009; found and fixed, disclosed in Methodology) · computed championship provenance for all 21 titles 2005-2025 with cross-title through lines · trade market comps on every graded deal (nearest deals by size and phase, 5,764-deal archive) (full 2026 regular season; 2026 postseason in progress, Success grades will move with it) · Ledger WAR v1.5 (park factors: home/away run environments, 3-yr rolling, halved for the road split) · Archive era: 71 past regimes 2005-2024 scored by the same engine over their actual windows (Era filter on the leaderboard; full report cards and transaction trees) · Retention v2 (expectation-conditioned departures + QO comp credit, now in the FOR composite) · methodology v0.4 (controlled-years deadline market: 1,372 deals; sellers buy future wins at ~a third the price of present ones) · validation + predictive studies in Methodology · Head to Head tab (trade records between sitting regimes, most lopsided relationships) · Org DNA tab (plain-language columns) (arms/bats splits, mover deltas incl. hitting, retention leakage, injury profiles, draft-room fingerprints, buy-low rates, regime comps, head-to-head trade records) · Regime DNA (archetype tags, arms/bats channel splits, mover development deltas) · Ledger WAR v1 (defense via SABR Defensive Index where published, Statcast fielding runs + catcher framing elsewhere, Statcast baserunning; pre-2014 seasons remain bat-only, disclosed) · process-vs-outcome verdicts on trades · transaction trees auto-generated for all 30 regimes · decision chains as inline trees (each piece's next move on this regime's ledger, expandable in place) · at-the-time snapshots (contemporaneous Pipeline ranks) · comprehensive per-channel card ledgers · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · all leaderboard and card values, active and archive, computed end-to-end from the live feed; curated decision pages on the Dodgers, Orioles, and Brewers cards are hand-verified. Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
 </div>
 
 <!-- decision modal -->
@@ -5275,6 +5277,12 @@ const LB_HIST = [
 "paid": 5.5
 }
 ],
+"proj": {
+"inn": 2.8,
+"out": 0.0,
+"net": 2.8,
+"final": 12.2
+},
 "note": "Auto-scored: value in +9.5 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -5657,6 +5665,12 @@ const LB_HIST = [
 "paid": 5.5
 }
 ],
+"proj": {
+"inn": 2.8,
+"out": 0.0,
+"net": 2.8,
+"final": 12.2
+},
 "note": "Auto-scored: value in +9.5 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -5719,6 +5733,12 @@ const LB_HIST = [
 "paid": 14.9
 }
 ],
+"proj": {
+"inn": 2.8,
+"out": 0.0,
+"net": 2.8,
+"final": 5.6
+},
 "note": "Auto-scored: value in +2.7 vs value out -0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -13932,6 +13952,12 @@ const LB_HIST = [
 "paid": 0.9
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 2.4
+},
 "note": "Auto-scored: value in +2.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -13999,6 +14025,12 @@ const LB_HIST = [
 "paid": 0.4
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 1.2,
+"net": -1.2,
+"final": 1.3
+},
 "note": "Auto-scored: value in +2.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -14078,6 +14110,12 @@ const LB_HIST = [
 "paid": 1.9
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.8,
+"net": -0.8,
+"final": -5.8
+},
 "note": "Auto-scored: value in -1.1 vs value out +3.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -14145,6 +14183,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.8,
+"out": 0.0,
+"net": 0.8,
+"final": -1.7
+},
 "note": "Auto-scored: value in +0.0 vs value out +2.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -14340,6 +14384,12 @@ const LB_HIST = [
 "paid": 0.9
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 2.4
+},
 "note": "Auto-scored: value in +2.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -14407,6 +14457,12 @@ const LB_HIST = [
 "paid": 0.4
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 1.2,
+"net": -1.2,
+"final": 1.3
+},
 "note": "Auto-scored: value in +2.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -14468,6 +14524,12 @@ const LB_HIST = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.0,
+"net": 0.0,
+"final": 1.7
+},
 "note": "Auto-scored: value in +1.7 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -14547,6 +14609,12 @@ const LB_HIST = [
 "paid": 1.9
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.8,
+"net": -0.8,
+"final": -5.8
+},
 "note": "Auto-scored: value in -1.1 vs value out +3.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -14614,6 +14682,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.8,
+"out": 0.0,
+"net": 0.8,
+"final": -1.7
+},
 "note": "Auto-scored: value in +0.0 vs value out +2.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -14676,6 +14750,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.0,
+"net": 0.4,
+"final": -1.5
+},
 "note": "Auto-scored: value in +0.0 vs value out +1.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -14737,6 +14817,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.0,
+"net": 0.0,
+"final": -1.7
+},
 "note": "Auto-scored: value in +0.0 vs value out +1.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -19013,6 +19099,12 @@ const LB_HIST = [
 "paid": 6.0
 }
 ],
+"proj": {
+"inn": 1.6,
+"out": 0.4,
+"net": 1.2,
+"final": 6.2
+},
 "note": "Auto-scored: value in +3.9 vs value out -1.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -19139,6 +19231,12 @@ const LB_HIST = [
 "paid": 0.2
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 1.9,
+"net": -1.5,
+"final": -4.5
+},
 "note": "Auto-scored: value in +0.0 vs value out +3.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -19263,6 +19361,12 @@ const LB_HIST = [
 "paid": 0.4
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.0,
+"net": 0.0,
+"final": -2.4
+},
 "note": "Auto-scored: value in -0.2 vs value out +2.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -23035,6 +23139,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.0,
+"net": 0.0,
+"final": 2.4
+},
 "note": "Auto-scored: value in +2.2 vs value out -0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -23104,6 +23214,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.1,
+"out": 2.8,
+"net": -2.7,
+"final": -12.1
+},
 "note": "Auto-scored: value in +0.1 vs value out +9.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -23165,6 +23281,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.1,
+"out": 2.8,
+"net": -2.7,
+"final": -6.1
+},
 "note": "Auto-scored: value in +0.0 vs value out +3.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -23436,6 +23558,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.0,
+"net": 0.0,
+"final": 2.4
+},
 "note": "Auto-scored: value in +2.2 vs value out -0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -23566,6 +23694,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.1,
+"out": 2.8,
+"net": -2.7,
+"final": -12.1
+},
 "note": "Auto-scored: value in +0.1 vs value out +9.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -23627,6 +23761,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.1,
+"out": 2.8,
+"net": -2.7,
+"final": -6.1
+},
 "note": "Auto-scored: value in +0.0 vs value out +3.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -34925,6 +35065,12 @@ const LB_HIST = [
 "paid": 0.2
 }
 ],
+"proj": {
+"inn": 2.4,
+"out": 0.8,
+"net": 1.6,
+"final": 9.4
+},
 "note": "Auto-scored: value in +7.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -35059,6 +35205,12 @@ const LB_HIST = [
 "paid": 1.3
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.8,
+"net": -0.8,
+"final": 4.7
+},
 "note": "Auto-scored: value in +5.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -35123,6 +35275,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.0,
+"net": 0.0,
+"final": -6.8
+},
 "note": "Auto-scored: value in -0.1 vs value out +6.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -35195,6 +35353,12 @@ const LB_HIST = [
 "paid": -0.7
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 2.8,
+"net": -2.8,
+"final": -9.1
+},
 "note": "Auto-scored: value in +7.6 vs value out +13.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -35346,6 +35510,12 @@ const LB_HIST = [
 "paid": 0.2
 }
 ],
+"proj": {
+"inn": 2.4,
+"out": 0.8,
+"net": 1.6,
+"final": 9.4
+},
 "note": "Auto-scored: value in +7.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -35480,6 +35650,12 @@ const LB_HIST = [
 "paid": 1.3
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.8,
+"net": -0.8,
+"final": 4.7
+},
 "note": "Auto-scored: value in +5.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -35605,6 +35781,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.0,
+"net": 0.0,
+"final": -6.8
+},
 "note": "Auto-scored: value in -0.1 vs value out +6.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -35677,6 +35859,12 @@ const LB_HIST = [
 "paid": -0.7
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 2.8,
+"net": -2.8,
+"final": -9.1
+},
 "note": "Auto-scored: value in +7.6 vs value out +13.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -43708,6 +43896,12 @@ const LB_HIST = [
 "paid": 2.3
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 1.0,
+"net": -0.6,
+"final": -15.0
+},
 "note": "Auto-scored: value in -2.7 vs value out +11.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -43775,6 +43969,12 @@ const LB_HIST = [
 "paid": 0.2
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 1.0,
+"net": -0.6,
+"final": -8.2
+},
 "note": "Auto-scored: value in +0.1 vs value out +7.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -43847,6 +44047,12 @@ const LB_HIST = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.5,
+"net": -0.5,
+"final": -2.6
+},
 "note": "Auto-scored: value in +0.3 vs value out +2.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -44137,6 +44343,12 @@ const LB_HIST = [
 "paid": 2.3
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 1.0,
+"net": -0.6,
+"final": -15.0
+},
 "note": "Auto-scored: value in -2.7 vs value out +11.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -44204,6 +44416,12 @@ const LB_HIST = [
 "paid": 0.2
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 1.0,
+"net": -0.6,
+"final": -8.2
+},
 "note": "Auto-scored: value in +0.1 vs value out +7.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -44276,6 +44494,12 @@ const LB_HIST = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.5,
+"net": -0.5,
+"final": -2.6
+},
 "note": "Auto-scored: value in +0.3 vs value out +2.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -44337,6 +44561,12 @@ const LB_HIST = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 1.8,
+"net": -1.8,
+"final": -3.3
+},
 "note": "Auto-scored: value in +0.0 vs value out +1.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -49273,6 +49503,12 @@ const LB_HIST = [
 "paid": 7.2
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.2,
+"net": 0.2,
+"final": 12.3
+},
 "note": "Auto-scored: value in +11.4 vs value out -0.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -49542,6 +49778,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 2.3,
+"net": -2.3,
+"final": -9.3
+},
 "note": "Auto-scored: value in +0.0 vs value out +7.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -49680,6 +49922,12 @@ const LB_HIST = [
 "paid": 7.2
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.2,
+"net": 0.2,
+"final": 12.3
+},
 "note": "Auto-scored: value in +11.4 vs value out -0.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -49824,6 +50072,12 @@ const LB_HIST = [
 "paid": 18.9
 }
 ],
+"proj": {
+"inn": 2.8,
+"out": 0.0,
+"net": 2.8,
+"final": 9.1
+},
 "note": "Auto-scored: value in +13.9 vs value out +7.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -50083,6 +50337,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 2.3,
+"net": -2.3,
+"final": -9.3
+},
 "note": "Auto-scored: value in +0.0 vs value out +7.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -50155,6 +50415,12 @@ const LB_HIST = [
 "paid": -0.2
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 3.5,
+"net": -3.5,
+"final": -10.2
+},
 "note": "Auto-scored: value in +0.4 vs value out +7.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -60292,6 +60558,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.0,
+"net": 0.0,
+"final": -2.8
+},
 "note": "Auto-scored: value in -0.0 vs value out +2.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -90357,6 +90629,12 @@ const LB_HIST = [
 "paid": -2.0
 }
 ],
+"proj": {
+"inn": 1.7,
+"out": 0.0,
+"net": 1.7,
+"final": 8.4
+},
 "note": "Auto-scored: value in +7.1 vs value out +0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -90426,6 +90704,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.2,
+"out": 0.4,
+"net": -0.2,
+"final": -12.3
+},
 "note": "Auto-scored: value in -0.7 vs value out +11.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -90503,6 +90787,12 @@ const LB_HIST = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 2.4,
+"out": 0.5,
+"net": 1.9,
+"final": -10.1
+},
 "note": "Auto-scored: value in -1.1 vs value out +10.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -90815,6 +91105,12 @@ const LB_HIST = [
 "paid": -2.0
 }
 ],
+"proj": {
+"inn": 1.7,
+"out": 0.0,
+"net": 1.7,
+"final": 8.4
+},
 "note": "Auto-scored: value in +7.1 vs value out +0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -90956,6 +91252,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.2,
+"out": 0.4,
+"net": -0.2,
+"final": -12.3
+},
 "note": "Auto-scored: value in -0.7 vs value out +11.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -91033,6 +91335,12 @@ const LB_HIST = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 2.4,
+"out": 0.5,
+"net": 1.9,
+"final": -10.1
+},
 "note": "Auto-scored: value in -1.1 vs value out +10.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -97983,6 +98291,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 0.9,
+"net": -0.9,
+"final": -5.9
+},
 "note": "Auto-scored: value in +0.0 vs value out +5.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -98240,6 +98554,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 0.9,
+"net": -0.9,
+"final": -5.9
+},
 "note": "Auto-scored: value in +0.0 vs value out +5.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -98302,6 +98622,12 @@ const LB_HIST = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.0,
+"net": 0.4,
+"final": -1.2
+},
 "note": "Auto-scored: value in +0.0 vs value out +1.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -156937,6 +157263,12 @@ const AUTO_REGIMES = [
 "paid": 3.1
 }
 ],
+"proj": {
+"inn": 3.8,
+"out": 2.0,
+"net": 1.8,
+"final": 18.4
+},
 "note": "Auto-scored: value in +26.0 vs value out +9.5, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +6.0 at the time."
 },
 {
@@ -157060,6 +157392,12 @@ const AUTO_REGIMES = [
 "paid": 7.0
 }
 ],
+"proj": {
+"inn": 5.4,
+"out": 0.4,
+"net": 5.0,
+"final": 12.0
+},
 "note": "Auto-scored: value in +7.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -157206,6 +157544,12 @@ const AUTO_REGIMES = [
 "paid": 0.6
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 2.2,
+"net": -2.2,
+"final": -8.8
+},
 "note": "Auto-scored: value in +0.9 vs value out +7.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -157567,6 +157911,12 @@ const AUTO_REGIMES = [
 "paid": 3.1
 }
 ],
+"proj": {
+"inn": 3.8,
+"out": 2.0,
+"net": 1.8,
+"final": 18.4
+},
 "note": "Auto-scored: value in +26.0 vs value out +9.5, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +6.0 at the time."
 },
 {
@@ -157702,6 +158052,12 @@ const AUTO_REGIMES = [
 "paid": 7.0
 }
 ],
+"proj": {
+"inn": 5.4,
+"out": 0.4,
+"net": 5.0,
+"final": 12.0
+},
 "note": "Auto-scored: value in +7.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -157775,6 +158131,12 @@ const AUTO_REGIMES = [
 "paid": 3.7
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.3,
+"net": -0.3,
+"final": 4.5
+},
 "note": "Auto-scored: value in +4.9 vs value out +0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -158011,6 +158373,12 @@ const AUTO_REGIMES = [
 "paid": 0.6
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 2.2,
+"net": -2.2,
+"final": -8.8
+},
 "note": "Auto-scored: value in +0.9 vs value out +7.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -159876,6 +160244,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 3.3,
+"out": 3.0,
+"net": 0.3,
+"final": 23.5
+},
 "note": "Auto-scored: value in +23.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 2 ranked piece(s) surrendered carried a Pipeline mark of about +7.7 wins at the time; they realized +0.0 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
@@ -159938,6 +160312,12 @@ const AUTO_REGIMES = [
 "paid": 17.8
 }
 ],
+"proj": {
+"inn": 6.7,
+"out": 0.0,
+"net": 6.7,
+"final": 28.1
+},
 "note": "Auto-scored: value in +20.1 vs value out -1.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -160005,6 +160385,12 @@ const AUTO_REGIMES = [
 "paid": -2.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 7.2
+},
 "note": "Auto-scored: value in +7.7 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -160094,6 +160480,12 @@ const AUTO_REGIMES = [
 "paid": 7.0
 }
 ],
+"proj": {
+"inn": 0.6,
+"out": 4.4,
+"net": -3.8,
+"final": -23.3
+},
 "note": "Auto-scored: value in +6.8 vs value out +26.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -160403,6 +160795,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 3.3,
+"out": 3.0,
+"net": 0.3,
+"final": 23.5
+},
 "note": "Auto-scored: value in +23.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 2 ranked piece(s) surrendered carried a Pipeline mark of about +7.7 wins at the time; they realized +0.0 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
@@ -160471,6 +160869,12 @@ const AUTO_REGIMES = [
 "paid": 17.8
 }
 ],
+"proj": {
+"inn": 6.7,
+"out": 0.0,
+"net": 6.7,
+"final": 28.1
+},
 "note": "Auto-scored: value in +20.1 vs value out -1.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -160544,6 +160948,12 @@ const AUTO_REGIMES = [
 "paid": -2.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 7.2
+},
 "note": "Auto-scored: value in +7.7 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -160617,6 +161027,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.6,
+"net": -0.2,
+"final": 4.2
+},
 "note": "Auto-scored: value in +4.1 vs value out -0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -160800,6 +161216,12 @@ const AUTO_REGIMES = [
 "paid": 7.0
 }
 ],
+"proj": {
+"inn": 0.6,
+"out": 4.4,
+"net": -3.8,
+"final": -23.3
+},
 "note": "Auto-scored: value in +6.8 vs value out +26.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -160950,6 +161372,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 0.7,
+"net": -0.7,
+"final": -2.5
+},
 "note": "Auto-scored: value in +0.0 vs value out +1.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -162631,6 +163059,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 5.6,
+"out": 2.1,
+"net": 3.5,
+"final": 9.3
+},
 "note": "Auto-scored: value in +6.2 vs value out +0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -162698,6 +163132,12 @@ const AUTO_REGIMES = [
 "paid": 7.0
 }
 ],
+"proj": {
+"inn": 7.2,
+"out": 0.6,
+"net": 6.6,
+"final": 12.0
+},
 "note": "Auto-scored: value in +5.4 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -162760,6 +163200,12 @@ const AUTO_REGIMES = [
 "paid": 3.7
 }
 ],
+"proj": {
+"inn": 7.7,
+"out": 14.5,
+"net": -6.8,
+"final": -1.9
+},
 "note": "Auto-scored: value in +5.0 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -162824,6 +163270,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 6.7,
+"net": -6.7,
+"final": -28.1
+},
 "note": "Auto-scored: value in -1.4 vs value out +20.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -162901,6 +163353,12 @@ const AUTO_REGIMES = [
 "paid": -0.0
 }
 ],
+"proj": {
+"inn": 2.1,
+"out": 8.2,
+"net": -6.1,
+"final": -10.2
+},
 "note": "Auto-scored: value in +0.3 vs value out +4.4, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +4.1 at the time."
 }
 ],
@@ -163205,6 +163663,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 5.6,
+"out": 2.1,
+"net": 3.5,
+"final": 9.3
+},
 "note": "Auto-scored: value in +6.2 vs value out +0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -163278,6 +163742,12 @@ const AUTO_REGIMES = [
 "paid": 7.0
 }
 ],
+"proj": {
+"inn": 7.2,
+"out": 0.6,
+"net": 6.6,
+"final": 12.0
+},
 "note": "Auto-scored: value in +5.4 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -163346,6 +163816,12 @@ const AUTO_REGIMES = [
 "paid": 3.7
 }
 ],
+"proj": {
+"inn": 7.7,
+"out": 14.5,
+"net": -6.8,
+"final": -1.9
+},
 "note": "Auto-scored: value in +5.0 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -163414,6 +163890,12 @@ const AUTO_REGIMES = [
 "paid": 9.2
 }
 ],
+"proj": {
+"inn": 3.1,
+"out": 0.4,
+"net": 2.7,
+"final": 6.9
+},
 "note": "Auto-scored: value in +3.6 vs value out -0.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -163482,6 +163964,12 @@ const AUTO_REGIMES = [
 "paid": 0.3
 }
 ],
+"proj": {
+"inn": 1.3,
+"out": 0.4,
+"net": 0.9,
+"final": 4.9
+},
 "note": "Auto-scored: value in +4.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -163552,6 +164040,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 6.7,
+"net": -6.7,
+"final": -28.1
+},
 "note": "Auto-scored: value in -1.4 vs value out +20.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -163635,6 +164129,12 @@ const AUTO_REGIMES = [
 "paid": -0.0
 }
 ],
+"proj": {
+"inn": 2.1,
+"out": 8.2,
+"net": -6.1,
+"final": -10.2
+},
 "note": "Auto-scored: value in +0.3 vs value out +4.4, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +4.1 at the time."
 },
 {
@@ -163703,6 +164203,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 1.1,
+"net": -1.1,
+"final": -4.6
+},
 "note": "Auto-scored: value in +0.0 vs value out +3.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -163771,6 +164277,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 2.5,
+"net": -2.1,
+"final": -4.9
+},
 "note": "Auto-scored: value in +0.0 vs value out +2.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -163844,6 +164356,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 1.5,
+"net": -1.1,
+"final": -3.0
+},
 "note": "Auto-scored: value in +0.0 vs value out +1.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -165022,6 +165540,12 @@ const AUTO_REGIMES = [
 "paid": 3.5
 }
 ],
+"proj": {
+"inn": 5.2,
+"out": 6.1,
+"net": -0.9,
+"final": 12.4
+},
 "note": "Auto-scored: value in +13.3 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.8 at the time."
 },
 {
@@ -165084,6 +165608,12 @@ const AUTO_REGIMES = [
 "paid": 2.4
 }
 ],
+"proj": {
+"inn": 1.7,
+"out": 0.0,
+"net": 1.7,
+"final": 6.5
+},
 "note": "Auto-scored: value in +5.4 vs value out +0.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -165148,6 +165678,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.0,
+"net": 0.0,
+"final": -9.6
+},
 "note": "Auto-scored: value in +0.0 vs value out +9.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -165307,6 +165843,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 12.3,
+"net": -12.3,
+"final": -19.1
+},
 "note": "Auto-scored: value in +7.3 vs value out +14.1, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.5 wins at the time; they realized +14.1 for the counterparty, so the pieces outperformed their marks, bad luck more than bad process."
 }
 ],
@@ -165684,6 +166226,12 @@ const AUTO_REGIMES = [
 "paid": 3.5
 }
 ],
+"proj": {
+"inn": 5.2,
+"out": 6.1,
+"net": -0.9,
+"final": 12.4
+},
 "note": "Auto-scored: value in +13.3 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.8 at the time."
 },
 {
@@ -165752,6 +166300,12 @@ const AUTO_REGIMES = [
 "paid": 2.4
 }
 ],
+"proj": {
+"inn": 1.7,
+"out": 0.0,
+"net": 1.7,
+"final": 6.5
+},
 "note": "Auto-scored: value in +5.4 vs value out +0.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -165830,6 +166384,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.6,
+"net": -0.6,
+"final": 2.1
+},
 "note": "Auto-scored: value in +0.7 vs value out -2.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -165903,6 +166463,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 5.7,
+"out": 4.8,
+"net": 0.9,
+"final": 3.2
+},
 "note": "Auto-scored: value in +2.3 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.3 wins at the time; they realized +0.0 for the counterparty, so the outcome tracked the marks, this one is on the process."
 }
 ],
@@ -165973,6 +166539,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.0,
+"net": 0.0,
+"final": -9.6
+},
 "note": "Auto-scored: value in +0.0 vs value out +9.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -166144,6 +166716,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 12.3,
+"net": -12.3,
+"final": -19.1
+},
 "note": "Auto-scored: value in +7.3 vs value out +14.1, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +2.5 wins at the time; they realized +14.1 for the counterparty, so the pieces outperformed their marks, bad luck more than bad process."
 },
 {
@@ -166212,6 +166790,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.0,
+"net": 0.4,
+"final": -4.4
+},
 "note": "Auto-scored: value in +0.1 vs value out +4.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -167564,6 +168148,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 6.5,
+"out": 0.0,
+"net": 6.5,
+"final": 12.5
+},
 "note": "Auto-scored: value in +7.5 vs value out +1.4, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +3.3 at the time."
 },
 {
@@ -167625,6 +168215,12 @@ const AUTO_REGIMES = [
 "paid": -0.2
 }
 ],
+"proj": {
+"inn": 4.6,
+"out": 0,
+"net": 4.6,
+"final": 10.6
+},
 "note": "Auto-scored: value in +6.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -167704,6 +168300,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 1.2,
+"out": 0.0,
+"net": 1.2,
+"final": -11.0
+},
 "note": "Auto-scored: value in -0.4 vs value out +11.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +1.8 at the time."
 },
 {
@@ -167766,6 +168368,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 1.2,
+"out": 0.8,
+"net": 0.4,
+"final": -2.6
+},
 "note": "Auto-scored: value in +0.0 vs value out +3.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -167828,6 +168436,12 @@ const AUTO_REGIMES = [
 "paid": 0.4
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 1.0,
+"net": -1.0,
+"final": -4.0
+},
 "note": "Auto-scored: value in +0.3 vs value out +3.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -168017,6 +168631,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 6.5,
+"out": 0.0,
+"net": 6.5,
+"final": 12.5
+},
 "note": "Auto-scored: value in +7.5 vs value out +1.4, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +3.3 at the time."
 },
 {
@@ -168084,6 +168704,12 @@ const AUTO_REGIMES = [
 "paid": -0.2
 }
 ],
+"proj": {
+"inn": 4.6,
+"out": 0,
+"net": 4.6,
+"final": 10.6
+},
 "note": "Auto-scored: value in +6.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -168157,6 +168783,12 @@ const AUTO_REGIMES = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 1.5,
+"out": 1.8,
+"net": -0.3,
+"final": 1.6
+},
 "note": "Auto-scored: value in +1.9 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -168224,6 +168856,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.6,
+"out": 0,
+"net": 0.6,
+"final": 1.8
+},
 "note": "Auto-scored: value in +1.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -168292,6 +168930,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 1.2,
+"out": 0.8,
+"net": 0.4,
+"final": 1.3
+},
 "note": "Auto-scored: value in +0.0 vs value out -0.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -168377,6 +169021,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 1.2,
+"out": 0.0,
+"net": 1.2,
+"final": -11.0
+},
 "note": "Auto-scored: value in -0.4 vs value out +11.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +1.8 at the time."
 },
 {
@@ -168445,6 +169095,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 1.2,
+"out": 0.8,
+"net": 0.4,
+"final": -2.6
+},
 "note": "Auto-scored: value in +0.0 vs value out +3.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -168513,6 +169169,12 @@ const AUTO_REGIMES = [
 "paid": 0.4
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 1.0,
+"net": -1.0,
+"final": -4.0
+},
 "note": "Auto-scored: value in +0.3 vs value out +3.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -168601,6 +169263,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.5,
+"net": -0.1,
+"final": -3.0
+},
 "note": "Auto-scored: value in +0.2 vs value out +3.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -168669,6 +169337,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 2.9,
+"net": -2.5,
+"final": -4.6
+},
 "note": "Auto-scored: value in +0.0 vs value out +2.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -169466,6 +170140,12 @@ const AUTO_REGIMES = [
 "paid": -2.0
 }
 ],
+"proj": {
+"inn": 1.7,
+"out": 0.0,
+"net": 1.7,
+"final": 8.4
+},
 "note": "Auto-scored: value in +7.1 vs value out +0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -169535,6 +170215,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.2,
+"out": 0.4,
+"net": -0.2,
+"final": -12.3
+},
 "note": "Auto-scored: value in -0.7 vs value out +11.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -169612,6 +170298,12 @@ const AUTO_REGIMES = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 2.4,
+"out": 0.5,
+"net": 1.9,
+"final": -10.1
+},
 "note": "Auto-scored: value in -1.1 vs value out +10.9, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +5.3 at the time."
 }
 ],
@@ -169916,6 +170608,12 @@ const AUTO_REGIMES = [
 "paid": -2.0
 }
 ],
+"proj": {
+"inn": 1.7,
+"out": 0.0,
+"net": 1.7,
+"final": 8.4
+},
 "note": "Auto-scored: value in +7.1 vs value out +0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -169984,6 +170682,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 2.4
+},
 "note": "Auto-scored: value in +2.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -170124,6 +170828,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.3,
+"out": 0.0,
+"net": 0.3,
+"final": 2.4
+},
 "note": "Auto-scored: value in +2.1 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -170192,6 +170902,12 @@ const AUTO_REGIMES = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 1.3,
+"out": 0.4,
+"net": 0.9,
+"final": 2.7
+},
 "note": "Auto-scored: value in +1.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -170267,6 +170983,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.2,
+"out": 0.4,
+"net": -0.2,
+"final": -12.3
+},
 "note": "Auto-scored: value in -0.7 vs value out +11.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -170350,6 +171072,12 @@ const AUTO_REGIMES = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 2.4,
+"out": 0.5,
+"net": 1.9,
+"final": -10.1
+},
 "note": "Auto-scored: value in -1.1 vs value out +10.9, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +5.3 at the time."
 },
 {
@@ -170491,6 +171219,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.1,
+"out": 0.9,
+"net": -0.8,
+"final": -3.4
+},
 "note": "Auto-scored: value in -0.1 vs value out +2.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -170558,6 +171292,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 0.1,
+"net": -0.1,
+"final": -2.6
+},
 "note": "Auto-scored: value in +0.0 vs value out +2.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -172828,6 +173568,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 1.8,
+"net": -1.8,
+"final": -6.2
+},
 "note": "Auto-scored: value in +0.0 vs value out +4.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -172906,6 +173652,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 2.8,
+"out": 5.3,
+"net": -2.5,
+"final": -6.4
+},
 "note": "Auto-scored: value in +0.0 vs value out +3.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -174401,6 +175153,12 @@ const AUTO_REGIMES = [
 "paid": 2.2
 }
 ],
+"proj": {
+"inn": 3.6,
+"out": 0.4,
+"net": 3.2,
+"final": 4.6
+},
 "note": "Auto-scored: value in +1.4 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -174463,6 +175221,12 @@ const AUTO_REGIMES = [
 "paid": 2.2
 }
 ],
+"proj": {
+"inn": 3.9,
+"out": 2.1,
+"net": 1.8,
+"final": 3.2
+},
 "note": "Auto-scored: value in +1.3 vs value out -0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -174696,6 +175460,12 @@ const AUTO_REGIMES = [
 "paid": 2.2
 }
 ],
+"proj": {
+"inn": 3.6,
+"out": 0.4,
+"net": 3.2,
+"final": 4.6
+},
 "note": "Auto-scored: value in +1.4 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -174764,6 +175534,12 @@ const AUTO_REGIMES = [
 "paid": 2.2
 }
 ],
+"proj": {
+"inn": 3.9,
+"out": 2.1,
+"net": 1.8,
+"final": 3.2
+},
 "note": "Auto-scored: value in +1.3 vs value out -0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -175316,6 +176092,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.8,
+"out": 4.4,
+"net": -3.6,
+"final": -1.4
+},
 "note": "Auto-scored: value in +0.0 vs value out -2.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -175378,6 +176160,12 @@ const AUTO_REGIMES = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.4,
+"net": 0.0,
+"final": 2.0
+},
 "note": "Auto-scored: value in +2.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -175447,6 +176235,12 @@ const AUTO_REGIMES = [
 "paid": 3.3
 }
 ],
+"proj": {
+"inn": 0.6,
+"out": 0.4,
+"net": 0.2,
+"final": -4.2
+},
 "note": "Auto-scored: value in -0.3 vs value out +4.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -175519,6 +176313,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 6.6,
+"out": 17.6,
+"net": -11.0,
+"final": -13.5
+},
 "note": "Auto-scored: value in -0.0 vs value out +2.5, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +6.2 at the time."
 },
 {
@@ -175586,6 +176386,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 2.6,
+"out": 0.0,
+"net": 2.6,
+"final": 0.7
+},
 "note": "Auto-scored: value in -1.1 vs value out +0.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -175859,6 +176665,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.8,
+"out": 4.4,
+"net": -3.6,
+"final": -1.4
+},
 "note": "Auto-scored: value in +0.0 vs value out -2.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -175927,6 +176739,12 @@ const AUTO_REGIMES = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.4,
+"net": 0.0,
+"final": 2.0
+},
 "note": "Auto-scored: value in +2.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -176010,6 +176828,12 @@ const AUTO_REGIMES = [
 "paid": -0.1
 }
 ],
+"proj": {
+"inn": 0.9,
+"out": 0.0,
+"net": 0.9,
+"final": 2.7
+},
 "note": "Auto-scored: value in +5.5 vs value out +3.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -176078,6 +176902,12 @@ const AUTO_REGIMES = [
 "paid": 2.9
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 0.6
+},
 "note": "Auto-scored: value in +1.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -176151,6 +176981,12 @@ const AUTO_REGIMES = [
 "paid": 1.8
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 1.9,
+"net": -1.5,
+"final": -0.5
+},
 "note": "Auto-scored: value in +1.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -176226,6 +177062,12 @@ const AUTO_REGIMES = [
 "paid": 3.3
 }
 ],
+"proj": {
+"inn": 0.6,
+"out": 0.4,
+"net": 0.2,
+"final": -4.2
+},
 "note": "Auto-scored: value in -0.3 vs value out +4.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -176304,6 +177146,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 6.6,
+"out": 17.6,
+"net": -11.0,
+"final": -13.5
+},
 "note": "Auto-scored: value in -0.0 vs value out +2.5, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +6.2 at the time."
 },
 {
@@ -176377,6 +177225,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 2.6,
+"out": 0.0,
+"net": 2.6,
+"final": 0.7
+},
 "note": "Auto-scored: value in -1.1 vs value out +0.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -176444,6 +177298,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 0.3,
+"net": -0.3,
+"final": -1.6
+},
 "note": "Auto-scored: value in +0.0 vs value out +1.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -176517,6 +177377,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": -1.6
+},
 "note": "Auto-scored: value in -1.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -177557,6 +178423,12 @@ const AUTO_REGIMES = [
 "paid": 18.9
 }
 ],
+"proj": {
+"inn": 12.3,
+"out": 0.0,
+"net": 12.3,
+"final": 19.1
+},
 "note": "Auto-scored: value in +14.1 vs value out +7.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.5 at the time."
 },
 {
@@ -177619,6 +178491,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 4.0,
+"out": 3.0,
+"net": 1.0,
+"final": 4.5
+},
 "note": "Auto-scored: value in +3.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -177686,6 +178564,12 @@ const AUTO_REGIMES = [
 "paid": 0.6
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 2.1
+},
 "note": "Auto-scored: value in +2.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -177750,6 +178634,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.1,
+"out": 0.7,
+"net": -0.6,
+"final": -2.3
+},
 "note": "Auto-scored: value in +0.7 vs value out +2.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -178054,6 +178944,12 @@ const AUTO_REGIMES = [
 "paid": 18.9
 }
 ],
+"proj": {
+"inn": 12.3,
+"out": 0.0,
+"net": 12.3,
+"final": 19.1
+},
 "note": "Auto-scored: value in +14.1 vs value out +7.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.5 at the time."
 },
 {
@@ -178122,6 +179018,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 4.0,
+"out": 3.0,
+"net": 1.0,
+"final": 4.5
+},
 "note": "Auto-scored: value in +3.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -178195,6 +179097,12 @@ const AUTO_REGIMES = [
 "paid": 0.6
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 2.1
+},
 "note": "Auto-scored: value in +2.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -178273,6 +179181,12 @@ const AUTO_REGIMES = [
 "paid": 0.6
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 1.7
+},
 "note": "Auto-scored: value in +2.6 vs value out +0.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -178341,6 +179255,12 @@ const AUTO_REGIMES = [
 "paid": 1.8
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 0.6
+},
 "note": "Auto-scored: value in +1.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -178411,6 +179331,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.1,
+"out": 0.7,
+"net": -0.6,
+"final": -2.3
+},
 "note": "Auto-scored: value in +0.7 vs value out +2.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -178489,6 +179415,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 4.0,
+"out": 3.0,
+"net": 1.0,
+"final": 0.1
+},
 "note": "Auto-scored: value in -0.4 vs value out +0.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -178556,6 +179488,12 @@ const AUTO_REGIMES = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 0.5,
+"out": 0.8,
+"net": -0.3,
+"final": -1.2
+},
 "note": "Auto-scored: value in -0.9 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -179577,6 +180515,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 1.3,
+"out": 1.1,
+"net": 0.2,
+"final": 3.9
+},
 "note": "Auto-scored: value in +3.7 vs value out -0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -179639,6 +180583,12 @@ const AUTO_REGIMES = [
 "paid": 4.7
 }
 ],
+"proj": {
+"inn": 1.1,
+"out": 0.0,
+"net": 1.1,
+"final": 4.6
+},
 "note": "Auto-scored: value in +3.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -179701,6 +180651,12 @@ const AUTO_REGIMES = [
 "paid": 0.6
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 1.8
+},
 "note": "Auto-scored: value in +2.4 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -179764,6 +180720,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 0.0,
+"net": 0.0,
+"final": -7.2
+},
 "note": "Auto-scored: value in +0.0 vs value out +7.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -179826,6 +180788,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.6,
+"out": 1.1,
+"net": -0.5,
+"final": -3.1
+},
 "note": "Auto-scored: value in -0.5 vs value out +2.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -180099,6 +181067,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 1.3,
+"out": 1.1,
+"net": 0.2,
+"final": 3.9
+},
 "note": "Auto-scored: value in +3.7 vs value out -0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -180167,6 +181141,12 @@ const AUTO_REGIMES = [
 "paid": 4.7
 }
 ],
+"proj": {
+"inn": 1.1,
+"out": 0.0,
+"net": 1.1,
+"final": 4.6
+},
 "note": "Auto-scored: value in +3.5 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -180235,6 +181215,12 @@ const AUTO_REGIMES = [
 "paid": 0.6
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 1.8
+},
 "note": "Auto-scored: value in +2.4 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -180303,6 +181289,12 @@ const AUTO_REGIMES = [
 "paid": -0.0
 }
 ],
+"proj": {
+"inn": 2.3,
+"out": 3.1,
+"net": -0.8,
+"final": 1.2
+},
 "note": "Auto-scored: value in +1.9 vs value out -0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -180371,6 +181363,12 @@ const AUTO_REGIMES = [
 "paid": 1.2
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 1.1
+},
 "note": "Auto-scored: value in +1.2 vs value out -0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -180440,6 +181438,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 0.0,
+"net": 0.0,
+"final": -7.2
+},
 "note": "Auto-scored: value in +0.0 vs value out +7.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -180508,6 +181512,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.6,
+"out": 1.1,
+"net": -0.5,
+"final": -3.1
+},
 "note": "Auto-scored: value in -0.5 vs value out +2.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -180581,6 +181591,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 1.3,
+"out": 2.0,
+"net": -0.7,
+"final": -2.2
+},
 "note": "Auto-scored: value in +1.2 vs value out +2.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -180654,6 +181670,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 2.3,
+"out": 3.1,
+"net": -0.8,
+"final": -2.3
+},
 "note": "Auto-scored: value in -0.2 vs value out +1.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -180727,6 +181749,12 @@ const AUTO_REGIMES = [
 "paid": -0.6
 }
 ],
+"proj": {
+"inn": 0.6,
+"out": 0.0,
+"net": 0.6,
+"final": -0.7
+},
 "note": "Auto-scored: value in +1.4 vs value out +2.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -181591,6 +182619,12 @@ const AUTO_REGIMES = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 8.9,
+"out": 11.0,
+"net": -2.1,
+"final": -3.1
+},
 "note": "Auto-scored: value in -0.6 vs value out +0.5, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.2 at the time."
 },
 {
@@ -181653,6 +182687,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 8.9,
+"out": 11.0,
+"net": -2.1,
+"final": -3.1
+},
 "note": "Auto-scored: value in +0.0 vs value out +1.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -181725,6 +182765,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 8.9,
+"out": 11.0,
+"net": -2.1,
+"final": -3.0
+},
 "note": "Auto-scored: value in +0.0 vs value out +0.9, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +3.1 at the time."
 }
 ],
@@ -181963,6 +183009,12 @@ const AUTO_REGIMES = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 8.9,
+"out": 11.0,
+"net": -2.1,
+"final": -3.1
+},
 "note": "Auto-scored: value in -0.6 vs value out +0.5, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.2 at the time."
 },
 {
@@ -182031,6 +183083,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 8.9,
+"out": 11.0,
+"net": -2.1,
+"final": -3.1
+},
 "note": "Auto-scored: value in +0.0 vs value out +1.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -182109,6 +183167,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 8.9,
+"out": 11.0,
+"net": -2.1,
+"final": -3.0
+},
 "note": "Auto-scored: value in +0.0 vs value out +0.9, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +3.1 at the time."
 }
 ]
@@ -182596,6 +183660,12 @@ const AUTO_REGIMES = [
 "paid": 0.3
 }
 ],
+"proj": {
+"inn": 1.4,
+"out": 0.8,
+"net": 0.6,
+"final": 3.4
+},
 "note": "Auto-scored: value in +2.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -182670,6 +183740,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 2.3,
+"out": 9.1,
+"net": -6.8,
+"final": -21.8
+},
 "note": "Auto-scored: value in +0.0 vs value out +15.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +1.9 at the time."
 },
 {
@@ -182742,6 +183818,12 @@ const AUTO_REGIMES = [
 "paid": -0.2
 }
 ],
+"proj": {
+"inn": 1.2,
+"out": 7.8,
+"net": -6.6,
+"final": -21.1
+},
 "note": "Auto-scored: value in -0.7 vs value out +13.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -182819,6 +183901,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 1.6,
+"out": 4.4,
+"net": -2.8,
+"final": -7.0
+},
 "note": "Auto-scored: value in +0.0 vs value out +4.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -183029,6 +184117,12 @@ const AUTO_REGIMES = [
 "paid": 0.3
 }
 ],
+"proj": {
+"inn": 1.4,
+"out": 0.8,
+"net": 0.6,
+"final": 3.4
+},
 "note": "Auto-scored: value in +2.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -183096,6 +184190,12 @@ const AUTO_REGIMES = [
 "paid": -0.0
 }
 ],
+"proj": {
+"inn": 0.7,
+"out": 0,
+"net": 0.7,
+"final": 2.5
+},
 "note": "Auto-scored: value in +1.8 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -183169,6 +184269,12 @@ const AUTO_REGIMES = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 13.2,
+"out": 6.4,
+"net": 6.8,
+"final": 8.4
+},
 "note": "Auto-scored: value in +7.7 vs value out +6.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -183236,6 +184342,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.6,
+"out": 0,
+"net": 0.6,
+"final": 2.2
+},
 "note": "Auto-scored: value in +1.6 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -183309,6 +184421,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 13.2,
+"out": 6.4,
+"net": 6.8,
+"final": 8.2
+},
 "note": "Auto-scored: value in +0.0 vs value out -1.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -183389,6 +184507,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 2.3,
+"out": 9.1,
+"net": -6.8,
+"final": -21.8
+},
 "note": "Auto-scored: value in +0.0 vs value out +15.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +1.9 at the time."
 },
 {
@@ -183467,6 +184591,12 @@ const AUTO_REGIMES = [
 "paid": -0.2
 }
 ],
+"proj": {
+"inn": 1.2,
+"out": 7.8,
+"net": -6.6,
+"final": -21.1
+},
 "note": "Auto-scored: value in -0.7 vs value out +13.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -183550,6 +184680,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 1.6,
+"out": 4.4,
+"net": -2.8,
+"final": -7.0
+},
 "note": "Auto-scored: value in +0.0 vs value out +4.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -183618,6 +184754,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 4.3,
+"net": -3.9,
+"final": -7.1
+},
 "note": "Auto-scored: value in +0.0 vs value out +3.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -183691,6 +184833,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.8,
+"out": 0.6,
+"net": 0.2,
+"final": -2.4
+},
 "note": "Auto-scored: value in -0.5 vs value out +2.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -184342,6 +185490,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.5,
+"out": 0,
+"net": 0.5,
+"final": 1.7
+},
 "note": "Auto-scored: value in +1.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -184404,6 +185558,12 @@ const AUTO_REGIMES = [
 "paid": 1.2
 }
 ],
+"proj": {
+"inn": 2.8,
+"out": 0.4,
+"net": 2.4,
+"final": 3.4
+},
 "note": "Auto-scored: value in +1.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -184667,6 +185827,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.5,
+"out": 0,
+"net": 0.5,
+"final": 1.7
+},
 "note": "Auto-scored: value in +1.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -184735,6 +185901,12 @@ const AUTO_REGIMES = [
 "paid": 1.2
 }
 ],
+"proj": {
+"inn": 2.8,
+"out": 0.4,
+"net": 2.4,
+"final": 3.4
+},
 "note": "Auto-scored: value in +1.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -185228,6 +186400,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 1.7,
+"out": 0,
+"net": 1.7,
+"final": 5.6
+},
 "note": "Auto-scored: value in +3.9 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -185295,6 +186473,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.8,
+"out": 0.4,
+"net": 0.4,
+"final": 2.9
+},
 "note": "Auto-scored: value in +2.6 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -185357,6 +186541,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 1.2,
+"out": 0.8,
+"net": 0.4,
+"final": 2.6
+},
 "note": "Auto-scored: value in +2.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -185421,6 +186611,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 1.3,
+"net": -0.9,
+"final": -4.9
+},
 "note": "Auto-scored: value in +0.0 vs value out +4.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -185483,6 +186679,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 2.0,
+"out": 4.1,
+"net": -2.1,
+"final": -4.9
+},
 "note": "Auto-scored: value in -0.4 vs value out +2.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -185550,6 +186752,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 4.3,
+"out": 8.4,
+"net": -4.1,
+"final": -6.4
+},
 "note": "Auto-scored: value in +0.0 vs value out +2.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.3 at the time."
 }
 ],
@@ -185843,6 +187051,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 1.7,
+"out": 0,
+"net": 1.7,
+"final": 5.6
+},
 "note": "Auto-scored: value in +3.9 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -185916,6 +187130,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.8,
+"out": 0.4,
+"net": 0.4,
+"final": 2.9
+},
 "note": "Auto-scored: value in +2.6 vs value out +0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -185984,6 +187204,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 1.2,
+"out": 0.8,
+"net": 0.4,
+"final": 2.6
+},
 "note": "Auto-scored: value in +2.2 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -186051,6 +187277,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0,
+"net": 0.0,
+"final": 1.4
+},
 "note": "Auto-scored: value in +1.4 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -186124,6 +187356,12 @@ const AUTO_REGIMES = [
 "paid": 1.6
 }
 ],
+"proj": {
+"inn": 1.4,
+"out": 2.4,
+"net": -1.0,
+"final": 0.4
+},
 "note": "Auto-scored: value in +0.5 vs value out -0.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -186194,6 +187432,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 1.3,
+"net": -0.9,
+"final": -4.9
+},
 "note": "Auto-scored: value in +0.0 vs value out +4.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -186262,6 +187506,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 2.0,
+"out": 4.1,
+"net": -2.1,
+"final": -4.9
+},
 "note": "Auto-scored: value in -0.4 vs value out +2.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -186335,6 +187585,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 4.3,
+"out": 8.4,
+"net": -4.1,
+"final": -6.4
+},
 "note": "Auto-scored: value in +0.0 vs value out +2.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.3 at the time."
 },
 {
@@ -186402,6 +187658,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.8,
+"net": -0.8,
+"final": -2.9
+},
 "note": "Auto-scored: value in +0.0 vs value out +2.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -186470,6 +187732,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 6.7,
+"net": -6.3,
+"final": -8.2
+},
 "note": "Auto-scored: value in +0.0 vs value out +1.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -187807,6 +189075,12 @@ const AUTO_REGIMES = [
 "paid": 0.8
 }
 ],
+"proj": {
+"inn": 7.8,
+"out": 1.2,
+"net": 6.6,
+"final": 21.1
+},
 "note": "Auto-scored: value in +13.9 vs value out -0.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -188470,6 +189744,12 @@ const AUTO_REGIMES = [
 "paid": 0.8
 }
 ],
+"proj": {
+"inn": 7.8,
+"out": 1.2,
+"net": 6.6,
+"final": 21.1
+},
 "note": "Auto-scored: value in +13.9 vs value out -0.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -190677,6 +191957,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 3.0,
+"out": 3.3,
+"net": -0.3,
+"final": -18.1
+},
 "note": "Auto-scored: value in +5.5 vs value out +23.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +7.7 at the time."
 },
 {
@@ -190754,6 +192040,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.0,
+"net": 0.4,
+"final": -13.0
+},
 "note": "Auto-scored: value in -0.8 vs value out +12.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -191471,6 +192763,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 3.0,
+"out": 3.3,
+"net": -0.3,
+"final": -18.1
+},
 "note": "Auto-scored: value in +5.5 vs value out +23.2, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +7.7 at the time."
 },
 {
@@ -191554,6 +192852,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.0,
+"net": 0.4,
+"final": -13.0
+},
 "note": "Auto-scored: value in -0.8 vs value out +12.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -191714,6 +193018,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.1,
+"out": 0.6,
+"net": -0.5,
+"final": -11.4
+},
 "note": "Auto-scored: value in -0.4 vs value out +10.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -193296,6 +194606,12 @@ const AUTO_REGIMES = [
 "paid": 18.9
 }
 ],
+"proj": {
+"inn": 9.1,
+"out": 2.3,
+"net": 6.8,
+"final": 21.8
+},
 "note": "Auto-scored: value in +15.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +1.9 wins at the time; they realized +0.0 for the counterparty, so the outcome tracked the marks, this one is on the process."
 },
 {
@@ -193358,6 +194674,12 @@ const AUTO_REGIMES = [
 "paid": -0.1
 }
 ],
+"proj": {
+"inn": 1.0,
+"out": 1.7,
+"net": -0.7,
+"final": 13.7
+},
 "note": "Auto-scored: value in +11.7 vs value out -2.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.7 at the time."
 },
 {
@@ -193484,6 +194806,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 1.0,
+"out": 1.7,
+"net": -0.7,
+"final": -5.5
+},
 "note": "Auto-scored: value in +0.6 vs value out +5.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -193545,6 +194873,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 3.2,
+"net": -3.2,
+"final": -7.4
+},
 "note": "Auto-scored: value in +0.0 vs value out +4.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -193849,6 +195183,12 @@ const AUTO_REGIMES = [
 "paid": 18.9
 }
 ],
+"proj": {
+"inn": 9.1,
+"out": 2.3,
+"net": 6.8,
+"final": 21.8
+},
 "note": "Auto-scored: value in +15.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +1.9 wins at the time; they realized +0.0 for the counterparty, so the outcome tracked the marks, this one is on the process."
 },
 {
@@ -193917,6 +195257,12 @@ const AUTO_REGIMES = [
 "paid": -0.1
 }
 ],
+"proj": {
+"inn": 1.0,
+"out": 1.7,
+"net": -0.7,
+"final": 13.7
+},
 "note": "Auto-scored: value in +11.7 vs value out -2.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +2.7 at the time."
 },
 {
@@ -194058,6 +195404,12 @@ const AUTO_REGIMES = [
 "paid": -0.2
 }
 ],
+"proj": {
+"inn": 5.4,
+"out": 4.4,
+"net": 1.0,
+"final": 5.6
+},
 "note": "Auto-scored: value in +5.5 vs value out +0.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 2 ranked piece(s) surrendered carried a Pipeline mark of about +4.5 wins at the time; they realized +0.8 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
@@ -194126,6 +195478,12 @@ const AUTO_REGIMES = [
 "paid": 0.2
 }
 ],
+"proj": {
+"inn": 0.6,
+"out": 0.7,
+"net": -0.1,
+"final": 3.2
+},
 "note": "Auto-scored: value in +6.3 vs value out +3.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -194196,6 +195554,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 1.0,
+"out": 1.7,
+"net": -0.7,
+"final": -5.5
+},
 "note": "Auto-scored: value in +0.6 vs value out +5.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -194263,6 +195627,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 3.2,
+"net": -3.2,
+"final": -7.4
+},
 "note": "Auto-scored: value in +0.0 vs value out +4.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -194331,6 +195701,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.1,
+"out": 0.4,
+"net": -0.3,
+"final": -3.1
+},
 "note": "Auto-scored: value in -1.2 vs value out +1.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -194414,6 +195790,12 @@ const AUTO_REGIMES = [
 "paid": 9.2
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.9,
+"net": -0.9,
+"final": -2.7
+},
 "note": "Auto-scored: value in +3.7 vs value out +5.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -194482,6 +195864,12 @@ const AUTO_REGIMES = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": -2.1
+},
 "note": "Auto-scored: value in -1.7 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -195725,6 +197113,12 @@ const AUTO_REGIMES = [
 "paid": 0.6
 }
 ],
+"proj": {
+"inn": 13.6,
+"out": 0.5,
+"net": 13.1,
+"final": 25.8
+},
 "note": "Auto-scored: value in +12.7 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -196256,6 +197650,12 @@ const AUTO_REGIMES = [
 "paid": 0.6
 }
 ],
+"proj": {
+"inn": 13.6,
+"out": 0.5,
+"net": 13.1,
+"final": 25.8
+},
 "note": "Auto-scored: value in +12.7 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -196324,6 +197724,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 2.3,
+"out": 0.8,
+"net": 1.5,
+"final": 4.5
+},
 "note": "Auto-scored: value in +3.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -196392,6 +197798,12 @@ const AUTO_REGIMES = [
 "paid": -1.0
 }
 ],
+"proj": {
+"inn": 0.8,
+"out": 0.1,
+"net": 0.7,
+"final": 3.5
+},
 "note": "Auto-scored: value in +1.6 vs value out -1.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -196537,6 +197949,12 @@ const AUTO_REGIMES = [
 "paid": 0.4
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.0,
+"net": 0.0,
+"final": 1.7
+},
 "note": "Auto-scored: value in +1.7 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -196851,6 +198269,12 @@ const AUTO_REGIMES = [
 "paid": 0.2
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.1,
+"net": -0.1,
+"final": -3.0
+},
 "note": "Auto-scored: value in -0.0 vs value out +2.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -196929,6 +198353,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.0,
+"net": 0.4,
+"final": -2.0
+},
 "note": "Auto-scored: value in +2.3 vs value out +4.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -198409,6 +199839,12 @@ const AUTO_REGIMES = [
 "paid": 5.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 1.2,
+"net": -1.2,
+"final": 11.0
+},
 "note": "Auto-scored: value in +11.8 vs value out -0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +1.8 wins at the time; they realized -0.4 for the counterparty, so the outcome tracked the marks, this one is on the process."
 }
 ],
@@ -199090,6 +200526,12 @@ const AUTO_REGIMES = [
 "paid": 5.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 1.2,
+"net": -1.2,
+"final": 11.0
+},
 "note": "Auto-scored: value in +11.8 vs value out -0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +1.8 wins at the time; they realized -0.4 for the counterparty, so the outcome tracked the marks, this one is on the process."
 },
 {
@@ -199667,6 +201109,12 @@ const AUTO_REGIMES = [
 "paid": 3.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 10.9,
+"net": -10.9,
+"final": -19.2
+},
 "note": "Auto-scored: value in +9.4 vs value out +17.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 3 ranked piece(s) surrendered carried a Pipeline mark of about +10.7 wins at the time; they realized +17.7 for the counterparty, so the pieces outperformed their marks, bad luck more than bad process."
 }
 ]
@@ -201189,6 +202637,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 8.2,
+"out": 2.1,
+"net": 6.1,
+"final": 10.2
+},
 "note": "Auto-scored: value in +4.4 vs value out +0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +4.1 wins at the time; they realized +0.3 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 }
 ],
@@ -201253,6 +202707,12 @@ const AUTO_REGIMES = [
 "paid": -0.1
 }
 ],
+"proj": {
+"inn": 2.0,
+"out": 1.8,
+"net": 0.2,
+"final": -1.8
+},
 "note": "Auto-scored: value in -0.1 vs value out +1.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -201315,6 +202775,12 @@ const AUTO_REGIMES = [
 "paid": -1.1
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 5.5,
+"net": -5.1,
+"final": -7.0
+},
 "note": "Auto-scored: value in +0.1 vs value out +2.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -201377,6 +202843,12 @@ const AUTO_REGIMES = [
 "paid": 1.9
 }
 ],
+"proj": {
+"inn": 3.4,
+"out": 2.7,
+"net": 0.7,
+"final": -0.8
+},
 "note": "Auto-scored: value in +0.5 vs value out +1.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -201686,6 +203158,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 8.2,
+"out": 2.1,
+"net": 6.1,
+"final": 10.2
+},
 "note": "Auto-scored: value in +4.4 vs value out +0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +4.1 wins at the time; they realized +0.3 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 }
 ],
@@ -201756,6 +203234,12 @@ const AUTO_REGIMES = [
 "paid": -0.1
 }
 ],
+"proj": {
+"inn": 2.0,
+"out": 1.8,
+"net": 0.2,
+"final": -1.8
+},
 "note": "Auto-scored: value in -0.1 vs value out +1.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -201824,6 +203308,12 @@ const AUTO_REGIMES = [
 "paid": -1.1
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 5.5,
+"net": -5.1,
+"final": -7.0
+},
 "note": "Auto-scored: value in +0.1 vs value out +2.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -201892,6 +203382,12 @@ const AUTO_REGIMES = [
 "paid": 1.9
 }
 ],
+"proj": {
+"inn": 3.4,
+"out": 2.7,
+"net": 0.7,
+"final": -0.8
+},
 "note": "Auto-scored: value in +0.5 vs value out +1.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -201965,6 +203461,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 4.0,
+"out": 15.6,
+"net": -11.6,
+"final": -12.5
+},
 "note": "Auto-scored: value in -0.1 vs value out +0.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +5.2 at the time."
 }
 ]
@@ -202826,6 +204328,12 @@ const AUTO_REGIMES = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 0.5,
+"out": 2.4,
+"net": -1.9,
+"final": 10.1
+},
 "note": "Auto-scored: value in +10.9 vs value out -1.1, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +5.3 wins at the time; they realized -1.1 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
@@ -202893,6 +204401,12 @@ const AUTO_REGIMES = [
 "paid": -3.4
 }
 ],
+"proj": {
+"inn": 7.4,
+"out": 2.2,
+"net": 5.2,
+"final": 16.5
+},
 "note": "Auto-scored: value in +11.2 vs value out -0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -203431,6 +204945,12 @@ const AUTO_REGIMES = [
 "paid": 0.1
 }
 ],
+"proj": {
+"inn": 0.5,
+"out": 2.4,
+"net": -1.9,
+"final": 10.1
+},
 "note": "Auto-scored: value in +10.9 vs value out -1.1, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +5.3 wins at the time; they realized -1.1 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
@@ -203504,6 +205024,12 @@ const AUTO_REGIMES = [
 "paid": -3.4
 }
 ],
+"proj": {
+"inn": 7.4,
+"out": 2.2,
+"net": 5.2,
+"final": 16.5
+},
 "note": "Auto-scored: value in +11.2 vs value out -0.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -203582,6 +205108,12 @@ const AUTO_REGIMES = [
 "paid": 3.0
 }
 ],
+"proj": {
+"inn": 2.2,
+"out": 0.0,
+"net": 2.2,
+"final": 8.8
+},
 "note": "Auto-scored: value in +7.5 vs value out +0.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -205512,6 +207044,12 @@ const AUTO_REGIMES = [
 "paid": 2.9
 }
 ],
+"proj": {
+"inn": 0.6,
+"out": 0,
+"net": 0.6,
+"final": 1.6
+},
 "note": "Auto-scored: value in +1.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -205576,6 +207114,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 5.4,
+"net": -5.0,
+"final": -12.0
+},
 "note": "Auto-scored: value in +0.0 vs value out +7.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -205648,6 +207192,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 2.1,
+"out": 5.6,
+"net": -3.5,
+"final": -9.3
+},
 "note": "Auto-scored: value in +0.4 vs value out +6.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -205715,6 +207265,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 0.6,
+"out": 7.2,
+"net": -6.6,
+"final": -12.0
+},
 "note": "Auto-scored: value in +0.0 vs value out +5.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -205914,6 +207470,12 @@ const AUTO_REGIMES = [
 "paid": 2.9
 }
 ],
+"proj": {
+"inn": 0.6,
+"out": 0,
+"net": 0.6,
+"final": 1.6
+},
 "note": "Auto-scored: value in +1.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -205984,6 +207546,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 5.4,
+"net": -5.0,
+"final": -12.0
+},
 "note": "Auto-scored: value in +0.0 vs value out +7.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -206062,6 +207630,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 2.1,
+"out": 5.6,
+"net": -3.5,
+"final": -9.3
+},
 "note": "Auto-scored: value in +0.4 vs value out +6.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -206135,6 +207709,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 0.6,
+"out": 7.2,
+"net": -6.6,
+"final": -12.0
+},
 "note": "Auto-scored: value in +0.0 vs value out +5.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -206208,6 +207788,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 2.7,
+"out": 6.0,
+"net": -3.3,
+"final": -4.5
+},
 "note": "Auto-scored: value in +0.0 vs value out +1.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -206286,6 +207872,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 1.2,
+"out": 5.7,
+"net": -4.5,
+"final": -5.5
+},
 "note": "Auto-scored: value in +0.0 vs value out +1.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -206985,6 +208577,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.0,
+"net": 0.0,
+"final": 13.2
+},
 "note": "Auto-scored: value in +13.0 vs value out -0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -207130,6 +208728,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 3.7,
+"out": 19.2,
+"net": -15.5,
+"final": -28.2
+},
 "note": "Auto-scored: value in +0.0 vs value out +12.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -207616,6 +209220,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.0,
+"net": 0.0,
+"final": 13.2
+},
 "note": "Auto-scored: value in +13.0 vs value out -0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -207918,6 +209528,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 3.7,
+"out": 19.2,
+"net": -15.5,
+"final": -28.2
+},
 "note": "Auto-scored: value in +0.0 vs value out +12.7, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -208069,6 +209685,12 @@ const AUTO_REGIMES = [
 "paid": -0.1
 }
 ],
+"proj": {
+"inn": 2.4,
+"out": 7.0,
+"net": -4.6,
+"final": -15.9
+},
 "note": "Auto-scored: value in -0.1 vs value out +11.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -209626,6 +211248,12 @@ const AUTO_REGIMES = [
 "paid": 0.3
 }
 ],
+"proj": {
+"inn": 7.8,
+"out": 5.8,
+"net": 2.0,
+"final": 5.5
+},
 "note": "Auto-scored: value in +2.7 vs value out -0.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 2 ranked piece(s) surrendered carried a Pipeline mark of about +4.6 wins at the time; they realized -0.8 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
@@ -209688,6 +211316,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 4.1,
+"out": 2.0,
+"net": 2.1,
+"final": 4.9
+},
 "note": "Auto-scored: value in +2.3 vs value out -0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -209751,6 +211385,12 @@ const AUTO_REGIMES = [
 "paid": 0.2
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 1.6,
+"net": -1.2,
+"final": -5.5
+},
 "note": "Auto-scored: value in +0.0 vs value out +4.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -209813,6 +211453,12 @@ const AUTO_REGIMES = [
 "paid": -0.1
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.0,
+"net": 0.4,
+"final": -1.8
+},
 "note": "Auto-scored: value in +0.1 vs value out +2.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -209874,6 +211520,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 0.6,
+"net": -0.6,
+"final": -2.7
+},
 "note": "Auto-scored: value in +0.0 vs value out +2.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -210188,6 +211840,12 @@ const AUTO_REGIMES = [
 "paid": 0.3
 }
 ],
+"proj": {
+"inn": 7.8,
+"out": 5.8,
+"net": 2.0,
+"final": 5.5
+},
 "note": "Auto-scored: value in +2.7 vs value out -0.8, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 2 ranked piece(s) surrendered carried a Pipeline mark of about +4.6 wins at the time; they realized -0.8 for the counterparty, so the pieces underperformed their marks, the process was better than the outcome."
 },
 {
@@ -210256,6 +211914,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 4.1,
+"out": 2.0,
+"net": 2.1,
+"final": 4.9
+},
 "note": "Auto-scored: value in +2.3 vs value out -0.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -210334,6 +211998,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.8,
+"out": 1.2,
+"net": -0.4,
+"final": 1.3
+},
 "note": "Auto-scored: value in +1.6 vs value out -0.2, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -210402,6 +212072,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 1.4,
+"out": 0.0,
+"net": 1.4,
+"final": 3.1
+},
 "note": "Auto-scored: value in +1.3 vs value out -0.5, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -210480,6 +212156,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 2.4,
+"net": -2.4,
+"final": -1.4
+},
 "note": "Auto-scored: value in +0.6 vs value out -0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -210549,6 +212231,12 @@ const AUTO_REGIMES = [
 "paid": 0.2
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 1.6,
+"net": -1.2,
+"final": -5.5
+},
 "note": "Auto-scored: value in +0.0 vs value out +4.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -210617,6 +212305,12 @@ const AUTO_REGIMES = [
 "paid": -0.1
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.0,
+"net": 0.4,
+"final": -1.8
+},
 "note": "Auto-scored: value in +0.1 vs value out +2.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -210684,6 +212378,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0,
+"out": 0.6,
+"net": -0.6,
+"final": -2.7
+},
 "note": "Auto-scored: value in +0.0 vs value out +2.1, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -210752,6 +212452,12 @@ const AUTO_REGIMES = [
 "paid": 1.0
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 0.4,
+"net": 0.0,
+"final": -1.9
+},
 "note": "Auto-scored: value in +0.0 vs value out +1.9, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -211865,6 +213571,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 12.5
+},
 "note": "Auto-scored: value in +12.6 vs value out -0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -212068,6 +213780,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 1.6,
+"out": 3.8,
+"net": -2.2,
+"final": -18.8
+},
 "note": "Auto-scored: value in +9.5 vs value out +26.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +6.0 wins at the time; they realized +26.0 for the counterparty, so the pieces outperformed their marks, bad luck more than bad process."
 },
 {
@@ -212438,6 +214156,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 0.4,
+"net": -0.4,
+"final": 12.5
+},
 "note": "Auto-scored: value in +12.6 vs value out -0.3, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -212795,6 +214519,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 1.6,
+"out": 3.8,
+"net": -2.2,
+"final": -18.8
+},
 "note": "Auto-scored: value in +9.5 vs value out +26.0, control windows, leverage-weighted, discounted 10%/yr to the deal date. PROCESS CHECK: the 1 ranked piece(s) surrendered carried a Pipeline mark of about +6.0 wins at the time; they realized +26.0 for the counterparty, so the pieces outperformed their marks, bad luck more than bad process."
 },
 {
@@ -212930,6 +214660,12 @@ const AUTO_REGIMES = [
 "paid": 0
 }
 ],
+"proj": {
+"inn": 0.0,
+"out": 1.2,
+"net": -1.2,
+"final": -4.4
+},
 "note": "Auto-scored: value in -1.4 vs value out +1.8, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -214600,6 +216336,12 @@ const AUTO_REGIMES = [
 "paid": 0.2
 }
 ],
+"proj": {
+"inn": 2.9,
+"out": 0.4,
+"net": 2.5,
+"final": 4.6
+},
 "note": "Auto-scored: value in +2.1 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -214662,6 +216404,12 @@ const AUTO_REGIMES = [
 "paid": 2.9
 }
 ],
+"proj": {
+"inn": 1.8,
+"out": 0.4,
+"net": 1.4,
+"final": 2.4
+},
 "note": "Auto-scored: value in +1.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -214726,6 +216474,12 @@ const AUTO_REGIMES = [
 "paid": 3.3
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 3.1,
+"net": -2.7,
+"final": -6.9
+},
 "note": "Auto-scored: value in -0.6 vs value out +3.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -214808,6 +216562,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 5.8,
+"out": 7.8,
+"net": -2.0,
+"final": -5.5
+},
 "note": "Auto-scored: value in -0.8 vs value out +2.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +4.6 at the time."
 },
 {
@@ -214885,6 +216645,12 @@ const AUTO_REGIMES = [
 "paid": -0.2
 }
 ],
+"proj": {
+"inn": 3.9,
+"out": 6.0,
+"net": -2.1,
+"final": -3.1
+},
 "note": "Auto-scored: value in +0.4 vs value out +1.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -215117,6 +216883,12 @@ const AUTO_REGIMES = [
 "paid": 0.2
 }
 ],
+"proj": {
+"inn": 2.9,
+"out": 0.4,
+"net": 2.5,
+"final": 4.6
+},
 "note": "Auto-scored: value in +2.1 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -215185,6 +216957,12 @@ const AUTO_REGIMES = [
 "paid": 2.9
 }
 ],
+"proj": {
+"inn": 1.8,
+"out": 0.4,
+"net": 1.4,
+"final": 2.4
+},
 "note": "Auto-scored: value in +1.0 vs value out +0.0, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ],
@@ -215255,6 +217033,12 @@ const AUTO_REGIMES = [
 "paid": 3.3
 }
 ],
+"proj": {
+"inn": 0.4,
+"out": 3.1,
+"net": -2.7,
+"final": -6.9
+},
 "note": "Auto-scored: value in -0.6 vs value out +3.6, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 },
 {
@@ -215343,6 +217127,12 @@ const AUTO_REGIMES = [
 "paid": 0.0
 }
 ],
+"proj": {
+"inn": 5.8,
+"out": 7.8,
+"net": -2.0,
+"final": -5.5
+},
 "note": "Auto-scored: value in -0.8 vs value out +2.7, control windows, leverage-weighted, discounted 10%/yr to the deal date. Acquired ranked pieces were marked +4.6 at the time."
 },
 {
@@ -215426,6 +217216,12 @@ const AUTO_REGIMES = [
 "paid": -0.2
 }
 ],
+"proj": {
+"inn": 3.9,
+"out": 6.0,
+"net": -2.1,
+"final": -3.1
+},
 "note": "Auto-scored: value in +0.4 vs value out +1.4, control windows, leverage-weighted, discounted 10%/yr to the deal date."
 }
 ]
@@ -216346,7 +218142,9 @@ function openModal(x, r){
     <div class="side"><div class="dir">${dir}</div>
       ${assets.map(([nm,w])=>`<div class="asset"><span>${nm}</span><span class="${String(w).startsWith('-')?'neg':'pos'}">${w}</span></div>`).join('')}
     </div>`).join('');
-  $('#m-net').innerHTML = `Net to ${r.team}: <span class="${x.war>=0?'pos':'neg'}" style="font-size:17px">${fmtW(x.war)} WAR</span> <span class="chip ${x.open?'chip-open':'chip-closed'}">${x.open?'OPEN - value still accruing':'CLOSED - number is final'}</span>`;
+  $('#m-net').innerHTML = `Net to ${r.team}: <span class="${x.war>=0?'pos':'neg'}" style="font-size:17px">${fmtW(x.war)} WAR</span> <span class="chip ${x.open?'chip-open':'chip-closed'}">${x.open?'OPEN - value still accruing':'CLOSED - number is final'}</span>` +
+    (x.proj ? `<div style="margin-top:8px; font-size:13px; color:var(--ink-2)">Projected rest of window: <span class="${x.proj.net>=0?'pos':'neg'}" style="font-weight:600">${fmtW(x.proj.net)}</span> (in ${fmtW(x.proj.inn)} / out ${fmtW(-x.proj.out)}) &nbsp;→&nbsp; <strong>projected final verdict: <span class="${x.proj.final>=0?'pos':'neg'}">${fmtW(x.proj.final)} WAR</span></strong>
+      <div style="font-size:11px; color:var(--muted); margin-top:3px">Ledger Projection v1 (self-built: Marcel-style regressed recent form on delta-method aging curves; prospects at Pipeline-rank expectation; backtested r &asymp; 0.64 vs next-season WAR). A disclosed overlay only: the grades above count realized value and never move on a forecast.</div></div>` : '');
   renderTimelines(x, r);
   const lensEl = $('#m-lenses');
   lensEl.innerHTML = x.lenses ? `<div class="lens-box"><div class="lens-row hd"><span>Lens</span><span>Verdict</span><span>Status</span></div>${
