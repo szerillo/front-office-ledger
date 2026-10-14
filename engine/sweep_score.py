@@ -125,14 +125,24 @@ for reg in cfg["regimes"]:
     for p in picks:
         if p["person_id"]: universe.add(int(p["person_id"]))
 print(f"universe: {len(universe)} persons", flush=True)
+REDRAFT = {}
+for pid, yy in con.execute("select person_id, cast(year as int) from draft_picks where person_id is not null"):
+    REDRAFT.setdefault(str(pid), set()).add(yy)
+REDRAFT = {k: v for k, v in REDRAFT.items() if len(v) > 1}
 import os
+from lvm15 import player_team_seasons_v15
 if os.path.exists("/home/claude/lvm_cache.json"):
-    LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
+    _raw = json.load(open("/home/claude/lvm_cache.json"))
+    _meta = {k: v for k, v in _raw.items() if k.startswith("__")}
+    LVM = {int(k): v for k, v in _raw.items() if not k.startswith("__")}
     missing = sorted(universe - set(LVM))
-    if missing: LVM.update(player_team_seasons(missing))
+    if missing: LVM.update(player_team_seasons_v15(missing))
 else:
-    LVM = player_team_seasons(sorted(universe))
-json.dump(LVM, open("/home/claude/lvm_cache.json", "w"))
+    _meta = {"__lvm_v15__": True}
+    LVM = player_team_seasons_v15(sorted(universe))
+_dump = {str(k): v for k, v in LVM.items()}
+_dump.update(_meta)
+json.dump(_dump, open("/home/claude/lvm_cache.json", "w"))
 print(f"LVM ready for {len(LVM)} persons", flush=True)
 
 # standings for success
@@ -309,8 +319,14 @@ for reg in cfg["regimes"]:
     dr_real = dr_exp = 0.0
     for p in drafts[tid]:
         yr = int(p["year"]); pk = int(p["pick_overall"])
-        realized = val(p["person_id"], names, yr, END_YEAR, inside=True)
-        exp = slot_expectation(pk) * maturity(yr)
+        # unsigned-pick screen: the same player drafted again in a later year
+        # means this pick never signed; realized value is zero (any later MLB
+        # time with this club came via a different decision) and the slot
+        # charge is halved (the comp pick for an unsigned early pick).
+        later = REDRAFT.get(str(p["person_id"]), ())
+        unsigned = any(y2 > yr for y2 in later)
+        realized = 0.0 if unsigned else val(p["person_id"], names, yr, END_YEAR, inside=True)
+        exp = slot_expectation(pk) * maturity(yr) * (0.5 if unsigned else 1.0)
         dr_real += realized; dr_exp += exp
         net = realized - exp; ynet[yr] += net
         dna["draft"][ptype(p["person_id"])] += net
