@@ -82,6 +82,12 @@ E.append(Paragraph(
     "Diego trading a 19-year-old Trea Turner reads as a 2.4-win process mistake and a 20.7-win outcome, which are "
     "different numbers and should be.", st_b))
 E.append(Paragraph(
+    "<b>A forward view that never touches the grades.</b> Open deals carry a projected final verdict from a "
+    "self-built projection layer: Marcel-style regressed form walked forward on delta-method aging curves computed "
+    "from the project's own 28,000-player value cache, prospects at their Pipeline-rank expectation. Backtested at "
+    "r = 0.62-0.67 against actual next-season WAR, competitive with public systems, and quarantined: realized value "
+    "is the ledger, the projection is the heading.", st_b))
+E.append(Paragraph(
     "<b>An empirical trade market.</b> From 237 deadline rental deals classified exactly from the transaction feed: "
     "a star rental win costs about 0.8 wins of eventually-realized value, the median deadline rental costs roughly "
     "nothing that ever materializes, and over half of rental buys deliver under 0.3 wins. Boston's return for one "
