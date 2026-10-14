@@ -97,7 +97,7 @@ for reg in cfg["regimes"]:
 
 print(f"deadline rental deals classified: {len(deals)}")
 
-ERAS = [(2005, 2011), (2012, 2016), (2017, 2021), (2022, 2025)]
+ERAS = [(2005, 2011), (2012, 2016), (2017, 2021), (2022, 2026)]
 study = dict(n=len(deals), eras=[])
 for a, b in ERAS:
     sub = [x for x in deals if a <= x["yr"] <= b]

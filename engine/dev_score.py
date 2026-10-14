@@ -184,7 +184,7 @@ print(f"inherited entries screened out: {inherited}")
 def dev_seasons(tid):
     start = REG[tid]["start"]
     s = int(start[:4]) + (int(start[5:7]) - 1) / 12
-    return max(1.0, 2026.6 - max(s, 2011.1))
+    return max(1.0, 2027.0 - max(s, 2011.1))
 
 tot_net = sum(pernet.get(r["teamId"], 0.0) for r in res)
 tot_sea = sum(dev_seasons(r["teamId"]) for r in res)

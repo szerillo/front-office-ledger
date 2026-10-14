@@ -86,7 +86,7 @@ for r in res:
         off, yrs, tot, src = hit
         cbt = FA_CBT.get((pn, off))
         aav = (cbt if cbt else tot) / yrs
-        seasons = [y for y in range(off + 1, min(off + yrs, 2025) + 1)]
+        seasons = [y for y in range(off + 1, min(off + yrs, 2026) + 1)]
         if not seasons: continue
         implied = sum(aav / DPW[y] for y in seasons)
         rec = LVM.get(x["person_id"])

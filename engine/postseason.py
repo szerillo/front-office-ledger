@@ -35,7 +35,9 @@ def bump(tid, y, k, v=1):
     rec = PS.setdefault((tid, y), dict(berth=0, sw=0, pennant=0, ws=0))
     rec[k] = rec[k] + v if k == "sw" else max(rec[k], v)
 
-for yr in ([] if PS else range(2005, 2026)):
+have_years = {y for (_, y) in PS}
+for yr in range(2005, 2027):
+    if yr in have_years and yr < 2026: continue
     d = get(f"https://statsapi.mlb.com/api/v1/schedule/postseason/series?season={yr}&fields=series,id,gameType,games,teams,away,home,team,id,isWinner")
     for s in d.get("series", []):
         gt = s["series"]["gameType"]      # F=WC, D=DS, L=LCS, W=WS

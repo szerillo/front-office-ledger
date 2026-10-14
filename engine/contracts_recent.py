@@ -7,8 +7,7 @@ corrections (58/58 exact matches). The 2024-25 winter is spot-verified
 earlier in the research log; megadeals are widely-reported figures).
 Format: (offseason_start_year, player, team_abbr, years, total $M).
 Coverage: materiality-first (the deals that move FA grades); the long tail
-of 1-yr depth deals in these winters stays ungraded. 2025-26 winter is
-excluded (season in progress; graded next cycle)."""
+of 1-yr depth deals in these winters stays ungraded. 2025-26 winter added Oct 2026 (web-verified against CBS/MLBPA trackers)."""
 
 RECENT = [
  # 2022-23 offseason
@@ -60,4 +59,23 @@ RECENT = [
  (2024,"Yusei Kikuchi","LAA",3,63),(2024,"Frankie Montas","NYM",2,34),
  (2024,"Clay Holmes","NYM",3,38),(2024,"Michael Wacha","KC",3,51),
  (2024,"Nick Pivetta","SD",4,55),(2024,"Jeff Hoffman","TOR",3,33),
+ # 2025-26 offseason (web-verified Oct 2026: CBS/MLBPA trackers; QO accepters at $22.05M)
+ (2025,"Kyle Tucker","LAD",4,240),(2025,"Dylan Cease","TOR",7,210),
+ (2025,"Alex Bregman","CHC",5,175),(2025,"Cody Bellinger","NYY",5,162.5),
+ (2025,"Pete Alonso","BAL",5,155),(2025,"Kyle Schwarber","PHI",5,150),
+ (2025,"Bo Bichette","NYM",3,126),(2025,"Ranger Suarez","BOS",5,130),
+ (2025,"Framber Valdez","DET",3,115),(2025,"Josh Naylor","SEA",5,92.5),
+ (2025,"Michael King","SD",3,75),(2025,"Edwin Diaz","LAD",3,69),
+ (2025,"Tatsuya Imai","HOU",3,63),(2025,"Kazuma Okamoto","TOR",4,60),
+ (2025,"Devin Williams","NYM",3,51),(2025,"Robert Suarez","ATL",3,45),
+ (2025,"J.T. Realmuto","PHI",3,45),(2025,"Merrill Kelly","ARI",2,40),
+ (2025,"Jorge Polanco","NYM",2,40),(2025,"Tyler Rogers","TOR",3,37),
+ (2025,"Munetaka Murakami","CWS",2,34),(2025,"Cody Ponce","TOR",3,30),
+ (2025,"Ryan O'Hearn","PIT",2,29),(2025,"Ryan Helsley","BAL",2,28),
+ (2025,"Mike Yastrzemski","ATL",2,23),(2025,"Zac Gallen","ARI",1,22.05),
+ (2025,"Luke Weaver","NYM",2,22),(2025,"Brad Keller","PHI",2,22),
+ (2025,"Harrison Bader","SF",2,20.5),(2025,"Emilio Pagan","CIN",2,20),
+ (2025,"Shota Imanaga","CHC",1,22.05),(2025,"Trent Grisham","NYY",1,22.05),
+ (2025,"Gleyber Torres","DET",1,22.05),(2025,"Brandon Woodruff","MIL",1,22.05),
+ (2025,"Chris Bassitt","BAL",1,18.5),(2025,"Justin Verlander","DET",1,13),
 ]

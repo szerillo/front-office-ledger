@@ -113,6 +113,8 @@ QO = {
  ("juan soto",2024),("corbin burnes",2024),("max fried",2024),
  ("willy adames",2024),("alex bregman",2024),("anthony santander",2024),
  ("christian walker",2024),
+ ("kyle tucker",2025),("dylan cease",2025),("bo bichette",2025),
+ ("framber valdez",2025),("ranger suarez",2025),("edwin diaz",2025),
 }
 
 # CBT/present-value totals for FA deals where deferrals famously diverge

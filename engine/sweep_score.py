@@ -41,7 +41,7 @@ def slot_expectation(pick):
             return v1 + f * (v2 - v1)
     return 0.10
 MATURITY = {0: 0.0, 1: 0.02, 2: 0.10, 3: 0.22, 4: 0.38, 5: 0.55, 6: 0.70, 7: 0.82}
-def maturity(dy, asof=2025):
+def maturity(dy, asof=2026):
     n = max(0, asof - dy)
     return MATURITY.get(n, 0.82 + min(0.18, 0.02 * (n - 7)))
 
@@ -225,7 +225,7 @@ results = []
 for reg in cfg["regimes"]:
     tid = reg["teamId"]; names = ALIAS.get(tid, {reg["team"]})
     start = max(reg["start"], "2005-01-01"); y_start = int(start[:4])
-    seasons = round((END_YEAR + 0.55) - (y_start + (1 if start[5:7] > "07" else 0)), 1)
+    seasons = round((END_YEAR + 1.0) - (y_start + (1 if start[5:7] > "07" else 0)), 1)
     seasons = max(seasons, 0.7)
     decs = []
     ynet = defaultdict(float)

@@ -120,7 +120,7 @@ for sign, player, ab, yrs, tot, cbt in EXT:
     use_tot = cbt if cbt else tot
     aav = use_tot / yrs
     start = sy if int(sign[5:7]) <= 3 else sy + 1   # spring deals replace the current season (approx)
-    end_cap = 2023 if player == "Wander Franco" else 2025
+    end_cap = 2023 if player == "Wander Franco" else 2026
     seasons = [y for y in range(start, min(start + yrs - 1, end_cap) + 1)]
     names = ALIAS.get(tid, {reg["team"]})
     rows = lvm_rows(pid) if pid else []
