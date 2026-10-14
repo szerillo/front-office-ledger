@@ -61,7 +61,13 @@ new facts are the completed postseason and any early offseason transactions.
     python3 trade_comps.py           # market comps onto every graded trade
     python3 ages_fetch.py            # birth dates (only if the cache changed)
     python3 proj_v1.py               # Ledger Projection v1 onto open deals
-    python3 desk_data.py             # Deal Desk data pack
+    python3 desk_data.py             # Deal Desk data pack (fetches prospect
+                                     # orgs + standings from the API)
+    python3 calib_suggest.py         # optional: re-backtest the term
+                                     # suggester after a new FA winter enters
+                                     # contracts_recent.py; update the MAE
+                                     # numbers quoted in the Desk suggestion
+                                     # panel and Methodology if they move
     python3 regen_v3.py              # splices everything into the prototype
 
 `run_chain.sh` in the repo root runs the middle block. After regen, update

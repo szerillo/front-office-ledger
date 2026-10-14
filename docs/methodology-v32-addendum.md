@@ -181,3 +181,56 @@ architecture pointed at internal projections and pref lists is a deadline
 war-room tool. `engine/desk_data.py` builds the data pack
 (`data/desk_data.json`: 2,035 players with recent form, ages, and control
 defaults; curves; market constants; the compact deal archive).
+
+# v3.6 addendum: calibrated contract terms, the payroll layer, the Horizon tab
+
+October 14, 2026.
+
+## 1. Suggested terms, backtested the only honest way
+
+The Deal Desk now proposes contract terms instead of making the user guess.
+Two components, both shown: the market-comp offer (median years and
+inflation-adjusted median AAV of the eight nearest real contracts by blended
+recent form, age, and position type, from the 1,616-contract book) and the
+model-fair offer (years until projected season value thins below ~0.75 wins;
+dollars = projected WAR x market $/win, class-discounted on extensions).
+
+`engine/calib_suggest.py` backtests the suggester winter by winter: for all
+1,224 book contracts signed 2010-2025, the suggestion is reconstructed using
+only information available at the time (comps strictly earlier, that era's
+$/win from the dpwHist table). Results: the market-comp offer is nearly
+unbiased on ordinary deals (MAE 0.73 years, $3.6M AAV, total bias -$8.5M
+driven entirely by stars) but reads the $100M+ class $92M light on average;
+the model-fair offer prices stars better and overshoots small deals. The
+headline Ledger offer is therefore a blend whose model weight ramps in only
+above star-level projection value (w = clamp((undiscounted projected value -
+$60M) / $120M, 0, 1)): mega-deal total MAE falls 97 -> 71, overall bias
+-8.5 -> -1.9, and the 936 ordinary contracts keep the unbiased market read.
+The residual star shortfall is disclosed, not tuned away: the market pays
+elite free agents above both the comp median and model $/win.
+
+## 2. The payroll layer
+
+Committed payroll per club per season 2027-2031 is computed from the book:
+guaranteed FA and extension dollars, AAV-spread. Signing and extension
+verdicts show the club's committed payroll before and after the proposed
+deal and distance to the $244M CBT reference line (2026 threshold; 2027+
+awaits the next CBA). Disclosed limits: arb, pre-arb, options, and
+mid-contract trades sit outside the book, so true payrolls run higher.
+
+## 3. The Horizon tab
+
+Every club's roster walked forward on the aging curves through 2031, bounded
+by control: feed-derived service defaults extended by guaranteed contract
+years from the book (the later of the two wins). Per season: projected WAR
+total, controlled-player count, committed dollars, top contributors, and
+whose last controlled season it is. Ranked prospects with no MLB track sit
+on a farm line at rank expectation. Trade verdicts at the Desk append the
+proposed deal's season-by-season effect on the club's horizon.
+
+## 4. Deal memos
+
+Every Desk verdict exports as a print-styled one-page memo (browser print /
+save as PDF): proposed terms or pieces, suggested terms, the full verdict
+tiles, market check, comps, counterparty card, payroll line, and the
+sandbox disclosure. Client-side only; nothing is recorded.
