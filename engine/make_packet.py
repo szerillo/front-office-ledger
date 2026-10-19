@@ -102,7 +102,7 @@ E.append(Paragraph(
     "winter on 1,224 real signings 2010-2025</b> using only information available at the time (typical miss 0.8 "
     "years, $3.6M of AAV; the star-contract shortfall the market itself produces is disclosed, not tuned away). "
     "Every verdict shows the club's estimated payroll before and after (book money plus arb/pre-arb estimates) "
-    "against the CBT line, and exports as a one-page deal memo. A Horizon view walks every roster forward through "
+    "against the CBT line, and exports as a one-page deal memo. A Scenario Room replays famous decision points from the archive with only at-the-time information, adjudicates counters by deterministic market rules, and grades process separately from outcome. A Horizon view walks every roster forward through "
     "2031 on the aging curves, bounded by control and contract years: who falls off when, and what any proposed "
     "move does to the window.", st_b))
 
@@ -131,7 +131,7 @@ E.append(Paragraph(
     "anchored to league RA9, park factors from home/away run environments (3-yr rolling, halved for the road "
     "split), defense from the SABR Defensive Index where published and Statcast fielding runs plus catcher framing "
     "elsewhere, and Statcast baserunning. Park factors (v1.5) and the archive sweep's full 25,000-player universe "
-    "put the accounting check at r = 0.85 (MAE 5.3 wins) across 327 team-seasons: fuller rosters sum closer to "
+    "put the accounting check at r = 0.86 (MAE 5.3 wins) across 327 team-seasons: fuller rosters sum closer to "
     "team records, which is itself evidence the metric is additive the way WAR must be. The predictive study now "
     "carries real rigor: 574 pooled regime-years from 112 regimes, a cluster-bootstrap 95% interval on the "
     "partial correlation of [0.16, 0.37], and grouped out-of-sample cross-validation (R-squared 0.184 to 0.245 on "
@@ -165,7 +165,7 @@ for f in [
     "<b>The system audits its own inputs.</b> Tracing the 2009 Yankees' roster exposed that the MLB transaction "
     "feed is empty before 2009; the fix was joining the Retrosheet archive (22,697 rows, 1998-2008, mapped to "
     "MLBAM ids via the Chadwick register), which put the Beckett-for-Hanley and Cabrera trades into the book and "
-    "left the validation studies unchanged. Every graded trade also now carries market comps: the nearest deals "
+    "left the validation studies unchanged. A second audit (October 2026) caught a subtler hole: the player-value universe was built from transaction-touched players, so career-one-club stars who never hit free agency (Jose Altuve, Jose Ramirez, Salvador Perez, Ronald Acuna Jr., 133 significant players in all) were invisible; restoring them raised the accounting validation to r = 0.86 and put Perez back on the 2015 championship core. Both finds are documented, because a system that grades others must audit itself in public. Every graded trade also now carries market comps: the nearest deals "
     "by size and phase from a 5,764-deal archive, so each verdict reads against what deals of that shape cost.",
     "<b>Head-to-head records exist and are lopsided.</b> Every trade between two sitting regimes, netted from each "
     "seat: some relationships run 20+ wins one-sided across a decade of deals. Counterparty selection is a skill "
