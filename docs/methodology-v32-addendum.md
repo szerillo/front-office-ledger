@@ -272,3 +272,47 @@ each side translated to its nearest single-pick equivalent, the slot-curve
 anchors printed on the verdict, and the variance warning stated plainly.
 Disclosed framing: MLB only permits trading Competitive Balance round
 picks, so this is the valuation chart a draft room argues from.
+
+# v3.8 addendum: the completeness audit, and the Scenario Room
+
+October 19, 2026.
+
+## 1. The second self-audit: 133 invisible players
+
+Found while building the Scenario Room: a scenario about Cleveland's 2017
+Jose Ramirez extension read zero, because Jose Ramirez was not in the value
+cache. The universe had been built from transaction-touched players, so
+career-one-club stars who never hit free agency (intl signees above all)
+never entered it. engine/cache_audit.py now checks every player with 150+
+PA or 40+ IP in any season 1998-2026 against the cache: 133 significant
+players were missing (Altuve, J. Ramirez, Salvador Perez, Acuna, Albies,
+Chipper Jones, Helton, Duran, Pasquantino, ...). All rebuilt at Ledger WAR
+v1.5 (park factors + defense join) and the chain rerun. Accounting
+validation improved r = 0.853 -> 0.864 (MAE 5.3); predictive unchanged;
+channel grades moved under a win (these players were rarely transacted,
+which is exactly why they were missing); the 2015 KC and 2017 HOU
+championship cores got their stars back; the Desk pool grew to 2,102.
+cache_audit.py joins the refresh runbook so the hole cannot silently
+reopen.
+
+## 2. The Scenario Room
+
+engine/scenario_build.py generates decision scenarios from the ledger
+itself: 10 famous trades (both buyer and seller seats), 4 free-agent
+signings, 1 extension, 1 live unsettled 2026 deal, plus 1 fictional
+scenario synthesized client-side from the current data pack. Each carries
+at-the-time context only: dated standings, win-curve leverage, computed
+roster-need groups (weakest of C/IF/OF/P by that season's roster WAR,
+an approximation from current primary positions), era $/win, and piece
+info with contemporaneous Pipeline ranks. Pre-2011 prospect pieces carry
+curated consensus tiers (flagged; the rank archive starts 2011). The
+ex-ante expectation is deliberately crude and stated: last full season's
+rate times typical control for the bucket, prospects at rank expectation,
+unranked minors at the 0.41 empirical mean. Counters resolve by
+deterministic rules from the control-bucket price curves (a counterparty
+with an above-market deal in hand caves to a sweetener demand; a
+below-market buyer walks), so every adjudication is explainable. Scoring
+separates process (against the ex-ante market read) from outcome (the
+archive's realized windows; the live scenario scores on projected final,
+labeled UNSETTLED). Setup lines are curated color; every number is
+computed.
