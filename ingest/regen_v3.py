@@ -243,6 +243,10 @@ if os.path.exists("/home/claude/desk_data.json"):
     desk = open("/home/claude/desk_data.json").read()
     s = swap(s, "const DESK = ", ";\n\n// COMPUTED champions", desk)
     print("desk data pack spliced")
+if os.path.exists("/home/claude/scenarios.json") and "const SCEN = " in s:
+    scen = open("/home/claude/scenarios.json").read()
+    s = swap(s, "const SCEN = ", "; // SCEN-END", scen)
+    print("scenario pack spliced")
 
 # ---- computed champions + through lines ----
 champ_cards_g = []
