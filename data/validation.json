@@ -1,11 +1,11 @@
 {
  "accounting": {
   "n": 327,
-  "r": 0.853,
-  "r2": 0.727,
-  "slope": 0.832,
-  "mae": 5.26,
-  "mean_lvm": 32.4,
+  "r": 0.864,
+  "r2": 0.747,
+  "slope": 0.818,
+  "mae": 5.35,
+  "mean_lvm": 33.2,
   "mean_truth": 31.1
  },
  "predictive": {

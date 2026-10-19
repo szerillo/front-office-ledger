@@ -37,8 +37,8 @@
     "n": 3
    },
    "intl": {
-    "net": -1.5,
-    "g": 50,
+    "net": -2.3,
+    "g": 45,
     "n": 20
    },
    "ret": {
@@ -48,7 +48,7 @@
     "lost": 39.3,
     "rel": 0.81,
     "display_only": true,
-    "net2": 9.7,
+    "net2": 9.6,
     "n2": 28,
     "qo": 1,
     "g2": 65,
@@ -58,14 +58,14 @@
       "y": 2017,
       "prior": 2.5,
       "fut": 8.3,
-      "exp": 1.6
+      "exp": 1.5
      },
      {
       "nm": "AJ Pollock",
       "y": 2018,
       "prior": 5.8,
       "fut": 6.7,
-      "exp": 2.5
+      "exp": 2.4
      },
      {
       "nm": "Wilmer Flores",
@@ -77,7 +77,7 @@
     ]
    }
   },
-  "total": 10.1,
+  "total": 9.2,
   "forGrade": 55,
   "success": {
    "wpct": ".487",
@@ -171,8 +171,8 @@
      "n_in": 1
     },
     "pids": [
-     "666971",
      "672515",
+     "666971",
      "662139"
     ],
     "comps": [
@@ -204,13 +204,13 @@
       "paid": 3.1
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 3.8,
      "out": 2.0,
      "net": 1.8,
      "final": 18.4
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2019-07-31",
@@ -320,9 +320,9 @@
      "n_in": 1
     },
     "pids": [
-     "670370",
-     "596133",
      "608348",
+     "596133",
+     "670370",
      "502671"
     ],
     "comps": [
@@ -421,13 +421,13 @@
       "paid": 7.0
      }
     ],
+    "unsettled": true,
     "proj": {
-     "inn": 5.4,
+     "inn": 5.3,
      "out": 0.4,
-     "net": 5.0,
-     "final": 12.0
-    },
-    "unsettled": true
+     "net": 4.9,
+     "final": 11.9
+    }
    },
    {
     "d": "2020-06-15",
@@ -534,13 +534,13 @@
       "paid": 0.6
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.0,
      "out": 2.2,
      "net": -2.2,
      "final": -8.8
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2020-08-31",
@@ -651,8 +651,8 @@
        "n_in": 1
       },
       "pids": [
-       "666971",
        "672515",
+       "666971",
        "662139"
       ],
       "comps": [
@@ -684,13 +684,13 @@
         "paid": 3.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 3.8,
        "out": 2.0,
        "net": 1.8,
        "final": 18.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2019-07-31",
@@ -824,13 +824,13 @@
         "paid": 7.0
        }
       ],
+      "unsettled": true,
       "proj": {
-       "inn": 5.4,
+       "inn": 5.3,
        "out": 0.4,
-       "net": 5.0,
-       "final": 12.0
-      },
-      "unsettled": true
+       "net": 4.9,
+       "final": 11.9
+      }
      },
      {
       "d": "2023-11-22",
@@ -903,13 +903,13 @@
         "paid": 3.7
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 0.3,
-       "net": -0.3,
-       "final": 4.5
-      },
-      "unsettled": true
+       "out": 0.4,
+       "net": -0.4,
+       "final": 4.4
+      }
      },
      {
       "d": "2017-07-18",
@@ -1032,9 +1032,9 @@
        "n_in": 1
       },
       "pids": [
-       "670370",
-       "596133",
        "608348",
+       "596133",
+       "670370",
        "502671"
       ],
       "comps": [
@@ -1143,13 +1143,13 @@
         "paid": 0.6
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 2.2,
        "net": -2.2,
        "final": -8.8
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2020-08-31",
@@ -1264,8 +1264,8 @@
        "n_in": 0
       },
       "pids": [
-       "606466",
        "592836",
+       "606466",
        "657205",
        "516416",
        "571745"
@@ -2080,8 +2080,8 @@
     "n": 48
    },
    "devBat": {
-    "v": 0.22,
-    "n": 76
+    "v": 0.13,
+    "n": 88
    },
    "inj": {
     "pit": 23.4,
@@ -2928,8 +2928,8 @@
     "n": 7
    },
    "intl": {
-    "net": -4.8,
-    "g": 45,
+    "net": -5.6,
+    "g": 40,
     "n": 13
    },
    "ret": {
@@ -2939,7 +2939,7 @@
     "lost": 80.7,
     "rel": -4.23,
     "display_only": true,
-    "net2": 3.9,
+    "net2": 3.5,
     "n2": 44,
     "qo": 1,
     "g2": 55,
@@ -2963,12 +2963,12 @@
       "y": 2019,
       "prior": 6.1,
       "fut": 7.1,
-      "exp": 2.5
+      "exp": 2.4
      }
     ]
    }
   },
-  "total": 106.3,
+  "total": 105.1,
   "forGrade": 80,
   "success": {
    "wpct": ".558",
@@ -3075,13 +3075,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 3.3,
      "out": 3.0,
      "net": 0.3,
      "final": 23.5
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-12-30",
@@ -3149,13 +3149,13 @@
       "paid": 17.8
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 6.7,
      "out": 0.0,
      "net": 6.7,
      "final": 28.1
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2022-12-12",
@@ -3248,13 +3248,13 @@
       "paid": 7.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.6,
      "out": 4.4,
      "net": -3.8,
      "final": -23.3
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2019-06-15",
@@ -3414,13 +3414,13 @@
       "paid": -2.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.0,
      "out": 0.4,
      "net": -0.4,
      "final": 7.2
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2020-06-15",
@@ -3536,13 +3536,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 3.3,
        "out": 3.0,
        "net": 0.3,
        "final": 23.5
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-12-30",
@@ -3610,13 +3610,13 @@
         "paid": 17.8
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 6.7,
        "out": 0.0,
        "net": 6.7,
        "final": 28.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2022-08-02",
@@ -3689,13 +3689,13 @@
         "paid": -2.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.4,
        "net": -0.4,
        "final": 7.2
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2022-12-07",
@@ -3768,13 +3768,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 0.6,
        "net": -0.2,
        "final": 4.2
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2018-07-31",
@@ -3956,13 +3956,13 @@
         "paid": 7.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.6,
        "out": 4.4,
        "net": -3.8,
        "final": -23.3
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2017-12-16",
@@ -3980,11 +3980,11 @@
           "+3.1"
          ],
          [
-          "Scott Kazmir",
+          "Adri\u00e1n Gonz\u00e1lez",
           "+0.0"
          ],
          [
-          "Adri\u00e1n Gonz\u00e1lez",
+          "Scott Kazmir",
           "+0.0"
          ],
          [
@@ -4010,10 +4010,10 @@
        "n_in": 0
       },
       "pids": [
-       "435221",
        "518586",
-       "431148",
        "408236",
+       "431148",
+       "435221",
        "461314"
       ],
       "comps": [
@@ -4111,13 +4111,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0,
        "out": 0.7,
        "net": -0.7,
        "final": -2.5
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2021-05-19",
@@ -4899,8 +4899,8 @@
     "n": 43
    },
    "devBat": {
-    "v": 0.06,
-    "n": 80
+    "v": 0.1,
+    "n": 91
    },
    "inj": {
     "pit": 27.3,
@@ -5765,7 +5765,7 @@
     "n": 2
    },
    "intl": {
-    "net": -5.3,
+    "net": -6.0,
     "g": 40,
     "n": 6
    },
@@ -5776,14 +5776,14 @@
     "lost": 7.6,
     "rel": 3.78,
     "display_only": true,
-    "net2": 6.8,
+    "net2": 6.7,
     "n2": 8,
     "qo": 0,
     "g2": 65,
     "worst2": []
    }
   },
-  "total": 42.6,
+  "total": 41.8,
   "forGrade": 70,
   "success": {
    "wpct": ".448",
@@ -5998,13 +5998,13 @@
       "paid": 21.3
      }
     ],
+    "unsettled": false,
     "proj": {
      "inn": 0.0,
      "out": 0,
      "net": 0.0,
      "final": 7.2
-    },
-    "unsettled": false
+    }
    },
    {
     "d": "2024-02-01",
@@ -6077,13 +6077,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.0,
      "out": 6.4,
      "net": -6.4,
      "final": -13.5
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2022-08-02",
@@ -6105,11 +6105,11 @@
         "+1.2"
        ],
        [
-        "Juan Rojas",
+        "Juan Nu\u00f1ez",
         "+0.0"
        ],
        [
-        "Juan Nu\u00f1ez",
+        "Juan Rojas",
         "+0.0"
        ]
       ]
@@ -6131,10 +6131,10 @@
      "n_in": 0
     },
     "pids": [
-     "700357",
-     "693725",
-     "666974",
      "700249",
+     "693725",
+     "700357",
+     "666974",
      "605347"
     ],
     "comps": [
@@ -6166,13 +6166,13 @@
       "paid": 0.2
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.2,
      "out": 0.0,
      "net": 2.2,
      "final": 8.7
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2020-06-15",
@@ -6215,11 +6215,11 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Antonio Velez",
+        "Kevin Guerrero",
         "+0.0"
        ],
        [
-        "Kevin Guerrero",
+        "Antonio Velez",
         "+0.0"
        ]
       ]
@@ -6245,8 +6245,8 @@
      "n_in": 0
     },
     "pids": [
-     "669163",
      "698931",
+     "669163",
      "642121",
      "656945"
     ],
@@ -6279,13 +6279,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.8,
      "out": 0.0,
      "net": 0.8,
      "final": -4.7
-    },
-    "unsettled": true
+    }
    }
   ],
   "led": {
@@ -6356,13 +6356,13 @@
         "paid": 21.3
        }
       ],
+      "unsettled": false,
       "proj": {
        "inn": 0.0,
        "out": 0,
        "net": 0.0,
        "final": 7.2
-      },
-      "unsettled": false
+      }
      },
      {
       "d": "2022-08-02",
@@ -6384,11 +6384,11 @@
           "+1.2"
          ],
          [
-          "Juan Rojas",
+          "Juan Nu\u00f1ez",
           "+0.0"
          ],
          [
-          "Juan Nu\u00f1ez",
+          "Juan Rojas",
           "+0.0"
          ]
         ]
@@ -6410,10 +6410,10 @@
        "n_in": 0
       },
       "pids": [
-       "700357",
-       "693725",
-       "666974",
        "700249",
+       "693725",
+       "700357",
+       "666974",
        "605347"
       ],
       "comps": [
@@ -6445,13 +6445,13 @@
         "paid": 0.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.2,
        "out": 0.0,
        "net": 2.2,
        "final": 8.7
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-12-19",
@@ -6534,13 +6534,13 @@
         "paid": 0.3
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 5.6,
        "out": 2.9,
        "net": 2.7,
        "final": 6.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2019-12-04",
@@ -6558,11 +6558,11 @@
           "+4.8"
          ],
          [
-          "Zach Peek",
+          "Kyle Brnovich",
           "+0.0"
          ],
          [
-          "Kyle Brnovich",
+          "Zach Peek",
           "+0.0"
          ],
          [
@@ -6588,10 +6588,10 @@
        "n_in": 0
       },
       "pids": [
-       "686745",
-       "676755",
        "686599",
        "680694",
+       "686745",
+       "676755",
        "605164"
       ],
       "comps": [
@@ -6689,13 +6689,13 @@
         "paid": 0.1
        }
       ],
+      "unsettled": false,
       "proj": {
        "inn": 0.0,
        "out": 0,
        "net": 0.0,
        "final": 2.8
-      },
-      "unsettled": false
+      }
      }
     ],
     "worst": [
@@ -6837,13 +6837,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 6.4,
        "net": -6.4,
        "final": -13.5
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2022-04-03",
@@ -6857,11 +6857,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Antonio Velez",
+          "Kevin Guerrero",
           "+0.0"
          ],
          [
-          "Kevin Guerrero",
+          "Antonio Velez",
           "+0.0"
          ]
         ]
@@ -6887,8 +6887,8 @@
        "n_in": 0
       },
       "pids": [
-       "669163",
        "698931",
+       "669163",
        "642121",
        "656945"
       ],
@@ -6921,13 +6921,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.8,
        "out": 0.0,
        "net": 0.8,
        "final": -4.7
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2021-07-30",
@@ -7689,8 +7689,8 @@
     "n": 35
    },
    "devBat": {
-    "v": 0.23,
-    "n": 90
+    "v": 0.27,
+    "n": 110
    },
    "inj": {
     "pit": 30.4,
@@ -8399,14 +8399,14 @@
     "lost": 12.8,
     "rel": 0.47,
     "display_only": true,
-    "net2": 2.9,
+    "net2": 2.8,
     "n2": 3,
     "qo": 0,
     "g2": 65,
     "worst2": []
    }
   },
-  "total": 34.8,
+  "total": 34.7,
   "forGrade": 80,
   "success": {
    "wpct": ".517",
@@ -8492,13 +8492,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.0,
      "out": 6.7,
      "net": -6.7,
      "final": -28.1
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2025-12-22",
@@ -8576,13 +8576,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 5.6,
      "out": 2.1,
      "net": 3.5,
      "final": 9.3
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2025-11-25",
@@ -8655,13 +8655,13 @@
       "paid": 7.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 7.2,
      "out": 0.6,
      "net": 6.6,
      "final": 12.0
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-12-11",
@@ -8729,13 +8729,13 @@
       "paid": 3.7
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 7.7,
      "out": 14.5,
      "net": -6.8,
      "final": -1.9
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2025-12-15",
@@ -8803,13 +8803,13 @@
       "paid": 9.2
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 3.1,
      "out": 0.4,
      "net": 2.7,
      "final": 6.9
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2025-06-15",
@@ -8827,11 +8827,11 @@
         "+0.7"
        ],
        [
-        "Jose Bello",
+        "James Tibbs III",
         "+0.0"
        ],
        [
-        "James Tibbs III",
+        "Jose Bello",
         "+0.0"
        ],
        [
@@ -8857,10 +8857,10 @@
      "n_in": 1
     },
     "pids": [
+     "696486",
+     "808366",
      "690986",
      "663855",
-     "808366",
-     "696486",
      "646240"
     ],
     "comps": [
@@ -8892,13 +8892,13 @@
       "paid": -0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.1,
      "out": 8.2,
      "net": -6.1,
      "final": -10.2
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-12-06",
@@ -8966,13 +8966,13 @@
       "paid": 0.3
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.3,
      "out": 0.4,
      "net": 0.9,
      "final": 4.9
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-12-05",
@@ -9016,9 +9016,9 @@
      "n_in": 0
     },
     "pids": [
+     "690916",
      "700113",
      "669711",
-     "690916",
      "657077"
     ],
     "comps": [
@@ -9050,13 +9050,13 @@
       "paid": 5.7
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.6,
      "out": 0.0,
      "net": 1.6,
      "final": 5.5
-    },
-    "unsettled": true
+    }
    }
   ],
   "led": {
@@ -9138,13 +9138,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 5.6,
        "out": 2.1,
        "net": 3.5,
        "final": 9.3
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-11-25",
@@ -9217,13 +9217,13 @@
         "paid": 7.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 7.2,
        "out": 0.6,
        "net": 6.6,
        "final": 12.0
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-12-11",
@@ -9291,13 +9291,13 @@
         "paid": 3.7
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 7.7,
        "out": 14.5,
        "net": -6.8,
        "final": -1.9
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-12-15",
@@ -9365,13 +9365,13 @@
         "paid": 9.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 3.1,
        "out": 0.4,
        "net": 2.7,
        "final": 6.9
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-12-06",
@@ -9439,13 +9439,13 @@
         "paid": 0.3
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.3,
        "out": 0.4,
        "net": 0.9,
        "final": 4.9
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": [
@@ -9515,13 +9515,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 6.7,
        "net": -6.7,
        "final": -28.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-06-15",
@@ -9539,11 +9539,11 @@
           "+0.7"
          ],
          [
-          "Jose Bello",
+          "James Tibbs III",
           "+0.0"
          ],
          [
-          "James Tibbs III",
+          "Jose Bello",
           "+0.0"
          ],
          [
@@ -9569,10 +9569,10 @@
        "n_in": 1
       },
       "pids": [
+       "696486",
+       "808366",
        "690986",
        "663855",
-       "808366",
-       "696486",
        "646240"
       ],
       "comps": [
@@ -9604,13 +9604,13 @@
         "paid": -0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.1,
        "out": 8.2,
        "net": -6.1,
        "final": -10.2
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-02-17",
@@ -9678,13 +9678,13 @@
         "paid": 1.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 1.1,
-       "net": -1.1,
-       "final": -4.6
-      },
-      "unsettled": true
+       "out": 1.2,
+       "net": -1.2,
+       "final": -4.7
+      }
      },
      {
       "d": "2025-04-07",
@@ -9752,13 +9752,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 2.5,
        "net": -2.1,
        "final": -4.9
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-02-01",
@@ -9831,13 +9831,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 1.5,
        "net": -1.1,
        "final": -3.0
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -10234,7 +10234,7 @@
    },
    "devBat": {
     "v": -0.19,
-    "n": 93
+    "n": 116
    },
    "inj": {
     "pit": 42.7,
@@ -10948,7 +10948,7 @@
       "y": 2022,
       "prior": 4.9,
       "fut": 6.6,
-      "exp": 2.1
+      "exp": 2.0
      },
      {
       "nm": "Kyle Schwarber",
@@ -11097,8 +11097,8 @@
      "n_in": 1
     },
     "pids": [
-     "622075",
      "683737",
+     "622075",
      "814307",
      "701328"
     ],
@@ -11131,13 +11131,13 @@
       "paid": 3.5
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 5.2,
      "out": 6.1,
      "net": -0.9,
      "final": 12.4
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-12-17",
@@ -11205,13 +11205,13 @@
       "paid": 1.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.0,
      "out": 0.0,
      "net": 0.0,
      "final": -9.6
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2020-12-29",
@@ -11233,11 +11233,11 @@
         "+0.0"
        ],
        [
-        "Reginald Preciado",
+        "Yeison Santana",
         "+0.0"
        ],
        [
-        "Yeison Santana",
+        "Reginald Preciado",
         "+0.0"
        ],
        [
@@ -11268,10 +11268,10 @@
     },
     "pids": [
      "691190",
-     "683357",
+     "678220",
      "605200",
      "691262",
-     "678220",
+     "683357",
      "506433",
      "605170"
     ],
@@ -11381,13 +11381,13 @@
       "paid": 1.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.0,
      "out": 12.3,
      "net": -12.3,
      "final": -19.1
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2022-03-25",
@@ -11455,13 +11455,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.4,
      "out": 0.0,
      "net": 0.4,
      "final": -4.4
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2022-08-02",
@@ -11529,13 +11529,13 @@
       "paid": 2.4
      }
     ],
+    "unsettled": true,
     "proj": {
-     "inn": 1.7,
+     "inn": 1.8,
      "out": 0.0,
-     "net": 1.7,
-     "final": 6.5
-    },
-    "unsettled": true
+     "net": 1.8,
+     "final": 6.6
+    }
    },
    {
     "d": "2021-07-29",
@@ -11727,8 +11727,8 @@
        "n_in": 1
       },
       "pids": [
-       "622075",
        "683737",
+       "622075",
        "814307",
        "701328"
       ],
@@ -11761,13 +11761,13 @@
         "paid": 3.5
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 5.2,
        "out": 6.1,
        "net": -0.9,
        "final": 12.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2022-08-02",
@@ -11835,13 +11835,13 @@
         "paid": 2.4
        }
       ],
+      "unsettled": true,
       "proj": {
-       "inn": 1.7,
+       "inn": 1.8,
        "out": 0.0,
-       "net": 1.7,
-       "final": 6.5
-      },
-      "unsettled": true
+       "net": 1.8,
+       "final": 6.6
+      }
      },
      {
       "d": "2024-07-28",
@@ -11919,13 +11919,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.6,
        "net": -0.6,
        "final": 2.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-08-03",
@@ -11965,8 +11965,8 @@
        "n_in": 0
       },
       "pids": [
-       "605280",
        "621438",
+       "605280",
        "800473"
       ],
       "comps": [
@@ -11998,13 +11998,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
-       "inn": 5.7,
+       "inn": 5.8,
        "out": 4.8,
-       "net": 0.9,
-       "final": 3.2
-      },
-      "unsettled": true
+       "net": 1.0,
+       "final": 3.3
+      }
      }
     ],
     "worst": [
@@ -12074,13 +12074,13 @@
         "paid": 1.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.0,
        "net": 0.0,
        "final": -9.6
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2020-12-29",
@@ -12102,11 +12102,11 @@
           "+0.0"
          ],
          [
-          "Reginald Preciado",
+          "Yeison Santana",
           "+0.0"
          ],
          [
-          "Yeison Santana",
+          "Reginald Preciado",
           "+0.0"
          ],
          [
@@ -12137,10 +12137,10 @@
       },
       "pids": [
        "691190",
-       "683357",
+       "678220",
        "605200",
        "691262",
-       "678220",
+       "683357",
        "506433",
        "605170"
       ],
@@ -12250,13 +12250,13 @@
         "paid": 1.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 12.3,
        "net": -12.3,
        "final": -19.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2022-03-25",
@@ -12324,13 +12324,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 0.0,
        "net": 0.4,
        "final": -4.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2021-07-29",
@@ -12797,8 +12797,8 @@
     "n": 54
    },
    "devBat": {
-    "v": 0.08,
-    "n": 87
+    "v": 0.06,
+    "n": 108
    },
    "inj": {
     "pit": 43.7,
@@ -13680,15 +13680,15 @@
     "lost": 5.5,
     "rel": 2.91,
     "display_only": true,
-    "net2": 9.3,
+    "net2": 9.1,
     "n2": 6,
     "qo": 0,
     "g2": 80,
     "worst2": []
    }
   },
-  "total": 16.6,
-  "forGrade": 75,
+  "total": 16.4,
+  "forGrade": 70,
   "success": {
    "wpct": ".380",
    "div": 0,
@@ -13755,8 +13755,8 @@
     "pids": [
      "689672",
      "683568",
-     "694214",
      "621051",
+     "694214",
      "656302"
     ],
     "comps": [
@@ -13788,13 +13788,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.2,
      "out": 0.0,
      "net": 1.2,
      "final": -11.0
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-07-29",
@@ -13846,9 +13846,9 @@
      "n_in": 1
     },
     "pids": [
-     "678246",
      "800419",
      "800316",
+     "678246",
      "502054",
      "656629",
      "607200"
@@ -13882,13 +13882,13 @@
       "paid": 1.0
      }
     ],
+    "unsettled": true,
     "proj": {
-     "inn": 6.5,
+     "inn": 6.4,
      "out": 0.0,
-     "net": 6.5,
-     "final": 12.5
-    },
-    "unsettled": true
+     "net": 6.4,
+     "final": 12.4
+    }
    },
    {
     "d": "2025-12-18",
@@ -13955,13 +13955,13 @@
       "paid": -0.2
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 4.6,
      "out": 0,
      "net": 4.6,
      "final": 10.6
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-07-30",
@@ -14029,13 +14029,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.2,
      "out": 0.8,
      "net": 0.4,
      "final": -2.6
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2025-06-13",
@@ -14103,13 +14103,13 @@
       "paid": 0.4
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.0,
      "out": 1.0,
      "net": -1.0,
      "final": -4.0
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-11-16",
@@ -14161,11 +14161,11 @@
      "n_in": 0
     },
     "pids": [
-     "694363",
-     "670032",
-     "669699",
      "803035",
      "647336",
+     "670032",
+     "669699",
+     "694363",
      "607481"
     ],
     "comps": [
@@ -14197,13 +14197,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.4,
      "out": 0.5,
      "net": -0.1,
      "final": -3.0
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-06-15",
@@ -14300,13 +14300,13 @@
       "paid": 1.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.4,
      "out": 2.9,
      "net": -2.5,
      "final": -4.6
-    },
-    "unsettled": true
+    }
    }
   ],
   "led": {
@@ -14362,9 +14362,9 @@
        "n_in": 1
       },
       "pids": [
-       "678246",
        "800419",
        "800316",
+       "678246",
        "502054",
        "656629",
        "607200"
@@ -14398,13 +14398,13 @@
         "paid": 1.0
        }
       ],
+      "unsettled": true,
       "proj": {
-       "inn": 6.5,
+       "inn": 6.4,
        "out": 0.0,
-       "net": 6.5,
-       "final": 12.5
-      },
-      "unsettled": true
+       "net": 6.4,
+       "final": 12.4
+      }
      },
      {
       "d": "2025-12-18",
@@ -14471,13 +14471,13 @@
         "paid": -0.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 4.6,
        "out": 0,
        "net": 4.6,
        "final": 10.6
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-02-01",
@@ -14550,13 +14550,13 @@
         "paid": 0.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.5,
        "out": 1.8,
        "net": -0.3,
        "final": 1.6
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-05-05",
@@ -14623,13 +14623,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.6,
        "out": 0,
        "net": 0.6,
        "final": 1.8
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-07-30",
@@ -14697,13 +14697,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.2,
        "out": 0.8,
        "net": 0.4,
        "final": 1.3
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": [
@@ -14755,8 +14755,8 @@
       "pids": [
        "689672",
        "683568",
-       "694214",
        "621051",
+       "694214",
        "656302"
       ],
       "comps": [
@@ -14788,13 +14788,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.2,
        "out": 0.0,
        "net": 1.2,
        "final": -11.0
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-07-30",
@@ -14862,13 +14862,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.2,
        "out": 0.8,
        "net": 0.4,
        "final": -2.6
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-06-13",
@@ -14936,13 +14936,13 @@
         "paid": 0.4
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 1.0,
        "net": -1.0,
        "final": -4.0
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-11-16",
@@ -14994,11 +14994,11 @@
        "n_in": 0
       },
       "pids": [
-       "694363",
-       "670032",
-       "669699",
        "803035",
        "647336",
+       "670032",
+       "669699",
+       "694363",
        "607481"
       ],
       "comps": [
@@ -15030,13 +15030,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 0.5,
        "net": -0.1,
        "final": -3.0
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-03-28",
@@ -15104,13 +15104,13 @@
         "paid": 1.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 2.9,
        "net": -2.5,
        "final": -4.6
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -15507,7 +15507,7 @@
    },
    "devBat": {
     "v": 0.12,
-    "n": 94
+    "n": 104
    },
    "inj": {
     "pit": 40.7,
@@ -15817,24 +15817,24 @@
     "lost": 31.4,
     "rel": -0.49,
     "display_only": true,
-    "net2": -3.7,
+    "net2": -3.4,
     "n2": 13,
     "qo": 2,
-    "g2": 40,
+    "g2": 45,
     "worst2": [
      {
       "nm": "Harrison Bader",
       "y": 2023,
       "prior": 0.6,
       "fut": 4.2,
-      "exp": 0.7
+      "exp": 0.8
      },
      {
       "nm": "Jeff Hoffman",
       "y": 2022,
       "prior": 0.8,
       "fut": 4.0,
-      "exp": 0.8
+      "exp": 0.9
      },
      {
       "nm": "Anthony DeSclafani",
@@ -15846,7 +15846,7 @@
     ]
    }
   },
-  "total": 1.3,
+  "total": 1.6,
   "forGrade": 50,
   "success": {
    "wpct": ".478",
@@ -15940,13 +15940,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.2,
      "out": 0.4,
      "net": -0.2,
      "final": -12.3
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2022-07-30",
@@ -15994,10 +15994,10 @@
      "n_in": 1
     },
     "pids": [
-     "695490",
      "682622",
      "686651",
      "681097",
+     "695490",
      "622491"
     ],
     "comps": [
@@ -16029,13 +16029,13 @@
       "paid": 0.1
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.4,
      "out": 0.5,
      "net": 1.9,
      "final": -10.1
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2022-08-02",
@@ -16079,9 +16079,9 @@
      "n_in": 0
     },
     "pids": [
+     "668715",
      "687952",
      "680727",
-     "668715",
      "641816"
     ],
     "comps": [
@@ -16113,13 +16113,13 @@
       "paid": -2.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.7,
      "out": 0.0,
      "net": 1.7,
      "final": 8.4
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2021-06-15",
@@ -16312,9 +16312,9 @@
        "n_in": 0
       },
       "pids": [
+       "668715",
        "687952",
        "680727",
-       "668715",
        "641816"
       ],
       "comps": [
@@ -16346,13 +16346,13 @@
         "paid": -2.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.7,
        "out": 0.0,
        "net": 1.7,
        "final": 8.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-04-12",
@@ -16420,13 +16420,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.4,
        "net": -0.4,
        "final": 2.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2021-07-28",
@@ -16466,8 +16466,8 @@
        "n_in": 0
       },
       "pids": [
-       "570666",
-       "458677"
+       "458677",
+       "570666"
       ],
       "comps": [
        {
@@ -16565,13 +16565,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.3,
        "out": 0.0,
        "net": 0.3,
        "final": 2.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-12-27",
@@ -16639,13 +16639,13 @@
         "paid": 0.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.3,
        "out": 0.4,
        "net": 0.9,
        "final": 2.7
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": [
@@ -16720,13 +16720,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.2,
        "out": 0.4,
        "net": -0.2,
        "final": -12.3
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2022-07-30",
@@ -16774,10 +16774,10 @@
        "n_in": 1
       },
       "pids": [
-       "695490",
        "682622",
        "686651",
        "681097",
+       "695490",
        "622491"
       ],
       "comps": [
@@ -16809,13 +16809,13 @@
         "paid": 0.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.4,
        "out": 0.5,
        "net": 1.9,
        "final": -10.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2020-12-07",
@@ -16955,13 +16955,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.1,
        "out": 0.9,
        "net": -0.8,
        "final": -3.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2022-12-08",
@@ -17028,13 +17028,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0,
        "out": 0.1,
        "net": -0.1,
        "final": -2.6
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -17575,8 +17575,8 @@
     "n": 34
    },
    "devBat": {
-    "v": 0.16,
-    "n": 101
+    "v": 0.18,
+    "n": 129
    },
    "inj": {
     "pit": 44.7,
@@ -18141,7 +18141,7 @@
     "n": 3
    },
    "intl": {
-    "net": -33.3,
+    "net": -34.0,
     "g": 30,
     "n": 20
    },
@@ -18152,7 +18152,7 @@
     "lost": 37.9,
     "rel": 1.29,
     "display_only": true,
-    "net2": 14.7,
+    "net2": 15.4,
     "n2": 34,
     "qo": 1,
     "g2": 70,
@@ -18169,7 +18169,7 @@
       "y": 2018,
       "prior": 3.2,
       "fut": 5.4,
-      "exp": 1.5
+      "exp": 1.6
      }
     ]
    }
@@ -18319,8 +18319,8 @@
     },
     "pids": [
      "676282",
-     "647304",
      "672356",
+     "647304",
      "615698",
      "680911",
      "595978",
@@ -18689,8 +18689,8 @@
       },
       "pids": [
        "676282",
-       "647304",
        "672356",
+       "647304",
        "615698",
        "680911",
        "595978",
@@ -19307,13 +19307,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0,
        "out": 1.8,
        "net": -1.8,
        "final": -6.2
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-12-10",
@@ -19327,11 +19327,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Nick Mitchell",
+          "Spencer Horwitz",
           "+0.0"
          ],
          [
-          "Spencer Horwitz",
+          "Nick Mitchell",
           "+0.0"
          ]
         ]
@@ -19357,8 +19357,8 @@
        "n_in": 0
       },
       "pids": [
-       "814455",
        "687462",
+       "814455",
        "665926",
        "680704"
       ],
@@ -19391,13 +19391,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.8,
-       "out": 5.3,
-       "net": -2.5,
-       "final": -6.4
-      },
-      "unsettled": true
+       "out": 5.2,
+       "net": -2.4,
+       "final": -6.3
+      }
      }
     ]
    },
@@ -20113,8 +20113,8 @@
     "n": 30
    },
    "devBat": {
-    "v": 0.18,
-    "n": 87
+    "v": 0.16,
+    "n": 112
    },
    "inj": {
     "pit": 14.7,
@@ -20990,13 +20990,13 @@
       "paid": 2.2
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 3.6,
      "out": 0.4,
      "net": 3.2,
      "final": 4.6
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2026-01-28",
@@ -21064,13 +21064,13 @@
       "paid": 2.2
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 3.9,
-     "out": 2.1,
-     "net": 1.8,
-     "final": 3.2
-    },
-    "unsettled": true
+     "out": 2.2,
+     "net": 1.7,
+     "final": 3.1
+    }
    },
    {
     "d": "2026-01-07",
@@ -21258,13 +21258,13 @@
         "paid": 2.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 3.6,
        "out": 0.4,
        "net": 3.2,
        "final": 4.6
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-01-28",
@@ -21332,13 +21332,13 @@
         "paid": 2.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 3.9,
-       "out": 2.1,
-       "net": 1.8,
-       "final": 3.2
-      },
-      "unsettled": true
+       "out": 2.2,
+       "net": 1.7,
+       "final": 3.1
+      }
      }
     ],
     "worst": []
@@ -21501,8 +21501,8 @@
     "n": 36
    },
    "devBat": {
-    "v": 0.13,
-    "n": 88
+    "v": 0.08,
+    "n": 114
    },
    "inj": {
     "pit": 38.0,
@@ -21732,7 +21732,7 @@
     "lost": 21.2,
     "rel": -0.57,
     "display_only": true,
-    "net2": -8.6,
+    "net2": -8.7,
     "n2": 9,
     "qo": 0,
     "g2": 30,
@@ -21742,26 +21742,26 @@
       "y": 2022,
       "prior": 2.2,
       "fut": 5.7,
-      "exp": 1.5
+      "exp": 1.4
      },
      {
       "nm": "Matthew Boyd",
       "y": 2023,
       "prior": 1.8,
       "fut": 5.4,
-      "exp": 1.3
+      "exp": 1.2
      },
      {
       "nm": "Eduardo Rodriguez",
       "y": 2023,
       "prior": 3.6,
       "fut": 4.3,
-      "exp": 1.5
+      "exp": 1.6
      }
     ]
    }
   },
-  "total": 2.9,
+  "total": 2.8,
   "forGrade": 55,
   "success": {
    "wpct": ".485",
@@ -21878,8 +21878,8 @@
      "n_in": 0
     },
     "pids": [
-     "669234",
      "663977",
+     "669234",
      "641729"
     ],
     "comps": [
@@ -21911,13 +21911,13 @@
       "paid": 3.3
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.6,
      "out": 0.4,
      "net": 0.2,
      "final": -4.2
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2022-11-10",
@@ -21960,11 +21960,11 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Brady Smith",
+        "Zyhir Hope",
         "+0.0"
        ],
        [
-        "Zyhir Hope",
+        "Brady Smith",
         "+0.0"
        ],
        [
@@ -21990,9 +21990,9 @@
      "n_in": 2
     },
     "pids": [
-     "806224",
-     "814307",
      "689981",
+     "814307",
+     "806224",
      "669373"
     ],
     "comps": [
@@ -22024,13 +22024,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 6.6,
      "out": 17.6,
      "net": -11.0,
      "final": -13.5
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2026-08-03",
@@ -22108,13 +22108,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.8,
      "out": 4.4,
      "net": -3.6,
      "final": -1.4
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-03-27",
@@ -22182,13 +22182,13 @@
       "paid": 0.1
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.4,
      "out": 0.4,
      "net": 0.0,
      "final": 2.0
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-07-30",
@@ -22228,8 +22228,8 @@
      "n_in": 0
     },
     "pids": [
-     "699073",
      "700242",
+     "699073",
      "656427"
     ],
     "comps": [
@@ -22261,13 +22261,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.6,
      "out": 0.0,
      "net": 2.6,
      "final": 0.7
-    },
-    "unsettled": true
+    }
    }
   ],
   "led": {
@@ -22349,13 +22349,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.8,
        "out": 4.4,
        "net": -3.6,
        "final": -1.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-03-27",
@@ -22423,13 +22423,13 @@
         "paid": 0.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 0.4,
        "net": 0.0,
        "final": 2.0
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-01-07",
@@ -22477,9 +22477,9 @@
        "n_in": 0
       },
       "pids": [
-       "663837",
        "665155",
        "664848",
+       "663837",
        "665019",
        "642397"
       ],
@@ -22512,13 +22512,13 @@
         "paid": -0.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.9,
        "out": 0.0,
        "net": 0.9,
        "final": 2.7
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-11-04",
@@ -22586,13 +22586,13 @@
         "paid": 2.9
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.4,
        "net": -0.4,
        "final": 0.6
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-07-31",
@@ -22665,13 +22665,13 @@
         "paid": 1.8
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 1.9,
        "net": -1.5,
        "final": -0.5
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": [
@@ -22713,8 +22713,8 @@
        "n_in": 0
       },
       "pids": [
-       "669234",
        "663977",
+       "669234",
        "641729"
       ],
       "comps": [
@@ -22746,13 +22746,13 @@
         "paid": 3.3
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.6,
        "out": 0.4,
        "net": 0.2,
        "final": -4.2
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-08-02",
@@ -22766,11 +22766,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Brady Smith",
+          "Zyhir Hope",
           "+0.0"
          ],
          [
-          "Zyhir Hope",
+          "Brady Smith",
           "+0.0"
          ],
          [
@@ -22796,9 +22796,9 @@
        "n_in": 2
       },
       "pids": [
-       "806224",
-       "814307",
        "689981",
+       "814307",
+       "806224",
        "669373"
       ],
       "comps": [
@@ -22830,13 +22830,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 6.6,
        "out": 17.6,
        "net": -11.0,
        "final": -13.5
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-07-30",
@@ -22876,8 +22876,8 @@
        "n_in": 0
       },
       "pids": [
-       "699073",
        "700242",
+       "699073",
        "656427"
       ],
       "comps": [
@@ -22909,13 +22909,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.6,
        "out": 0.0,
        "net": 2.6,
        "final": 0.7
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-07-14",
@@ -22982,13 +22982,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0,
        "out": 0.3,
        "net": -0.3,
        "final": -1.6
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-07-28",
@@ -23028,8 +23028,8 @@
        "n_in": 0
       },
       "pids": [
-       "677976",
        "663978",
+       "677976",
        "806992"
       ],
       "comps": [
@@ -23061,13 +23061,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.4,
        "net": -0.4,
        "final": -1.6
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -23521,8 +23521,8 @@
     "n": 29
    },
    "devBat": {
-    "v": 0.18,
-    "n": 84
+    "v": 0.19,
+    "n": 106
    },
    "inj": {
     "pit": 36.8,
@@ -24163,9 +24163,9 @@
      "n_in": 1
     },
     "pids": [
-     "670623",
      "701358",
      "669713",
+     "670623",
      "663656"
     ],
     "comps": [
@@ -24197,13 +24197,13 @@
       "paid": 18.9
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 12.3,
      "out": 0.0,
      "net": 12.3,
      "final": 19.1
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2025-07-31",
@@ -24271,13 +24271,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 4.0,
      "out": 3.0,
      "net": 1.0,
      "final": 4.5
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-08-01",
@@ -24350,13 +24350,13 @@
       "paid": 0.6
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.0,
      "out": 0.4,
      "net": -0.4,
      "final": 2.1
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-02-07",
@@ -24463,13 +24463,13 @@
       "paid": 0.6
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.0,
      "out": 0.4,
      "net": -0.4,
      "final": 1.7
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-09-03",
@@ -24566,13 +24566,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.1,
      "out": 0.7,
      "net": -0.6,
      "final": -2.3
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-08-26",
@@ -24649,9 +24649,9 @@
        "n_in": 1
       },
       "pids": [
-       "670623",
        "701358",
        "669713",
+       "670623",
        "663656"
       ],
       "comps": [
@@ -24683,13 +24683,13 @@
         "paid": 18.9
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 12.3,
        "out": 0.0,
        "net": 12.3,
        "final": 19.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-07-31",
@@ -24757,13 +24757,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 4.0,
        "out": 3.0,
        "net": 1.0,
        "final": 4.5
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-08-01",
@@ -24836,13 +24836,13 @@
         "paid": 0.6
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.4,
        "net": -0.4,
        "final": 2.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-07-29",
@@ -24920,13 +24920,13 @@
         "paid": 0.6
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.4,
        "net": -0.4,
        "final": 1.7
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-07-30",
@@ -24994,13 +24994,13 @@
         "paid": 1.8
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.4,
        "net": -0.4,
        "final": 0.6
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": [
@@ -25070,13 +25070,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.1,
        "out": 0.7,
        "net": -0.6,
        "final": -2.3
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-07-31",
@@ -25154,13 +25154,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 4.0,
        "out": 3.0,
        "net": 1.0,
        "final": 0.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-12-19",
@@ -25227,13 +25227,13 @@
         "paid": 0.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.5,
        "out": 0.8,
        "net": -0.3,
        "final": -1.2
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -25657,8 +25657,8 @@
     "n": 26
    },
    "devBat": {
-    "v": 0.22,
-    "n": 67
+    "v": 0.27,
+    "n": 85
    },
    "inj": {
     "pit": 37.2,
@@ -26282,13 +26282,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": false,
     "proj": {
      "inn": 0,
      "out": 0.0,
      "net": 0.0,
      "final": -7.2
-    },
-    "unsettled": false
+    }
    },
    {
     "d": "2024-07-30",
@@ -26366,13 +26366,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
-     "inn": 1.3,
+     "inn": 1.4,
      "out": 1.1,
-     "net": 0.2,
-     "final": 3.9
-    },
-    "unsettled": true
+     "net": 0.3,
+     "final": 4.0
+    }
    },
    {
     "d": "2024-02-17",
@@ -26440,13 +26440,13 @@
       "paid": 4.7
      }
     ],
+    "unsettled": true,
     "proj": {
-     "inn": 1.1,
+     "inn": 1.2,
      "out": 0.0,
-     "net": 1.1,
-     "final": 4.6
-    },
-    "unsettled": true
+     "net": 1.2,
+     "final": 4.7
+    }
    },
    {
     "d": "2022-11-09",
@@ -26543,13 +26543,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.6,
      "out": 1.1,
      "net": -0.5,
      "final": -3.1
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-07-29",
@@ -26617,13 +26617,13 @@
       "paid": 0.6
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.0,
      "out": 0.4,
      "net": -0.4,
      "final": 1.8
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2025-07-31",
@@ -26691,13 +26691,13 @@
       "paid": -0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.3,
      "out": 3.1,
      "net": -0.8,
      "final": 1.2
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2022-11-17",
@@ -26808,13 +26808,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
-       "inn": 1.3,
+       "inn": 1.4,
        "out": 1.1,
-       "net": 0.2,
-       "final": 3.9
-      },
-      "unsettled": true
+       "net": 0.3,
+       "final": 4.0
+      }
      },
      {
       "d": "2024-02-17",
@@ -26882,13 +26882,13 @@
         "paid": 4.7
        }
       ],
+      "unsettled": true,
       "proj": {
-       "inn": 1.1,
+       "inn": 1.2,
        "out": 0.0,
-       "net": 1.1,
-       "final": 4.6
-      },
-      "unsettled": true
+       "net": 1.2,
+       "final": 4.7
+      }
      },
      {
       "d": "2024-07-29",
@@ -26956,13 +26956,13 @@
         "paid": 0.6
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.4,
        "net": -0.4,
        "final": 1.8
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-07-31",
@@ -27030,13 +27030,13 @@
         "paid": -0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.3,
        "out": 3.1,
        "net": -0.8,
        "final": 1.2
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-07-16",
@@ -27104,13 +27104,13 @@
         "paid": 1.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.4,
        "net": -0.4,
        "final": 1.1
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": [
@@ -27179,13 +27179,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": false,
       "proj": {
        "inn": 0,
        "out": 0.0,
        "net": 0.0,
        "final": -7.2
-      },
-      "unsettled": false
+      }
      },
      {
       "d": "2025-12-19",
@@ -27253,13 +27253,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.6,
        "out": 1.1,
        "net": -0.5,
        "final": -3.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-11-22",
@@ -27299,8 +27299,8 @@
        "n_in": 0
       },
       "pids": [
-       "663697",
        "686894",
+       "663697",
        "663903"
       ],
       "comps": [
@@ -27332,13 +27332,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.3,
        "out": 2.0,
        "net": -0.7,
        "final": -2.2
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-07-31",
@@ -27411,13 +27411,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.3,
        "out": 3.1,
        "net": -0.8,
        "final": -2.3
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-01-24",
@@ -27457,8 +27457,8 @@
        "n_in": 0
       },
       "pids": [
-       "674444",
        "681895",
+       "674444",
        "572191"
       ],
       "comps": [
@@ -27490,13 +27490,13 @@
         "paid": -0.6
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.6,
        "out": 0.0,
        "net": 0.6,
        "final": -0.7
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -27833,8 +27833,8 @@
     "n": 33
    },
    "devBat": {
-    "v": 0.0,
-    "n": 85
+    "v": 0.03,
+    "n": 117
    },
    "inj": {
     "pit": 34.8,
@@ -28401,8 +28401,8 @@
      "n_in": 1
     },
     "pids": [
-     "702576",
      "694208",
+     "702576",
      "666171"
     ],
     "comps": [
@@ -28434,13 +28434,13 @@
       "paid": 0.1
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 8.9,
-     "out": 11.0,
-     "net": -2.1,
-     "final": -3.1
-    },
-    "unsettled": true
+     "out": 11.2,
+     "net": -2.3,
+     "final": -3.3
+    }
    },
    {
     "d": "2026-08-03",
@@ -28508,13 +28508,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 8.9,
-     "out": 11.0,
-     "net": -2.1,
-     "final": -3.1
-    },
-    "unsettled": true
+     "out": 11.2,
+     "net": -2.3,
+     "final": -3.3
+    }
    },
    {
     "d": "2026-08-03",
@@ -28528,15 +28528,15 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
+        "Angel Rivero",
+        "+0.0"
+       ],
+       [
         "Arjun Nimmala",
         "+0.0"
        ],
        [
         "Eddie Micheletti Jr.",
-        "+0.0"
-       ],
-       [
-        "Angel Rivero",
         "+0.0"
        ]
       ]
@@ -28558,9 +28558,9 @@
      "n_in": 1
     },
     "pids": [
+     "821022",
      "805796",
      "804446",
-     "821022",
      "667755"
     ],
     "comps": [
@@ -28592,13 +28592,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 8.9,
-     "out": 11.0,
-     "net": -2.1,
-     "final": -3.0
-    },
-    "unsettled": true
+     "out": 11.2,
+     "net": -2.3,
+     "final": -3.2
+    }
    },
    {
     "d": "2026-08-07",
@@ -28701,8 +28701,8 @@
        "n_in": 1
       },
       "pids": [
-       "702576",
        "694208",
+       "702576",
        "666171"
       ],
       "comps": [
@@ -28734,13 +28734,13 @@
         "paid": 0.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 8.9,
-       "out": 11.0,
-       "net": -2.1,
-       "final": -3.1
-      },
-      "unsettled": true
+       "out": 11.2,
+       "net": -2.3,
+       "final": -3.3
+      }
      },
      {
       "d": "2026-08-03",
@@ -28808,13 +28808,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 8.9,
-       "out": 11.0,
-       "net": -2.1,
-       "final": -3.1
-      },
-      "unsettled": true
+       "out": 11.2,
+       "net": -2.3,
+       "final": -3.3
+      }
      },
      {
       "d": "2026-08-03",
@@ -28828,15 +28828,15 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
+          "Angel Rivero",
+          "+0.0"
+         ],
+         [
           "Arjun Nimmala",
           "+0.0"
          ],
          [
           "Eddie Micheletti Jr.",
-          "+0.0"
-         ],
-         [
-          "Angel Rivero",
           "+0.0"
          ]
         ]
@@ -28858,9 +28858,9 @@
        "n_in": 1
       },
       "pids": [
+       "821022",
        "805796",
        "804446",
-       "821022",
        "667755"
       ],
       "comps": [
@@ -28892,13 +28892,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 8.9,
-       "out": 11.0,
-       "net": -2.1,
-       "final": -3.0
-      },
-      "unsettled": true
+       "out": 11.2,
+       "net": -2.3,
+       "final": -3.2
+      }
      }
     ]
    },
@@ -29002,8 +29002,8 @@
     "n": 55
    },
    "devBat": {
-    "v": -0.19,
-    "n": 81
+    "v": -0.27,
+    "n": 96
    },
    "inj": {
     "pit": 14.0,
@@ -29231,7 +29231,7 @@
     "n": 3
    },
    "intl": {
-    "net": -9.8,
+    "net": -10.5,
     "g": 40,
     "n": 22
    },
@@ -29242,7 +29242,7 @@
     "lost": 153.8,
     "rel": -8.08,
     "display_only": true,
-    "net2": -30.8,
+    "net2": -31.4,
     "n2": 58,
     "qo": 3,
     "g2": 30,
@@ -29271,8 +29271,8 @@
     ]
    }
   },
-  "total": 67.0,
-  "forGrade": 75,
+  "total": 65.7,
+  "forGrade": 70,
   "success": {
    "wpct": ".613",
    "div": 12,
@@ -29375,8 +29375,8 @@
      "n_in": 0
     },
     "pids": [
-     "605141",
      "456034",
+     "605141",
      "669023",
      "657136",
      "657077"
@@ -29457,8 +29457,8 @@
      "n_in": 0
     },
     "pids": [
-     "543921",
      "518735",
+     "543921",
      "621107",
      "543148",
      "461314"
@@ -29572,11 +29572,11 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Jackson Ferris",
+        "Zyhir Hope",
         "+0.0"
        ],
        [
-        "Zyhir Hope",
+        "Jackson Ferris",
         "+0.0"
        ]
       ]
@@ -29602,8 +29602,8 @@
      "n_in": 0
     },
     "pids": [
-     "701328",
      "814307",
+     "701328",
      "622075",
      "683737"
     ],
@@ -29636,13 +29636,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 6.1,
      "out": 5.2,
      "net": 0.9,
      "final": -12.4
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2015-06-15",
@@ -29731,11 +29731,11 @@
      "n_in": 1
     },
     "pids": [
+     "606299",
      "622072",
      "276520",
      "462382",
      "501593",
-     "606299",
      "621064",
      "493343",
      "572089"
@@ -29836,13 +29836,13 @@
       "paid": 7.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.0,
      "out": 0.0,
      "net": 0.0,
      "final": 6.8
-    },
-    "unsettled": true
+    }
    }
   ],
   "led": {
@@ -29894,8 +29894,8 @@
        "n_in": 0
       },
       "pids": [
-       "605141",
        "456034",
+       "605141",
        "669023",
        "657136",
        "657077"
@@ -29976,8 +29976,8 @@
        "n_in": 0
       },
       "pids": [
-       "543921",
        "518735",
+       "543921",
        "621107",
        "543148",
        "461314"
@@ -30137,11 +30137,11 @@
        "n_in": 1
       },
       "pids": [
+       "606299",
        "622072",
        "276520",
        "462382",
        "501593",
-       "606299",
        "621064",
        "493343",
        "572089"
@@ -30242,13 +30242,13 @@
         "paid": 7.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.0,
        "net": 0.0,
        "final": 6.8
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": [
@@ -30264,11 +30264,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Jackson Ferris",
+          "Zyhir Hope",
           "+0.0"
          ],
          [
-          "Zyhir Hope",
+          "Jackson Ferris",
           "+0.0"
          ]
         ]
@@ -30294,8 +30294,8 @@
        "n_in": 0
       },
       "pids": [
-       "701328",
        "814307",
+       "701328",
        "622075",
        "683737"
       ],
@@ -30328,13 +30328,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 6.1,
        "out": 5.2,
        "net": 0.9,
        "final": -12.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2020-08-31",
@@ -30611,13 +30611,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 0.4,
        "net": 0.0,
        "final": -3.5
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -31304,8 +31304,8 @@
     "n": 47
    },
    "devBat": {
-    "v": -0.05,
-    "n": 76
+    "v": -0.12,
+    "n": 95
    },
    "inj": {
     "pit": 29.8,
@@ -32238,11 +32238,11 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Emaarion Boyd",
+        "Starlyn Caba",
         "+0.0"
        ],
        [
-        "Starlyn Caba",
+        "Emaarion Boyd",
         "+0.0"
        ]
       ]
@@ -32268,8 +32268,8 @@
      "n_in": 1
     },
     "pids": [
-     "702708",
      "806965",
+     "702708",
      "682192",
      "666200"
     ],
@@ -32302,13 +32302,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.3,
      "out": 9.1,
      "net": -6.8,
      "final": -21.8
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-07-27",
@@ -32352,9 +32352,9 @@
      "n_in": 0
     },
     "pids": [
-     "682663",
      "800254",
      "691858",
+     "682663",
      "665862"
     ],
     "comps": [
@@ -32386,13 +32386,13 @@
       "paid": -0.2
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.2,
      "out": 7.8,
      "net": -6.6,
      "final": -21.1
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-04-04",
@@ -32435,11 +32435,7 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Brendan Jones",
-        "+0.0"
-       ],
-       [
-        "Dillon Lewis",
+        "Juan Matheus",
         "+0.0"
        ],
        [
@@ -32447,7 +32443,11 @@
         "+0.0"
        ],
        [
-        "Juan Matheus",
+        "Brendan Jones",
+        "+0.0"
+       ],
+       [
+        "Dillon Lewis",
         "+0.0"
        ]
       ]
@@ -32469,10 +32469,10 @@
      "n_in": 0
     },
     "pids": [
+     "801276",
+     "815734",
      "800957",
      "827665",
-     "815734",
-     "801276",
      "677960"
     ],
     "comps": [
@@ -32504,13 +32504,13 @@
       "paid": 1.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.6,
      "out": 4.4,
      "net": -2.8,
      "final": -7.0
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2026-02-06",
@@ -32578,13 +32578,13 @@
       "paid": 1.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.4,
      "out": 4.3,
      "net": -3.9,
      "final": -7.1
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-11-17",
@@ -32662,13 +32662,13 @@
       "paid": 0.3
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.4,
      "out": 0.8,
      "net": 0.6,
      "final": 3.4
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-07-25",
@@ -32741,13 +32741,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.8,
      "out": 0.6,
      "net": 0.2,
      "final": -2.4
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-07-30",
@@ -32815,13 +32815,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
-     "inn": 13.2,
+     "inn": 13.3,
      "out": 6.4,
-     "net": 6.8,
-     "final": 4.6
-    },
-    "unsettled": true
+     "net": 6.9,
+     "final": 4.7
+    }
    }
   ],
   "led": {
@@ -32903,13 +32903,13 @@
         "paid": 0.3
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.4,
        "out": 0.8,
        "net": 0.6,
        "final": 3.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-07-17",
@@ -32976,13 +32976,13 @@
         "paid": -0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.7,
        "out": 0,
        "net": 0.7,
        "final": 2.5
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-07-30",
@@ -33022,8 +33022,8 @@
        "n_in": 0
       },
       "pids": [
-       "669065",
        "681393",
+       "669065",
        "669432"
       ],
       "comps": [
@@ -33055,13 +33055,13 @@
         "paid": 0.1
        }
       ],
+      "unsettled": true,
       "proj": {
-       "inn": 13.2,
+       "inn": 13.3,
        "out": 6.4,
-       "net": 6.8,
-       "final": 8.4
-      },
-      "unsettled": true
+       "net": 6.9,
+       "final": 8.5
+      }
      },
      {
       "d": "2025-03-26",
@@ -33128,13 +33128,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.6,
        "out": 0,
        "net": 0.6,
        "final": 2.2
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-07-30",
@@ -33148,11 +33148,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Garret Forrester",
+          "Jun-Seok Shim",
           "+0.0"
          ],
          [
-          "Jun-Seok Shim",
+          "Garret Forrester",
           "+0.0"
          ]
         ]
@@ -33174,8 +33174,8 @@
        "n_in": 0
       },
       "pids": [
-       "807720",
        "807149",
+       "807720",
        "650559"
       ],
       "comps": [
@@ -33207,13 +33207,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
-       "inn": 13.2,
+       "inn": 13.3,
        "out": 6.4,
-       "net": 6.8,
-       "final": 8.2
-      },
-      "unsettled": true
+       "net": 6.9,
+       "final": 8.3
+      }
      }
     ],
     "worst": [
@@ -33229,11 +33229,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Emaarion Boyd",
+          "Starlyn Caba",
           "+0.0"
          ],
          [
-          "Starlyn Caba",
+          "Emaarion Boyd",
           "+0.0"
          ]
         ]
@@ -33259,8 +33259,8 @@
        "n_in": 1
       },
       "pids": [
-       "702708",
        "806965",
+       "702708",
        "682192",
        "666200"
       ],
@@ -33293,13 +33293,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.3,
        "out": 9.1,
        "net": -6.8,
        "final": -21.8
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-07-27",
@@ -33343,9 +33343,9 @@
        "n_in": 0
       },
       "pids": [
-       "682663",
        "800254",
        "691858",
+       "682663",
        "665862"
       ],
       "comps": [
@@ -33377,13 +33377,13 @@
         "paid": -0.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.2,
        "out": 7.8,
        "net": -6.6,
        "final": -21.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-01-13",
@@ -33397,11 +33397,7 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Brendan Jones",
-          "+0.0"
-         ],
-         [
-          "Dillon Lewis",
+          "Juan Matheus",
           "+0.0"
          ],
          [
@@ -33409,7 +33405,11 @@
           "+0.0"
          ],
          [
-          "Juan Matheus",
+          "Brendan Jones",
+          "+0.0"
+         ],
+         [
+          "Dillon Lewis",
           "+0.0"
          ]
         ]
@@ -33431,10 +33431,10 @@
        "n_in": 0
       },
       "pids": [
+       "801276",
+       "815734",
        "800957",
        "827665",
-       "815734",
-       "801276",
        "677960"
       ],
       "comps": [
@@ -33466,13 +33466,13 @@
         "paid": 1.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.6,
        "out": 4.4,
        "net": -2.8,
        "final": -7.0
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-02-06",
@@ -33540,13 +33540,13 @@
         "paid": 1.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 4.3,
        "net": -3.9,
        "final": -7.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-07-25",
@@ -33619,13 +33619,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.8,
        "out": 0.6,
        "net": 0.2,
        "final": -2.4
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -33903,8 +33903,8 @@
     "n": 43
    },
    "devBat": {
-    "v": 0.37,
-    "n": 102
+    "v": 0.35,
+    "n": 125
    },
    "inj": {
     "pit": 38.3,
@@ -34230,7 +34230,7 @@
     "lost": 16.0,
     "rel": 0.73,
     "display_only": true,
-    "net2": 8.1,
+    "net2": 8.2,
     "n2": 8,
     "qo": 0,
     "g2": 75,
@@ -34240,12 +34240,12 @@
       "y": 2023,
       "prior": 2.8,
       "fut": 4.7,
-      "exp": 1.5
+      "exp": 1.6
      }
     ]
    }
   },
-  "total": 80.7,
+  "total": 80.8,
   "forGrade": 80,
   "success": {
    "wpct": ".581",
@@ -34308,9 +34308,9 @@
      "n_in": 0
     },
     "pids": [
-     "606303",
      "661388",
      "687866",
+     "606303",
      "665923"
     ],
     "comps": [
@@ -34342,13 +34342,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 4.3,
      "out": 0.0,
      "net": 4.3,
      "final": 34.3
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-02-01",
@@ -34388,8 +34388,8 @@
      "n_in": 2
     },
     "pids": [
-     "669084",
      "687401",
+     "669084",
      "669203"
     ],
     "comps": [
@@ -34421,13 +34421,13 @@
       "paid": 5.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 6.4,
      "out": 0.0,
      "net": 6.4,
      "final": 13.5
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-04-30",
@@ -34494,13 +34494,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.3,
      "out": 0,
      "net": 2.3,
      "final": 9.3
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-11-17",
@@ -34573,13 +34573,13 @@
       "paid": 4.7
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.1,
      "out": 0.8,
      "net": 1.3,
      "final": 4.8
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-11-15",
@@ -34647,13 +34647,13 @@
       "paid": 0.1
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.8,
      "out": 0.0,
      "net": 1.8,
      "final": 5.1
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2025-06-13",
@@ -34721,13 +34721,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.0,
      "out": 0.0,
      "net": 1.0,
      "final": 4.0
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2025-04-07",
@@ -34795,13 +34795,13 @@
       "paid": -0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.5,
      "out": 1.2,
      "net": 1.3,
      "final": 4.1
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-01-07",
@@ -34869,13 +34869,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.4,
      "out": 0.0,
      "net": 0.4,
      "final": -2.3
-    },
-    "unsettled": true
+    }
    }
   ],
   "led": {
@@ -34923,9 +34923,9 @@
        "n_in": 0
       },
       "pids": [
-       "606303",
        "661388",
        "687866",
+       "606303",
        "665923"
       ],
       "comps": [
@@ -34957,13 +34957,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 4.3,
        "out": 0.0,
        "net": 4.3,
        "final": 34.3
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-02-01",
@@ -35003,8 +35003,8 @@
        "n_in": 2
       },
       "pids": [
-       "669084",
        "687401",
+       "669084",
        "669203"
       ],
       "comps": [
@@ -35036,13 +35036,13 @@
         "paid": 5.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 6.4,
        "out": 0.0,
        "net": 6.4,
        "final": 13.5
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-04-30",
@@ -35109,13 +35109,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.3,
        "out": 0,
        "net": 2.3,
        "final": 9.3
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-11-17",
@@ -35188,13 +35188,13 @@
         "paid": 4.7
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.1,
        "out": 0.8,
        "net": 1.3,
        "final": 4.8
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-11-15",
@@ -35262,13 +35262,13 @@
         "paid": 0.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.8,
        "out": 0.0,
        "net": 1.8,
        "final": 5.1
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": [
@@ -35338,13 +35338,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 0.0,
        "net": 0.4,
        "final": -2.3
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-04-07",
@@ -35412,13 +35412,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.5,
        "out": 1.2,
        "net": 1.3,
        "final": -1.3
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-12-20",
@@ -35491,13 +35491,13 @@
         "paid": -0.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 0.8,
        "net": -0.4,
        "final": -2.9
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-01-21",
@@ -35575,13 +35575,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
-       "inn": 2.8,
-       "out": 7.6,
+       "inn": 2.9,
+       "out": 7.7,
        "net": -4.8,
        "final": -6.0
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-11-04",
@@ -35649,13 +35649,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 0.0,
        "net": 0.4,
        "final": -0.6
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -36079,8 +36079,8 @@
     "n": 39
    },
    "devBat": {
-    "v": 0.35,
-    "n": 122
+    "v": 0.29,
+    "n": 145
    },
    "inj": {
     "pit": 41.8,
@@ -36669,13 +36669,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
-     "inn": 0.5,
+     "inn": 0.6,
      "out": 0,
-     "net": 0.5,
-     "final": 1.7
-    },
-    "unsettled": true
+     "net": 0.6,
+     "final": 1.8
+    }
    },
    {
     "d": "2026-08-01",
@@ -36743,13 +36743,13 @@
       "paid": 1.2
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.8,
      "out": 0.4,
      "net": 2.4,
      "final": 3.4
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2026-02-26",
@@ -36965,13 +36965,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
-       "inn": 0.5,
+       "inn": 0.6,
        "out": 0,
-       "net": 0.5,
-       "final": 1.7
-      },
-      "unsettled": true
+       "net": 0.6,
+       "final": 1.8
+      }
      },
      {
       "d": "2026-08-01",
@@ -37039,13 +37039,13 @@
         "paid": 1.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.8,
        "out": 0.4,
        "net": 2.4,
        "final": 3.4
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": []
@@ -37237,8 +37237,8 @@
     "n": 36
    },
    "devBat": {
-    "v": -0.05,
-    "n": 64
+    "v": 0.08,
+    "n": 81
    },
    "inj": {
     "pit": 36.0,
@@ -37410,9 +37410,9 @@
     "n": 0
    },
    "intl": {
-    "net": 14.1,
+    "net": 22.2,
     "g": 80,
-    "n": 16
+    "n": 17
    },
    "ret": {
     "net": 0,
@@ -37428,8 +37428,8 @@
     "worst2": []
    }
   },
-  "total": -2.5,
-  "forGrade": 45,
+  "total": 5.6,
+  "forGrade": 60,
   "success": {
    "wpct": ".495",
    "div": 0,
@@ -37514,13 +37514,13 @@
       "paid": 1.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.4,
      "out": 1.3,
      "net": -0.9,
      "final": -4.9
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-05-31",
@@ -37587,13 +37587,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.7,
      "out": 0,
      "net": 1.7,
      "final": 5.6
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-06-15",
@@ -37690,13 +37690,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.0,
      "out": 4.1,
      "net": -2.1,
      "final": -4.9
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-12-20",
@@ -37736,8 +37736,8 @@
      "n_in": 0
     },
     "pids": [
-     "605288",
      "621438",
+     "605288",
      "689441"
     ],
     "comps": [
@@ -37769,13 +37769,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.8,
      "out": 0.4,
      "net": 0.4,
      "final": 2.9
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2026-08-03",
@@ -37848,13 +37848,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 4.3,
      "out": 8.4,
      "net": -4.1,
      "final": -6.4
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-07-30",
@@ -37922,13 +37922,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.2,
      "out": 0.8,
      "net": 0.4,
      "final": 2.6
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-07-26",
@@ -37995,13 +37995,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.0,
      "out": 0.8,
      "net": -0.8,
      "final": -2.9
-    },
-    "unsettled": true
+    }
    }
   ],
   "led": {
@@ -38072,13 +38072,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.7,
        "out": 0,
        "net": 1.7,
        "final": 5.6
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-12-20",
@@ -38118,8 +38118,8 @@
        "n_in": 0
       },
       "pids": [
-       "605288",
        "621438",
+       "605288",
        "689441"
       ],
       "comps": [
@@ -38151,13 +38151,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.8,
        "out": 0.4,
        "net": 0.4,
        "final": 2.9
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-07-30",
@@ -38225,13 +38225,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.2,
        "out": 0.8,
        "net": 0.4,
        "final": 2.6
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-07-09",
@@ -38298,13 +38298,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": false,
       "proj": {
        "inn": 0.0,
        "out": 0,
        "net": 0.0,
        "final": 1.4
-      },
-      "unsettled": false
+      }
      },
      {
       "d": "2026-01-20",
@@ -38377,13 +38377,13 @@
         "paid": 1.6
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.4,
        "out": 2.4,
        "net": -1.0,
        "final": 0.4
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": [
@@ -38453,13 +38453,13 @@
         "paid": 1.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 1.3,
        "net": -0.9,
        "final": -4.9
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-11-24",
@@ -38527,13 +38527,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.0,
        "out": 4.1,
        "net": -2.1,
        "final": -4.9
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-08-03",
@@ -38606,13 +38606,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 4.3,
        "out": 8.4,
        "net": -4.1,
        "final": -6.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-07-26",
@@ -38679,13 +38679,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.8,
        "net": -0.8,
        "final": -2.9
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-06-25",
@@ -38753,13 +38753,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 6.7,
        "net": -6.3,
        "final": -8.2
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -39213,8 +39213,8 @@
     "n": 33
    },
    "devBat": {
-    "v": 0.13,
-    "n": 93
+    "v": 0.11,
+    "n": 123
    },
    "inj": {
     "pit": 42.0,
@@ -39561,6 +39561,35 @@
   "ext_tops": [],
   "intl_tops": [
    {
+    "d": "2018-01-15",
+    "ch": "intl",
+    "net": 8.1,
+    "h": "Int'l amateur signing: Francisco Alvarez (2018 class)",
+    "sides": [
+     [
+      "Realized on signing org (class year +10)",
+      [
+       [
+        "Francisco Alvarez",
+        "+8.1"
+       ]
+      ]
+     ],
+     [
+      "Class baseline",
+      [
+       [
+        "league mean per observed regime, near-equal pools",
+        "shared"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "682626"
+    ]
+   },
+   {
     "d": "2006-01-15",
     "ch": "intl",
     "net": 7.6,
@@ -39674,35 +39703,6 @@
     ],
     "pids": [
      "665926"
-    ]
-   },
-   {
-    "d": "2017-01-15",
-    "ch": "intl",
-    "net": 1.1,
-    "h": "Int'l amateur signing: Ronny Mauricio (2017 class)",
-    "sides": [
-     [
-      "Realized on signing org (class year +10)",
-      [
-       [
-        "Ronny Mauricio",
-        "+1.1"
-       ]
-      ]
-     ],
-     [
-      "Class baseline",
-      [
-       [
-        "league mean per observed regime, near-equal pools",
-        "shared"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "677595"
     ]
    }
   ],
@@ -39876,7 +39876,7 @@
     "n": 2
    },
    "intl": {
-    "net": -159.2,
+    "net": -159.9,
     "g": 30,
     "n": 41
    },
@@ -39887,7 +39887,7 @@
     "lost": 135.6,
     "rel": 0.06,
     "display_only": true,
-    "net2": 133.0,
+    "net2": 132.9,
     "n2": 136,
     "qo": 0,
     "g2": 80,
@@ -39897,14 +39897,14 @@
       "y": 2012,
       "prior": 5.4,
       "fut": 14.0,
-      "exp": 2.3
+      "exp": 2.2
      },
      {
       "nm": "Lance Lynn",
       "y": 2018,
       "prior": 1.8,
       "fut": 11.3,
-      "exp": 1.3
+      "exp": 1.2
      },
      {
       "nm": "Roger Clemens",
@@ -39916,7 +39916,7 @@
     ]
    }
   },
-  "total": -21.7,
+  "total": -22.5,
   "forGrade": 45,
   "success": {
    "wpct": ".585",
@@ -40465,13 +40465,13 @@
       "paid": 0.8
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 7.8,
      "out": 1.2,
      "net": 6.6,
      "final": 21.1
-    },
-    "unsettled": true
+    }
    }
   ],
   "led": {
@@ -40707,13 +40707,13 @@
         "paid": 0.8
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 7.8,
        "out": 1.2,
        "net": 6.6,
        "final": 21.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2014-12-05",
@@ -40824,8 +40824,8 @@
        "n_in": 1
       },
       "pids": [
-       "501381",
        "553883",
+       "501381",
        "456051",
        "524968"
       ],
@@ -41944,8 +41944,8 @@
     "n": 49
    },
    "devBat": {
-    "v": -0.16,
-    "n": 66
+    "v": -0.12,
+    "n": 78
    },
    "inj": {
     "pit": 9.9,
@@ -42741,7 +42741,7 @@
     "n": 4
    },
    "intl": {
-    "net": -37.1,
+    "net": -37.8,
     "g": 30,
     "n": 10
    },
@@ -42752,7 +42752,7 @@
     "lost": 51.3,
     "rel": 0.07,
     "display_only": true,
-    "net2": -4.3,
+    "net2": -4.4,
     "n2": 26,
     "qo": 0,
     "g2": 45,
@@ -42781,7 +42781,7 @@
     ]
    }
   },
-  "total": -74.5,
+  "total": -75.3,
   "forGrade": 30,
   "success": {
    "wpct": ".460",
@@ -42855,10 +42855,10 @@
      "n_in": 2
     },
     "pids": [
-     "683155",
      "680743",
-     "665506",
+     "683155",
      "669127",
+     "665506",
      "621566"
     ],
     "comps": [
@@ -42890,13 +42890,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 3.0,
      "out": 3.3,
      "net": -0.3,
      "final": -18.1
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2022-03-16",
@@ -42944,10 +42944,10 @@
      "n_in": 0
     },
     "pids": [
-     "675656",
-     "669912",
-     "656657",
      "680684",
+     "656657",
+     "669912",
+     "675656",
      "656305"
     ],
     "comps": [
@@ -42979,13 +42979,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.4,
      "out": 0.0,
      "net": 0.4,
      "final": -13.0
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2017-12-11",
@@ -43107,10 +43107,10 @@
      "n_in": 0
     },
     "pids": [
-     "665923",
-     "676206",
-     "666205",
      "683690",
+     "666205",
+     "676206",
+     "665923",
      "444489",
      "606303",
      "669221"
@@ -43144,13 +43144,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.1,
      "out": 0.6,
      "net": -0.5,
      "final": -11.4
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2016-02-12",
@@ -43741,10 +43741,10 @@
        "n_in": 2
       },
       "pids": [
-       "683155",
        "680743",
-       "665506",
+       "683155",
        "669127",
+       "665506",
        "621566"
       ],
       "comps": [
@@ -43776,13 +43776,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 3.0,
        "out": 3.3,
        "net": -0.3,
        "final": -18.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2022-03-16",
@@ -43830,10 +43830,10 @@
        "n_in": 0
       },
       "pids": [
-       "675656",
-       "669912",
-       "656657",
        "680684",
+       "656657",
+       "669912",
+       "675656",
        "656305"
       ],
       "comps": [
@@ -43865,13 +43865,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 0.0,
        "net": 0.4,
        "final": -13.0
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2017-12-11",
@@ -43993,10 +43993,10 @@
        "n_in": 0
       },
       "pids": [
-       "665923",
-       "676206",
-       "666205",
        "683690",
+       "666205",
+       "676206",
+       "665923",
        "444489",
        "606303",
        "669221"
@@ -44030,13 +44030,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.1,
        "out": 0.6,
        "net": -0.5,
        "final": -11.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2019-12-02",
@@ -44819,8 +44819,8 @@
     "n": 48
    },
    "devBat": {
-    "v": 0.09,
-    "n": 100
+    "v": 0.12,
+    "n": 115
    },
    "inj": {
     "pit": 19.9,
@@ -45597,7 +45597,7 @@
     "lost": 25.6,
     "rel": 0.46,
     "display_only": true,
-    "net2": 8.4,
+    "net2": 8.6,
     "n2": 15,
     "qo": 0,
     "g2": 70,
@@ -45607,14 +45607,14 @@
       "y": 2022,
       "prior": 3.8,
       "fut": 6.9,
-      "exp": 1.5
+      "exp": 1.7
      },
      {
       "nm": "H\u00e9ctor Neris",
       "y": 2021,
       "prior": 3.0,
       "fut": 3.6,
-      "exp": 1.5
+      "exp": 1.6
      },
      {
       "nm": "Kyle Gibson",
@@ -45626,7 +45626,7 @@
     ]
    }
   },
-  "total": 47.0,
+  "total": 47.2,
   "forGrade": 75,
   "success": {
    "wpct": ".548",
@@ -45725,13 +45725,13 @@
       "paid": 18.9
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 9.1,
      "out": 2.3,
      "net": 6.8,
      "final": 21.8
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2022-08-02",
@@ -45799,13 +45799,13 @@
       "paid": -0.1
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.0,
-     "out": 1.7,
-     "net": -0.7,
-     "final": 13.7
-    },
-    "unsettled": true
+     "out": 1.8,
+     "net": -0.8,
+     "final": 13.6
+    }
    },
    {
     "d": "2020-12-29",
@@ -45940,13 +45940,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.0,
-     "out": 1.7,
-     "net": -0.7,
-     "final": -5.5
-    },
-    "unsettled": true
+     "out": 1.8,
+     "net": -0.8,
+     "final": -5.6
+    }
    },
    {
     "d": "2025-07-30",
@@ -46019,13 +46019,13 @@
       "paid": -0.2
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 5.4,
-     "out": 4.4,
-     "net": 1.0,
-     "final": 5.6
-    },
-    "unsettled": true
+     "out": 4.5,
+     "net": 0.9,
+     "final": 5.5
+    }
    },
    {
     "d": "2025-04-26",
@@ -46092,13 +46092,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0,
      "out": 3.2,
      "net": -3.2,
      "final": -7.4
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2022-06-15",
@@ -46195,13 +46195,13 @@
       "paid": 0.2
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.6,
      "out": 0.7,
      "net": -0.1,
      "final": 3.2
-    },
-    "unsettled": true
+    }
    }
   ],
   "led": {
@@ -46283,13 +46283,13 @@
         "paid": 18.9
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 9.1,
        "out": 2.3,
        "net": 6.8,
        "final": 21.8
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2022-08-02",
@@ -46357,13 +46357,13 @@
         "paid": -0.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.0,
-       "out": 1.7,
-       "net": -0.7,
-       "final": 13.7
-      },
-      "unsettled": true
+       "out": 1.8,
+       "net": -0.8,
+       "final": 13.6
+      }
      },
      {
       "d": "2020-12-29",
@@ -46503,13 +46503,13 @@
         "paid": -0.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 5.4,
-       "out": 4.4,
-       "net": 1.0,
-       "final": 5.6
-      },
-      "unsettled": true
+       "out": 4.5,
+       "net": 0.9,
+       "final": 5.5
+      }
      },
      {
       "d": "2022-07-30",
@@ -46577,13 +46577,13 @@
         "paid": 0.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.6,
        "out": 0.7,
        "net": -0.1,
        "final": 3.2
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": [
@@ -46653,13 +46653,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.0,
-       "out": 1.7,
-       "net": -0.7,
-       "final": -5.5
-      },
-      "unsettled": true
+       "out": 1.8,
+       "net": -0.8,
+       "final": -5.6
+      }
      },
      {
       "d": "2025-04-26",
@@ -46726,13 +46726,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0,
        "out": 3.2,
        "net": -3.2,
        "final": -7.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-08-01",
@@ -46800,13 +46800,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.1,
        "out": 0.4,
        "net": -0.3,
        "final": -3.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-01-07",
@@ -46889,13 +46889,13 @@
         "paid": 9.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.9,
        "net": -0.9,
        "final": -2.7
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-11-06",
@@ -46963,13 +46963,13 @@
         "paid": 0.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.4,
        "net": -0.4,
        "final": -2.1
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -47423,8 +47423,8 @@
     "n": 27
    },
    "devBat": {
-    "v": -0.02,
-    "n": 71
+    "v": 0.03,
+    "n": 91
    },
    "inj": {
     "pit": 26.2,
@@ -48219,14 +48219,14 @@
     "lost": 8.7,
     "rel": 3.5,
     "display_only": true,
-    "net2": 6.8,
+    "net2": 7.0,
     "n2": 10,
     "qo": 0,
     "g2": 65,
     "worst2": []
    }
   },
-  "total": -4.5,
+  "total": -4.3,
   "forGrade": 45,
   "success": {
    "wpct": ".432",
@@ -48293,8 +48293,8 @@
     },
     "pids": [
      "664040",
-     "682254",
-     "663968"
+     "663968",
+     "682254"
     ],
     "comps": [
      {
@@ -48325,13 +48325,13 @@
       "paid": 0.6
      }
     ],
+    "unsettled": true,
     "proj": {
-     "inn": 13.6,
+     "inn": 13.7,
      "out": 0.5,
-     "net": 13.1,
-     "final": 25.8
-    },
-    "unsettled": true
+     "net": 13.2,
+     "final": 25.9
+    }
    },
    {
     "d": "2023-06-15",
@@ -48509,10 +48509,10 @@
      "n_in": 0
     },
     "pids": [
-     "683500",
-     "664337",
-     "675986",
      "672710",
+     "664337",
+     "683500",
+     "675986",
      "592791"
     ],
     "comps": [
@@ -48598,11 +48598,11 @@
         "+0.0"
        ],
        [
-        "Drake Fellows",
+        "Hudson Head",
         "+0.0"
        ],
        [
-        "Hudson Head",
+        "Drake Fellows",
         "+0.0"
        ]
       ]
@@ -48624,11 +48624,11 @@
      "n_in": 0
     },
     "pids": [
-     "678316",
-     "666148",
-     "682848",
-     "687431",
      "670280",
+     "678316",
+     "687431",
+     "682848",
+     "666148",
      "605397"
     ],
     "comps": [
@@ -48737,8 +48737,8 @@
       },
       "pids": [
        "664040",
-       "682254",
-       "663968"
+       "663968",
+       "682254"
       ],
       "comps": [
        {
@@ -48769,13 +48769,13 @@
         "paid": 0.6
        }
       ],
+      "unsettled": true,
       "proj": {
-       "inn": 13.6,
+       "inn": 13.7,
        "out": 0.5,
-       "net": 13.1,
-       "final": 25.8
-      },
-      "unsettled": true
+       "net": 13.2,
+       "final": 25.9
+      }
      },
      {
       "d": "2024-04-02",
@@ -48843,13 +48843,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.3,
        "out": 0.8,
        "net": 1.5,
        "final": 4.5
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-08-01",
@@ -48917,13 +48917,13 @@
         "paid": -1.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.8,
        "out": 0.1,
        "net": 0.7,
        "final": 3.5
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2021-11-29",
@@ -48967,9 +48967,9 @@
        "n_in": 0
       },
       "pids": [
-       "605507",
-       "693312",
        "669002",
+       "693312",
+       "605507",
        "607732"
       ],
       "comps": [
@@ -49067,13 +49067,13 @@
         "paid": 0.4
        }
       ],
+      "unsettled": false,
       "proj": {
        "inn": 0.0,
        "out": 0.0,
        "net": 0.0,
        "final": 1.7
-      },
-      "unsettled": false
+      }
      }
     ],
     "worst": [
@@ -49195,10 +49195,10 @@
        "n_in": 0
       },
       "pids": [
-       "683500",
-       "664337",
-       "675986",
        "672710",
+       "664337",
+       "683500",
+       "675986",
        "592791"
       ],
       "comps": [
@@ -49255,11 +49255,11 @@
           "+0.0"
          ],
          [
-          "Drake Fellows",
+          "Hudson Head",
           "+0.0"
          ],
          [
-          "Hudson Head",
+          "Drake Fellows",
           "+0.0"
          ]
         ]
@@ -49281,11 +49281,11 @@
        "n_in": 0
       },
       "pids": [
-       "678316",
-       "666148",
-       "682848",
-       "687431",
        "670280",
+       "678316",
+       "687431",
+       "682848",
+       "666148",
        "605397"
       ],
       "comps": [
@@ -49384,13 +49384,13 @@
         "paid": 0.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 0.1,
-       "net": -0.1,
-       "final": -3.0
-      },
-      "unsettled": true
+       "out": 0.0,
+       "net": 0.0,
+       "final": -2.9
+      }
      },
      {
       "d": "2022-08-01",
@@ -49434,8 +49434,8 @@
        "n_in": 0
       },
       "pids": [
-       "670912",
        "682650",
+       "670912",
        "500779",
        "608717"
       ],
@@ -49468,13 +49468,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 0.0,
        "net": 0.4,
        "final": -2.0
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -50016,8 +50016,8 @@
     "n": 57
    },
    "devBat": {
-    "v": 0.24,
-    "n": 88
+    "v": 0.29,
+    "n": 100
    },
    "inj": {
     "pit": 36.6,
@@ -50796,7 +50796,7 @@
     "n": 6
    },
    "intl": {
-    "net": -24.0,
+    "net": -24.8,
     "g": 30,
     "n": 24
    },
@@ -50807,7 +50807,7 @@
     "lost": 95.0,
     "rel": -3.18,
     "display_only": true,
-    "net2": -17.5,
+    "net2": -17.8,
     "n2": 40,
     "qo": 3,
     "g2": 35,
@@ -50817,7 +50817,7 @@
       "y": 2015,
       "prior": 3.2,
       "fut": 11.0,
-      "exp": 1.5
+      "exp": 1.6
      },
      {
       "nm": "Michael Wacha",
@@ -50836,7 +50836,7 @@
     ]
    }
   },
-  "total": -129.6,
+  "total": -130.7,
   "forGrade": 30,
   "success": {
    "wpct": ".493",
@@ -50985,9 +50985,9 @@
      "n_in": 0
     },
     "pids": [
+     "613534",
      "543592",
      "656186",
-     "613534",
      "620443",
      "662253",
      "664034",
@@ -51065,8 +51065,8 @@
      "n_in": 0
     },
     "pids": [
-     "502054",
      "630105",
+     "502054",
      "669364",
      "592669"
     ],
@@ -51212,8 +51212,8 @@
      "n_in": 0
     },
     "pids": [
-     "461314",
      "543148",
+     "461314",
      "518735",
      "621107",
      "543921"
@@ -51329,13 +51329,13 @@
       "paid": 5.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.0,
      "out": 1.2,
      "net": -1.2,
      "final": 11.0
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2021-06-15",
@@ -51479,8 +51479,8 @@
        "n_in": 0
       },
       "pids": [
-       "502054",
        "630105",
+       "502054",
        "669364",
        "592669"
       ],
@@ -51661,13 +51661,13 @@
         "paid": 5.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 1.2,
        "net": -1.2,
        "final": 11.0
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2016-06-04",
@@ -51795,8 +51795,8 @@
        "n_in": 0
       },
       "pids": [
-       "506433",
        "605170",
+       "506433",
        "605200",
        "678220",
        "683357",
@@ -51955,9 +51955,9 @@
        "n_in": 0
       },
       "pids": [
+       "613534",
        "543592",
        "656186",
-       "613534",
        "620443",
        "662253",
        "664034",
@@ -52039,8 +52039,8 @@
        "n_in": 0
       },
       "pids": [
-       "461314",
        "543148",
+       "461314",
        "518735",
        "621107",
        "543921"
@@ -52238,13 +52238,13 @@
         "paid": 3.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 10.9,
        "net": -10.9,
        "final": -19.2
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -52844,8 +52844,8 @@
     "n": 55
    },
    "devBat": {
-    "v": 0.08,
-    "n": 117
+    "v": 0.12,
+    "n": 153
    },
    "inj": {
     "pit": 25.4,
@@ -53851,13 +53851,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 8.2,
      "out": 2.1,
      "net": 6.1,
      "final": 10.2
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2025-07-31",
@@ -53925,13 +53925,13 @@
       "paid": -0.1
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.0,
-     "out": 1.8,
-     "net": 0.2,
-     "final": -1.8
-    },
-    "unsettled": true
+     "out": 1.9,
+     "net": 0.1,
+     "final": -1.9
+    }
    },
    {
     "d": "2026-01-07",
@@ -54028,13 +54028,13 @@
       "paid": -1.1
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.4,
      "out": 5.5,
      "net": -5.1,
      "final": -7.0
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2026-08-02",
@@ -54102,13 +54102,13 @@
       "paid": 1.9
      }
     ],
+    "unsettled": true,
     "proj": {
-     "inn": 3.4,
+     "inn": 3.5,
      "out": 2.7,
-     "net": 0.7,
-     "final": -0.8
-    },
-    "unsettled": true
+     "net": 0.8,
+     "final": -0.7
+    }
    },
    {
     "d": "2026-08-03",
@@ -54181,13 +54181,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 4.0,
      "out": 15.6,
      "net": -11.6,
      "final": -12.5
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2025-01-15",
@@ -54332,13 +54332,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 8.2,
        "out": 2.1,
        "net": 6.1,
        "final": 10.2
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": [
@@ -54408,13 +54408,13 @@
         "paid": -0.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.0,
-       "out": 1.8,
-       "net": 0.2,
-       "final": -1.8
-      },
-      "unsettled": true
+       "out": 1.9,
+       "net": 0.1,
+       "final": -1.9
+      }
      },
      {
       "d": "2026-05-09",
@@ -54482,13 +54482,13 @@
         "paid": -1.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 5.5,
        "net": -5.1,
        "final": -7.0
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-08-02",
@@ -54556,13 +54556,13 @@
         "paid": 1.9
        }
       ],
+      "unsettled": true,
       "proj": {
-       "inn": 3.4,
+       "inn": 3.5,
        "out": 2.7,
-       "net": 0.7,
-       "final": -0.8
-      },
-      "unsettled": true
+       "net": 0.8,
+       "final": -0.7
+      }
      },
      {
       "d": "2026-08-03",
@@ -54635,13 +54635,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 4.0,
        "out": 15.6,
        "net": -11.6,
        "final": -12.5
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -54920,8 +54920,8 @@
     "n": 29
    },
    "devBat": {
-    "v": 0.21,
-    "n": 68
+    "v": 0.2,
+    "n": 83
    },
    "inj": {
     "pit": 32.0,
@@ -55329,7 +55329,7 @@
     "n": 5
    },
    "intl": {
-    "net": -9.5,
+    "net": -10.3,
     "g": 40,
     "n": 23
    },
@@ -55340,7 +55340,7 @@
     "lost": 27.4,
     "rel": 2.24,
     "display_only": true,
-    "net2": 8.5,
+    "net2": 8.6,
     "n2": 21,
     "qo": 0,
     "g2": 60,
@@ -55369,7 +55369,7 @@
     ]
    }
   },
-  "total": 14.9,
+  "total": 14.2,
   "forGrade": 60,
   "success": {
    "wpct": ".512",
@@ -55480,10 +55480,10 @@
      "n_in": 1
     },
     "pids": [
-     "664034",
-     "662253",
      "620443",
+     "662253",
      "666211",
+     "664034",
      "656186",
      "613534",
      "543592"
@@ -55743,13 +55743,13 @@
       "paid": 0.1
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.5,
      "out": 2.4,
      "net": -1.9,
      "final": 10.1
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2018-06-15",
@@ -55851,13 +55851,13 @@
       "paid": -3.4
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 7.4,
      "out": 2.2,
      "net": 5.2,
      "final": 16.5
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2019-06-15",
@@ -55946,10 +55946,10 @@
        "n_in": 1
       },
       "pids": [
-       "664034",
-       "662253",
        "620443",
+       "662253",
        "666211",
+       "664034",
        "656186",
        "613534",
        "543592"
@@ -56065,13 +56065,13 @@
         "paid": 0.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.5,
        "out": 2.4,
        "net": -1.9,
        "final": 10.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-07-26",
@@ -56144,13 +56144,13 @@
         "paid": -3.4
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 7.4,
        "out": 2.2,
        "net": 5.2,
        "final": 16.5
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-07-31",
@@ -56228,13 +56228,13 @@
         "paid": 3.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.2,
        "out": 0.0,
        "net": 2.2,
        "final": 8.8
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2019-03-29",
@@ -56503,11 +56503,11 @@
        "n_in": 2
       },
       "pids": [
+       "639373",
        "672284",
+       "461872",
        "643290",
        "457803",
-       "461872",
-       "639373",
        "429664",
        "621242"
       ],
@@ -56658,8 +56658,8 @@
        "n_in": 0
       },
       "pids": [
-       "621471",
        "501992",
+       "621471",
        "592677",
        "489149",
        "543543",
@@ -57351,8 +57351,8 @@
     "n": 70
    },
    "devBat": {
-    "v": -0.08,
-    "n": 92
+    "v": -0.03,
+    "n": 116
    },
    "inj": {
     "pit": 20.4,
@@ -58281,13 +58281,13 @@
       "paid": 1.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.4,
-     "out": 5.4,
-     "net": -5.0,
-     "final": -12.0
-    },
-    "unsettled": true
+     "out": 5.3,
+     "net": -4.9,
+     "final": -11.9
+    }
    },
    {
     "d": "2025-12-22",
@@ -58365,13 +58365,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.1,
      "out": 5.6,
      "net": -3.5,
      "final": -9.3
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2025-11-25",
@@ -58385,11 +58385,11 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Brandon Clarke",
+        "Richard Fitts",
         "+0.0"
        ],
        [
-        "Richard Fitts",
+        "Brandon Clarke",
         "+0.0"
        ]
       ]
@@ -58411,8 +58411,8 @@
      "n_in": 0
     },
     "pids": [
-     "700251",
      "690916",
+     "700251",
      "543243"
     ],
     "comps": [
@@ -58444,13 +58444,13 @@
       "paid": 1.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.6,
      "out": 7.2,
      "net": -6.6,
      "final": -12.0
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2026-08-03",
@@ -58464,11 +58464,11 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Sandro Santana",
+        "Daniel Eagen",
         "+0.0"
        ],
        [
-        "Daniel Eagen",
+        "Sandro Santana",
         "+0.0"
        ]
       ]
@@ -58490,8 +58490,8 @@
      "n_in": 0
     },
     "pids": [
-     "811139",
      "811666",
+     "811139",
      "663457"
     ],
     "comps": [
@@ -58523,13 +58523,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.7,
-     "out": 6.0,
-     "net": -3.3,
-     "final": -4.5
-    },
-    "unsettled": true
+     "out": 6.1,
+     "net": -3.4,
+     "final": -4.6
+    }
    },
    {
     "d": "2026-01-06",
@@ -58596,13 +58596,13 @@
       "paid": 2.9
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.6,
      "out": 0,
      "net": 0.6,
      "final": 1.6
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2026-02-02",
@@ -58616,15 +58616,15 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
+        "Jurrangelo Cijntje",
+        "+0.0"
+       ],
+       [
         "Colton Ledbetter",
         "+0.0"
        ],
        [
         "Tai Peete",
-        "+0.0"
-       ],
-       [
-        "Jurrangelo Cijntje",
         "+0.0"
        ]
       ]
@@ -58646,9 +58646,9 @@
      "n_in": 0
     },
     "pids": [
+     "701388",
      "807742",
      "806191",
-     "701388",
      "680977"
     ],
     "comps": [
@@ -58680,13 +58680,13 @@
       "paid": 1.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.2,
      "out": 5.7,
      "net": -4.5,
      "final": -5.5
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2026-08-10",
@@ -58815,13 +58815,13 @@
         "paid": 2.9
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.6,
        "out": 0,
        "net": 0.6,
        "final": 1.6
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": [
@@ -58891,13 +58891,13 @@
         "paid": 1.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
-       "out": 5.4,
-       "net": -5.0,
-       "final": -12.0
-      },
-      "unsettled": true
+       "out": 5.3,
+       "net": -4.9,
+       "final": -11.9
+      }
      },
      {
       "d": "2025-12-22",
@@ -58975,13 +58975,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.1,
        "out": 5.6,
        "net": -3.5,
        "final": -9.3
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-11-25",
@@ -58995,11 +58995,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Brandon Clarke",
+          "Richard Fitts",
           "+0.0"
          ],
          [
-          "Richard Fitts",
+          "Brandon Clarke",
           "+0.0"
          ]
         ]
@@ -59021,8 +59021,8 @@
        "n_in": 0
       },
       "pids": [
-       "700251",
        "690916",
+       "700251",
        "543243"
       ],
       "comps": [
@@ -59054,13 +59054,13 @@
         "paid": 1.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.6,
        "out": 7.2,
        "net": -6.6,
        "final": -12.0
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-08-03",
@@ -59074,11 +59074,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Sandro Santana",
+          "Daniel Eagen",
           "+0.0"
          ],
          [
-          "Daniel Eagen",
+          "Sandro Santana",
           "+0.0"
          ]
         ]
@@ -59100,8 +59100,8 @@
        "n_in": 0
       },
       "pids": [
-       "811139",
        "811666",
+       "811139",
        "663457"
       ],
       "comps": [
@@ -59133,13 +59133,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.7,
-       "out": 6.0,
-       "net": -3.3,
-       "final": -4.5
-      },
-      "unsettled": true
+       "out": 6.1,
+       "net": -3.4,
+       "final": -4.6
+      }
      },
      {
       "d": "2026-02-02",
@@ -59153,15 +59153,15 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
+          "Jurrangelo Cijntje",
+          "+0.0"
+         ],
+         [
           "Colton Ledbetter",
           "+0.0"
          ],
          [
           "Tai Peete",
-          "+0.0"
-         ],
-         [
-          "Jurrangelo Cijntje",
           "+0.0"
          ]
         ]
@@ -59183,9 +59183,9 @@
        "n_in": 0
       },
       "pids": [
+       "701388",
        "807742",
        "806191",
-       "701388",
        "680977"
       ],
       "comps": [
@@ -59217,13 +59217,13 @@
         "paid": 1.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.2,
        "out": 5.7,
        "net": -4.5,
        "final": -5.5
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -59385,8 +59385,8 @@
     "n": 18
    },
    "devBat": {
-    "v": 0.22,
-    "n": 54
+    "v": 0.19,
+    "n": 70
    },
    "inj": {
     "pit": 18.0,
@@ -59622,7 +59622,7 @@
     "n": 2
    },
    "intl": {
-    "net": -3.1,
+    "net": -3.9,
     "g": 45,
     "n": 19
    },
@@ -59633,7 +59633,7 @@
     "lost": 40.6,
     "rel": 0.68,
     "display_only": true,
-    "net2": -7.6,
+    "net2": -7.7,
     "n2": 23,
     "qo": 1,
     "g2": 40,
@@ -59657,12 +59657,12 @@
       "y": 2020,
       "prior": 6.2,
       "fut": 7.8,
-      "exp": 2.6
+      "exp": 2.5
      }
     ]
    }
   },
-  "total": 11.6,
+  "total": 10.7,
   "forGrade": 55,
   "success": {
    "wpct": ".544",
@@ -59881,8 +59881,8 @@
     },
     "pids": [
      "605480",
-     "642232",
      "665799",
+     "642232",
      "592767"
     ],
     "comps": [
@@ -59981,13 +59981,13 @@
       "paid": 0
      }
     ],
+    "unsettled": false,
     "proj": {
      "inn": 0.0,
      "out": 0.0,
      "net": 0.0,
      "final": 13.2
-    },
-    "unsettled": false
+    }
    },
    {
     "d": "2025-12-19",
@@ -60064,13 +60064,13 @@
       "paid": 1.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 3.7,
-     "out": 19.2,
-     "net": -15.5,
-     "final": -28.2
-    },
-    "unsettled": true
+     "out": 19.3,
+     "net": -15.6,
+     "final": -28.3
+    }
    },
    {
     "d": "2021-07-22",
@@ -60220,13 +60220,13 @@
       "paid": -0.1
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.4,
      "out": 7.0,
      "net": -4.6,
      "final": -15.9
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2017-12-11",
@@ -60413,8 +60413,8 @@
       },
       "pids": [
        "605480",
-       "642232",
        "665799",
+       "642232",
        "592767"
       ],
       "comps": [
@@ -60513,13 +60513,13 @@
         "paid": 0
        }
       ],
+      "unsettled": false,
       "proj": {
        "inn": 0.0,
        "out": 0.0,
        "net": 0.0,
        "final": 13.2
-      },
-      "unsettled": false
+      }
      },
      {
       "d": "2017-12-11",
@@ -60818,13 +60818,13 @@
         "paid": 1.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 3.7,
-       "out": 19.2,
-       "net": -15.5,
-       "final": -28.2
-      },
-      "unsettled": true
+       "out": 19.3,
+       "net": -15.6,
+       "final": -28.3
+      }
      },
      {
       "d": "2021-07-22",
@@ -60974,13 +60974,13 @@
         "paid": -0.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.4,
        "out": 7.0,
        "net": -4.6,
        "final": -15.9
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2021-05-21",
@@ -61024,8 +61024,8 @@
        "n_in": 0
       },
       "pids": [
-       "656420",
        "656876",
+       "656420",
        "642715",
        "670950"
       ],
@@ -61744,8 +61744,8 @@
     "n": 60
    },
    "devBat": {
-    "v": 0.03,
-    "n": 95
+    "v": 0.05,
+    "n": 108
    },
    "inj": {
     "pit": 30.5,
@@ -62673,13 +62673,13 @@
       "paid": 0.2
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.4,
      "out": 1.6,
      "net": -1.2,
      "final": -5.5
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2026-01-22",
@@ -62767,13 +62767,13 @@
       "paid": 0.3
      }
     ],
+    "unsettled": true,
     "proj": {
-     "inn": 7.8,
+     "inn": 7.9,
      "out": 5.8,
-     "net": 2.0,
-     "final": 5.5
-    },
-    "unsettled": true
+     "net": 2.1,
+     "final": 5.6
+    }
    },
    {
     "d": "2022-11-10",
@@ -62870,13 +62870,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 4.1,
      "out": 2.0,
      "net": 2.1,
      "final": 4.9
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2024-07-29",
@@ -62944,13 +62944,13 @@
       "paid": -0.1
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.4,
      "out": 0.0,
      "net": 0.4,
      "final": -1.8
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-01-03",
@@ -63017,13 +63017,13 @@
       "paid": 0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0,
      "out": 0.6,
      "net": -0.6,
      "final": -2.7
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2023-01-06",
@@ -63144,13 +63144,13 @@
         "paid": 0.3
        }
       ],
+      "unsettled": true,
       "proj": {
-       "inn": 7.8,
+       "inn": 7.9,
        "out": 5.8,
-       "net": 2.0,
-       "final": 5.5
-      },
-      "unsettled": true
+       "net": 2.1,
+       "final": 5.6
+      }
      },
      {
       "d": "2025-11-24",
@@ -63218,13 +63218,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 4.1,
        "out": 2.0,
        "net": 2.1,
        "final": 4.9
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-12-11",
@@ -63302,13 +63302,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.8,
        "out": 1.2,
        "net": -0.4,
        "final": 1.3
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-12-22",
@@ -63376,13 +63376,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.4,
        "out": 0.0,
        "net": 1.4,
        "final": 3.1
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-07-31",
@@ -63460,13 +63460,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 2.4,
        "net": -2.4,
        "final": -1.4
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": [
@@ -63535,13 +63535,13 @@
         "paid": 0.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 1.6,
        "net": -1.2,
        "final": -5.5
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2024-07-29",
@@ -63609,13 +63609,13 @@
         "paid": -0.1
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 0.0,
        "net": 0.4,
        "final": -1.8
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2023-01-03",
@@ -63682,13 +63682,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0,
        "out": 0.6,
        "net": -0.6,
        "final": -2.7
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2025-01-02",
@@ -63756,13 +63756,13 @@
         "paid": 1.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 0.4,
        "net": 0.0,
        "final": -1.9
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -64216,8 +64216,8 @@
     "n": 34
    },
    "devBat": {
-    "v": 0.14,
-    "n": 98
+    "v": 0.15,
+    "n": 123
    },
    "inj": {
     "pit": 45.2,
@@ -64801,7 +64801,7 @@
     "n": 3
    },
    "intl": {
-    "net": -11.7,
+    "net": -12.4,
     "g": 35,
     "n": 24
    },
@@ -64812,7 +64812,7 @@
     "lost": 54.6,
     "rel": -0.23,
     "display_only": true,
-    "net2": 16.0,
+    "net2": 16.2,
     "n2": 34,
     "qo": 3,
     "g2": 70,
@@ -64829,7 +64829,7 @@
       "y": 2023,
       "prior": 7.5,
       "fut": 11.0,
-      "exp": 3.0
+      "exp": 2.9
      },
      {
       "nm": "Brett Anderson",
@@ -64841,7 +64841,7 @@
     ]
    }
   },
-  "total": 32.7,
+  "total": 32.2,
   "forGrade": 65,
   "success": {
    "wpct": ".515",
@@ -64969,13 +64969,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.6,
      "out": 3.8,
      "net": -2.2,
      "final": -18.8
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2022-03-16",
@@ -65058,13 +65058,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.0,
      "out": 0.4,
      "net": -0.4,
      "final": 12.5
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2017-07-31",
@@ -65495,13 +65495,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 0.4,
        "net": -0.4,
        "final": 12.5
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2017-07-31",
@@ -65854,13 +65854,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.6,
        "out": 3.8,
        "net": -2.2,
        "final": -18.8
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2018-08-04",
@@ -65994,13 +65994,13 @@
         "paid": 0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.0,
        "out": 1.2,
        "net": -1.2,
        "final": -4.4
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2018-11-17",
@@ -66107,8 +66107,8 @@
        "n_in": 0
       },
       "pids": [
-       "641856",
        "592273",
+       "641856",
        "457918"
       ],
       "comps": [
@@ -66855,8 +66855,8 @@
     "n": 56
    },
    "devBat": {
-    "v": 0.03,
-    "n": 92
+    "v": -0.04,
+    "n": 105
    },
    "inj": {
     "pit": 25.1,
@@ -67785,13 +67785,13 @@
       "paid": 3.3
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 0.4,
      "out": 3.1,
      "net": -2.7,
      "final": -6.9
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2026-01-22",
@@ -67805,11 +67805,11 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Yeremy Cabrera",
+        "Alejandro Rosario",
         "+0.0"
        ],
        [
-        "Alejandro Rosario",
+        "Yeremy Cabrera",
         "+0.0"
        ],
        [
@@ -67843,9 +67843,9 @@
      "n_in": 2
     },
     "pids": [
+     "691730",
      "694673",
      "800393",
-     "691730",
      "803849",
      "815818",
      "669022"
@@ -67879,13 +67879,13 @@
       "paid": 0.0
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 5.8,
-     "out": 7.8,
-     "net": -2.0,
-     "final": -5.5
-    },
-    "unsettled": true
+     "out": 7.9,
+     "net": -2.1,
+     "final": -5.6
+    }
    },
    {
     "d": "2026-03-28",
@@ -67953,13 +67953,13 @@
       "paid": 0.2
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 2.9,
      "out": 0.4,
      "net": 2.5,
      "final": 4.6
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2026-03-22",
@@ -68027,13 +68027,13 @@
       "paid": 2.9
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 1.8,
      "out": 0.4,
      "net": 1.4,
      "final": 2.4
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2026-08-03",
@@ -68051,11 +68051,11 @@
         "+0.4"
        ],
        [
-        "Kendeglys Virguez",
+        "Nick Mitchell",
         "+0.0"
        ],
        [
-        "Nick Mitchell",
+        "Kendeglys Virguez",
         "+0.0"
        ],
        [
@@ -68081,10 +68081,10 @@
      "n_in": 0
     },
     "pids": [
-     "702021",
-     "802068",
      "814455",
+     "802068",
      "691776",
+     "702021",
      "656492"
     ],
     "comps": [
@@ -68116,13 +68116,13 @@
       "paid": -0.2
      }
     ],
+    "unsettled": true,
     "proj": {
      "inn": 3.9,
      "out": 6.0,
      "net": -2.1,
      "final": -3.1
-    },
-    "unsettled": true
+    }
    },
    {
     "d": "2026-02-04",
@@ -68281,13 +68281,13 @@
         "paid": 0.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 2.9,
        "out": 0.4,
        "net": 2.5,
        "final": 4.6
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-03-22",
@@ -68355,13 +68355,13 @@
         "paid": 2.9
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 1.8,
        "out": 0.4,
        "net": 1.4,
        "final": 2.4
-      },
-      "unsettled": true
+      }
      }
     ],
     "worst": [
@@ -68431,13 +68431,13 @@
         "paid": 3.3
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 0.4,
        "out": 3.1,
        "net": -2.7,
        "final": -6.9
-      },
-      "unsettled": true
+      }
      },
      {
       "d": "2026-01-22",
@@ -68451,11 +68451,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Yeremy Cabrera",
+          "Alejandro Rosario",
           "+0.0"
          ],
          [
-          "Alejandro Rosario",
+          "Yeremy Cabrera",
           "+0.0"
          ],
          [
@@ -68489,9 +68489,9 @@
        "n_in": 2
       },
       "pids": [
+       "691730",
        "694673",
        "800393",
-       "691730",
        "803849",
        "815818",
        "669022"
@@ -68525,13 +68525,13 @@
         "paid": 0.0
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 5.8,
-       "out": 7.8,
-       "net": -2.0,
-       "final": -5.5
-      },
-      "unsettled": true
+       "out": 7.9,
+       "net": -2.1,
+       "final": -5.6
+      }
      },
      {
       "d": "2026-08-03",
@@ -68549,11 +68549,11 @@
           "+0.4"
          ],
          [
-          "Kendeglys Virguez",
+          "Nick Mitchell",
           "+0.0"
          ],
          [
-          "Nick Mitchell",
+          "Kendeglys Virguez",
           "+0.0"
          ],
          [
@@ -68579,10 +68579,10 @@
        "n_in": 0
       },
       "pids": [
-       "702021",
-       "802068",
        "814455",
+       "802068",
        "691776",
+       "702021",
        "656492"
       ],
       "comps": [
@@ -68614,13 +68614,13 @@
         "paid": -0.2
        }
       ],
+      "unsettled": true,
       "proj": {
        "inn": 3.9,
        "out": 6.0,
        "net": -2.1,
        "final": -3.1
-      },
-      "unsettled": true
+      }
      }
     ]
    },
@@ -68898,8 +68898,8 @@
     "n": 35
    },
    "devBat": {
-    "v": 0.21,
-    "n": 92
+    "v": 0.25,
+    "n": 117
    },
    "inj": {
     "pit": 31.0,
