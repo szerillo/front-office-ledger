@@ -413,3 +413,13 @@ and true positions (new field in the data pack); holes are flagged
 against an everyday bar and matched to available market names. A winter
 memo prints the whole thing. Projections, grading, payroll, the CBT line,
 and the historical comp winters are unchanged from v3.9.
+
+# v4.1 note: the paper ledger
+
+October 30, 2026. A visual identity, not a methodology change: the site now
+dresses like what it is, an accounting ledger that happens to be about
+baseball. Cream paper, iron-gall ink, a serif masthead, feint rules with
+the oxblood margin line on every table's first column, grade chips as
+scorebook stamps, and a Night desk toggle for the dark room. The mark is a
+baseball ruled like ledger paper: blue feint lines, red stitching, drawn in
+SVG by hand. No number moved.
