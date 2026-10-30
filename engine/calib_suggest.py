@@ -96,7 +96,6 @@ def proj_seasons(r, n):
 
 def suggest(r, hist):
     """hist: list of earlier contract rows (with realized terms)."""
-    # comp scoring identical to dkCompContracts
     pBlend = r["p1"] * 0.55 + r["p2"] * 0.30 + r["p3"] * 0.15
     pPeak = max(r["p1"], r["p2"], r["p3"])
     scored = []
@@ -116,12 +115,21 @@ def suggest(r, hist):
     else:
         mktY, mktAAV = 3, DPWH[yr1]
     mktT = mktY * mktAAV
-    per = proj_seasons(r, 10)
+    # v4.3 sliding scales: star gate on FIRST-YEAR projection; age-capped years
+    # (hitters 11-(age-26), pitchers one fewer, stars earn back up to 2);
+    # out-year dollars decay at 0.93/yr, fading to a 1.05 star premium.
+    per = proj_seasons(r, 12)
+    w = max(0.0, min(1.0, (per[0] - 3.2) / 2.5))
+    agesign = r["age"] + 1
+    cap = max(2, min(11, 11 - (agesign - 26) - (1 if r["pit"] else 0) + round(2 * w)))
     fairY = 1
-    for i in range(10):
+    for i in range(min(12, cap)):
         if per[i] >= 0.75: fairY = i + 1
-    fairT = sum(per[:fairY]) * DPWH[yr1]
-    return mktY, mktT, fairY, fairT
+    geff = 0.93 + 0.12 * w
+    fairT = sum(per[i] * DPWH[yr1] * (geff ** max(0, i - 1)) for i in range(fairY))
+    sugY = round((1 - w) * mktY + w * fairY)
+    sugT = (1 - w) * mktT + w * fairT
+    return mktY, mktT, fairY, fairT, sugY, sugT
 
 # walk forward
 res = []
@@ -129,10 +137,16 @@ for i, r in enumerate(rows):
     if r["off"] < 2010: continue
     hist = [c for c in rows[:i] if c["off"] < r["off"]]
     if len(hist) < 30: continue
-    mktY, mktT, fairY, fairT = suggest(r, hist)
-    res.append(dict(r=r, mktY=mktY, mktT=mktT, fairY=fairY, fairT=fairT))
+    mktY, mktT, fairY, fairT, sugY, sugT = suggest(r, hist)
+    res.append(dict(r=r, mktY=mktY, mktT=mktT, fairY=fairY, fairT=fairT, sugY=sugY, sugT=sugT))
 
 print("evaluated:", len(res))
+
+def report_sug(sel):
+    ey = [x["sugY"] - x["r"]["yrs"] for x in sel]
+    et = [x["sugT"] - x["r"]["tot"] for x in sel]
+    ea = [x["sugT"]/max(x["sugY"],1) - x["r"]["tot"]/x["r"]["yrs"] for x in sel]
+    print(f"\nCALIBRATED LEDGER OFFER (v4.3 rules): MAE yrs {mean(map(abs,ey)):.2f} (bias {mean(ey):+.2f}) | MAE AAV {mean(map(abs,ea)):.1f} | MAE total {mean(map(abs,et)):.1f} (bias {mean(et):+.1f})")
 
 def report(sel, label):
     if not sel: return
@@ -150,6 +164,7 @@ def report(sel, label):
     print(f"  model-fair : MAE yrs {mean(map(abs,eyF)):.2f} (bias {mean(eyF):+.2f}) | MAE AAV {mean(map(abs,eaF)):.1f} (bias {mean(eaF):+.1f}) | MAE total {mean(map(abs,etF)):.1f} (bias {mean(etF):+.1f})")
 
 report(res, "ALL 2010-2025")
+report_sug(res)
 report([x for x in res if x["r"]["off"] <= 2016], "2010-2016")
 report([x for x in res if x["r"]["off"] >= 2017], "2017-2025")
 report([x for x in res if x["r"]["pit"] == 0], "position players")
