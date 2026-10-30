@@ -586,3 +586,29 @@ and auditable:
   methodology is reorganized into a single coherent document (value engine,
   grading engine, markets, projections, pricing, rooms, validation) instead of
   version-ordered patches.
+
+# v4.6 addendum: negotiation structure, the salary book, and the live diamond (Oct 2026)
+
+- Negotiation economics. The camp now values an offer at ITS preferred
+  structure: dollars in years beyond the ask are worth 45 cents each, so
+  2 yr / $30M no longer beats a 1 yr / $29M ask (the agent will say so), and
+  shorter-at-higher-AAV offers price correctly. Counters are restated in the
+  camp's own years, and a counter that would barely beat your number is an
+  acceptance, not an echo you have to re-click.
+- The assistant GM's call sits inline on every QO and arbitration row
+  (offer it / let him walk, tender / non-tender candidate), same math as the
+  counsel card.
+- Team salary book: an OOTP-style forward-obligation table for any club,
+  player by season 2027-2031, bold for guaranteed book money at CBT values,
+  (A) for arbitration estimates on the 25/40/60 ladder, (^) for pre-arb,
+  with season totals against the CBT reference. Lives on the open-market
+  stage so you can scout a counterparty's books before a trade.
+- The depth diamond is live on every stage as a compact card in the rail,
+  with holes named; stage 4 keeps the full chart.
+- Every long player list scrolls inside its card instead of cutting off.
+- Trade counsel knows the counterparty's historical tendencies (their
+  regime's ledger DNA: drafts arms, trades for bats, and so on) and says
+  what to shop them.
+- Extension-book coverage: Yelich (9/$215M) and Keibert Ruiz (8/$50M)
+  restored; a duplicated Wheeler extension row that double-counted $42M/yr
+  on Philadelphia's book removed.
