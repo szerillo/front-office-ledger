@@ -247,6 +247,10 @@ if os.path.exists("/home/claude/scenarios.json") and "const SCEN = " in s:
     scen = open("/home/claude/scenarios.json").read()
     s = swap(s, "const SCEN = ", "; // SCEN-END", scen)
     print("scenario pack spliced")
+if os.path.exists("/home/claude/gm_offseasons.json") and "const GMC = " in s:
+    gmc = open("/home/claude/gm_offseasons.json").read()
+    s = swap(s, "const GMC = ", "; // GMC-END", gmc)
+    print("gm offseason pack spliced")
 
 # ---- computed champions + through lines ----
 champ_cards_g = []
