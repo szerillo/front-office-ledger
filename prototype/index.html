@@ -257,7 +257,7 @@
   #tip .t1{color:var(--muted); font-size:11px}
   footer{color:var(--muted); font-size:12px; margin-top:48px; border-top:4px double var(--ink); padding-top:16px}
 </style>
-<!-- build v4.7 · internal: Ledger WAR 1.5 · sweep 2 · projection 1 · terms model 4.4 rules + comp filter -->
+<!-- build v4.8 · internal: Ledger WAR 1.5 · sweep 2 · projection 1 · terms model 4.4 rules + comp filter -->
 </head>
 <body>
 
@@ -542,6 +542,12 @@
       <p>Every World Series winner 1998-2025 carries a computed roster ledger: core contributors (&ge; 1.0 Ledger WAR in the title season) traced to the club's last acquisition event (feed 2009+, Retrosheet backfill 1985-2008), with inherited meaning acquired before the sitting regime's true seat date. Across all 28 titles the median champion was 61% built by its sitting regime in year 6 of the tenure, and free agency has been a majority channel exactly once (the 2009 Yankees). The strongest through-line is generational: the median title core was 48% self-built in 1998-2009 but 90% self-built in 2010-2025. The handed-down championship (1998 Yankees: 93% inherited; 2023 Rangers: 85%) still happens, but the modern norm is the regime that wins built the thing itself.</p>
       <h3>Historical depth</h3>
       <p>The ledger is designed to backfill decade by decade; transactions exist back to the 1870s (Retrosheet), so historical regimes (Weiss, Rickey, Schuerholz, Gillick) sit on the same scale as active ones. Channel definitions adapt by era: before the 1965 amateur draft, the "draft" channel reads as amateur and international signings. Era-specific $/WAR baselines keep cross-era comparisons honest.</p>
+      <h3>Validation: does the metric hold up?</h3>
+      <p>Two checks, both reproducible from the public feed. <strong>Accounting:</strong> a WAR-class metric must sum to team record. Across 327 team-seasons (2015-2025, the full-coverage era), roster-summed Ledger WAR vs actual wins above a 48-win replacement baseline: correlation 0.864, R&sup2; 0.747, slope 0.818, mean absolute error 5.3 wins. The slope below 1 reflects known gaps (defense coverage thins before 2016; pre-2014 seasons are bat-plus-position only), disclosed rather than patched. <strong>Prediction (with real rigor):</strong> does decision quality carry information about FUTURE results beyond the current record? Pooled across <strong>574 regime-years from 112 regimes</strong> (active and archive, 1998-2024, futures bounded inside each regime's own window), net decision value per season predicts the next two seasons' W% with a partial correlation of <strong>0.276</strong> after controlling for the record to date, with a <strong>cluster-bootstrap 95% interval of [0.16, 0.37]</strong> (2,000 resamples of whole regimes, the honest interval given overlapping regime-years). Under <strong>grouped 5-fold cross-validation</strong> (folds split by regime, so no regime is in both train and test), adding decision value lifts out-of-sample R&sup2; from 0.184 to 0.245. The effect survives out-of-sample on held-out regimes; decision quality is forward information the standings do not contain.</p>
+      <h3>What this machinery does inside a front office</h3>
+      <p>This site is the public, free-data build of a decision-support system. Pointed at a club's internal data, the same machinery gives you: <strong>deadline pricing</strong> (the live rental-market curve says what a win costs this July, and whether an offer is above or below the market that actually clears); <strong>extension pricing</strong> (the class-market baselines say what the comparable pre-arb or arb extension really costs, with CBT-aware deferral valuation); <strong>counterparty preparation</strong> (every GM's trade record, channel tendencies, buy-low habits, and development effects, so you know who overvalues what before the call); <strong>self-audit</strong> (which of your channels is actually producing, process-vs-outcome separation so you stop firing scouts for variance); and <strong>regime benchmarking</strong> for ownership. Swap Ledger WAR for your internal projections and the prospect-rank archive for your own pref lists and every grade sharpens; nothing in the architecture assumes public data, it was simply built to prove the concept without any.</p>
+      <h3>About this project</h3>
+      <p>Built by <strong>Sean Zerillo</strong> as a working demonstration: a complete decision-level accounting system for front-office performance, from raw transaction feed to graded, clickable, versioned product, with every number computed from free public data. The stack is deliberately simple (Python ingestion and scoring, SQLite, a single-file front end, zero frameworks, zero scraping of licensed sources) so the methodology, not the engineering, is the point. Everything is reproducible from the public repository, including this page. Contact: sean.zerillo@gmail.com.</p>
       <p style="color:var(--s4)"><strong>Data status:</strong> the leaderboard, all 27 active cards badged COMPUTED, all 110 archive-regime cards, and all 28 championship ledgers are generated end-to-end by Ledger WAR and the sweep engine from the live MLB Stats API feed (plus the curated Dodgers, Orioles, and Brewers cards, whose decision pages are hand-verified). Archive regimes (1998-2024) grade trade/draft/waiver channels over their actual windows; FA is shown raw and DEV/EXT are not scored for past windows, disclosed on each card. The MLB Stats API transaction feed is empty before 2009, so 1985-2008 transactions come from the Retrosheet archive (mapped to MLBAM ids via the Chadwick Bureau register); the project found and fixed this itself when a 2005 champion's roster came back untraceable. The information used here was obtained free of charge from and is copyrighted by Retrosheet (retrosheet.org). Sample values persist only where labeled: parts of the curated decision pages, the curated Trees showcase, and the Champions tab's contribution estimates.</p>
     </div>
   </section>
@@ -557,7 +563,7 @@
         <p style="margin:4px 0"><strong>Projections and pricing.</strong> Ledger Projection (self-built aging curves, Marcel-style weighting, durability factor from recent playing time; backtest r &asymp; 0.64 vs next-season value). Contract terms are proposed by a calibrated model backtested winter-by-winter on 1,196 real signings 2010-2025 (miss 0.69 yrs / $3.2M AAV / $14.0M total): pedigree star gate, pitcher scarcity premium, convex elite pricing with regression shrink, spread years on megadeals, and a comp plausibility filter. Payroll layer: book-committed dollars per club 2027-2031 at CBT values, arb estimated at 25/40/60% of market by year.</p>
         <p style="margin:4px 0"><strong>The market models.</strong> 5,800-deal trade archive 1998-2023 with empirical rates: deadline rentals (237 classified; a star rental costs ~0.8 realized wins), controlled-years market (1,372 deals; sellers buy future wins at about a third the price of present ones), bust rates by control bucket, head-to-head regime trade records, and a 1,689-contract comp book with realized outcomes on every comp.</p>
         <p style="margin:4px 0"><strong>The rooms.</strong> Deal Desk (propose any trade, signing, or extension; verdicts with comps, payroll, and a printable memo). GM Mode (your club's real 2026-27 winter, staged like the calendar: QO and arb decisions with the assistant GM's call on every row, the exclusive window, the open market with offer/counter negotiations priced in the camp's own structure, a surplus-value trade desk that refuses fantasy deals, an OOTP-style team salary book for every club, the real 2026-27 class (exercised club options like William Contreras's $15.5M keep players off the market, opt-outs and declined options put King, Holmes, and Imanaga on it, and service-time corrections keep pre-arb players home), a live depth diamond on every stage, an assistant GM with counsel and comps, and a graded report with historical comp winters). Scenario Room (sit in the seat on real archive decision points; process graded on at-the-time reads). Horizon (every roster walked forward through 2031). Draft room (pick packages on the slot curve).</p>
-        <p style="margin:4px 0"><strong>Design.</strong> The paper ledger: cream stock, serif masthead, feint rules, the red margin line, scorebook grade stamps; a Night desk toggle keeps the dark room. Zero pop-ups anywhere.</p>
+        <p style="margin:4px 0"><strong>Design.</strong> The paper ledger: cream stock, serif masthead, feint rules, the red margin line, scorebook grade stamps; a Night desk toggle keeps the dark room. Zero pop-up prompts anywhere; any player's full transaction chain pops out from wherever his name appears.</p>
       </div>
     </details>
   </footer>
@@ -122178,13 +122184,28 @@ function renderChampCompare(host){
     const m = c && c.regimeNote && c.regimeNote.match(/(\d+)% of the core was acquired while/);
     return m ? +m[1] : null;
   };
+  // channel mix from the FULL core (how every piece arrived, whoever acquired
+  // it); built-by-regime and continuity are separate columns, so the 1998
+  // Yankees read 93% trade/intl-built even though 93% was inherited
   const rows = L.rows.map(a=>{
-    const t = a.total || 1;
-    const reg = Math.round(100 * (1 - (a.mix.inherited||0)/t));
-    return {id: a.id, yr: a.yr, team: a.team, war: a.total,
-            reg, cont: contOf(a.id),
-            draft: Math.round(100*(a.mix.draft||0)/t), trade: Math.round(100*(a.mix.trade||0)/t),
-            fa: Math.round(100*(a.mix.fa||0)/t), intl: Math.round(100*(a.mix.intl||0)/t)};
+    const card = cards.find(x=>x.id===a.id);
+    const roster = (card && card.roster) || [];
+    let war = 0; const ch = {draft:0, trade:0, fa:0, intl:0};
+    let regW = 0;
+    roster.forEach(rr => {
+      const w = Math.max(+rr[5] || 0, 0);
+      war += w;
+      const c = rr[1] === 'waiver' || rr[1] === 'rule5' ? 'trade' : (ch[rr[1]] !== undefined ? rr[1] : (rr[1] === 'ext' ? 'fa' : 'draft'));
+      ch[c] += w;
+      if(rr[4] === 'reg') regW += w;
+    });
+    const t = war || a.total || 1;
+    const reg = Math.round(100 * (roster.length ? regW/t : 1 - (a.mix.inherited||0)/(a.total||1)));
+    const cont = contOf(a.id);
+    return {id: a.id, yr: a.yr, team: a.team, war: roster.length ? war : a.total,
+            reg, cont: cont != null ? cont : reg,
+            draft: Math.round(100*ch.draft/t), trade: Math.round(100*ch.trade/t),
+            fa: Math.round(100*ch.fa/t), intl: Math.round(100*ch.intl/t)};
   });
   rows.sort((x,y)=>{
     const vx = x[champCmpKey], vy = y[champCmpKey];
@@ -122200,7 +122221,7 @@ function renderChampCompare(host){
       ${th('yr','Year')}<th style="cursor:pointer" onclick="champCmpSort('team')">Club${champCmpKey==='team'?(champCmpAsc?' &#9650;':' &#9660;'):''}</th>
       ${th('war','Core WAR','sum of Ledger WAR from every core contributor that season')}
       ${th('reg','Built by regime','share of core WAR acquired by the sitting front office')}
-      ${th('cont','With continuity','counting moves made while the title exec held the chair directly below')}
+      ${th('cont','With continuity','counting moves made while the title exec held the chair directly below; equals the regime share where no deputy window applies')}
       ${th('draft','Draft %')}${th('trade','Trade %')}${th('fa','FA %')}${th('intl','Intl %')}
     </tr></thead><tbody>
       ${rows.map(r=>`<tr style="cursor:pointer" onclick="$('#champsel').value='${r.id}'; renderChamp('${r.id}')">
@@ -122306,7 +122327,7 @@ function dkFindPlayer(label){
 }
 function dkPieceChip(pc, side, i){
   const pr = dkProjPiece(pc);
-  const label = pc.kind==='player' ? `${pc.p[0]} (${pc.p[2]||'FA'}, ${pc.p[3]?'P':'pos'}, age ${pc.p[4]})`
+  const label = pc.kind==='player' ? `${pc.p[0]} (${pc.p[2]||'FA'}, ${pc.p[3]?'P':'pos'}, age ${pc.p[4]}) <a href="#" onclick="treeOverlay(${pc.p[1]}, '${pc.p[2]||''}'); return false" style="color:var(--muted); font-size:11px">tree</a>`
               : pc.kind==='prospect' ? `Prospect, rank #${pc.rank}` : `Draft pick #${pc.pick} (${pc.year})`;
   const ctrlUI = pc.kind==='player' ? ` · control <button onclick="dkCtrl('${side}',${i},-1)" style="padding:0 6px">−</button> ${pc.ctrl}y <button onclick="dkCtrl('${side}',${i},1)" style="padding:0 6px">+</button>` : '';
   return `<div class="card" style="padding:8px 12px; margin:6px 0; display:flex; justify-content:space-between; align-items:center; gap:10px">
@@ -122789,7 +122810,8 @@ function renderHorizon(){
   const now2026 = live.reduce((a,r)=>a + Math.max(0, r.p[7]), 0);
   host.innerHTML = `<div class="sub" style="margin-bottom:6px">${ab} produced ~${fmtW(now2026)} WAR from this group in 2026. The decay you see below is the aging curve plus expiring control, before any move the club makes.</div>`
     + rows + farmLine
-    + `<div style="font-size:11px; color:var(--muted); margin-top:8px">Control end = later of feed-derived service default and guaranteed contract years in the book. Committed $ are book money only (no arb/pre-arb). Players projected below replacement still show at zero floor. Propose a move at the Deal Desk to see what it does to this curve.</div>`;
+    + `<div style="font-size:11px; color:var(--muted); margin-top:8px">Control end = later of feed-derived service default and guaranteed contract years in the book. Committed $ are book money only (no arb/pre-arb). Players projected below replacement still show at zero floor. Propose a move at the Deal Desk to see what it does to this curve.</div>`
+    + `<h3 style="margin-top:18px">The salary book, season by season</h3>` + moneyTable(ab);
 }
 function dkHorizonDeltaLine(){
   const seasons = [2027, 2028, 2029, 2030, 2031];
@@ -123129,9 +123151,17 @@ function gmArbSal(p, season){
   const svc = (p[11] ?? (6 - p[8])) + (season - 2027);
   if(svc >= 6 || svc < 0) return null;
   if(svc < 3) return 0.8;
-  const projWar = dkProjSeasons(p, season - 2026, false).per[season - 2027] || 0;
   const ratio = svc === 3 ? 0.25 : svc === 4 ? 0.40 : 0.60;
-  return Math.max(0.8, projWar * (DESK.market.dpw[String(season)] || 11) * ratio);
+  // arbitration is backward-looking: the 2027 award prices the season the
+  // player just PLAYED, not the one the model projects. That split is the
+  // whole non-tender decision: pay for last year, receive next year.
+  let basis;
+  if(season === 2027){
+    basis = Math.max(p[7], 0.5 * (p[6] + p[7]), 0);
+  } else {
+    basis = Math.max(dkProjSeasons(p, season - 2027, false).per[season - 2028] || 0, 0);
+  }
+  return Math.max(0.8, basis * (DESK.market.dpw[String(season)] || 11) * ratio);
 }
 function gmIsFA(p){
   const bk = hzBookEnd();
@@ -123513,9 +123543,32 @@ function gmAssetRow(label, meta, btn){
   return `<div style="display:flex; justify-content:space-between; gap:8px; font-size:12.5px; padding:4px 0; border-bottom:1px solid var(--grid)">
     <span><strong>${label}</strong> <span class="ttype">${meta}</span></span><span style="white-space:nowrap">${btn}</span></div>`;
 }
+function treeOverlay(pid, ab){
+  // the pop-out: any player's onward chain, from anywhere on the site
+  pid = String(pid);
+  const pool = [...(typeof AUTO_REGIMES!=='undefined'?AUTO_REGIMES:[]), ...(typeof REGIMES!=='undefined'?REGIMES:[])];
+  const reg = pool.find(r => abOf(r) === (ab||'').toUpperCase()) || {abbr: ab};
+  const nm = (typeof PLAYER_NAMES !== 'undefined' && PLAYER_NAMES[pid]) || ((DESK.players||[]).find(x=>String(x[1])===pid)||['Player'])[0];
+  const kid = autoChainKids(pid, '1900-01-01', reg, 0, new Set());
+  const fate = chainFate(pid, (ab||'').toUpperCase());
+  const node = {nm: `${nm} · every move on the ${(ab||'').toUpperCase()} ledger`, status: kid ? 'closed' : fate.status,
+                kids: kid ? [kid] : [{nm: fate.nm, wv: null, status: fate.status}]};
+  let ov = document.getElementById('tree-ov');
+  if(!ov){
+    ov = document.createElement('div'); ov.id = 'tree-ov';
+    ov.style.cssText = 'position:fixed; inset:0; z-index:90; background:rgba(20,16,10,.45); display:flex; align-items:center; justify-content:center; padding:18px';
+    ov.addEventListener('click', e => { if(e.target === ov) ov.remove(); });
+    document.body.appendChild(ov);
+  }
+  ov.innerHTML = `<div style="background:var(--page); color:var(--ink); border:1.5px solid var(--ink); border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,.35); max-width:860px; width:100%; max-height:84vh; overflow:auto; padding:14px 18px">
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px"><strong>${nm}</strong>
+      <button onclick="document.getElementById('tree-ov').remove()" style="cursor:pointer; background:none; border:1px solid var(--rule); color:var(--muted); border-radius:6px; padding:2px 10px">close</button></div>
+    <div class="tree-card" style="margin-top:8px">${tnode(node)}</div>
+    <div class="ttype" style="margin-top:6px">chains follow the graded ledger; endings come from the value cache</div></div>`;
+}
 function gmPlayerMeta(p){
   const sur = gmSurplus(p);
-  return `$${gmSalary27(p).toFixed(1)}M · ${gmCtrlOf(p)}y · surplus <span class="${sur>=0?'pos':'neg'}">${fmtW(sur)}</span>${gmFranchise(p) ? ' <span class="chip chip-reg">CORNERSTONE</span>' : ''}`;
+  return `$${gmSalary27(p).toFixed(1)}M · ${gmCtrlOf(p)}y · surplus <span class="${sur>=0?'pos':'neg'}">${fmtW(sur)}</span>${gmFranchise(p) ? ' <span class="chip chip-reg">CORNERSTONE</span>' : ''} <a href="#" onclick="treeOverlay(${p[1]}, '${p[2]}'); return false" title="his full chain on this club's ledger" style="color:var(--muted)">tree</a>`;
 }
 function gmTradePanel(){
   if(!gmState.tr) gmState.tr = {them: null, want: [], give: []};
@@ -123633,9 +123686,7 @@ function gmSalaryCell(p, season){
   const arb = gmArbSal(p, season);
   return arb === null ? null : {amt: arb, tag: 'A'};
 }
-function gmMoneyPanel(){
-  if(!gmState.money) gmState.money = {ab: gmState.club};
-  const ab = gmState.money.ab;
+function moneyTable(ab){
   const seasons = [2027, 2028, 2029, 2030, 2031];
   const roster = (DESK.players||[]).filter(p => p[2] === ab && Math.abs(p[5])+Math.abs(p[6])+Math.abs(p[7]) >= 0.6 && gmControlled(p))
     .map(p => ({p, cells: seasons.map(s => gmSalaryCell(p, s))}))
@@ -123644,8 +123695,7 @@ function gmMoneyPanel(){
   const totals = seasons.map((s, i) => roster.reduce((a, r) => a + ((r.cells[i]||{amt:0}).amt), 0));
   const cell = c => c === null ? '<td class="num" style="color:var(--grid)">·</td>'
     : `<td class="num" style="${c.tag ? 'font-style:italic; color:var(--ink-2)' : 'font-weight:600'}">$${c.amt.toFixed(1)}M${c.tag ? `<span class="ttype">(${c.tag})</span>` : ''}</td>`;
-  const sel = `<div class="filters" style="margin:0 0 8px"><label>club</label>
-    <select onchange="gmState.money.ab=this.value; gmShow()">${Object.keys(DESK.teams||{}).sort().map(x=>`<option${x===ab?' selected':''} value="${x}">${x}</option>`).join('')}</select>
+  const sel = `<div class="filters" style="margin:0 0 8px">
     <span class="ttype">bold = guaranteed on the book · (A) = arbitration estimate · (^) = pre-arb · dot = free agent by then · options and deferrals sit inside book AAVs</span></div>`;
   return `<div class="card" style="padding:12px 16px">
     <strong>${ab} salary book, 2027-2031</strong> <span class="ttype">· every controlled player's forward obligation as this ledger estimates it${ab === gmState.club ? '' : ' · scouting a counterparty\\u2019s books before a trade is what this tab is for'}</span>
@@ -123653,7 +123703,7 @@ function gmMoneyPanel(){
     <div style="max-height:640px; overflow:auto">
     <table style="width:100%"><thead><tr><th>Pos</th><th>Player</th><th class="num">Age 27</th>${seasons.map(s=>`<th class="num">${s}</th>`).join('')}</tr></thead>
     <tbody>
-      ${roster.map(({p, cells}) => `<tr><td class="ttype">${p[13]||p[12]}</td><td><strong>${p[0]}</strong></td><td class="num">${p[4]+1}</td>${cells.map(cell).join('')}</tr>`).join('')}
+      ${roster.map(({p, cells}) => `<tr><td class="ttype">${p[13]||p[12]}</td><td><strong>${p[0]}</strong> <a href="#" onclick="treeOverlay(${p[1]}, '${ab}'); return false" style="color:var(--muted); font-size:10.5px">tree</a></td><td class="num">${p[4]+1}</td>${cells.map(cell).join('')}</tr>`).join('')}
       <tr style="border-top:3px double var(--ink)"><td></td><td><strong>Committed + estimated</strong></td><td></td>${totals.map(t=>`<td class="num"><strong>$${Math.round(t)}M</strong></td>`).join('')}</tr>
       <tr><td></td><td class="ttype">vs the $244M CBT reference</td><td></td>${totals.map(t=>`<td class="num ${t>244?'neg':''}">${t>244?'+':''}$${Math.round(t-244)}M</td>`).join('')}</tr>
     </tbody></table>
@@ -123663,6 +123713,13 @@ function gmMoneyPanel(){
 }
 
 /* ---- stage 3: depth chart ---- */
+function gmMoneyPanel(){
+  if(!gmState.money) gmState.money = {ab: gmState.club};
+  const ab = gmState.money.ab;
+  return `<div class="filters" style="margin:0 0 8px"><label>club</label>
+    <select onchange="gmState.money.ab=this.value; gmShow()">${Object.keys(DESK.teams||{}).sort().map(x=>`<option${x===ab?' selected':''} value="${x}">${x}</option>`).join('')}</select></div>` + moneyTable(ab);
+}
+
 function gmDepth(){
   const slots = gmFillSlots();
   const field = slots.slice(0, 9);      // C,1B,2B,3B,SS,LF,CF,RF,DH
@@ -123861,7 +123918,8 @@ function gmAdvComps(p, k){
   }).join('');
 }
 function gmDepthStrip(){
-  const field = gmFillSlots().slice(0, 9);
+  const all = gmFillSlots();
+  const field = all.slice(0, 9), rot = all.slice(9, 14), pen = all.slice(14, 21);
   const SPOT = {C:[50,88], '1B':[76.5,58], '2B':[63,34], SS:[37,34], '3B':[23.5,58], LF:[13,14], CF:[50,5], RF:[87,14], DH:[88,84]};
   const shortName = nm => { const parts = nm.replace(/ (Jr\.|Sr\.|II|III|IV)$/,'').split(' '); return parts[parts.length-1]; };
   const chips = field.map(([pos, p]) => {
@@ -123881,6 +123939,12 @@ function gmDepthStrip(){
       </svg>
       ${chips}
     </div>
+    ${[['SP', rot], ['RP', pen]].map(([lbl, list]) => `<div style="margin-top:5px"><span class="ttype" style="font-size:9px; letter-spacing:.1em">${lbl}</span>
+      <div style="display:flex; gap:3px; flex-wrap:wrap; margin-top:2px">${list.map(([pos, p]) => {
+        const w = p ? gmProj27(p) : 0;
+        const bad = w < (pos.startsWith('RP') ? 0.3 : 1.0);
+        return `<span style="font-size:9.5px; background:var(--surface-2); border:1px solid ${bad?'var(--bad, #a33)':'var(--rule)'}; border-radius:4px; padding:0 4px; white-space:nowrap" title="${pos}: ${p ? p[0] + ', ' + fmtW(w) + ' proj' : 'open'}">${p ? shortName(p[0]) : 'open'}</span>`;
+      }).join('')}</div></div>`).join('')}
     <div class="ttype" style="margin-top:4px; font-size:11px">${weak.length ? 'holes: ' + weak.join(', ') + ' · full chart at step 4' : 'no everyday holes · full chart at step 4'}</div>
   </details>`;
 }
@@ -124014,10 +124078,15 @@ function badge(tag){
        : tag==='inh' ? '<span class="chip chip-inh">INHERITED</span>'
        : '<span class="chip chip-tra">HANDOFF ERA</span>';
 }
-function renderChamp(id){
+function renderChamp(id, scroll){
   renderChampLines();
   const all = ALL_CHAMPS();
   const c = all.find(x=>x.id===id) || all[0];
+  if(scroll !== false && renderChamp._booted){
+    const sel = document.getElementById('champsel');
+    if(sel) setTimeout(() => sel.scrollIntoView({behavior:'smooth', block:'start'}), 30);
+  }
+  renderChamp._booted = true;
   // channel mix from roster
   const mix = {};
   c.roster.forEach(([, ch,,, tag, war])=>{
@@ -175926,13 +175995,7 @@ function ledgerTable(title, rows, isTrade){
       <td>${x.h}${x.t?`<div class="ttype">${x.t}</div>`:''}</td>
       <td class="num" style="width:96px"><span class="${x.war>=0?'pos':'neg'}">${fmtW(x.war)}</span><br><span class="chip ${x.open?'chip-open':'chip-closed'}" style="margin-left:0">${x.open?'OPEN':'CLOSED'}</span></td>
     </tr>`).join('');
-  return `<div class="card ledger"><h3>Validation: does the metric hold up?</h3>
-      <p>Two checks, both reproducible from the public feed. <strong>Accounting:</strong> a WAR-class metric must sum to team record. Across 327 team-seasons (2015-2025, the full-coverage era), roster-summed Ledger WAR vs actual wins above a 48-win replacement baseline: correlation 0.864, R&sup2; 0.747, slope 0.818, mean absolute error 5.3 wins. The slope below 1 reflects known gaps (defense coverage thins before 2016; pre-2014 seasons are bat-plus-position only), disclosed rather than patched. <strong>Prediction (with real rigor):</strong> does decision quality carry information about FUTURE results beyond the current record? Pooled across <strong>574 regime-years from 112 regimes</strong> (active and archive, 1998-2024, futures bounded inside each regime's own window), net decision value per season predicts the next two seasons' W% with a partial correlation of <strong>0.276</strong> after controlling for the record to date, with a <strong>cluster-bootstrap 95% interval of [0.16, 0.37]</strong> (2,000 resamples of whole regimes, the honest interval given overlapping regime-years). Under <strong>grouped 5-fold cross-validation</strong> (folds split by regime, so no regime is in both train and test), adding decision value lifts out-of-sample R&sup2; from 0.184 to 0.245. The effect survives out-of-sample on held-out regimes; decision quality is forward information the standings do not contain.</p>
-      <h3>What this machinery does inside a front office</h3>
-      <p>This site is the public, free-data build of a decision-support system. Pointed at a club's internal data, the same machinery gives you: <strong>deadline pricing</strong> (the live rental-market curve says what a win costs this July, and whether an offer is above or below the market that actually clears); <strong>extension pricing</strong> (the class-market baselines say what the comparable pre-arb or arb extension really costs, with CBT-aware deferral valuation); <strong>counterparty preparation</strong> (every GM's trade record, channel tendencies, buy-low habits, and development effects, so you know who overvalues what before the call); <strong>self-audit</strong> (which of your channels is actually producing, process-vs-outcome separation so you stop firing scouts for variance); and <strong>regime benchmarking</strong> for ownership. Swap Ledger WAR for your internal projections and the prospect-rank archive for your own pref lists and every grade sharpens; nothing in the architecture assumes public data, it was simply built to prove the concept without any.</p>
-      <h3>About this project</h3>
-      <p>Built by <strong>Sean Zerillo</strong> as a working demonstration: a complete decision-level accounting system for front-office performance, from raw transaction feed to graded, clickable, versioned product, with every number computed from free public data. The stack is deliberately simple (Python ingestion and scoring, SQLite, a single-file front end, zero frameworks, zero scraping of licensed sources) so the methodology, not the engineering, is the point. Everything is reproducible from the public repository, including this page. Contact: sean.zerillo@gmail.com.</p>
-      <h3>${title}</h3>
+  return `<div class="card ledger"><h3>${title}</h3>
     <table><thead><tr><th>Date</th><th>Decision</th><th class="num">Net WAR</th></tr></thead>
     <tbody>${body}</tbody></table></div>`;
 }
