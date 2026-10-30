@@ -23,7 +23,9 @@ from contracts_recent import RECENT
 LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
 AGES = json.load(open("/home/claude/ages.json"))
 POS = json.load(open("/home/claude/positions.json"))
+POS.update(json.load(open("/home/claude/positions2.json")))  # canonical primaryPosition refetch
 PITPOS = {"RHP", "LHP", "SP", "RP", "P"}
+# Ohtani (TWP) signs as a hitter-priced asset; leave pit=0
 PC = json.load(open("/home/claude/proj_curves.json"))
 cfg = json.load(open("/home/claude/regimes.json"))
 
@@ -73,8 +75,12 @@ for (off, pl, yrs, tot) in raw:
     age = off - AGES.get(str(pid), 0)
     if not (18 < age < 46): continue
     pit = 1 if POS.get(str(pid)) in PITPOS else 0
+    p1, p2, p3 = d.get(off, 0.0), d.get(off - 1, 0.0), d.get(off - 2, 0.0)
+    if abs(p1) + abs(p2) + abs(p3) < 0.1:
+        continue  # no MLB track record (international posting etc.) - not priceable in-model
     rows.append(dict(pl=pl, pid=pid, off=off, yrs=yrs, tot=tot, age=age, pit=pit,
-                     p1=d.get(off, 0.0), p2=d.get(off - 1, 0.0), p3=d.get(off - 2, 0.0)))
+                     p1=p1, p2=p2, p3=p3,
+                     p4=d.get(off - 3, 0.0), p5=d.get(off - 4, 0.0)))
 rows.sort(key=lambda r: r["off"])
 print("contracts resolved:", len(rows))
 
@@ -104,9 +110,19 @@ def suggest(r, hist):
         cBlend = c["p1"] * 0.65 + c["p2"] * 0.35
         cPeak = max(c["p1"], c["p2"])
         s = abs(cBlend - pBlend) * 1.0 + abs(cPeak - pPeak) * 0.5 + abs(c["age"] - r["age"]) * 0.45
-        scored.append((s, c))
+        scored.append((s, c, cBlend))
     scored.sort(key=lambda x: x[0])
-    comps = [c for _, c in scored[:8]]
+    comps8 = scored[:8]
+    # v4.4 comp plausibility filter: when pricing an everyday player, drop
+    # comps whose own contract repudiated their platform value (non-tender,
+    # injury collapse, reputation deals) - they poison the median with
+    # information that is about risk, not price. Kept for depth signings,
+    # where those outcomes ARE the market.
+    if pBlend >= 2.0:
+        kept = [t for t in comps8
+                if (t[1]["tot"] / t[1]["yrs"]) >= 0.25 * max(t[2], 0.5) * DPWH[min(t[1]["off"] + 1, 2026)]]
+        if len(kept) >= 4: comps8 = kept
+    comps = [c for _, c, _ in comps8]
     yr1 = min(r["off"] + 1, 2026)
     if comps:
         adj = [(c["tot"] / c["yrs"]) * (DPWH[yr1] / DPWH[min(c["off"] + 1, 2026)]) for c in comps]
@@ -115,20 +131,43 @@ def suggest(r, hist):
     else:
         mktY, mktAAV = 3, DPWH[yr1]
     mktT = mktY * mktAAV
-    # v4.3 sliding scales: star gate on FIRST-YEAR projection; age-capped years
-    # (hitters 11-(age-26), pitchers one fewer, stars earn back up to 2);
-    # out-year dollars decay at 0.93/yr, fading to a 1.05 star premium.
-    per = proj_seasons(r, 12)
-    w = max(0.0, min(1.0, (per[0] - 3.2) / 2.5))
+    # v4.4 rules:
+    #  - pedigree star gate: best of last 5 platform seasons, decayed 0.88/yr,
+    #    discounted by age (young players keep more of an old peak); a star
+    #    coming off a down year still prices as a star
+    #  - pitcher gate 2.8 (vs 3.2) and pitcher wins paid at 1.28x (market pays
+    #    ace reputation/scarcity above flat $/WAR)
+    #  - convex elite premium: +15% per win above 3.5, capped, on seasons
+    #    shrunk 0.7x above 4.5 (markets price elite regression risk)
+    #  - softer years gate (eff 2.1 span 2.7): mid-tier regulars earn model
+    #    years even when dollars stay comp-driven
+    #  - spread years for stars (w >= 0.5): extra years, total unchanged
+    per = proj_seasons(r, 14)
     agesign = r["age"] + 1
-    cap = max(2, min(11, 11 - (agesign - 26) - (1 if r["pit"] else 0) + round(2 * w)))
+    young = max(0.0, min(1.0, (30 - agesign) / 4.0))
+    ped = max(v * (0.88 ** k) for k, v in enumerate([r["p1"], r["p2"], r["p3"], r["p4"], r["p5"]]))
+    eff = max(per[0], ped * (0.62 + 0.25 * young))
+    gate = 2.8 if r["pit"] else 3.2
+    w = max(0.0, min(1.0, (eff - gate) / 2.5))
+    yW = max(w, max(0.0, min(1.0, (eff - 2.1) / 2.7)))
+    cap = max(2, min(13, 11 - (agesign - 26) - (1 if r["pit"] else 0) + round(2 * w)))
     fairY = 1
-    for i in range(min(12, cap)):
+    for i in range(min(14, cap)):
         if per[i] >= 0.75: fairY = i + 1
     geff = 0.93 + 0.12 * w
-    fairT = sum(per[i] * DPWH[yr1] * (geff ** max(0, i - 1)) for i in range(fairY))
-    sugY = round((1 - w) * mktY + w * fairY)
-    sugT = (1 - w) * mktT + w * fairT
+    pm = 1.28 if r["pit"] else 1.0
+    base = max(per[0], 0.8 * eff)
+    fairT = 0.0
+    for i in range(fairY):
+        v = max(per[i], base * (0.93 ** i)) if w > 0.3 else per[i]
+        v = v if v <= 4.5 else 4.5 + (v - 4.5) * 0.7
+        conv = 1.0 + 0.45 * min(max(0.0, v - 3.5), 3.0) / 3.0
+        fairT += v * DPWH[yr1] * pm * conv * (geff ** max(0, i - 1))
+    sugY = round((1 - yW) * mktY + yW * fairY)
+    sugAAV = (1 - w) * mktAAV + w * fairT / max(fairY, 1)
+    sugT = sugAAV * sugY
+    if w >= 0.5:
+        sugY = min(cap + 2, sugY + round(3 * w * (0.5 + 0.5 * young)))  # total unchanged
     return mktY, mktT, fairY, fairT, sugY, sugT
 
 # walk forward
@@ -146,7 +185,7 @@ def report_sug(sel):
     ey = [x["sugY"] - x["r"]["yrs"] for x in sel]
     et = [x["sugT"] - x["r"]["tot"] for x in sel]
     ea = [x["sugT"]/max(x["sugY"],1) - x["r"]["tot"]/x["r"]["yrs"] for x in sel]
-    print(f"\nCALIBRATED LEDGER OFFER (v4.3 rules): MAE yrs {mean(map(abs,ey)):.2f} (bias {mean(ey):+.2f}) | MAE AAV {mean(map(abs,ea)):.1f} | MAE total {mean(map(abs,et)):.1f} (bias {mean(et):+.1f})")
+    print(f"\nCALIBRATED LEDGER OFFER (v4.4 rules): MAE yrs {mean(map(abs,ey)):.2f} (bias {mean(ey):+.2f}) | MAE AAV {mean(map(abs,ea)):.1f} | MAE total {mean(map(abs,et)):.1f} (bias {mean(et):+.1f})")
 
 def report(sel, label):
     if not sel: return

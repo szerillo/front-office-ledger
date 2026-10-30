@@ -16,6 +16,7 @@ from collections import defaultdict
 LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
 AGES = json.load(open("/home/claude/ages.json"))
 POS = json.load(open("/home/claude/positions.json"))
+POS.update(json.load(open("/home/claude/positions2.json")))  # canonical primaryPosition refetch (v4.4)
 PITPOS = {"RHP", "LHP", "SP", "RP", "P"}
 PC = json.load(open("/home/claude/proj_curves.json"))
 RM = json.load(open("/home/claude/rental_market.json"))
@@ -81,7 +82,7 @@ for p in players:
     # idx 13: depth-chart position. RHP/LHP/P resolved SP vs RP by most
     # recent observed workload (IP/G >= 3 = starter); no record -> RP
     raw = pp or ("P" if p[3] else "OF")
-    if raw in ("RHP", "LHP", "P"):
+    if raw in ("RHP", "LHP", "P", "TWP"):
         rec = PT_RAW.get(str(p[1]), {})
         role = "RP"
         for season in ("2026", "2025", "2024"):
@@ -89,6 +90,10 @@ for p in players:
             if ip > 0 and g > 0: role = "SP" if ip / g >= 3.0 else "RP"; break
         raw = role
     p.append(raw)
+    # idx 14: pedigree (v4.4) - best season of the last five, decayed 0.88/yr,
+    # so a star coming off a down platform year still reads as a star
+    dd = BY[p[1]][0]
+    p.append(round(max(dd.get(2026 - k, 0.0) * (0.88 ** k) for k in range(5)), 2))
 print("desk players:", len(players), "| with durability:", sum(1 for p in players if p[10] != 1.0))
 
 # resolve org for ranked prospects with no MLB track (no value rows -> no team abbr)
