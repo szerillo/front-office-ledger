@@ -101,9 +101,10 @@ def suggest(r, hist):
     pPeak = max(r["p1"], r["p2"], r["p3"])
     scored = []
     for c in hist:
+        if c["pit"] != r["pit"]: continue   # hard filter: same player type only
         cBlend = c["p1"] * 0.65 + c["p2"] * 0.35
         cPeak = max(c["p1"], c["p2"])
-        s = abs(cBlend - pBlend) * 1.0 + abs(cPeak - pPeak) * 0.5 + abs(c["age"] - r["age"]) * 0.45 + (1.6 if c["pit"] != r["pit"] else 0.0)
+        s = abs(cBlend - pBlend) * 1.0 + abs(cPeak - pPeak) * 0.5 + abs(c["age"] - r["age"]) * 0.45
         scored.append((s, c))
     scored.sort(key=lambda x: x[0])
     comps = [c for _, c in scored[:8]]

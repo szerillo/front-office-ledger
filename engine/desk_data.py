@@ -70,6 +70,10 @@ for p in players:
     svc = p.pop(10)                      # mlb_seasons appended during build
     p.append(DUR.get(str(p[1]), 1.0))    # idx 10: durability
     p.append(svc)                        # idx 11: MLB seasons played
+    pp = POS.get(str(p[1]))
+    p.append("C" if pp == "C" else "IF" if pp in ("1B","2B","3B","SS") else
+             "OF" if pp in ("LF","CF","RF","OF","DH") else "SP" if pp == "SP" else
+             "RP" if pp == "RP" else "P")   # idx 12: position group
 print("desk players:", len(players), "| with durability:", sum(1 for p in players if p[10] != 1.0))
 
 # resolve org for ranked prospects with no MLB track (no value rows -> no team abbr)
@@ -159,8 +163,11 @@ for (off, pl, tid, yrs, tot, typ) in raw_contracts:
     realized = round(sum(v for (y, tm, v) in LVM[pid]["rows"]
                          if off + 1 <= y <= off + elapsed and tm in names), 1) if elapsed > 0 else None
     pit = 1 if POS.get(str(pid)) in PITPOS else 0
+    pgroup = (lambda p: "C" if p == "C" else "IF" if p in ("1B","2B","3B","SS") else
+              "OF" if p in ("LF","CF","RF","OF","DH") else "SP" if p == "SP" else
+              "RP" if p == "RP" else "P")(POS.get(str(pid)))
     book.append([pl, off, TID2AB2.get(tid, ""), yrs, round(tot, 1), age, pit, plat1, plat2,
-                 realized if realized is not None else "", elapsed, pid, typ])
+                 realized if realized is not None else "", elapsed, pid, typ, pgroup])
 print("contract book rows matched:", len(book), "of", len(raw_contracts))
 
 # ---- committed payroll per club per season (book contracts, AAV spread) ----

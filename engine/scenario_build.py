@@ -242,9 +242,9 @@ def comp_terms(row):
     pBlend, pPeak = p1 * 0.65 + p2 * 0.35, max(p1, p2)
     cands = []
     for c in BOOK:
-        if c[1] >= off or c[12] == 1: continue
+        if c[1] >= off or c[12] == 1 or c[6] != pit: continue   # same player type only
         cBlend, cPeak = c[7] * 0.65 + c[8] * 0.35, max(c[7], c[8])
-        s = abs(cBlend - pBlend) + abs(cPeak - pPeak) * 0.5 + abs(c[5] - age) * 0.45 + (0 if c[6] == pit else 1.6)
+        s = abs(cBlend - pBlend) + abs(cPeak - pPeak) * 0.5 + abs(c[5] - age) * 0.45
         cands.append((s, c))
     cands.sort(key=lambda x: x[0])
     comps = [c for _, c in cands[:8]]

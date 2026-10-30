@@ -10,6 +10,20 @@ from nominal (Betts ~$306.7M PV of $365M). Format:
 Long tail of small arb-buyout deals stays out and is disclosed as such."""
 
 EXT = [
+    # Coverage audit (Oct 2026, GM Mode build): long-term deals the book was
+    # missing, surfaced when stars appeared in the computed FA class. Dates
+    # encode coverage windows under desk_data's off rule (month<=3 -> covers
+    # that season; month>3 -> covers next season on).
+    ('2021-04', 'Francisco Lindor', 'NYM', 10, 341.0, None),    # 2022-2031
+    ('2023-06', 'Rafael Devers', 'BOS', 10, 313.5, None),       # 2024-2033 (signed Jan 2023)
+    ('2019-01', 'Mike Trout', 'LAA', 12, 426.5, None),          # 2019-2030
+    ('2024-04', 'Zack Wheeler', 'PHI', 3, 126.0, None),         # 2025-2027
+    ('2024-09', 'Matt Chapman', 'SF', 6, 151.0, None),          # 2025-2030
+    ('2022-06', 'Yordan Alvarez', 'HOU', 6, 115.0, None),       # 2023-2028
+    ('2023-04', 'Logan Webb', 'SF', 5, 90.0, None),             # 2024-2028
+    ('2025-04', 'Geraldo Perdomo', 'ARI', 4, 45.0, None),       # 2026-2029
+    ('2019-01', 'Nolan Arenado', 'COL', 9, 275.0, None),        # 2019-2027 incl the exercised 2027 (AAV approximation on the 2027 add-on)
+    ('2022-12', 'Willson Contreras', 'STL', 5, 87.5, None),     # FA deal absent from the csv; carried here for coverage
  # LAD (Friedman 2014-)
  ("2020-07","Mookie Betts","LAD",12,365,306.7),
  ("2024-03","Will Smith","LAD",10,140,None),
