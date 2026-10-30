@@ -4,7 +4,7 @@ Value-cache completeness audit: every player with a meaningful MLB season
 """
 import json, urllib.request, time
 
-raw = json.load(open("/home/claude/lvm_cache.json"))
+raw = json.load(open("/work/lvm_cache.json"))
 have = {int(k) for k in raw if not k.startswith("__")}
 
 def get(u, tries=3):
@@ -43,4 +43,4 @@ print("MISSING from cache:", len(missing))
 top = sorted(missing.items(), key=lambda kv: -(kv[1]["pa"] + kv[1]["ip"] * 3))
 for pid, m in top[:25]:
     print(pid, m["name"], "PA", m["pa"], "IP", round(m["ip"]), "seasons", f'{min(m["seasons"])}-{max(m["seasons"])}')
-json.dump({str(k): v for k, v in missing.items()}, open("/home/claude/cache_missing.json", "w"))
+json.dump({str(k): v for k, v in missing.items()}, open("/work/cache_missing.json", "w"))

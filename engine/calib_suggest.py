@@ -17,17 +17,17 @@ import json, csv, sys, unicodedata
 from collections import defaultdict
 from statistics import median, mean
 
-sys.path.insert(0, "/home/claude")
+sys.path.insert(0, "/work")
 from contracts_recent import RECENT
 
-LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
-AGES = json.load(open("/home/claude/ages.json"))
-POS = json.load(open("/home/claude/positions.json"))
-POS.update(json.load(open("/home/claude/positions2.json")))  # canonical primaryPosition refetch
+LVM = {int(k): v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
+AGES = json.load(open("/work/ages.json"))
+POS = json.load(open("/work/positions.json"))
+POS.update(json.load(open("/work/positions2.json")))  # canonical primaryPosition refetch
 PITPOS = {"RHP", "LHP", "SP", "RP", "P"}
 # Ohtani (TWP) signs as a hitter-priced asset; leave pit=0
-PC = json.load(open("/home/claude/proj_curves.json"))
-cfg = json.load(open("/home/claude/regimes.json"))
+PC = json.load(open("/work/proj_curves.json"))
+cfg = json.load(open("/work/regimes.json"))
 
 DPWH = {2006:4.2,2007:4.5,2008:4.7,2009:4.7,2010:5.0,2011:5.2,2012:5.5,2013:6.0,
         2014:6.5,2015:7.0,2016:7.7,2017:8.0,2018:8.2,2019:8.0,2020:8.0,2021:8.5,
@@ -58,7 +58,7 @@ def short_to_tid(short):
 AB2TID = {r["abbr"]: r["teamId"] for r in cfg["regimes"]}
 
 raw = []
-with open("/home/claude/repo/data/contracts_espn.csv") as f:
+with open("/work/repo/data/contracts_espn.csv") as f:
     for row in csv.DictReader(f):
         tid = short_to_tid(row["to_team"])
         if tid: raw.append((int(row["offseason"]), row["player"], int(row["years"]), float(row["total_m"])))
@@ -215,8 +215,8 @@ report([x for x in res if x["r"]["tot"] >= 100], "mega deals >= $100M")
 report([x for x in res if 25 <= x["r"]["tot"] < 100], "mid $25-100M")
 report([x for x in res if x["r"]["tot"] < 25], "small < $25M")
 
-json.dump([{**{k: x[k] for k in ("mktY","mktT","fairY","fairT")},
+json.dump([{**{k: x[k] for k in ("mktY","mktT","fairY","fairT","sugY","sugT")},
             "pl": x["r"]["pl"], "off": x["r"]["off"], "yrs": x["r"]["yrs"], "tot": x["r"]["tot"],
             "age": x["r"]["age"], "pit": x["r"]["pit"]} for x in res],
-          open("/home/claude/calib_results.json", "w"))
+          open("/work/calib_results.json", "w"))
 print("\nwrote calib_results.json")

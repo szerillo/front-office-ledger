@@ -19,10 +19,10 @@ Output: appended as "controlled" to data/rental_market.json.
 import json, sqlite3
 from collections import defaultdict
 
-cfg = json.load(open("/home/claude/regimes.json"))
+cfg = json.load(open("/work/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
-LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
-con = sqlite3.connect("/home/claude/ledger.sqlite"); con.row_factory = sqlite3.Row
+LVM = {int(k): v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
+con = sqlite3.connect("/work/ledger.sqlite"); con.row_factory = sqlite3.Row
 
 fa_dates = defaultdict(list)
 for r in con.execute("select person_id, date from sweep_tx where type_desc='Declared Free Agency' and person_id is not null"):
@@ -116,7 +116,7 @@ if stars:
     for x in stars[:10]:
         print(f"  {x['yr']} {x['buyer']:<4} ctrl{x['ctrl']} {x['who'][:40]:<42} recv {x['received']:>5.1f}  paid {x['paid']:>5.1f}")
 
-mkt = json.load(open("/home/claude/rental_market.json"))
+mkt = json.load(open("/work/rental_market.json"))
 mkt["controlled"] = out
-json.dump(mkt, open("/home/claude/rental_market.json", "w"), indent=1)
+json.dump(mkt, open("/work/rental_market.json", "w"), indent=1)
 print("appended controlled market to rental_market.json")

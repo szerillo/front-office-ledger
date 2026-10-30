@@ -30,11 +30,11 @@ from ledger_war import get, API
 NA_DRAFT = {"USA", "Canada", "Puerto Rico", "Guam", "U.S. Virgin Islands",
             "Virgin Islands", "American Samoa", "Northern Mariana Islands"}
 
-cfg = json.load(open("/home/claude/regimes.json"))
+cfg = json.load(open("/work/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 REG = {r["teamId"]: r for r in cfg["regimes"]}
-LVM = {k: v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
-con = sqlite3.connect("/home/claude/ledger.sqlite"); con.row_factory = sqlite3.Row
+LVM = {k: v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
+con = sqlite3.connect("/work/ledger.sqlite"); con.row_factory = sqlite3.Row
 
 rows = [dict(r) for r in con.execute(
     """select team_id, date, person_id, person_name from sweep_tx
@@ -88,7 +88,7 @@ def class_mean(yr):
     return class_tot[yr] / max(1, observed[yr])
 
 # per-regime channel
-res = json.load(open("/home/claude/sweep_results.json"))
+res = json.load(open("/work/sweep_results.json"))
 by_id = {r["teamId"]: r for r in res}
 def grade(nps):
     for thr, g in [(2.6,80),(1.8,75),(1.2,70),(0.8,65),(0.5,60),(0.2,55),
@@ -120,5 +120,5 @@ for r in res:
     best = f"{tops[0][2]} (+{tops[0][0]:.1f})" if tops and tops[0][0] > 0.3 else "-"
     print(f"{r['abbr']:<6}{net:>+9.1f}{p['real']:>8.1f}{p['exp']:>7.1f}{p['n']:>5}   {best}")
 
-json.dump(res, open("/home/claude/sweep_results.json", "w"), indent=1)
+json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
 print("\nmerged chan.intl into sweep_results.json")

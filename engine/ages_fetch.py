@@ -8,7 +8,7 @@ def get(u, tries=3):
         except Exception: time.sleep(2 + 2*a)
     return {}
 
-ids = sorted(int(k) for k in json.load(open("/home/claude/lvm_cache.json")) if not k.startswith("__"))
+ids = sorted(int(k) for k in json.load(open("/work/lvm_cache.json")) if not k.startswith("__"))
 out = {}
 for i in range(0, len(ids), 100):
     chunk = ",".join(str(x) for x in ids[i:i+100])
@@ -17,5 +17,5 @@ for i in range(0, len(ids), 100):
         bd = p.get("birthDate")
         if bd: out[str(p["id"])] = int(bd[:4])
     if (i // 100) % 30 == 0: print(i, len(out), flush=True)
-json.dump(out, open("/home/claude/ages.json", "w"))
+json.dump(out, open("/work/ages.json", "w"))
 print("ages:", len(out))

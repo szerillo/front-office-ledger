@@ -22,13 +22,13 @@ from fa_grade_lib import norm, DPW
 QO_CHARGE = 1.0  # wins: draft-comp forfeited signing a QO'd free agent
                  # (second-round-pick value on our pick curve; flat v1)
 
-POS = json.load(open("/home/claude/positions.json"))
+POS = json.load(open("/work/positions.json"))
 PITPOS = {"RHP", "LHP", "SP", "RP"}
-cfg = json.load(open("/home/claude/regimes.json"))
+cfg = json.load(open("/work/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 REG = {r["teamId"]: r for r in cfg["regimes"]}
 ABBR2TID = {r["abbr"]: r["teamId"] for r in cfg["regimes"]}
-LVM = {k: v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
+LVM = {k: v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
 
 # contracts: key (player_norm, offseason) -> (tid, years, total)
 contracts = defaultdict(list)
@@ -38,7 +38,7 @@ def short_to_tid(short):
         if any(short and short.lower() in nm.lower() for nm in names):
             return r["teamId"]
     return None
-with open("/home/claude/contracts_espn.csv") as f:
+with open("/work/contracts_espn.csv") as f:
     for row in csv.DictReader(f):
         tid = short_to_tid(row["to_team"])
         if tid: contracts[(row["player_norm"], int(row["offseason"]))].append(
@@ -47,8 +47,8 @@ for off, pl, ab, yrs, tot in RECENT:
     contracts[(norm(pl), off)].append((ABBR2TID[ab], yrs, float(tot), "curated"))
 print(f"contract book: {sum(len(v) for v in contracts.values())} deals")
 
-con = sqlite3.connect("/home/claude/ledger.sqlite"); con.row_factory = sqlite3.Row
-res = json.load(open("/home/claude/sweep_results.json"))
+con = sqlite3.connect("/work/ledger.sqlite"); con.row_factory = sqlite3.Row
+res = json.load(open("/work/sweep_results.json"))
 
 def grade(nps):
     for thr, g in [(2.6,80),(1.8,75),(1.2,70),(0.8,65),(0.5,60),(0.2,55),
@@ -123,5 +123,5 @@ for r in res:
     worst = min(decs, key=lambda d: d["net"])["net"] if decs else 0
     print(f"{r['abbr']:<5}{(net if covered else 0):>+8.1f}{matched:>9}{len(majors):>8}   {best} / worst {worst:+.1f}")
 
-json.dump(res, open("/home/claude/sweep_results.json", "w"), indent=1)
+json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
 print("\nmerged graded FA into sweep_results.json")

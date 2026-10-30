@@ -8,9 +8,9 @@ Writes gm_offseasons.json.
 import json, urllib.request, time
 from collections import defaultdict
 
-DESK = json.load(open("/home/claude/desk_data.json"))
-ARCH = json.load(open("/home/claude/deal_archive.json"))
-cfg = json.load(open("/home/claude/regimes.json"))
+DESK = json.load(open("/work/desk_data.json"))
+ARCH = json.load(open("/work/deal_archive.json"))
+cfg = json.load(open("/work/regimes.json"))
 TID2AB = {r["teamId"]: r["abbr"] for r in cfg["regimes"]}
 
 def get(u, tries=3):
@@ -62,5 +62,5 @@ for winter in range(2009, 2025):
                          trN=tr[0], trIn=round(tr[1], 1), trOut=round(tr[2], 1)))
 print("club-winters:", len(rows))
 json.dump(dict(winters=rows, wins2026={ab: w for ab, w in WINS.get(2026, {}).items()}),
-          open("/home/claude/gm_offseasons.json", "w"), separators=(",", ":"))
+          open("/work/gm_offseasons.json", "w"), separators=(",", ":"))
 print("wrote gm_offseasons.json")

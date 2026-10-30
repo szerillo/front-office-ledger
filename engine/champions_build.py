@@ -19,14 +19,14 @@ through-lines aggregated across all 21 titles.
 import json, sqlite3
 from collections import defaultdict
 
-LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
-cfg = json.load(open("/home/claude/regimes.json"))
-hcfg = json.load(open("/home/claude/regimes_hist.json"))
-ps = json.load(open("/home/claude/postseason.json"))
+LVM = {int(k): v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
+cfg = json.load(open("/work/regimes.json"))
+hcfg = json.load(open("/work/regimes_hist.json"))
+ps = json.load(open("/work/postseason.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 TEAMS = {r["teamId"]: (r["team"], r["abbr"]) for r in cfg["regimes"]}
 NAMES = {r["teamId"]: ALIAS.get(r["teamId"], {r["team"]}) for r in cfg["regimes"]}
-con = sqlite3.connect("/home/claude/ledger.sqlite"); con.row_factory = sqlite3.Row
+con = sqlite3.connect("/work/ledger.sqlite"); con.row_factory = sqlite3.Row
 
 # all regimes (active + archive) per team, with windows
 WINDOWS = defaultdict(list)
@@ -174,5 +174,5 @@ lines = dict(
     rows=agg,
 )
 print("\nTHROUGH LINES:", {k: v for k, v in lines.items() if k != "rows"})
-json.dump(dict(cards=cards, lines=lines), open("/home/claude/champs_computed.json", "w"), indent=1)
+json.dump(dict(cards=cards, lines=lines), open("/work/champs_computed.json", "w"), indent=1)
 print("wrote champs_computed.json")

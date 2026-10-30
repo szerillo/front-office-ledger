@@ -13,14 +13,14 @@ Writes desk_data.json:
 import json, sqlite3
 from collections import defaultdict
 
-LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
-AGES = json.load(open("/home/claude/ages.json"))
-POS = json.load(open("/home/claude/positions.json"))
-POS.update(json.load(open("/home/claude/positions2.json")))  # canonical primaryPosition refetch (v4.4)
+LVM = {int(k): v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
+AGES = json.load(open("/work/ages.json"))
+POS = json.load(open("/work/positions.json"))
+POS.update(json.load(open("/work/positions2.json")))  # canonical primaryPosition refetch (v4.4)
 PITPOS = {"RHP", "LHP", "SP", "RP", "P"}
-PC = json.load(open("/home/claude/proj_curves.json"))
-RM = json.load(open("/home/claude/rental_market.json"))
-cfg = json.load(open("/home/claude/regimes.json"))
+PC = json.load(open("/work/proj_curves.json"))
+RM = json.load(open("/work/rental_market.json"))
+cfg = json.load(open("/work/regimes.json"))
 ABBR_BY_NAME = {}
 for r in cfg["regimes"]:
     ABBR_BY_NAME[r["team"]] = r["abbr"]
@@ -29,12 +29,12 @@ for r in cfg["regimes"]:
 
 RANKS = {}
 ORGS = {}
-for rr in json.load(open("/home/claude/prospect_ranks.json")):
+for rr in json.load(open("/work/prospect_ranks.json")):
     if rr["year"] in (2025, 2026):
         RANKS[str(rr["pid"])] = rr["rank"]
         ORGS[str(rr["pid"])] = rr.get("name")
 try:
-    porgs = json.load(open("/home/claude/prospect_orgs.json"))
+    porgs = json.load(open("/work/prospect_orgs.json"))
 except Exception:
     porgs = {}
 
@@ -64,11 +64,11 @@ players.sort(key=lambda p: -(abs(p[5]) + abs(p[6]) + abs(p[7])))
 # reorder tail fields: durability at index 10 (from pt_fetch.py; 1.0 default),
 # true MLB seasons (service proxy, unclamped) at index 11
 try:
-    DUR = json.load(open("/home/claude/durability.json"))
+    DUR = json.load(open("/work/durability.json"))
 except Exception:
     DUR = {}
 try:
-    PT_RAW = json.load(open("/home/claude/playtime.json"))
+    PT_RAW = json.load(open("/work/playtime.json"))
 except Exception:
     PT_RAW = {}
 for p in players:
@@ -132,7 +132,7 @@ for g in d.get("records", []):
 
 # ---- contract book with platform context and realized outcomes ----
 import csv, unicodedata, sys
-sys.path.insert(0, "/home/claude")
+sys.path.insert(0, "/work")
 from contracts_recent import RECENT
 def norm(nm):
     x = unicodedata.normalize("NFKD", nm or "").encode("ascii", "ignore").decode()
@@ -149,7 +149,7 @@ def short_to_tid(short):
             return r["teamId"]
     return None
 raw_contracts = []
-with open("/home/claude/repo/data/contracts_espn.csv") as f:
+with open("/work/repo/data/contracts_espn.csv") as f:
     for row in csv.DictReader(f):
         tid = short_to_tid(row["to_team"])
         if tid: raw_contracts.append((int(row["offseason"]), row["player"], tid, int(row["years"]), float(row["total_m"]), 0))
@@ -203,7 +203,7 @@ for row in book:
 payroll = {ab: {s: [round(v, 1), n] for s, (v, n) in yrsmap.items()} for ab, yrsmap in payroll.items()}
 print("payroll clubs:", len(payroll), "| NYM 2027:", payroll.get("NYM", {}).get("2027"))
 
-deals = json.load(open("/home/claude/deal_archive.json"))
+deals = json.load(open("/work/deal_archive.json"))
 compact = [[x["yr"], x["ab"], x["ph"][0], x["ck"], x.get("po", "mid")[0], x["recv"], x["paid"], x["who"][:24]] for x in deals]
 
 out = dict(
@@ -227,6 +227,6 @@ out = dict(
     payroll=payroll,
     cbt={"2026": 244, "2027": None},  # 2027+ awaits the next CBA
 )
-json.dump(out, open("/home/claude/desk_data.json", "w"), separators=(",", ":"))
+json.dump(out, open("/work/desk_data.json", "w"), separators=(",", ":"))
 import os
-print("desk_data.json:", round(os.path.getsize("/home/claude/desk_data.json") / 1e6, 2), "MB")
+print("desk_data.json:", round(os.path.getsize("/work/desk_data.json") / 1e6, 2), "MB")

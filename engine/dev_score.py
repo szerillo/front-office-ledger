@@ -55,11 +55,11 @@ def D(overall): return interp(D_ANCHOR, overall)
 NA_DRAFT = {"USA","Canada","Puerto Rico","Guam","U.S. Virgin Islands",
             "Virgin Islands","American Samoa","Northern Mariana Islands"}
 
-ranks = json.load(open("/home/claude/prospect_ranks.json"))
-orgs = json.load(open("/home/claude/prospect_orgs.json"))
-cfg = json.load(open("/home/claude/regimes.json"))
+ranks = json.load(open("/work/prospect_ranks.json"))
+orgs = json.load(open("/work/prospect_orgs.json"))
+cfg = json.load(open("/work/regimes.json"))
 REG = {r["teamId"]: r for r in cfg["regimes"]}
-con = sqlite3.connect("/home/claude/ledger.sqlite"); con.row_factory = sqlite3.Row
+con = sqlite3.connect("/work/ledger.sqlite"); con.row_factory = sqlite3.Row
 
 # draft book: pid -> (year, overall, team name)
 draft = {}
@@ -154,7 +154,7 @@ for pid, ymap in by_pid.items():
             farm_now[h] += V(ymap[2026]); farm_now_n[h] += 1
 
 # regime attribution
-res = json.load(open("/home/claude/sweep_results.json"))
+res = json.load(open("/work/sweep_results.json"))
 by_id = {r["teamId"]: r for r in res}
 def grade(adj):
     # bands sized to the observed league spread of dev rates (wider than the
@@ -208,6 +208,6 @@ for r in res:
     best = f"{tops[0][3][:44]} ({tops[0][0]:+.1f})" if tops else "-"
     print(f"{r['abbr']:<6}{net:>+9.1f}{nps:>+7.2f}{adj:>+7.2f}{pern.get(tid,0):>5}{farm_now.get(tid,0.0):>10.1f}   {best}")
 
-json.dump(res, open("/home/claude/sweep_results.json", "w"), indent=1)
+json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
 print("\nmerged dev into sweep_results.json")
 print("league DEV sum:", round(sum(pernet.values()),1), "| events attributed:", sum(pern.values()), "of", len(events))

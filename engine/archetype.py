@@ -30,15 +30,15 @@ Merges into sweep_results.json: chan.ret, dna.*, h2h; writes h2h_matrix.json.
 import json, sqlite3
 from collections import defaultdict
 
-SV = json.load(open("/home/claude/savant_runs.json"))
-SDI = json.load(open("/home/claude/sdi_runs.json"))
-LVM = {k: v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
-POS = json.load(open("/home/claude/positions.json"))
+SV = json.load(open("/work/savant_runs.json"))
+SDI = json.load(open("/work/sdi_runs.json"))
+LVM = {k: v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
+POS = json.load(open("/work/positions.json"))
 PITPOS = {"RHP", "LHP", "SP", "RP"}
-cfg = json.load(open("/home/claude/regimes.json"))
+cfg = json.load(open("/work/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 REG = {r["teamId"]: r for r in cfg["regimes"]}
-con = sqlite3.connect("/home/claude/ledger.sqlite"); con.row_factory = sqlite3.Row
+con = sqlite3.connect("/work/ledger.sqlite"); con.row_factory = sqlite3.Row
 
 NAME2AB = {}
 NAME2TID = {}
@@ -117,7 +117,7 @@ for reg in cfg["regimes"]:
             if l > 0: lost += l; n += 1
     ret[tid] = dict(lost=lost, n=n)
 
-res = json.load(open("/home/claude/sweep_results.json"))
+res = json.load(open("/work/sweep_results.json"))
 tot_lost = sum(v["lost"] for v in ret.values())
 tot_sea = sum(r["seasons"] for r in res)
 lg_rate = tot_lost / tot_sea
@@ -246,8 +246,8 @@ for r in res:
     r["h2h"] = partners
     print(f"{ab:<5}{rel:>+7.2f}{rr['lost']:>7.1f}{(sum(bl)/len(bl) if bl else 0):>+8.2f}{(inj[tid]['pit']+inj[tid]['bat'])/r['seasons']:>7.1f}{(draftroom[tid]['overslot'] or 0):>7.2f}{(buylow[tid]['rate'] or 0):>6.2f}")
 
-json.dump(res, open("/home/claude/sweep_results.json", "w"), indent=1)
+json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
 matrix = {f"{REG[a]['abbr']}|{REG[b]['abbr']}": dict(n=v["n"], net=round(v["net"], 1))
           for (a, b), v in h2h.items() if v["n"] >= 1}
-json.dump(matrix, open("/home/claude/h2h_matrix.json", "w"))
+json.dump(matrix, open("/work/h2h_matrix.json", "w"))
 print(f"\nmerged: ret channel, dna v2, h2h ({len(matrix)} directed pairs)")

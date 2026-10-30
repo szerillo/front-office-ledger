@@ -34,22 +34,22 @@ from ledger_war import player_seasons
 
 DISC = {"pre-debut": 0.35, "early": 0.45, "arb": 0.60, "veteran": 0.90}
 
-cfg = json.load(open("/home/claude/regimes.json"))
+cfg = json.load(open("/work/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 REG = {r["teamId"]: r for r in cfg["regimes"]}
 ABBR2TID = {r["abbr"]: r["teamId"] for r in cfg["regimes"]}
-LVM = {k: v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
+LVM = {k: v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
 NAME2PIDS = {}
 for pid, rec in LVM.items():
     NAME2PIDS.setdefault(norm(rec.get("name", "")), []).append(pid)
 # extension players never touched by a graded transaction are not in the
 # sweep cache (homegrown stars: Acuna, Riley, Happ). Resolve ids from the
 # full feed name map and value them on demand.
-con2 = sqlite3.connect("/home/claude/ledger.sqlite")
+con2 = sqlite3.connect("/work/ledger.sqlite")
 FEED2PIDS = {}
 for nm, pid in con2.execute("select distinct person_name, person_id from sweep_tx where person_id is not null and person_name is not null"):
     FEED2PIDS.setdefault(norm(nm), []).append(str(pid))
-EXTCACHE_P = "/home/claude/ext_lvm_cache.json"
+EXTCACHE_P = "/work/ext_lvm_cache.json"
 EXTCACHE = {k: v for k, v in (json.load(open(EXTCACHE_P)) if os.path.exists(EXTCACHE_P) else {}).items() if not str(k).startswith("__")}
 
 def resolve(player, tid, sy, yrs):
@@ -78,7 +78,7 @@ def lvm_rows(pid):
     EXTCACHE[pid] = dict(name=player_seasons.__name__ and "", rows=rows)
     json.dump(EXTCACHE, open(EXTCACHE_P, "w"))
     return rows
-ORGS = json.load(open("/home/claude/prospect_orgs.json"))  # debut dates
+ORGS = json.load(open("/work/prospect_orgs.json"))  # debut dates
 
 def debut_year(pid):
     d = (ORGS.get(pid) or {}).get("debut")
@@ -98,7 +98,7 @@ def grade_comp(nps):
         if nps >= thr: return g
     return 30
 
-res = json.load(open("/home/claude/sweep_results.json"))
+res = json.load(open("/work/sweep_results.json"))
 per = defaultdict(lambda: dict(net=0.0, n=0, decs=[]))
 skipped = []
 
@@ -157,6 +157,6 @@ for r in res:
     names = ", ".join(d["h"][9:].split(" ·")[0] for d in p["decs"][:3]) or "-"
     print(f"{r['abbr']:<6}{(p['net'] if covered else 0):>+9.1f}{p['n']:>4}   {names}")
 
-json.dump(res, open("/home/claude/sweep_results.json", "w"), indent=1)
+json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
 print("\nmerged chan.ext into sweep_results.json")
 for s in skipped: print("  skipped (outside regime):", s)
