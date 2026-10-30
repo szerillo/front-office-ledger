@@ -633,3 +633,42 @@ The computed FA class is now reconciled against the actual 2026-27 winter
 - Missing guarantees added: Pablo Lopez 4/$73.5M, Glasnow 4/$110M.
 - Incoming NPB postings in the real class (Sato, Taira, Itoh) have no MLB
   track record and are outside the engine's universe, disclosed as before.
+
+# v4.7 addendum: the attribution audit and the public-polish pass (Oct 2026)
+
+- ATTRIBUTION FIX (the big one). The international-signings channel never
+  window-filtered: every club signing since 2005 was credited to the
+  CURRENT regime (a 2025 hire inherited two decades of IFA classes). Now a
+  signing belongs to a regime only if its class year falls on that regime's
+  watch, and the class baseline is league value over 30 clubs (every club
+  shops every near-equal pool). All other channels were audited and already
+  window-filter correctly. Channel nets re-merged idempotently.
+- Internal model-version labels (engine names, sweep numbers, pass numbers)
+  removed from every public-facing string, including generated tree notes
+  and archive badges; versions live in source control, not on the page.
+  The sharpest recipe constants were also removed from public prose; the
+  methodology explains mechanisms and shows backtest results instead.
+- Styles replace archetypes: two distinctive traits per front office,
+  scored as the regime's largest league-relative deviations across
+  development, acquisition taste, market skill, and temperament, drawn
+  from a wider vocabulary.
+- Head to Head adds the busiest phone lines: most-frequent trading
+  partnerships, with every deal between the pair expandable in place and
+  linked into the transaction trees; per-regime matchup rows expand the
+  same way.
+- Open-ended chains are backfilled from the value cache: a chain now ends
+  with what actually happened (still with the club through 2026; no MLB
+  appearances after a given year, settled; or left without a graded move,
+  last seen with a named club), instead of a shrug.
+- The assistant GM now sits at the Deal Desk (trade and signing verdicts
+  get counsel: do/do-not with the leverage math, roster-fit against the
+  club's computed holes, counterparty style) and in the Scenario Room
+  (a stated lean with reasons on every decision point, from the same
+  knowable numbers the process grade uses).
+- Champions tab adds the side-by-side: all 29 title cores sortable by core
+  WAR, share built by the sitting regime, continuity share, and channel
+  mix, with a bar per row.
+- Fixes: the leaderboard header was missing its Retention column (every
+  header to its right was one column off); club nicknames render Red Sox,
+  White Sox, and Blue Jays in full; GM Mode states that every number on
+  the screen is Ledger WAR.
