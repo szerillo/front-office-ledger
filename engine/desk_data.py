@@ -66,6 +66,10 @@ try:
     DUR = json.load(open("/home/claude/durability.json"))
 except Exception:
     DUR = {}
+try:
+    PT_RAW = json.load(open("/home/claude/playtime.json"))
+except Exception:
+    PT_RAW = {}
 for p in players:
     svc = p.pop(10)                      # mlb_seasons appended during build
     p.append(DUR.get(str(p[1]), 1.0))    # idx 10: durability
@@ -74,6 +78,17 @@ for p in players:
     p.append("C" if pp == "C" else "IF" if pp in ("1B","2B","3B","SS") else
              "OF" if pp in ("LF","CF","RF","OF","DH") else "SP" if pp == "SP" else
              "RP" if pp == "RP" else "P")   # idx 12: position group
+    # idx 13: depth-chart position. RHP/LHP/P resolved SP vs RP by most
+    # recent observed workload (IP/G >= 3 = starter); no record -> RP
+    raw = pp or ("P" if p[3] else "OF")
+    if raw in ("RHP", "LHP", "P"):
+        rec = PT_RAW.get(str(p[1]), {})
+        role = "RP"
+        for season in ("2026", "2025", "2024"):
+            ip, g = (rec.get(season) or [0, 0, 0])[1], (rec.get(season) or [0, 0, 0])[2]
+            if ip > 0 and g > 0: role = "SP" if ip / g >= 3.0 else "RP"; break
+        raw = role
+    p.append(raw)
 print("desk players:", len(players), "| with durability:", sum(1 for p in players if p[10] != 1.0))
 
 # resolve org for ranked prospects with no MLB track (no value rows -> no team abbr)

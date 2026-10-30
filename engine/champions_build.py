@@ -53,6 +53,19 @@ for row in con.execute("select person_id, cast(year as int) y, team from draft_p
 CH_LABEL = dict(trade="Trade", fa="Free agent signing", draft="Draft",
                 intl="Int'l / minor-lg find", inherited="Inherited")
 
+# CONTINUITY LENS (secondary, disclosed): for champions whose sitting exec
+# was promoted from the chair immediately below, the share of the core
+# acquired while he already sat in that chair. Verified dates:
+# Arnold named MIL GM 2020-11-19 (Stearns POBO stayed); Young named TEX GM
+# 2020-12-04 (Daniels POBO stayed); Cashman NYY assistant GM from 1992
+# (month approximate, flagged). Primary accounting still credits final
+# authority; this lens answers "was he in the room".
+DEPUTY = {
+    ("Matt Arnold", 158): ("2020-11-19", "GM under Stearns' presidency"),
+    ("Chris Young", 140): ("2020-12-04", "GM under Daniels' presidency"),
+    ("Brian Cashman", 147): ("1992-03-01", "assistant GM (month approximate)"),
+}
+
 cards = []
 agg = []
 for (yr, tid) in CHAMPS_WS:
@@ -119,15 +132,24 @@ for (yr, tid) in CHAMPS_WS:
     reg_share = round(100 * sum(r[5] for r in roster if r[4] == "reg") / total) if total else 0
     tenure_yr = yr - int(reg_start[:4]) + 1
     if true_start: tenure_yr = yr - int(true_start[:4]) + 1
+    note = f"title in year {tenure_yr} of the regime"
+    dep = DEPUTY.get((reg_exec, tid))
+    cont_share = None
+    if dep:
+        dep_date, dep_label = dep
+        cont = sum(r[5] for r in roster if r[3] and not r[3].startswith("pre") and r[3].lstrip("~") >= dep_date)
+        cont_share = round(100 * cont / total) if total else 0
+        note += (f" · continuity view: {cont_share}% of the core was acquired while {reg_exec.split()[-1]} "
+                 f"was already {dep_label} (from {dep_date[:7]}); the primary accounting credits final authority")
     cards.append(dict(
         id=f"{abbr.lower()}{str(yr)[2:]}", label=f"{yr} {team}", team=team, year=yr,
         result="Won World Series", regime=reg_exec,
-        regimeNote=f"title in year {tenure_yr} of the regime",
+        regimeNote=note,
         computed=True,
         roster=roster))
     agg.append(dict(id=f"{abbr.lower()}{str(yr)[2:]}", yr=yr, team=team, abbr=abbr,
                     exec=reg_exec, tenure=tenure_yr, total=round(total, 1),
-                    regShare=reg_share,
+                    regShare=reg_share, contShare=cont_share,
                     mix={k: round(v, 1) for k, v in mix.items()}))
     print(f"{yr} {abbr:<4} {reg_exec:<22} core {total:5.1f} WAR | built-by-regime {reg_share:>3}% | "
           + " ".join(f"{k}:{round(100*v/total)}%" for k, v in sorted(mix.items(), key=lambda t: -t[1])))
