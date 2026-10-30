@@ -14,25 +14,63 @@ CH_LABEL = {"trade": "Trade", "draft": "Draft pick vs. slot",
             "intl": "International amateur class", "ext": "Extension vs. class market"}
 def esc(x): return (x or "").replace("\\", "").replace('"', '&quot;').replace("\n", " ")
 
-def dna_tags(dna):
-    tags = []
-    dd = (dna.get("devDef") or {}).get("v")
-    dp = (dna.get("devPit") or {}).get("v")
-    if dp is not None and dp >= 0.15: tags.append("Pitching lab")
-    if dp is not None and dp <= -0.15: tags.append("Arms regress here")
-    if dd is not None and dd >= 1.0: tags.append("Makes defenders better")
-    if dd is not None and dd <= -1.5: tags.append("Gloves fade here")
-    dr = dna.get("draft", {})
-    if dr.get("pit", 0) >= 3 and dr.get("pit", 0) > 1.5 * max(dr.get("bat", 0), 0.1): tags.append("Drafts arms")
-    elif dr.get("bat", 0) >= 3 and dr.get("bat", 0) > 1.5 * max(dr.get("pit", 0), 0.1): tags.append("Drafts bats")
-    elif dr.get("pit", 0) >= 3 and dr.get("bat", 0) >= 3: tags.append("Draft machine, both sides")
-    ti = dna.get("trade_in", {})
-    if ti.get("pit", 0) >= 5 and ti.get("pit", 0) > ti.get("bat", 0): tags.append("Trades for arms")
-    elif ti.get("bat", 0) >= 5 and ti.get("bat", 0) > ti.get("pit", 0): tags.append("Trades for bats")
-    fa_ = dna.get("fa", {})
-    if fa_.get("pit", 0) >= 2 and fa_.get("pit", 0) > fa_.get("bat", 0): tags.append("Signs arms well")
-    elif fa_.get("bat", 0) >= 2 and fa_.get("bat", 0) > fa_.get("pit", 0): tags.append("Signs bats well")
-    return tags[:4]
+def build_styles(res):
+    """Two distinctive style traits per regime, scored against the league.
+    Wider vocabulary, no boilerplate: each trait is the regime's biggest
+    z-score deviation in its group (development / acquisition taste /
+    market skill / temperament)."""
+    import statistics
+    def metric(r, fn):
+        try:
+            v = fn(r)
+            return float(v) if v is not None else None
+        except Exception:
+            return None
+    mix = lambda d: (d.get("pit", 0) - d.get("bat", 0)) / (abs(d.get("pit", 0)) + abs(d.get("bat", 0)) + 2.0)
+    CANDS = [
+        # key, group, extractor, label if high, label if low
+        ("devPit", "dev", lambda r: (r["dna"].get("devPit") or {}).get("v"), "A pitching lab", "Arms stall here"),
+        ("devBat", "dev", lambda r: (r["dna"].get("devBat") or {}).get("v"), "Bats bloom here", "Hitters plateau here"),
+        ("devDef", "dev", lambda r: (r["dna"].get("devDef") or {}).get("v"), "Glove whisperers", "Defense fades here"),
+        ("draftMix", "taste", lambda r: mix(r["dna"].get("draft", {})), "Drafts arms first", "Drafts bats first"),
+        ("tradeMix", "taste", lambda r: mix(r["dna"].get("trade_in", {})), "Imports pitching", "Trades for thump"),
+        ("faMix", "taste", lambda r: mix(r["dna"].get("fa", {})), "Shops for arms", "Spends on bats"),
+        ("overslot", "taste", lambda r: (r["dna"].get("draftRoom") or {}).get("overslot"), "Swings over slot", "Plays the slot book straight"),
+        ("prep", "taste", lambda r: (r["dna"].get("draftRoom") or {}).get("prep"), "Prep-school dreamer", "College polish only"),
+        ("buyLow", "temperament", lambda r: (r["dna"].get("buyLow") or {}).get("rate"), "Bargain-bin believer", "Pays retail"),
+        ("inj", "temperament", lambda r: ((r["dna"].get("inj") or {}).get("pit", 0) + (r["dna"].get("inj") or {}).get("bat", 0)) / max(r["seasons"], 1), "Lives in the training room", "Keeps bodies on the field"),
+        ("vol", "temperament", lambda r: r["chan"]["trade"]["n"] / max(r["seasons"], 1), "Never stops dealing", "Patient to a fault"),
+        ("trSkill", "skill", lambda r: r["chan"]["trade"]["net"] / max(r["seasons"], 1), "Wins the trade table", "Bleeds value in trades"),
+        ("drSkill", "skill", lambda r: r["chan"]["draft"]["net"] / max(r["seasons"], 1), "A draft-room edge", "Draft-room drag"),
+        ("intlSkill", "skill", lambda r: r["chan"]["intl"]["net"] / max(r["seasons"], 1), "An international pipeline", "Quiet internationally"),
+        ("extSkill", "skill", lambda r: r["chan"]["ext"]["net"] / max(r["seasons"], 1), "Extends its own early and well", "Extensions bite back here"),
+    ]
+    stats = {}
+    for key, grp, fn, hi, lo in CANDS:
+        vals = [v for r in res if (v := metric(r, fn)) is not None]
+        if len(vals) >= 6 and statistics.pstdev(vals) > 1e-9:
+            stats[key] = (statistics.mean(vals), statistics.pstdev(vals))
+    out = {}
+    for r in res:
+        scored = []
+        for key, grp, fn, hi, lo in CANDS:
+            if key not in stats: continue
+            v = metric(r, fn)
+            if v is None: continue
+            mu, sd = stats[key]
+            z = (v - mu) / sd
+            if abs(z) >= 0.6:
+                scored.append((abs(z), grp, hi if z > 0 else lo))
+        scored.sort(reverse=True)
+        picks, groups = [], set()
+        for az, grp, label in scored:
+            if grp in groups: continue
+            picks.append(label); groups.add(grp)
+            if len(picks) == 2: break
+        out[r["teamId"]] = picks if picks else ["A balanced book"]
+    return out
+
+STYLES = build_styles(res)
 
 def trade_note(d):
     base = (f"Auto-scored: value in {d.get('vin', 0):+0.1f} vs value out {d.get('vout', 0):+0.1f}, "
@@ -52,7 +90,7 @@ def trade_note(d):
 def row(d):
     r = dict(d=d["d"][:10], war=d["net"], real=True,
              open=d.get("unsettled", int(d["d"][:4]) >= 2021),
-             t=CH_LABEL.get(d["ch"], "") + (" · Ledger WAR v1.5 · sweep v2" if d["ch"] != "walk" else " · passive loss, shown for context, not graded"),
+             t=CH_LABEL.get(d["ch"], "") + ("" if d["ch"] != "walk" else " · passive loss, shown for context, not graded"),
              h=esc(d["h"]) + ' <span class="badge-real">COMPUTED</span>')
     if d.get("sides"): r["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
     if d.get("pids"): r["pids"] = [str(p) for p in d["pids"] if p]
@@ -91,7 +129,7 @@ for r in res:
     for d in pool:
         e = dict(d=d["d"][:10], war=d["net"], real=True,
                  open=d.get("unsettled", int(d["d"][:4]) >= 2021),
-                 t=(CH_LABEL.get(d["ch"], d["ch"]) + " · Ledger WAR v1.5 · sweep v2"),
+                 t=(CH_LABEL.get(d["ch"], d["ch"]) + ""),
                  h=esc(d["h"]) + " " + badge)
         if d.get("sides"): e["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
         if d.get("pids"): e["pids"] = [str(p) for p in d["pids"] if p]
@@ -113,7 +151,7 @@ for r in res:
         team=r["team"], start=r["start"], seasons=round(r["seasons"]),
         titles=r.get("titles", 0),
         forGrade=r["forGrade"], smallSample=r["seasons"] < 3, realCard=True,
-        realBadge="COMPUTED · LEDGER WAR v1.5 · SWEEP v2 · THROUGH OCT 2026",
+        realBadge="COMPUTED · FULL LEDGER · THROUGH OCT 2026",
         success=dict(wpct=r["success"]["wpct"], div=r["success"]["div"],
                      po=r["success"].get("po"), sw=r["success"].get("sw"),
                      pen=r["success"].get("pen"), ws=r["success"].get("ws"),
@@ -133,7 +171,7 @@ for r in res:
         chanLedgers=chan_ledgers(r),
         walk=[row(d) for d in r.get("walk", [])],
         dna=r.get("dna", {}),
-        dnaTags=dna_tags(r.get("dna", {})),
+        dnaTags=STYLES.get(r["teamId"], []),
         h2h=r.get("h2h", [])[:10],
     ))
 
@@ -164,7 +202,7 @@ if os.path.exists("/work/hist_results.json"):
         for d in pool:
             e = dict(d=d["d"][:10], war=d["net"], real=True,
                      open=d.get("unsettled", int(d["d"][:4]) >= 2021),
-                     t=(CH_LABEL.get(d["ch"], d["ch"]) + " · Ledger WAR v1.5 · archive sweep"),
+                     t=(CH_LABEL.get(d["ch"], d["ch"]) + " · archive sweep"),
                      h=esc(d["h"]) + " " + badge)
             if d.get("sides"): e["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
             if d.get("pids"): e["pids"] = [str(p) for p in d["pids"] if p]
@@ -194,7 +232,7 @@ if os.path.exists("/work/hist_results.json"):
         fa = r["chan"]["fa"]
         def hrow(d):
             e = dict(d=d["d"][:10], war=d["net"], real=True, open=d.get("unsettled", int(d["d"][:4]) >= 2021),
-                     t=CH_LABEL.get(d["ch"], d["ch"]) + (" · Ledger WAR v1.5 · archive sweep" if d["ch"] != "walk" else " · passive loss, shown for context, not graded"),
+                     t=CH_LABEL.get(d["ch"], d["ch"]) + (" · archive sweep" if d["ch"] != "walk" else " · passive loss, shown for context, not graded"),
                      h=esc(d["h"]) + ' <span class="badge-real">COMPUTED</span>')
             if d.get("sides"): e["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
             if d.get("pids"): e["pids"] = [str(p) for p in d["pids"] if p]
@@ -220,7 +258,7 @@ if os.path.exists("/work/hist_results.json"):
             trueStart=r.get("trueStart"), flags=flags,
             seasons=round(r["seasons"]), titles=ws,
             forGrade=r["forGrade"], smallSample=r["seasons"] < 3, realCard=True,
-            realBadge="COMPUTED · ARCHIVE SWEEP · LEDGER WAR v1.5 · TRADE/DRAFT/WAIVER GRADED; FA SHOWN RAW, DEV/EXT NOT SCORED FOR PAST WINDOWS",
+            realBadge="COMPUTED · ARCHIVE SWEEP · TRADE/DRAFT/WAIVER GRADED; FA SHOWN RAW, DEV/EXT NOT SCORED FOR PAST WINDOWS",
             success=suc,
             chan=dict(draft=r["chan"]["draft"], trade=r["chan"]["trade"],
                       fa=dict(net=0.0, g=None, n=fa["n"], raw=fa["net"]),
@@ -320,13 +358,25 @@ for rr in ranks_all:
     if pid in pidset:
         RANKS.setdefault(pid, {})[str(rr["year"])] = rr["rank"]
         NAMES.setdefault(pid, rr["name"])
-print(f"moves {len(MOVES)} | ranks {len(RANKS)} players")
+# player fates: last MLB season and club from the value cache, so open
+# chain endings can say what actually happened (still here / career over /
+# left without a graded move)
+_lvm = {k: v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
+FATE = {}
+for pid in pidset:
+    rec = _lvm.get(pid)
+    if not rec or not rec["rows"]: continue
+    last = max(rec["rows"], key=lambda t: t[0])
+    FATE[pid] = [last[0], NAME2AB.get(last[1], "")]
+print(f"moves {len(MOVES)} | ranks {len(RANKS)} players | fates {len(FATE)}")
 mv_js = ("const PLAYER_MOVES = " + json.dumps(MOVES, separators=(",", ":"))
          + ";\nconst PLAYER_NAMES = " + json.dumps(NAMES, separators=(",", ":"))
-         + ";\nconst PLAYER_RANKS = " + json.dumps(RANKS, separators=(",", ":")) + ";\n\n")
+         + ";\nconst PLAYER_RANKS = " + json.dumps(RANKS, separators=(",", ":"))
+         + ";\nconst PLAYER_FATE = " + json.dumps(FATE, separators=(",", ":")) + ";\n\n")
 i = s.find("const PLAYER_MOVES = ")
 assert i >= 0
-j = s.find("\n\n", s.find("const PLAYER_RANKS", i))
+tail_anchor = "const PLAYER_FATE" if "const PLAYER_FATE" in s else "const PLAYER_RANKS"
+j = s.find("\n\n", s.find(tail_anchor, i))
 s = s[:i] + mv_js + s[j+2:]
 
 open(P, "w").write(s)
