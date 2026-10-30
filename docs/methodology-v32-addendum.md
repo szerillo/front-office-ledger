@@ -372,3 +372,44 @@ missing money (the Mets' 2027 book went from $234M to $268M). Residual
 known limits: service time is proxied by seasons with MLB value, so a few
 late-debut players sit one year early in the class; traded contracts stay
 with the signing club in payroll.
+
+# v4.0 addendum: the continuity lens, and GM Mode v2
+
+October 30, 2026.
+
+## 1. Reconciling the underboss problem
+
+Regime attribution credits final baseball authority, because that is the
+only rule that applies consistently across 139 regimes. But an internal
+promotion blurs it: the new boss was in the room for the predecessor's
+decisions. The answer is a second, disclosed lens rather than a changed
+rule. Championship cards where the winning executive held the chair
+immediately below before promotion now carry a CONTINUITY VIEW: the share
+of the title core acquired while he already sat in that chair. Verified
+dates: Arnold named Brewers GM 2020-11-19 (Stearns stayed as president);
+Young named Rangers GM 2020-12-04 (Daniels stayed); Cashman assistant GM
+from 1992 (month approximate, flagged). The lens recasts the three most
+inherited champions: 1998 NYY reads 7% Cashman-built by final authority
+and 87% with-him-in-the-room; 2023 TEX 15% and 76%; 2026 MIL 43% and 69%.
+Both numbers are true; they answer different questions; the cards now
+carry both.
+
+## 2. GM Mode v2
+
+The winter now flows like the calendar: (1) contract decisions, with
+qualifying offers (1/$22M; acceptance deterministic from the player's
+calibrated market) and arb tenders; (2) the exclusive re-sign window;
+(3) the open market with trades and extensions; (4) the depth chart;
+(5) the report card. Advancing out of the exclusive window resolves
+unsigned free agents to other clubs, and a declined QO banks the comp
+pick when the player walks. Negotiations are offer/counter against a
+deterministic camp: each player carries a stable personal ask (his
+calibrated Ledger offer times a hashed 0.95-1.17 greed factor, a 5%
+hometown discount in the exclusive window); serious offers draw midpoint
+counters with eroding patience, two lowballs end the talks. The depth
+chart auto-fills C through RF, DH, five starters, seven relievers, and a
+bench from the org by projection, using season-workload SP/RP resolution
+and true positions (new field in the data pack); holes are flagged
+against an everyday bar and matched to available market names. A winter
+memo prints the whole thing. Projections, grading, payroll, the CBT line,
+and the historical comp winters are unchanged from v3.9.
