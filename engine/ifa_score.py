@@ -15,7 +15,7 @@ Classification (automated, documented):
   and Asian amateur-classified pros land in the pool too.
 
 Scoring: realized = LVM while on the signing org (class year +10 cap);
-baseline = class mean among observed regimes; regime net = sum over classes.
+baseline = league class value over 30 clubs; regime net = sum over classes.
 Known gaps: value-relevant signees only (kids without MLB time count as
 volume, not value); signing dates are as-filed; posting-system pros with
 major-league deals (Ohtani, Yamamoto) are NOT here, they stay in FA-major.
@@ -76,19 +76,21 @@ for r in rows:
     ifa.append((tid, yr, pid, r["person_name"], round(realized, 2)))
 print(f"classified IFA signings (value-relevant): {len(ifa)}", flush=True)
 
-# class means among observed regimes
-class_tot = defaultdict(float); class_teams = defaultdict(set)
-observed = defaultdict(int)
-for reg in cfg["regimes"]:
-    y0 = max(int(reg["start"][:4]), 2005)
-    for y in range(y0, 2027): observed[y] += 1
+# class means: league value over 30 clubs
+class_tot = defaultdict(float)
 for tid, yr, pid, nm, v in ifa:
     class_tot[yr] += v
 def class_mean(yr):
-    return class_tot[yr] / max(1, observed[yr])
+    # every club shops every class from (near-)equal pools: the expectation
+    # is the league's realized value from that class over 30 clubs
+    return class_tot[yr] / 30.0
 
 # per-regime channel
 res = json.load(open("/work/sweep_results.json"))
+for r in res:
+    old = (r.get("chan", {}).get("intl") or {}).get("net")
+    if old is not None:
+        r["total"] = round(r["total"] - old, 1)
 by_id = {r["teamId"]: r for r in res}
 def grade(nps):
     for thr, g in [(2.6,80),(1.8,75),(1.2,70),(0.8,65),(0.5,60),(0.2,55),
@@ -97,7 +99,12 @@ def grade(nps):
     return 30
 
 per = defaultdict(lambda: dict(real=0.0, exp=0.0, n=0, tops=[]))
+DATE_BY = {(tid, yr, pid): None for tid, yr, pid, nm, v in ifa}
 for tid, yr, pid, nm, v in ifa:
+    # v4.7 attribution fix: a signing belongs to the regime only if it
+    # happened on this regime's watch (class year on/after the start year;
+    # the league class baseline stays league-wide)
+    if yr < int(REG[tid]["start"][:4]): continue
     p = per[tid]; p["real"] += v; p["n"] += 1
     p["tops"].append((v, yr, nm, pid))
 for tid, p in per.items():
@@ -113,7 +120,7 @@ for r in res:
     r["intl_tops"] = [dict(d=f"{y}-01-15", ch="intl", net=round(v, 1),
                            h=f"Int'l amateur signing: {nm} ({y} class)",
                            sides=[["Realized on signing org (class year +10)", [[nm, f"{v:+.1f}"]]],
-                                  ["Class baseline", [["league mean per observed regime, near-equal pools", "shared"]]]],
+                                  ["Class baseline", [["league class value over 30 clubs, near-equal pools", "shared"]]]],
                            pids=[pp])
                       for v, y, nm, pp in tops if v >= 0.5]
     r["total"] = round(r["total"] + net, 1)
