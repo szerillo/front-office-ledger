@@ -221,6 +221,15 @@
      "112388"
     ],
     [
+     "Chili Davis",
+     "fa",
+     "New York Yankees signed free agent Chili Davis. (Retrosheet archive)",
+     "1997-12-10",
+     "inh",
+     2.3,
+     "113099"
+    ],
+    [
      "Ramiro Mendoza",
      "intl",
      "Amateur / minor-league signing (no major-league transaction on record)",
@@ -513,6 +522,15 @@
      "reg",
      1.6,
      "114135"
+    ],
+    [
+     "Matt Williams",
+     "trade",
+     "Arizona Diamondbacks traded player, Travis Fryman, Tom Martin to Cleveland Indians; Cleveland I",
+     "1997-12-01",
+     "reg",
+     1.5,
+     "124326"
     ],
     [
      "Miguel Batista",
@@ -2483,6 +2501,15 @@
      "450172"
     ],
     [
+     "Yordano Ventura",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2011",
+     "reg",
+     2.8,
+     "570649"
+    ],
+    [
      "Alex Gordon",
      "draft",
      "Drafted by the club, 2005",
@@ -2713,6 +2740,15 @@
    "regimeNote": "title in year 7 of the regime",
    "computed": true,
    "roster": [
+    [
+     "Jose Altuve",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2009",
+     "inh",
+     8.3,
+     "514888"
+    ],
     [
      "Carlos Correa",
      "draft",
@@ -3266,6 +3302,15 @@
      "518692"
     ],
     [
+     "Ozzie Albies",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2015",
+     "inh",
+     4.9,
+     "645277"
+    ],
+    [
      "Max Fried",
      "trade",
      "Atlanta Braves traded LF Justin Upton and RHP Aaron Northcraft to San Diego Padres for 2B Jace ",
@@ -3273,6 +3318,15 @@
      "inh",
      4.3,
      "608331"
+    ],
+    [
+     "Ronald Acu\u00f1a Jr.",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2016",
+     "inh",
+     4.3,
+     "660670"
     ],
     [
      "Dansby Swanson",
@@ -3376,6 +3430,15 @@
    "regimeNote": "title in year 3 of the regime",
    "computed": true,
    "roster": [
+    [
+     "Jose Altuve",
+     "intl",
+     "Amateur / minor-league signing (no major-league transaction on record)",
+     "~2009",
+     "inh",
+     7.5,
+     "514888"
+    ],
     [
      "Alex Bregman",
      "draft",
@@ -3908,6 +3971,15 @@
      "676263"
     ],
     [
+     "Emmet Sheehan",
+     "draft",
+     "Drafted by the club, 2021",
+     "2021-06-15",
+     "reg",
+     1.9,
+     "686218"
+    ],
+    [
      "Blake Snell",
      "fa",
      "Los Angeles Dodgers signed free agent LHP Blake Snell.",
@@ -3960,31 +4032,178 @@
      "reg",
      1.3,
      "500743"
+    ]
+   ]
+  },
+  {
+   "id": "mil26",
+   "label": "2026 Milwaukee Brewers",
+   "team": "Milwaukee Brewers",
+   "year": 2026,
+   "result": "Won World Series",
+   "regime": "Matt Arnold",
+   "regimeNote": "title in year 5 of the regime",
+   "computed": true,
+   "roster": [
+    [
+     "Brice Turang",
+     "draft",
+     "Drafted by the club, 2018",
+     "2018-06-15",
+     "inh",
+     6.6,
+     "668930"
     ],
     [
-     "Teoscar Hern\u00e1ndez",
+     "Jacob Misiorowski",
+     "draft",
+     "Drafted by the club, 2022",
+     "2022-06-15",
+     "inh",
+     5.9,
+     "694819"
+    ],
+    [
+     "Jackson Chourio",
+     "intl",
+     "Milwaukee Brewers signed free agent CF Jackson Chourio to a minor league contract.",
+     "2021-01-15",
+     "inh",
+     4.4,
+     "694192"
+    ],
+    [
+     "Garrett Mitchell",
+     "draft",
+     "Drafted by the club, 2020",
+     "2020-06-15",
+     "inh",
+     4.3,
+     "669003"
+    ],
+    [
+     "Jake Bauers",
+     "intl",
+     "Milwaukee Brewers signed free agent 1B Jake Bauers to a minor league contract and invited him t",
+     "2025-01-06",
+     "reg",
+     3.7,
+     "641343"
+    ],
+    [
+     "William Contreras",
+     "trade",
+     "Atlanta Braves traded RHP Freddy Tarnok, C Manny Pi\u00f1a, RHP Royber Salinas, 2B Esteury Ruiz and ",
+     "2022-12-12",
+     "reg",
+     3.5,
+     "661388"
+    ],
+    [
+     "Joey Ortiz",
+     "trade",
+     "Milwaukee Brewers traded RHP Corbin Burnes to Baltimore Orioles for SS Joey Ortiz, LHP DL Hall ",
+     "2024-02-01",
+     "reg",
+     3.3,
+     "687401"
+    ],
+    [
+     "Trevor Megill",
+     "trade",
+     "Minnesota Twins traded RHP Trevor Megill to Milwaukee Brewers for Player To Be Named Later and ",
+     "2023-04-30",
+     "reg",
+     2.3,
+     "656730"
+    ],
+    [
+     "Aaron Ashby",
+     "draft",
+     "Drafted by the club, 2018",
+     "2018-06-15",
+     "inh",
+     2.1,
+     "676879"
+    ],
+    [
+     "Logan Henderson",
+     "draft",
+     "Drafted by the club, 2021",
+     "2021-06-15",
+     "inh",
+     2.0,
+     "701656"
+    ],
+    [
+     "Shane Drohan",
+     "trade",
+     "Boston Red Sox traded LHP Kyle Harrison, LHP Shane Drohan and 2B David Hamilton to Milwaukee Br",
+     "2026-02-09",
+     "reg",
+     2.0,
+     "675660"
+    ],
+    [
+     "Gary S\u00e1nchez",
      "fa",
-     "Los Angeles Dodgers signed free agent LF Teoscar Hern\u00e1ndez.",
-     "2025-01-03",
+     "Milwaukee Brewers signed free agent C Gary S\u00e1nchez.",
+     "2026-02-14",
+     "reg",
+     1.7,
+     "596142"
+    ],
+    [
+     "Abner Uribe",
+     "intl",
+     "Milwaukee Brewers signed free agent RHP Abner Uribe to a minor league contract.",
+     "2018-07-02",
+     "inh",
+     1.7,
+     "682842"
+    ],
+    [
+     "Cooper Pratt",
+     "draft",
+     "Drafted by the club, 2023",
+     "2023-06-15",
+     "reg",
+     1.6,
+     "806198"
+    ],
+    [
+     "Kyle Harrison",
+     "trade",
+     "Boston Red Sox traded LHP Kyle Harrison, LHP Shane Drohan and 2B David Hamilton to Milwaukee Br",
+     "2026-02-09",
+     "reg",
+     1.4,
+     "690986"
+    ],
+    [
+     "Chad Patrick",
+     "trade",
+     "Milwaukee Brewers traded 3B Abraham Toro to Oakland Athletics for RHP Chad Patrick.",
+     "2023-11-15",
      "reg",
      1.1,
-     "606192"
+     "694477"
     ]
    ]
   }
  ],
  "lines": {
-  "n": 28,
-  "medianRegShare": 61,
+  "n": 29,
+  "medianRegShare": 58,
   "medianTenure": 6,
   "earlyTitles": 8,
   "lateTitles": 9,
   "avgShare": {
-   "fa": 25.0,
+   "fa": 23.7,
    "trade": 19.5,
-   "draft": 11.5,
-   "intl": 8.1,
-   "inherited": 35.8
+   "draft": 11.1,
+   "intl": 8.3,
+   "inherited": 37.3
   },
   "majorityFA": [
    "nyy09"
@@ -4020,10 +4239,10 @@
     "abbr": "NYY",
     "exec": "Brian Cashman",
     "tenure": 2,
-    "total": 45.3,
-    "regShare": 38,
+    "total": 47.6,
+    "regShare": 36,
     "mix": {
-     "inherited": 28.1,
+     "inherited": 30.4,
      "fa": 9.9,
      "trade": 7.3
     }
@@ -4050,10 +4269,10 @@
     "abbr": "ARI",
     "exec": "Joe Garagiola Jr.",
     "tenure": 7,
-    "total": 40.3,
+    "total": 41.8,
     "regShare": 100,
     "mix": {
-     "trade": 16.1,
+     "trade": 17.6,
      "fa": 19.0,
      "intl": 5.2
     }
@@ -4272,14 +4491,14 @@
     "abbr": "KC",
     "exec": "Dayton Moore",
     "tenure": 10,
-    "total": 29.8,
+    "total": 32.6,
     "regShare": 93,
     "mix": {
      "trade": 9.0,
      "draft": 8.8,
      "fa": 5.9,
-     "inherited": 2.2,
-     "intl": 3.9
+     "intl": 6.7,
+     "inherited": 2.2
     }
    },
    {
@@ -4306,13 +4525,13 @@
     "abbr": "HOU",
     "exec": "Jeff Luhnow",
     "tenure": 7,
-    "total": 44.4,
-    "regShare": 88,
+    "total": 52.7,
+    "regShare": 74,
     "mix": {
+     "inherited": 13.8,
      "draft": 13.3,
      "trade": 16.8,
-     "fa": 8.8,
-     "inherited": 5.5
+     "fa": 8.8
     }
    },
    {
@@ -4369,10 +4588,10 @@
     "abbr": "ATL",
     "exec": "Alex Anthopoulos",
     "tenure": 5,
-    "total": 33.1,
-    "regShare": 30,
+    "total": 42.3,
+    "regShare": 23,
     "mix": {
-     "inherited": 23.3,
+     "inherited": 32.5,
      "fa": 4.9,
      "intl": 3.8,
      "trade": 1.1
@@ -4385,10 +4604,10 @@
     "abbr": "HOU",
     "exec": "James Click",
     "tenure": 3,
-    "total": 46.7,
-    "regShare": 21,
+    "total": 54.2,
+    "regShare": 18,
     "mix": {
-     "inherited": 36.7,
+     "inherited": 44.2,
      "fa": 8.2,
      "trade": 1.8
     }
@@ -4432,13 +4651,30 @@
     "abbr": "LAD",
     "exec": "Andrew Friedman",
     "tenure": 12,
-    "total": 49.5,
+    "total": 50.3,
     "regShare": 100,
     "mix": {
-     "fa": 24.7,
-     "draft": 6.1,
+     "fa": 23.6,
+     "draft": 8.0,
      "trade": 8.2,
      "intl": 10.5
+    }
+   },
+   {
+    "id": "mil26",
+    "yr": 2026,
+    "team": "Milwaukee Brewers",
+    "abbr": "MIL",
+    "exec": "Matt Arnold",
+    "tenure": 5,
+    "total": 47.6,
+    "regShare": 43,
+    "mix": {
+     "inherited": 27.0,
+     "intl": 3.7,
+     "trade": 13.6,
+     "fa": 1.7,
+     "draft": 1.6
     }
    }
   ]
