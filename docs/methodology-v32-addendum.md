@@ -612,3 +612,24 @@ and auditable:
 - Extension-book coverage: Yelich (9/$215M) and Keibert Ruiz (8/$50M)
   restored; a duplicated Wheeler extension row that double-counted $42M/yr
   on Philadelphia's book removed.
+
+## v4.6 follow-up: the winter reality pass (same day)
+
+The computed FA class is now reconciled against the actual 2026-27 winter
+(the league's option tracker and the published class rankings, Nov 2026):
+
+- Exercised and plainly in-the-money 2027 club options are encoded as
+  one-year book coverage at the option price (William Contreras $15.5M,
+  Paredes, Alcantara, Clase, Whitlock, Yandy Diaz, Albies, Munoz, Gonsolin),
+  so those players price as controlled salary, not free agents.
+- Opt-outs and declined options void remaining coverage (King, Holmes,
+  Imanaga are in the class; their historical contract rows keep original
+  terms so comps stay honest, with a fa27 exclusion list doing the work).
+- The service-time proxy (seasons with recorded value) overcounted
+  cup-of-coffee years and wrongly promoted Joe Ryan, Oneil Cruz, Jarren
+  Duran, Detmers, Gilbert, Jax, and Stephenson into the class; curated true
+  service keeps them home and prices their arb years correctly. NPB-origin
+  players free by contract expiry (Suzuki, Imanaga) are encoded FA-eligible.
+- Missing guarantees added: Pablo Lopez 4/$73.5M, Glasnow 4/$110M.
+- Incoming NPB postings in the real class (Sato, Taira, Itoh) have no MLB
+  track record and are outside the engine's universe, disclosed as before.
