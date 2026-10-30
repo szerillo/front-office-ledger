@@ -19,6 +19,20 @@ EXT = [
     ('2019-01', 'Mike Trout', 'LAA', 12, 426.5, None),          # 2019-2030
     ('2020-03', 'Christian Yelich', 'MIL', 9, 215.0, None),    # 2020-2028 (coverage audit v4.6)
     ('2023-03', 'Keibert Ruiz', 'WSH', 8, 50.0, None),          # 2023-2030 (coverage audit v4.6)
+    ('2023-06', 'Pablo Lopez', 'MIN', 4, 73.5, None),           # 2024-2027 (coverage audit v4.6)
+    ('2023-12', 'Tyler Glasnow', 'LAD', 4, 110.0, None),        # 2024-2027 guaranteed (coverage audit v4.6)
+    # ---- 2027 club options exercised or plainly in-the-money (the 2026-27
+    # winter reality pass; sources: the league option tracker, Nov 2026).
+    # Encoded as one-year coverage at the option price.
+    ('2026-11', 'William Contreras', 'MIL', 1, 15.5, None),
+    ('2026-11', 'Isaac Paredes', 'HOU', 1, 13.35, None),
+    ('2026-11', 'Sandy Alcantara', 'MIA', 1, 21.0, None),
+    ('2026-11', 'Emmanuel Clase', 'CLE', 1, 10.0, None),
+    ('2026-11', 'Garrett Whitlock', 'BOS', 1, 8.25, None),
+    ('2026-11', 'Yandy Diaz', 'TB', 1, 12.0, None),
+    ('2026-11', 'Ozzie Albies', 'ATL', 1, 7.0, None),
+    ('2026-11', 'Andres Munoz', 'SEA', 1, 9.0, None),
+    ('2026-11', 'Tony Gonsolin', 'KC', 1, 2.5, None),
     ('2024-04', 'Zack Wheeler', 'PHI', 3, 126.0, None),         # 2025-2027
     ('2024-09', 'Matt Chapman', 'SF', 6, 151.0, None),          # 2025-2030
     ('2022-06', 'Yordan Alvarez', 'HOU', 6, 115.0, None),       # 2023-2028

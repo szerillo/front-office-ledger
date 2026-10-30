@@ -190,10 +190,33 @@ for (off, pl, tid, yrs, tot, typ) in raw_contracts:
                  realized if realized is not None else "", elapsed, pid, typ, pgroup])
 print("contract book rows matched:", len(book), "of", len(raw_contracts))
 
+# ---- 2026-27 winter reality pass (curated, Nov 2026) ----
+# Opt-outs and declined options void remaining coverage: these players ARE in
+# the 2026-27 class although a book row runs past 2026. Rows keep their
+# original terms (comps stay honest); the page excludes these pids from
+# forward coverage and this script excludes their 2027+ money from payroll.
+FA27_NAMES = {"Michael King", "Clay Holmes", "Shota Imanaga"}
+fa27 = sorted({row[11] for row in book if row[0] in FA27_NAMES})
+
+# Service-time fixes: the mlb_seasons proxy counts cup-of-coffee years, which
+# wrongly promoted these into the FA class. True service entering 2027,
+# checked against the real class lists.
+SVC_FIX = {"Joe Ryan": 5, "Oneil Cruz": 4, "Jarren Duran": 4, "Reid Detmers": 5,
+           "Logan Gilbert": 5, "Griffin Jax": 5, "Tyler Stephenson": 5,
+           # free by contract expiry rather than six-year service (NPB signees
+           # whose original deals ran out): encoded as FA-eligible
+           "Seiya Suzuki": 6, "Shota Imanaga": 6}
+for p in players:
+    if p[0] in SVC_FIX:
+        p[11] = SVC_FIX[p[0]]
+        p[8] = max(1, min(6, 6 - p[11]))
+print("winter reality: fa27 pids", fa27, "| svc fixes", len(SVC_FIX))
+
 # ---- committed payroll per club per season (book contracts, AAV spread) ----
 payroll = {}
 for row in book:
     pl, off, ab, yrs, tot = row[0], row[1], row[2], row[3], row[4]
+    if pl in FA27_NAMES: continue   # opted out / declined: 2027+ money is off the book
     if not ab or off + yrs < 2026: continue
     aav = tot / yrs
     for season in range(max(2026, off + 1), min(off + yrs, 2031) + 1):
@@ -225,6 +248,7 @@ out = dict(
     deals=compact,
     book=book,
     payroll=payroll,
+    fa27=fa27,
     cbt={"2026": 244, "2027": None},  # 2027+ awaits the next CBA
 )
 json.dump(out, open("/work/desk_data.json", "w"), separators=(",", ":"))
