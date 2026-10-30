@@ -700,3 +700,22 @@ The computed FA class is now reconciled against the actual 2026-27 winter
   window applies.
 - The season-by-season salary book now also lives on the Horizon tab for
   every club, outside GM Mode.
+
+## v4.8.1: the combing pass (same day)
+
+- Full-tab click-through at desktop and phone widths, zero console errors
+  on every view in both themes; phone-width horizontal overflow eliminated
+  (wide tables and the championship strip scroll inside their cards, team
+  selectors capped).
+- Boundary audit: every dated decision on every active regime card checked
+  against its regime window. One class of display error found and fixed:
+  international-signing entries carried a fabricated January class date
+  instead of the true signing date, which made correct attributions look
+  wrong (Perdomo, Nov 2016, reads under Hazen with the real date now);
+  window filtering now uses the true signing date as well. Re-audit: zero
+  violations across all cards, and zero championship-roster acquisition
+  dates after the title year.
+- Seat check against the record: the recently changed chairs (Mozeliak as
+  Angels interim from June 2026, Zoll running Twins baseball operations
+  from January 2026, DePodesta in Colorado, Toboni in Washington, Bloom in
+  St. Louis) all match the reporting, with interim status flagged.
