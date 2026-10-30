@@ -7,7 +7,7 @@
    "year": 1998,
    "result": "Won World Series",
    "regime": "Brian Cashman",
-   "regimeNote": "title in year 1 of the regime",
+   "regimeNote": "title in year 1 of the regime \u00b7 continuity view: 87% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
@@ -163,7 +163,7 @@
    "year": 1999,
    "result": "Won World Series",
    "regime": "Brian Cashman",
-   "regimeNote": "title in year 2 of the regime",
+   "regimeNote": "title in year 2 of the regime \u00b7 continuity view: 100% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
@@ -319,7 +319,7 @@
    "year": 2000,
    "result": "Won World Series",
    "regime": "Brian Cashman",
-   "regimeNote": "title in year 3 of the regime",
+   "regimeNote": "title in year 3 of the regime \u00b7 continuity view: 100% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
@@ -1579,7 +1579,7 @@
    "year": 2009,
    "result": "Won World Series",
    "regime": "Brian Cashman",
-   "regimeNote": "title in year 12 of the regime",
+   "regimeNote": "title in year 12 of the regime \u00b7 continuity view: 100% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
@@ -3583,7 +3583,7 @@
    "year": 2023,
    "result": "Won World Series",
    "regime": "Chris Young",
-   "regimeNote": "title in year 2 of the regime",
+   "regimeNote": "title in year 2 of the regime \u00b7 continuity view: 76% of the core was acquired while Young was already GM under Daniels' presidency (from 2020-12); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
@@ -4042,7 +4042,7 @@
    "year": 2026,
    "result": "Won World Series",
    "regime": "Matt Arnold",
-   "regimeNote": "title in year 5 of the regime",
+   "regimeNote": "title in year 5 of the regime \u00b7 continuity view: 69% of the core was acquired while Arnold was already GM under Stearns' presidency (from 2020-11); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
@@ -4227,6 +4227,7 @@
     "tenure": 1,
     "total": 54.6,
     "regShare": 7,
+    "contShare": 87,
     "mix": {
      "inherited": 50.9,
      "trade": 3.7
@@ -4241,6 +4242,7 @@
     "tenure": 2,
     "total": 47.6,
     "regShare": 36,
+    "contShare": 100,
     "mix": {
      "inherited": 30.4,
      "fa": 9.9,
@@ -4256,6 +4258,7 @@
     "tenure": 3,
     "total": 37.7,
     "regShare": 44,
+    "contShare": 100,
     "mix": {
      "inherited": 21.0,
      "fa": 7.6,
@@ -4271,6 +4274,7 @@
     "tenure": 7,
     "total": 41.8,
     "regShare": 100,
+    "contShare": null,
     "mix": {
      "trade": 17.6,
      "fa": 19.0,
@@ -4286,6 +4290,7 @@
     "tenure": 4,
     "total": 37.5,
     "regShare": 47,
+    "contShare": null,
     "mix": {
      "inherited": 20.0,
      "intl": 5.5,
@@ -4302,6 +4307,7 @@
     "tenure": 2,
     "total": 42.9,
     "regShare": 48,
+    "contShare": null,
     "mix": {
      "fa": 6.3,
      "inherited": 22.1,
@@ -4317,6 +4323,7 @@
     "tenure": 3,
     "total": 54.0,
     "regShare": 38,
+    "contShare": null,
     "mix": {
      "trade": 6.2,
      "inherited": 33.6,
@@ -4333,6 +4340,7 @@
     "tenure": 6,
     "total": 38.3,
     "regShare": 58,
+    "contShare": null,
     "mix": {
      "inherited": 16.1,
      "trade": 11.1,
@@ -4349,6 +4357,7 @@
     "tenure": 13,
     "total": 29.7,
     "regShare": 100,
+    "contShare": null,
     "mix": {
      "draft": 10.0,
      "trade": 8.7,
@@ -4365,6 +4374,7 @@
     "tenure": 6,
     "total": 44.9,
     "regShare": 83,
+    "contShare": null,
     "mix": {
      "fa": 14.5,
      "trade": 12.9,
@@ -4382,6 +4392,7 @@
     "tenure": 4,
     "total": 37.5,
     "regShare": 30,
+    "contShare": null,
     "mix": {
      "inherited": 26.2,
      "fa": 6.0,
@@ -4398,6 +4409,7 @@
     "tenure": 12,
     "total": 57.2,
     "regShare": 89,
+    "contShare": 100,
     "mix": {
      "inherited": 6.5,
      "fa": 32.2,
@@ -4415,6 +4427,7 @@
     "tenure": 15,
     "total": 39.1,
     "regShare": 100,
+    "contShare": null,
     "mix": {
      "fa": 9.7,
      "draft": 16.3,
@@ -4431,6 +4444,7 @@
     "tenure": 4,
     "total": 47.6,
     "regShare": 36,
+    "contShare": null,
     "mix": {
      "fa": 14.3,
      "inherited": 30.3,
@@ -4446,6 +4460,7 @@
     "tenure": 17,
     "total": 41.7,
     "regShare": 100,
+    "contShare": null,
     "mix": {
      "draft": 16.6,
      "trade": 12.7,
@@ -4462,6 +4477,7 @@
     "tenure": 3,
     "total": 50.7,
     "regShare": 43,
+    "contShare": null,
     "mix": {
      "inherited": 29.0,
      "fa": 19.9,
@@ -4477,6 +4493,7 @@
     "tenure": 19,
     "total": 36.2,
     "regShare": 100,
+    "contShare": null,
     "mix": {
      "draft": 16.6,
      "trade": 4.2,
@@ -4493,6 +4510,7 @@
     "tenure": 10,
     "total": 32.6,
     "regShare": 93,
+    "contShare": null,
     "mix": {
      "trade": 9.0,
      "draft": 8.8,
@@ -4510,6 +4528,7 @@
     "tenure": 6,
     "total": 48.7,
     "regShare": 94,
+    "contShare": null,
     "mix": {
      "draft": 6.3,
      "trade": 21.3,
@@ -4527,6 +4546,7 @@
     "tenure": 7,
     "total": 52.7,
     "regShare": 74,
+    "contShare": null,
     "mix": {
      "inherited": 13.8,
      "draft": 13.3,
@@ -4543,6 +4563,7 @@
     "tenure": 4,
     "total": 54.6,
     "regShare": 34,
+    "contShare": null,
     "mix": {
      "inherited": 36.0,
      "fa": 8.6,
@@ -4558,6 +4579,7 @@
     "tenure": 11,
     "total": 49.9,
     "regShare": 100,
+    "contShare": null,
     "mix": {
      "draft": 12.2,
      "intl": 10.3,
@@ -4574,6 +4596,7 @@
     "tenure": 7,
     "total": 17.7,
     "regShare": 64,
+    "contShare": null,
     "mix": {
      "trade": 5.6,
      "inherited": 6.4,
@@ -4590,6 +4613,7 @@
     "tenure": 5,
     "total": 42.3,
     "regShare": 23,
+    "contShare": null,
     "mix": {
      "inherited": 32.5,
      "fa": 4.9,
@@ -4606,6 +4630,7 @@
     "tenure": 3,
     "total": 54.2,
     "regShare": 18,
+    "contShare": null,
     "mix": {
      "inherited": 44.2,
      "fa": 8.2,
@@ -4621,6 +4646,7 @@
     "tenure": 2,
     "total": 46.7,
     "regShare": 15,
+    "contShare": 76,
     "mix": {
      "inherited": 39.8,
      "fa": 3.8,
@@ -4637,6 +4663,7 @@
     "tenure": 11,
     "total": 47.5,
     "regShare": 100,
+    "contShare": null,
     "mix": {
      "fa": 23.0,
      "trade": 12.8,
@@ -4653,6 +4680,7 @@
     "tenure": 12,
     "total": 50.3,
     "regShare": 100,
+    "contShare": null,
     "mix": {
      "fa": 23.6,
      "draft": 8.0,
@@ -4669,6 +4697,7 @@
     "tenure": 5,
     "total": 47.6,
     "regShare": 43,
+    "contShare": 69,
     "mix": {
      "inherited": 27.0,
      "intl": 3.7,
