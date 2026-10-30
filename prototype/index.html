@@ -18,143 +18,157 @@
 <meta name="twitter:title" content="Front Office Ledger · every MLB front office, graded">
 <meta name="twitter:description" content="Every trade, draft pick, signing, and waiver claim since 1998, graded against expectation and attributed to the regime that made it.">
 <meta name="twitter:image" content="https://szerillo.github.io/front-office-ledger/prototype/og.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2315202e'/%3E%3Cpath d='M8 22V10h3v9h5v3z' fill='%23e8edf3'/%3E%3Cpath d='M18 10h6v3h-3v2h3v3h-3v4h-3z' fill='%232a78d6'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%20%3Cdefs%3E%20%3CclipPath%20id%3D%22ball%22%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2226%22/%3E%3C/clipPath%3E%20%3C/defs%3E%20%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2226%22%20fill%3D%22%23faf6ec%22/%3E%20%3Cg%20clip-path%3D%22url%28%23ball%29%22%20stroke%3D%22%239db6cc%22%20stroke-width%3D%221.4%22%3E%20%3Cline%20x1%3D%224%22%20y1%3D%2218%22%20x2%3D%2260%22%20y2%3D%2218%22/%3E%20%3Cline%20x1%3D%224%22%20y1%3D%2225%22%20x2%3D%2260%22%20y2%3D%2225%22/%3E%20%3Cline%20x1%3D%224%22%20y1%3D%2232%22%20x2%3D%2260%22%20y2%3D%2232%22/%3E%20%3Cline%20x1%3D%224%22%20y1%3D%2239%22%20x2%3D%2260%22%20y2%3D%2239%22/%3E%20%3Cline%20x1%3D%224%22%20y1%3D%2246%22%20x2%3D%2260%22%20y2%3D%2246%22/%3E%20%3C/g%3E%20%3Cg%20clip-path%3D%22url%28%23ball%29%22%20fill%3D%22none%22%20stroke%3D%22%239d3025%22%20stroke-width%3D%222.6%22%20stroke-linecap%3D%22round%22%3E%20%3Cpath%20d%3D%22M%2013%207%20C%2024%2020%2C%2024%2044%2C%2013%2057%22/%3E%20%3Cpath%20d%3D%22M%2051%207%20C%2040%2020%2C%2040%2044%2C%2051%2057%22/%3E%20%3C/g%3E%20%3Cg%20clip-path%3D%22url%28%23ball%29%22%20stroke%3D%22%239d3025%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%3E%20%3Cline%20x1%3D%2217.1%22%20y1%3D%2215.5%22%20x2%3D%2222.1%22%20y2%3D%2213.1%22/%3E%20%3Cline%20x1%3D%2219.6%22%20y1%3D%2223.5%22%20x2%3D%2225.0%22%20y2%3D%2222.1%22/%3E%20%3Cline%20x1%3D%2220.4%22%20y1%3D%2232.0%22%20x2%3D%2225.9%22%20y2%3D%2232.0%22/%3E%20%3Cline%20x1%3D%2219.6%22%20y1%3D%2240.5%22%20x2%3D%2225.0%22%20y2%3D%2241.9%22/%3E%20%3Cline%20x1%3D%2217.1%22%20y1%3D%2248.5%22%20x2%3D%2222.1%22%20y2%3D%2250.9%22/%3E%20%3Cline%20x1%3D%2246.9%22%20y1%3D%2215.5%22%20x2%3D%2241.9%22%20y2%3D%2213.1%22/%3E%20%3Cline%20x1%3D%2244.4%22%20y1%3D%2223.5%22%20x2%3D%2239.0%22%20y2%3D%2222.1%22/%3E%20%3Cline%20x1%3D%2243.6%22%20y1%3D%2232.0%22%20x2%3D%2238.1%22%20y2%3D%2232.0%22/%3E%20%3Cline%20x1%3D%2244.4%22%20y1%3D%2240.5%22%20x2%3D%2239.0%22%20y2%3D%2241.9%22/%3E%20%3Cline%20x1%3D%2246.9%22%20y1%3D%2248.5%22%20x2%3D%2241.9%22%20y2%3D%2250.9%22/%3E%20%3C/g%3E%20%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2226%22%20fill%3D%22none%22%20stroke%3D%22%231d1a14%22%20stroke-width%3D%222.6%22/%3E%20%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    color-scheme: dark;
-    --f-display:'Barlow Condensed','Avenir Next Condensed','Arial Narrow','Helvetica Neue',sans-serif;
-    --f-body:'IBM Plex Sans','Avenir Next','Segoe UI',Helvetica,Arial,sans-serif;
-    --f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Consolas,monospace;
-    /* warm near-black, dark is the default theme */
-    --page:#131110; --surface:#1c1917; --surface-2:#272321;
-    --ink:#f5f2ee; --ink-2:#c9c3ba; --muted:#8d867d;
-    --grid:#2e2a26; --baseline:#3d3833; --border:rgba(245,242,238,0.09);
-    --good:#2fae2f; --bad:#d03b3b; --bad-text:#e66767;
-    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#7a6fd0;
-  }
-  :root[data-theme="light"]{
     color-scheme: light;
-    --page:#f7f6f2; --surface:#fcfcfb; --surface-2:#f0efec;
-    --ink:#161310; --ink-2:#52514e; --muted:#898781;
-    --grid:#e1e0d9; --baseline:#c3c2b7; --border:rgba(11,11,11,0.10);
-    --good:#0a7a0a; --bad:#c13333; --bad-text:#b32d2d;
-    --s1:#2a78d6; --s2:#eb6834; --s3:#149067; --s4:#b57a00; --s5:#c74a76; --s6:#6a5fc4;
+    --f-display:'Playfair Display',Georgia,'Times New Roman',serif;
+    --f-body:'Source Serif 4','Iowan Old Style',Georgia,'Times New Roman',serif;
+    --f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Consolas,monospace;
+    /* the paper ledger: cream stock, iron-gall ink, feint rules, oxblood margin */
+    --page:#f2ecdd; --surface:#f9f5e9; --surface-2:#ece4cf;
+    --ink:#211c13; --ink-2:#4c4435; --muted:#857a64;
+    --grid:#ddd3ba; --baseline:#bfb393; --border:rgba(33,28,19,0.28); --rule:rgba(33,28,19,0.22);
+    --good:#1e6b47; --bad:#a32c20; --bad-text:#a32c20;
+    --margin:#9d3025; --feint:#9db6cc;
+    --s1:#1f4e79; --s2:#9d3025; --s3:#1e6b47; --s4:#8a5d00; --s5:#9d4b6e; --s6:#5a4f9e;
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    /* the night desk: same paper, lamp off */
+    --page:#17140f; --surface:#201c15; --surface-2:#2b261c;
+    --ink:#efe9d9; --ink-2:#c7bda5; --muted:#8d8370;
+    --grid:#352f23; --baseline:#4a4231; --border:rgba(239,233,217,0.22); --rule:rgba(239,233,217,0.17);
+    --good:#4fae7f; --bad:#d8584a; --bad-text:#e08275;
+    --margin:#c05348; --feint:#5b728a;
+    --s1:#6f9fd0; --s2:#d0705f; --s3:#4fae7f; --s4:#c99a3a; --s5:#c97b9d; --s6:#9d93d6;
   }
   *{box-sizing:border-box; margin:0; padding:0}
   body{
     background:var(--page); color:var(--ink);
     font-family:var(--f-body);
-    font-size:14px; line-height:1.5;
+    font-size:14px; line-height:1.55;
   }
   svg text{font-family:var(--f-mono)}
   .grade, td.num, .tile .val, .wv, #tip, .lens-table td:nth-child(2){font-family:var(--f-mono)}
-  a{color:var(--s1); text-decoration:none}
+  a{color:var(--s1); text-decoration:underline; text-decoration-color:var(--baseline); text-underline-offset:2px}
   .wrap{max-width:1240px; margin:0 auto; padding:0 24px 64px}
 
-  /* ---------- header ---------- */
-  header{border-bottom:1px solid var(--border); background:var(--surface)}
-  .hd{max-width:1240px; margin:0 auto; padding:20px 24px 0}
-  .brandrow{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap}
-  .brand{font-family:var(--f-display); font-size:30px; font-weight:700; letter-spacing:1.5px; line-height:1}
-  .brand .ledger{color:var(--s1)}
-  #themebtn{margin-left:auto; background:var(--surface-2); border:1px solid var(--border); color:var(--ink-2);
-    border-radius:99px; padding:5px 14px; font:600 12px var(--f-body); cursor:pointer; align-self:center}
-  #themebtn:hover{color:var(--ink)}
-  .sample-chip{font-size:11px; font-weight:600; color:var(--s4); border:1px solid var(--s4);
-    border-radius:99px; padding:2px 10px; letter-spacing:0.4px; text-transform:uppercase}
-  .tagline{color:var(--muted); font-size:13px; margin-top:2px}
-  nav{display:flex; gap:2px; margin-top:16px}
+  /* ---------- masthead ---------- */
+  header{background:var(--page); border-bottom:4px double var(--ink)}
+  .hd{max-width:1240px; margin:0 auto; padding:18px 24px 0; border-top:3px solid var(--ink)}
+  .brandrow{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+  .brand{font-family:var(--f-display); font-size:34px; font-weight:900; letter-spacing:0.5px; line-height:1;
+    display:inline-flex; align-items:center; gap:12px}
+  .brand .logo{width:40px; height:40px; flex:none}
+  .brand .ledger{color:var(--margin)}
+  #themebtn{margin-left:auto; background:none; border:1px solid var(--border); color:var(--ink-2);
+    border-radius:2px; padding:5px 14px; font:600 11px var(--f-body); letter-spacing:1px; text-transform:uppercase;
+    cursor:pointer; align-self:center}
+  #themebtn:hover{color:var(--ink); border-color:var(--ink)}
+  .sample-chip{font-size:10.5px; font-weight:700; color:var(--muted); border:1px solid var(--baseline);
+    border-radius:2px; padding:2px 10px; letter-spacing:1px; text-transform:uppercase; font-family:var(--f-body)}
+  .tagline{color:var(--ink-2); font-size:13.5px; margin-top:6px; font-style:italic}
+  nav{display:flex; gap:0; margin-top:14px; border-top:1px solid var(--ink); flex-wrap:wrap}
   nav button{
     background:none; border:none; color:var(--ink-2);
-    font-family:var(--f-display); font-size:16.5px; font-weight:600; letter-spacing:1px; text-transform:uppercase;
-    padding:10px 16px; cursor:pointer; border-bottom:2px solid transparent;
+    font-family:var(--f-body); font-size:12.5px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase;
+    padding:10px 14px; cursor:pointer; border-bottom:3px solid transparent;
   }
   nav button:hover{color:var(--ink)}
-  nav button.on{color:var(--ink); border-bottom-color:var(--s1)}
+  nav button.on{color:var(--ink); border-bottom-color:var(--margin)}
 
   /* ---------- shared ---------- */
-  h2{font-family:var(--f-display); font-size:22px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase; margin:28px 0 4px}
-  .rc-title{font-family:var(--f-display); letter-spacing:0.8px}
-  .ledger h3, .tree-title{font-family:var(--f-display); letter-spacing:1px}
-  .sub{color:var(--muted); font-size:13px; margin-bottom:14px}
-  .card{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:18px 20px}
-  .pos{color:var(--good); font-weight:600}
-  .neg{color:var(--bad-text); font-weight:600}
+  h2{font-family:var(--f-display); font-size:25px; font-weight:700; letter-spacing:0; text-transform:none;
+     margin:30px 0 4px; padding-top:10px; border-top:1px solid var(--ink)}
+  .rc-title{font-family:var(--f-display); letter-spacing:0}
+  .ledger h3, .tree-title{font-family:var(--f-body); letter-spacing:1px}
+  .sub{color:var(--ink-2); font-size:13px; margin-bottom:14px}
+  .card{background:var(--surface); border:1px solid var(--border); border-radius:2px; padding:18px 20px;
+    box-shadow:inset 3px 0 0 -1px rgba(157,48,37,0.35)}
+  :root[data-theme="dark"] .card{box-shadow:inset 3px 0 0 -1px rgba(192,83,72,0.4)}
+  .pos{color:var(--good); font-weight:700}
+  .neg{color:var(--bad-text); font-weight:700}
   .grade{
     display:inline-block; min-width:34px; text-align:center; font-weight:700; font-size:12.5px;
-    border-radius:6px; padding:3px 6px; font-variant-numeric:tabular-nums;
+    border-radius:2px; padding:3px 6px; font-variant-numeric:tabular-nums; border:1px solid currentColor;
   }
-  .g80{background:#0d3d0d; color:#7be07b} .g70{background:#0d3d0d; color:#7be07b}
-  .g60{background:#1a3d1a; color:#9ad69a} .g55{background:#2e3522; color:#cfd6a0}
-  .g50{background:#353229; color:var(--ink-2)} .g45{background:#3d2f22; color:#e0b98a}
-  .g40{background:#3d2622; color:#e89a8a} .g30{background:#451111; color:#f0908f}
-  :root[data-theme="light"] .g80, :root[data-theme="light"] .g70{background:#d8efd8; color:#0a5c0a}
-  :root[data-theme="light"] .g60{background:#e2f0e2; color:#2d6b2d}
-  :root[data-theme="light"] .g55{background:#ecefd8; color:#5c6b1f}
-  :root[data-theme="light"] .g50{background:#efeee9; color:#52514e}
-  :root[data-theme="light"] .g45{background:#f3e9da; color:#8a5a1f}
-  :root[data-theme="light"] .g40{background:#f5e2dc; color:#a33c2a}
-  :root[data-theme="light"] .g30{background:#f7d9d9; color:#a31f1f}
+  .g80, .g70{background:#dcead9; color:#19502e} .g60{background:#e4ecda; color:#33611f}
+  .g55{background:#ece9d0; color:#5c5a14} .g50{background:#eae4d2; color:#4c4435}
+  .g45{background:#eeddc4; color:#7c4d12} .g40{background:#eed4c6; color:#93321e}
+  .g30{background:#eec7bf; color:#8f1d14}
+  :root[data-theme="dark"] .g80, :root[data-theme="dark"] .g70{background:#20341f; color:#8fd09a}
+  :root[data-theme="dark"] .g60{background:#28341c; color:#aed08f}
+  :root[data-theme="dark"] .g55{background:#343317; color:#d0cd8f}
+  :root[data-theme="dark"] .g50{background:#312d20; color:#c7bda5}
+  :root[data-theme="dark"] .g45{background:#3a2d16; color:#d8ae76}
+  :root[data-theme="dark"] .g40{background:#3d241a; color:#e09a82}
+  :root[data-theme="dark"] .g30{background:#431a14; color:#eb8f85}
 
   table{width:100%; border-collapse:collapse}
-  th{font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:var(--muted);
-     text-align:left; font-weight:600; padding:8px 10px; border-bottom:1px solid var(--baseline)}
-  td{padding:9px 10px; border-bottom:1px solid var(--grid); font-variant-numeric:tabular-nums}
-  tr:last-child td{border-bottom:none}
+  th{font-size:10.5px; text-transform:uppercase; letter-spacing:1.2px; color:var(--ink-2);
+     text-align:left; font-weight:700; padding:8px 10px; border-bottom:3px double var(--ink); font-family:var(--f-body)}
+  td{padding:8px 10px; border-bottom:1px solid var(--grid); font-variant-numeric:tabular-nums}
+  td:first-child{border-right:1px solid rgba(157,48,37,0.3)}
+  :root[data-theme="dark"] td:first-child{border-right-color:rgba(192,83,72,0.35)}
+  th:first-child{border-right:1px solid transparent}
+  tr:last-child td{border-bottom:1px solid var(--baseline)}
   th.num, td.num{text-align:right}
 
   /* ---------- leaderboard ---------- */
   .filters{display:flex; gap:10px; align-items:center; margin:18px 0 14px; flex-wrap:wrap}
-  .filters label{color:var(--muted); font-size:12.5px}
-  select{
-    background:var(--surface-2); color:var(--ink); border:1px solid var(--border);
-    border-radius:8px; padding:7px 10px; font:inherit; cursor:pointer;
+  .filters label{color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:1px; font-weight:700}
+  select, input[list]{
+    background:var(--surface); color:var(--ink); border:1px solid var(--border);
+    border-radius:2px; padding:7px 10px; font:inherit; cursor:pointer;
   }
   #lb tbody tr{cursor:pointer}
   #lb tbody tr:hover td{background:var(--surface-2)}
   .execcell{display:flex; flex-direction:column}
-  .execcell .nm{font-weight:600}
+  .execcell .nm{font-weight:700}
   .execcell .tm{color:var(--muted); font-size:12px}
   .rk{color:var(--muted); width:30px}
-  .badge-ss{font-size:10px; color:var(--s4); border:1px solid var(--s4); border-radius:4px;
-    padding:0 5px; margin-left:6px; vertical-align:1px; letter-spacing:0.3px}
-  .badge-real{font-size:10px; font-weight:700; color:var(--s3); border:1px solid var(--s3); border-radius:4px;
-    padding:0 5px; margin-left:6px; vertical-align:1px; letter-spacing:0.4px}
+  .badge-ss{font-size:10px; color:var(--s4); border:1px solid var(--s4); border-radius:2px;
+    padding:0 5px; margin-left:6px; vertical-align:1px; letter-spacing:0.3px; font-family:var(--f-body)}
+  .badge-real{font-size:10px; font-weight:700; color:var(--s3); border:1px solid var(--s3); border-radius:2px;
+    padding:0 5px; margin-left:6px; vertical-align:1px; letter-spacing:0.4px; font-family:var(--f-body)}
   .ring{font-size:11px; color:var(--muted)}
   .divbar{display:block}
 
   /* ---------- report card ---------- */
   .rc-head{display:flex; justify-content:space-between; align-items:flex-end; gap:16px; flex-wrap:wrap; margin-top:24px}
-  .rc-title{font-size:24px; font-weight:700}
+  .rc-title{font-size:26px; font-weight:700}
   .rc-meta{color:var(--muted); font-size:13px; margin-top:2px}
   .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin:18px 0}
-  .tile .lbl{font-size:12px; color:var(--muted); margin-bottom:6px}
-  .tile .val{font-size:34px; font-weight:600; letter-spacing:-0.5px; line-height:1.1}
+  .tile{border-top:3px double var(--ink)}
+  .tile .lbl{font-size:10.5px; color:var(--ink-2); margin-bottom:6px; text-transform:uppercase; letter-spacing:1.2px; font-weight:700; font-family:var(--f-body)}
+  .tile .val{font-size:32px; font-weight:600; letter-spacing:-0.5px; line-height:1.1}
   .tile .dlt{font-size:12.5px; margin-top:6px; color:var(--ink-2)}
   .charts{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px}
   @media (max-width:900px){.charts{grid-template-columns:1fr}}
-  .chart-title{font-size:13px; font-weight:600; margin-bottom:2px}
+  .chart-title{font-size:13.5px; font-weight:700; margin-bottom:2px}
   .chart-sub{font-size:12px; color:var(--muted); margin-bottom:10px}
   .legend{display:flex; gap:14px; flex-wrap:wrap; font-size:12px; color:var(--ink-2); margin-top:8px}
   .legend .key{display:inline-flex; align-items:center; gap:6px}
-  .swatch{width:10px; height:10px; border-radius:3px; display:inline-block}
+  .swatch{width:10px; height:10px; border-radius:2px; display:inline-block}
   .ledgers{display:grid; grid-template-columns:1fr 1fr; gap:14px}
   @media (max-width:900px){.ledgers{grid-template-columns:1fr}}
-  .ledger h3{font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--ink-2); margin-bottom:8px}
+  .ledger h3{font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.4px; color:var(--ink-2); margin-bottom:8px}
   .ledger tbody tr{cursor:pointer}
   .ledger tbody tr:hover td{background:var(--surface-2)}
   .ttype{font-size:11px; color:var(--muted)}
 
-  /* ---------- mobile pass (v1.8) ---------- */
+  /* ---------- mobile ---------- */
   .lb-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch}
   @media (max-width:760px){
     body{font-size:14px}
-    header h1{font-size:22px}
-    nav{flex-wrap:wrap; gap:2px}
-    nav button{padding:8px 10px; font-size:12px}
+    .brand{font-size:24px}
+    nav{flex-wrap:wrap}
+    nav button{padding:8px 9px; font-size:10.5px; letter-spacing:1px}
     section{padding:14px 12px}
     .controls{flex-wrap:wrap; gap:8px}
     .tiles{grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px}
@@ -167,18 +181,18 @@
     .rc-title{font-size:20px}
   }
 
-  /* ---------- open/closed chips ---------- */
-  .chip{display:inline-block; font-size:9.5px; font-weight:700; letter-spacing:0.5px;
-    border-radius:4px; padding:1px 6px; margin-left:6px; vertical-align:1px}
+  /* ---------- chips ---------- */
+  .chip{display:inline-block; font-size:9.5px; font-weight:700; letter-spacing:0.8px;
+    border-radius:2px; padding:1px 6px; margin-left:6px; vertical-align:1px; font-family:var(--f-body)}
   .chip-open{color:var(--s4); border:1px solid var(--s4)}
   .chip-closed{color:var(--muted); border:1px solid var(--baseline)}
 
-  /* ---------- lens matrix (in modal) ---------- */
-  .lens-box{margin-top:14px; border:1px solid var(--border); border-radius:8px; overflow:hidden}
+  /* ---------- lens matrix ---------- */
+  .lens-box{margin-top:14px; border:1px solid var(--border); border-radius:2px; overflow:hidden}
   .lens-row{display:grid; grid-template-columns:1fr 150px 76px; gap:10px; align-items:center;
     padding:9px 12px; border-top:1px solid var(--grid)}
-  .lens-row.hd{background:var(--surface-2); border-top:none; font-size:11px; text-transform:uppercase;
-    letter-spacing:0.5px; color:var(--muted); font-weight:600; padding:7px 12px}
+  .lens-row.hd{background:var(--surface-2); border-top:none; font-size:10.5px; text-transform:uppercase;
+    letter-spacing:1.2px; color:var(--ink-2); font-weight:700; padding:7px 12px; font-family:var(--f-body)}
   .lens-name{font-weight:700; color:var(--ink); font-size:12.5px}
   .lens-desc{color:var(--muted); font-size:11.5px; font-weight:400; margin-top:2px}
   .lens-verdict{font-family:var(--f-mono); font-weight:700; font-size:12.5px}
@@ -188,9 +202,9 @@
   .tree-title{font-size:14px; font-weight:700; margin-bottom:2px}
   .tree-sub{font-size:12px; color:var(--muted); margin-bottom:12px}
   .tnode{position:relative; padding:3px 0}
-  .tbranch{margin-left:14px; border-left:1px solid var(--grid); padding-left:18px; margin-top:2px}
+  .tbranch{margin-left:14px; border-left:1px solid var(--baseline); padding-left:18px; margin-top:2px}
   .tcard{display:inline-flex; align-items:center; gap:8px; background:var(--surface-2);
-    border:1px solid var(--border); border-radius:8px; padding:6px 11px; font-size:12.5px}
+    border:1px solid var(--border); border-radius:2px; padding:6px 11px; font-size:12.5px}
   .tcard.outflow{background:transparent; border-style:dashed}
   .tcard .nm{font-weight:600}
   .tcard .wv{font-variant-numeric:tabular-nums; font-weight:700}
@@ -199,48 +213,49 @@
   .tree-legend{display:flex; gap:16px; font-size:11.5px; color:var(--muted); margin-top:10px; flex-wrap:wrap}
 
   /* ---------- champions ---------- */
-  .mixbar{display:flex; gap:2px; height:26px; border-radius:6px; overflow:hidden; margin:6px 0 10px}
+  .mixbar{display:flex; gap:2px; height:26px; border-radius:2px; overflow:hidden; margin:6px 0 10px}
   .mixseg{height:100%}
   .champ-story{font-size:13px; color:var(--ink-2); background:var(--surface-2);
-    border-left:3px solid var(--s1); border-radius:0 6px 6px 0; padding:10px 14px; margin:14px 0}
+    border-left:3px solid var(--margin); border-radius:0; padding:10px 14px; margin:14px 0; font-style:italic}
   .chip-reg{color:var(--s3); border:1px solid var(--s3)}
   .chip-inh{color:var(--muted); border:1px solid var(--baseline)}
   .chip-tra{color:var(--s4); border:1px solid var(--s4)}
 
   /* ---------- decision modal ---------- */
-  .overlay{position:fixed; inset:0; background:rgba(0,0,0,0.6); display:none;
+  .overlay{position:fixed; inset:0; background:rgba(26,20,10,0.55); display:none;
     align-items:flex-start; justify-content:center; padding:60px 20px; z-index:50; overflow:auto}
   .overlay.on{display:flex}
-  .modal{background:var(--surface); border:1px solid var(--border); border-radius:12px;
-    max-width:760px; width:100%; padding:24px 26px; position:relative}
+  .modal{background:var(--surface); border:1px solid var(--ink); border-radius:2px;
+    max-width:760px; width:100%; padding:24px 26px; position:relative;
+    box-shadow:0 10px 40px rgba(26,20,10,0.35)}
   .modal .x{position:absolute; top:12px; right:14px; background:none; border:none;
     color:var(--muted); font-size:20px; cursor:pointer}
   .modal .x:hover{color:var(--ink)}
-  .m-type{font-size:11px; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted)}
-  .m-title{font-size:19px; font-weight:700; margin:4px 0 2px}
+  .m-type{font-size:10.5px; text-transform:uppercase; letter-spacing:1.4px; color:var(--ink-2); font-weight:700; font-family:var(--f-body)}
+  .m-title{font-size:20px; font-weight:700; margin:4px 0 2px; font-family:var(--f-display)}
   .m-date{color:var(--muted); font-size:13px; margin-bottom:14px}
   .sides{display:grid; grid-template-columns:1fr 1fr; gap:12px}
   @media (max-width:640px){.sides{grid-template-columns:1fr}}
-  .side{background:var(--surface-2); border-radius:8px; padding:12px 14px}
-  .side .dir{font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:var(--muted); margin-bottom:8px}
+  .side{background:var(--surface-2); border-radius:2px; padding:12px 14px; border:1px solid var(--grid)}
+  .side .dir{font-size:10.5px; text-transform:uppercase; letter-spacing:1.2px; color:var(--ink-2); margin-bottom:8px; font-weight:700; font-family:var(--f-body)}
   .asset{display:flex; justify-content:space-between; gap:10px; padding:5px 0; border-bottom:1px solid var(--grid); font-size:13px}
   .asset:last-child{border-bottom:none}
   .m-net{margin-top:14px; font-size:15px}
   .m-note{margin-top:12px; font-size:13px; color:var(--ink-2); background:var(--surface-2);
-    border-left:3px solid var(--s1); border-radius:0 6px 6px 0; padding:10px 12px}
+    border-left:3px solid var(--margin); border-radius:0; padding:10px 12px; font-style:italic}
 
   /* ---------- methodology ---------- */
   .prose{max-width:760px}
   .prose p{margin:12px 0; color:var(--ink-2)}
   .prose strong{color:var(--ink)}
-  .prose h3{margin-top:22px; font-size:15px}
+  .prose h3{margin-top:22px; font-size:16px; font-family:var(--f-display)}
 
   /* ---------- tooltip ---------- */
-  #tip{position:fixed; pointer-events:none; background:var(--surface-2); border:1px solid var(--border);
-    border-radius:8px; padding:8px 11px; font-size:12.5px; display:none; z-index:99;
-    box-shadow:0 6px 20px rgba(0,0,0,0.5); font-variant-numeric:tabular-nums}
+  #tip{position:fixed; pointer-events:none; background:var(--surface); border:1px solid var(--ink);
+    border-radius:2px; padding:8px 11px; font-size:12.5px; display:none; z-index:99;
+    box-shadow:3px 3px 0 rgba(33,28,19,0.18); font-variant-numeric:tabular-nums}
   #tip .t1{color:var(--muted); font-size:11px}
-  footer{color:var(--muted); font-size:12px; margin-top:48px; border-top:1px solid var(--grid); padding-top:16px}
+  footer{color:var(--muted); font-size:12px; margin-top:48px; border-top:4px double var(--ink); padding-top:16px}
 </style>
 </head>
 <body>
@@ -248,9 +263,9 @@
 <header>
   <div class="hd">
     <div class="brandrow">
-      <div class="brand">FRONT OFFICE <span class="ledger">LEDGER</span></div>
+      <div class="brand"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"> <defs> <clipPath id="ball"><circle cx="32" cy="32" r="26"/></clipPath> </defs> <circle cx="32" cy="32" r="26" fill="#faf6ec"/> <g clip-path="url(#ball)" stroke="#9db6cc" stroke-width="1.4"> <line x1="4" y1="18" x2="60" y2="18"/> <line x1="4" y1="25" x2="60" y2="25"/> <line x1="4" y1="32" x2="60" y2="32"/> <line x1="4" y1="39" x2="60" y2="39"/> <line x1="4" y1="46" x2="60" y2="46"/> </g> <g clip-path="url(#ball)" fill="none" stroke="#9d3025" stroke-width="2.6" stroke-linecap="round"> <path d="M 13 7 C 24 20, 24 44, 13 57"/> <path d="M 51 7 C 40 20, 40 44, 51 57"/> </g> <g clip-path="url(#ball)" stroke="#9d3025" stroke-width="1.7" stroke-linecap="round"> <line x1="17.1" y1="15.5" x2="22.1" y2="13.1"/> <line x1="19.6" y1="23.5" x2="25.0" y2="22.1"/> <line x1="20.4" y1="32.0" x2="25.9" y2="32.0"/> <line x1="19.6" y1="40.5" x2="25.0" y2="41.9"/> <line x1="17.1" y1="48.5" x2="22.1" y2="50.9"/> <line x1="46.9" y1="15.5" x2="41.9" y2="13.1"/> <line x1="44.4" y1="23.5" x2="39.0" y2="22.1"/> <line x1="43.6" y1="32.0" x2="38.1" y2="32.0"/> <line x1="44.4" y1="40.5" x2="39.0" y2="41.9"/> <line x1="46.9" y1="48.5" x2="41.9" y2="50.9"/> </g> <circle cx="32" cy="32" r="26" fill="none" stroke="#1d1a14" stroke-width="2.6"/> </svg><span>FRONT OFFICE <span class="ledger">LEDGER</span></span></div>
       <span class="sample-chip">Beta · computed from the live MLB Stats API</span>
-      <button id="themebtn" aria-label="Toggle theme">◐ Light</button>
+      <button id="themebtn" aria-label="Toggle theme">Night desk</button>
     </div>
     <div class="tagline">Every draft pick, trade, signing, and waiver claim, graded against expectation and attributed to the regime that made it.</div>
     <nav>
@@ -524,7 +539,7 @@
     </div>
   </section>
 
-  <footer>Front Office Ledger · built by Sean Zerillo · prototype v4.0 · data through October 30, 2026 · GM Mode v2 (the winter as it actually flows: QO and arb decisions, the exclusive re-sign window, then the open market; offer/counter negotiations against deterministic player camps; a pre-filled 2027 depth chart with hole detection and market hints; a printable winter memo) · continuity lens on championship cards (where the winning exec held the chair directly below before promotion: the 1998 Yankees read 7% Cashman-built by final authority and 87% with him in the assistant GM chair; 2023 TEX 15%/76%; 2026 MIL 43%/69%) (2026 World Series final: Milwaukee, the 29th championship ledger) · GM Mode (run your club's real 2026-27 winter: actual FA class and arb inbox, calibrated Ledger offers, market-rule trade board, live payroll/CBT, graded report card with projected 2027 record and historical comp winters) · contract comps hardened (same player type only, position-group matching, era-adjusted dollars shown on every comp) · extension-book coverage audit (10 missing long-term deals incl Lindor, Devers, Trout restored; FA class and payrolls corrected) · Scenario Room (sit in the seat on real archive decision points: accept/reject/counter with deterministic market adjudication; process graded on at-the-time reads, outcome on the archive) · value-cache completeness audit (133 missing career-one-club players found and restored at v1.5; accounting validation r 0.853 to 0.864; Perez back on the 2015 title core) · durability factor on Desk projections (recent playing time, validated on 2026) · arb/pre-arb salary estimates in the payroll layer (25/40/60% of projected market value by arb year; 61 major extensions joined to the contract book at CBT values) · draft room mode (pick packages on the slot curve, single-pick equivalents) · Deal Desk suggested terms (calibrated Ledger offer, backtested winter-by-winter on 1,224 real signings 2010-2025: MAE 0.8 yrs / $3.6M AAV; market-comp and model-fair components disclosed; 1,616-contract comp book with realized outcomes) · payroll layer (book-committed dollars per club 2027-2031, CBT proximity on every signing verdict) · Horizon tab (every roster walked forward on the aging curves through 2031, control from feed + contract book, who falls off when; trade verdicts show the horizon delta) · one-page deal memo export on every Desk verdict · settled/unsettled status on every tree and modal · archive floor extended to 1998 (110 past regimes; full Beane, Sabean, Cashman windows; parks to 1996; drafts backfilled 1998-2004) · 28 championship ledgers 1998-2025 with the era through-line (median title core 48% self-built 1998-2009, 90% 2010-2025) · validation v2 (574 pooled regime-years, cluster-bootstrap CI, grouped out-of-sample CV) · comps v2 (matched on control bucket + buyer posture) · Ledger Projection v1 (self-built aging curves + Marcel-style forecasts; projected final verdicts on every open deal, disclosed overlay, backtested r ~0.64) · Deal Desk (propose any trade, signing, or extension: projected value, market-rate check with bust rates, nearest real comps, counterparty intel) · Retrosheet transaction backfill 1998-2008 (the API feed is empty pre-2009; found and fixed, disclosed in Methodology) · computed championship provenance for all 21 titles 2005-2025 with cross-title through lines · trade market comps on every graded deal (nearest deals by size and phase, 5,764-deal archive) (full 2026 regular season; 2026 postseason in progress, Success grades will move with it) · Ledger WAR v1.5 (park factors: home/away run environments, 3-yr rolling, halved for the road split) · Archive era: 71 past regimes 2005-2024 scored by the same engine over their actual windows (Era filter on the leaderboard; full report cards and transaction trees) · Retention v2 (expectation-conditioned departures + QO comp credit, now in the FOR composite) · methodology v0.4 (controlled-years deadline market: 1,372 deals; sellers buy future wins at ~a third the price of present ones) · validation + predictive studies in Methodology · Head to Head tab (trade records between sitting regimes, most lopsided relationships) · Org DNA tab (plain-language columns) (arms/bats splits, mover deltas incl. hitting, retention leakage, injury profiles, draft-room fingerprints, buy-low rates, regime comps, head-to-head trade records) · Regime DNA (archetype tags, arms/bats channel splits, mover development deltas) · Ledger WAR v1 (defense via SABR Defensive Index where published, Statcast fielding runs + catcher framing elsewhere, Statcast baserunning; pre-2014 seasons remain bat-only, disclosed) · process-vs-outcome verdicts on trades · transaction trees auto-generated for all 30 regimes · decision chains as inline trees (each piece's next move on this regime's ledger, expandable in place) · at-the-time snapshots (contemporaneous Pipeline ranks) · comprehensive per-channel card ledgers · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · all leaderboard and card values, active and archive, computed end-to-end from the live feed; curated decision pages on the Dodgers, Orioles, and Brewers cards are hand-verified. Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
+  <footer>Front Office Ledger · built by Sean Zerillo · prototype v4.1 · data through October 30, 2026 · the paper ledger redesign (cream stock, serif masthead, feint rules and the red margin line, scorebook grade stamps; Night desk toggle keeps the dark room) · the ruled-baseball mark · GM Mode v2 (the winter as it actually flows: QO and arb decisions, the exclusive re-sign window, then the open market; offer/counter negotiations against deterministic player camps; a pre-filled 2027 depth chart with hole detection and market hints; a printable winter memo) · continuity lens on championship cards (where the winning exec held the chair directly below before promotion: the 1998 Yankees read 7% Cashman-built by final authority and 87% with him in the assistant GM chair; 2023 TEX 15%/76%; 2026 MIL 43%/69%) (2026 World Series final: Milwaukee, the 29th championship ledger) · GM Mode (run your club's real 2026-27 winter: actual FA class and arb inbox, calibrated Ledger offers, market-rule trade board, live payroll/CBT, graded report card with projected 2027 record and historical comp winters) · contract comps hardened (same player type only, position-group matching, era-adjusted dollars shown on every comp) · extension-book coverage audit (10 missing long-term deals incl Lindor, Devers, Trout restored; FA class and payrolls corrected) · Scenario Room (sit in the seat on real archive decision points: accept/reject/counter with deterministic market adjudication; process graded on at-the-time reads, outcome on the archive) · value-cache completeness audit (133 missing career-one-club players found and restored at v1.5; accounting validation r 0.853 to 0.864; Perez back on the 2015 title core) · durability factor on Desk projections (recent playing time, validated on 2026) · arb/pre-arb salary estimates in the payroll layer (25/40/60% of projected market value by arb year; 61 major extensions joined to the contract book at CBT values) · draft room mode (pick packages on the slot curve, single-pick equivalents) · Deal Desk suggested terms (calibrated Ledger offer, backtested winter-by-winter on 1,224 real signings 2010-2025: MAE 0.8 yrs / $3.6M AAV; market-comp and model-fair components disclosed; 1,616-contract comp book with realized outcomes) · payroll layer (book-committed dollars per club 2027-2031, CBT proximity on every signing verdict) · Horizon tab (every roster walked forward on the aging curves through 2031, control from feed + contract book, who falls off when; trade verdicts show the horizon delta) · one-page deal memo export on every Desk verdict · settled/unsettled status on every tree and modal · archive floor extended to 1998 (110 past regimes; full Beane, Sabean, Cashman windows; parks to 1996; drafts backfilled 1998-2004) · 28 championship ledgers 1998-2025 with the era through-line (median title core 48% self-built 1998-2009, 90% 2010-2025) · validation v2 (574 pooled regime-years, cluster-bootstrap CI, grouped out-of-sample CV) · comps v2 (matched on control bucket + buyer posture) · Ledger Projection v1 (self-built aging curves + Marcel-style forecasts; projected final verdicts on every open deal, disclosed overlay, backtested r ~0.64) · Deal Desk (propose any trade, signing, or extension: projected value, market-rate check with bust rates, nearest real comps, counterparty intel) · Retrosheet transaction backfill 1998-2008 (the API feed is empty pre-2009; found and fixed, disclosed in Methodology) · computed championship provenance for all 21 titles 2005-2025 with cross-title through lines · trade market comps on every graded deal (nearest deals by size and phase, 5,764-deal archive) (full 2026 regular season; 2026 postseason in progress, Success grades will move with it) · Ledger WAR v1.5 (park factors: home/away run environments, 3-yr rolling, halved for the road split) · Archive era: 71 past regimes 2005-2024 scored by the same engine over their actual windows (Era filter on the leaderboard; full report cards and transaction trees) · Retention v2 (expectation-conditioned departures + QO comp credit, now in the FOR composite) · methodology v0.4 (controlled-years deadline market: 1,372 deals; sellers buy future wins at ~a third the price of present ones) · validation + predictive studies in Methodology · Head to Head tab (trade records between sitting regimes, most lopsided relationships) · Org DNA tab (plain-language columns) (arms/bats splits, mover deltas incl. hitting, retention leakage, injury profiles, draft-room fingerprints, buy-low rates, regime comps, head-to-head trade records) · Regime DNA (archetype tags, arms/bats channel splits, mover development deltas) · Ledger WAR v1 (defense via SABR Defensive Index where published, Statcast fielding runs + catcher framing elsewhere, Statcast baserunning; pre-2014 seasons remain bat-only, disclosed) · process-vs-outcome verdicts on trades · transaction trees auto-generated for all 30 regimes · decision chains as inline trees (each piece's next move on this regime's ledger, expandable in place) · at-the-time snapshots (contemporaneous Pipeline ranks) · comprehensive per-channel card ledgers · methodology v0.3 (empirical rental market: 237 classified deadline rentals; star rental win costs ~0.8 realized wins) · sweep v2 (control windows, leverage, discounting, postseason detail) · extensions channel · DEV pillar (Pipeline top-100 archive 2011-2026, 1,548 rank-rows) · FA graded · methodology v0.2 (win-curve leverage, time discounting, retention rights, net-of-cost contracts) · all leaderboard and card values, active and archive, computed end-to-end from the live feed; curated decision pages on the Dodgers, Orioles, and Brewers cards are hand-verified. Concept: decision-level accounting of front-office performance, inspired by OOTP's Decision History.</footer>
 </div>
 
 <!-- decision modal -->
@@ -173032,9 +173047,9 @@ champsel.addEventListener('change', ()=>renderChamp(champsel.value));
 const themebtn = document.getElementById('themebtn');
 themebtn.addEventListener('click', ()=>{
   const root = document.documentElement;
-  const light = root.dataset.theme !== 'light';
-  root.dataset.theme = light ? 'light' : 'dark';
-  themebtn.textContent = light ? '◑ Dark' : '◐ Light';
+  const dark = root.dataset.theme !== 'dark';
+  root.dataset.theme = dark ? 'dark' : 'light';
+  themebtn.textContent = dark ? 'Day desk' : 'Night desk';
 });
 
 /* init */
