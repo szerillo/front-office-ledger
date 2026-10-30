@@ -31,7 +31,7 @@ for yr in range(2011, 2027):
     print(yr, len(d), "rows; no1:", out[-len(d)]["name"] if d else "-")
     time.sleep(2)
 
-json.dump(out, open("/home/claude/prospect_ranks.json", "w"), indent=0)
+json.dump(out, open("/work/prospect_ranks.json", "w"), indent=0)
 print("\ntotal rows:", len(out))
 missing = [r for r in out if not r["pid"]]
 print("rows missing pid:", len(missing))

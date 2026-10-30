@@ -1,8 +1,8 @@
 """Splice sweep_results.json into the prototype as AUTO_REGIMES."""
 import json
 
-P = "/home/claude/front-office-ledger-prototype.html"
-res = json.load(open("/home/claude/sweep_results.json"))
+P = "/work/front-office-ledger-prototype.html"
+res = json.load(open("/work/sweep_results.json"))
 s = open(P).read()
 
 CH_LABEL = {"trade": "Trade", "draft": "Draft pick vs. slot", "waiver": "Waiver / Rule 5"}

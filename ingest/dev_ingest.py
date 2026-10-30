@@ -14,7 +14,7 @@ def get(url, tries=4):
     return {}
 
 API = "https://statsapi.mlb.com/api/v1"
-ranks = json.load(open("/home/claude/prospect_ranks.json"))
+ranks = json.load(open("/work/prospect_ranks.json"))
 pids = sorted({r["pid"] for r in ranks})
 print(f"distinct ranked players: {len(pids)}", flush=True)
 
@@ -50,7 +50,7 @@ for i, pid in enumerate(pids):
     if (i+1) % 50 == 0:
         el = time.time() - t0
         print(f"{i+1}/{len(pids)} players, {el:.0f}s elapsed, eta {el/(i+1)*(len(pids)-i-1):.0f}s", flush=True)
-        json.dump(out, open("/home/claude/prospect_orgs.json", "w"))
+        json.dump(out, open("/work/prospect_orgs.json", "w"))
 
 # 3. debut dates + names in batches
 for i in range(0, len(pids), 100):
@@ -61,5 +61,5 @@ for i in range(0, len(pids), 100):
         rec["debut"] = p.get("mlbDebutDate")
         rec["name"] = p.get("fullName")
 
-json.dump(out, open("/home/claude/prospect_orgs.json", "w"))
+json.dump(out, open("/work/prospect_orgs.json", "w"))
 print("saved prospect_orgs.json:", len(out), "players", flush=True)

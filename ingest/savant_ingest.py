@@ -51,6 +51,6 @@ for yr in range(2016, 2027):
     print(f"{yr} baserunning rows: {len(rows)}", flush=True)
     time.sleep(0.8)
 
-json.dump(OUT, open("/home/claude/savant_runs.json", "w"))
+json.dump(OUT, open("/work/savant_runs.json", "w"))
 n_py = sum(len(v) for v in OUT.values())
 print(f"\nsaved savant_runs.json: {len(OUT)} players, {n_py} player-seasons")

@@ -33,7 +33,7 @@ def find(*cands):
 
 TRAN = "/tmp/retro/tran.txt"
 if not os.path.exists(TRAN):
-    z = find("/home/claude/repo/data/retrosheet_tranDB.zip", "retrosheet_tranDB.zip",
+    z = find("/work/repo/data/retrosheet_tranDB.zip", "retrosheet_tranDB.zip",
              "front-office-ledger/data/retrosheet_tranDB.zip")
     os.makedirs("/tmp/retro", exist_ok=True)
     zipfile.ZipFile(z).extractall("/tmp/retro")
@@ -69,11 +69,11 @@ def era_name(code, year):
 # built from github.com/chadwickbureau/register people shards), with the
 # project's crosswalk.csv as a fallback.
 RET2MLB, RETNAME = {}, {}
-for row in csv.DictReader(open(find("/home/claude/repo/data/crosswalk.csv", "crosswalk.csv", "front-office-ledger/data/crosswalk.csv"))):
+for row in csv.DictReader(open(find("/work/repo/data/crosswalk.csv", "crosswalk.csv", "front-office-ledger/data/crosswalk.csv"))):
     if row.get("retro") and row.get("mlbam"):
         RET2MLB[row["retro"]] = row["mlbam"]
         RETNAME[row["retro"]] = row["name"]
-for r, (mm, nm) in json.load(open(find("/home/claude/retro2mlbam.json", "retro2mlbam.json", "front-office-ledger/data/retro2mlbam.json"))).items():
+for r, (mm, nm) in json.load(open(find("/work/retro2mlbam.json", "retro2mlbam.json", "front-office-ledger/data/retro2mlbam.json"))).items():
     RET2MLB[r] = mm
     RETNAME.setdefault(r, nm)
 
@@ -108,7 +108,7 @@ for raw in open(TRAN, encoding="latin-1"):
     n_raw += 1
 print(f"retro rows mapped: {n_raw} in {len(deals)} transactions")
 
-con = sqlite3.connect("/home/claude/ledger.sqlite")
+con = sqlite3.connect("/work/ledger.sqlite")
 con.execute("delete from sweep_tx where tx_id like 'retro-%'")
 ins = 0
 for (txid, ttype), rows in deals.items():

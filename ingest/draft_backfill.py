@@ -9,7 +9,7 @@ def get(u, tries=3):
         except Exception: time.sleep(2 + 2*a)
     return {}
 
-con = sqlite3.connect("/home/claude/ledger.sqlite")
+con = sqlite3.connect("/work/ledger.sqlite")
 con.execute("delete from draft_picks where cast(year as int) between 1998 and 2004")
 tot = 0
 for yr in range(1998, 2005):

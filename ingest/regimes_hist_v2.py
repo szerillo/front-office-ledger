@@ -7,7 +7,7 @@ active window extends to his real 1998-02 seat, and team 120 gains the
 Montreal Expos alias so Expos-era value rows join."""
 import json
 
-h = json.load(open("/home/claude/regimes_hist.json"))
+h = json.load(open("/work/regimes_hist.json"))
 FLOOR = "1998-01-01"
 
 def ts_to_date(ts):
@@ -101,11 +101,11 @@ h["comment"] = ("Historical regimes, 1998-2024. Transaction floor 1998-01-01 "
                 "provenance only). Regimes seated before 1998 are truncated and "
                 "flagged with their true start. Dates are month-precise; 'approx' "
                 "marks records where the exact day is uncertain.")
-json.dump(h, open("/home/claude/regimes_hist.json", "w"), indent=1)
+json.dump(h, open("/work/regimes_hist.json", "w"), indent=1)
 print(f"regimes_hist: {len(h['regimes'])} records")
 
 # 2) regimes.json: Cashman true window + Expos alias
-cfg = json.load(open("/home/claude/regimes.json"))
+cfg = json.load(open("/work/regimes.json"))
 for r in cfg["regimes"]:
     if r["abbr"] == "NYY" and "Cashman" in r["exec"]:
         r["start"] = "1998-02-03"
@@ -115,5 +115,5 @@ if "Montreal Expos" not in cfg["aliases"]["120"]:
     cfg["aliases"]["120"].append("Montreal Expos")
 if "Washington Nationals" not in cfg["aliases"]["120"]:
     cfg["aliases"]["120"].insert(0, "Washington Nationals")
-json.dump(cfg, open("/home/claude/regimes.json", "w"), indent=1)
+json.dump(cfg, open("/work/regimes.json", "w"), indent=1)
 print("regimes.json: Cashman 1998-02-03; Expos alias added")

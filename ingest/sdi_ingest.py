@@ -11,15 +11,15 @@ Output: sdi_runs.json {pid: {year: sdi}}
 import json, re, sqlite3, time, urllib.request
 from fa_grade_lib import norm
 
-cfg = json.load(open("/home/claude/regimes.json"))
+cfg = json.load(open("/work/regimes.json"))
 AB2NAMES = {}
 for r in cfg["regimes"]:
     AB2NAMES[r["abbr"]] = set([r["team"]]) | set(cfg["aliases"].get(str(r["teamId"]), []))
 # common alternate abbrs used by SABR
 ALT = {"WAS": "WSH", "KCR": "KC", "SDP": "SD", "SFG": "SF", "TBR": "TB", "CHW": "CWS", "OAK": "ATH", "ANA": "LAA"}
 
-LVM = json.load(open("/home/claude/lvm_cache.json"))
-con = sqlite3.connect("/home/claude/ledger.sqlite")
+LVM = json.load(open("/work/lvm_cache.json"))
+con = sqlite3.connect("/work/ledger.sqlite")
 NAME2PIDS = {}
 for pid, rec in LVM.items():
     NAME2PIDS.setdefault(norm(rec.get("name", "")), []).append(pid)
@@ -70,6 +70,6 @@ for yr in range(2014, 2026):
     print(f"{yr}: {n} player rows", flush=True)
     time.sleep(0.8)
 
-json.dump(OUT, open("/home/claude/sdi_runs.json", "w"))
+json.dump(OUT, open("/work/sdi_runs.json", "w"))
 print(f"\nsaved sdi_runs.json: {len(OUT)} players, "
       f"{sum(len(v) for v in OUT.values())} player-seasons, {misses} unresolved names")

@@ -5,8 +5,8 @@ container reclaim (original regen lived outside the repo; lesson learned,
 this one ships in ingest/)."""
 import json, sqlite3
 
-P = "/home/claude/front-office-ledger-prototype.html"
-res = json.load(open("/home/claude/sweep_results.json"))
+P = "/work/front-office-ledger-prototype.html"
+res = json.load(open("/work/sweep_results.json"))
 s = open(P).read()
 
 CH_LABEL = {"trade": "Trade", "draft": "Draft pick vs. slot",
@@ -149,9 +149,9 @@ s = swap(s, "const AUTO_REGIMES = ", ";\n\n/* =", json.dumps(auto, indent=0))
 # ---- ARCHIVE (historical) regimes -> LB_HIST, full report cards ----
 import os
 hist_cards = []
-if os.path.exists("/home/claude/hist_results.json"):
-    hres = json.load(open("/home/claude/hist_results.json"))
-    PS = json.load(open("/home/claude/postseason.json"))
+if os.path.exists("/work/hist_results.json"):
+    hres = json.load(open("/work/hist_results.json"))
+    PS = json.load(open("/work/postseason.json"))
     def sgrade(pts):
         for thr, g in [(4.5,80),(3.4,75),(2.6,70),(1.9,65),(1.3,60),(0.7,55),
                        (0.0,50),(-0.8,45),(-1.6,40),(-2.6,35)]:
@@ -239,23 +239,23 @@ if os.path.exists("/home/claude/hist_results.json"):
     print(f"archive cards: {len(hist_cards)}")
 
 # ---- Deal Desk data pack ----
-if os.path.exists("/home/claude/desk_data.json"):
-    desk = open("/home/claude/desk_data.json").read()
+if os.path.exists("/work/desk_data.json"):
+    desk = open("/work/desk_data.json").read()
     s = swap(s, "const DESK = ", ";\n\n// COMPUTED champions", desk)
     print("desk data pack spliced")
-if os.path.exists("/home/claude/scenarios.json") and "const SCEN = " in s:
-    scen = open("/home/claude/scenarios.json").read()
+if os.path.exists("/work/scenarios.json") and "const SCEN = " in s:
+    scen = open("/work/scenarios.json").read()
     s = swap(s, "const SCEN = ", "; // SCEN-END", scen)
     print("scenario pack spliced")
-if os.path.exists("/home/claude/gm_offseasons.json") and "const GMC = " in s:
-    gmc = open("/home/claude/gm_offseasons.json").read()
+if os.path.exists("/work/gm_offseasons.json") and "const GMC = " in s:
+    gmc = open("/work/gm_offseasons.json").read()
     s = swap(s, "const GMC = ", "; // GMC-END", gmc)
     print("gm offseason pack spliced")
 
 # ---- computed champions + through lines ----
 champ_cards_g = []
-if os.path.exists("/home/claude/champs_computed.json"):
-    champs = json.load(open("/home/claude/champs_computed.json"))
+if os.path.exists("/work/champs_computed.json"):
+    champs = json.load(open("/work/champs_computed.json"))
     champ_cards_g = champs["cards"]
     s = swap(s, "const CHAMPS_AUTO = ", ";\n\n// cross-title", json.dumps(champs["cards"], indent=0))
     s = swap(s, "const CHAMP_LINES = ", ";\n\nconst ALL_CHAMPS", json.dumps(champs["lines"], indent=0))
@@ -270,7 +270,7 @@ extmap = {r["id"]: dict(r["chan"]["ext"], tops=[dict(d=t["d"], war=t["net"], h=e
 s = swap(s, "const EXT_MAP = ", ";\nconst extOf", json.dumps(extmap, indent=0))
 
 # player moves / names / ranks
-cfg = json.load(open("/home/claude/regimes.json"))
+cfg = json.load(open("/work/regimes.json"))
 TID2 = {r["teamId"]: r["abbr"] for r in cfg["regimes"]}
 NAME2AB = {}
 for r0 in cfg["regimes"]:
@@ -292,7 +292,7 @@ for _c in champ_cards_g:
     for _row in _c.get("roster", []):
         if len(_row) > 6 and _row[6] and _row[6] != "None":
             pidset.add(str(_row[6]))
-con = sqlite3.connect("/home/claude/ledger.sqlite")
+con = sqlite3.connect("/work/ledger.sqlite")
 MOVES, NAMES = {}, {}
 if pidset:
     q = ("select person_id, person_name, date, team_id, type_desc, description, from_team, to_team from sweep_tx "
@@ -313,7 +313,7 @@ if pidset:
         NAMES.setdefault(pid, nm)
         MOVES.setdefault(pid, []).append([d, ty, fa_, ta_, esc((desc or "")[:120])])
     for pid in MOVES: MOVES[pid] = MOVES[pid][:14]
-ranks_all = json.load(open("/home/claude/prospect_ranks.json"))
+ranks_all = json.load(open("/work/prospect_ranks.json"))
 RANKS = {}
 for rr in ranks_all:
     pid = str(rr["pid"])
