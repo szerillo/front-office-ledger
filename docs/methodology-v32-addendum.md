@@ -423,3 +423,18 @@ the oxblood margin line on every table's first column, grade chips as
 scorebook stamps, and a Night desk toggle for the dark room. The mark is a
 baseball ruled like ledger paper: blue feint lines, red stitching, drawn in
 SVG by hand. No number moved.
+
+# v4.2 note: the trade desk
+
+October 30, 2026. GM Mode's open market rebuilt on the pattern the great
+sim franchises settled on: everything on screen, nothing in a pop-up. The
+trade desk shows the counterparty's controlled roster and farm on the
+left, your assets (including your actual ranked prospects, by name) on the
+right, and the deal on the table in the middle with the ask priced live by
+the control-bucket market, a fill meter, and a deterministic response that
+names the gap and suggests the piece that closes it. Trading real players
+moves them on and off your roster, depth chart, and projection. The
+free-agent market gained position and name filters, with every negotiation
+already inline. And the winter journal now records everything: every
+offer, counter, rejection, QO, tender, trade conversation, and stage
+advance, newest first, printed in full on the winter memo.
