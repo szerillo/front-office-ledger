@@ -719,3 +719,31 @@ The computed FA class is now reconciled against the actual 2026-27 winter
   Angels interim from June 2026, Zoll running Twins baseball operations
   from January 2026, DePodesta in Colorado, Toboni in Washington, Bloom in
   St. Louis) all match the reporting, with interim status flagged.
+
+# v4.9 addendum: the shopping fingerprint and launch hardening (Oct 2026)
+
+- THE SHOPPING FINGERPRINT. Every sitting regime's acquisitions since 2016
+  (trades in + major league FA signings) joined to the player's public
+  Statcast profile in the season the front office evaluated, z-scored
+  within season: contact quality, chase, whiff, sprint, walks for hitters;
+  velocity, bat-missing, ground-ball rate, chase induced, walks for
+  pitchers. Persistent deviations read out as revealed preferences on the
+  Org DNA tab (new Shops for column), the Deal Desk counterparty card, and
+  the assistant GM's trade counsel. Under eight joined acquisitions on a
+  side reads thin sample, never a forced label. New engine script:
+  savant_fingerprint.py; new data artifact: fingerprints.json.
+- Found and fixed while wiring it: the Deal Desk counterparty card and the
+  counsel tendency line matched regimes on a field the auto cards never
+  had, so counterparty intel silently never rendered for 27 of 30 clubs.
+- Counterparty fit pricing: in GM trades, a piece that fills one of the
+  counterparty's computed roster holes is worth 10% more in their eyes.
+- Methodology adds the durability-divergence disclosure on the terms
+  backtest and the trade archive through-2023 fit boundary.
+- Launch hardening: acceptance tests committed under tests/ (three
+  harnesses; every check encodes a previously shipped bug); the refresh
+  runbook rewritten to the current pipeline including winter-reality
+  maintenance; all current data artifacts committed; the Nov 3 scheduled
+  task repurposed to the option-deadline reconciliation; the social
+  preview image re-rendered in the paper-ledger design; a cookieless
+  analytics snippet staged behind a comment; the application packet
+  rebuilt with current numbers, GM Mode, and the fingerprint.

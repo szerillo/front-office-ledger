@@ -47,13 +47,25 @@ new facts are the completed postseason and any early offseason transactions.
 ## 2. The chain (order matters)
 
     python3 park_ingest.py           # only if a season was added
+    python3 pos_fetch.py             # canonical primaryPosition for the whole
+                                     # cache (positions2.json). Rerun whenever
+                                     # the player cache changes; everything
+                                     # downstream overlays it on positions.json
     python3 sweep_score.py
     python3 fa_grade.py
     python3 ext_grade.py
-    python3 ifa_score.py
+    python3 ifa_score.py             # idempotent (backs out its prior intl
+                                     # net before re-adding); window-filters by
+                                     # TRUE signing date; class baseline is
+                                     # league value over 30 clubs
     python3 dev_score.py
     python3 postseason.py            # pulls the finished postseason
-    python3 archetype.py
+    python3 archetype.py             # WARNING: ret2.py is NOT idempotent and
+                                     # archetype resets chan.ret, so always run
+                                     # archetype -> ret2 as a pair, never ret2
+                                     # twice without archetype between
+    python3 h2h_deals.py             # per-pair deal lists for Head to Head
+                                     # (idempotent; after archetype)
     python3 ret2.py
     python3 validation.py
     python3 hist_score.py            # archive era
@@ -61,29 +73,39 @@ new facts are the completed postseason and any early offseason transactions.
     python3 trade_comps.py           # market comps onto every graded trade
     python3 ages_fetch.py            # birth dates (only if the cache changed)
     python3 proj_v1.py               # Ledger Projection v1 onto open deals
-    python3 pt_fetch.py              # playing time -> durability factors
-                                     # (hits the people API ~150 times)
-    python3 desk_data.py             # Deal Desk data pack (fetches prospect
-                                     # orgs + standings from the API). Run
-                                     # desk_data -> pt_fetch -> desk_data on a
-                                     # season rollover so new pool members get
-                                     # durability factors
+    python3 desk_data.py             # Deal Desk data pack. On a pool change
+    python3 pt_fetch.py              #   run desk_data -> pt_fetch -> desk_data
+    python3 desk_data.py             #   so new pool members get durability
     python3 cache_audit.py           # completeness audit: every 150+ PA /
                                      # 40+ IP player vs the cache; fetch any
                                      # missing at v1.5 BEFORE the chain
-    python3 scenario_build.py        # Scenario Room pack (standings-by-date
-                                     # from the API)
+    python3 scenario_build.py        # Scenario Room pack (standings-by-date)
     python3 gm_data.py               # GM Mode offseason-comp pack (standings)
-    # new FA winter: audit the computed FA class against known extensions
-    # (stars appearing as FAs = missing book coverage; fix contracts_ext.py)
-    python3 calib_suggest.py         # optional: re-backtest the term
-                                     # suggester after a new FA winter enters
-                                     # contracts_recent.py; update the MAE
-                                     # numbers quoted in the Desk suggestion
-                                     # panel and Methodology if they move
+    python3 calib_suggest.py         # re-backtest the term suggester after a
+                                     # new FA winter enters contracts_recent;
+                                     # update quoted MAE numbers if they move
+                                     # (also writes calib_results.json; the
+                                     # page's CALIB scatter data derives from
+                                     # it: [name, off, yrs, tot, sugY, sugT])
     python3 regen_v3.py              # splices everything into the prototype
 
-`run_chain.sh` in the repo root runs the middle block. After regen, update
+### 2b. Winter-reality maintenance (every offseason, and at the Nov option deadline)
+
+The computed FA class must be reconciled against the real winter:
+
+- `contracts_ext.py` carries three curated blocks: missing guaranteed deals,
+  exercised/in-the-money club options (one-year coverage at the option
+  price), and the EXT list proper. Update all three from the league option
+  tracker after the early-November decision deadline.
+- `desk_data.py` carries FA27_NAMES (opt-outs/declines whose remaining book
+  coverage is voided; rename per winter) and SVC_FIX (true service for
+  players the cup-of-coffee proxy overcounts, plus NPB-origin players free
+  by contract expiry encoded as service 6).
+- Audit after rebuild: no player with an exercised option in the FA pool,
+  every ranked FA in the public class lists present in ours (NPB postings
+  with no MLB record excluded, disclosed).
+
+After regen, update
 by hand in `front-office-ledger-prototype.html`: the footer date line, the
 "postseason in progress" phrasing (now final), and the validation paragraph
 numbers if `validation.json` moved.
@@ -103,8 +125,26 @@ numbers if `validation.json` moved.
 ## 5. Ship
 
 Copy back into the repo clone: `prototype/index.html`, changed `engine/` and
-`ingest/` scripts, `data/` (sweep_results, hist_results, validation, parks,
-postseason, rental_market, h2h_matrix, regimes, regimes_hist, lvm_cache,
-ext_lvm_cache). Commit via the GitHub web upload flow (no tokens on this
-project, ever) and verify the Pages deploy at
-szerillo.github.io/front-office-ledger/prototype.
+`ingest/` scripts, and the full refreshed `data/` set (sweep_results,
+hist_results, validation, parks, postseason, rental_market, h2h_matrix,
+regimes, regimes_hist, lvm_cache, ext_lvm_cache, positions, positions2,
+playtime, durability, desk_data, gm_offseasons, scenarios, champs_computed,
+calib_results, ages, prospect_orgs). IMPORTANT: any engine/ingest script
+copied into the repo gets its working-root paths neutralized first
+(replace the local home prefix with /work). Commit via the GitHub web
+upload flow (no tokens on this project, ever) and verify the Pages deploy
+at szerillo.github.io/front-office-ledger/prototype.
+
+## 6. Regression tests
+
+`tests/` holds the headless acceptance harnesses (node, Playwright,
+chromium). Run against the local page before shipping and the live page
+after; every file encodes bugs that were actually found and fixed, so a
+failure is a regression, not noise:
+
+    node tests/t_gm_core.mjs      # Witt refusal, FA anchors, negotiation
+                                  # exploits, payroll on trades
+    node tests/t_features.mjs     # advisor, charts, salary book, class
+                                  # reality, depth fits
+    node tests/t_audit.mjs        # per-card date-vs-window boundary audit,
+                                  # phone-width overflow sweep
