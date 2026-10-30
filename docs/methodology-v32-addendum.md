@@ -476,3 +476,87 @@ $14.8M of total value, with the mid-tier ($25-100M) error falling from
 2026-27 projections (B/R, Yahoo, ESPN insiders): mid-tier names now land
 in the consensus band; the model still reads the very top of the market
 light, the same disclosed star premium the market itself produces.
+
+# v4.4 addendum: the contract model re-fit and the assistant GM (Oct 2026)
+
+## 0. A data audit first
+
+The re-fit began with a position refetch for all 28,282 players in the
+value cache (live feed primaryPosition). The old positions file was
+missing or wrong for roughly 440 of the backtest's contracts: Jon Lester,
+Stephen Strasburg, and Jordan Zimmermann priced as hitters, Trea Turner as
+a pitcher. Since the suggester hard-filters comps by player type, each
+error poisoned comp pools in both directions. Fixing the data (and
+excluding internationals with no MLB track record, who are unknowable
+in-model: Yamamoto, Tanaka, Jung Hoo Lee are flagged, not priced) improved
+every tier before a single rule changed. Signings evaluated: 1,196.
+
+## 1. v4.4 pricing rules
+
+Mega deals were systematically light (bias -$82M on the $200M+ class)
+because the star gate keyed only on first-year projection, so a star off a
+down platform year (Harper '18, Seager '21) priced as his worst season,
+and ace pitchers never cleared the hitter-calibrated gate. The v4.4 rules,
+each a market structure, not a curve fit:
+
+- Pedigree gate: stardom is the best of the last FIVE seasons, decayed
+  0.88/yr and discounted by age at signing. Harper '18 moves from a
+  2 yr / $18M suggestion (platform year 3.0) to 11 / $255M vs the real
+  13 / $330M.
+- Pitcher market: gate 2.8 (vs 3.2) and pitcher wins paid 1.28x flat
+  $/win. Scherzer '14 moves from 5/$97M to 7/$176M vs the real 7/$210M.
+- Convex elite premium, shrunk inputs: +15% per win above 3.5 (capped),
+  computed on projections shrunk 0.7x above 4.5 wins. The market pays for
+  scarcity and prices elite regression risk at the same time.
+- Years gates split: dollars blend toward the model at the star gate, but
+  YEARS blend at a softer gate (eff 2.1, span 2.7), because mid-tier
+  regulars get model-length deals at comp-driven AAVs.
+- Spread years: at star weight >= 0.5, extra years at the same total
+  (the AAV-flattening structure of real megadeals; Soto suggests 14/$776M
+  vs the real 15/$765M).
+- Comp plausibility filter: when the subject is an everyday player
+  (blended platform >= 2), comps whose own contract repudiated their
+  platform value (AAV under 25% of platform x era $/win: non-tenders,
+  injury collapses) are dropped from the pricing median. They carry
+  information about risk, not price. Depth signings keep them, because at
+  that end of the market those outcomes ARE the price.
+
+Walk-forward backtest, same protocol (comps strictly earlier, era $/win):
+
+- ALL (n=1,196): 0.69 yrs / $3.2M AAV / $14.0M total (v4.3: 0.72/3.5/14.8)
+- Mega $200M+ (n=22): total MAE $91M, bias -$2M (v4.3 rules on the same
+  corrected data: $119M, bias -$21M; on the old data: bias -$84M)
+- Big $100-200M: $62M (from $71M); mid $25-100M: $26M; small: $6.7M
+- The $100-200M class remains modestly light, disclosed: auctions for
+  scarce players end above any median.
+
+One in-page fidelity fix: the page's median took the upper element on
+even-sized comp pools where the backtest averaged the middle two; with the
+plausibility filter producing even pools often, that skew mattered
+(Chisholm 7/$191M wrong vs 5/$106M right). The page now computes the true
+median, matching the backtest exactly.
+
+## 2. The assistant GM
+
+GM Mode now seats a second voice at the desk, rendered as a standing
+counsel card beside the winter log. Everything it says is computed from
+the same engines the mode already runs on, so the advice is deterministic
+and auditable:
+
+- Stage counsel: QO recommendations (projection x $/win against the $22M
+  offer), non-tender flags (estimated award vs projected value), re-sign
+  vs let-walk advice in the exclusive window (with the hometown discount
+  and whether he covers a depth-chart hole), market targets matched to
+  your actual holes, depth-chart triage, and a closing review naming your
+  best piece of business and the one to take back.
+- Negotiation reads: during any live negotiation, the counsel compares the
+  camp's current ask to the calibrated Ledger offer and says whether to
+  meet it, counter under the midpoint, or walk, and warns when one more
+  lowball ends the talks (the camp's patience rules are real and the
+  advice knows them).
+- Contract comps with outcomes: for players on the table, the two or three
+  nearest real contracts from the 1,689-contract book, era-adjusted, each
+  tagged with how it aged (aged well / broke even / aged poorly / a
+  burden) from realized ledger value against implied cost.
+- Posture and payroll: counsel adapts to your club's standing (contender /
+  bubble / fringe / rebuilding) and warns on CBT proximity.
