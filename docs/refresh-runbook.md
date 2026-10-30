@@ -6,7 +6,7 @@ with `reportlab` (`pip install reportlab --break-system-packages`) is the only
 dependency beyond the standard library. All data comes from the free MLB
 Stats API; nothing needs credentials.
 
-Work in a scratch directory; scripts assume `/home/claude` as the working
+Work in a scratch directory; scripts assume `/work` as the working
 root (adjust paths or symlink if elsewhere).
 
 ## 0. Clone and seed

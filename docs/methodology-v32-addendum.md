@@ -560,3 +560,29 @@ and auditable:
   burden) from realized ledger value against implied cost.
 - Posture and payroll: counsel adapts to your club's standing (contender /
   bubble / fringe / rebuilding) and warns on CBT proximity.
+
+# v4.5 addendum: position truth, the diamond, and the public pass (Oct 2026)
+
+- Position-fit map. Depth-chart filling and every assistant-GM recommendation
+  now run on explicit position fits (a shortstop slides to second or third; a
+  second baseman is not an answer at first base; corner bats cover first and
+  DH; only catchers catch). Scarce positions fill first so a star shortstop is
+  not burned at third. Audited across clubs: zero non-fitting assignments.
+- The diamond. The GM depth chart renders as a scorebook field diagram with
+  players at their positions, rotation/bullpen/bench rows below, weak slots
+  flagged in red, and market fixes listed under the chart.
+- Trade bridges. When an offer is short, the assistant GM names the cheapest
+  pieces from your own system that close the gap, valued on the same prospect
+  EV curve the ask uses.
+- Payroll integrity fix. Book money now leaves with a traded player; verified
+  on the Soto case ($51M off the 2027 estimate on execution).
+- Counsel fix: an empty block-list no longer reads as a cornerstone refusal.
+- Charts, all inline and theme-aware: the full 1,196-signing calibration
+  backtest as a log-log scatter (one dot per contract, hover for the terms) in
+  Methodology; in the GM report, a strip of your projected wins against
+  standing pat and the five most similar real winters, and a committed-payroll
+  bar chart 2027-2031 with the CBT reference line and your winter's estimate.
+- The footer changelog is consolidated into grouped release notes; the in-page
+  methodology is reorganized into a single coherent document (value engine,
+  grading engine, markets, projections, pricing, rooms, validation) instead of
+  version-ordered patches.
