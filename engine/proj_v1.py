@@ -31,14 +31,14 @@ Writes proj_curves.json for the repo.
 import json, sqlite3
 from collections import defaultdict
 
-LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
-AGES = json.load(open("/home/claude/ages.json"))
-POS = json.load(open("/home/claude/positions.json"))
+LVM = {int(k): v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
+AGES = json.load(open("/work/ages.json"))
+POS = json.load(open("/work/positions.json"))
 PITPOS = {"RHP", "LHP", "SP", "RP", "P"}
-cfg = json.load(open("/home/claude/regimes.json"))
+cfg = json.load(open("/work/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 TEAMNAMES = {r["teamId"]: ALIAS.get(r["teamId"], set()) | {r["team"]} for r in cfg["regimes"]}
-con = sqlite3.connect("/home/claude/ledger.sqlite"); con.row_factory = sqlite3.Row
+con = sqlite3.connect("/work/ledger.sqlite"); con.row_factory = sqlite3.Row
 
 def is_pit(pid): return POS.get(str(pid)) in PITPOS
 
@@ -110,7 +110,7 @@ def vrank(rank):
             f = (math.log(rank)-math.log(x0))/(math.log(x1)-math.log(x0))
             return y0 + f*(y1-y0)
 RANKS = defaultdict(dict)
-for rr in json.load(open("/home/claude/prospect_ranks.json")):
+for rr in json.load(open("/work/prospect_ranks.json")):
     RANKS[str(rr["pid"])][rr["year"]] = rr["rank"]
 def current_rank(pid):
     rk = RANKS.get(str(pid), {})
@@ -227,10 +227,10 @@ def attach(path):
     json.dump(res, open(path, "w"), indent=1)
     print(f"{path}: projections on {n} open trades")
 
-attach("/home/claude/sweep_results.json")
-attach("/home/claude/hist_results.json")
+attach("/work/sweep_results.json")
+attach("/work/hist_results.json")
 
 json.dump(dict(curves=CURVE, pop_mean=round(POP_MEAN, 3), unranked_ev=UNRANKED_EV,
                backtest=bt, method="Marcel-style 5/4/3, 20% regression, delta-method aging, 10%/yr haircut, zero floor"),
-          open("/home/claude/proj_curves.json", "w"), indent=1)
+          open("/work/proj_curves.json", "w"), indent=1)
 print("wrote proj_curves.json")

@@ -9,7 +9,7 @@ from reportlab.lib import colors
 from reportlab.platypus import (SimpleDocTemplate, Paragraph, Spacer, Table,
                                 TableStyle, PageBreak, HRFlowable)
 
-val = json.load(open("/home/claude/validation.json"))
+val = json.load(open("/work/validation.json"))
 A, P = val["accounting"], val["predictive"]
 
 NAVY = colors.HexColor("#15202e")
@@ -30,7 +30,7 @@ st_b = ParagraphStyle("b", parent=ss["Normal"], fontName="Helvetica",
 st_small = ParagraphStyle("sm", parent=st_b, fontSize=8.5, leading=12, textColor=MUTE)
 st_stat = ParagraphStyle("stat", parent=st_b, fontSize=9.5, leading=13)
 
-doc = SimpleDocTemplate("/home/claude/front-office-ledger-packet.pdf", pagesize=letter,
+doc = SimpleDocTemplate("/work/front-office-ledger-packet.pdf", pagesize=letter,
                         leftMargin=0.85*inch, rightMargin=0.85*inch,
                         topMargin=0.75*inch, bottomMargin=0.7*inch,
                         title="Front Office Ledger: Technical Summary",

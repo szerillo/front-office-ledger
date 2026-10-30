@@ -29,10 +29,10 @@ def norm(nm):
 
 QOn = {(norm(n), y) for (n, y) in QO}
 
-_raw = json.load(open("/home/claude/lvm_cache.json"))
+_raw = json.load(open("/work/lvm_cache.json"))
 LVM = {int(k): v for k, v in _raw.items() if not k.startswith("__")}
 
-cfg = json.load(open("/home/claude/regimes.json"))
+cfg = json.load(open("/work/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 TEAMS = {r["teamId"]: ALIAS.get(r["teamId"], {r["team"]}) for r in cfg["regimes"]}
 
@@ -42,7 +42,7 @@ def val(pid, teams, y0, y1, inside=True):
     return sum(v for yr, tm, v in rec["rows"]
                if y0 <= yr <= y1 and ((tm in teams) == inside))
 
-con = sqlite3.connect("/home/claude/ledger.sqlite"); con.row_factory = sqlite3.Row
+con = sqlite3.connect("/work/ledger.sqlite"); con.row_factory = sqlite3.Row
 
 # ---- league expectation curve, all departures 1998-2023 ----
 events = [dict(r) for r in con.execute(
@@ -100,7 +100,7 @@ def grade_comp(nps):
         if nps >= thr: return g
     return 30
 
-res = json.load(open("/home/claude/sweep_results.json"))
+res = json.load(open("/work/sweep_results.json"))
 REG = {r["teamId"]: r for r in cfg["regimes"]}
 nets = []
 for r in res:
@@ -149,5 +149,5 @@ for r in res:
     r["total"] = round(r["total"] + net2, 1)
     r["forGrade"] = grade_comp(r["total"] / r["seasons"])
 
-json.dump(res, open("/home/claude/sweep_results.json", "w"), indent=1)
+json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
 print("\nmerged ret v2 into sweep_results.json (composite updated)")

@@ -26,12 +26,12 @@ def rebuild(path):
     json.dump(out, open(path, "w"))
     print(f"{path}: {len(out)-1} players ({kept} kept at v1), {time.time()-t0:.0f}s", flush=True)
 
-rebuild("/home/claude/lvm_cache.json")
-rebuild("/home/claude/ext_lvm_cache.json")
+rebuild("/work/lvm_cache.json")
+rebuild("/work/ext_lvm_cache.json")
 
 # spot checks: Coors bats should cool, Coors arms warm, neutral parks ~unchanged
-L = json.load(open("/home/claude/lvm_cache.json"))
-L1 = json.load(open("/home/claude/lvm_cache.v1.bak.json"))
+L = json.load(open("/work/lvm_cache.json"))
+L1 = json.load(open("/work/lvm_cache.v1.bak.json"))
 for pid, nm in [("571448", "Nolan Arenado"), ("453568", "Charlie Blackmon"),
                 ("608566", "German Marquez"), ("592450", "Aaron Judge"),
                 ("545361", "Mike Trout"), ("660271", "Shohei Ohtani")]:

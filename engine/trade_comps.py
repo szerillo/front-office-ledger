@@ -19,11 +19,11 @@ deal_archive.json for the repo.
 import json, sqlite3
 from collections import defaultdict
 
-LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
-cfg = json.load(open("/home/claude/regimes.json"))
+LVM = {int(k): v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
+cfg = json.load(open("/work/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 ABBR = {r["teamId"]: r["abbr"] for r in cfg["regimes"]}
-con = sqlite3.connect("/home/claude/ledger.sqlite"); con.row_factory = sqlite3.Row
+con = sqlite3.connect("/work/ledger.sqlite"); con.row_factory = sqlite3.Row
 
 # buyer win totals by (tid, yr) for posture
 import time, urllib.request
@@ -153,7 +153,7 @@ def attach(path, tid_key="teamId"):
     json.dump(res, open(path, "w"), indent=1)
     print(f"{path}: comps attached to {n} trade decisions")
 
-attach("/home/claude/sweep_results.json")
-attach("/home/claude/hist_results.json")
-json.dump(deals, open("/home/claude/deal_archive.json", "w"))
+attach("/work/sweep_results.json")
+attach("/work/hist_results.json")
+json.dump(deals, open("/work/deal_archive.json", "w"))
 print("wrote deal_archive.json")

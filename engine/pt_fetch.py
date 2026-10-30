@@ -9,7 +9,7 @@ observed seasons (a season with any appearance counts as observed).
 """
 import json, urllib.request, time
 
-DESK = json.load(open("/home/claude/desk_data.json"))
+DESK = json.load(open("/work/desk_data.json"))
 pids = [p[1] for p in DESK["players"]]
 print("players:", len(pids))
 
@@ -45,7 +45,7 @@ for season in (2024, 2025, 2026):
         time.sleep(0.25)
     print(season, "done,", len(PT), "players with data")
 
-json.dump(PT, open("/home/claude/playtime.json", "w"), separators=(",", ":"))
+json.dump(PT, open("/work/playtime.json", "w"), separators=(",", ":"))
 
 DUR = {}
 for p in DESK["players"]:
@@ -63,7 +63,7 @@ for p in DESK["players"]:
         num += wgt * avail; den += wgt
     if den > 0:
         DUR[pid] = round(0.7 + 0.3 * (num / den), 3)
-json.dump(DUR, open("/home/claude/durability.json", "w"), separators=(",", ":"))
+json.dump(DUR, open("/work/durability.json", "w"), separators=(",", ":"))
 import statistics
 vals = list(DUR.values())
 print("durability factors:", len(vals), "| mean", round(statistics.mean(vals), 3),

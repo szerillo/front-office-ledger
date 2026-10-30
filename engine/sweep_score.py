@@ -26,7 +26,7 @@ import json, math, sqlite3, sys
 from collections import defaultdict
 from ledger_war import get, API, lvm_batting, lvm_pitching
 
-DB = "/home/claude/ledger.sqlite"
+DB = "/work/ledger.sqlite"
 END_YEAR = 2026
 
 # ---------- draft curve (from elias_ledger) ----------
@@ -97,7 +97,7 @@ def val(pid, teams, y0, y1, inside=True):
     return tot
 
 # ---------- main ----------
-cfg = json.load(open("/home/claude/regimes.json"))
+cfg = json.load(open("/work/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 con = sqlite3.connect(DB); con.row_factory = sqlite3.Row
 
@@ -131,8 +131,8 @@ for pid, yy in con.execute("select person_id, cast(year as int) from draft_picks
 REDRAFT = {k: v for k, v in REDRAFT.items() if len(v) > 1}
 import os
 from lvm15 import player_team_seasons_v15
-if os.path.exists("/home/claude/lvm_cache.json"):
-    _raw = json.load(open("/home/claude/lvm_cache.json"))
+if os.path.exists("/work/lvm_cache.json"):
+    _raw = json.load(open("/work/lvm_cache.json"))
     _meta = {k: v for k, v in _raw.items() if k.startswith("__")}
     LVM = {int(k): v for k, v in _raw.items() if not k.startswith("__")}
     missing = sorted(universe - set(LVM))
@@ -142,7 +142,7 @@ else:
     LVM = player_team_seasons_v15(sorted(universe))
 _dump = {str(k): v for k, v in LVM.items()}
 _dump.update(_meta)
-json.dump(_dump, open("/home/claude/lvm_cache.json", "w"))
+json.dump(_dump, open("/work/lvm_cache.json", "w"))
 print(f"LVM ready for {len(LVM)} persons", flush=True)
 
 # standings for success
@@ -156,7 +156,7 @@ for yr in range(1998, 2027):
             wl[(t["team"]["id"], yr)] = [t.get("wins",0), t.get("losses",0), 1 if str(t.get("divisionRank"))=="1" else 0]
 print("standings loaded", flush=True)
 
-POS = json.load(open("/home/claude/positions.json"))
+POS = json.load(open("/work/positions.json"))
 PITPOS = {"RHP", "LHP", "SP", "RP"}
 def ptype(pid):
     return "pit" if POS.get(str(pid)) in PITPOS else "bat"
@@ -174,7 +174,7 @@ def _vrank(rank):
             f = (_math.log(rank)-_math.log(x0))/(_math.log(x1)-_math.log(x0))
             return y0 + f*(y1-y0)
 try:
-    _ranks_raw = json.load(open("/home/claude/prospect_ranks.json"))
+    _ranks_raw = json.load(open("/work/prospect_ranks.json"))
     PRANK = {}
     for _rr in _ranks_raw:
         PRANK.setdefault(str(_rr["pid"]), {})[_rr["year"]] = _rr["rank"]
@@ -370,5 +370,5 @@ for reg in cfg["regimes"]:
     print(f"{reg['abbr']}: trades {tr_net:+.1f} | draft {dr_net:+.1f} | waiver {wv_net:+.1f} "
           f"| FA raw {fa_raw:+.1f} (ungraded) | total {total:+.1f} over {seasons} yrs", flush=True)
 
-json.dump(results, open("/home/claude/sweep_results.json", "w"), indent=1)
+json.dump(results, open("/work/sweep_results.json", "w"), indent=1)
 print("WROTE sweep_results.json", flush=True)

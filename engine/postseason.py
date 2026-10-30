@@ -28,8 +28,8 @@ def get(u, tries=3):
 
 import os
 PS = {}  # (teamId, year) -> dict(berth, sw, pennant, ws)
-if os.path.exists("/home/claude/postseason.json"):
-    for k, rec in json.load(open("/home/claude/postseason.json")).items():
+if os.path.exists("/work/postseason.json"):
+    for k, rec in json.load(open("/work/postseason.json")).items():
         tid, y = k.split(":"); PS[(int(tid), int(y))] = rec
 def bump(tid, y, k, v=1):
     rec = PS.setdefault((tid, y), dict(berth=0, sw=0, pennant=0, ws=0))
@@ -60,13 +60,13 @@ for yr in range(1998, 2027):
     time.sleep(0.6)
 
 json.dump({f"{tid}:{y}": rec for (tid, y), rec in PS.items()},
-          open("/home/claude/postseason.json", "w"))
+          open("/work/postseason.json", "w"))
 print("saved postseason.json:", len(PS), "team-seasons")
 
 # ---- blend into sweep_results ----
-cfg = json.load(open("/home/claude/regimes.json"))
+cfg = json.load(open("/work/regimes.json"))
 REG = {r["teamId"]: r for r in cfg["regimes"]}
-res = json.load(open("/home/claude/sweep_results.json"))
+res = json.load(open("/work/sweep_results.json"))
 
 def sgrade(pts):
     for thr, g in [(4.5,80),(3.4,75),(2.6,70),(1.9,65),(1.3,60),(0.7,55),
@@ -95,5 +95,5 @@ for r in res:
     r["titles"] = ws
     print(f"{r['abbr']:<6}{s['wpct']:>6}{s['div']:>4}{po:>4}{sw:>4}{pen:>4}{ws:>4}   {sgrade(pts)} ({pts:+.2f})")
 
-json.dump(res, open("/home/claude/sweep_results.json", "w"), indent=1)
+json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
 print("\nupdated success blocks in sweep_results.json")

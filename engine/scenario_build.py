@@ -14,18 +14,18 @@ the realized outcome from the deal archive.
 import json, sqlite3, urllib.request, time, sys
 from collections import defaultdict
 
-sys.path.insert(0, "/home/claude")
+sys.path.insert(0, "/work")
 
-LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
-AGES = json.load(open("/home/claude/ages.json"))
-POS = json.load(open("/home/claude/positions.json"))
+LVM = {int(k): v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
+AGES = json.load(open("/work/ages.json"))
+POS = json.load(open("/work/positions.json"))
 PITPOS = {"RHP", "LHP", "SP", "RP", "P"}
-cfg = json.load(open("/home/claude/regimes.json"))
-hist = json.load(open("/home/claude/regimes_hist.json"))
-ARCH = json.load(open("/home/claude/deal_archive.json"))
-DESK = json.load(open("/home/claude/desk_data.json"))
+cfg = json.load(open("/work/regimes.json"))
+hist = json.load(open("/work/regimes_hist.json"))
+ARCH = json.load(open("/work/deal_archive.json"))
+DESK = json.load(open("/work/desk_data.json"))
 RANKS = defaultdict(dict)   # year -> pid -> rank
-for rr in json.load(open("/home/claude/prospect_ranks.json")):
+for rr in json.load(open("/work/prospect_ranks.json")):
     RANKS[rr["year"]][rr["pid"]] = rr["rank"]
 
 DPWH = DESK["market"]["dpwHist"]
@@ -136,7 +136,7 @@ def exp_value(pieces, ck, headline):
             tot += base * (CTRLMULT[ck] if pc["name"] == headline else 1.5)
     return round(tot, 1)
 
-con = sqlite3.connect("/home/claude/ledger.sqlite")
+con = sqlite3.connect("/work/ledger.sqlite")
 def deal_pieces(date, buyer_tid, like):
     rows = con.execute(
         "SELECT DISTINCT person_id, person_name, from_team, to_team FROM sweep_tx "
@@ -293,7 +293,7 @@ for picks, kindlbl, setups in ((FA_PICKS, "fa", FA_SETUP), (EXT_PICKS, "ext", EX
         print("built", scenarios[-1]["id"], "surplus", scenarios[-1]["outcome"]["surplus"])
 
 # ---------------- live scenario (unsettled, 2026) ----------------
-rawranks = json.load(open("/home/claude/prospect_ranks.json"))
+rawranks = json.load(open("/work/prospect_ranks.json"))
 rojas = [(rr["pid"], rr["rank"]) for rr in rawranks if rr["year"] == 2026 and rr["name"] == "Jefferson Rojas"]
 def pid_by_name(nm):
     for pid, rec in LVM.items():
@@ -320,6 +320,6 @@ scenarios.append(dict(
 ))
 print("built live-2026-rojas")
 
-json.dump(scenarios, open("/home/claude/scenarios.json", "w"), separators=(",", ":"))
+json.dump(scenarios, open("/work/scenarios.json", "w"), separators=(",", ":"))
 import os
-print("scenarios:", len(scenarios), "|", round(os.path.getsize("/home/claude/scenarios.json")/1024, 1), "KB")
+print("scenarios:", len(scenarios), "|", round(os.path.getsize("/work/scenarios.json")/1024, 1), "KB")

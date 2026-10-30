@@ -21,9 +21,9 @@ the historical scorer so newly discovered players enter the cache at v1.5.
 import json
 from ledger_war import get, API, constants, _woba_num, _woba_den, WOBA_SCALE, POS_ADJ
 
-PARKS = json.load(open("/home/claude/parks.json"))["byTeamId"]
-SV = json.load(open("/home/claude/savant_runs.json"))
-SDI = json.load(open("/home/claude/sdi_runs.json"))
+PARKS = json.load(open("/work/parks.json"))["byTeamId"]
+SV = json.load(open("/work/savant_runs.json"))
+SDI = json.load(open("/work/sdi_runs.json"))
 
 _lg_rpa = {}
 def lg_rpa(year):

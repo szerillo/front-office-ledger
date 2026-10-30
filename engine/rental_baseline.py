@@ -28,11 +28,11 @@ Output: data/rental_market.json + printed study for the methodology doc.
 import json, sqlite3
 from collections import defaultdict
 
-cfg = json.load(open("/home/claude/regimes.json"))
+cfg = json.load(open("/work/regimes.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 REG = {r["teamId"]: r for r in cfg["regimes"]}
-LVM = {int(k): v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
-con = sqlite3.connect("/home/claude/ledger.sqlite"); con.row_factory = sqlite3.Row
+LVM = {int(k): v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
+con = sqlite3.connect("/work/ledger.sqlite"); con.row_factory = sqlite3.Row
 
 # FA declarations: pid -> [dates]
 fa_dates = defaultdict(list)
@@ -130,5 +130,5 @@ if stars:
         print(f"  {x['yr']} {x['buyer']:<4} {x['rental'][:32]:<34} recv {x['received']:>4.1f}  paid {x['paid']:>5.1f}")
 
 study["deals"] = deals
-json.dump(study, open("/home/claude/rental_market.json", "w"), indent=1)
+json.dump(study, open("/work/rental_market.json", "w"), indent=1)
 print("\nwrote rental_market.json")

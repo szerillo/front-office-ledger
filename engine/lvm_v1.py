@@ -20,8 +20,8 @@ up once as *.v0.bak). Idempotent: refuses to run twice by marking caches.
 import json, os, shutil
 from ledger_war import constants
 
-SV = json.load(open("/home/claude/savant_runs.json"))
-SDI = json.load(open("/home/claude/sdi_runs.json"))
+SV = json.load(open("/work/savant_runs.json"))
+SDI = json.load(open("/work/sdi_runs.json"))
 
 RPW = {}
 for y in range(2013, 2027):
@@ -65,12 +65,12 @@ def join_cache(path):
     json.dump(cache, open(path, "w"))
     print(f"{path}: {players} players, {touched} player-seasons upgraded to v1")
 
-join_cache("/home/claude/lvm_cache.json")
-join_cache("/home/claude/ext_lvm_cache.json")
+join_cache("/work/lvm_cache.json")
+join_cache("/work/ext_lvm_cache.json")
 
 # spot-check: catchers should warm up
-L = json.load(open("/home/claude/lvm_cache.json"))
-L0 = json.load(open("/home/claude/lvm_cache.v0.bak.json"))
+L = json.load(open("/work/lvm_cache.json"))
+L0 = json.load(open("/work/lvm_cache.v0.bak.json"))
 for pid, nm in [("663728", "Cal Raleigh"), ("668939", "Adley Rutschman"), ("621020", "Dansby Swanson")]:
     a = {y: round(v, 1) for (y, tm, v) in (L0.get(pid, {}).get("rows") or []) if y >= 2023}
     b = {y: round(v, 1) for (y, tm, v) in (L.get(pid, {}).get("rows") or []) if y >= 2023}

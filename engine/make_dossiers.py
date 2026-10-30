@@ -10,7 +10,7 @@ from reportlab.lib import colors
 from reportlab.platypus import (SimpleDocTemplate, Paragraph, Spacer, Table,
                                 TableStyle, HRFlowable)
 
-RES = json.load(open("/home/claude/sweep_results.json"))
+RES = json.load(open("/work/sweep_results.json"))
 NAVY = colors.HexColor("#15202e"); BLUE = colors.HexColor("#2a78d6")
 MUTE = colors.HexColor("#5a6572"); RULE = colors.HexColor("#c9d1da")
 GOOD = colors.HexColor("#1b7f4d"); BAD = colors.HexColor("#b23a3a")
@@ -33,7 +33,7 @@ def letterg(g):
 def strip_tags(h): return re.sub(r"<[^>]*>", "", h or "").replace("&quot;", '"').strip()
 def fw(v): return f"{v:+.1f}"
 
-OUT = "/home/claude/dossiers"
+OUT = "/work/dossiers"
 os.makedirs(OUT, exist_ok=True)
 
 CHN = [("trade","Trades"),("draft","Draft"),("fa","Free agency"),("waiver","Waiver/R5"),

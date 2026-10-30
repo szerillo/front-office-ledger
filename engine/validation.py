@@ -29,7 +29,7 @@ def get(u, tries=3):
         except Exception: time.sleep(2 + 2*a)
     return {}
 
-LVM = {k: v for k, v in json.load(open("/home/claude/lvm_cache.json")).items() if not k.startswith("__")}
+LVM = {k: v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
 
 # ---- 1. accounting validation ----
 team_season = defaultdict(float)
@@ -86,9 +86,9 @@ and (b) W% through t plus net decision value per season through t. Rigor:
     naive p-values optimistic; the cluster bootstrap is the honest interval.
 """
 import random
-res = json.load(open("/home/claude/sweep_results.json"))
-hres = json.load(open("/home/claude/hist_results.json"))
-cfg = json.load(open("/home/claude/regimes.json"))
+res = json.load(open("/work/sweep_results.json"))
+hres = json.load(open("/work/hist_results.json"))
+cfg = json.load(open("/work/regimes.json"))
 NAME_BY_TID = {}
 for yr in range(1998, 2027):
     d = get(f"{API}/standings?leagueId=103,104&season={yr}&standingsTypes=regularSeason")
@@ -216,5 +216,5 @@ pred = dict(n=n2, regimes=len(gids), coef_decision_value=round(b2, 5), coef_wpct
             oos_gain=round(oos_r2_full - oos_r2_base, 3), cv="grouped 5-fold by regime")
 print("PREDICTIVE v2:", pred)
 
-json.dump(dict(accounting=acct, predictive=pred), open("/home/claude/validation.json", "w"), indent=1)
+json.dump(dict(accounting=acct, predictive=pred), open("/work/validation.json", "w"), indent=1)
 print("wrote validation.json")
