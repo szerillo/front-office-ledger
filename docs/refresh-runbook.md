@@ -73,6 +73,9 @@ new facts are the completed postseason and any early offseason transactions.
                                      # missing at v1.5 BEFORE the chain
     python3 scenario_build.py        # Scenario Room pack (standings-by-date
                                      # from the API)
+    python3 gm_data.py               # GM Mode offseason-comp pack (standings)
+    # new FA winter: audit the computed FA class against known extensions
+    # (stars appearing as FAs = missing book coverage; fix contracts_ext.py)
     python3 calib_suggest.py         # optional: re-backtest the term
                                      # suggester after a new FA winter enters
                                      # contracts_recent.py; update the MAE

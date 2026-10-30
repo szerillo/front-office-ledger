@@ -316,3 +316,59 @@ separates process (against the ex-ante market read) from outcome (the
 archive's realized windows; the live scenario scores on projected final,
 labeled UNSETTLED). Setup lines are curated color; every number is
 computed.
+
+# v3.9 addendum: the championship refresh, GM Mode, and two data hardenings
+
+October 30, 2026.
+
+## 1. The 29th ledger
+
+Milwaukee won the Series. The full chain reran with the postseason final:
+Success grades moved, and the champions machinery now carries 29 titles.
+The 2026 Brewers enter as the modern era's great exception: 43% self-built
+(2010-25 median: 84%), the most inherited championship core since the 2023
+Rangers. The Arnold/Stearns attribution was re-verified against the public
+record: Stearns stepped down October 27, 2022; the stored windows are
+Stearns 2015-09-21 to 2022-10-26 and Arnold from 2022-10-27, so the July
+2022 draft class (Misiorowski) is Stearns' and the December 2022 Contreras
+trade is Arnold's. Convention, stated: the ledger credits final baseball
+authority, so 2020-22 (Arnold as GM under Stearns' presidency) is Stearns'.
+
+## 2. GM Mode
+
+The offseason, playable. Your winter inbox is real (your club's actual
+free agents; the arb class at estimated awards). The FA market is the real
+2026-27 class, computed from service and contract coverage, each name
+carrying the calibrated Ledger offer. The trade board lists short-control
+talent on sub-79-win clubs (availability heuristic, disclosed) priced by
+the control-bucket market rates; any other player can be priced on demand,
+with a contender premium; counterparties answer deterministically by the
+market band. Extensions grade against the class market. Every move is
+graded at signing; payroll and the CBT line run live. Closing the winter
+produces: a grade (total projected surplus), a projected 2027 record
+(league calibrated to .500, the accounting metric's ~5-win MAE carried as
+the error bar), and the five real club-winters 2009-2024 nearest in shape
+(prior wins, FA dollars, signings, trades), with what happened to those
+teams the next season as history's base rate.
+
+## 3. Contract comps hardened
+
+Comps now hard-filter to the same player type (a pitcher never comps to a
+hitter contract), carry a position-group penalty (C/IF/OF; SP/RP) from the
+new group field on book and player rows, and display each comp's AAV
+restated in 2027 dollars via the $/win history, so an old contract reads at
+today's prices. The suggester re-backtested under the hard filter: MAE 0.74
+years / $3.6M AAV, unchanged; accuracy cost nothing.
+
+## 4. The extension-book coverage audit
+
+Building the FA class exposed stars with live contracts reading as free
+agents. Ten long-term deals were missing from the extension list (Lindor's
+10/$341M above all, plus Devers, Trout, Wheeler, Chapman, Alvarez, Webb,
+Perdomo, Arenado's exercised 2027, and Willson Contreras' FA deal absent
+from the source csv). All verified and restored: the FA class now leads
+with the players who are actually free, and club payrolls picked up the
+missing money (the Mets' 2027 book went from $234M to $268M). Residual
+known limits: service time is proxied by seasons with MLB value, so a few
+late-debut players sit one year early in the class; traded contracts stay
+with the signing club in payroll.
