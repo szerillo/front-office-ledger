@@ -17,6 +17,8 @@ EXT = [
     ('2021-04', 'Francisco Lindor', 'NYM', 10, 341.0, None),    # 2022-2031
     ('2023-06', 'Rafael Devers', 'BOS', 10, 313.5, None),       # 2024-2033 (signed Jan 2023)
     ('2019-01', 'Mike Trout', 'LAA', 12, 426.5, None),          # 2019-2030
+    ('2020-03', 'Christian Yelich', 'MIL', 9, 215.0, None),    # 2020-2028 (coverage audit v4.6)
+    ('2023-03', 'Keibert Ruiz', 'WSH', 8, 50.0, None),          # 2023-2030 (coverage audit v4.6)
     ('2024-04', 'Zack Wheeler', 'PHI', 3, 126.0, None),         # 2025-2027
     ('2024-09', 'Matt Chapman', 'SF', 6, 151.0, None),          # 2025-2030
     ('2022-06', 'Yordan Alvarez', 'HOU', 6, 115.0, None),       # 2023-2028
@@ -65,7 +67,6 @@ EXT = [
  ("2024-02","Mitch Keller","PIT",5,77,None),
  ("2026-04","Konnor Griffin","PIT",9,140,None),
  # PHI (Dombrowski 2020-)
- ("2024-03","Zack Wheeler","PHI",3,126,None),
  ("2024-06","Cristopher Sanchez","PHI",4,22.5,None),
  ("2026-03","Jesus Luzardo","PHI",5,135,None),
  # CIN / DET / MIN / HOU
