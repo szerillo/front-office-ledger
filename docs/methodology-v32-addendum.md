@@ -438,3 +438,41 @@ free-agent market gained position and name filters, with every negotiation
 already inline. And the winter journal now records everything: every
 offer, counter, rejection, QO, tender, trade conversation, and stage
 advance, newest first, printed in full on the winter memo.
+
+# v4.3 addendum: surplus-value trade logic, and the FA pricing re-fit
+
+October 30, 2026. Both fixes came from the same user test: GM Mode accepted
+Bobby Witt Jr. for Juan Soto instantly, and priced mid-tier free agents
+near $200M.
+
+## 1. Trades price surplus, not gross projection
+
+The desk was valuing pieces at projected WAR over control. The currency of
+real trades is SURPLUS: discounted projection minus salary at $/win. Under
+surplus accounting Witt (elite production, ~$26M AAV, long control) prices
+at +17.5 while Soto (the same class of production, paid retail) prices at
+-8.9 and Lindor at -3.2: a big salary is not a trade chip. On top of the
+currency: franchise cornerstones (surplus >= 5, control >= 4) are
+unavailable from clubs that are not selling and cost 1.75x from clubs that
+are; contenders charge 1.5x; negative-surplus contracts trade as salary
+dumps (the seller eats half the negative in ask relief); and acquired
+salary lands on your payroll against an ownership capacity ceiling
+(~1.3x your entering commitment), which blocks deals your market could
+never absorb. The refusal message shows the arithmetic.
+
+## 2. FA pricing: sliding scales for forward years
+
+The old model-fair rule ran years until projected value thinned, which
+gave steady 29-year-olds eight-plus years, and the star gate keyed on that
+inflated total, flipping mid-tier players to full model weight ($200M
+Hoerners). v4.3: the star gate reads FIRST-YEAR projection ((proj1 - 3.2)
+/ 2.5); years are capped by age at signing (hitters 11 - (age - 26),
+pitchers one fewer, stars earn back up to two); out-year dollars decay at
+0.93/yr, fading to a 1.05 premium at full star weight. Re-backtested
+winter by winter on the same 1,224 signings: the Ledger offer's miss
+improves from 0.74 to 0.72 years, $3.6M to $3.5M of AAV, and $15.7M to
+$14.8M of total value, with the mid-tier ($25-100M) error falling from
+~$28-32M to ~$28M and bias cut in half. Checked against the public
+2026-27 projections (B/R, Yahoo, ESPN insiders): mid-tier names now land
+in the consensus band; the model still reads the very top of the market
+light, the same disclosed star premium the market itself produces.
