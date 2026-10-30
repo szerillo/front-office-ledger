@@ -99,12 +99,32 @@ E.append(Paragraph(
     "bust rates, the nearest real comps and how they ended, and counterparty intelligence. For contracts it "
     "proposes the terms itself: a calibrated Ledger offer blending market comps (the eight nearest real contracts "
     "by form, age, and position, with realized outcomes) and the model's fair price, <b>backtested winter by "
-    "winter on 1,224 real signings 2010-2025</b> using only information available at the time (typical miss 0.8 "
-    "years, $3.6M of AAV; the star-contract shortfall the market itself produces is disclosed, not tuned away). "
+    "winter on 1,196 real signings 2010-2025</b> using only information available at the time (typical miss 0.7 "
+    "years, $3.2M of AAV; mega-deal pricing carries a pedigree gate, a pitcher scarcity premium, and convex elite pricing with regression shrink, cutting the $200M-class miss 24% and removing its bias; the residual star shortfall the market itself produces is disclosed, not tuned away). "
     "Every verdict shows the club's estimated payroll before and after (book money plus arb/pre-arb estimates) "
     "against the CBT line, and exports as a one-page deal memo. A Scenario Room replays famous decision points from the archive with only at-the-time information, adjudicates counters by deterministic market rules, and grades process separately from outcome. A Horizon view walks every roster forward through "
-    "2031 on the aging curves, bounded by control and contract years: who falls off when, and what any proposed "
+    "2031 on the aging curves, bounded by control and contract years, with each club's season-by-season salary book: who falls off when, and what any proposed "
     "move does to the window.", st_b))
+
+E.append(Paragraph(
+    "<b>GM Mode: the whole winter, playable and priced.</b> Any club's actual 2026-27 offseason, staged the way the "
+    "calendar flows: qualifying offers and arbitration tenders (arbitration priced backward-looking, off the platform "
+    "season, so the tender decision is real), the exclusive re-sign window, then an open market where every free agent "
+    "negotiates through a deterministic camp that values offers in its own preferred structure, spreading the same "
+    "money over extra years is not a raise. Trades price in surplus value net of salary against an ownership capacity "
+    "ceiling, so the Witt-for-Soto class of fantasy deal gets refused with the arithmetic shown, and a piece that fills "
+    "the counterparty's computed roster hole is worth more in their eyes. An assistant GM reads the same engines out "
+    "loud on every screen: tender and QO calls, re-sign or walk advice, negotiation reads against the ask, trade "
+    "counsel with named bridge pieces from your own system, and real contract comps tagged with how each aged.", st_b))
+
+E.append(Paragraph(
+    "<b>The shopping fingerprint: what each front office actually buys.</b> Every acquisition a sitting regime has "
+    "made since 2016 is joined to the player's public Statcast profile in the season the front office evaluated, "
+    "z-scored within season. The persistent deviations are the regime's revealed preferences: one desk pays for "
+    "velocity, another for strike-zone discipline, a third lives with swing-and-miss for power. On public aggregates "
+    "it already reads out in plain language on every counterparty card; pointed at a club's internal evaluations, the "
+    "same construction answers the sharper question, what do rivals pay for, and what do they undervalue that you can "
+    "sell them.", st_b))
 
 E.append(Paragraph("Validation", st_h))
 tbl = Table([
@@ -180,7 +200,7 @@ E.append(Paragraph(
     "system, and the Deal Desk tab is that system already running on the free-data versions of its inputs: "
     "<b>deadline pricing</b> (the live rental-market curve says what a win costs this July and whether an "
     "offer clears the market that actually exists), <b>contract pricing</b> (suggested terms calibrated against "
-    "1,224 real signings, class-market extension baselines, CBT-aware deferral valuation, payroll and tax "
+    "1,196 real signings, class-market extension baselines, CBT-aware deferral valuation, payroll and tax "
     "proximity on every proposal), <b>roster-horizon planning</b> (the window, season by season, and what any "
     "move does to it), <b>counterparty preparation</b> (every GM's trade record, channel tendencies, buy-low "
     "habits, and development effects before the call), <b>self-audit</b> (which channels actually produce, with "
