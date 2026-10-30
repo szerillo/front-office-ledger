@@ -672,3 +672,31 @@ The computed FA class is now reconciled against the actual 2026-27 winter
   header to its right was one column off); club nicknames render Red Sox,
   White Sox, and Blue Jays in full; GM Mode states that every number on
   the screen is Ledger WAR.
+
+# v4.8 addendum: arbitration realism and the fit-and-finish pass (Oct 2026)
+
+- ARBITRATION FIX (circularity). Awards were priced off the same projection
+  used to value the player, so the model could never recommend a non-tender:
+  salary was 25/40/60% of value by construction. Arbitration is
+  backward-looking, so the 2027 award now prices the season the player just
+  PLAYED (platform value, with a one-year blend), while the tender decision
+  weighs that award against the forward projection. The league now shows 77
+  non-tender candidates across 28 clubs, which is what a real winter looks
+  like; the gap between what arb pays for and what you receive IS the
+  non-tender decision, and the assistant GM now names the worst cases.
+- A methodology-reorder bug had moved the Validation, inside-a-front-office,
+  and About sections out of Methodology and into every report-card ledger
+  table header; both sides fixed.
+- The rail depth card now stacks compact rotation and bullpen rows under
+  the diamond.
+- Pop-out trees: any player's full chain opens in an overlay from wherever
+  his name appears (Deal Desk pieces, GM trade desk, the salary book), with
+  endings from the value cache.
+- Champions page: the side-by-side is the landing, selecting a club scrolls
+  to its card, channel percentages are computed from the full core
+  regardless of who inherited it (the 1998 Yankees now read 33% trade / 45%
+  international / 22% FA with 7% built by regime and 87% with continuity),
+  and the continuity column fills with the regime share where no deputy
+  window applies.
+- The season-by-season salary book now also lives on the Horizon tab for
+  every club, outside GM Mode.
