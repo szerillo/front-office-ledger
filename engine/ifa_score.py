@@ -61,7 +61,7 @@ def age_at(bd, when):
     return (w - b).days / 365.25
 
 # classify + realize
-ifa = []  # (team_id, class_year, person_id, name, realized)
+ifa = []  # (team_id, class_year, person_id, name, realized, sign_date)
 for r in rows:
     pid = r["person_id"]
     if pid not in bio: continue
@@ -73,12 +73,12 @@ for r in rows:
     tid = r["team_id"]; names = ALIAS.get(tid, {REG[tid]["team"]})
     yr = int(r["date"][:4])
     realized = sum(v for (y, tm, v) in LVM[pid]["rows"] if tm in names and yr <= y <= yr + 10)
-    ifa.append((tid, yr, pid, r["person_name"], round(realized, 2)))
+    ifa.append((tid, yr, pid, r["person_name"], round(realized, 2), r["date"]))
 print(f"classified IFA signings (value-relevant): {len(ifa)}", flush=True)
 
 # class means: league value over 30 clubs
 class_tot = defaultdict(float)
-for tid, yr, pid, nm, v in ifa:
+for tid, yr, pid, nm, v, dt in ifa:
     class_tot[yr] += v
 def class_mean(yr):
     # every club shops every class from (near-)equal pools: the expectation
@@ -99,14 +99,14 @@ def grade(nps):
     return 30
 
 per = defaultdict(lambda: dict(real=0.0, exp=0.0, n=0, tops=[]))
-DATE_BY = {(tid, yr, pid): None for tid, yr, pid, nm, v in ifa}
-for tid, yr, pid, nm, v in ifa:
-    # v4.7 attribution fix: a signing belongs to the regime only if it
-    # happened on this regime's watch (class year on/after the start year;
+
+for tid, yr, pid, nm, v, dt in ifa:
+    # attribution fix: a signing belongs to the regime only if it happened
+    # on this regime's watch (true signing date on/after the start date;
     # the league class baseline stays league-wide)
-    if yr < int(REG[tid]["start"][:4]): continue
+    if dt < REG[tid]["start"]: continue
     p = per[tid]; p["real"] += v; p["n"] += 1
-    p["tops"].append((v, yr, nm, pid))
+    p["tops"].append((v, yr, nm, pid, dt))
 for tid, p in per.items():
     y0 = max(int(REG[tid]["start"][:4]), 2005)
     p["exp"] = sum(class_mean(y) for y in range(y0, 2027))
@@ -117,12 +117,12 @@ for r in res:
     net = p["real"] - p["exp"]
     r["chan"]["intl"] = dict(net=round(net, 1), g=grade(net / r["seasons"]), n=p["n"])
     tops = sorted(p["tops"], key=lambda t: -t[0])[:5]
-    r["intl_tops"] = [dict(d=f"{y}-01-15", ch="intl", net=round(v, 1),
+    r["intl_tops"] = [dict(d=dt, ch="intl", net=round(v, 1),
                            h=f"Int'l amateur signing: {nm} ({y} class)",
                            sides=[["Realized on signing org (class year +10)", [[nm, f"{v:+.1f}"]]],
                                   ["Class baseline", [["league class value over 30 clubs, near-equal pools", "shared"]]]],
                            pids=[pp])
-                      for v, y, nm, pp in tops if v >= 0.5]
+                      for v, y, nm, pp, dt in tops if v >= 0.5]
     r["total"] = round(r["total"] + net, 1)
     best = f"{tops[0][2]} (+{tops[0][0]:.1f})" if tops and tops[0][0] > 0.3 else "-"
     print(f"{r['abbr']:<6}{net:>+9.1f}{p['real']:>8.1f}{p['exp']:>7.1f}{p['n']:>5}   {best}")
