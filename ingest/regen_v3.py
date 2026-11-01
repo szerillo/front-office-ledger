@@ -38,7 +38,7 @@ def build_styles(res):
         ("overslot", "taste", lambda r: (r["dna"].get("draftRoom") or {}).get("overslot"), "Swings over slot", "Plays the slot book straight"),
         ("prep", "taste", lambda r: (r["dna"].get("draftRoom") or {}).get("prep"), "Prep-school dreamer", "College polish only"),
         ("buyLow", "temperament", lambda r: (r["dna"].get("buyLow") or {}).get("rate"), "Bargain-bin believer", "Pays retail"),
-        ("inj", "temperament", lambda r: ((r["dna"].get("inj") or {}).get("pit", 0) + (r["dna"].get("inj") or {}).get("bat", 0)) / max(r["seasons"], 1), "Lives in the training room", "Keeps bodies on the field"),
+        ("inj", "temperament", lambda r: ((r["dna"].get("inj") or {}).get("pit", 0) + (r["dna"].get("inj") or {}).get("bat", 0)), "Lives in the training room", "Keeps bodies on the field"),   # per covered season already (archetype.py)
         ("vol", "temperament", lambda r: r["chan"]["trade"]["n"] / max(r["seasons"], 1), "Never stops dealing", "Patient to a fault"),
         ("trSkill", "skill", lambda r: r["chan"]["trade"]["net"] / max(r["seasons"], 1), "Wins the trade table", "Bleeds value in trades"),
         ("drSkill", "skill", lambda r: r["chan"]["draft"]["net"] / max(r["seasons"], 1), "A draft-room edge", "Draft-room drag"),
@@ -118,10 +118,10 @@ def chan_ledgers(r):
                  worst=[row(d) for d in ext_all if d["net"] < 0]),
     )
 
+_START = {x["teamId"]: x["start"] for x in json.load(open("/work/regimes.json"))["regimes"]}
 auto = []
+CURATED_FULL = {}
 for r in res:
-    if r["id"] in ("lad", "bal", "mil"):
-        continue
     badge = '<span class="badge-real">COMPUTED</span>'
     best_tr, worst_tr, acq, loss = [], [], [], []
     pool = (list(r["top"]) + list(r.get("fa_tops", [])) + list(r.get("intl_tops", []))
@@ -146,7 +146,7 @@ for r in res:
     dev = r.get("dev", dict(net=0, g=None, n=0, farmNow=0, farmN=0, flows={}))
     flags = r.get("flags", [])
     auto.append(dict(
-        id=r["id"], exec=r["exec"],
+        id=r["id"], exec=r["exec"], startDate=_START.get(r["teamId"]),
         title="Head of Baseball Operations" + (" (interim)" if "interim" in flags else ""),
         team=r["team"], start=r["start"], seasons=round(r["seasons"]),
         titles=r.get("titles", 0),
@@ -174,6 +174,12 @@ for r in res:
         dnaTags=STYLES.get(r["teamId"], []),
         h2h=r.get("h2h", [])[:10],
     ))
+    if r["id"] in ("lad", "bal", "mil"):
+        # v5.1: the three hand-verified cards are graded by the same engine as
+        # every other card; their hand-written decision pages ride along as a
+        # showcase. Move the computed card aside instead of listing it twice.
+        CURATED_FULL[r["id"]] = auto.pop()
+        CURATED_FULL[r["id"]]["h2h"] = r.get("h2h", [])
 
 def swap(s, anchor, end_marker, payload):
     i = s.find(anchor)
@@ -255,8 +261,9 @@ if os.path.exists("/work/hist_results.json"):
             id=r["id"], exec=r["exec"],
             title="Head of Baseball Operations · archive regime",
             team=r["team"], start=r["start"], end=r["end"], era="hist",
+            startDate=r.get("startDate"), endDate=r.get("endDate"),
             trueStart=r.get("trueStart"), flags=flags,
-            seasons=round(r["seasons"]), titles=ws,
+            seasons=round(r["seasons"], 1), titles=ws,
             forGrade=r["forGrade"], smallSample=r["seasons"] < 3, realCard=True,
             realBadge="COMPUTED · ARCHIVE SWEEP · TRADE/DRAFT/WAIVER GRADED; FA SHOWN RAW, DEV/EXT NOT SCORED FOR PAST WINDOWS",
             success=suc,
@@ -362,8 +369,16 @@ for rr in ranks_all:
 # chain endings can say what actually happened (still here / career over /
 # left without a graded move)
 _lvm = {k: v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
+# every trade, every seat (trade_book.py): its pieces get names and fates too
+TB = None
+if os.path.exists("/work/trade_book.json"):
+    TB = json.load(open("/work/trade_book.json")); TB.pop("check", None)
+    tb_pids = {p for _, seats in TB["trades"] for st in seats for p, _ in st[2] + st[3]}
+    TB["names"] = {p: TB["names"].get(p) for p in tb_pids if p not in NAMES and TB["names"].get(p)}
+else:
+    tb_pids = set()
 FATE = {}
-for pid in pidset:
+for pid in pidset | tb_pids:
     rec = _lvm.get(pid)
     if not rec or not rec["rows"]: continue
     last = max(rec["rows"], key=lambda t: t[0])
@@ -378,6 +393,25 @@ assert i >= 0
 tail_anchor = "const PLAYER_FATE" if "const PLAYER_FATE" in s else "const PLAYER_RANKS"
 j = s.find("\n\n", s.find(tail_anchor, i))
 s = s[:i] + mv_js + s[j+2:]
+_KEEP = ("chan", "chanLedgers", "cum", "decisions", "seasons", "forGrade", "surplus", "walk", "h2h",
+         "startDate", "dna", "dnaTags", "start", "titles", "success")
+_cx = {k: {f: v[f] for f in _KEEP if f in v} for k, v in CURATED_FULL.items()}
+cx_js = "const CURATED_EXTRA = " + json.dumps(_cx, separators=(",", ":")) + ";\nREGIMES.forEach(r => { const x = CURATED_EXTRA[r.id]; if(x){ Object.assign(r, x); r.realBadge = 'COMPUTED · FULL LEDGER · WITH HAND-WRITTEN SHOWCASE DECISIONS'; } });\n"
+k = s.find("const CURATED_EXTRA = ")
+if k >= 0:
+    s = s[:k] + cx_js + s[s.find("});\n", s.find("REGIMES.forEach(r => { const x = CURATED_EXTRA", k)) + 4:]
+else:
+    k = s.find("const PLAYER_MOVES = ")
+    s = s[:k] + cx_js + s[k:]
+if TB is not None:
+    tb_js = "const TRADE_BOOK = " + json.dumps(TB, separators=(",", ":")) + ";\n"
+    k = s.find("const TRADE_BOOK = ")
+    if k >= 0:
+        s = s[:k] + tb_js + s[s.find(";\n", k) + 2:]
+    else:
+        k = s.find("const PLAYER_MOVES = ")
+        s = s[:k] + tb_js + s[k:]
+    print("trade book spliced:", len(TB["trades"]), "trades,", len(TB["names"]), "extra names")
 
 # curated cards (lad/bal/mil): their decision pages are hand-verified, but the
 # Results block is objective standings + October data, so it syncs from the
