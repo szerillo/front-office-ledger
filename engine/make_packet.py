@@ -107,7 +107,7 @@ E.append(Paragraph(
     "move does to the window.", st_b))
 
 E.append(Paragraph(
-    "<b>GM Mode: the whole winter, playable and priced.</b> Any club's actual 2026-27 offseason, staged the way the "
+    "<b>The Offseason Simulator: the whole winter, playable and priced.</b> Any club's actual 2026-27 offseason, staged the way the "
     "calendar flows: qualifying offers and arbitration tenders (arbitration priced backward-looking, off the platform "
     "season, so the tender decision is real), the exclusive re-sign window, then an open market where every free agent "
     "negotiates through a deterministic camp that values offers in its own preferred structure, spreading the same "
