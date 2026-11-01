@@ -49,7 +49,7 @@ A decision-level accounting system for sports front offices. Every draft pick, t
 
 **THE 1998 FLOOR (v3.3):** the archive now reaches 1998: Retrosheet backfill extended to 1985 (provenance) with scoring floored at 1998; drafts 1998-2004 backfilled from the Stats API draft endpoint (`ingest/draft_backfill.py`); park factors to 1996 (pre-humidor Coors 1.26-1.31); 28,149-player value cache; Expos alias joined. 110 archive regimes (`ingest/regimes_hist_v2.py` documents the curation), Cashman's active window from his real 1998-02 seat. The complete Beane record: -28 net over 17.8 seasons. Sabean's full window: +226.
 
-**28 CHAMPIONSHIP LEDGERS (v3.3):** every WS winner 1998-2025, each roster piece clickable into its onward chain. The era through-line: median title core 48% self-built 1998-2009, 90% 2010-2025. The inherited-core championship is going extinct.
+**28 CHAMPIONSHIP LEDGERS (v3.3):** every WS winner 1998-2025, each roster piece clickable into its onward chain. The era through-line: median title core 48% self-built 1998-2009, 90% 2010-2025. The inherited-core championship is going extinct. *(Corrected in v5.0.1: with 29 titles and the v4.8 roster accounting the split is 48% vs 74%, and seven of seventeen titles since 2010 came on majority-inherited cores, so the 'extinct' reading is withdrawn.)*
 
 **VALIDATION v2 (v3.3):** predictive study pooled over 574 regime-years from 112 regimes; partial r 0.276 with cluster-bootstrap 95% CI [0.16, 0.37]; grouped 5-fold CV lifts out-of-sample R2 0.184 -> 0.245 on held-out regimes. Accounting (2015-2025 full-coverage era): r = 0.853, MAE 5.3 wins. `engine/validation.py`.
 
