@@ -15,3 +15,12 @@ Covers: surplus trade logic (the Witt refusal), FA pricing bands, the
 trades, backward-looking arbitration (non-tenders exist), every major
 feature surface, the date-vs-window boundary audit, and phone-width
 overflow on every tab.
+
+`t_math.mjs` (v5.1) encodes the November 2026 full-site math audit:
+service time and calibrated arbitration (Baty, Alvarez, Witt, Skenes,
+Stephenson), the real qualifying offer, one grade rule and one net figure
+for every card, retention without re-signings, champions' biggest channel,
+head-to-head symmetry across all 30 seats, the salary book closing to every
+payroll widget, control (no own free agents, no six-year veterans), full
+career trees (Betts, Lindor, Halladay's recovered return, no pass-through
+seats), extend-then-trade payroll, and clean text on every tab.
