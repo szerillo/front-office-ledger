@@ -80,7 +80,7 @@ new facts are the completed postseason and any early offseason transactions.
                                      # 40+ IP player vs the cache; fetch any
                                      # missing at v1.5 BEFORE the chain
     python3 scenario_build.py        # Scenario Room pack (standings-by-date)
-    python3 gm_data.py               # GM Mode offseason-comp pack (standings)
+    python3 gm_data.py               # Offseason Simulator comp pack (standings)
     python3 calib_suggest.py         # re-backtest the term suggester after a
                                      # new FA winter enters contracts_recent;
                                      # update quoted MAE numbers if they move
