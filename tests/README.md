@@ -24,3 +24,11 @@ head-to-head symmetry across all 30 seats, the salary book closing to every
 payroll widget, control (no own free agents, no six-year veterans), full
 career trees (Betts, Lindor, Halladay's recovered return, no pass-through
 seats), extend-then-trade payroll, and clean text on every tab.
+
+`t_winter.mjs` (v5.2) encodes the real 2026-27 winter: contracts on file
+(Sale, Hoerner, Rasmussen, Acuña), declined options and opt-outs as free
+agents, opt-ins staying, retirements and the restricted list off the boards,
+open decisions tagged, on-file rows never used as comps, CBA qualifying-offer
+eligibility, the posted class (presence, posted-market pricing, posting fee
+tiers, fee charged in surplus), and org prospects (a farm for every club,
+prospect trades moving farms, promotion onto the depth chart, undo).
