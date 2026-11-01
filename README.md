@@ -2,6 +2,10 @@
 
 A decision-level accounting system for sports front offices. Every draft pick, trade, signing, and waiver claim, graded against the market expectation for that transaction type and attributed to the executive regime that made it. Inspired by OOTP's Decision History screen; built for real MLB data first, schema designed to extend to other leagues.
 
+## v5.1 math audit (November 2026)
+
+Every computed number on the site was re-derived by independent checks and the full scoring chain re-run. Arbitration now runs on real MLB service time rebuilt from the transaction feed (`engine/svc_fetch.py`) and an award model calibrated on 48 real 2026 arbitration salaries (leave-one-out miss about $1.6M; the old rule ran $3.0M hot). The engines share a cleaning layer (`engine/tradegroup.py`: duplicate rows, deal-level trade grouping, a curated repair for the Lindor/Carrasco trade the feed files incompletely); retention excludes re-signings; every trade is graded from every seat (`engine/trade_book.py`), which powers full career trees. Payroll follows the player and the salary book closes to every widget. Current headline figures: validation partial r 0.27 (95% CI 0.15 to 0.36), accounting r 0.864; Sabean's full window +222; Cashman +28 over 29 seasons. Details and every before/after number: `docs/methodology-v32-addendum.md` (v5.1). Regression suite: `tests/t_math.mjs`. Entries below are the project's history and quote the numbers of their own versions.
+
 ## Current state (October 2026)
 
 **Working today**
