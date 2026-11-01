@@ -51,7 +51,13 @@ new facts are the completed postseason and any early offseason transactions.
                                      # cache (positions2.json). Rerun whenever
                                      # the player cache changes; everything
                                      # downstream overlays it on positions.json
-    python3 sweep_score.py
+    python3 svc_fetch.py             # real MLB service from each pool player's
+                                     # transaction history -> service.json
+                                     # (cached in svc_tx_cache.json; needs the
+                                     # previous desk_data.json for the pool)
+    python3 sweep_score.py           # all scoring engines import tradegroup.py:
+                                     # duplicate-row removal, deal-level trade
+                                     # grouping, curated feed repairs (REPAIRS)
     python3 fa_grade.py
     python3 ext_grade.py
     python3 ifa_score.py             # idempotent (backs out its prior intl
@@ -60,19 +66,21 @@ new facts are the completed postseason and any early offseason transactions.
                                      # league value over 30 clubs
     python3 dev_score.py
     python3 postseason.py            # pulls the finished postseason
-    python3 archetype.py             # WARNING: ret2.py is NOT idempotent and
-                                     # archetype resets chan.ret, so always run
-                                     # archetype -> ret2 as a pair, never ret2
-                                     # twice without archetype between
+    python3 archetype.py             # resets chan.ret; ret2.py is idempotent
+                                     # (stores ret_applied at the top level)
+                                     # but must follow archetype
     python3 h2h_deals.py             # per-pair deal lists for Head to Head
                                      # (idempotent; after archetype)
     python3 ret2.py
+    python3 savant_fingerprint.py    # re-merges dna.shop (archetype rewrites dna)
     python3 validation.py
     python3 hist_score.py            # archive era
     python3 champions_build.py       # championship provenance + through lines
     python3 trade_comps.py           # market comps onto every graded trade
     python3 ages_fetch.py            # birth dates (only if the cache changed)
     python3 proj_v1.py               # Ledger Projection v1 onto open deals
+    python3 trade_book.py            # every trade, every seat, for the trees;
+                                     # prints its cross-check against the cards
     python3 desk_data.py             # Deal Desk data pack. On a pool change
     python3 pt_fetch.py              #   run desk_data -> pt_fetch -> desk_data
     python3 desk_data.py             #   so new pool members get durability
@@ -81,6 +89,8 @@ new facts are the completed postseason and any early offseason transactions.
                                      # missing at v1.5 BEFORE the chain
     python3 scenario_build.py        # Scenario Room pack (standings-by-date)
     python3 gm_data.py               # Offseason Simulator comp pack (standings)
+    python3 arb_calib.py             # arbitration calibration rows (update REAL
+                                     # with the new winter's settlements in January)
     python3 calib_suggest.py         # re-backtest the term suggester after a
                                      # new FA winter enters contracts_recent;
                                      # update quoted MAE numbers if they move
@@ -98,9 +108,10 @@ The computed FA class must be reconciled against the real winter:
   price), and the EXT list proper. Update all three from the league option
   tracker after the early-November decision deadline.
 - `desk_data.py` carries FA27_NAMES (opt-outs/declines whose remaining book
-  coverage is voided; rename per winter) and SVC_FIX (true service for
-  players the cup-of-coffee proxy overcounts, plus NPB-origin players free
-  by contract expiry encoded as service 6).
+  coverage is voided; rename per winter) and CONTRACT_FA (NPB-origin players
+  free by contract expiry, encoded as service 6). Service time itself comes
+  from svc_fetch.py; re-run it after the season so the new year's days land.
+- The qualifying-offer amount is GM_QO in the page (set each October).
 - Audit after rebuild: no player with an exercised option in the FA pool,
   every ranked FA in the public class lists present in ours (NPB postings
   with no MLB record excluded, disclosed).
@@ -148,3 +159,7 @@ failure is a regression, not noise:
                                   # reality, depth fits
     node tests/t_audit.mjs        # per-card date-vs-window boundary audit,
                                   # phone-width overflow sweep
+    node tests/t_math.mjs         # the v5.1 math audit: arbitration and
+                                  # service, grade rules, report = leaderboard,
+                                  # champions, H2H symmetry, payroll closure,
+                                  # control, full career trees, clean text

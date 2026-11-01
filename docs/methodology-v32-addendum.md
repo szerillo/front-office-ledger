@@ -794,3 +794,144 @@ The computed FA class is now reconciled against the actual 2026-27 winter
   The earlier "inherited title is going extinct" reading is withdrawn; the
   Champions landing now computes this sentence from the data instead of
   carrying it as fixed text.
+
+## v5.1 (November 1, 2026): full-site math audit
+
+Every computed number on the site was re-derived by independent checks (three
+parallel audits of the grades, the rooms, and the trees and prose, then a
+regression suite that encodes each finding: `tests/t_math.mjs`). What changed:
+
+Arbitration and service time
+- Service time is now real MLB service rebuilt from each player's transaction
+  history (`engine/svc_fetch.py`: selections, recalls, options, outrights,
+  MLB injured list, rehab assignments; All-Star, Futures, WBC, and Fall League
+  "activations" ignored; seasons scaled to a 186-day calendar and capped at
+  172 days). The old proxy counted any season with an appearance as a full
+  year, which put 2022 September call-ups at five years of service. Checked
+  against hand counts and known cases: Witt and Rodriguez 5.000, Henderson
+  4.037, Carroll 4.039, Skenes 2.136 (Super Two), Baty 3.094. It also showed
+  Tyler Stephenson IS a 2026-27 free agent (6.050), which the old manual fix
+  had wrongly blocked.
+- The arbitration award is recalibrated against 48 real 2026 arbitration
+  salaries (agreed figures, or filing midpoints where a hearing was pending):
+  award = (0.6 + 1.0 x platform WAR) x class step (1.0 first award, 1.5
+  second, 3.1 later) x $/WAR drift. Leave-one-out miss about $1.6M per player
+  (median $1.3M), no bias. The old 25/40/60-of-market rule missed by $3.3M
+  and ran $3.0M hot. Brett Baty: $12.0M became $2.7M (first award);
+  Francisco Alvarez: $14.4M became $4.6M (second award). One model now
+  serves every page (the Desk's payroll line used a second, older one).
+- Non-tender calls compare the award's cost over a minimum-salary
+  replacement with the player's projected value (85 calls across 29 clubs).
+- The qualifying offer is the real 2026-27 figure, $23.15M (it was $22M).
+
+Engine corrections (full scoring chain re-run)
+- Duplicate feed rows (the same waiver claim filed up to four times) are
+  removed before scoring.
+- Trades are grouped by deal, not by description text: the feed sometimes
+  files one trade in fragments (Toronto "got nothing" for Halladay) or adds a
+  garbled second copy of an incoming player (the Cronenworth row that put
+  +17.1 on San Diego's card twice). San Diego's trade ledger moved from -18.6
+  to -64.9; most cards moved by under two wins.
+- The Lindor/Carrasco trade exists in the league feed only as one garbled
+  row with no origin club and none of Cleveland's return; it is now repaired
+  from the public record (Mets +7.7, Cleveland -7.7 on that deal).
+- A departed piece's value now follows every name his new club has used, so
+  the two seats of a trade mirror each other through the Indians/Guardians
+  and Oakland/Athletics renames (Head to Head is now symmetric everywhere).
+- Retention excluded re-signings: a free-agency filing followed by a season
+  back with the same club counted as a departure that "did nothing
+  elsewhere," which credited the club with the whole expectation (the
+  Yankees' card carried +133 wins of it). Re-signings are excluded and the
+  curve is centered (mean gap per departure 0.0). Cashman's total moved from
+  +137 to +28.
+- The composite grade is recomputed after every channel lands (22 stored
+  grades were stale), and the three hand-verified cards obey the same grade
+  thresholds, the same retention channel, and the same total as every other
+  card. The report-card net now matches the leaderboard's.
+- Head-to-head deal lists show up to 60 deals and say when a list is partial.
+- Org DNA's injured-list rate was divided by seasons twice; fixed, and
+  counted over the seasons the feed covers.
+- Championship tenure counts seasons the leaderboard's way (a fall hire's
+  first season is the next one): median title in year 5, 11 of 29 titles in
+  a regime's first three seasons. The computed ledger is canonical for every
+  title; the two hand-written cards keep their stories on top of it.
+- Validation after the re-run (575 regime-years once the archive windows
+  were corrected): partial r 0.27, cluster-bootstrap 95% CI [0.15, 0.36],
+  out-of-sample R-squared 0.181 to 0.235 (was 0.276, [0.16, 0.37], 0.184 to
+  0.245). Accounting check unchanged at r = 0.864.
+
+Payroll, control, and the Offseason Simulator
+- Book money follows the player to his current club, and a newer contract
+  supersedes the one it replaced (Devers is on San Francisco's payroll, not
+  Boston's; Bregman's Boston deal no longer stacks on his Cubs deal). The
+  salary book closes exactly to every payroll widget, including a line for
+  guaranteed money with no active player behind it.
+- A club's own free agents are no longer under control in 2027 (Horizon), and
+  six-year veterans with no deal are free agents, never controlled.
+- Extensions replace the salary they supersede instead of stacking, and a
+  player can be extended once.
+- A declined QO earns the comp pick only when the market closes without you
+  re-signing him; players whose exclusive window closes hit the open market
+  instead of "signing elsewhere" while staying signable.
+- The camp's ask for an extra year adds money (about 60% of the AAV) instead
+  of stretching the same total.
+
+Trees
+- Every trade 1998-2026 is graded from every seat (`engine/trade_book.py`,
+  4,372 deals, cross-checked against 1,701 card decisions: all but one match
+  within 0.15). The player finder shows a full career: origin, every trade
+  with both clubs' grades and every other piece's onward chain, signings with
+  terms and realized value, extensions, and where it stands.
+- Regime trees match the right deal on busy deadline days, label the
+  executive actually in the seat on the trade date, and the three
+  hand-verified cards now get trees from the trade book.
+- The Orioles card's Hays trade is corrected (Dominguez and Pache, +1.1;
+  Laureano arrived separately as a free agent).
+
+Prose
+- Restated from the data: the contract book (1,701: 1,618 free-agent deals
+  and 83 extensions, 2006-2026), the trade archive (5,804 deals), the rental
+  study (224 rentals; 0.8 is the all-rental rate, the nine star rentals ran
+  nearer 1.2), the leverage curve (about 2.5x at 70 wins, 2x at 105), and the
+  contract-backtest megadeal figures ($91M miss vs $140M for the comp median,
+  no bias). Claims that could not be reproduced from current data were
+  replaced with ones that can.
+
+Second pass (same day, after an independent re-audit of the fixes)
+- Trade returns filed under minor-league affiliates are recovered from the
+  daily feed (`engine/trade_repair.py`, 450 rows, affiliates mapped to their
+  parent club per season): Toronto now receives Drabek, Taylor, and d'Arnaud
+  for Halladay. About 850 trade seats still show value on one side only; they
+  are cash, bonus-pool money, players to be named (whose completion is filed
+  as its own dated entry), or returns the feed never filed.
+- Multi-team deals: legs that share a player are merged into one deal, and a
+  player who only passes through a seat (Gregorius in the Choo/Bauer
+  three-way) is neither received nor surrendered there.
+- Waiver claims de-duplicate even when one copy of the row lacks the losing
+  club (29 claims had still counted twice).
+- Archive windows corrected where they overlapped or left gaps: Dick Williams
+  (Cincinnati) ends October 2020, Al Avila (Detroit) August 2022, Jon Daniels
+  (Texas) August 2022 (Chris Young was GM under Daniels's presidency from
+  December 2020; final authority carries the grade). 39 Texas and Detroit
+  trades that sat on no card are now graded; Cincinnati deals are no longer
+  graded on two cards.
+- The three hand-verified cards (Dodgers, Orioles, Brewers) are now graded by
+  the engine like every other card, with their hand-written decision pages
+  kept below the computed ledger as a showcase. Their totals moved: Friedman
+  +58 (was +113 on the hand card), Elias +42 (was +56), Arnold +64 (was +32).
+  Two showcase dates were wrong and are fixed (Kimbrel, April 2022; Rogers,
+  July 30, 2024).
+- Offseason Simulator: a player extended and then traded takes the extension
+  with him (no ghost payroll, no lingering surplus); salary-shedding trades
+  are never blocked by the ownership capacity check, and free-agent signings
+  now face the same check trades do; the Team salary tab shows your club after
+  this winter's moves, so it agrees with the payroll rail.
+- Horizon no longer marks players controlled past 2031 as ending in 2031.
+- Org DNA's injured-list rate counts placements only and includes the
+  pre-2019 "disabled list" wording, over the seasons the feed covers.
+- Champions: core pieces born in draft territory with no draft record (Jeter,
+  Posada, Rollins, Glaus) are amateur draftees from before the draft table's
+  coverage, not international finds; the side-by-side table now says that its
+  channel columns count original arrival, not the sitting regime's share.
+- The report card's surplus tile prices net WAR at the tenure's own average
+  market rate instead of 2026 dollars.
