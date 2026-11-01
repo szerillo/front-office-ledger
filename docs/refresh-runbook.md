@@ -112,6 +112,18 @@ The computed FA class must be reconciled against the real winter:
   free by contract expiry, encoded as service 6). Service time itself comes
   from svc_fetch.py; re-run it after the season so the new year's days land.
 - The qualifying-offer amount is GM_QO in the page (set each October).
+- v5.2: the winter itself lives in `winter_2026.py` (rename per winter):
+  CONTRACTS (2027+ terms the base book lacks, payroll and control only),
+  FA (declines, opt-outs, releases), OUT (retired, restricted list), PENDING
+  (options still open, modeled until filed), PRIOR_QO, and POSTED. When the
+  November option decisions post, move each PENDING row to CONTRACTS (if
+  exercised) or FA (if declined), then rerun desk_data.py -> regen_v3.py.
+  Free-agency filings are re-read from the league feed on every run.
+- Posted players: add each new posting to `posted_research.json` (2024-26
+  lines, signing deadline) and POSTED, then run `posted_build.py` before
+  desk_data.py. Remove a player once he signs (he enters the book).
+- Org prospects: `prospects_build.py` (calibration seasons are cached in
+  milb_cache/; the current season is re-pulled) before desk_data.py.
 - Audit after rebuild: no player with an exercised option in the FA pool,
   every ranked FA in the public class lists present in ours (NPB postings
   with no MLB record excluded, disclosed).

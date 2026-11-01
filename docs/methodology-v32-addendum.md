@@ -935,3 +935,72 @@ Second pass (same day, after an independent re-audit of the fixes)
   channel columns count original arrival, not the sitting regime's share.
 - The report card's surplus tile prices net WAR at the tenure's own average
   market rate instead of 2026 dollars.
+
+## v5.2 (November 2, 2026): the real winter, the posted class, org prospects
+
+The Offseason Simulator now runs the 2026-27 winter as it actually stands,
+not as service time alone implies.
+
+Real decisions (`engine/winter_2026.py`, applied in `desk_data.py`)
+- Free agents are taken from the league feed's own filings (every "elected
+  free agency" row since October 1), plus declined options, opt-outs, and
+  released players from the MLB.com 2027 options tracker and per-player
+  reporting (each veteran row in `data/vet_status.json` carries its source).
+- 29 deals the base contract book lacked are now on file for 2027 (Sale's
+  $27M extension, Hoerner's 6 yr / $141M, Rasmussen's $20M option,
+  Acuña's $17M option, Castillo's money in Chicago, and so on). These rows
+  carry payroll and control only; they are never used as pricing comps.
+- Retired players and Emmanuel Clase (restricted list) are off every board.
+- Options still open on November 1 are due November 2. Until they post, the
+  Ledger models each side's arithmetic and says so on the player's row: club
+  options exercised when projected 2027 value at $10M per win clears the
+  option net of its buyout, mutual options declined, player options and
+  opt-outs kept. A refresh rewrites these rows once the decisions are filed.
+- Imai's guarantee corrected to 3 yr / $54M (the $63M figure included
+  incentives).
+- Qualifying offers follow the CBA: a player who changed clubs after Opening
+  Day (trade, waiver claim, in-season signing) or who has received a QO
+  before cannot get one. The simulator lists who is ineligible and why.
+
+The posted class (`engine/posted_build.py`, `data/posted.json`)
+- Teruaki Sato, Kaima Taira, Hiromi Itoh (NPB), and Si Hwan Roh (KBO) are in
+  the open market with their posting club, 2026 line, and signing deadline.
+- No public projection the Ledger trusts translates NPB or KBO statistics,
+  so each of their last three seasons is matched to the five nearest imports
+  since 2017-18 (role, age, production, with a penalty across leagues;
+  returning imports, minor-league deals, and Ohtani's two-way case excluded)
+  and the row carries what those players actually produced per season over
+  their first two MLB seasons, on the Ledger's WAR scale. The standard
+  projection then runs on that row like any other.
+- They are priced off the posted market itself (the comps' guarantees,
+  inflated to 2027 dollars), with published predictions shown beside the
+  Ledger's figure. The posting fee (20% of the first $25M guaranteed, 17.5%
+  of the next $25M, 15% beyond) is shown and charged in the simulator's
+  surplus; it sits outside payroll, as it does in real life.
+- Read the comps before the number: the import record is thin and mostly
+  sobering (Yoshida, Tsutsugo, Akiyama, Kikuchi's first year), which is why
+  a Triple Crown winner projects nearer two wins than five. That is the
+  history, not a scouting opinion.
+
+Org prospects (`engine/prospects_build.py`, `data/pros.json`)
+- MLB Pipeline's team Top 30 lists are offline between seasons, so the
+  Ledger prices org depth from the minor-league record. Calibration: every
+  affiliated Single-A to Triple-A season 2014-2019, each player placed at his
+  highest level with a real sample (120 PA / 30 IP), scored by age against
+  the level and production against the level-season mean, bucketed level x
+  age band x tercile, shrunk to the level mean (n / (n + 40)). Outcome: the
+  player's actual Ledger WAR over the next six seasons (the span the Top 100
+  rank curve prices) and in the next season alone. Prior MLB players and
+  that winter's Top 100 are excluded.
+- Each club carries its 25 best by that expectation, about 680 prospects in
+  all beyond the Top 100. They trade on the board at that value, move between
+  farms when a deal executes (and back on undo), and can be promoted onto the
+  2027 depth chart at their rookie-year expectation. Top 100 prospects get the
+  same rookie-year treatment by rank band and 2026 level (a top-25 prospect
+  who reached Triple-A: +1.1 the next season, counting those who never got
+  the call).
+- Calibration headline: a young, top-tercile Triple-A hitter is worth about
+  2.6 wins over six seasons, roughly a #75-#80 Top 100 prospect; an old-for-
+  the-level Double-A arm is worth under 0.1.
+
+Regression suite: `tests/t_winter.mjs`.
