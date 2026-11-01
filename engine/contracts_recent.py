@@ -66,7 +66,7 @@ RECENT = [
  (2025,"Bo Bichette","NYM",3,126),(2025,"Ranger Suarez","BOS",5,130),
  (2025,"Framber Valdez","DET",3,115),(2025,"Josh Naylor","SEA",5,92.5),
  (2025,"Michael King","SD",3,75),(2025,"Edwin Diaz","LAD",3,69),
- (2025,"Tatsuya Imai","HOU",3,63),(2025,"Kazuma Okamoto","TOR",4,60),
+ (2025,"Tatsuya Imai","HOU",3,54),(2025,"Kazuma Okamoto","TOR",4,60),
  (2025,"Devin Williams","NYM",3,51),(2025,"Robert Suarez","ATL",3,45),
  (2025,"J.T. Realmuto","PHI",3,45),(2025,"Merrill Kelly","ARI",2,40),
  (2025,"Jorge Polanco","NYM",2,40),(2025,"Tyler Rogers","TOR",3,37),

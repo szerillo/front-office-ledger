@@ -219,6 +219,130 @@ for p in players:
     p[8] = max(1, min(6, 6 - int(_m.floor(p[11] + 1e-9))))
     p.append(len([w for w in (sv or {}).get("arb_winters", []) if w < 2026]))   # idx 15
 print("service from transactions:", n_svc, "| contract-expiry FAs:", len(CONTRACT_FA))
+
+# ---- v5.2: the winter as it actually happened (winter_2026.py) ----
+import winter_2026 as W
+PBYNAME = {}
+for p in players: PBYNAME.setdefault(norm(p[0]), p)
+def P_(nm):
+    p = PBYNAME.get(norm(nm))
+    if p is None: print("  winter: no desk row for", nm)
+    return p
+def proj27(p):
+    """mirror of the page's dkBase + one aging step (dkProjSeasons per[0])"""
+    obs = [(v, w) for v, w in ((p[7], 5), (p[6], 4), (p[5], 3)) if abs(v) > 0.05]
+    base = (0.85 * sum(v * w for v, w in obs) / sum(w for _, w in obs) + 0.15 * PC["pop_mean"]) if obs else PC["pop_mean"]
+    cv = PC["curves"]["pit" if p[3] else "bat"]
+    return max(base + cv.get(str(min(max(p[4] + 1, 20), 41)), -0.3), 0) * (p[10] or 1)
+STATUS = {}
+# 1. posted players: a translated line (posted_build.py) on a normal row
+POSTED = json.load(open("/work/posted.json"))
+for spid, z in POSTED.items():
+    pid = int(spid)
+    if any(p[1] == pid for p in players): continue
+    t = z["translated"]
+    pos = z["pos"]; grp = "SP" if pos == "SP" else "RP" if pos == "RP" else "C" if pos == "C" else \
+        "IF" if pos in ("1B", "2B", "3B", "SS") else "OF"
+    row = [z["name"], pid, "", z["pit"], z["age"], t.get("2024", 0), t.get("2025", 0), t.get("2026", 0),
+           6, 0, 1.0, 0.0, grp, pos, round(max(t.get(str(2026 - k), 0) * (0.88 ** k) for k in range(3)), 2), 0]
+    players.append(row)
+    club, lg, dl = W.POSTED[pid]
+    STATUS[pid] = ["posted", f"posted by the {club} ({lg}); sign by {dl}"]
+# 1b. organizational prospects beyond the Top 100 (prospects_build.py):
+# empirical six-season and rookie-year expectations from the minor-league record
+PROS = json.load(open("/work/pros.json"))
+PROS_OUT = {}
+have = {p[1]: p for p in players}
+n_new = 0
+for spid, z in PROS["org"].items():
+    pid = int(spid)
+    name, org, pit, age, lvl, ev6, y1, pos, line, terc, orank = z
+    if pid in have:
+        p = have[pid]
+        if abs(p[5]) + abs(p[6]) + abs(p[7]) >= 0.6 or p[9]: continue
+        if not p[2]: p[2] = org
+    else:
+        grp = "SP" if pos == "SP" else "RP" if pos == "RP" else "C" if pos == "C" else \
+            "IF" if pos in ("1B", "2B", "3B", "SS") else "OF"
+        dpos = pos if pos in ("C", "1B", "2B", "3B", "SS", "LF", "CF", "RF", "SP", "RP") else ("OF" if pos in ("OF", "DH") else "OF")
+        players.append([name, pid, org, pit, age, 0, 0, 0, 6, 0, 1.0, 0.0, grp, dpos, 0, 0]); n_new += 1
+    PROS_OUT[spid] = [lvl, ev6, y1, line, orank, terc]
+print("org prospects:", len(PROS_OUT), "| new desk rows:", n_new)
+# 2. filed for free agency: every filing in the league feed since Oct 1
+DECL = {}
+fd = get("https://statsapi.mlb.com/api/v1/transactions?startDate=2026-10-01&endDate=2026-11-30")
+for t in fd.get("transactions", []):
+    if t.get("typeDesc") == "Declared Free Agency" and (t.get("person") or {}).get("id"):
+        DECL[t["person"]["id"]] = t.get("date")
+if not DECL:      # feed unreachable: fall back to the Nov 1 snapshot
+    DECL = {int(k): "2026-10-29" for k in json.load(open("/work/fa_declared_2026.json"))}
+json.dump({str(k): v for k, v in DECL.items()}, open("/work/fa_declared_2026.json.tmp", "w"))
+byid = {p[1]: p for p in players}
+for pid, d in DECL.items():
+    if pid in byid: STATUS[pid] = ["fa", f"filed for free agency {d}"]
+for nm, why in W.FA.items():
+    p = P_(nm)
+    if p: STATUS[p[1]] = ["fa", why]
+for nm in W.CONTROLLED_AFTER_DECLINE:
+    p = P_(nm)
+    if p: STATUS[p[1]] = ["ctr", "club option declined; still under club control through arbitration"]
+# 3. contracts the base book lacks (typ 2: on file, never a pricing comp)
+def add_contract(p, ab, y0, y1, aav, label):
+    yrs = y1 - y0 + 1
+    book.append([p[0], y0 - 1, ab, yrs, round(aav * yrs, 2), y0 - 1 - AGES.get(str(p[1]), 2000), p[3],
+                 p[7], p[6], "", 0, p[1], 2, p[12], label])
+for nm, ab, y0, y1, aav, label in W.CONTRACTS:
+    p = P_(nm)
+    if p:
+        add_contract(p, ab, y0, y1, aav, label)
+        STATUS[p[1]] = ["ctr", label]
+# 4. open decisions (due Nov 2), modeled by each side's own arithmetic
+for nm, kind, amt, buy in W.PENDING:
+    p = P_(nm)
+    if not p: continue
+    vet = p[11] >= 6
+    if kind == "club":
+        val = proj27(p) * 10.0
+        keep = val >= amt - buy
+        has_row = any(r[11] == p[1] and r[1] + r[3] >= 2027 for r in book)
+        txt = f"${amt:g}M club option, decision due Nov 2; the Ledger models it {'exercised' if keep else 'declined'} (projected 2027 value ${val:.1f}M vs ${amt - buy:g}M net of the buyout)"
+        if keep:
+            if not has_row: add_contract(p, p[2], 2027, 2027, amt, f"${amt:g}M club option (modeled exercised)")
+            STATUS[p[1]] = ["pendin", txt]
+        else:
+            # declined: a veteran is a free agent; a younger player stays under control at an arbitration salary
+            if has_row: fa27.append(p[1])
+            STATUS[p[1]] = ["pendfa" if vet else "pendin", txt + ("" if vet else "; he stays under club control")]
+    elif kind == "mutual":
+        STATUS[p[1]] = ["pendfa" if vet else "pendin",
+                        f"mutual option open (decision due Nov 2); mutual options are almost never exercised by both sides" +
+                        ("" if vet else "; he is under club control either way")]
+    else:
+        STATUS[p[1]] = ["pendin", "opt-out decision due Nov 2; modeled as staying (the money left beats his projected market)"]
+for nm, why in W.OUT.items():
+    p = P_(nm)
+    if p: STATUS[p[1]] = ["out", why]
+# any free agent whose book row runs past 2026 is voided from 2027 on
+cover27 = {r[11] for r in book if r[1] + r[3] >= 2027 and r[12] != 2}
+for pid, (code, _) in STATUS.items():
+    if code in ("fa", "pendfa") and pid in cover27 and pid not in fa27: fa27.append(pid)
+fa27 = sorted(set(fa27))
+for k in list(PROS_OUT):
+    if STATUS.get(int(k), [None])[0] in ("fa", "out", "pendfa"): del PROS_OUT[k]
+# QO eligibility: a player who changed clubs after Opening Day (trade, waiver
+# claim, in-season signing) cannot receive a qualifying offer
+_con = sqlite3.connect("/work/ledger.sqlite")
+QO_INELIG = sorted({int(r[0]) for r in _con.execute(
+    "select distinct person_id from sweep_tx where date>='2026-03-26' and date<='2026-10-31' "
+    "and person_id is not null and (type_desc in ('Trade','Claimed Off Waivers') "
+    "or (type_desc='Signed as Free Agent' and description not like '%minor league%'))")})
+for nm in W.PRIOR_QO:
+    p = P_(nm)
+    if p and p[1] not in QO_INELIG: QO_INELIG.append(p[1])
+QO_INELIG = sorted(set(QO_INELIG) & {p[1] for p in players})
+print("QO-ineligible (moved in season):", len(QO_INELIG))
+import collections as _c
+print("winter status:", dict(_c.Counter(v[0] for v in STATUS.values())), "| on-file contracts:", sum(1 for r in book if r[12] == 2))
 print("winter reality: fa27 pids", fa27)
 
 # ---- committed payroll per club per season (book contracts, AAV spread) ----
@@ -228,17 +352,20 @@ print("winter reality: fa27 pids", fa27)
 # tore up; a player who signed elsewhere is not on two payrolls). Cash sent
 # in trades is not modeled.
 CUR = {p[1]: p[2] for p in players}
+FA27SET = set(fa27)
+OUTSET = {pid for pid, v in STATUS.items() if v[0] == "out"}
 by_pid = {}
 for row in book:
     by_pid.setdefault(row[11], []).append(row)
 payroll = {}
 for pid, rows in by_pid.items():
-    rows = sorted(rows, key=lambda r: r[1])
+    if pid in OUTSET: continue
+    rows = sorted(rows, key=lambda r: (r[1], r[12] == 2))
     for season in range(2026, 2032):
         cover = [r for r in rows if max(2026, r[1] + 1) <= season <= r[1] + r[3]]
         if not cover: continue
         r = cover[-1]                       # the most recent contract governs the season
-        if r[0] in FA27_NAMES and season >= 2027: continue   # opted out / declined
+        if pid in FA27SET and season >= 2027: continue   # opted out / declined / free agent
         ab = CUR.get(pid) or r[2]
         if not ab: continue
         aav = r[4] / r[3]
@@ -271,6 +398,12 @@ out = dict(
     book=book,
     payroll=payroll,
     fa27=fa27,
+    status={str(k): v for k, v in STATUS.items()},
+    posted=POSTED,
+    qoIneligible=QO_INELIG,
+    pros=PROS_OUT,
+    rookie=PROS["rookie"],
+    t100lvl=PROS["top100Level"],
     cbt={"2026": 244, "2027": None},  # 2027+ awaits the next CBA
 )
 json.dump(out, open("/work/desk_data.json", "w"), separators=(",", ":"))

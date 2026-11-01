@@ -27,7 +27,7 @@ EXT = [
     ('2026-11', 'William Contreras', 'MIL', 1, 15.5, None),
     ('2026-11', 'Isaac Paredes', 'HOU', 1, 13.35, None),
     ('2026-11', 'Sandy Alcantara', 'MIA', 1, 21.0, None),
-    ('2026-11', 'Emmanuel Clase', 'CLE', 1, 10.0, None),
+    # Emmanuel Clase removed v5.2: restricted list, option moot
     ('2026-11', 'Garrett Whitlock', 'BOS', 1, 8.25, None),
     ('2026-11', 'Yandy Diaz', 'TB', 1, 12.0, None),
     ('2026-11', 'Ozzie Albies', 'ATL', 1, 7.0, None),

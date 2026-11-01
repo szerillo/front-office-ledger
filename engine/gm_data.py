@@ -36,7 +36,7 @@ print("standings seasons:", len(WINS))
 FA = defaultdict(lambda: [0.0, 0])   # (ab, winter) -> [$M, n]
 for r in DESK["book"]:
     pl, off, ab, yrs, tot = r[0], r[1], r[2], r[3], r[4]
-    if r[12] == 1: continue
+    if r[12] != 0: continue
     FA[(ab, off)][0] += tot
     FA[(ab, off)][1] += 1
 
