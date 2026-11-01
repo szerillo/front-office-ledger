@@ -7,23 +7,23 @@
    "year": 1998,
    "result": "Won World Series",
    "regime": "Brian Cashman",
-   "regimeNote": "title in year 1 of the regime \u00b7 continuity view: 87% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
+   "regimeNote": "title in year 1 of the regime \u00b7 continuity view: 71% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
      "Bernie Williams",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1989",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1988",
      "inh",
      7.2,
      "124288"
     ],
     [
      "Derek Jeter",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1993",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1992",
      "inh",
      6.4,
      "116539"
@@ -75,9 +75,9 @@
     ],
     [
      "Jorge Posada",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1994",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1993",
      "inh",
      3.3,
      "120691"
@@ -111,9 +111,9 @@
     ],
     [
      "Andy Pettitte",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1993",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1992",
      "inh",
      2.0,
      "120485"
@@ -147,9 +147,9 @@
     ],
     [
      "Shane Spencer",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1996",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1995",
      "inh",
      1.6,
      "133341"
@@ -163,14 +163,14 @@
    "year": 1999,
    "result": "Won World Series",
    "regime": "Brian Cashman",
-   "regimeNote": "title in year 2 of the regime \u00b7 continuity view: 100% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
+   "regimeNote": "title in year 2 of the regime \u00b7 continuity view: 78% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
      "Derek Jeter",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1993",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1992",
      "inh",
      8.7,
      "116539"
@@ -267,18 +267,18 @@
     ],
     [
      "Andy Pettitte",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1993",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1992",
      "inh",
      2.0,
      "120485"
     ],
     [
      "Jorge Posada",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1994",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1993",
      "inh",
      2.0,
      "120691"
@@ -319,23 +319,23 @@
    "year": 2000,
    "result": "Won World Series",
    "regime": "Brian Cashman",
-   "regimeNote": "title in year 3 of the regime \u00b7 continuity view: 100% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
+   "regimeNote": "title in year 3 of the regime \u00b7 continuity view: 76% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
      "Jorge Posada",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1994",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1993",
      "inh",
      6.6,
      "120691"
     ],
     [
      "Derek Jeter",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1993",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1992",
      "inh",
      5.9,
      "116539"
@@ -351,9 +351,9 @@
     ],
     [
      "Andy Pettitte",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1993",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1992",
      "inh",
      3.2,
      "120485"
@@ -439,7 +439,7 @@
    "year": 2001,
    "result": "Won World Series",
    "regime": "Joe Garagiola Jr.",
-   "regimeNote": "title in year 7 of the regime",
+   "regimeNote": "title in year 6 of the regime",
    "computed": true,
    "roster": [
     [
@@ -507,10 +507,10 @@
     ],
     [
      "Damian Miller",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1996",
-     "reg",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1995",
+     "inh",
      1.9,
      "119064"
     ],
@@ -577,32 +577,32 @@
    "year": 2002,
    "result": "Won World Series",
    "regime": "Bill Stoneman",
-   "regimeNote": "title in year 4 of the regime",
+   "regimeNote": "title in year 3 of the regime",
    "computed": true,
    "roster": [
     [
      "Troy Glaus",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1996",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1995",
      "inh",
      4.1,
      "136267"
     ],
     [
      "Tim Salmon",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1995",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1994",
      "inh",
      4.0,
      "121640"
     ],
     [
      "Garret Anderson",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1995",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1994",
      "inh",
      3.9,
      "110236"
@@ -618,9 +618,9 @@
     ],
     [
      "Jarrod Washburn",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1996",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1995",
      "inh",
      3.6,
      "132220"
@@ -690,18 +690,18 @@
     ],
     [
      "Troy Percival",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1995",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1994",
      "inh",
      1.4,
      "120401"
     ],
     [
      "Darin Erstad",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1995",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1994",
      "inh",
      1.4,
      "113889"
@@ -880,7 +880,7 @@
    "year": 2004,
    "result": "Won World Series",
    "regime": "Theo Epstein",
-   "regimeNote": "title in year 3 of the regime",
+   "regimeNote": "title in year 2 of the regime",
    "computed": true,
    "roster": [
     [
@@ -948,9 +948,9 @@
     ],
     [
      "Mark Bellhorn",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2002",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~2001",
      "inh",
      3.4,
      "110840"
@@ -966,9 +966,9 @@
     ],
     [
      "Kevin Millar",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2001",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~2000",
      "inh",
      2.6,
      "132788"
@@ -1020,9 +1020,9 @@
     ],
     [
      "Nomar Garciaparra",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1994",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1993",
      "inh",
      1.3,
      "114596"
@@ -1036,7 +1036,7 @@
    "year": 2005,
    "result": "Won World Series",
    "regime": "Ken Williams",
-   "regimeNote": "title in year 6 of the regime",
+   "regimeNote": "title in year 5 of the regime",
    "computed": true,
    "roster": [
     [
@@ -1140,9 +1140,9 @@
     ],
     [
      "Joe Crede",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1998",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1997",
      "inh",
      1.5,
      "150317"
@@ -1192,7 +1192,7 @@
    "year": 2006,
    "result": "Won World Series",
    "regime": "Walt Jocketty",
-   "regimeNote": "title in year 13 of the regime",
+   "regimeNote": "title in year 12 of the regime",
    "computed": true,
    "roster": [
     [
@@ -1303,7 +1303,7 @@
    "year": 2007,
    "result": "Won World Series",
    "regime": "Theo Epstein",
-   "regimeNote": "title in year 6 of the regime",
+   "regimeNote": "title in year 5 of the regime",
    "computed": true,
    "roster": [
     [
@@ -1450,7 +1450,7 @@
    "year": 2008,
    "result": "Won World Series",
    "regime": "Pat Gillick",
-   "regimeNote": "title in year 4 of the regime",
+   "regimeNote": "title in year 3 of the regime",
    "computed": true,
    "roster": [
     [
@@ -1482,9 +1482,9 @@
     ],
     [
      "Jimmy Rollins",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1998",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1997",
      "inh",
      3.5,
      "276519"
@@ -1579,14 +1579,14 @@
    "year": 2009,
    "result": "Won World Series",
    "regime": "Brian Cashman",
-   "regimeNote": "title in year 12 of the regime \u00b7 continuity view: 100% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
+   "regimeNote": "title in year 12 of the regime \u00b7 continuity view: 89% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
      "Derek Jeter",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1993",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~1992",
      "inh",
      6.5,
      "116539"
@@ -1611,9 +1611,9 @@
     ],
     [
      "Mark Teixeira",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2007",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~2006",
      "reg",
      5.3,
      "407893"
@@ -1735,7 +1735,7 @@
    "year": 2010,
    "result": "Won World Series",
    "regime": "Brian Sabean",
-   "regimeNote": "title in year 15 of the regime",
+   "regimeNote": "title in year 14 of the regime",
    "computed": true,
    "roster": [
     [
@@ -1758,9 +1758,9 @@
     ],
     [
      "Andres Torres",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2007",
+     "draft",
+     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
+     "~2006",
      "reg",
      4.5,
      "400083"
@@ -2038,7 +2038,7 @@
    "year": 2012,
    "result": "Won World Series",
    "regime": "Brian Sabean",
-   "regimeNote": "title in year 17 of the regime",
+   "regimeNote": "title in year 16 of the regime",
    "computed": true,
    "roster": [
     [
@@ -2185,7 +2185,7 @@
    "year": 2013,
    "result": "Won World Series",
    "regime": "Ben Cherington",
-   "regimeNote": "title in year 3 of the regime",
+   "regimeNote": "title in year 2 of the regime",
    "computed": true,
    "roster": [
     [
@@ -2341,7 +2341,7 @@
    "year": 2014,
    "result": "Won World Series",
    "regime": "Brian Sabean",
-   "regimeNote": "title in year 19 of the regime",
+   "regimeNote": "title in year 18 of the regime",
    "computed": true,
    "roster": [
     [
@@ -2581,7 +2581,7 @@
    "year": 2016,
    "result": "Won World Series",
    "regime": "Theo Epstein",
-   "regimeNote": "title in year 6 of the regime",
+   "regimeNote": "title in year 5 of the regime",
    "computed": true,
    "roster": [
     [
@@ -2737,7 +2737,7 @@
    "year": 2017,
    "result": "Won World Series",
    "regime": "Jeff Luhnow",
-   "regimeNote": "title in year 7 of the regime",
+   "regimeNote": "title in year 6 of the regime",
    "computed": true,
    "roster": [
     [
@@ -2884,7 +2884,7 @@
    "year": 2018,
    "result": "Won World Series",
    "regime": "Dave Dombrowski",
-   "regimeNote": "title in year 4 of the regime",
+   "regimeNote": "title in year 3 of the regime",
    "computed": true,
    "roster": [
     [
@@ -3178,7 +3178,7 @@
    "year": 2020,
    "result": "Won World Series",
    "regime": "Andrew Friedman",
-   "regimeNote": "title in year 7 of the regime",
+   "regimeNote": "title in year 6 of the regime",
    "computed": true,
    "roster": [
     [
@@ -3280,7 +3280,7 @@
    "year": 2021,
    "result": "Won World Series",
    "regime": "Alex Anthopoulos",
-   "regimeNote": "title in year 5 of the regime",
+   "regimeNote": "title in year 4 of the regime",
    "computed": true,
    "roster": [
     [
@@ -3583,7 +3583,7 @@
    "year": 2023,
    "result": "Won World Series",
    "regime": "Chris Young",
-   "regimeNote": "title in year 2 of the regime \u00b7 continuity view: 76% of the core was acquired while Young was already GM under Daniels' presidency (from 2020-12); the primary accounting credits final authority",
+   "regimeNote": "title in year 1 of the regime \u00b7 continuity view: 76% of the core was acquired while Young was already GM under Daniels' presidency (from 2020-12); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
@@ -3739,7 +3739,7 @@
    "year": 2024,
    "result": "Won World Series",
    "regime": "Andrew Friedman",
-   "regimeNote": "title in year 11 of the regime",
+   "regimeNote": "title in year 10 of the regime",
    "computed": true,
    "roster": [
     [
@@ -3886,7 +3886,7 @@
    "year": 2025,
    "result": "Won World Series",
    "regime": "Andrew Friedman",
-   "regimeNote": "title in year 12 of the regime",
+   "regimeNote": "title in year 11 of the regime",
    "computed": true,
    "roster": [
     [
@@ -4042,7 +4042,7 @@
    "year": 2026,
    "result": "Won World Series",
    "regime": "Matt Arnold",
-   "regimeNote": "title in year 5 of the regime \u00b7 continuity view: 69% of the core was acquired while Arnold was already GM under Stearns' presidency (from 2020-11); the primary accounting credits final authority",
+   "regimeNote": "title in year 4 of the regime \u00b7 continuity view: 69% of the core was acquired while Arnold was already GM under Stearns' presidency (from 2020-11); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
@@ -4195,15 +4195,15 @@
  "lines": {
   "n": 29,
   "medianRegShare": 58,
-  "medianTenure": 6,
-  "earlyTitles": 8,
+  "medianTenure": 5,
+  "earlyTitles": 11,
   "lateTitles": 9,
   "avgShare": {
    "fa": 23.7,
    "trade": 19.5,
-   "draft": 11.1,
-   "intl": 8.3,
-   "inherited": 37.3
+   "draft": 11.9,
+   "intl": 7.4,
+   "inherited": 37.5
   },
   "majorityFA": [
    "nyy09"
@@ -4215,7 +4215,7 @@
   ],
   "mostInherited": "nyy98",
   "mostBought": "nyy09",
-  "mostHomegrown": "sf14",
+  "mostHomegrown": "sf10",
   "mostTraded": "chc16",
   "rows": [
    {
@@ -4227,7 +4227,7 @@
     "tenure": 1,
     "total": 54.6,
     "regShare": 7,
-    "contShare": 87,
+    "contShare": 71,
     "mix": {
      "inherited": 50.9,
      "trade": 3.7
@@ -4242,7 +4242,7 @@
     "tenure": 2,
     "total": 47.6,
     "regShare": 36,
-    "contShare": 100,
+    "contShare": 78,
     "mix": {
      "inherited": 30.4,
      "fa": 9.9,
@@ -4258,7 +4258,7 @@
     "tenure": 3,
     "total": 37.7,
     "regShare": 44,
-    "contShare": 100,
+    "contShare": 76,
     "mix": {
      "inherited": 21.0,
      "fa": 7.6,
@@ -4271,14 +4271,15 @@
     "team": "Arizona Diamondbacks",
     "abbr": "ARI",
     "exec": "Joe Garagiola Jr.",
-    "tenure": 7,
+    "tenure": 6,
     "total": 41.8,
-    "regShare": 100,
+    "regShare": 95,
     "contShare": null,
     "mix": {
      "trade": 17.6,
      "fa": 19.0,
-     "intl": 5.2
+     "intl": 3.3,
+     "inherited": 1.9
     }
    },
    {
@@ -4287,7 +4288,7 @@
     "team": "Los Angeles Angels",
     "abbr": "LAA",
     "exec": "Bill Stoneman",
-    "tenure": 4,
+    "tenure": 3,
     "total": 37.5,
     "regShare": 47,
     "contShare": null,
@@ -4320,7 +4321,7 @@
     "team": "Boston Red Sox",
     "abbr": "BOS",
     "exec": "Theo Epstein",
-    "tenure": 3,
+    "tenure": 2,
     "total": 54.0,
     "regShare": 38,
     "contShare": null,
@@ -4337,7 +4338,7 @@
     "team": "Chicago White Sox",
     "abbr": "CWS",
     "exec": "Ken Williams",
-    "tenure": 6,
+    "tenure": 5,
     "total": 38.3,
     "regShare": 58,
     "contShare": null,
@@ -4354,7 +4355,7 @@
     "team": "St. Louis Cardinals",
     "abbr": "STL",
     "exec": "Walt Jocketty",
-    "tenure": 13,
+    "tenure": 12,
     "total": 29.7,
     "regShare": 100,
     "contShare": null,
@@ -4371,7 +4372,7 @@
     "team": "Boston Red Sox",
     "abbr": "BOS",
     "exec": "Theo Epstein",
-    "tenure": 6,
+    "tenure": 5,
     "total": 44.9,
     "regShare": 83,
     "contShare": null,
@@ -4389,7 +4390,7 @@
     "team": "Philadelphia Phillies",
     "abbr": "PHI",
     "exec": "Pat Gillick",
-    "tenure": 4,
+    "tenure": 3,
     "total": 37.5,
     "regShare": 30,
     "contShare": null,
@@ -4409,13 +4410,13 @@
     "tenure": 12,
     "total": 57.2,
     "regShare": 89,
-    "contShare": 100,
+    "contShare": 89,
     "mix": {
      "inherited": 6.5,
      "fa": 32.2,
-     "intl": 10.4,
-     "trade": 3.6,
-     "draft": 4.5
+     "draft": 9.8,
+     "intl": 5.1,
+     "trade": 3.6
     }
    },
    {
@@ -4424,14 +4425,14 @@
     "team": "San Francisco Giants",
     "abbr": "SF",
     "exec": "Brian Sabean",
-    "tenure": 15,
+    "tenure": 14,
     "total": 39.1,
     "regShare": 100,
     "contShare": null,
     "mix": {
      "fa": 9.7,
-     "draft": 16.3,
-     "intl": 10.7,
+     "draft": 20.8,
+     "intl": 6.2,
      "trade": 2.4
     }
    },
@@ -4457,7 +4458,7 @@
     "team": "San Francisco Giants",
     "abbr": "SF",
     "exec": "Brian Sabean",
-    "tenure": 17,
+    "tenure": 16,
     "total": 41.7,
     "regShare": 100,
     "contShare": null,
@@ -4474,7 +4475,7 @@
     "team": "Boston Red Sox",
     "abbr": "BOS",
     "exec": "Ben Cherington",
-    "tenure": 3,
+    "tenure": 2,
     "total": 50.7,
     "regShare": 43,
     "contShare": null,
@@ -4490,7 +4491,7 @@
     "team": "San Francisco Giants",
     "abbr": "SF",
     "exec": "Brian Sabean",
-    "tenure": 19,
+    "tenure": 18,
     "total": 36.2,
     "regShare": 100,
     "contShare": null,
@@ -4525,7 +4526,7 @@
     "team": "Chicago Cubs",
     "abbr": "CHC",
     "exec": "Theo Epstein",
-    "tenure": 6,
+    "tenure": 5,
     "total": 48.7,
     "regShare": 94,
     "contShare": null,
@@ -4543,7 +4544,7 @@
     "team": "Houston Astros",
     "abbr": "HOU",
     "exec": "Jeff Luhnow",
-    "tenure": 7,
+    "tenure": 6,
     "total": 52.7,
     "regShare": 74,
     "contShare": null,
@@ -4560,7 +4561,7 @@
     "team": "Boston Red Sox",
     "abbr": "BOS",
     "exec": "Dave Dombrowski",
-    "tenure": 4,
+    "tenure": 3,
     "total": 54.6,
     "regShare": 34,
     "contShare": null,
@@ -4593,7 +4594,7 @@
     "team": "Los Angeles Dodgers",
     "abbr": "LAD",
     "exec": "Andrew Friedman",
-    "tenure": 7,
+    "tenure": 6,
     "total": 17.7,
     "regShare": 64,
     "contShare": null,
@@ -4610,7 +4611,7 @@
     "team": "Atlanta Braves",
     "abbr": "ATL",
     "exec": "Alex Anthopoulos",
-    "tenure": 5,
+    "tenure": 4,
     "total": 42.3,
     "regShare": 23,
     "contShare": null,
@@ -4643,7 +4644,7 @@
     "team": "Texas Rangers",
     "abbr": "TEX",
     "exec": "Chris Young",
-    "tenure": 2,
+    "tenure": 1,
     "total": 46.7,
     "regShare": 15,
     "contShare": 76,
@@ -4660,7 +4661,7 @@
     "team": "Los Angeles Dodgers",
     "abbr": "LAD",
     "exec": "Andrew Friedman",
-    "tenure": 11,
+    "tenure": 10,
     "total": 47.5,
     "regShare": 100,
     "contShare": null,
@@ -4677,7 +4678,7 @@
     "team": "Los Angeles Dodgers",
     "abbr": "LAD",
     "exec": "Andrew Friedman",
-    "tenure": 12,
+    "tenure": 11,
     "total": 50.3,
     "regShare": 100,
     "contShare": null,
@@ -4694,7 +4695,7 @@
     "team": "Milwaukee Brewers",
     "abbr": "MIL",
     "exec": "Matt Arnold",
-    "tenure": 5,
+    "tenure": 4,
     "total": 47.6,
     "regShare": 43,
     "contShare": 69,
