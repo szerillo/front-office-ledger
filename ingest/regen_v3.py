@@ -379,5 +379,21 @@ tail_anchor = "const PLAYER_FATE" if "const PLAYER_FATE" in s else "const PLAYER
 j = s.find("\n\n", s.find(tail_anchor, i))
 s = s[:i] + mv_js + s[j+2:]
 
+# curated cards (lad/bal/mil): their decision pages are hand-verified, but the
+# Results block is objective standings + October data, so it syncs from the
+# computed sweep every regen (it had drifted: the 2026 champion read 0 titles)
+import re as _re
+for _r in res:
+    if _r["id"] not in ("lad", "bal", "mil"): continue
+    _su = _r["success"]
+    _lit = ("success:{wpct:'%s', div:%d, po:%d, sw:%d, pen:%d, ws:%d, g:%d}"
+            % (_su["wpct"], _su["div"], _su["po"], _su["sw"], _su["pen"], _su["ws"], _su["g"]))
+    _i = s.find("id:'%s', exec:" % _r["id"])
+    assert _i > 0, _r["id"]
+    _j = s.find("success:{", _i); _k = s.find("}", _j) + 1
+    s = s[:_j] + _lit + s[_k:]
+    _t = _re.compile(r"titles:\d+").search(s, _i)
+    s = s[:_t.start()] + "titles:%d" % _su["ws"] + s[_t.end():]
+    print("curated success synced:", _r["id"], _lit)
 open(P, "w").write(s)
 print(f"regenerated {len(auto)} auto regimes (v3 data)")
