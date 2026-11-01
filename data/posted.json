@@ -1,0 +1,327 @@
+{
+ "831664": {
+  "name": "Teruaki Sato",
+  "club": "Hanshin Tigers",
+  "league": "NPB",
+  "pos": "3B",
+  "pit": 0,
+  "age": 27,
+  "line26": ".306/.383/.609, 39 HR in 614 PA",
+  "awards": [
+   "2025 Central League MVP",
+   "2025 CL HR (40) and RBI (102) leader",
+   "2026 NPB Triple Crown (.306/39 HR/106 RBI) per CBS Sports"
+  ],
+  "deadline": "2026-12-16T17:00-05:00",
+  "translated": {
+   "2024": 0.58,
+   "2025": 1.62,
+   "2026": 1.68
+  },
+  "comps": [
+   [
+    "Kazuma Okamoto",
+    "2025-26",
+    4,
+    60.0,
+    "Toronto Blue Jays",
+    2.9,
+    null,
+    2.27
+   ],
+   [
+    "Yoshitomo Tsutsugo",
+    "2019-20",
+    2,
+    12.0,
+    "Tampa Bay Rays",
+    0.2,
+    -0.2,
+    2.7
+   ],
+   [
+    "Seiya Suzuki",
+    "2021-22",
+    5,
+    85.0,
+    "Chicago Cubs",
+    1.7,
+    3.0,
+    2.99
+   ],
+   [
+    "Munetaka Murakami",
+    "2025-26",
+    2,
+    34.0,
+    "Chicago White Sox",
+    2.7,
+    null,
+    3.95
+   ],
+   [
+    "Sung-Mun Song",
+    "2025-26",
+    4,
+    15.0,
+    "San Diego Padres",
+    0.2,
+    null,
+    4.01
+   ]
+  ],
+  "public": [
+   [
+    "The Athletic",
+    5,
+    180
+   ],
+   [
+    "Bleacher Report",
+    6,
+    120
+   ]
+  ]
+ },
+ "838343": {
+  "name": "Kaima Taira",
+  "club": "Saitama Seibu Lions",
+  "league": "NPB",
+  "pos": "SP",
+  "pit": 1,
+  "age": 27,
+  "line26": "146.0 IP, 1.36 ERA, 141 K, 45 BB, 4 HR, 22 starts",
+  "awards": [
+   "2026 Pacific League ERA title (1.36)",
+   "2025 PL saves leader (31)",
+   "2022 PL best reliever (most hold points)"
+  ],
+  "deadline": "2026-12-16T17:00-05:00",
+  "translated": {
+   "2024": 0.51,
+   "2025": 0.68,
+   "2026": 1.25
+  },
+  "comps": [
+   [
+    "Kodai Senga",
+    "2022-23",
+    5,
+    75.0,
+    "New York Mets",
+    3.0,
+    0.1,
+    1.74
+   ],
+   [
+    "Tatsuya Imai",
+    "2025-26",
+    3,
+    54.0,
+    "Houston Astros",
+    0.7,
+    null,
+    2.26
+   ],
+   [
+    "Yusei Kikuchi",
+    "2018-19",
+    4,
+    56.0,
+    "Seattle Mariners",
+    -0.9,
+    1.0,
+    2.5
+   ],
+   [
+    "Shintaro Fujinami",
+    "2022-23",
+    1,
+    3.25,
+    "Oakland Athletics",
+    0.5,
+    null,
+    2.54
+   ],
+   [
+    "Yoshinobu Yamamoto",
+    "2023-24",
+    12,
+    325.0,
+    "Los Angeles Dodgers",
+    2.5,
+    4.7,
+    2.79
+   ]
+  ],
+  "public": [
+   [
+    "The Athletic",
+    3,
+    30
+   ],
+   [
+    "Bleacher Report",
+    3,
+    60
+   ]
+  ]
+ },
+ "808955": {
+  "name": "Hiromi Itoh",
+  "club": "Hokkaido Nippon-Ham Fighters",
+  "league": "NPB",
+  "pos": "SP",
+  "pit": 1,
+  "age": 29,
+  "line26": "172.2 IP, 3.18 ERA, 159 K, 34 BB, 16 HR, 26 starts",
+  "awards": [
+   "2025 Sawamura Award",
+   "2025 NPB strikeout leader (195)",
+   "2023 WBC champion (Japan)"
+  ],
+  "deadline": "2026-12-16T17:00-05:00",
+  "translated": {
+   "2024": 0.31,
+   "2025": 0.83,
+   "2026": 0.44
+  },
+  "comps": [
+   [
+    "Shun Yamaguchi",
+    "2019-20",
+    2,
+    6.35,
+    "Toronto Blue Jays",
+    -0.2,
+    null,
+    1.23
+   ],
+   [
+    "Shintaro Fujinami",
+    "2022-23",
+    1,
+    3.25,
+    "Oakland Athletics",
+    0.5,
+    null,
+    1.42
+   ],
+   [
+    "Yusei Kikuchi",
+    "2018-19",
+    4,
+    56.0,
+    "Seattle Mariners",
+    -0.9,
+    1.0,
+    1.63
+   ],
+   [
+    "Kodai Senga",
+    "2022-23",
+    5,
+    75.0,
+    "New York Mets",
+    3.0,
+    0.1,
+    2.03
+   ],
+   [
+    "Kwang Hyun Kim",
+    "2019-20",
+    2,
+    8.0,
+    "St. Louis Cardinals",
+    0.6,
+    0.5,
+    2.15
+   ]
+  ],
+  "public": [
+   [
+    "The Athletic",
+    2,
+    22
+   ],
+   [
+    "Bleacher Report",
+    5,
+    75
+   ]
+  ]
+ },
+ "823574": {
+  "name": "Si Hwan Roh",
+  "club": "Hanwha Eagles",
+  "league": "KBO",
+  "pos": "3B",
+  "pit": 0,
+  "age": 26,
+  "line26": ".283/.360/.505, 29 HR in 571 PA",
+  "awards": [
+   "2023 KBO HR (31) and RBI (101) leader; 2023 MVP runner-up",
+   "2026 Asian Games gold (captain)",
+   "2026 WBC (Korea)"
+  ],
+  "deadline": "2026-12-01T17:00-05:00",
+  "translated": {
+   "2024": 0.81,
+   "2025": 0.87,
+   "2026": 0.71
+  },
+  "comps": [
+   [
+    "Yoshitomo Tsutsugo",
+    "2019-20",
+    2,
+    12.0,
+    "Tampa Bay Rays",
+    0.2,
+    -0.2,
+    2.25
+   ],
+   [
+    "Ha-Seong Kim",
+    "2020-21",
+    4,
+    28.0,
+    "San Diego Padres",
+    0.7,
+    4.6,
+    2.39
+   ],
+   [
+    "Sung-Mun Song",
+    "2025-26",
+    4,
+    15.0,
+    "San Diego Padres",
+    0.2,
+    null,
+    2.59
+   ],
+   [
+    "Hyeseong Kim",
+    "2024-25",
+    3,
+    12.5,
+    "Los Angeles Dodgers",
+    0.8,
+    0.4,
+    3.94
+   ],
+   [
+    "Shogo Akiyama",
+    "2019-20",
+    3,
+    21.0,
+    "Cincinnati Reds",
+    0.1,
+    -0.9,
+    4.94
+   ]
+  ],
+  "public": []
+ }
+}
