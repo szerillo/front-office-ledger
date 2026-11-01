@@ -760,3 +760,37 @@ The computed FA class is now reconciled against the actual 2026-27 winter
 - The Trees tab gains "Follow any player": type any of 2,800+ names on the
   graded ledger and get his full chain inline, every onward move with how
   it ended, alongside the existing per-regime trees and curated showcases.
+
+## v5.0.1 (November 1, 2026): Results-grade window and the championship trend
+
+- Results (Success) grades now include the completed 2026 postseason. The
+  October blend had stopped at 2025, so the 2026 champion's regime card read
+  zero titles. Milwaukee's Matt Arnold now carries the 2026 ring.
+- Postseason refetches are rebuilt from scratch each run. Series wins had
+  been accumulating across refetches of the current year and in-progress
+  series could latch a pennant; 2026 is now clean (one pennant per league,
+  one title).
+- W%, division titles, and October credit now share one window: a regime
+  hired after a season ends gets none of that season. Previously W% and
+  division titles counted the hire year itself (an October 2014 hire was
+  credited with the 2014 division title). Largest moves: Baltimore .448 to
+  .469 (D to D+), Colorado .312 to .358, Dodgers division titles 12 to 11,
+  Cubs 1 to 0.
+- Regular-season tiebreaker games (Game 163, gameType R in the postseason
+  feed) no longer count as October. They had been credited as playoff
+  berths and series wins: six berths for clubs that lost a Game 163 and
+  missed the postseason (the 2007 Padres, 2009 Tigers, and 2013 Rangers
+  among them) and an extra series win for each tiebreaker winner (the 2018
+  Dodgers: 19 series wins over the Friedman window, not 20). The full
+  1998-2026 postseason set was refetched.
+- The three curated cards (Dodgers, Orioles, Brewers) keep hand-verified
+  decision pages, but their Results block is objective standings data and
+  now syncs from the computed sweep on every regen. It had been typed in by
+  hand and drifted, which is how the 2026 champion's card read zero titles.
+- Championship through-line corrected. With 29 titles and the v4.8 roster
+  accounting, the median title core was 48% self-built in 1998-2009 and 74%
+  in 2010-2026, not 90%, and seven of seventeen titles since 2010 came on
+  majority-inherited cores (2021 Atlanta, 2022 Houston, 2023 Texas in a row).
+  The earlier "inherited title is going extinct" reading is withdrawn; the
+  Champions landing now computes this sentence from the data instead of
+  carrying it as fixed text.
