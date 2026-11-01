@@ -73,7 +73,11 @@
   .sample-chip{font-size:10.5px; font-weight:700; color:var(--muted); border:1px solid var(--baseline);
     border-radius:2px; padding:2px 10px; letter-spacing:1px; text-transform:uppercase; font-family:var(--f-body)}
   .tagline{color:var(--ink-2); font-size:13.5px; margin-top:6px; font-style:italic}
-  nav{display:flex; gap:0; margin-top:14px; border-top:1px solid var(--ink); flex-wrap:wrap}
+  nav{display:flex; gap:22px; margin-top:14px; border-top:1px solid var(--ink); flex-wrap:wrap; align-items:flex-end}
+  .navgrp{display:flex; flex-direction:column; padding-top:7px}
+  .navlbl{font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); padding-left:10px}
+  .navbtns{display:flex; flex-wrap:wrap}
+  .navgrp + .navgrp{border-left:1px solid var(--grid); padding-left:14px}
   nav button{
     background:none; border:none; color:var(--ink-2);
     font-family:var(--f-body); font-size:12.5px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase;
@@ -167,7 +171,8 @@
   @media (max-width:760px){
     body{font-size:14px}
     .brand{font-size:24px}
-    nav{flex-wrap:wrap}
+    nav{flex-wrap:wrap; gap:10px}
+    .navgrp + .navgrp{padding-left:10px}
     nav button{padding:8px 9px; font-size:10.5px; letter-spacing:1px}
     section{padding:14px 12px}
     .controls{flex-wrap:wrap; gap:8px}
@@ -266,7 +271,7 @@
   #champlines .card > div[style*="grid-template-columns"]{overflow-x:auto; padding-bottom:6px}
 }
 </style>
-<!-- build v4.9 · internal: Ledger WAR 1.5 · sweep 2 · projection 1 · terms model 4.4 rules + comp filter -->
+<!-- build v5.0 · internal: Ledger WAR 1.5 · sweep 2 · projection 1 · terms model 4.4 rules + comp filter -->
 </head>
 <body>
 
@@ -279,17 +284,27 @@
     </div>
     <div class="tagline">Every draft pick, trade, signing, and waiver claim, graded against expectation and attributed to the regime that made it.</div>
     <nav>
-      <button class="on" data-view="leaderboard">Leaderboard</button>
-      <button data-view="report">Regime Report Cards</button>
-      <button data-view="trees">Transaction Trees</button>
-      <button data-view="dna">Org DNA</button>
-      <button data-view="h2h">Head to Head</button>
-      <button data-view="champs">Champions</button>
-      <button data-view="desk">Deal Desk</button>
-      <button data-view="horizon">Horizon</button>
-      <button data-view="scen">Scenario Room</button>
-      <button data-view="gm">GM Mode</button>
-      <button data-view="method">Methodology</button>
+      <div class="navgrp"><span class="navlbl">The grades</span><div class="navbtns">
+        <button class="on" data-view="leaderboard">Leaderboard</button>
+        <button data-view="report">Report Cards</button>
+        <button data-view="champs">Champions</button>
+      </div></div>
+      <div class="navgrp"><span class="navlbl">The trees</span><div class="navbtns">
+        <button data-view="trees">Transaction Trees</button>
+      </div></div>
+      <div class="navgrp"><span class="navlbl">The intel</span><div class="navbtns">
+        <button data-view="dna">Org DNA</button>
+        <button data-view="h2h">Head to Head</button>
+        <button data-view="horizon">Horizon</button>
+      </div></div>
+      <div class="navgrp"><span class="navlbl">The rooms</span><div class="navbtns">
+        <button data-view="desk">Deal Desk</button>
+        <button data-view="gm">Offseason Simulator</button>
+        <button data-view="scen">Scenario Room</button>
+      </div></div>
+      <div class="navgrp"><span class="navlbl">The method</span><div class="navbtns">
+        <button data-view="method">Methodology</button>
+      </div></div>
     </nav>
   </div>
 </header>
@@ -391,6 +406,15 @@
   <section id="view-trees" hidden>
     <h2>Transaction Trees · How One Decision Becomes the Next</h2>
     <div class="sub">Assets don't die when they're traded; they compound. Each tree follows a chain of decisions across generations, with every branch marked <span class="chip chip-open" style="margin-left:2px">OPEN</span> (value still accruing) or <span class="chip chip-closed" style="margin-left:2px">CLOSED</span> (window finished; the number is final). Solid cards are value captured by the regime; dashed cards are value that flowed out. Pick any regime to generate its trees from the computed ledger, or view the curated showcase trees. <span class="badge-real" style="margin-left:0">COMPUTED</span></div>
+    <div class="card" style="padding:12px 16px; margin:12px 0; border-left:3px solid var(--margin)">
+      <strong>Follow any player</strong> <span class="ttype">· type a name and get his full chain on his club's ledger, every onward move with how it ended</span>
+      <div class="filters" style="margin-top:8px">
+        <input id="tree-find" list="tree-pl" placeholder="player name&hellip;" style="min-width:240px" onchange="treeFind()">
+        <datalist id="tree-pl"></datalist>
+        <button onclick="treeFind()" class="grade g60" style="cursor:pointer; border:none; padding:5px 14px">follow the chain</button>
+      </div>
+      <div id="tree-find-out" style="margin-top:8px"></div>
+    </div>
     <div class="controls" style="margin:12px 0">
       <label for="treesel">Regime</label>
       <select id="treesel"><option value="curated">Curated showcase trees</option></select>
@@ -446,7 +470,7 @@
 
   <!-- ================= GM MODE ================= -->
   <section id="view-gm" hidden>
-    <h2>GM Mode · Run Your Club's Winter</h2>
+    <h2>The Offseason Simulator · Run Your Club's Winter</h2>
     <div class="sub">The 2026-27 offseason, playable on the ledger's machinery. Your winter inbox is real: your
     actual free agents, your actual arb class with estimated salaries. The free-agent market is the real class with
     a calibrated Ledger offer on every name (backtested on 1,196 signings). The trade board prices targets by the same
@@ -548,8 +572,8 @@
       <p><strong>The Scenario Room</strong> replays real decision points from the archive with only what was knowable at the time: the record and standing on the morning of the deal (standings API, dated), win-curve leverage, computed roster-need groups, era $/win, and the pieces with their platform seasons and at-the-time prospect ranks (the rank archive starts in 2011; a handful of pre-2011 pieces carry a curated consensus tier, flagged on the card). You accept, reject, or counter; the counterparty answers by <strong>deterministic market rules</strong> derived from the control-bucket price curves, no dice, and the reveal explains exactly why it took or walked. Grading is the project's thesis operationalized: a <strong>process score</strong> against a deliberately crude ex-ante expectation (last full season's rate over typical control, prospects at rank expectation) and an <strong>outcome score</strong> from what the archive says actually happened. Accepting the Chapman rental grades F on outcome and your counter to trim the price grades A on process, in the same room. One live 2026 scenario runs UNSETTLED on projected finals, and one fictional scenario is generated from the current data pack each load. Curated setup lines are color; every number is computed.</p>
       <h3>The Deal Desk (decision support)</h3>
       <p>The Deal Desk tab is the forward-looking half of the system: propose a hypothetical trade, free-agent signing, or extension and get a verdict assembled from the ledger's own parts. Trades are evaluated with Ledger Projection over each piece's remaining control (players, top-100 prospects by rank, and draft picks off the slot curve), leverage-weighted at your club's current standing, priced against the historical rate for deals of that shape (the 5,800-deal archive's control-bucket curves, with bust rates), matched to the three nearest real comps and their outcomes, and accompanied by counterparty intelligence from the regime cards (their trade grade, tendencies, and your head-to-head record). Signings and extensions grade with the same accounting the FA and extension channels use. Everything is a sandbox on public data: proposals are never recorded, and real card grades never move on a forecast. Pointed at internal projections and pref lists instead of public ones, this is a deadline war-room tool; that swap is architectural, not a rebuild.</p>
-      <h3>GM Mode and the assistant GM</h3>
-      <p>GM Mode runs your club's actual coming winter, staged the way the calendar flows: qualifying offers and arbitration tenders first, then the exclusive re-sign window, then the open market, the depth chart, and a graded close. Every price in it comes from the engines above. Free agents negotiate through a deterministic camp: each player opens at the calibrated Ledger offer times a stable personal factor, counters when your offer is close, and walks after repeated lowballs, so the same winter replays identically. Trades are priced in surplus value (projected production net of salary over the control window, arb years estimated on the 25/40/60 ladder), which is why a rebuilding club will not move its franchise cornerstone for a star on a backloaded deal: the names are bigger but the surplus runs the wrong way. Acquired money lands on your payroll against an ownership capacity ceiling, and book money leaves with a traded player. The depth chart fills by projection under true position fits (a shortstop can slide to second or third; a second baseman is not an answer at first base), and an assistant GM reads the same numbers out loud: tender and QO counsel, re-sign or let-walk advice, negotiation reads against the camp's ask, trade counsel with named pieces from your own system that bridge a short offer, and real contract comps tagged with how each aged. The closing grade is projected surplus across your moves, with your projected record set against the five real winters most like yours from 450 club-offseasons since 2009.</p>
+      <h3>The offseason simulator and the assistant GM</h3>
+      <p>The offseason simulator runs your club's actual coming winter, staged the way the calendar flows: qualifying offers and arbitration tenders first, then the exclusive re-sign window, then the open market, the depth chart, and a graded close. Every price in it comes from the engines above. Free agents negotiate through a deterministic camp: each player opens at the calibrated Ledger offer times a stable personal factor, counters when your offer is close, and walks after repeated lowballs, so the same winter replays identically. Trades are priced in surplus value (projected production net of salary over the control window, arb years estimated on the 25/40/60 ladder), which is why a rebuilding club will not move its franchise cornerstone for a star on a backloaded deal: the names are bigger but the surplus runs the wrong way. Acquired money lands on your payroll against an ownership capacity ceiling, and book money leaves with a traded player. The depth chart fills by projection under true position fits (a shortstop can slide to second or third; a second baseman is not an answer at first base), and an assistant GM reads the same numbers out loud: tender and QO counsel, re-sign or let-walk advice, negotiation reads against the camp's ask, trade counsel with named pieces from your own system that bridge a short offer, and real contract comps tagged with how each aged. The closing grade is projected surplus across your moves, with your projected record set against the five real winters most like yours from 450 club-offseasons since 2009.</p>
 <h3>Championship provenance (computed)</h3>
       <p>Every World Series winner 1998-2025 carries a computed roster ledger: core contributors (&ge; 1.0 Ledger WAR in the title season) traced to the club's last acquisition event (feed 2009+, Retrosheet backfill 1985-2008), with inherited meaning acquired before the sitting regime's true seat date. Across all 28 titles the median champion was 61% built by its sitting regime in year 6 of the tenure, and free agency has been a majority channel exactly once (the 2009 Yankees). The strongest through-line is generational: the median title core was 48% self-built in 1998-2009 but 90% self-built in 2010-2025. The handed-down championship (1998 Yankees: 93% inherited; 2023 Rangers: 85%) still happens, but the modern norm is the regime that wins built the thing itself.</p>
       <h3>Historical depth</h3>
@@ -574,7 +598,7 @@
         <p style="margin:4px 0"><strong>The grading engine.</strong> All 30 active regimes plus 110 archived regimes back to 1998, scored over their actual windows by one engine: control-window accounting, win-curve leverage, 10%/yr time discounting, retention rights, net-of-cost contracts, process-vs-outcome verdicts on trades, and transaction trees for every regime. Validation: 574 pooled regime-years, cluster-bootstrap CIs, grouped out-of-sample CV. Championship provenance computed for all 29 title ledgers 1998-2026, with a continuity lens for execs promoted from the chair directly below.</p>
         <p style="margin:4px 0"><strong>Projections and pricing.</strong> Ledger Projection (self-built aging curves, Marcel-style weighting, durability factor from recent playing time; backtest r &asymp; 0.64 vs next-season value). Contract terms are proposed by a calibrated model backtested winter-by-winter on 1,196 real signings 2010-2025 (miss 0.69 yrs / $3.2M AAV / $14.0M total): pedigree star gate, pitcher scarcity premium, convex elite pricing with regression shrink, spread years on megadeals, and a comp plausibility filter. Payroll layer: book-committed dollars per club 2027-2031 at CBT values, arb estimated at 25/40/60% of market by year.</p>
         <p style="margin:4px 0"><strong>The market models.</strong> 5,800-deal trade archive 1998-2023 with empirical rates: deadline rentals (237 classified; a star rental costs ~0.8 realized wins), controlled-years market (1,372 deals; sellers buy future wins at about a third the price of present ones), bust rates by control bucket, head-to-head regime trade records, a 1,690-contract comp book with realized outcomes on every comp, and the shopping fingerprint: every regime's acquisitions since 2016 joined to public Statcast profiles, z-scored within season, so each desk's revealed skill preferences (velocity, discipline, hard contact, ground balls) read out in plain language.</p>
-        <p style="margin:4px 0"><strong>The rooms.</strong> Deal Desk (propose any trade, signing, or extension; verdicts with comps, payroll, and a printable memo). GM Mode (your club's real 2026-27 winter, staged like the calendar: QO and arb decisions with the assistant GM's call on every row, the exclusive window, the open market with offer/counter negotiations priced in the camp's own structure, a surplus-value trade desk that refuses fantasy deals, an OOTP-style team salary book for every club, the real 2026-27 class (exercised club options like William Contreras's $15.5M keep players off the market, opt-outs and declined options put King, Holmes, and Imanaga on it, and service-time corrections keep pre-arb players home), a live depth diamond on every stage, an assistant GM with counsel and comps, and a graded report with historical comp winters). Scenario Room (sit in the seat on real archive decision points; process graded on at-the-time reads). Horizon (every roster walked forward through 2031). Draft room (pick packages on the slot curve).</p>
+        <p style="margin:4px 0"><strong>The rooms.</strong> Deal Desk (propose any trade, signing, or extension; verdicts with comps, payroll, and a printable memo). The offseason simulator (your club's real 2026-27 winter, staged like the calendar: QO and arb decisions with the assistant GM's call on every row, the exclusive window, the open market with offer/counter negotiations priced in the camp's own structure, a surplus-value trade desk that refuses fantasy deals, an OOTP-style team salary book for every club, the real 2026-27 class (exercised club options like William Contreras's $15.5M keep players off the market, opt-outs and declined options put King, Holmes, and Imanaga on it, and service-time corrections keep pre-arb players home), a live depth diamond on every stage, an assistant GM with counsel and comps, and a graded report with historical comp winters). Scenario Room (sit in the seat on real archive decision points; process graded on at-the-time reads). Horizon (every roster walked forward through 2031). Draft room (pick packages on the slot curve).</p>
         <p style="margin:4px 0"><strong>Design.</strong> The paper ledger: cream stock, serif masthead, feint rules, the red margin line, scorebook grade stamps; a Night desk toggle keeps the dark room. Zero pop-up prompts anywhere; any player's full transaction chain pops out from wherever his name appears.</p>
       </div>
     </details>
@@ -123565,6 +123589,37 @@ function gmAssetRow(label, meta, btn){
   return `<div style="display:flex; justify-content:space-between; gap:8px; font-size:12.5px; padding:4px 0; border-bottom:1px solid var(--grid)">
     <span><strong>${label}</strong> <span class="ttype">${meta}</span></span><span style="white-space:nowrap">${btn}</span></div>`;
 }
+function treeFindInit(){
+  if(treeFindInit._done) return;
+  treeFindInit._done = true;
+  const dl = document.getElementById('tree-pl');
+  if(!dl || typeof PLAYER_NAMES === 'undefined') return;
+  const frag = document.createDocumentFragment();
+  Object.values(PLAYER_NAMES).filter(Boolean).sort().forEach(nm => { const o = document.createElement('option'); o.value = nm; frag.appendChild(o); });
+  dl.appendChild(frag);
+}
+function treeFind(){
+  const q = (document.getElementById('tree-find').value || '').trim().toLowerCase();
+  const out = document.getElementById('tree-find-out');
+  if(!q){ out.innerHTML = ''; return; }
+  let pid = Object.keys(PLAYER_NAMES).find(k => (PLAYER_NAMES[k] || '').toLowerCase() === q)
+         || Object.keys(PLAYER_NAMES).find(k => (PLAYER_NAMES[k] || '').toLowerCase().includes(q));
+  if(!pid){
+    const p = (DESK.players || []).find(x => x[0].toLowerCase() === q) || (DESK.players || []).find(x => x[0].toLowerCase().includes(q));
+    if(p) pid = String(p[1]);
+  }
+  if(!pid){ out.innerHTML = '<span class="ttype">no player by that name on the graded ledger</span>'; return; }
+  const nm = PLAYER_NAMES[pid] || ((DESK.players || []).find(x => String(x[1]) === pid) || ['Player'])[0];
+  const fate = (typeof PLAYER_FATE !== 'undefined') && PLAYER_FATE[pid];
+  const ab = fate ? fate[1] : (((DESK.players || []).find(x => String(x[1]) === pid) || [])[2] || '');
+  const pool = [...(typeof AUTO_REGIMES !== 'undefined' ? AUTO_REGIMES : []), ...(typeof REGIMES !== 'undefined' ? REGIMES : [])];
+  const reg = pool.find(r => abOf(r) === (ab || '').toUpperCase()) || {abbr: ab};
+  const kid = autoChainKids(pid, '1900-01-01', reg, 0, new Set());
+  const f = chainFate(pid, (ab || '').toUpperCase());
+  const node = {nm: `${nm} · the full chain${ab ? ' (last ledger: ' + ab + ')' : ''}`, status: kid ? 'closed' : f.status,
+                kids: kid ? [kid] : [{nm: f.nm, wv: null, status: f.status}]};
+  out.innerHTML = `<div class="tree-card" style="margin:0">${tnode(node)}</div>`;
+}
 function treeOverlay(pid, ab){
   // the pop-out: any player's onward chain, from anywhere on the site
   pid = String(pid);
@@ -123832,7 +123887,7 @@ function gmMemo(){
     strong{font-weight:700} button{display:none}
   </style></head><body>
   <h1>Winter memo · ${gmState.club}, 2026-27 offseason</h1>
-  <div class="m">Front Office Ledger GM Mode · sandbox on public data · ${new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}</div>
+  <div class="m">Front Office Ledger Offseason Simulator · sandbox on public data · ${new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}</div>
   <p>Projected 2027: <strong>${w}-${162-w}</strong> (standing pat: ${base}-${162-base}) · estimated payroll $${Math.round(pay)}M vs the $244M CBT line.</p>
   ${real.map(m=>`<div class="mv"><strong>${m.label}</strong> · ${m.surplus>=0?'+':''}${m.surplus.toFixed(1)} projected surplus<br><span class="m">${m.detail}</span></div>`).join('')}
   <p class="m"><strong>The full journal, newest first:</strong><br>${gmState.journal.map(j=>`· ${j}`).join('<br>')}</p>
@@ -176496,7 +176551,7 @@ function switchView(v, regimeId){
   document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on', x.dataset.view===v));
   ['leaderboard','report','trees','champs','method','dna','h2h','desk','horizon','scen','gm'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
   if(v==='report'){ if(regimeId) $('#teamsel').value = regimeId; renderReport($('#teamsel').value); }
-  if(v==='trees') renderTrees();
+  if(v==='trees'){ renderTrees(); treeFindInit(); }
   if(v==='champs') renderChamp($('#champsel').value);
   if(v==='dna') renderDnaTab();
   if(v==='h2h') renderH2hTab();
