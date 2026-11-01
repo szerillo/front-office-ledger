@@ -37,10 +37,15 @@ def bump(tid, y, k, v=1):
 
 have_years = {y for (_, y) in PS}
 for yr in range(1998, 2027):
-    if yr in have_years and yr < 2026: continue
+    if yr in have_years and yr < 2026 and not os.environ.get("PS_FULL"): continue
+    # refetched seasons are rebuilt from scratch: bump() accumulates series
+    # wins and max()-latches pennants, so stale in-progress rows must go
+    for key in [k for k in PS if k[1] == yr]: del PS[key]
     d = get(f"https://statsapi.mlb.com/api/v1/schedule/postseason/series?season={yr}&fields=series,id,gameType,games,teams,away,home,team,id,isWinner")
     for s in d.get("series", []):
         gt = s["series"]["gameType"]      # F=WC, D=DS, L=LCS, W=WS
+        if gt not in ("F", "D", "L", "W"):
+            continue                      # R = regular-season tiebreaker (Game 163): not October
         wins = {}
         teams = set()
         for g in s.get("games", []):
@@ -49,7 +54,12 @@ for yr in range(1998, 2027):
                 teams.add(tid)
                 if t.get("isWinner"): wins[tid] = wins.get(tid, 0) + 1
         if not teams: continue
+        need = {"F": 2, "D": 3, "L": 4, "W": 4}.get(gt, 99)
         winner = max(wins, key=wins.get) if wins else None
+        if winner is not None and wins[winner] < need and gt in ("D","L","W"):
+            winner = None                 # series still in progress
+        if gt == "F" and winner is not None and wins[winner] < 2 and len(s.get("games", [])) > 1:
+            winner = None
         for tid in teams:
             bump(tid, yr, "berth")
         if winner is not None:
@@ -68,6 +78,19 @@ cfg = json.load(open("/work/regimes.json"))
 REG = {r["teamId"]: r for r in cfg["regimes"]}
 res = json.load(open("/work/sweep_results.json"))
 
+# W%/division titles over the SAME window as October credit: a regime hired
+# after a season ends gets no credit for that season (sweep_score counts the
+# hire year itself, which handed e.g. a 2014 NL West title to an October 2014 hire)
+WL = {}
+for yr in range(1998, 2027):
+    d = get(f"https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season={yr}&standingsTypes=regularSeason")
+    for grp in d.get("records", []):
+        for t in grp.get("teamRecords", []):
+            WL[(t["team"]["id"], yr)] = (t.get("wins", 0), t.get("losses", 0),
+                                          1 if str(t.get("divisionRank")) == "1" else 0)
+    time.sleep(0.3)
+print("standings:", len(WL), "team-seasons")
+
 def sgrade(pts):
     for thr, g in [(4.5,80),(3.4,75),(2.6,70),(1.9,65),(1.3,60),(0.7,55),
                    (0.0,50),(-0.8,45),(-1.6,40),(-2.6,35)]:
@@ -79,13 +102,18 @@ for r in res:
     tid = r["teamId"]
     y0 = max(int(REG[tid]["start"][:4]), 1998)
     if REG[tid]["start"][5:7] > "07": y0 += 1     # regime started after the season
-    yrs = list(range(y0, 2026))
+    yrs = list(range(y0, 2027))          # 2026 postseason is final
     po = sw = pen = ws = 0
     for y in yrs:
         rec = PS.get((tid, y))
         if rec:
             po += rec["berth"]; sw += rec["sw"]; pen += rec["pennant"]; ws += rec["ws"]
     s = r["success"]
+    w = sum(WL.get((tid, y), (0, 0, 0))[0] for y in yrs)
+    l = sum(WL.get((tid, y), (0, 0, 0))[1] for y in yrs)
+    if w + l:
+        s.update(w=w, l=l, wpct=f"{w/(w+l):.3f}".lstrip("0"),
+                 div=sum(WL.get((tid, y), (0, 0, 0))[2] for y in yrs))
     wpct = float(s["wpct"])
     seasons = max(1, len(yrs))
     october = (1.2 * (s["div"] if isinstance(s["div"], int) else 0)

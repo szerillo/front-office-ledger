@@ -168,20 +168,21 @@ for f in [
     "figure has fallen twice as the system improved: once when it caught itself crediting Gerrit Cole's "
     "free-agent-era production to the 2008 pick that never signed, and again when the archive extension put his "
     "barren 1999-2004 classes into the book. A system like this is supposed to correct itself in public.)",
-    "<b>The Baltimore gap, quantified:</b> elite grades on decisions and development against a D in results through "
+    "<b>The Baltimore gap, quantified:</b> elite grades on decisions and development against a D+ in results through "
     "2026. Whether you weight the machine or the harvest is a values question; the ledger puts both numbers on one row.",
-    "<b>The best extension in the book is Cleveland's 2017 Jose Ramirez deal</b> at about +20 wins against the "
+    "<b>The best extension in the book is Cleveland's 2017 Jose Ramirez deal</b> at about +24 wins against the "
     "class market. Atlanta's famous 2019 pair grades merely good, because the class baseline already expects "
     "extensions to be team-friendly; the skill is picking the right player.",
     "<b>Organizational DNA is measurable.</b> Measuring every player who changed orgs (performance in the two seasons "
     "after arriving vs the two before), the reputations fall out of the data unprompted: Cleveland improves "
     "defenders by about +2.5 runs per season and arms by +0.19 wins; Milwaukee, Tampa Bay, and San Diego profile as "
     "pitching labs; Texas arms regress. None of this was curated.",
-    "<b>How titles actually get built, measured across all 28 champions 1998-2025:</b> free agency has been a "
-    "majority channel exactly once (the 2009 Yankees), and the sharpest through-line is generational: the median "
-    "title core was 48% built by its sitting regime in 1998-2009 and 90% in 2010-2025. The inherited-core "
-    "championship (1998 Yankees, 93% handed down; 2023 Texas, 85% Jon Daniels' core) is going extinct: the modern "
-    "norm is that the regime that wins built the thing itself.",
+    "<b>How titles actually get built, measured across all 29 champions 1998-2026:</b> free agency has been a "
+    "majority channel exactly once (the 2009 Yankees), and the median title core was 48% built by its sitting "
+    "regime in 1998-2009 against 74% in 2010-2026. The handed-down title has not gone away, though: seven of the "
+    "seventeen since 2010 came on majority-inherited cores, including three straight (2021 Atlanta, 2022 Houston, "
+    "2023 Texas, 85% Jon Daniels' roster). An earlier build read this as the inherited title going extinct; the "
+    "corrected roster accounting says otherwise, and the site says so.",
     "<b>The system audits its own inputs.</b> Tracing the 2009 Yankees' roster exposed that the MLB transaction "
     "feed is empty before 2009; the fix was joining the Retrosheet archive (22,697 rows, 1998-2008, mapped to "
     "MLBAM ids via the Chadwick register), which put the Beckett-for-Hanley and Cabrera trades into the book and "
