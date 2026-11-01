@@ -747,3 +747,16 @@ The computed FA class is now reconciled against the actual 2026-27 winter
   preview image re-rendered in the paper-ledger design; a cookieless
   analytics snippet staged behind a comment; the application packet
   rebuilt with current numbers, GM Mode, and the fingerprint.
+
+# v5.0: the public layout (Nov 2026)
+
+- The name stays Front Office Ledger.
+- Navigation reorganized into labeled sections, newspaper-style: THE GRADES
+  (Leaderboard, Report Cards, Champions), THE TREES (Transaction Trees,
+  now the home of all chain exploration), THE INTEL (Org DNA, Head to
+  Head, Horizon), THE ROOMS (Deal Desk, Offseason Simulator, Scenario
+  Room), THE METHOD (Methodology).
+- GM Mode is renamed the Offseason Simulator everywhere.
+- The Trees tab gains "Follow any player": type any of 2,800+ names on the
+  graded ledger and get his full chain inline, every onward move with how
+  it ended, alongside the existing per-regime trees and curated showcases.
