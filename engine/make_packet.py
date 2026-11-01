@@ -88,8 +88,8 @@ E.append(Paragraph(
     "r = 0.62-0.67 against actual next-season WAR, competitive with public systems, and quarantined: realized value "
     "is the ledger, the projection is the heading.", st_b))
 E.append(Paragraph(
-    "<b>An empirical trade market.</b> From 237 deadline rental deals classified exactly from the transaction feed: "
-    "a star rental win costs about 0.8 wins of eventually-realized value, the median deadline rental costs roughly "
+    "<b>An empirical trade market.</b> From 224 deadline rental deals classified exactly from the transaction feed: "
+    "a rental win costs about 0.8 wins of eventually-realized value (the nine true star rentals ran nearer 1.2), the median deadline rental costs roughly "
     "nothing that ever materializes, and over half of rental buys deliver under 0.3 wins. Boston's return for one "
     "expected year of Mookie Betts was market rate; the ledger's criticism was never the price.", st_b))
 E.append(Paragraph(
@@ -100,7 +100,7 @@ E.append(Paragraph(
     "proposes the terms itself: a calibrated Ledger offer blending market comps (the eight nearest real contracts "
     "by form, age, and position, with realized outcomes) and the model's fair price, <b>backtested winter by "
     "winter on 1,196 real signings 2010-2025</b> using only information available at the time (typical miss 0.7 "
-    "years, $3.2M of AAV; mega-deal pricing carries a pedigree gate, a pitcher scarcity premium, and convex elite pricing with regression shrink, cutting the $200M-class miss 24% and removing its bias; the residual star shortfall the market itself produces is disclosed, not tuned away). "
+    "years, $3.2M of AAV; mega-deal pricing carries a pedigree gate, a pitcher scarcity premium, and convex elite pricing with regression shrink, bringing the $200M-class miss to about $91M against $140M for the comp median alone, with no systematic bias; the residual star shortfall the market itself produces is disclosed, not tuned away). "
     "Every verdict shows the club's estimated payroll before and after (book money plus arb/pre-arb estimates) "
     "against the CBT line, and exports as a one-page deal memo. A Scenario Room replays famous decision points from the archive with only at-the-time information, adjudicates counters by deterministic market rules, and grades process separately from outcome. A Horizon view walks every roster forward through "
     "2031 on the aging curves, bounded by control and contract years, with each club's season-by-season salary book: who falls off when, and what any proposed "
@@ -153,8 +153,8 @@ E.append(Paragraph(
     "elsewhere, and Statcast baserunning. Park factors (v1.5) and the archive sweep's full 25,000-player universe "
     "put the accounting check at r = 0.86 (MAE 5.3 wins) across 327 team-seasons: fuller rosters sum closer to "
     "team records, which is itself evidence the metric is additive the way WAR must be. The predictive study now "
-    "carries real rigor: 574 pooled regime-years from 112 regimes, a cluster-bootstrap 95% interval on the "
-    "partial correlation of [0.16, 0.37], and grouped out-of-sample cross-validation (R-squared 0.184 to 0.245 on "
+    f"carries real rigor: {P['n']} pooled regime-years from {P['regimes']} regimes, a cluster-bootstrap 95% interval on the "
+    f"partial correlation of [{P['partial_r_ci'][0]:.2f}, {P['partial_r_ci'][1]:.2f}], and grouped out-of-sample cross-validation (R-squared {P['oos_r2_base']:.3f} to {P['oos_r2_full']:.3f} on "
     "held-out regimes). Known gaps (defense coverage thins before "
     "2016) are disclosed on the site rather than patched quietly. Pooled regime-years overlap, so the predictive "
     "check's effect size is the claim, not its p-value.", st_small))
@@ -164,7 +164,7 @@ for f in [
     "<b>The best draft room of the data era is Brian Sabean's San Francisco</b>, +109 wins over slot (Posey, "
     "Bumgarner, the dynasty's core), a nose ahead of Epstein's Boston at +104; among active regimes it is Chris "
     "Antonetti's Cleveland at +44. Brian Cashman's full 29-year window tells the opposite of the public story: "
-    "trades +74 and drafts +17 above slot, while the checkbook grades 66 wins below water net of cost. (His draft "
+    "trades +56 and drafts +17 above slot, while the checkbook grades 66 wins below water net of cost. (His draft "
     "figure has fallen twice as the system improved: once when it caught itself crediting Gerrit Cole's "
     "free-agent-era production to the 2008 pick that never signed, and again when the archive extension put his "
     "barren 1999-2004 classes into the book. A system like this is supposed to correct itself in public.)",
@@ -187,7 +187,7 @@ for f in [
     "feed is empty before 2009; the fix was joining the Retrosheet archive (22,697 rows, 1998-2008, mapped to "
     "MLBAM ids via the Chadwick register), which put the Beckett-for-Hanley and Cabrera trades into the book and "
     "left the validation studies unchanged. A second audit (October 2026) caught a subtler hole: the player-value universe was built from transaction-touched players, so career-one-club stars who never hit free agency (Jose Altuve, Jose Ramirez, Salvador Perez, Ronald Acuna Jr., 133 significant players in all) were invisible; restoring them raised the accounting validation to r = 0.86 and put Perez back on the 2015 championship core. Both finds are documented, because a system that grades others must audit itself in public. Every graded trade also now carries market comps: the nearest deals "
-    "by size and phase from a 5,764-deal archive, so each verdict reads against what deals of that shape cost.",
+    "by size and phase from a 5,804-deal archive, so each verdict reads against what deals of that shape cost.",
     "<b>Head-to-head records exist and are lopsided.</b> Every trade between two sitting regimes, netted from each "
     "seat: some relationships run 20+ wins one-sided across a decade of deals. Counterparty selection is a skill "
     "the public conversation does not price.",
@@ -226,14 +226,14 @@ E.append(Paragraph("Honest limitations, currently disclosed on the site", st_h))
 E.append(Paragraph(
     "Defense coverage thins before 2016 and pre-2014 seasons are bat-plus-position only. Extension class discounts "
     "are documented assumptions pending a larger book. Recent-era rental ratios are right-censored while surrendered "
-    "prospects mature. Retention is graded but excluded from the composite until compensation picks are modeled, "
-    "because raw leakage scales with how many stars a club employs. Archive regimes grade trade, draft, and waiver "
+    "prospects mature. Retention joins the active composite as an expectation-conditioned gap (re-signings excluded, "
+    "a compensation-pick credit per QO walkaway); archive cards do not carry it yet. Archive regimes grade trade, draft, and waiver "
     "channels; their FA book and development grades await the historical contract and prospect-list backfill, and "
     "regimes seated before the 2005 transaction-feed floor are truncated and flagged with their true start. Payroll "
-    "arb and pre-arb figures are estimates (league minimum pre-arb; arb years at 25/40/60% of projected market "
-    "value); the durability factor is a validated heuristic (it improves projection error and bias, at a small cost "
+    "arb and pre-arb figures are estimates (league minimum pre-arb; arbitration from an award model calibrated on 48 real "
+    "2026 salaries, about $1.6M typical out-of-sample miss, on service time rebuilt from the transaction feed); the durability factor is a validated heuristic (it improves projection error and bias, at a small cost "
     "in rank correlation, and both numbers are published). The 2026 "
-    "postseason was in progress at this build. A system like this earns trust by labeling its own soft spots, and "
+    "season and postseason are final in this build. A system like this earns trust by labeling its own soft spots, and "
     "that principle is applied everywhere.", st_b))
 E.append(Spacer(1, 6))
 E.append(HRFlowable(width="100%", thickness=1, color=RULE, spaceBefore=8, spaceAfter=8))

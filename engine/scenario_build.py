@@ -232,7 +232,7 @@ def implied_cost(off, yrs, tot, span):
     return sum(aav / DPWH.get(str(min(off + i, 2026)), 9.7) for i in range(1, span + 1))
 
 def surplus(row):
-    pl, off, ab, yrs, tot, age, pit, p1, p2, realized, elapsed, pid, typ = row
+    pl, off, ab, yrs, tot, age, pit, p1, p2, realized, elapsed, pid, typ = row[:13]
     if realized == "" or elapsed < yrs: return None
     return realized - implied_cost(off, yrs, tot, yrs)
 
@@ -270,7 +270,7 @@ for picks, kindlbl, setups in ((FA_PICKS, "fa", FA_SETUP), (EXT_PICKS, "ext", EX
         rows = [r for r in BOOK if r[0] == nm and r[1] == off]
         if not rows: print("MISS book", nm, off); continue
         row = rows[0]
-        pl, off, ab, yrs, tot, age, pit, p1, p2, realized, elapsed, pid, typ = row
+        pl, off, ab, yrs, tot, age, pit, p1, p2, realized, elapsed, pid, typ = row[:13]
         tid = {v: k for k, v in TID2AB.items()}.get(ab)
         st = standings(off, tid=tid)
         sur = surplus(row)

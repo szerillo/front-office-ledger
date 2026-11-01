@@ -22,7 +22,13 @@ major-league deals (Ohtani, Yamamoto) are NOT here, they stay in FA-major.
 
 Merges chan.intl into sweep_results.json in place.
 """
-import json, sqlite3
+import json
+def grade_comp_ifa(nps):
+    for thr, g in [(8.0,80),(5.5,75),(3.5,70),(2.2,65),(1.2,60),(0.4,55),
+                   (-0.4,50),(-1.2,45),(-2.2,40),(-3.5,35)]:
+        if nps >= thr: return g
+    return 30
+import sqlite3
 from collections import defaultdict
 from datetime import date
 from ledger_war import get, API
@@ -124,6 +130,7 @@ for r in res:
                            pids=[pp])
                       for v, y, nm, pp, dt in tops if v >= 0.5]
     r["total"] = round(r["total"] + net, 1)
+    r["forGrade"] = grade_comp_ifa(r["total"] / r["seasons"])   # v5.1: the composite grade follows the total
     best = f"{tops[0][2]} (+{tops[0][0]:.1f})" if tops and tops[0][0] > 0.3 else "-"
     print(f"{r['abbr']:<6}{net:>+9.1f}{p['real']:>8.1f}{p['exp']:>7.1f}{p['n']:>5}   {best}")
 

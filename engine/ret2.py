@@ -44,6 +44,16 @@ def val(pid, teams, y0, y1, inside=True):
 
 con = sqlite3.connect("/work/ledger.sqlite"); con.row_factory = sqlite3.Row
 
+def resigned(pid, names, yr):
+    """v5.1: a 'Declared Free Agency' filing followed by a season back with the
+    same club is a re-signing, not a departure. Counting it as one handed the
+    club the whole expected value as 'credit' (the departed player did nothing
+    elsewhere because he never left): Jeter, Rivera, Posada and dozens more
+    put +133 wins on one card."""
+    rec = LVM.get(int(pid)) if pid else None
+    if not rec: return False
+    return any(y == yr + 1 and tm in names for (y, tm, v) in rec["rows"])
+
 # ---- league expectation curve, all departures 1998-2023 ----
 events = [dict(r) for r in con.execute(
     "select * from sweep_tx where type_desc='Declared Free Agency' and date<='2023-12-31'")]
@@ -57,7 +67,8 @@ for r in events:
     seen.add(k)
     names = TEAMS[tid]
     prior = val(pid, names, yr - 2, yr, inside=True)
-    if prior <= 0.0: continue
+    if prior <= 0.5: continue          # same population the regimes are graded on
+    if resigned(pid, names, yr): continue
     fut = val(pid, names, yr + 1, yr + 3, inside=False)
     pairs.append((prior, fut))
 
@@ -87,6 +98,12 @@ def expect(prior):
             f = (prior - x0) / (x1 - x0)
             return y0 + f * (y1 - y0)
     return 0.0
+
+# centering: the interpolated curve is not exactly mean-preserving; shift it
+# so the league-wide mean gap per graded departure is zero by construction
+_g = [expect(p) - f for p, f in pairs]
+CENTER = -sum(_g) / len(_g) if _g else 0.0
+print(f"centering shift per departure: {CENTER:+.3f} (n={len(_g)})")
 
 # ---- per-regime grading ----
 def grade(nps):
@@ -119,8 +136,9 @@ for r in res:
         seen2.add((pid, yr))
         prior = val(pid, names, yr - 2, yr, inside=True)
         if prior <= 0.5: continue
+        if resigned(pid, names, yr): continue
         fut = val(pid, names, yr + 1, yr + 3, inside=False)
-        exp = expect(prior)
+        exp = expect(prior) + CENTER
         gap = exp - fut            # positive: departed player did LESS than market expected: good call
         if (norm(x["person_name"]), yr) in QOn:
             gap += 1.0; qo_n += 1
@@ -146,7 +164,10 @@ print(f"\nmean {statistics.mean(vals):+.1f} | median {statistics.median(vals):+.
 # join composite: v2 is centered by construction; add to FOR total
 for r in res:
     net2 = r["chan"]["ret"]["net2"]
-    r["total"] = round(r["total"] + net2, 1)
+    # idempotent: back out whatever an earlier run added (stored at the top
+    # level, which archetype.py never resets) before adding this run's value
+    r["total"] = round(r["total"] - r.get("ret_applied", 0.0) + net2, 1)
+    r["ret_applied"] = net2
     r["forGrade"] = grade_comp(r["total"] / r["seasons"])
 
 json.dump(res, open("/work/sweep_results.json", "w"), indent=1)

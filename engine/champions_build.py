@@ -22,6 +22,22 @@ from collections import defaultdict
 LVM = {int(k): v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
 cfg = json.load(open("/work/regimes.json"))
 hcfg = json.load(open("/work/regimes_hist.json"))
+
+import os as _os, urllib.request as _ur, time as _t
+DRAFT_TERRITORY = {"USA", "Canada", "Puerto Rico", "Guam", "U.S. Virgin Islands", "Virgin Islands",
+                   "American Samoa", "Northern Mariana Islands"}
+_BFN = "/work/birth.json"
+_BIRTH = json.load(open(_BFN)) if _os.path.exists(_BFN) else {}
+def birth_country(pid):
+    k = str(pid)
+    if k not in _BIRTH:
+        try:
+            d = json.load(_ur.urlopen(f"https://statsapi.mlb.com/api/v1/people/{k}", timeout=30))
+            _BIRTH[k] = (d.get("people") or [{}])[0].get("birthCountry") or ""
+        except Exception:
+            _BIRTH[k] = ""
+        json.dump(_BIRTH, open(_BFN, "w")); _t.sleep(0.1)
+    return _BIRTH[k]
 ps = json.load(open("/work/postseason.json"))
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 TEAMS = {r["teamId"]: (r["team"], r["abbr"]) for r in cfg["regimes"]}
@@ -117,7 +133,12 @@ for (yr, tid) in CHAMPS_WS:
         else:
             # no record in the 2005+ feed and no draft row: amateur signing or pre-floor
             first_club_season = min((y for (y, tm, v) in LVM[pid]["rows"] if tm in names), default=yr)
-            if first_club_season >= 1987:
+            if first_club_season >= 1987 and birth_country(pid) in DRAFT_TERRITORY:
+                # born in draft territory: he can only have entered through the
+                # amateur draft, which predates the draft table (Jeter, Posada,
+                # Rollins, Glaus); not an international or minor-league find
+                ch = "draft"; d = f"~{first_club_season - 3}"; how = "Amateur draft pick (before the draft table's coverage; born in draft territory)"
+            elif first_club_season >= 1987:
                 ch = "intl"; d = f"~{first_club_season - 2}"; how = "Amateur / minor-league signing (no major-league transaction on record)"
             else:
                 ch = "inherited"; d = "pre-1985"; how = "Acquired before the 1985 provenance floor (Retrosheet backfill starts 1985)"
@@ -130,8 +151,11 @@ for (yr, tid) in CHAMPS_WS:
     for r in roster:
         mix["inherited" if r[4] == "inh" else r[1]] += r[5]
     reg_share = round(100 * sum(r[5] for r in roster if r[4] == "reg") / total) if total else 0
-    tenure_yr = yr - int(reg_start[:4]) + 1
-    if true_start: tenure_yr = yr - int(true_start[:4]) + 1
+    # v5.1: seasons counted the leaderboard's way: an exec hired after July
+    # takes over the NEXT season, so a fall hire's first title year is year 1
+    _ts = true_start or reg_start
+    _first = int(_ts[:4]) + (1 if _ts[5:7] > "07" else 0)
+    tenure_yr = max(1, yr - _first + 1)
     note = f"title in year {tenure_yr} of the regime"
     dep = DEPUTY.get((reg_exec, tid))
     cont_share = None
@@ -169,7 +193,7 @@ lines = dict(
     majorityHomegrown=[a["id"] for a in agg if share(a, "draft") + share(a, "intl") > 50],
     mostInherited=max(agg, key=lambda a: share(a, "inherited"))["id"],
     mostBought=max(agg, key=lambda a: share(a, "fa"))["id"],
-    mostHomegrown=max(agg, key=lambda a: share(a, "draft"))["id"],
+    mostHomegrown=max(agg, key=lambda a: share(a, "draft") + share(a, "intl"))["id"],   # same definition as majorityHomegrown
     mostTraded=max(agg, key=lambda a: share(a, "trade"))["id"],
     rows=agg,
 )

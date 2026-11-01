@@ -23,6 +23,7 @@ Writes hist_results.json.
 """
 import json, math, os, sqlite3
 from collections import defaultdict
+from tradegroup import dedupe_rows, group_trades
 from ledger_war import get, API
 from lvm15 import player_team_seasons_v15
 
@@ -61,6 +62,16 @@ def success_grade(wpct, div):
 
 hcfg = json.load(open("/work/regimes_hist.json"))
 cfg = json.load(open("/work/regimes.json"))
+
+def club_names(team):
+    """v5.1: every name a club has gone by (Indians/Guardians, Oakland
+    Athletics/Athletics, Marlins, Expos/Nationals...). Valuing a departed
+    piece on the single name in the transaction row closed his window at the
+    club's rename, so the two seats of one trade stopped mirroring."""
+    for _r in cfg["regimes"]:
+        _al = set(cfg["aliases"].get(str(_r["teamId"]), [])) | {_r["team"]}
+        if team in _al: return _al
+    return {team}
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 con = sqlite3.connect(DB); con.row_factory = sqlite3.Row
 
@@ -76,7 +87,7 @@ for i, reg in enumerate(REGS):
         "select * from sweep_tx where team_id=? and date>=? and date<=? and type_desc in "
         "('Trade','Claimed Off Waivers','Rule 5 Selection','Signed as Free Agent','Declared Free Agency')",
         (tid, start, end))]
-    regime_rows[i] = rows
+    regime_rows[i] = dedupe_rows(rows, tid, start, end)
     for r in rows:
         if r["person_id"]: universe.add(int(r["person_id"]))
     names = ALIAS.get(tid, {reg["team"]})
@@ -180,16 +191,16 @@ for i, reg in enumerate(REGS):
     s_last = y_end - (1 if end[5:7] < "04" else 0)
     decs = []
     ynet = defaultdict(float)
-    trades = defaultdict(list)
+    trades = {"rows": []}
     seen_fa = set(); fa_raw = 0.0; n_fa = 0; walk = []
     n_wv = n_r5 = 0; wv_net = 0.0
     for r in regime_rows[i]:
         t = r["type_desc"]; yr = int(r["date"][:4])
         if t == "Trade":
-            trades[(r["date"], r["description"])].append(r)
+            trades["rows"].append(r)
         elif t == "Claimed Off Waivers":
             claim = r["to_team"] in names
-            v = val(r["person_id"], names if claim else {r["to_team"]}, yr, yr+3, inside=True)
+            v = val(r["person_id"], names if claim else club_names(r["to_team"]), yr, yr+3, inside=True)
             net = v if claim else -v
             wv_net += net; n_wv += 1; ynet[yr] += net
             if abs(net) > 0.05:
@@ -201,7 +212,7 @@ for i, reg in enumerate(REGS):
                                  pids=[r["person_id"]]))
         elif t == "Rule 5 Selection":
             pick = r["to_team"] in names
-            v = val(r["person_id"], names if pick else {r["to_team"]}, yr, yr+3, inside=True)
+            v = val(r["person_id"], names if pick else club_names(r["to_team"]), yr, yr+3, inside=True)
             r5n = (v if pick else -v)
             wv_net += r5n; n_r5 += 1; ynet[yr] += r5n
         elif t == "Declared Free Agency":
@@ -225,13 +236,14 @@ for i, reg in enumerate(REGS):
     pname = {}
     for x in regime_rows[i]:
         if x["person_id"]: pname[x["person_id"]] = x["person_name"]
-    for (d, desc), rs in trades.items():
+    trade_groups = group_trades(trades["rows"], names)
+    for (d, desc, rs) in trade_groups:
         yr = int(d[:4])
         pids_in  = {x["person_id"] for x in rs if x["to_team"] in names and x["person_id"]}
         outs = {x["person_id"]: x["to_team"] for x in rs
                 if x["from_team"] in names and x["person_id"] and x["to_team"]}
         ins_det = [(p, pname.get(p, "?"), val_control(p, names, yr)) for p in pids_in]
-        out_det = [(p, pname.get(p, "?"), dest, val_control(p, {dest}, yr)) for p, dest in outs.items()]
+        out_det = [(p, pname.get(p, "?"), dest, val_control(p, club_names(dest), yr)) for p, dest in outs.items()]
         vin  = sum(v for (_, _, v) in ins_det)
         vout = sum(v for (_, _, _, v) in out_det)
         net = vin - vout; tr_net += net; ynet[yr] += net
@@ -241,7 +253,7 @@ for i, reg in enumerate(REGS):
                       [[nm, f"{v:+.1f}"] for (_, nm, v) in sorted(ins_det, key=lambda t: -t[2])] or [["(no valued players)", "0.0"]]],
                      ["Surrendered · value realized on " + (", ".join(dests) if dests else "counterparty"),
                       [[nm, f"{-v:+.1f}"] for (_, nm, _, v) in sorted(out_det, key=lambda t: -t[3])] or [["(no valued players)", "0.0"]]]]
-            decs.append(dict(d=d, ch="trade", net=round(net,1), h=(desc or "trade")[:130],
+            decs.append(dict(d=d, ch="trade", net=round(net,1), h=(desc or "trade")[:220],
                              vin=round(vin,1), vout=round(vout,1), sides=sides,
                              pids=[p for (p, _, _) in ins_det] + [p for (p, _, _, _) in out_det]))
     dr_real = dr_exp = 0.0
@@ -279,7 +291,7 @@ for i, reg in enumerate(REGS):
         start=y_start, end=y_end, startDate=reg["start"], endDate=end,
         trueStart=reg.get("trueStart"), seasons=seasons, flags=reg.get("flags", []),
         chan=dict(
-            trade=dict(net=round(tr_net,1), g=grade(tr_net/seasons), n=len(trades)),
+            trade=dict(net=round(tr_net,1), g=grade(tr_net/seasons), n=len(trade_groups)),
             draft=dict(net=round(dr_net,1), g=grade(dr_net/seasons), n=len(drafts[i])),
             waiver=dict(net=round(wv_net,1), g=grade(wv_net/seasons), n=n_wv+n_r5),
             fa=dict(net=round(fa_raw,1), g=None, n=n_fa),

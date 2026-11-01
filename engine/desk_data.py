@@ -198,28 +198,50 @@ print("contract book rows matched:", len(book), "of", len(raw_contracts))
 FA27_NAMES = {"Michael King", "Clay Holmes", "Shota Imanaga"}
 fa27 = sorted({row[11] for row in book if row[0] in FA27_NAMES})
 
-# Service-time fixes: the mlb_seasons proxy counts cup-of-coffee years, which
-# wrongly promoted these into the FA class. True service entering 2027,
-# checked against the real class lists.
-SVC_FIX = {"Joe Ryan": 5, "Oneil Cruz": 4, "Jarren Duran": 4, "Reid Detmers": 5,
-           "Logan Gilbert": 5, "Griffin Jax": 5, "Tyler Stephenson": 5,
-           # free by contract expiry rather than six-year service (NPB signees
-           # whose original deals ran out): encoded as FA-eligible
-           "Seiya Suzuki": 6, "Shota Imanaga": 6}
+# Service time (v5.1): real MLB service reconstructed from each player's
+# transaction history (svc_fetch.py -> service.json, years.days as a float),
+# replacing the seasons-with-an-appearance proxy that counted a September
+# call-up as a full year. idx 11 = service through 2026; idx 8 = seasons of
+# control left; idx 15 = arbitration awards already received before 2026's
+# winter (Super Two included), so the page knows which arb year comes next.
+SVC = json.load(open("/work/service.json")) if __import__("os").path.exists("/work/service.json") else {}
+# free by contract expiry rather than six-year service (NPB signees whose
+# original deals ran out): encoded as FA-eligible
+CONTRACT_FA = {"Seiya Suzuki", "Shota Imanaga"}
+import math as _m
+n_svc = 0
 for p in players:
-    if p[0] in SVC_FIX:
-        p[11] = SVC_FIX[p[0]]
-        p[8] = max(1, min(6, 6 - p[11]))
-print("winter reality: fa27 pids", fa27, "| svc fixes", len(SVC_FIX))
+    sv = SVC.get(str(p[1]))
+    if p[0] in CONTRACT_FA:
+        p[11] = 6.0
+    elif sv:
+        p[11] = sv["svc"]; n_svc += 1
+    p[8] = max(1, min(6, 6 - int(_m.floor(p[11] + 1e-9))))
+    p.append(len([w for w in (sv or {}).get("arb_winters", []) if w < 2026]))   # idx 15
+print("service from transactions:", n_svc, "| contract-expiry FAs:", len(CONTRACT_FA))
+print("winter reality: fa27 pids", fa27)
 
 # ---- committed payroll per club per season (book contracts, AAV spread) ----
-payroll = {}
+# v5.1: money follows the PLAYER (a traded star's deal sits on his current
+# club, not the club that signed him), and a newer contract supersedes an
+# older one for the seasons both cover (an extension replaces the deal it
+# tore up; a player who signed elsewhere is not on two payrolls). Cash sent
+# in trades is not modeled.
+CUR = {p[1]: p[2] for p in players}
+by_pid = {}
 for row in book:
-    pl, off, ab, yrs, tot = row[0], row[1], row[2], row[3], row[4]
-    if pl in FA27_NAMES: continue   # opted out / declined: 2027+ money is off the book
-    if not ab or off + yrs < 2026: continue
-    aav = tot / yrs
-    for season in range(max(2026, off + 1), min(off + yrs, 2031) + 1):
+    by_pid.setdefault(row[11], []).append(row)
+payroll = {}
+for pid, rows in by_pid.items():
+    rows = sorted(rows, key=lambda r: r[1])
+    for season in range(2026, 2032):
+        cover = [r for r in rows if max(2026, r[1] + 1) <= season <= r[1] + r[3]]
+        if not cover: continue
+        r = cover[-1]                       # the most recent contract governs the season
+        if r[0] in FA27_NAMES and season >= 2027: continue   # opted out / declined
+        ab = CUR.get(pid) or r[2]
+        if not ab: continue
+        aav = r[4] / r[3]
         payroll.setdefault(ab, {}).setdefault(str(season), [0.0, 0])
         payroll[ab][str(season)][0] += aav
         payroll[ab][str(season)][1] += 1

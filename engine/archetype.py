@@ -29,6 +29,7 @@ Merges into sweep_results.json: chan.ret, dna.*, h2h; writes h2h_matrix.json.
 """
 import json, sqlite3
 from collections import defaultdict
+from tradegroup import dedupe_rows, group_trades
 
 SV = json.load(open("/work/savant_runs.json"))
 SDI = json.load(open("/work/sdi_runs.json"))
@@ -36,6 +37,16 @@ LVM = {k: v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k
 POS = json.load(open("/work/positions.json"))
 PITPOS = {"RHP", "LHP", "SP", "RP"}
 cfg = json.load(open("/work/regimes.json"))
+
+def club_names(team):
+    """v5.1: every name a club has gone by (Indians/Guardians, Oakland
+    Athletics/Athletics, Marlins, Expos/Nationals...). Valuing a departed
+    piece on the single name in the transaction row closed his window at the
+    club's rename, so the two seats of one trade stopped mirroring."""
+    for _r in cfg["regimes"]:
+        _al = set(cfg["aliases"].get(str(_r["teamId"]), [])) | {_r["team"]}
+        if team in _al: return _al
+    return {team}
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
 REG = {r["teamId"]: r for r in cfg["regimes"]}
 con = sqlite3.connect("/work/ledger.sqlite"); con.row_factory = sqlite3.Row
@@ -153,10 +164,8 @@ seen = set()
 for reg in cfg["regimes"]:
     tid = reg["teamId"]; names = ALIAS.get(tid, {reg["team"]})
     start = max(reg["start"], "2005-01-01")
-    trades = defaultdict(list)
-    for r in con.execute("select * from sweep_tx where team_id=? and date>=? and type_desc='Trade'", (tid, start)):
-        trades[(r["date"], r["description"])].append(dict(r))
-    for (d, desc), rs in trades.items():
+    _rows = dedupe_rows([dict(r) for r in con.execute("select * from sweep_tx where team_id=? and date>=? and type_desc='Trade'", (tid, start))], tid, start)
+    for (d, desc, rs) in group_trades(_rows, names):
         yr = int(d[:4])
         opps = {NAME2TID.get(x["to_team"]) for x in rs if x["from_team"] in names and x["to_team"]} | \
                {NAME2TID.get(x["from_team"]) for x in rs if x["to_team"] in names and x["from_team"]}
@@ -168,7 +177,7 @@ for reg in cfg["regimes"]:
             seen.add(key)
             vin = sum(val_control(x["person_id"], names, yr) for x in rs
                       if x["to_team"] in names and x["person_id"] and NAME2TID.get(x["from_team"]) == opp)
-            vout = sum(val_control(x["person_id"], {x["to_team"]}, yr) for x in rs
+            vout = sum(val_control(x["person_id"], club_names(x["to_team"]), yr) for x in rs
                        if x["from_team"] in names and x["person_id"] and NAME2TID.get(x["to_team"]) == opp)
             h2h[(tid, opp)]["n"] += 1
             h2h[(tid, opp)]["net"] += vin - vout
@@ -179,7 +188,9 @@ for reg in cfg["regimes"]:
     tid = reg["teamId"]
     start = max(reg["start"], "2005-01-01")
     npit = nbat = 0
-    for r in con.execute("select person_id from sweep_tx where team_id=? and date>=? and type_desc='Status Change' and lower(description) like '%injured list%'", (tid, start)):
+    # placements only (activations and transfers are not new stints), and the
+    # pre-2019 name of the list too ("disabled list"), so 2005-2018 counts
+    for r in con.execute("select person_id from sweep_tx where team_id=? and date>=? and type_desc='Status Change' and (lower(description) like '%injured list%' or lower(description) like '%disabled list%') and lower(description) like '%placed%'", (tid, start)):
         if is_pit(r["person_id"]): npit += 1
         else: nbat += 1
     inj[tid] = dict(pit=npit, bat=nbat)
@@ -235,7 +246,11 @@ for r in res:
     d["devDef"] = dict(v=round(sum(dl)/len(dl), 2), n=len(dl)) if len(dl) >= 6 else dict(v=None, n=len(dl))
     d["devPit"] = dict(v=round(sum(pl)/len(pl), 2), n=len(pl)) if len(pl) >= 6 else dict(v=None, n=len(pl))
     d["devBat"] = dict(v=round(sum(bl)/len(bl), 2), n=len(bl)) if len(bl) >= 6 else dict(v=None, n=len(bl))
-    d["inj"] = dict(pit=round(inj[tid]["pit"] / r["seasons"], 1), bat=round(inj[tid]["bat"] / r["seasons"], 1))
+    # v5.1: IL events are counted from 2005 (feed coverage), so divide by the
+    # seasons actually covered, not the full tenure (Cashman's 29 years)
+    _rs = REG[tid]["start"]; _first = max(int(_rs[:4]) + (1 if _rs[5:7] > "07" else 0), 2005)
+    _cov = max(1, 2026 - _first + 1)
+    d["inj"] = dict(pit=round(inj[tid]["pit"] / _cov, 1), bat=round(inj[tid]["bat"] / _cov, 1))
     d["draftRoom"] = draftroom[tid]
     d["buyLow"] = buylow[tid]
     partners = []
