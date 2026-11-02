@@ -9,73 +9,572 @@ Format: (offseason_start_year, player, team_abbr, years, total $M).
 Coverage: materiality-first (the deals that move FA grades); the long tail
 of 1-yr depth deals in these winters stays ungraded. 2025-26 winter added Oct 2026 (web-verified against CBS/MLBPA trackers)."""
 
+# v5.7: the full major-league free-agent book for the 2022-25 winters (560
+# deals), built from MLB Trade Rumors' team-by-team Offseason in Review
+# posts, cross-checked against NBC, MLB.com, ESPN, Fox, CBS and AP reports
+# (Nov 2 2026). Guaranteed totals include buyouts; accepted qualifying offers
+# count as one-year re-signings; split and minor-league deals are excluded.
+# The previous curated majors (129 deals) all reappear here; two differ by a
+# buyout (Kyle Gibson 2023 $13M, Kirby Yates 2024 $13M).
 RECENT = [
- # 2022-23 offseason
- (2022,"Aaron Judge","NYY",9,360),(2022,"Willson Contreras","STL",5,87.5),(2022,"Trea Turner","PHI",11,300),
- (2022,"Xander Bogaerts","SD",11,280),(2022,"Carlos Correa","MIN",6,200),
- (2022,"Jacob deGrom","TEX",5,185),(2022,"Brandon Nimmo","NYM",8,162),
- (2022,"Carlos Rodon","NYY",6,162),(2022,"Dansby Swanson","CHC",7,177),
- (2022,"Justin Verlander","NYM",2,86.7),(2022,"Chris Bassitt","TOR",3,63),
- (2022,"Jameson Taillon","CHC",4,68),(2022,"Nathan Eovaldi","TEX",2,34),
- (2022,"Cody Bellinger","CHC",1,17.5),(2022,"Mitch Haniger","SF",3,43.5),
- (2022,"Michael Conforto","SF",2,36),(2022,"Kodai Senga","NYM",5,75),
- (2022,"Jose Quintana","NYM",2,26),(2022,"Edwin Diaz","NYM",5,102),
- (2022,"Anthony Rizzo","NYY",2,40),(2022,"Andrew Benintendi","CWS",5,75),
- (2022,"Jose Abreu","HOU",3,58.5),(2022,"Tyler Anderson","LAA",3,39),
- (2022,"Martin Perez","TEX",1,19.65),(2022,"Sean Manaea","SF",2,25),
- (2022,"Ross Stripling","SF",2,25),(2022,"Josh Bell","CLE",2,33),
- (2022,"Justin Turner","BOS",2,21.7),(2022,"Taijuan Walker","PHI",4,72),
- (2022,"Zach Eflin","TB",3,40),(2022,"Jean Segura","MIA",2,17),
- (2022,"Kenley Jansen","BOS",2,32),(2022,"Rafael Montero","HOU",3,34.5),
- # 2023-24 offseason
- (2023,"Shohei Ohtani","LAD",10,700),(2023,"Yoshinobu Yamamoto","LAD",12,325),
- (2023,"Cody Bellinger","CHC",3,80),(2023,"Blake Snell","SF",2,62),
- (2023,"Jordan Montgomery","ARI",1,25),(2023,"Matt Chapman","SF",3,54),
- (2023,"Jorge Soler","SF",3,42),(2023,"Aaron Nola","PHI",7,172),
- (2023,"Sonny Gray","STL",3,75),(2023,"Luis Severino","NYM",1,13),
- (2023,"Seth Lugo","KC",3,45),(2023,"Michael Wacha","KC",2,32),
- (2023,"Shota Imanaga","CHC",4,53),(2023,"Jung Hoo Lee","SF",6,113),
- (2023,"Teoscar Hernandez","LAD",1,23.5),(2023,"Rhys Hoskins","MIL",2,34),
- (2023,"Lucas Giolito","BOS",2,38.5),(2023,"Marcus Stroman","NYY",2,37),
- (2023,"Eduardo Rodriguez","ARI",4,80),(2023,"Harrison Bader","NYM",1,10.5),
- (2023,"J.D. Martinez","NYM",1,12),(2023,"Josh Hader","HOU",5,95),
- (2023,"Craig Kimbrel","BAL",1,13),(2023,"Kyle Gibson","STL",1,12),
- (2023,"Tyler Mahle","TEX",2,22),(2023,"Nick Martinez","CIN",2,26),
- (2023,"Robert Stephenson","LAA",3,33),(2023,"Reynaldo Lopez","ATL",3,30),
- # 2024-25 offseason
- (2024,"Juan Soto","NYM",15,765),(2024,"Corbin Burnes","ARI",6,210),
- (2024,"Max Fried","NYY",8,218),(2024,"Willy Adames","SF",7,182),
- (2024,"Blake Snell","LAD",5,182),(2024,"Pete Alonso","NYM",2,54),
- (2024,"Alex Bregman","BOS",3,120),(2024,"Anthony Santander","TOR",5,92.5),
- (2024,"Tyler O'Neill","BAL",3,49.5),(2024,"Nathan Eovaldi","TEX",3,75),
- (2024,"Sean Manaea","NYM",3,75),(2024,"Luis Severino","ATH",3,67),
- (2024,"Jack Flaherty","DET",2,35),(2024,"Walker Buehler","BOS",1,21),
- (2024,"Paul Goldschmidt","NYY",1,12.5),(2024,"Teoscar Hernandez","LAD",3,66),
- (2024,"Tanner Scott","LAD",4,72),(2024,"Kirby Yates","LAD",1,14),
- (2024,"Justin Verlander","SF",1,15),(2024,"Charlie Morton","BAL",1,15),
- (2024,"Tomoyuki Sugano","BAL",1,13),(2024,"Andrew Kittredge","BAL",1,10),
- (2024,"Jurickson Profar","ATL",3,42),(2024,"Ha-Seong Kim","TB",2,29),
- (2024,"Christian Walker","HOU",3,60),(2024,"Gleyber Torres","DET",1,15),
- (2024,"Yusei Kikuchi","LAA",3,63),(2024,"Frankie Montas","NYM",2,34),
- (2024,"Clay Holmes","NYM",3,38),(2024,"Michael Wacha","KC",3,51),
- (2024,"Nick Pivetta","SD",4,55),(2024,"Jeff Hoffman","TOR",3,33),
- # 2025-26 offseason (web-verified Oct 2026: CBS/MLBPA trackers; QO accepters at $22.05M)
- (2025,"Kyle Tucker","LAD",4,240),(2025,"Dylan Cease","TOR",7,210),
- (2025,"Alex Bregman","CHC",5,175),(2025,"Cody Bellinger","NYY",5,162.5),
- (2025,"Pete Alonso","BAL",5,155),(2025,"Kyle Schwarber","PHI",5,150),
- (2025,"Bo Bichette","NYM",3,126),(2025,"Ranger Suarez","BOS",5,130),
- (2025,"Framber Valdez","DET",3,115),(2025,"Josh Naylor","SEA",5,92.5),
- (2025,"Michael King","SD",3,75),(2025,"Edwin Diaz","LAD",3,69),
- (2025,"Tatsuya Imai","HOU",3,54),(2025,"Kazuma Okamoto","TOR",4,60),
- (2025,"Devin Williams","NYM",3,51),(2025,"Robert Suarez","ATL",3,45),
- (2025,"J.T. Realmuto","PHI",3,45),(2025,"Merrill Kelly","ARI",2,40),
- (2025,"Jorge Polanco","NYM",2,40),(2025,"Tyler Rogers","TOR",3,37),
- (2025,"Munetaka Murakami","CWS",2,34),(2025,"Cody Ponce","TOR",3,30),
- (2025,"Ryan O'Hearn","PIT",2,29),(2025,"Ryan Helsley","BAL",2,28),
- (2025,"Mike Yastrzemski","ATL",2,23),(2025,"Zac Gallen","ARI",1,22.05),
- (2025,"Luke Weaver","NYM",2,22),(2025,"Brad Keller","PHI",2,22),
- (2025,"Harrison Bader","SF",2,20.5),(2025,"Emilio Pagan","CIN",2,20),
- (2025,"Shota Imanaga","CHC",1,22.05),(2025,"Trent Grisham","NYY",1,22.05),
- (2025,"Gleyber Torres","DET",1,22.05),(2025,"Brandon Woodruff","MIL",1,22.05),
- (2025,"Chris Bassitt","BAL",1,18.5),(2025,"Justin Verlander","DET",1,13),
+ (2022,"Aaron Judge","NYY",9,360),  # mlbtraderumors.com
+ (2022,"Trea Turner","PHI",11,300),  # mlbtraderumors.com
+ (2022,"Xander Bogaerts","SD",11,280),  # mlbtraderumors.com
+ (2022,"Carlos Correa","MIN",6,200),  # mlbtraderumors.com
+ (2022,"Jacob deGrom","TEX",5,185),  # mlbtraderumors.com
+ (2022,"Dansby Swanson","CHC",7,177),  # mlbtraderumors.com
+ (2022,"Brandon Nimmo","NYM",8,162),  # mlbtraderumors.com
+ (2022,"Carlos Rodón","NYY",6,162),  # mlbtraderumors.com
+ (2022,"Edwin Díaz","NYM",5,102),  # mlbtraderumors.com
+ (2022,"Masataka Yoshida","BOS",5,90),  # mlbtraderumors.com
+ (2022,"Willson Contreras","STL",5,87.5),  # mlbtraderumors.com
+ (2022,"Justin Verlander","NYM",2,86.67),  # mlbtraderumors.com
+ (2022,"Andrew Benintendi","CWS",5,75),  # mlbtraderumors.com
+ (2022,"Kodai Senga","NYM",5,75),  # mlbtraderumors.com
+ (2022,"Taijuan Walker","PHI",4,72),  # mlbtraderumors.com
+ (2022,"Jameson Taillon","CHC",4,68),  # mlbtraderumors.com
+ (2022,"Chris Bassitt","TOR",3,63),  # mlbtraderumors.com
+ (2022,"José Abreu","HOU",3,58.5),  # mlbtraderumors.com
+ (2022,"Robert Suárez","SD",5,46),  # mlbtraderumors.com
+ (2022,"Mitch Haniger","SF",3,43.5),  # mlb.com
+ (2022,"Anthony Rizzo","NYY",2,40),  # mlbtraderumors.com
+ (2022,"Zach Eflin","TB",3,40),  # mlbtraderumors.com
+ (2022,"Tyler Anderson","LAA",3,39),  # mlbtraderumors.com
+ (2022,"Michael Conforto","SF",2,36),  # mlbtraderumors.com
+ (2022,"Rafael Montero","HOU",3,34.5),  # mlbtraderumors.com
+ (2022,"Nathan Eovaldi","TEX",2,34),  # mlbtraderumors.com
+ (2022,"Josh Bell","CLE",2,33),  # mlbtraderumors.com
+ (2022,"Taylor Rogers","SF",3,33),  # mlbtraderumors.com
+ (2022,"Kenley Jansen","BOS",2,32),  # mlbtraderumors.com
+ (2022,"Christian Vázquez","MIN",3,30),  # mlbtraderumors.com
+ (2022,"José Quintana","NYM",2,26),  # mlbtraderumors.com
+ (2022,"Nick Martinez","SD",3,26),  # mlbtraderumors.com
+ (2022,"Michael Wacha","SD",4,26),  # mlbtraderumors.com
+ (2022,"Andrew Heaney","TEX",2,25),  # mlbtraderumors.com
+ (2022,"Sean Manaea","SF",2,25),  # mlbtraderumors.com
+ (2022,"Ross Stripling","SF",2,25),  # mlbtraderumors.com
+ (2022,"Justin Turner","BOS",2,21.7),  # mlbtraderumors.com
+ (2022,"Clayton Kershaw","LAD",1,20),  # mlbtraderumors.com
+ (2022,"Martín Pérez","TEX",1,19.65),  # mlbtraderumors.com
+ (2022,"Joc Pederson","SF",1,19.65),  # mlbtraderumors.com
+ (2022,"Drew Smyly","CHC",2,19),  # mlbtraderumors.com
+ (2022,"Cody Bellinger","CHC",1,17.5),  # mlbtraderumors.com
+ (2022,"Chris Martin","BOS",2,17.5),  # mlbtraderumors.com
+ (2022,"Brandon Drury","LAA",2,17),  # mlbtraderumors.com
+ (2022,"Jordan Lyles","KC",2,17),  # mlbtraderumors.com
+ (2022,"Jean Segura","MIA",2,17),  # mlbtraderumors.com
+ (2022,"Matt Strahm","PHI",2,15),  # mlbtraderumors.com
+ (2022,"Seth Lugo","SD",2,15),  # mlbtraderumors.com
+ (2022,"Omar Narváez","NYM",2,15),  # mlbtraderumors.com
+ (2022,"Aledmys Díaz","ATH",2,14.5),  # mlbtraderumors.com
+ (2022,"Adam Ottavino","NYM",2,14.5),  # mlbtraderumors.com
+ (2022,"Trey Mancini","CHC",2,14),  # mlbtraderumors.com
+ (2022,"Carlos Estévez","LAA",2,13.5),  # mlbtraderumors.com
+ (2022,"Noah Syndergaard","LAD",1,13),  # mlbtraderumors.com
+ (2022,"Trevor Williams","WSH",2,13),  # mlbtraderumors.com
+ (2022,"Michael Brantley","HOU",1,12),  # mlbtraderumors.com
+ (2022,"Mike Clevinger","CWS",1,12),  # mlbtraderumors.com
+ (2022,"Matt Carpenter","SD",2,12),  # mlbtraderumors.com
+ (2022,"Tommy Kahnle","NYY",2,11.5),  # mlbtraderumors.com
+ (2022,"Luke Jackson","SF",2,11.5),  # mlbtraderumors.com
+ (2022,"Joey Gallo","MIN",1,11),  # mlbtraderumors.com
+ (2022,"Kyle Gibson","BAL",1,10),  # mlbtraderumors.com
+ (2022,"Corey Kluber","BOS",1,10),  # mlbtraderumors.com
+ (2022,"Matthew Boyd","DET",1,10),  # mlbtraderumors.com
+ (2022,"David Robertson","NYM",1,10),  # mlbtraderumors.com
+ (2022,"Craig Kimbrel","PHI",1,10),  # mlbtraderumors.com
+ (2022,"J.D. Martinez","LAD",1,10),  # mlbtraderumors.com
+ (2022,"Jace Peterson","ATH",2,9.5),  # mlbtraderumors.com
+ (2022,"Brandon Belt","TOR",1,9.3),  # mlbtraderumors.com
+ (2022,"Kevin Kiermaier","TOR",1,9),  # mlbtraderumors.com
+ (2022,"Zack Greinke","KC",1,8.5),  # mlbtraderumors.com
+ (2022,"Michael Lorenzen","DET",1,8.5),  # mlbtraderumors.com
+ (2022,"Johnny Cueto","MIA",1,8.5),  # mlbtraderumors.com
+ (2022,"Chad Green","TOR",2,8.5),  # mlbtraderumors.com
+ (2022,"Adam Frazier","BAL",1,8),  # mlbtraderumors.com
+ (2022,"Rich Hill","PIT",1,8),  # mlbtraderumors.com
+ (2022,"Jurickson Profar","COL",1,7.75),  # mlbtraderumors.com
+ (2022,"Matt Moore","LAA",1,7.55),  # mlbtraderumors.com
+ (2022,"Wil Myers","CIN",1,7.5),  # mlbtraderumors.com
+ (2022,"Adam Duvall","BOS",1,7),  # mlbtraderumors.com
+ (2022,"Trevor May","ATH",1,7),  # mlbtraderumors.com
+ (2022,"A.J. Pollock","SEA",1,7),  # mlbtraderumors.com
+ (2022,"Carlos Santana","PIT",1,6.725),  # mlbtraderumors.com
+ (2022,"Tucker Barnhart","CHC",2,6.5),  # mlbtraderumors.com
+ (2022,"David Peralta","LAD",1,6.5),  # mlbtraderumors.com
+ (2022,"Andrew Chafin","ARI",1,6.25),  # mlbtraderumors.com
+ (2022,"Scott McGough","ARI",2,6.25),  # mlbtraderumors.com
+ (2022,"Mike Zunino","CLE",1,6),  # mlbtraderumors.com
+ (2022,"Tommy Pham","NYM",1,6),  # mlbtraderumors.com
+ (2022,"Mychal Givens","BAL",1,5),  # mlbtraderumors.com
+ (2022,"Jeimer Candelario","WSH",1,5),  # mlbtraderumors.com
+ (2022,"Andrew McCutchen","PIT",1,5),  # mlbtraderumors.com
+ (2022,"Austin Hedges","PIT",1,5),  # mlbtraderumors.com
+ (2022,"Pierce Johnson","COL",1,5),  # mlbtraderumors.com
+ (2022,"Zach Davies","ARI",1,5),  # espn.com
+ (2022,"Wade Miley","MIL",1,4.5),  # mlbtraderumors.com
+ (2022,"Evan Longoria","ARI",1,4),  # mlbtraderumors.com
+ (2022,"Michael Fulmer","CHC",1,4),  # mlbtraderumors.com
+ (2022,"Aroldis Chapman","KC",1,3.75),  # mlbtraderumors.com
+ (2022,"Miguel Castro","ARI",1,3.5),  # nbcwashington.com
+ (2022,"Brian Anderson","MIL",1,3.5),  # mlbtraderumors.com
+ (2022,"José Ureña","COL",1,3.5),  # mlbtraderumors.com
+ (2022,"Curt Casali","CIN",1,3.25),  # mlbtraderumors.com
+ (2022,"Shintaro Fujinami","ATH",1,3.25),  # mlbtraderumors.com
+ (2022,"Vince Velasquez","PIT",1,3.15),  # mlbtraderumors.com
+ (2022,"Ryan Yarbrough","KC",1,3),  # mlbtraderumors.com
+ (2022,"Jesús Aguilar","ATH",1,3),  # mlbtraderumors.com
+ (2022,"Drew Rucinski","ATH",1,3),  # mlbtraderumors.com
+ (2022,"Elvis Andrus","CWS",1,3),  # mlbtraderumors.com
+ (2022,"Brad Boxberger","CHC",1,2.8),  # mlbtraderumors.com
+ (2022,"Jarlín García","PIT",1,2.5),  # mlbtraderumors.com
+ (2022,"Corey Dickerson","WSH",1,2.25),  # mlbtraderumors.com
+ (2022,"Joely Rodríguez","BOS",1,2),  # mlbtraderumors.com
+ (2022,"Josh Harrison","PHI",1,2),  # mlbtraderumors.com
+ (2022,"Dominic Smith","WSH",1,2),  # mlbtraderumors.com
+ (2022,"Brad Hand","COL",1,2),  # mlbtraderumors.com
+ (2022,"Luke Weaver","CIN",1,2),  # mlbtraderumors.com
+ (2022,"Robbie Grossman","TEX",1,2),  # mlbtraderumors.com
+ (2022,"Donovan Solano","MIN",1,2),  # mlbtraderumors.com
+ (2022,"Shelby Miller","LAD",1,1.5),  # mlbtraderumors.com
+ (2022,"Will Smith","TEX",1,1.5),  # mlb.com
+ (2022,"Jordan Luplow","ATL",1,1.4),  # mlbtraderumors.com
+ (2022,"Trevor Gott","SEA",1,1.2),  # mlbtraderumors.com
+ (2022,"Jimmy Nelson","LAD",1,1.2),  # mlbtraderumors.com
+ (2022,"Brett Phillips","LAA",1,1.2),  # mlbtraderumors.com
+ (2022,"Luke Maile","CIN",1,1.175),  # mlbtraderumors.com
+ (2022,"Alex Reyes","LAD",1,1.1),  # mlbtraderumors.com
+ (2022,"Erasmo Ramírez","WSH",1,1),  # mlbtraderumors.com
+ (2022,"Nelson Cruz","SD",1,1),  # mlbtraderumors.com
+ (2022,"Adam Engel","SD",1,1),  # mlbtraderumors.com
+ (2022,"Justin Wilson","MIL",1,1),  # mlbtraderumors.com
+ (2022,"Edwin Ríos","CHC",1,1),  # mlbtraderumors.com
+ (2022,"Danny Mendick","NYM",1,1),  # mlbtraderumors.com
+ (2022,"Yu Chang","BOS",1,0.85),  # mlbtraderumors.com
+ (2022,"Eric Hosmer","CHC",1,0.72),  # mlbtraderumors.com
+ (2022,"Tommy La Stella","SEA",1,0.72),  # mlbtraderumors.com
+ (2022,"Blake Perkins","MIL",1,0.72),  # mlbtraderumors.com
+ (2023,"Shohei Ohtani","LAD",10,700),  # mlbtraderumors.com
+ (2023,"Yoshinobu Yamamoto","LAD",12,325),  # mlbtraderumors.com
+ (2023,"Aaron Nola","PHI",7,172),  # mlbtraderumors.com
+ (2023,"Jung Hoo Lee","SF",6,113),  # mlbtraderumors.com
+ (2023,"Josh Hader","HOU",5,95),  # mlbtraderumors.com
+ (2023,"Cody Bellinger","CHC",3,80),  # mlbtraderumors.com
+ (2023,"Eduardo Rodríguez","ARI",4,80),  # mlbtraderumors.com
+ (2023,"Sonny Gray","STL",3,75),  # mlbtraderumors.com
+ (2023,"Blake Snell","SF",2,62),  # mlbtraderumors.com
+ (2023,"Matt Chapman","SF",3,54),  # mlbtraderumors.com
+ (2023,"Shota Imanaga","CHC",4,53),  # mlbtraderumors.com
+ (2023,"Seth Lugo","KC",3,45),  # mlbtraderumors.com
+ (2023,"Jeimer Candelario","CIN",3,45),  # mlbtraderumors.com
+ (2023,"Jordan Hicks","SF",4,44),  # mlbtraderumors.com
+ (2023,"Lourdes Gurriel Jr.","ARI",3,42),  # mlbtraderumors.com
+ (2023,"Jorge Soler","SF",3,42),  # mlbtraderumors.com
+ (2023,"Lucas Giolito","BOS",2,38.5),  # mlbtraderumors.com
+ (2023,"Marcus Stroman","NYY",2,37),  # mlbtraderumors.com
+ (2023,"Rhys Hoskins","MIL",2,34),  # mlbtraderumors.com
+ (2023,"Robert Stephenson","LAA",3,33),  # mlbtraderumors.com
+ (2023,"Michael Wacha","KC",2,32),  # mlbtraderumors.com
+ (2023,"Yariel Rodríguez","TOR",5,32),  # mlbtraderumors.com
+ (2023,"Reynaldo López","ATL",3,30),  # mlbtraderumors.com
+ (2023,"Sean Manaea","NYM",2,28),  # mlbtraderumors.com
+ (2023,"Yuki Matsui","SD",5,28),  # mlbtraderumors.com
+ (2023,"Nick Martinez","CIN",2,26),  # mlbtraderumors.com
+ (2023,"Jordan Montgomery","ARI",1,25),  # nbcnewyork.com
+ (2023,"Kenta Maeda","DET",2,24),  # mlbtraderumors.com
+ (2023,"Mitch Garver","SEA",2,24),  # mlbtraderumors.com
+ (2023,"Teoscar Hernández","LAD",1,23.5),  # mlbtraderumors.com
+ (2023,"Tyler Mahle","TEX",2,22),  # mlbtraderumors.com
+ (2023,"Brandon Woodruff","MIL",2,17.5),  # mlbtraderumors.com
+ (2023,"Wandy Peralta","SD",4,16.5),  # mlbtraderumors.com
+ (2023,"Frankie Montas","CIN",1,16),  # mlbtraderumors.com
+ (2023,"Emilio Pagán","CIN",2,16),  # mlbtraderumors.com
+ (2023,"Erick Fedde","CWS",2,15),  # mlbtraderumors.com
+ (2023,"Isiah Kiner-Falefa","TOR",2,15),  # mlbtraderumors.com
+ (2023,"Jack Flaherty","DET",1,14),  # mlbtraderumors.com
+ (2023,"Craig Kimbrel","BAL",1,13),  # mlbtraderumors.com
+ (2023,"Luis Severino","NYM",1,13),  # mlbtraderumors.com
+ (2023,"Justin Turner","TOR",1,13),  # mlbtraderumors.com
+ (2023,"Kyle Gibson","STL",1,13),  # mlbtraderumors.com
+ (2023,"Hunter Renfroe","KC",2,13),  # mlbtraderumors.com
+ (2023,"Joc Pederson","ARI",1,12.5),  # mlbtraderumors.com
+ (2023,"J.D. Martinez","NYM",1,12),  # nbcnewyork.com
+ (2023,"Víctor Caratini","HOU",2,12),  # mlbtraderumors.com
+ (2023,"David Robertson","TEX",1,11.5),  # mlbtraderumors.com
+ (2023,"Lance Lynn","STL",1,11),  # mlbtraderumors.com
+ (2023,"Harrison Bader","NYM",1,10.5),  # mlbtraderumors.com
+ (2023,"Aroldis Chapman","PIT",1,10.5),  # mlbtraderumors.com
+ (2023,"Kevin Kiermaier","TOR",1,10.5),  # mlbtraderumors.com
+ (2023,"Liam Hendriks","BOS",2,10),  # mlbtraderumors.com
+ (2023,"Clayton Kershaw","LAD",2,10),  # mlbtraderumors.com
+ (2023,"Héctor Neris","CHC",1,9),  # mlbtraderumors.com
+ (2023,"Matt Moore","LAA",1,9),  # mlbtraderumors.com
+ (2023,"Jason Heyward","LAD",1,9),  # mlbtraderumors.com
+ (2023,"Ryan Brasier","LAD",2,9),  # mlbtraderumors.com
+ (2023,"Wade Miley","MIL",1,8.5),  # mlbtraderumors.com
+ (2023,"Alex Wood","ATH",1,8.5),  # mlbtraderumors.com
+ (2023,"Tom Murphy","SF",2,8.25),  # mlbtraderumors.com
+ (2023,"Joe Kelly","LAD",1,8),  # mlbtraderumors.com
+ (2023,"Martín Pérez","PIT",1,8),  # mlbtraderumors.com
+ (2023,"Whit Merrifield","PHI",1,8),  # mlbtraderumors.com
+ (2023,"Chris Stratton","KC",2,8),  # mlbtraderumors.com
+ (2023,"James Paxton","LAD",1,7),  # espn.com
+ (2023,"Jakob Junis","MIL",1,7),  # mlbtraderumors.com
+ (2023,"Gary Sánchez","MIL",1,7),  # mlb.com
+ (2023,"Phil Maton","TB",1,6.5),  # mlbtraderumors.com
+ (2023,"Keynan Middleton","STL",1,6),  # mlbtraderumors.com
+ (2023,"John Brebbia","CWS",1,5.5),  # mlbtraderumors.com
+ (2023,"Carlos Santana","MIN",1,5.25),  # mlbtraderumors.com
+ (2023,"Tim Anderson","MIA",1,5),  # mlbtraderumors.com
+ (2023,"Andrew McCutchen","PIT",1,5),  # mlbtraderumors.com
+ (2023,"Will Smith","KC",1,5),  # mlbtraderumors.com
+ (2023,"Joey Gallo","WSH",1,5),  # mlbtraderumors.com
+ (2023,"Andrew Chafin","DET",1,4.75),  # mlbtraderumors.com
+ (2023,"Adam Frazier","KC",1,4.5),  # mlbtraderumors.com
+ (2023,"Woo-Suk Go","SD",2,4.5),  # mlbtraderumors.com
+ (2023,"Adam Ottavino","NYM",1,4.5),  # mlbtraderumors.com
+ (2023,"Kirby Yates","TEX",1,4.5),  # mlbtraderumors.com
+ (2023,"Michael Lorenzen","TEX",1,4.5),  # mlbtraderumors.com
+ (2023,"Martín Maldonado","CWS",1,4.25),  # mlbtraderumors.com
+ (2023,"Luis García","LAA",1,4.25),  # mlbtraderumors.com
+ (2023,"Kiké Hernández","LAD",1,4),  # mlbtraderumors.com
+ (2023,"Austin Hedges","CLE",1,4),  # mlbtraderumors.com
+ (2023,"Michael A. Taylor","PIT",1,4),  # mlbtraderumors.com
+ (2023,"Jake Diekman","NYM",1,4),  # mlbtraderumors.com
+ (2023,"Ryne Stanek","SEA",1,4),  # mlbtraderumors.com
+ (2023,"Shintaro Fujinami","NYM",1,3.35),  # mlbtraderumors.com
+ (2023,"Rowdy Tellez","PIT",1,3.2),  # mlbtraderumors.com
+ (2023,"Shelby Miller","DET",1,3),  # mlbtraderumors.com
+ (2023,"Brent Suter","CIN",1,3),  # mlbtraderumors.com
+ (2023,"Adam Duvall","ATL",1,3),  # espn.com
+ (2023,"Mike Clevinger","CWS",1,3),  # mlbtraderumors.com
+ (2023,"Yasmani Grandal","PIT",1,2.5),  # mlbtraderumors.com
+ (2023,"J.D. Davis","ATH",1,2.5),  # espn.com
+ (2023,"Scott Alexander","ATH",1,2.25),  # mlbtraderumors.com
+ (2023,"Dylan Floro","WSH",1,2.25),  # mlbtraderumors.com
+ (2023,"Buck Farmer","CIN",1,2.25),  # mlbtraderumors.com
+ (2023,"Nick Senzel","WSH",1,2),  # mlbtraderumors.com
+ (2023,"Joey Wendle","NYM",1,2),  # mlbtraderumors.com
+ (2023,"Jorge López","NYM",1,2),  # mlbtraderumors.com
+ (2023,"Spencer Turnbull","PHI",1,2),  # mlbtraderumors.com
+ (2023,"Brandon Crawford","STL",1,2),  # mlbtraderumors.com
+ (2023,"Randal Grichuk","ARI",1,2),  # mlbtraderumors.com
+ (2023,"Garrett Hampson","KC",1,2),  # mlbtraderumors.com
+ (2023,"Luke Weaver","NYY",1,2),  # mlbtraderumors.com
+ (2023,"Jacob Stallings","COL",1,2),  # mlbtraderumors.com
+ (2023,"Andrew Knizner","TEX",1,1.825),  # mlbtraderumors.com
+ (2023,"Tim Hill","CWS",1,1.8),  # mlbtraderumors.com
+ (2023,"Paul DeJong","CWS",1,1.75),  # mlbtraderumors.com
+ (2023,"Chris Flexen","CWS",1,1.75),  # mlbtraderumors.com
+ (2023,"José Cisnero","LAA",1,1.75),  # mlbtraderumors.com
+ (2023,"Joe Ross","MIL",1,1.75),  # mlbtraderumors.com
+ (2023,"Travis Jankowski","TEX",1,1.7),  # mlbtraderumors.com
+ (2023,"Adam Cimber","LAA",1,1.65),  # mlbtraderumors.com
+ (2023,"Amed Rosario","TB",1,1.5),  # mlbtraderumors.com
+ (2023,"Gio Urshela","DET",1,1.5),  # mlbtraderumors.com
+ (2023,"Trevor Gott","ATH",1,1.5),  # mlbtraderumors.com
+ (2023,"Dakota Hudson","COL",1,1.5),  # mlbtraderumors.com
+ (2023,"Lou Trivino","NYY",1,1.5),  # mlbtraderumors.com
+ (2023,"Jay Jackson","MIN",1,1.5),  # mlbtraderumors.com
+ (2023,"Austin Voth","SEA",1,1.25),  # nbcnewyork.com
+ (2023,"Chase Anderson","BOS",1,1.25),  # mlbtraderumors.com
+ (2023,"Luis Guillorme","ATL",1,1.1),  # mlbtraderumors.com
+ (2023,"Chris Devenski","TB",1,1.1),  # mlbtraderumors.com
+ (2023,"Jurickson Profar","SD",1,1),  # mlbtraderumors.com
+ (2023,"Cooper Criswell","BOS",1,1),  # mlbtraderumors.com
+ (2023,"Zach Plesac","LAA",1,1),  # mlbtraderumors.com
+ (2023,"Austin Nola","KC",1,1),  # mlbtraderumors.com
+ (2023,"Josh Staumont","MIN",1,0.95),  # mlbtraderumors.com
+ (2023,"Adam Kolarek","LAA",1,0.9),  # mlbtraderumors.com
+ (2023,"Ricky Vanasco","LAD",1,0.9),  # mlbtraderumors.com
+ (2023,"Austin Warren","SF",1,0.755),  # mlbtraderumors.com
+ (2023,"Ben Lively","CLE",1,0.75),  # mlbtraderumors.com
+ (2023,"Matt Carpenter","STL",1,0.74),  # nbcnewyork.com
+ (2023,"Aaron Hicks","LAA",1,0.74),  # nbcnewyork.com
+ (2024,"Juan Soto","NYM",15,765),  # mlbtraderumors.com
+ (2024,"Max Fried","NYY",8,218),  # mlbtraderumors.com
+ (2024,"Corbin Burnes","ARI",6,210),  # mlbtraderumors.com
+ (2024,"Blake Snell","LAD",5,182),  # mlbtraderumors.com
+ (2024,"Willy Adames","SF",7,182),  # mlbtraderumors.com
+ (2024,"Alex Bregman","BOS",3,120),  # mlbtraderumors.com
+ (2024,"Anthony Santander","TOR",5,92.5),  # mlbtraderumors.com
+ (2024,"Nathan Eovaldi","TEX",3,75),  # mlbtraderumors.com
+ (2024,"Sean Manaea","NYM",3,75),  # mlbtraderumors.com
+ (2024,"Tanner Scott","LAD",4,72),  # mlbtraderumors.com
+ (2024,"Luis Severino","ATH",3,67),  # mlbtraderumors.com
+ (2024,"Teoscar Hernández","LAD",3,66),  # mlbtraderumors.com
+ (2024,"Yusei Kikuchi","LAA",3,63),  # mlbtraderumors.com
+ (2024,"Christian Walker","HOU",3,60),  # mlbtraderumors.com
+ (2024,"Nick Pivetta","SD",4,55),  # mlbtraderumors.com
+ (2024,"Pete Alonso","NYM",2,54),  # mlbtraderumors.com
+ (2024,"Michael Wacha","KC",3,51),  # mlbtraderumors.com
+ (2024,"Tyler O'Neill","BAL",3,49.5),  # mlbtraderumors.com
+ (2024,"Jurickson Profar","ATL",3,42),  # mlbtraderumors.com
+ (2024,"Clay Holmes","NYM",3,38),  # mlbtraderumors.com
+ (2024,"Joc Pederson","TEX",2,37),  # mlbtraderumors.com
+ (2024,"Jack Flaherty","DET",2,35),  # mlbtraderumors.com
+ (2024,"Frankie Montas","NYM",2,34),  # mlbtraderumors.com
+ (2024,"Jeff Hoffman","TOR",3,33),  # mlbtraderumors.com
+ (2024,"Ha-Seong Kim","TB",2,29),  # mlbtraderumors.com
+ (2024,"Matthew Boyd","CHC",2,29),  # mlbtraderumors.com
+ (2024,"Shane Bieber","CLE",2,26),  # mlbtraderumors.com
+ (2024,"A.J. Minter","NYM",2,22),  # mlbtraderumors.com
+ (2024,"Blake Treinen","LAD",2,22),  # mlbtraderumors.com
+ (2024,"Carlos Estévez","KC",2,22),  # mlbtraderumors.com
+ (2024,"Nick Martinez","CIN",1,21.05),  # mlbtraderumors.com
+ (2024,"Walker Buehler","BOS",1,21.05),  # mlbtraderumors.com
+ (2024,"Patrick Sandoval","BOS",2,18.25),  # mlbtraderumors.com
+ (2024,"Michael Conforto","LAD",1,17),  # mlbtraderumors.com
+ (2024,"Max Scherzer","TOR",1,15.5),  # mlbtraderumors.com
+ (2024,"Alex Cobb","DET",1,15),  # mlbtraderumors.com
+ (2024,"Charlie Morton","BAL",1,15),  # mlbtraderumors.com
+ (2024,"Gleyber Torres","DET",1,15),  # mlbtraderumors.com
+ (2024,"Justin Verlander","SF",1,15),  # mlbtraderumors.com
+ (2024,"Yimi García","TOR",2,15),  # mlbtraderumors.com
+ (2024,"Trevor Williams","WSH",2,14),  # mlbtraderumors.com
+ (2024,"Kyle Higashioka","TEX",2,13.5),  # mlbtraderumors.com
+ (2024,"Kirby Yates","LAD",1,13),  # mlbtraderumors.com
+ (2024,"Tomoyuki Sugano","BAL",1,13),  # mlbtraderumors.com
+ (2024,"Hyeseong Kim","LAD",3,12.5),  # mlbtraderumors.com
+ (2024,"Paul Goldschmidt","NYY",1,12.5),  # mlbtraderumors.com
+ (2024,"Carlos Santana","CLE",1,12),  # mlbtraderumors.com
+ (2024,"Travis d'Arnaud","LAA",2,12),  # mlbtraderumors.com
+ (2024,"Carson Kelly","CHC",2,11.5),  # mlbtraderumors.com
+ (2024,"Aroldis Chapman","BOS",1,10.75),  # mlbtraderumors.com
+ (2024,"Andrew Kittredge","BAL",1,10),  # mlbtraderumors.com
+ (2024,"José Leclerc","ATH",1,10),  # mlbtraderumors.com
+ (2024,"Kenley Jansen","LAA",1,10),  # mlbtraderumors.com
+ (2024,"Max Kepler","PHI",1,10),  # mlbtraderumors.com
+ (2024,"Michael Soroka","WSH",1,9),  # mlbtraderumors.com
+ (2024,"Danny Jansen","TB",1,8.5),  # mlbtraderumors.com
+ (2024,"Gary Sánchez","BAL",1,8.5),  # mlbtraderumors.com
+ (2024,"Jordan Romano","PHI",1,8.5),  # mlbtraderumors.com
+ (2024,"Jorge Polanco","SEA",1,7.75),  # mlbtraderumors.com
+ (2024,"Tommy Kahnle","DET",1,7.75),  # mlbtraderumors.com
+ (2024,"Clayton Kershaw","LAD",1,7.5),  # mlbtraderumors.com
+ (2024,"Jesse Winker","NYM",1,7.5),  # mlbtraderumors.com
+ (2024,"Michael Lorenzen","KC",1,7),  # mlbtraderumors.com
+ (2024,"Paul Sewald","CLE",1,7),  # mlbtraderumors.com
+ (2024,"Enrique Hernández","LAD",1,6.5),  # mlbtraderumors.com
+ (2024,"Harrison Bader","MIN",1,6.25),  # mlbtraderumors.com
+ (2024,"Josh Bell","WSH",1,6),  # mlbtraderumors.com
+ (2024,"Justin Turner","CHC",1,6),  # mlbtraderumors.com
+ (2024,"Kyle Finnegan","WSH",1,6),  # mlbtraderumors.com
+ (2024,"Chris Martin","TEX",1,5.5),  # mlbtraderumors.com
+ (2024,"Andrew Heaney","PIT",1,5.25),  # mlbtraderumors.com
+ (2024,"Kyle Gibson","BAL",1,5.25),  # tsn.ca
+ (2024,"Andrew McCutchen","PIT",1,5),  # mlbtraderumors.com
+ (2024,"Austin Hays","CIN",1,5),  # mlbtraderumors.com
+ (2024,"Colin Rea","CHC",1,5),  # mlbtraderumors.com
+ (2024,"Jonathan Loáisiga","NYY",1,5),  # mlbtraderumors.com
+ (2024,"Martín Pérez","CWS",1,5),  # mlbtraderumors.com
+ (2024,"Randal Grichuk","ARI",1,5),  # mlbtraderumors.com
+ (2024,"Yoán Moncada","LAA",1,5),  # mlbtraderumors.com
+ (2024,"Jakob Junis","CLE",1,4.5),  # mlbtraderumors.com
+ (2024,"Ryne Stanek","NYM",1,4.5),  # mlbtraderumors.com
+ (2024,"Griffin Canning","NYM",1,4.25),  # mlbtraderumors.com
+ (2024,"Jose Quintana","MIL",1,4.25),  # mlbtraderumors.com
+ (2024,"Tommy Pham","PIT",1,4.025),  # mlbtraderumors.com
+ (2024,"Austin Hedges","CLE",1,4),  # mlbtraderumors.com
+ (2024,"Joe Ross","PHI",1,4),  # mlbtraderumors.com
+ (2024,"Ramón Laureano","BAL",1,4),  # mlbtraderumors.com
+ (2024,"Thairo Estrada","COL",1,4),  # mlbtraderumors.com
+ (2024,"Cal Quantrill","MIA",1,3.5),  # mlbtraderumors.com
+ (2024,"Donovan Solano","SEA",1,3.5),  # mlbtraderumors.com
+ (2024,"Elias Díaz","SD",1,3.5),  # mlbtraderumors.com
+ (2024,"Josh Rojas","CWS",1,3.5),  # mlbtraderumors.com
+ (2024,"Shinnosuke Ogasawara","WSH",2,3.5),  # mlbtraderumors.com
+ (2024,"Kyle Farmer","COL",1,3.25),  # mlbtraderumors.com
+ (2024,"Caleb Ferguson","PIT",1,3),  # mlbtraderumors.com
+ (2024,"Danny Coulombe","MIN",1,3),  # mlbtraderumors.com
+ (2024,"Jorge López","WSH",1,3),  # mlbtraderumors.com
+ (2024,"Lucas Sims","WSH",1,3),  # mlbtraderumors.com
+ (2024,"Tim Hill","NYY",1,2.85),  # mlbtraderumors.com
+ (2024,"Caleb Thielbar","CHC",1,2.75),  # mlbtraderumors.com
+ (2024,"John Brebbia","DET",1,2.75),  # mlbtraderumors.com
+ (2024,"Kevin Newman","LAA",1,2.75),  # mlbtraderumors.com
+ (2024,"Hoby Milner","TEX",1,2.5),  # mlbtraderumors.com
+ (2024,"Jacob Stallings","COL",1,2.5),  # mlbtraderumors.com
+ (2024,"Kyle Hendricks","LAA",1,2.5),  # mlbtraderumors.com
+ (2024,"Scott Barlow","CIN",1,2.5),  # mlbtraderumors.com
+ (2024,"Justin Wilson","BOS",1,2.25),  # mlbtraderumors.com
+ (2024,"Gio Urshela","ATH",1,2.15),  # mlbtraderumors.com
+ (2024,"Amed Rosario","WSH",1,2),  # mlbtraderumors.com
+ (2024,"Jon Berti","CHC",1,2),  # mlbtraderumors.com
+ (2024,"Phil Maton","STL",1,2),  # mlbtraderumors.com
+ (2024,"Scott Alexander","COL",1,2),  # mlbtraderumors.com
+ (2024,"Michael A. Taylor","CWS",1,1.95),  # mlbtraderumors.com
+ (2024,"Mike Tauchman","CWS",1,1.95),  # mlbtraderumors.com
+ (2024,"T.J. McFarland","ATH",1,1.8),  # mlbtraderumors.com
+ (2024,"Austin Slater","CWS",1,1.75),  # mlbtraderumors.com
+ (2024,"Adam Frazier","PIT",1,1.525),  # mlbtraderumors.com
+ (2024,"Alex Verdugo","ATL",1,1.5),  # mlbtraderumors.com
+ (2024,"Kyle Hart","SD",1,1.5),  # mlbtraderumors.com
+ (2024,"Luke Jackson","TEX",1,1.5),  # mlbtraderumors.com
+ (2024,"Kendall Graveman","ARI",1,1.35),  # mlbtraderumors.com
+ (2024,"Manuel Margot","DET",1,1.3),  # mlbtraderumors.com
+ (2024,"Nick Madrigal","NYM",1,1.3),  # mlbtraderumors.com
+ (2024,"Jacob Webb","TEX",1,1.25),  # mlbtraderumors.com
+ (2024,"Mickey Moniak","COL",1,1.25),  # mlbtraderumors.com
+ (2024,"Tim Mayza","PIT",1,1.15),  # mlbtraderumors.com
+ (2024,"Shawn Armstrong","TEX",1,1.125),  # mlbtraderumors.com
+ (2024,"Luis Urías","ATH",1,1.1),  # mlbtraderumors.com
+ (2024,"Patrick Corbin","TEX",1,1.1),  # mlbtraderumors.com
+ (2024,"Bryse Wilson","CWS",1,1.05),  # mlbtraderumors.com
+ (2024,"Connor Joe","SD",1,1),  # mlbtraderumors.com
+ (2024,"Drew Smith","NYM",1,1),  # mlbtraderumors.com
+ (2024,"Jason Heyward","SD",1,1),  # mlbtraderumors.com
+ (2024,"John Means","CLE",1,1),  # mlbtraderumors.com
+ (2024,"José Urquidy","DET",1,1),  # mlbtraderumors.com
+ (2024,"Paul DeJong","WSH",1,1),  # mlbtraderumors.com
+ (2024,"Ty France","MIN",1,1),  # mlbtraderumors.com
+ (2024,"Tyler Alexander","MIL",1,1),  # mlbtraderumors.com
+ (2024,"Dylan Carlson","BAL",1,0.975),  # mlbtraderumors.com
+ (2024,"Elvin Rodriguez","MIL",1,0.9),  # mlbtraderumors.com
+ (2025,"Kyle Tucker","LAD",4,240),  # mlbtraderumors.com
+ (2025,"Dylan Cease","TOR",7,210),  # mlbtraderumors.com
+ (2025,"Alex Bregman","CHC",5,175),  # mlbtraderumors.com
+ (2025,"Cody Bellinger","NYY",5,162.5),  # mlbtraderumors.com
+ (2025,"Pete Alonso","BAL",5,155),  # mlbtraderumors.com
+ (2025,"Kyle Schwarber","PHI",5,150),  # mlbtraderumors.com
+ (2025,"Ranger Suárez","BOS",5,130),  # mlbtraderumors.com
+ (2025,"Bo Bichette","NYM",3,126),  # mlbtraderumors.com
+ (2025,"Framber Valdez","DET",3,115),  # mlbtraderumors.com
+ (2025,"Josh Naylor","SEA",5,92.5),  # mlbtraderumors.com
+ (2025,"Michael King","SD",3,75),  # mlbtraderumors.com
+ (2025,"Edwin Díaz","LAD",3,69),  # mlbtraderumors.com
+ (2025,"Kazuma Okamoto","TOR",4,60),  # mlbtraderumors.com
+ (2025,"Tatsuya Imai","HOU",3,54),  # mlbtraderumors.com
+ (2025,"Devin Williams","NYM",3,51),  # mlbtraderumors.com
+ (2025,"J.T. Realmuto","PHI",3,45),  # mlbtraderumors.com
+ (2025,"Robert Suarez","ATL",3,45),  # mlbtraderumors.com
+ (2025,"Jorge Polanco","NYM",2,40),  # mlbtraderumors.com
+ (2025,"Merrill Kelly","ARI",2,40),  # mlbtraderumors.com
+ (2025,"Tyler Rogers","TOR",3,37),  # mlbtraderumors.com
+ (2025,"Munetaka Murakami","CWS",2,34),  # mlbtraderumors.com
+ (2025,"Cody Ponce","TOR",3,30),  # mlbtraderumors.com
+ (2025,"Ryan O'Hearn","PIT",2,29),  # mlbtraderumors.com
+ (2025,"Ryan Helsley","BAL",2,28),  # mlbtraderumors.com
+ (2025,"Mike Yastrzemski","ATL",2,23),  # mlbtraderumors.com
+ (2025,"Brandon Woodruff","MIL",1,22.025),  # mlbtraderumors.com
+ (2025,"Gleyber Torres","DET",1,22.025),  # mlbtraderumors.com
+ (2025,"Shota Imanaga","CHC",1,22.025),  # mlbtraderumors.com
+ (2025,"Trent Grisham","NYY",1,22.025),  # mlbtraderumors.com
+ (2025,"Zac Gallen","ARI",1,22.025),  # mlbtraderumors.com
+ (2025,"Adrian Houser","SF",2,22),  # mlbtraderumors.com
+ (2025,"Brad Keller","PHI",2,22),  # mlbtraderumors.com
+ (2025,"Luke Weaver","NYM",2,22),  # mlbtraderumors.com
+ (2025,"Harrison Bader","SF",2,20.5),  # mlbtraderumors.com
+ (2025,"Emilio Pagán","CIN",2,20),  # mlbtraderumors.com
+ (2025,"Ha-Seong Kim","ATL",1,20),  # mlbtraderumors.com
+ (2025,"Seranthony Domínguez","CWS",2,20),  # mlbtraderumors.com
+ (2025,"Kyle Finnegan","DET",2,19),  # mlbtraderumors.com
+ (2025,"Chris Bassitt","BAL",1,18.5),  # mlbtraderumors.com
+ (2025,"Raisel Iglesias","ATL",1,16),  # mlbtraderumors.com
+ (2025,"Eugenio Suárez","CIN",1,15),  # mlbtraderumors.com
+ (2025,"Steven Matz","TB",2,15),  # mlbtraderumors.com
+ (2025,"Sung-mun Song","SD",4,15),  # mlbtraderumors.com
+ (2025,"Danny Jansen","TEX",2,14.5),  # mlbtraderumors.com
+ (2025,"Phil Maton","CHC",2,14.5),  # mlbtraderumors.com
+ (2025,"Victor Caratini","MIN",2,14),  # mlbtraderumors.com
+ (2025,"Justin Verlander","DET",1,13),  # mlbtraderumors.com
+ (2025,"Nick Martinez","TB",1,13),  # mlbtraderumors.com
+ (2025,"Pete Fairbanks","MIA",1,13),  # mlbtraderumors.com
+ (2025,"Willi Castro","COL",2,12.8),  # mlbtraderumors.com
+ (2025,"Dustin May","STL",1,12.5),  # mlbtraderumors.com
+ (2025,"Anthony Kay","CWS",2,12),  # mlbtraderumors.com
+ (2025,"Luis Arraez","SF",1,12),  # mlbtraderumors.com
+ (2025,"Marcell Ozuna","PIT",1,12),  # mlbtraderumors.com
+ (2025,"Kenley Jansen","DET",1,11),  # mlbtraderumors.com
+ (2025,"Adolis García","PHI",1,10),  # mlbtraderumors.com
+ (2025,"Tyler Mahle","SF",1,10),  # mlbtraderumors.com
+ (2025,"Zach Eflin","BAL",1,10),  # mlbtraderumors.com
+ (2025,"Michael Lorenzen","COL",1,8),  # mlbtraderumors.com
+ (2025,"Gregory Soto","PIT",1,7.75),  # mlbtraderumors.com
+ (2025,"Michael Soroka","ARI",1,7.5),  # mlbtraderumors.com
+ (2025,"Cedric Mullins","TB",1,7),  # mlbtraderumors.com
+ (2025,"Drew Anderson","DET",1,7),  # mlbtraderumors.com
+ (2025,"Josh Bell","MIN",1,7),  # mlbtraderumors.com
+ (2025,"Zack Littell","WSH",1,7),  # mlbtraderumors.com
+ (2025,"Evan Phillips","LAD",1,6.5),  # mlbtraderumors.com
+ (2025,"Pierce Johnson","CIN",1,6.5),  # mlbtraderumors.com
+ (2025,"Rob Refsnyder","SEA",1,6.25),  # mlbtraderumors.com
+ (2025,"Aaron Civale","ATH",1,6),  # mlbtraderumors.com
+ (2025,"Austin Hays","CWS",1,6),  # mlbtraderumors.com
+ (2025,"Hunter Harvey","CHC",1,6),  # mlbtraderumors.com
+ (2025,"Isiah Kiner-Falefa","BOS",1,6),  # mlbtraderumors.com
+ (2025,"Jose Quintana","COL",1,6),  # mlbtraderumors.com
+ (2025,"Foster Griffin","WSH",1,5.5),  # mlbtraderumors.com
+ (2025,"Miguel Rojas","LAD",1,5.5),  # mlbtraderumors.com
+ (2025,"Shawn Armstrong","CLE",1,5.5),  # mlbtraderumors.com
+ (2025,"Lane Thomas","KC",1,5.25),  # mlbtraderumors.com
+ (2025,"Tomoyuki Sugano","COL",1,5.1),  # mlbtraderumors.com
+ (2025,"Kirby Yates","LAA",1,5),  # mlbtraderumors.com
+ (2025,"Caleb Ferguson","CIN",1,4.5),  # mlbtraderumors.com
+ (2025,"Caleb Thielbar","CHC",1,4.5),  # mlbtraderumors.com
+ (2025,"Enrique Hernández","LAD",1,4.5),  # mlbtraderumors.com
+ (2025,"Sean Newcomb","CWS",1,4.5),  # mlbtraderumors.com
+ (2025,"Tyler Kinley","ATL",1,4.25),  # mlbtraderumors.com
+ (2025,"Austin Hedges","CLE",1,4),  # mlbtraderumors.com
+ (2025,"Chris Martin","TEX",1,4),  # mlbtraderumors.com
+ (2025,"Chris Paddack","MIA",1,4),  # mlbtraderumors.com
+ (2025,"Drew Pomeranz","LAA",1,4),  # mlbtraderumors.com
+ (2025,"Jakob Junis","TEX",1,4),  # mlbtraderumors.com
+ (2025,"Miguel Andujar","SD",1,4),  # mlbtraderumors.com
+ (2025,"Paul Goldschmidt","NYY",1,4),  # mlbtraderumors.com
+ (2025,"Yoán Moncada","LAA",1,4),  # mlbtraderumors.com
+ (2025,"Hoby Milner","CHC",1,3.75),  # mlbtraderumors.com
+ (2025,"Luis Rengifo","MIL",1,3.5),  # mlbtraderumors.com
+ (2025,"Ryne Stanek","STL",1,3.5),  # mlbtraderumors.com
+ (2025,"Jake Fraley","TB",1,3),  # mlbtraderumors.com
+ (2025,"Max Scherzer","TOR",1,3),  # mlbtraderumors.com
+ (2025,"Mark Leiter Jr.","ATH",1,2.85),  # mlbtraderumors.com
+ (2025,"James McCann","ARI",1,2.75),  # mlbtraderumors.com
+ (2025,"Ryan Weiss","HOU",1,2.6),  # mlbtraderumors.com
+ (2025,"Amed Rosario","NYY",1,2.5),  # mlbtraderumors.com
+ (2025,"Griffin Canning","SD",1,2.5),  # mlbtraderumors.com
+ (2025,"Ryan Yarbrough","NYY",1,2.5),  # mlbtraderumors.com
+ (2025,"Shelby Miller","CHC",2,2.5),  # mlbtraderumors.com
+ (2025,"Joel Payamps","ATL",1,2.25),  # mlbtraderumors.com
+ (2025,"Miles Mikolas","WSH",1,2.25),  # mlbtraderumors.com
+ (2025,"Carlos Santana","ARI",1,2),  # mlbtraderumors.com
+ (2025,"Christopher Morel","MIA",1,2),  # mlbtraderumors.com
+ (2025,"Jason Foley","SF",1,2),  # mlbtraderumors.com
+ (2025,"Jordan Romano","LAA",1,2),  # mlbtraderumors.com
+ (2025,"Leody Taveras","BAL",1,2),  # mlbtraderumors.com
+ (2025,"Paul Blackburn","NYY",1,2),  # mlbtraderumors.com
+ (2025,"Ramón Urías","STL",1,2),  # mlbtraderumors.com
+ (2025,"Scott Barlow","ATH",1,2),  # mlbtraderumors.com
+ (2025,"Taylor Rogers","MIN",1,2),  # mlbtraderumors.com
+ (2025,"Alek Manoah","LAA",1,1.95),  # mlbtraderumors.com
+ (2025,"Gary Sánchez","MIL",1,1.75),  # mlbtraderumors.com
+ (2025,"Germán Márquez","SD",1,1.75),  # mlbtraderumors.com
+ (2025,"Luis García Jr.","NYM",1,1.75),  # mlbtraderumors.com
+ (2025,"Jalen Beeks","TEX",1,1.6),  # mlbtraderumors.com
+ (2025,"Taylor Clarke","ARI",1,1.55),  # mlbtraderumors.com
+ (2025,"Colin Holderman","CLE",1,1.5),  # mlbtraderumors.com
+ (2025,"Erick Fedde","CWS",1,1.5),  # mlbtraderumors.com
+ (2025,"Jacob Webb","CHC",1,1.5),  # mlbtraderumors.com
+ (2025,"John King","MIA",1,1.5),  # mlbtraderumors.com
+ (2025,"Jonah Heim","ATL",1,1.5),  # mlbtraderumors.com
+ (2025,"José Urquidy","PIT",1,1.5),  # mlbtraderumors.com
+ (2025,"Paul Sewald","ARI",1,1.5),  # mlbtraderumors.com
+ (2025,"JJ Bleday","CIN",1,1.4),  # mlbtraderumors.com
+ (2025,"Sam Hentges","SF",1,1.4),  # mlbtraderumors.com
+ (2025,"Nate Pearson","HOU",1,1.35),  # mlbtraderumors.com
+ (2025,"Brent Suter","LAA",1,1.25),  # mlbtraderumors.com
+ (2025,"Jordan Montgomery","TEX",1,1.25),  # mlbtraderumors.com
+ (2025,"Tyler Austin","CHC",1,1.25),  # mlbtraderumors.com
+ (2025,"Andy Ibáñez","LAD",1,1.2),  # mlbtraderumors.com
+ (2025,"Kyle Hart","SD",1,1.2),  # mlbtraderumors.com
+ (2025,"Tyler Alexander","TEX",1,1.1),  # mlbtraderumors.com
+ (2025,"Alexis Díaz","TEX",1,1),  # mlbtraderumors.com
+ (2025,"Andrew Knizner","SEA",1,1),  # mlbtraderumors.com
+ (2025,"Danny Coulombe","BOS",1,1),  # mlbtraderumors.com
+ (2025,"Jorge Mateo","ATL",1,1),  # mlbtraderumors.com
+ (2025,"Starling Marte","KC",1,1),  # mlbtraderumors.com
+ (2025,"Alex Lange","KC",1,0.9),  # mlbtraderumors.com
+ (2025,"Connor Brogdon","CLE",1,0.9),  # mlbtraderumors.com
+ (2025,"Rowan Wick","SF",1,0.88),  # mlbtraderumors.com
+ (2025,"Nick Castellanos","SD",1,0.78),  # mlbtraderumors.com
 ]

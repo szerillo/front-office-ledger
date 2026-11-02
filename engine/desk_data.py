@@ -431,7 +431,7 @@ out = dict(
                 extDiscount={"predebut": 0.35, "early": 0.45, "arb": 0.60, "vet": 0.90}),
     slot=[[1, 9.9], [2, 7.5], [3, 6.7], [5, 5.5], [8, 4.6], [12, 3.6], [17, 3.0], [22, 2.6],
           [30, 2.1], [45, 1.5], [65, 1.1], [90, 0.85], [120, 0.6], [200, 0.35], [400, 0.18], [620, 0.10]],
-    drift=1.14,   # v5.7: 2021-25 winters' contracts ran 14% above the $/win curve (contract_model.py)
+    drift=1.08,   # v5.7: 2021-25 winters' contracts ran 8% above the $/win curve (median of 106 deals the ensemble priced at $25M+, full 2022-25 book; contract_model.py)
     vrank=[[1, 8.0], [3, 7.0], [5, 6.5], [10, 5.5], [15, 4.8], [25, 4.0], [40, 3.2], [50, 2.8], [75, 2.0], [100, 1.5]],
     teams=teams,
     deals=compact,
