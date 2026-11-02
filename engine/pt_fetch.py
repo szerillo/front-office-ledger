@@ -33,7 +33,10 @@ for season in (2024, 2025, 2026):
             pa = ip = g = 0.0
             for st in pp.get("stats", []):
                 grp = st["group"]["displayName"]
-                for sp in st.get("splits", []):
+                sps = st.get("splits", [])
+                # v5.6: a traded player has one row per club plus a combined row; use the combined row alone
+                if any(not sp.get("team") for sp in sps) and len(sps) > 1: sps = [sp for sp in sps if not sp.get("team")]
+                for sp in sps:
                     s = sp["stat"]
                     if grp == "hitting": pa += s.get("plateAppearances", 0) or 0
                     else:

@@ -52,16 +52,23 @@ first_seen = {}
 for r in con.execute("select person_id, min(date) d from sweep_tx where person_id is not null group by person_id"):
     first_seen[r["person_id"]] = r["d"]
 
-# value-relevant universe
-cands = sorted({r["person_id"] for r in rows if r["person_id"] in LVM and LVM[r["person_id"]]["rows"]})
-print(f"value-relevant minor-FA signees: {len(cands)}", flush=True)
-
-bio = {}
-for i in range(0, len(cands), 100):
-    chunk = ",".join(cands[i:i+100])
+# v5.6: every minor-league signee, not only those who reached the majors.
+# The channel's volume (n) counts every international amateur a regime
+# signed; before, only big leaguers counted, so a club whose recent classes
+# have not debuted yet (or, like Atlanta 2018-21, signed under MLB sanctions)
+# showed one or two signings and no grade.
+import os as _os
+cands = sorted({r["person_id"] for r in rows})
+BIO_P = "/work/ifa_bios.json"
+bio = {k: tuple(v) for k, v in json.load(open(BIO_P)).items()} if _os.path.exists(BIO_P) else {}
+need = [c for c in cands if c not in bio]
+print(f"minor-FA signees: {len(cands)} | bios to fetch: {len(need)}", flush=True)
+for i in range(0, len(need), 100):
+    chunk = ",".join(need[i:i+100])
     d = get(f"{API}/people?personIds={chunk}&fields=people,id,birthDate,birthCountry")
     for p in d.get("people", []):
         bio[str(p["id"])] = (p.get("birthDate"), p.get("birthCountry"))
+json.dump(bio, open(BIO_P, "w"))
 print(f"bios: {len(bio)}", flush=True)
 
 def age_at(bd, when):
@@ -82,9 +89,9 @@ for r in rows:
     yr = int(r["date"][:4])
     # v5.5 asset accounting (asset_rules.py): six control seasons, any club;
     # a signee later traded is graded once, in the trade
-    realized = control_value(LVM[pid])
+    realized = control_value(LVM[pid]) if pid in LVM else 0.0
     ifa.append((tid, yr, pid, r["person_name"], round(realized, 2), r["date"]))
-print(f"classified IFA signings (value-relevant): {len(ifa)}", flush=True)
+print(f"classified IFA signings (all, v5.6): {len(ifa)} | reached MLB value: {sum(1 for x in ifa if abs(x[4]) > 0.05)}", flush=True)
 
 # class means: league value over 30 clubs
 class_tot = defaultdict(float)
@@ -126,6 +133,10 @@ for r in res:
     tid = r["teamId"]; p = per.get(tid, dict(real=0.0, exp=sum(class_mean(y) for y in range(max(int(REG[tid]['start'][:4]),2005), 2027)), n=0, tops=[]))
     net = p["real"] - p["exp"]
     r["chan"]["intl"] = dict(net=round(net, 1), g=grade(net / r["seasons"]), n=p["n"])
+    if r["teamId"] == 144 and REG[144]["start"] >= "2017-11":
+        r["chan"]["intl"]["note"] = ("Context: in November 2017 MLB sanctioned Atlanta for the previous front office's "
+                                     "international violations: 13 signees were released, signings were capped at $10,000 "
+                                     "for the 2019-20 period, and the 2020-21 bonus pool was cut in half.")
     tops = sorted(p["tops"], key=lambda t: -t[0])[:5]
     r["intl_tops"] = [dict(d=dt, ch="intl", net=round(v, 1), st=0.5,
                            h=f"Int'l amateur signing: {nm} ({y} class)",
@@ -139,5 +150,5 @@ for r in res:
     print(f"{r['abbr']:<6}{net:>+9.1f}{p['real']:>8.1f}{p['exp']:>7.1f}{p['n']:>5}   {best}")
 
 json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
-json.dump({"intl": [[0.5, round(v, 2)] for (_t, _y, _p, _n, v, _d) in ifa]}, open("/work/move_pop_intl.json", "w"))
+json.dump({"intl": [[0.5, round(v, 2)] for (_t, _y, _p, _n, v, _d) in ifa if _y <= 2020]}, open("/work/move_pop_intl.json", "w"))
 print("\nmerged chan.intl into sweep_results.json")
