@@ -218,7 +218,7 @@ for i, reg in enumerate(REGS):
     decs = []
     ynet = defaultdict(float)
     trades = {"rows": []}
-    seen_fa = set(); fa_raw = 0.0; n_fa = 0; walk = []
+    seen_fa = set(); seen_walk = set(); fa_raw = 0.0; n_fa = 0; walk = []
     n_wv = n_r5 = 0; wv_net = 0.0
     ALLX = dict(draft=[], waiver=[], walk=[])   # v5.7: every decision of each kind, for the card's full lists
     for r in regime_rows[i]:
@@ -251,7 +251,8 @@ for i, reg in enumerate(REGS):
             ALLX["waiver"].append([r["date"], r["person_name"] or "?", "Rule 5 pick" if pick else "lost in Rule 5", round(r5n, 1), r["person_id"]])
         elif t == "Declared Free Agency":
             pid = r["person_id"]
-            if pid:
+            if pid and (pid, r["date"]) not in seen_walk:      # v5.9: the feed and the archive can both file one filing
+                seen_walk.add((pid, r["date"]))
                 played_here = val(pid, names, yr - 2, yr, inside=True)
                 if played_here > 0.5:
                     lost = val(pid, names, yr + 1, yr + 3, inside=False)

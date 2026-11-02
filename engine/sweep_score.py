@@ -276,7 +276,7 @@ for reg in cfg["regimes"]:
     ynet = defaultdict(float)
     # trades
     trades = {"rows": []}
-    seen_fa = set(); fa_raw = 0.0; n_fa = 0; walk = []
+    seen_fa = set(); seen_walk = set(); fa_raw = 0.0; n_fa = 0; walk = []
     dna = dict(draft=dict(pit=0.0, bat=0.0), trade_in=dict(pit=0.0, bat=0.0),
                trade_out=dict(pit=0.0, bat=0.0), waiver=dict(pit=0.0, bat=0.0))
     n_wv = n_r5 = 0; wv_net = 0.0
@@ -312,7 +312,8 @@ for reg in cfg["regimes"]:
             ALLX["waiver"].append([r["date"], r["person_name"] or "?", "Rule 5 pick" if pick else "lost in Rule 5", round(r5n, 1), r["person_id"]])
         elif t == "Declared Free Agency":
             pid = r["person_id"]
-            if pid:
+            if pid and (pid, r["date"]) not in seen_walk:      # v5.9: the feed and the archive can both file one filing
+                seen_walk.add((pid, r["date"]))
                 played_here = val(pid, names, yr - 2, yr, inside=True)
                 if played_here > 0.5:
                     lost = val(pid, names, yr + 1, yr + 3, inside=False)
