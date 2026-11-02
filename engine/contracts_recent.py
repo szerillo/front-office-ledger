@@ -11,7 +11,7 @@ of 1-yr depth deals in these winters stays ungraded. 2025-26 winter added Oct 20
 
 RECENT = [
  # 2022-23 offseason
- (2022,"Aaron Judge","NYY",9,360),(2022,"Trea Turner","PHI",11,300),
+ (2022,"Aaron Judge","NYY",9,360),(2022,"Willson Contreras","STL",5,87.5),(2022,"Trea Turner","PHI",11,300),
  (2022,"Xander Bogaerts","SD",11,280),(2022,"Carlos Correa","MIN",6,200),
  (2022,"Jacob deGrom","TEX",5,185),(2022,"Brandon Nimmo","NYM",8,162),
  (2022,"Carlos Rodon","NYY",6,162),(2022,"Dansby Swanson","CHC",7,177),

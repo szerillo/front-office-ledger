@@ -22,6 +22,7 @@ LEGACY CRUDENESS (v1): windows were calendar approximations (5-yr cap
 mitigates); no leverage/discounting (v0.2 applies at the decision page
 level, not yet in the sweep); LVM gaps as documented in ledger_war.py.
 """
+from era_names import draft_day
 import json, math, sqlite3, sys
 from collections import defaultdict
 from tradegroup import dedupe_rows, group_trades
@@ -246,8 +247,11 @@ results = []
 for reg in cfg["regimes"]:
     tid = reg["teamId"]; names = ALIAS.get(tid, {reg["team"]})
     start = max(reg["start"], "1998-01-01"); y_start = int(start[:4])
-    seasons = round((END_YEAR + 1.0) - (y_start + (1 if start[5:7] > "07" else 0)), 1)
-    seasons = max(seasons, 0.7)
+    # v5.4: seat time in real seasons (a June hire holds about half of that
+    # season; a hire after the last completed season holds none yet)
+    from regime_window import seasons as _seas, record as _rec
+    seat = _seas(start)
+    seasons = max(seat, 0.1)
     decs = []
     ynet = defaultdict(float)
     # trades
@@ -343,17 +347,14 @@ for reg in cfg["regimes"]:
         net = realized - exp; ynet[yr] += net
         dna["draft"][ptype(p["person_id"])] += net
         if abs(net) >= 1.2:
-            decs.append(dict(d=f"{yr}-06-15", ch="draft", net=round(net,1),
+            decs.append(dict(d=draft_day(yr), ch="draft", net=round(net,1),
                              h=f"Drafted {p['person_name']} (#{pk} overall, {yr})",
                              sides=[["Realized on club", [[p["person_name"], f"{realized:+.1f}"]]],
                                     ["Slot expectation", [[f"pick #{pk}, maturity-adjusted", f"{-exp:+.1f}"]]]],
                              pids=[p["person_id"]]))
     dr_net = dr_real - dr_exp
     total = tr_net + dr_net + wv_net
-    w = l = div = 0
-    for yr in range(y_start, 2027):
-        rec = wl.get((tid, yr))
-        if rec: w += rec[0]; l += rec[1]; div += rec[2]
+    w, l, div, _octs = _rec(tid, start, None, wl)
     wpct = w / (w + l) if (w + l) else 0.5
     decs.sort(key=lambda x: -abs(x["net"]))
     walk.sort(key=lambda x: x["net"])
@@ -364,7 +365,7 @@ for reg in cfg["regimes"]:
         return dict(best=best, worst=worst)
     results.append(dict(
         id=reg["abbr"].lower(), teamId=tid, exec=reg["exec"], team=reg["team"], abbr=reg["abbr"],
-        start=y_start, seasons=seasons, flags=reg.get("flags", []),
+        start=y_start, seasons=round(seasons, 1), seatSeasons=seat, startDate=reg["start"], flags=reg.get("flags", []),
         chan=dict(
             trade=dict(net=round(tr_net,1), g=grade(tr_net/seasons), n=len(trade_groups)),
             draft=dict(net=round(dr_net,1), g=grade(dr_net/seasons), n=len(drafts[tid])),

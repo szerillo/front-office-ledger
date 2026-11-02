@@ -16,7 +16,9 @@ disclosed. The sitting regime comes from regimes.json / regimes_hist.json
 Outputs champs_computed.json: cards (same roster shape the tab renders) and
 through-lines aggregated across all 21 titles.
 """
+import json
 import json, sqlite3
+from era_names import era_team, draft_day
 from collections import defaultdict
 
 LVM = {int(k): v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
@@ -127,9 +129,11 @@ for (yr, tid) in CHAMPS_WS:
                 ch = "fa"
                 if "minor league" in (acq["description"] or "").lower(): ch = "intl"
             else: ch = "intl"
-            how = (acq["description"] or t)[:95]
+            how = (acq["description"] or t)
+            if len(how) > 140:
+                how = how[:140].rsplit(" ", 1)[0].rstrip(",;: ") + "…"
         elif dr_year:
-            ch = "draft"; d = f"{dr_year}-06-15"; how = f"Drafted by the club, {dr_year}"
+            ch = "draft"; d = draft_day(dr_year); how = f"Drafted by the club, {dr_year}"
         else:
             # no record in the 2005+ feed and no draft row: amateur signing or pre-floor
             first_club_season = min((y for (y, tm, v) in LVM[pid]["rows"] if tm in names), default=yr)
@@ -166,12 +170,12 @@ for (yr, tid) in CHAMPS_WS:
         note += (f" · continuity view: {cont_share}% of the core was acquired while {reg_exec.split()[-1]} "
                  f"was already {dep_label} (from {dep_date[:7]}); the primary accounting credits final authority")
     cards.append(dict(
-        id=f"{abbr.lower()}{str(yr)[2:]}", label=f"{yr} {team}", team=team, year=yr,
+        id=f"{abbr.lower()}{str(yr)[2:]}", label=f"{yr} {era_team(team, yr)}", team=era_team(team, yr), year=yr,
         result="Won World Series", regime=reg_exec,
         regimeNote=note,
         computed=True,
         roster=roster))
-    agg.append(dict(id=f"{abbr.lower()}{str(yr)[2:]}", yr=yr, team=team, abbr=abbr,
+    agg.append(dict(id=f"{abbr.lower()}{str(yr)[2:]}", yr=yr, team=era_team(team, yr), abbr=abbr,
                     exec=reg_exec, tenure=tenure_yr, total=round(total, 1),
                     regShare=reg_share, contShare=cont_share,
                     mix={k: round(v, 1) for k, v in mix.items()}))

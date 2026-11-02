@@ -84,7 +84,9 @@ def classify(t, on):
         if "restricted list" in d and "placed" in d: return False
         if "injured list" in d and ("placed" in d or "transferred" in d): return True
         if "activated" in d or "reinstated" in d: return True
-        if "reassigned" in d and "minor" in d: return False
+        # end-of-season "reassigned to the minor leagues" is paperwork for 40-man
+        # players, not a demotion; an in-season demotion is filed as an option
+        if "reassigned" in d and "minor" in d: return on
         return on
     return on
 

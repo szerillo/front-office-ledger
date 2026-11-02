@@ -160,10 +160,13 @@ for off, pl, ab, yrs, tot in RECENT:
 # A spring signing (month <= 3) covers that season (off = year-1); later
 # signings start the next season. CBT value used where it diverges (deferrals).
 from contracts_ext import EXT
-for (dt, pl, ab, yrs, tot, cbt) in EXT:
+EXT_META = {}   # (off, player, tid) -> (sign month, nominal total when the book carries CBT value)
+for _e in EXT:
+    dt, pl, ab, yrs, tot, cbt = _e[:6]
     y, m = int(dt[:4]), int(dt[5:7])
-    off = y - 1 if m <= 3 else y
+    off = (_e[6] - 1) if len(_e) > 6 else (y - 1 if m <= 3 else y)
     if ab in AB2TID:
+        EXT_META[(off, pl, AB2TID[ab])] = (dt, float(tot) if cbt else None)
         raw_contracts.append((off, pl, AB2TID[ab], yrs, float(cbt if cbt else tot), 1))
 book = []
 for (off, pl, tid, yrs, tot, typ) in raw_contracts:
@@ -188,6 +191,10 @@ for (off, pl, tid, yrs, tot, typ) in raw_contracts:
               "RP" if p == "RP" else "P")(POS.get(str(pid)))
     book.append([pl, off, TID2AB2.get(tid, ""), yrs, round(tot, 1), age, pit, plat1, plat2,
                  realized if realized is not None else "", elapsed, pid, typ, pgroup])
+    if typ == 1:
+        dt, nom = EXT_META.get((off, pl, tid), (None, None))
+        # idx14: nominal total when the book prices the CBT value; idx15: sign month
+        book[-1] += [nom, (dt + "-15") if dt and len(dt) == 7 else None]
 print("contract book rows matched:", len(book), "of", len(raw_contracts))
 
 # ---- 2026-27 winter reality pass (curated, Nov 2026) ----
@@ -284,10 +291,18 @@ for ab, xs in byorg.items():
             players.append(row); have[pid] = row; n_new += 1
         elif not have[pid][2]: have[pid][2] = ab
         PROS_OUT[spid] = [z["lvl"], z["ev6d"], z["y1"], z["line"], k + 1, None]
+# org slot follows the club he is with now (v5.4: a prospect moved since the
+# minor-league season read the old system's slot, so two players shared CHC #19)
+_byclub = defaultdict(list)
+for spid, v in PROS_OUT.items():
+    _byclub[have[int(spid)][2]].append((v[1], spid))
+for ab, xs in _byclub.items():
+    for k, (_, spid) in enumerate(sorted(xs, reverse=True)):
+        PROS_OUT[spid][4] = k + 1
 for spid, z in PK["players"].items():
     if int(spid) in have:
         PEAK[spid] = [z["peak"], z["p2"], z["p4"], z["up"], z["y1"], z["lvl"], z["line"],
-                      [[c[0], c[1], c[4]] for c in z["comps"][:6]]]
+                      [[c[0], c[1], c[4]] for c in z["comps"][:6]], z.get("traj")]
 print("prospects: org tier", len(PROS_OUT), "| new desk rows:", n_new, "| peak projections on desk rows:", len(PEAK))
 # 2. filed for free agency: every filing in the league feed since Oct 1
 DECL = {}
@@ -428,6 +443,7 @@ out = dict(
     pros=PROS_OUT,
     peak=PEAK,
     peakBacktest=PK["backtest"],
+    rankTraj=PK.get("rankTraj", {}),
     rookie=PROS["rookie"],
     t100lvl=PROS["top100Level"],
     cbt={"2026": 244, "2027": None},  # 2027+ awaits the next CBA

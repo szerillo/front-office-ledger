@@ -100,22 +100,24 @@ def sgrade(pts):
 print(f"\n{'team':<6}{'W%':>6}{'div':>4}{'PO':>4}{'SW':>4}{'pen':>4}{'WS':>4}   success")
 for r in res:
     tid = r["teamId"]
-    y0 = max(int(REG[tid]["start"][:4]), 1998)
-    if REG[tid]["start"][5:7] > "07": y0 += 1     # regime started after the season
-    yrs = list(range(y0, 2027))          # 2026 postseason is final
+    # v5.4: October credit and the record follow regime_window: W-L from the
+    # hire date, titles and October only for seasons the regime finished
+    from regime_window import record as _rec, seasons as _seas
+    _wl = {k: [v[0], v[1], v[2]] for k, v in WL.items()}
+    _w, _l, _div, yrs = _rec(tid, REG[tid]["start"], None, _wl)
     po = sw = pen = ws = 0
     for y in yrs:
         rec = PS.get((tid, y))
         if rec:
             po += rec["berth"]; sw += rec["sw"]; pen += rec["pennant"]; ws += rec["ws"]
     s = r["success"]
-    w = sum(WL.get((tid, y), (0, 0, 0))[0] for y in yrs)
-    l = sum(WL.get((tid, y), (0, 0, 0))[1] for y in yrs)
+    w, l = _w, _l
     if w + l:
-        s.update(w=w, l=l, wpct=f"{w/(w+l):.3f}".lstrip("0"),
-                 div=sum(WL.get((tid, y), (0, 0, 0))[2] for y in yrs))
+        s.update(w=w, l=l, wpct=f"{w/(w+l):.3f}".lstrip("0"), div=_div)
+    else:
+        s.update(w=0, l=0, wpct=".500", div=0)
     wpct = float(s["wpct"])
-    seasons = max(1, len(yrs))
+    seasons = max(_seas(REG[tid]["start"]), 0.5)
     october = (1.2 * (s["div"] if isinstance(s["div"], int) else 0)
                + 0.8 * po + 0.6 * sw + 1.5 * pen + 3.0 * ws) / seasons
     pts = (wpct - 0.500) * 40 + (october - 0.55)

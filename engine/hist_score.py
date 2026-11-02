@@ -21,6 +21,7 @@ Data floor is 1998-01-01 (feed 2009+, Retrosheet backfill before); regimes that
 started earlier are truncated and flagged, with trueStart shown.
 Writes hist_results.json.
 """
+from era_names import draft_day
 import json, math, os, sqlite3
 from collections import defaultdict
 from tradegroup import dedupe_rows, group_trades
@@ -185,7 +186,9 @@ for i, reg in enumerate(REGS):
     tid = reg["teamId"]; names = ALIAS.get(tid, {reg["team"]})
     start = max(reg["start"], "1998-01-01"); end = reg["end"]
     y_start, y_end = int(start[:4]), int(end[:4])
-    seasons = max(0.7, round(frac_year(end) - frac_year(start), 1))
+    from regime_window import seasons as _seas, record as _rec
+    seat = _seas(start, end)
+    seasons = max(seat, 0.1)
     # seasons the regime held the seat (for success record)
     s_first = y_start + (1 if start[5:7] > "07" else 0)
     s_last = y_end - (1 if end[5:7] < "04" else 0)
@@ -266,17 +269,14 @@ for i, reg in enumerate(REGS):
         dr_real += realized; dr_exp += exp
         net = realized - exp; ynet[yr] += net
         if abs(net) >= 1.5:
-            decs.append(dict(d=f"{yr}-06-15", ch="draft", net=round(net,1),
+            decs.append(dict(d=draft_day(yr), ch="draft", net=round(net,1),
                              h=f"Drafted {p['person_name']} (#{pk} overall, {yr})",
                              sides=[["Realized on club", [[p["person_name"], f"{realized:+.1f}"]]],
                                     ["Slot expectation", [[f"pick #{pk}, maturity-adjusted", f"{-exp:+.1f}"]]]],
                              pids=[p["person_id"]]))
     dr_net = dr_real - dr_exp
     total = tr_net + dr_net + wv_net
-    w = l = div = 0
-    for yr in range(s_first, s_last + 1):
-        rec = wl.get((tid, yr))
-        if rec: w += rec[0]; l += rec[1]; div += rec[2]
+    w, l, div, _octs = _rec(tid, start, end, wl)
     wpct = w / (w + l) if (w + l) else 0.5
     decs.sort(key=lambda x: -abs(x["net"]))
     walk.sort(key=lambda x: x["net"])
@@ -289,7 +289,7 @@ for i, reg in enumerate(REGS):
     results.append(dict(
         id=slug, teamId=tid, exec=reg["exec"], team=reg["team"], abbr=reg["abbr"],
         start=y_start, end=y_end, startDate=reg["start"], endDate=end,
-        trueStart=reg.get("trueStart"), seasons=seasons, flags=reg.get("flags", []),
+        trueStart=reg.get("trueStart"), seasons=seasons, seatSeasons=seat, flags=reg.get("flags", []),
         chan=dict(
             trade=dict(net=round(tr_net,1), g=grade(tr_net/seasons), n=len(trade_groups)),
             draft=dict(net=round(dr_net,1), g=grade(dr_net/seasons), n=len(drafts[i])),

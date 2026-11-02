@@ -278,7 +278,8 @@ def outcome(r):
     # ev6d: the same six seasons discounted 10% a year, the units every
     # surplus figure in the simulator uses (and the Top 100 rank curve)
     return dict(peak=peak, ev6=sum(by.get(y0 + k, 0.0) for k in range(1, 7)), y1=by.get(y0 + 1, 0.0),
-                ev6d=sum(by.get(y0 + k, 0.0) * 0.9 ** (k - 1) for k in range(1, 7)))
+                ev6d=sum(by.get(y0 + k, 0.0) * 0.9 ** (k - 1) for k in range(1, 7)),
+                traj=[by.get(y0 + k, 0.0) for k in range(1, 7)])          # season by season, for the Horizon
 
 HIST = []
 for yr in range(2012, 2020):
@@ -301,7 +302,7 @@ def _mat(pool_key, pool):
         m[kind] = dict(h=hs, F=np.array([h["f"] for h in hs], float), pos=np.array([h["pos"] for h in hs]),
                        pid=np.array([h["pid"] for h in hs]), peak=np.array([h["peak"] for h in hs]),
                        ev6=np.array([h["ev6"] for h in hs]), y1=np.array([h["y1"] for h in hs]),
-                       ev6d=np.array([h["ev6d"] for h in hs]))
+                       ev6d=np.array([h["ev6d"] for h in hs]), traj=np.array([h["traj"] for h in hs]))
     _MAT[pool_key] = m
     return m
 def project(r, pool, pool_key="all"):
@@ -331,6 +332,7 @@ def project(r, pool, pool_key="all"):
     up = float(pk[o][min(len(o) - 1, int(np.searchsorted(cw, 0.8)))])
     return dict(peak=float((w * pk).sum() / W), ev6=float((w * M["ev6"][idx]).sum() / W), y1=float((w * M["y1"][idx]).sum() / W),
                 ev6d=float((w * M["ev6d"][idx]).sum() / W),
+                traj=[round(float(x), 2) for x in (w[:, None] * M["traj"][idx]).sum(axis=0) / W],
                 p2=float(w[pk >= 2].sum() / W), p4=float(w[pk >= 4].sum() / W), up=up,
                 comps=[(M["h"][i]["name"], M["h"][i]["yr"], M["h"][i]["lvl"], M["h"][i]["age"], round(M["h"][i]["peak"], 1), round(M["h"][i]["ev6"], 1)) for i in idx[:10]])
 
@@ -391,6 +393,14 @@ BT["top5pct_regular_rate"] = round(float((RPK[order] >= 2).mean()), 3)
 BT["base_regular_rate"] = round(float((RPK >= 2).mean()), 3)
 print("BACKTEST", json.dumps(BT))
 
+# Top 100 season-by-season shape by rank band (for ranked prospects with no
+# 2026 minor-league line to match on): mean realized WAR in years 1..6
+RANK_TRAJ = {}
+for band, lo, hi in (("1-25", 1, 25), ("26-50", 26, 50), ("51-100", 51, 100)):
+    xs = [h["traj"] for h in HIST if lo <= (h["rank"] or 0) <= hi]
+    if xs: RANK_TRAJ[band] = [round(sum(t[k] for t in xs) / len(xs), 2) for k in range(6)] + [len(xs)]
+print("rank-band trajectories:", RANK_TRAJ)
+
 # ---------- current prospects (2026 season) ----------
 cur = prospect_rows(2026)
 out = {}
@@ -398,11 +408,11 @@ for r in cur:
     r["f"] = feats(r)
     pr = project(r, HIST)
     out[str(r["pid"])] = dict(name=r["name"], kind=r["kind"], org=r["org"], lvl=r["lvl"], age=r["age"], rank=r["rank"],
-                              pick=r["pick"], peak=round(pr["peak"], 2), ev6=round(pr["ev6"], 2), ev6d=round(pr["ev6d"], 2), y1=round(pr["y1"], 2),
+                              pick=r["pick"], peak=round(pr["peak"], 2), ev6=round(pr["ev6"], 2), ev6d=round(pr["ev6d"], 2), y1=round(pr["y1"], 2), traj=pr["traj"],
                               p2=round(pr["p2"], 3), p4=round(pr["p4"], 3), up=round(pr["up"], 2), comps=pr["comps"],
                               line=r["line"], pos=r["ppos"],
                               tr={c: round(v, 2) for c, v in r["rel"].items()})
-json.dump(dict(players=out, backtest=BT, factors={f"{k[0]}|{k[1]}": {c: round(v, 3) for c, v in f.items()} for k, f in FACT.items()}),
+json.dump(dict(players=out, backtest=BT, rankTraj=RANK_TRAJ, factors={f"{k[0]}|{k[1]}": {c: round(v, 3) for c, v in f.items()} for k, f in FACT.items()}),
           open(f"{ROOT}/pros_peak.json", "w"), ensure_ascii=False)
 print("current prospects projected:", len(out))
 for pid, z in sorted(out.items(), key=lambda kv: -kv[1]["peak"])[:25]:

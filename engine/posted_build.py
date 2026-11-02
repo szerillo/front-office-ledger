@@ -70,7 +70,7 @@ out = {}
 for pz in R["posted"]:
     if pz.get("status") != "posted" or not pz.get("mlbam_id"): continue
     pit = pz["primary_position"] in ("SP", "RP", "P")
-    age26 = 2026 - int(pz["birth_date"][:4])
+    age26 = 2026 - int(pz["birth_date"][:4]) - (1 if pz["birth_date"][5:10] > "06-30" else 0)   # season age (June 30)
     per_season = {}
     feats = {}
     for yr in ("2024", "2025", "2026"):

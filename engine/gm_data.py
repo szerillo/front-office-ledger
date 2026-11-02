@@ -1,15 +1,14 @@
 """
 GM Mode data: historical offseason profiles for comp matching.
-For every club-winter 2009-2024: previous season wins, next season wins,
+For every club-winter 2009-2025: previous season wins, next season wins,
 FA dollars committed that winter (book), signing count, offseason trade
-activity (deals in the archive dated Nov-Mar), and eventual trade net.
+activity (deals in the trade book dated Nov-Mar), and eventual trade net.
 Writes gm_offseasons.json.
 """
 import json, urllib.request, time
 from collections import defaultdict
 
 DESK = json.load(open("/work/desk_data.json"))
-ARCH = json.load(open("/work/deal_archive.json"))
 cfg = json.load(open("/work/regimes.json"))
 TID2AB = {r["teamId"]: r["abbr"] for r in cfg["regimes"]}
 
@@ -40,18 +39,22 @@ for r in DESK["book"]:
     FA[(ab, off)][0] += tot
     FA[(ab, off)][1] += 1
 
-# offseason trades by club-winter (archive is buyer-seat; count both seats)
+# offseason trades by club-winter, from the deal-level trade book (every
+# seat, through the current winter; v5.4 replaces the 1998-2023 buyer archive)
+TB = json.load(open("/work/trade_book.json"))
 TR = defaultdict(lambda: [0, 0.0, 0.0])  # (ab, winter) -> [n, in, out]
-for x in ARCH:
-    if x["ph"] != "offseason": continue
-    m = int(x["d"][5:7])
-    w = x["yr"] if m >= 10 else x["yr"] - 1
-    TR[(x["ab"], w)][0] += 1
-    TR[(x["ab"], w)][1] += x["recv"]
-    TR[(x["ab"], w)][2] += x["paid"]
+for d, seats in TB["trades"]:
+    m = int(d[5:7]); y = int(d[:4])
+    if 4 <= m <= 10: continue                 # in-season (April-October)
+    w = y if m >= 11 else y - 1
+    for s in seats:
+        ab = s[0]
+        TR[(ab, w)][0] += 1
+        TR[(ab, w)][1] += sum(v for _, v in s[2])
+        TR[(ab, w)][2] += sum(v for _, v in s[3])
 
 rows = []
-for winter in range(2009, 2025):
+for winter in range(2009, 2026):
     for ab in TID2AB.values():
         pw, nw = WINS.get(winter, {}).get(ab), WINS.get(winter + 1, {}).get(ab)
         if pw is None or nw is None: continue

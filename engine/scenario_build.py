@@ -11,7 +11,9 @@ bucket; prospects at rank expectation; unranked minors at the 0.41 empirical
 mean), the market read that follows, deterministic counter adjudication, and
 the realized outcome from the deal archive.
 """
+import json
 import json, sqlite3, urllib.request, time, sys
+from era_names import era_team
 from collections import defaultdict
 
 sys.path.insert(0, "/work")
@@ -29,6 +31,10 @@ for rr in json.load(open("/work/prospect_ranks.json")):
     RANKS[rr["year"]][rr["pid"]] = rr["rank"]
 
 DPWH = DESK["market"]["dpwHist"]
+# the $/win history starts in 2006; earlier scenarios use its first year
+# rather than falling through to today's price (v5.4: the 2005 Beckett deal
+# read ~$9.7M a win)
+for _y in range(1998, 2006): DPWH.setdefault(str(_y), DPWH["2006"])
 VRANK = DESK["vrank"]
 RATIO = {k: v["ratio"] for k, v in DESK["market"]["buckets"].items()}
 BUST = {k: v["bust"] for k, v in DESK["market"]["buckets"].items()}
@@ -114,7 +120,9 @@ def piece_info(pid, name, yr, month):
     d = BYPID.get(pid, {}) if pid else {}
     plat_season = yr if month >= 9 else yr - 1
     plat = round(d.get(plat_season, 0.0), 1)
-    cur = round(d.get(yr, 0.0), 1)
+    # "this season" only exists in-season: an offseason scenario must not
+    # show the season that had not been played yet (v5.4)
+    cur = round(d.get(yr, 0.0), 1) if 4 <= month <= 10 else plat
     by = AGES.get(str(pid), 0)
     age = yr - by if by and 14 < yr - by < 50 else None
     has_mlb = any(y <= yr and abs(v) > 0.05 for y, v in d.items())
@@ -148,6 +156,10 @@ def deal_pieces(date, buyer_tid, like):
         elif ft in buyer_names: sent.append((pid, nm))
     return recv, sent, seller_tid
 
+# (date, headline, buyer-side "recv"/"sent", pid, name): pieces the league feed
+# does not list on the trade row (Odorizzi went to Kansas City in the Greinke deal)
+FEED_GAPS = [("2010-12-19", "Zack Greinke", "sent", 543606, "Jake Odorizzi")]
+
 # ---------------- trade scenarios ----------------
 # (date, buyer_abbr, headline, seat, one-line computed-adjacent setup)
 TRADES = [
@@ -168,7 +180,7 @@ TRADES = [
     ("2008-07-07", "MIL", "CC Sabathia", "buyer",
      "Early July, wild-card race. Cleveland is selling the reigning Cy Young winner as a pure three-month rental."),
     ("2020-02-10", "LAD", "Mookie Betts", "seller",
-     "Ownership wants the payroll reset and the superstar has one year left before free agency. Los Angeles is offering a major-league outfielder and a pitching prospect."),
+     "Ownership wants the payroll reset and the superstar has one year left before free agency. Los Angeles is offering a young major-league outfielder, a shortstop prospect, and a catching prospect, and will take the rest of an expensive starter's contract."),
     ("2022-08-02", "SD", "Juan Soto", "buyer",
      "The franchise bat of his generation is somehow available at 23 with two and a half controlled years. Washington wants your entire prospect shelf."),
 ]
@@ -182,6 +194,10 @@ for date, ab, headline, seat, setup in TRADES:
     buyer_tid = deal["tid"]
     recv_raw, sent_raw, seller_tid = deal_pieces(date, buyer_tid, headline.split()[-1])
     if not recv_raw or not sent_raw or not seller_tid: print("MISS pieces", date, headline); continue
+    # the feed omits pieces now and then; the public record fills them (v5.4)
+    for (d0, who, side, pid0, nm0) in FEED_GAPS:
+        if d0 == date and who == headline:
+            (recv_raw if side == "recv" else sent_raw).append((pid0, nm0))
     recv = [piece_info(p, n, yr, mo) for p, n in recv_raw]
     sent = [piece_info(p, n, yr, mo) for p, n in sent_raw]
     seat_tid = buyer_tid if seat == "buyer" else seller_tid
@@ -213,7 +229,7 @@ for date, ab, headline, seat, setup in TRADES:
     call = "BELOW" if r < 0.7 else ("ABOVE" if r > 1.4 else "MARKET")
     scenarios.append(dict(
         id=f"tr-{yr}-{ab}-{headline.split()[-1].lower()}", kind="trade", seat=seat,
-        team=TID2AB[seat_tid], teamName=TID2TEAM.get(seat_tid, ""), opp=TID2AB.get(buyer_tid if seat == "seller" else seller_tid, "?"),
+        team=TID2AB[seat_tid], teamName=era_team(TID2TEAM.get(seat_tid, ""), yr), opp=TID2AB.get(buyer_tid if seat == "seller" else seller_tid, "?"),
         exec_=exec_at(seat_tid, date), date=date, phase=deal["ph"], setup=setup,
         ctx=dict(w=st["w"], l=st["l"], gb=st["gb"], rank=st["rank"], season=season,
                  lev=round(leverage(wproj if deadline else st["w"]), 2), dpw=DPWH.get(str(min(yr, 2026)), 9.7),
@@ -243,6 +259,7 @@ def comp_terms(row):
     cands = []
     for c in BOOK:
         if c[1] >= off or c[12] != 0 or c[6] != pit: continue   # same player type only
+        if pPeak >= 2 and max(c[7], c[8]) < 0.4 * pPeak: continue   # a star's comps are not replacement deals
         cBlend, cPeak = c[7] * 0.65 + c[8] * 0.35, max(c[7], c[8])
         s = abs(cBlend - pBlend) + abs(cPeak - pPeak) * 0.5 + abs(c[5] - age) * 0.45
         cands.append((s, c))
@@ -255,6 +272,17 @@ def comp_terms(row):
     mA = med([(c[4] / c[3]) * (DPWH[str(yr1)] / DPWH[str(min(c[1] + 1, 2026))]) for c in comps])
     return dict(mktY=mY, mktTot=round(mY * mA), comps=[[c[0], c[1], c[3], round(c[4], 1)] for c in comps[:4]])
 
+def ext_terms(row):
+    """Extension market (v5.4): an extension is priced against the extension
+    market for the player's service class, not free agency. Projection =
+    0.65 x platform + 0.35 x prior season, regressed 25% toward 2 wins; value
+    = projection x years x that winter's $/win x the pre-arbitration class
+    discount (0.45, the same constant ext_grade.py uses)."""
+    pl, off, ab, yrs, tot, age, pit, p1, p2 = row[:9]
+    proj = 0.75 * (0.65 * p1 + 0.35 * p2) + 0.25 * 2.0
+    dpw = DPWH[str(min(off + 1, 2026))]
+    return dict(mktY=yrs, mktTot=round(proj * yrs * dpw * 0.45), ext=1, proj=round(proj, 1))
+
 FA_PICKS = [("Max Scherzer", 2014), ("Albert Pujols", 2011), ("Chris Davis", 2015), ("Jon Lester", 2014)]
 FA_SETUP = {
     "Max Scherzer": "Your window is open and the rotation needs a true one. The best arm on the market wants seven years, half of it deferred.",
@@ -262,8 +290,8 @@ FA_SETUP = {
     "Chris Davis": "Your own slugger, fresh off a 47-homer platform year, is a free agent. The fan base wants him back.",
     "Jon Lester": "A playoff-proven ace at 30, and signing him announces the rebuild is over.",
 }
-EXT_PICKS = [("Jose Ramirez", 2017)]
-EXT_SETUP = {"Jose Ramirez": "A 24-year-old utility infielder just broke out. Lock him up now through his arb years, or wait for a second season of proof?"}
+EXT_PICKS = [("Jose Ramirez", 2016)]
+EXT_SETUP = {"Jose Ramirez": "Spring training. Your utility infielder just broke out as an everyday third baseman with barely two years of service. Lock him up now through his arbitration years, or wait for a second season of proof?"}
 
 for picks, kindlbl, setups in ((FA_PICKS, "fa", FA_SETUP), (EXT_PICKS, "ext", EXT_SETUP)):
     for nm, off in picks:
@@ -274,17 +302,17 @@ for picks, kindlbl, setups in ((FA_PICKS, "fa", FA_SETUP), (EXT_PICKS, "ext", EX
         tid = {v: k for k, v in TID2AB.items()}.get(ab)
         st = standings(off, tid=tid)
         sur = surplus(row)
-        ct = comp_terms(row)
+        ct = comp_terms(row) if kindlbl == "fa" else ext_terms(row)
         scenarios.append(dict(
             id=f"{kindlbl}-{off}-{nm.split()[-1].lower()}", kind=kindlbl, seat="club",
-            team=ab, teamName=TID2TEAM.get(tid, ""), opp=None, exec_=exec_at(tid, f"{off}-12-01"),
+            team=ab, teamName=era_team(TID2TEAM.get(tid, ""), off), opp=None, exec_=exec_at(tid, f"{off}-12-01"),
             date=f"{off}-12-01" if kindlbl == "fa" else f"{off+1}-03-01", phase="offseason",
             setup=setups[nm],
             ctx=dict(w=st["w"] if st else None, l=st["l"] if st else None, gb=st["gb"] if st else "-",
                      rank=st["rank"] if st else None, season=off,
                      lev=round(leverage(st["w"]), 2) if st else 1.0, dpw=DPWH.get(str(min(off + 1, 2026)), 9.7),
                      needs=needs(tid, off) if tid else []),
-            player=dict(name=pl, age=age, pit=pit, plat=p1, prev=p2),
+            player=dict(name=pl, age=age + (1 if kindlbl == 'ext' else 0), pit=pit, plat=p1, prev=p2),   # an extension is signed in the season it covers
             terms=dict(yrs=yrs, tot=round(tot, 1)),
             market=ct,
             outcome=dict(realized=realized, surplus=round(sur, 1) if sur is not None else None,
@@ -305,7 +333,7 @@ scenarios.append(dict(
     id="live-2026-rojas", kind="trade", seat="seller",
     team="NYM", teamName="New York Mets", opp="CHC", exec_=exec_at(121, "2026-08-03"),
     date="2026-08-03", phase="deadline",
-    setup="Deadline day, and you are hanging at the edge of the wild-card race. Chicago wants your closer and a veteran outfielder, and offers its shortstop prospect back.",
+    setup="Deadline day, and the season has gotten away from you. Chicago wants your veteran right-hander Clay Holmes and outfielder Tyrone Taylor, both free agents this winter, and offers its shortstop prospect back.",
     ctx=dict(w=st["w"] if st else 57, l=st["l"] if st else 54, gb=st["gb"] if st else "-",
              rank=st["rank"] if st else None, season=2026, lev=round(leverage(round((st["w"]/(st["w"]+st["l"]))*162)), 2) if st else 1.0,
              dpw=9.7, needs=needs(121, 2026)),
@@ -316,7 +344,7 @@ scenarios.append(dict(
     exante=dict(expIn=round(vrank_ev(rojas[0][1]) if rojas else vrank_ev(45), 1),
                 expOut=round(max(holmes["plat"], 0) * 1.6, 1), expPrice=None, call="SELLER", ratio=RATIO["+1"]),
     outcome=dict(recv=None, paid=None, net=-6.4, settled=0,
-                 note="Ledger Projection v1 projected final for the Mets' seat; Holmes and Taylor produced for Chicago immediately while Rojas' value is still rank expectation."),
+                 note="Holmes and Taylor are both free agents now (Holmes declined his 2027 option); Rojas' value is still his prospect expectation, so the number below is a projection, not a result."),
 ))
 print("built live-2026-rojas")
 

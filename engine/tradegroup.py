@@ -130,6 +130,10 @@ def dedupe_rows(rows, tid=None, lo="0000", hi="9999"):
     rows = kept
     if tid is not None:
         rows = _resolve_pass_through(rows, tid)
+    if lo and lo > "0000":
+        C = _completions()
+        rows = [r for r in rows if not (r.get("type_desc") == "Trade" and r.get("person_id")
+                                        and C.get((r.get("date"), str(r.get("person_id"))), "9999") < lo)]
     seen, out = set(), []
     for r in rows:
         k = (r.get("date"), r.get("person_id"), r.get("type_desc"), r.get("from_team"),
@@ -144,6 +148,71 @@ def dedupe_rows(rows, tid=None, lo="0000", hi="9999"):
         seen.add(k); out.append(r)
     return out
 
+
+
+_PAIRS = None
+def _club_pairs():
+    """(date, {club a, club b}) for every trade leg between two MLB clubs:
+    lets a seat see that its two one-way legs on the same day are halves of a
+    three-team deal (v5.4: SD sent Ross and a PTBNL to WSH, WSH sent Souza to
+    TB, TB sent Myers to SD; the feed files three separate legs)."""
+    global _PAIRS
+    if _PAIRS is not None: return _PAIRS
+    _PAIRS = set()
+    for pid, L in _legs().items():
+        for (dd, a, b, fa, fb) in L:
+            if dd: _PAIRS.add((dd, frozenset((a, b))))
+    return _PAIRS
+
+def _bare_leg(G):
+    """a one-way leg whose filing names no return at all ("X traded P to Y."):
+    the shape the feed uses for the legs of a three-team deal. A leg "for cash"
+    or "for a player to be named later" is a complete two-club deal."""
+    return (not G["ins"] or not G["outs"]) and " for " not in (G["desc"] or "")
+
+def _closed_deal(G):
+    """a deal the filing itself closes with cash or future considerations"""
+    d = (G["desc"] or "").lower()
+    return " for cash" in d or " for future considerations" in d
+
+_COMPL = None
+def _completions():
+    """(date, person_id) -> date of the deal that promised him, for every
+    player-to-be-named-later completion in the feed (v5.4). A completion that
+    finishes a deal made before a regime's window belongs to the predecessor,
+    so both seats of every pairing count the same deals."""
+    global _COMPL
+    if _COMPL is not None: return _COMPL
+    import sqlite3 as _sq
+    con = _sq.connect("/work/ledger.sqlite")
+    rows = con.execute("select date, person_id, from_team, to_team, description from sweep_tx "
+                       "where type_desc='Trade' and person_id is not null").fetchall()
+    promises = []
+    for d, pid, fr, to, desc in rows:
+        snd = _ptbnl_sender(desc)
+        if not snd: continue
+        st = _N2T.get(snd)
+        clubs = {_N2T.get(fr), _N2T.get(to)} - {None}
+        if st and st in clubs and len(clubs) == 2:
+            promises.append((_d(d), st, (clubs - {st}).pop()))
+    promises = sorted(set(promises))
+    _COMPL = {}
+    for d, pid, fr, to, desc in rows:
+        if " for " in (desc or "") or "Player To Be Named Later" in (desc or ""): continue
+        a, b, dd = _N2T.get(fr), _N2T.get(to), _d(d)
+        if not a or not b or not dd: continue
+        cands = [p for p in promises if p[1] == a and p[2] == b and 0 < (dd - p[0]).days <= 400]
+        if cands: _COMPL[(d, str(pid))] = max(cands)[0].isoformat()
+    return _COMPL
+
+def _ptbnl_sender(desc):
+    """club name that owes the player to be named later in a trade filing"""
+    if "Player To Be Named Later" not in (desc or ""): return None
+    head, _, tail = desc.partition(" for ")
+    if "Player To Be Named Later" in head:
+        return head.split(" traded ")[0].strip()
+    i = head.rfind(" to ")
+    return head[i + 4:].strip().rstrip(".") if i > 0 else None
 
 def _d(s):
     try: return date.fromisoformat(s[:10])
@@ -184,6 +253,34 @@ def group_trades(rows, names):
             # different counterparties; complementary halves need a common one
             if shared or (complementary and (A["cps"] & B["cps"])):
                 parent[find(a)] = find(b)
+            # v5.4: three-team deals filed as separate legs. Two of this seat's
+            # same-day legs with different counterparties X and Y, at least one
+            # of them one-way, belong to one deal when X and Y also traded that day
+            elif (A["cps"] and B["cps"] and not (A["cps"] & B["cps"])
+                  and (_bare_leg(A) or _bare_leg(B)) and not (_closed_deal(A) or _closed_deal(B))):
+                P = _club_pairs()
+                if any((dd, frozenset((_N2T.get(x), _N2T.get(y)))) in P
+                       for x in A["cps"] for y in B["cps"]
+                       for dd in (A["dd"], B["dd"]) if _N2T.get(x) and _N2T.get(y)):
+                    parent[find(a)] = find(b)
+    # v5.4: a player to be named later completes the deal that promised him.
+    # A one-way leg from the club that owed the PTBNL to the same counterparty,
+    # within 400 days, joins that deal (Trea Turner, June 2015, joins the
+    # December 2014 Myers deal; graded alone he read as a 25-win giveaway).
+    for i, H in enumerate(groups):
+        snd = _ptbnl_sender(H["desc"])
+        if not snd or not H["dd"]: continue
+        for j, G in enumerate(groups):
+            if j == i or not G["dd"] or "Player To Be Named Later" in (G["desc"] or ""): continue
+            gap = (G["dd"] - H["dd"]).days
+            if not (0 < gap <= 400): continue
+            if not (G["cps"] and G["cps"] <= H["cps"]): continue
+            one_way = (G["outs"] and not G["ins"]) or (G["ins"] and not G["outs"])
+            if not one_way or " for " in (G["desc"] or ""): continue
+            # direction: the PTBNL moves from the club that owed him
+            mover = [x for x in G["rows"] if x.get("person_id")]
+            if mover and mover[0].get("from_team") == snd or (mover and _N2T.get(mover[0].get("from_team")) == _N2T.get(snd)):
+                parent[find(j)] = find(i)
     merged = {}
     for i in order:
         root = find(i)

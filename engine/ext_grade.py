@@ -102,7 +102,9 @@ res = json.load(open("/work/sweep_results.json"))
 per = defaultdict(lambda: dict(net=0.0, n=0, decs=[]))
 skipped = []
 
-for sign, player, ab, yrs, tot, cbt in EXT:
+for _e in EXT:
+    sign, player, ab, yrs, tot, cbt = _e[:6]
+    if sign >= "2026-10": continue            # 2027 option rows: payroll coverage only, not extension decisions
     tid = ABBR2TID[ab]; reg = REG[tid]
     sign_date = sign + "-15"
     if sign_date < reg["start"]:
@@ -119,7 +121,7 @@ for sign, player, ab, yrs, tot, cbt in EXT:
     else: cls = "veteran"
     use_tot = cbt if cbt else tot
     aav = use_tot / yrs
-    start = sy if int(sign[5:7]) <= 3 else sy + 1   # spring deals replace the current season (approx)
+    start = _e[6] if len(_e) > 6 else (sy if int(sign[5:7]) <= 3 else sy + 1)   # spring deals replace the current season
     end_cap = 2023 if player == "Wander Franco" else 2026
     seasons = [y for y in range(start, min(start + yrs - 1, end_cap) + 1)]
     names = ALIAS.get(tid, {reg["team"]})
