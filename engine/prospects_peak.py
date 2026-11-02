@@ -42,8 +42,10 @@ RANKS = defaultdict(dict)
 for x in json.load(open(f"{ROOT}/prospect_ranks.json")):
     if x["pid"]: RANKS[x["year"]][int(x["pid"])] = x["rank"]
 
-SPORT = {1: "MLB", 11: "AAA", 12: "AA", 13: "A+", 14: "A"}
-LADDER = ["A", "A+", "AA", "AAA", "MLB"]
+SPORT = {1: "MLB", 11: "AAA", 12: "AA", 13: "A+", 14: "A", 15: "A-", 16: "R"}
+# v5.3.1: the low minors (complex leagues, the DSL, and pre-2021 short-season A)
+LADDER = ["R", "A-", "A", "A+", "AA", "AAA", "MLB"]
+TYPICAL = {"R": 19.0, "A-": 20.5, "A": 21.0, "A+": 22.0, "AA": 23.5, "AAA": 25.0, "MLB": 27.0}
 LV = {l: i for i, l in enumerate(LADDER)}
 YEARS = [y for y in range(2011, 2027) if y != 2020]
 
@@ -57,8 +59,19 @@ def get(u, fn):
             time.sleep(2 + 3 * a)
     return {}
 
+NICK = {}
+for r in cfg["regimes"]:
+    for nm in {r["team"]} | set(cfg["aliases"].get(str(r["teamId"]), [])):
+        for two in ("Red Sox", "White Sox", "Blue Jays"):
+            if nm.endswith(two): NICK[two] = r["abbr"]; break
+        else: NICK[nm.split()[-1]] = r["abbr"]
+NICK["D-backs"] = NICK.get("Diamondbacks"); NICK["Dbacks"] = NICK.get("Diamondbacks")
 def parent(team, yr):
     yrs = AFF.get(team)
+    if not yrs and team and team.split()[0] in ("DSL", "ACL", "FCL", "GCL", "AZL", "DOSL", "VSL"):
+        for k_, v_ in NICK.items():           # complex-league clubs are named for their parent
+            if v_ and k_ in team: return v_
+        return None
     if not yrs: return None
     if str(yr) in yrs: return ABBR.get(yrs[str(yr)])
     return ABBR.get(yrs[min(yrs, key=lambda y: abs(int(y) - yr))])
@@ -179,7 +192,7 @@ for k_, v in FACT.items(): print("  ", k_, {c: round(x, 2) for c, x in v.items()
 def translated(yr, pid, kind):
     """PA-weighted translated line for one season across levels (MiLB only), and the top level"""
     tot = defaultdict(float); n_tot = 0; top = None; ages = []
-    for lvl in ("A", "A+", "AA", "AAA"):
+    for lvl in ("R", "A-", "A", "A+", "AA", "AAA"):
         r = REL.get((yr, pid, kind, lvl))
         if not r: continue
         rel, n = r
@@ -188,7 +201,7 @@ def translated(yr, pid, kind):
         if n >= 60 and (top is None or LV[lvl] > LV[top]): top = lvl
     if n_tot == 0: return None
     if top is None:
-        top = max((l for l in ("A", "A+", "AA", "AAA") if REL.get((yr, pid, kind, l))), key=lambda l: LV[l])
+        top = max((l for l in ("R", "A-", "A", "A+", "AA", "AAA") if REL.get((yr, pid, kind, l))), key=lambda l: LV[l])
     return {c: v / n_tot for c, v in tot.items()}, n_tot, top
 
 def mlb_war(pid):
@@ -249,7 +262,7 @@ def feats(r):
     lv = LV[r["lvl"]]
     ped_rank = (101 - r["rank"]) / 100 if r["rank"] else 0.0
     ped_pick = max(0.0, 1 - math.log(r["pick"]) / math.log(400)) if r["pick"] else 0.0
-    base = [r["age"], r["age"] - (21 + 1.2 * lv), lv]
+    base = [r["age"], r["age"] - TYPICAL[r["lvl"]], lv]
     if r["kind"] == "H":
         return base + [rel["k"], rel["bb"], rel["iso"], rel["babip"], rel.get("sb", 1.0), ped_rank, ped_pick]
     return base + [rel["k"], rel["bb"], rel["hr"], ped_rank, ped_pick]
@@ -262,7 +275,10 @@ def outcome(r):
     seasons = [by.get(y0 + k, 0.0) for k in range(1, 9) if y0 + k <= 2026]
     best = sorted(seasons, reverse=True)[:2] + [0.0, 0.0]
     peak = max(0.0, (best[0] + best[1]) / 2)
-    return dict(peak=peak, ev6=sum(by.get(y0 + k, 0.0) for k in range(1, 7)), y1=by.get(y0 + 1, 0.0))
+    # ev6d: the same six seasons discounted 10% a year, the units every
+    # surplus figure in the simulator uses (and the Top 100 rank curve)
+    return dict(peak=peak, ev6=sum(by.get(y0 + k, 0.0) for k in range(1, 7)), y1=by.get(y0 + 1, 0.0),
+                ev6d=sum(by.get(y0 + k, 0.0) * 0.9 ** (k - 1) for k in range(1, 7)))
 
 HIST = []
 for yr in range(2012, 2020):
@@ -284,7 +300,8 @@ def _mat(pool_key, pool):
         hs = [h for h in pool if h["kind"] == kind]
         m[kind] = dict(h=hs, F=np.array([h["f"] for h in hs], float), pos=np.array([h["pos"] for h in hs]),
                        pid=np.array([h["pid"] for h in hs]), peak=np.array([h["peak"] for h in hs]),
-                       ev6=np.array([h["ev6"] for h in hs]), y1=np.array([h["y1"] for h in hs]))
+                       ev6=np.array([h["ev6"] for h in hs]), y1=np.array([h["y1"] for h in hs]),
+                       ev6d=np.array([h["ev6d"] for h in hs]))
     _MAT[pool_key] = m
     return m
 def project(r, pool, pool_key="all"):
@@ -313,6 +330,7 @@ def project(r, pool, pool_key="all"):
     o = np.argsort(pk); cw = np.cumsum(w[o]) / W
     up = float(pk[o][min(len(o) - 1, int(np.searchsorted(cw, 0.8)))])
     return dict(peak=float((w * pk).sum() / W), ev6=float((w * M["ev6"][idx]).sum() / W), y1=float((w * M["y1"][idx]).sum() / W),
+                ev6d=float((w * M["ev6d"][idx]).sum() / W),
                 p2=float(w[pk >= 2].sum() / W), p4=float(w[pk >= 4].sum() / W), up=up,
                 comps=[(M["h"][i]["name"], M["h"][i]["yr"], M["h"][i]["lvl"], M["h"][i]["age"], round(M["h"][i]["peak"], 1), round(M["h"][i]["ev6"], 1)) for i in idx[:10]])
 
@@ -326,7 +344,7 @@ def spear(a, b):
     rb = {i: k for k, i in enumerate(sorted(range(len(b)), key=lambda i: b[i]))}
     return corr([ra[i] for i in range(len(a))], [rb[i] for i in range(len(b))])
 CAL = json.load(open(f"{ROOT}/pros.json"))["calib"]
-TYP = {"AAA": 25.0, "AA": 23.5, "A+": 22.0, "A": 21.0}
+TYP = TYPICAL
 VR = [[1, 8.0], [3, 7.0], [5, 6.5], [10, 5.5], [15, 4.8], [25, 4.0], [40, 3.2], [50, 2.8], [75, 2.0], [100, 1.5]]
 def vrank(rk):
     for (a, va), (b, vb) in zip(VR, VR[1:]):
@@ -351,6 +369,23 @@ BT = dict(n=int(len(R)), n_ranked=int(ranked.sum()),
           ranked=dict(comps_r=c(P[ranked], R[ranked]), rank_curve_r=c(RO[ranked], R[ranked])),
           all=dict(comps_r=c(P, R), bias=round(float(P.mean() - R.mean()), 3)),
           peak=dict(comps_r=c(PK, RPK)))
+# Top 100 by level: the rank curve prices a #40 in rookie ball and a #40 in
+# Triple-A alike, but the Triple-A player delivers more inside six seasons.
+# Level factors (realized / rank-curve, normalized to mean 1) learned with
+# each cohort held out, then scored.
+LVL = _np.array([LV[h["lvl"]] for yr in range(2013, 2020) for h in HIST if h["yr"] == yr])
+YR = _np.array([h["yr"] for yr in range(2013, 2020) for h in HIST if h["yr"] == yr])
+band = _np.where(LVL <= LV["A"], 0, _np.where(LVL >= LV["AAA"], 2, 1))
+ADJ = RO.copy()
+for yr in range(2013, 2020):
+    tr = ranked & (YR != yr); te = ranked & (YR == yr)
+    tot = R[tr].sum() / RO[tr].sum()
+    fac = [(R[tr & (band == b)].sum() / RO[tr & (band == b)].sum()) / tot if (tr & (band == b)).any() else 1.0 for b in range(3)]
+    ADJ[te] = RO[te] * _np.array(fac)[band[te]]
+tot = R[ranked].sum() / RO[ranked].sum()
+LEVEL_FACTOR = {nm: round(float((R[ranked & (band == b)].sum() / RO[ranked & (band == b)].sum()) / tot), 2) for b, nm in enumerate(("low", "mid", "AAA"))}
+BT["ranked"]["level_adjusted_rank_curve_r"] = c(ADJ[ranked], R[ranked])
+BT["ranked"]["level_factor"] = LEVEL_FACTOR
 order = _np.argsort(-P)[:max(1, len(P) // 20)]
 BT["top5pct_regular_rate"] = round(float((RPK[order] >= 2).mean()), 3)
 BT["base_regular_rate"] = round(float((RPK >= 2).mean()), 3)
@@ -363,7 +398,7 @@ for r in cur:
     r["f"] = feats(r)
     pr = project(r, HIST)
     out[str(r["pid"])] = dict(name=r["name"], kind=r["kind"], org=r["org"], lvl=r["lvl"], age=r["age"], rank=r["rank"],
-                              pick=r["pick"], peak=round(pr["peak"], 2), ev6=round(pr["ev6"], 2), y1=round(pr["y1"], 2),
+                              pick=r["pick"], peak=round(pr["peak"], 2), ev6=round(pr["ev6"], 2), ev6d=round(pr["ev6d"], 2), y1=round(pr["y1"], 2),
                               p2=round(pr["p2"], 3), p4=round(pr["p4"], 3), up=round(pr["up"], 2), comps=pr["comps"],
                               line=r["line"], pos=r["ppos"],
                               tr={c: round(v, 2) for c, v in r["rel"].items()})

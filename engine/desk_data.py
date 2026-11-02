@@ -264,10 +264,16 @@ for spid, z in PK["players"].items():
     if z["rank"] or pid in ranked_now or not z["org"] or z["age"] > 26: continue
     p = have.get(pid)
     if p is not None and (abs(p[5]) + abs(p[6]) + abs(p[7]) >= 0.6): continue
-    byorg[z["org"]].append((z["ev6"], spid))
+    byorg[z["org"]].append((z["ev6d"], spid))
 n_new = 0
 for ab, xs in byorg.items():
-    for k, (_, spid) in enumerate(sorted(xs, reverse=True)[:25]):
+    # each club: its 25 best by value, plus its 10 highest ceilings not already
+    # in (teenagers in the complex leagues price low on six discounted years
+    # but are exactly who gets asked for in trades)
+    top = [sp for _, sp in sorted(xs, reverse=True)[:25]]
+    ceil = [sp for sp in sorted((sp for _, sp in xs), key=lambda sp: -PK["players"][sp]["peak"]) if sp not in top][:10]
+    xs_sorted = sorted(((PK["players"][sp]["ev6d"], sp) for sp in top + ceil), reverse=True)
+    for k, (_, spid) in enumerate(xs_sorted):
         z = PK["players"][spid]; pid = int(spid)
         pos = z["pos"]
         if pid not in have:
@@ -277,7 +283,7 @@ for ab, xs in byorg.items():
             row = [z["name"], pid, ab, 1 if z["kind"] == "P" else 0, z["age"], 0, 0, 0, 6, 0, 1.0, 0.0, grp, dpos, 0, 0]
             players.append(row); have[pid] = row; n_new += 1
         elif not have[pid][2]: have[pid][2] = ab
-        PROS_OUT[spid] = [z["lvl"], z["ev6"], z["y1"], z["line"], k + 1, None]
+        PROS_OUT[spid] = [z["lvl"], z["ev6d"], z["y1"], z["line"], k + 1, None]
 for spid, z in PK["players"].items():
     if int(spid) in have:
         PEAK[spid] = [z["peak"], z["p2"], z["p4"], z["up"], z["y1"], z["lvl"], z["line"],
