@@ -45204,7 +45204,7 @@
   "intl_tops": [],
   "dev": {
    "net": 0.0,
-   "g": 35,
+   "g": null,
    "n": 0,
    "seasons": 1.0,
    "rate": 0.0,
@@ -49393,7 +49393,7 @@
   "intl_tops": [],
   "dev": {
    "net": 0.0,
-   "g": 35,
+   "g": null,
    "n": 0,
    "seasons": 1.0,
    "rate": 0.0,
@@ -80543,7 +80543,7 @@
   "intl_tops": [],
   "dev": {
    "net": 0.0,
-   "g": 35,
+   "g": null,
    "n": 0,
    "seasons": 1.0,
    "rate": 0.0,
