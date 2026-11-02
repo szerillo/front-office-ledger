@@ -27,8 +27,9 @@ def norm(nm):
     s = unicodedata.normalize("NFKD", nm or "").encode("ascii", "ignore").decode()
     return s.lower().replace(".", "").replace(" jr", "").strip()
 
-QOn = {(norm(n), y) for (n, y) in QO}
-QO_CREDIT = 0.0   # v5.9: off with the FA channel's QO charge (the QO table covers ~40% of QOs)
+from fa_grade_lib import norm as _qnorm
+QOn = set(QO)     # keys are fa_grade_lib.norm names (hyphens folded: "shin soo choo")
+QO_CREDIT = 1.0   # v5.9: the compensation pick for a QO walkaway (the QO table is complete for 2012-25)
 BY = {int(k): v for k, v in json.load(open("/work/ages.json")).items()}
 def age_band(pid, yr):
     """v5.9: age at the departure season: <=29, 30-32, 33-35, 36+"""
@@ -166,7 +167,7 @@ for r in res:
         fut = val(pid, names, yr + 1, yr + 3, inside=False)
         exp = expect_age(prior, age_band(pid, yr)) + CENTER
         gap = exp - fut            # positive: departed player did LESS than market expected: good call
-        if (norm(x["person_name"]), yr) in QOn:
+        if (_qnorm(x["person_name"]), yr) in QOn:
             gap += QO_CREDIT; qo_n += 1
         net2 += gap; n2 += 1
         if fut - exp > 1.5:

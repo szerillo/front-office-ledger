@@ -333,30 +333,29 @@ EXT = [
     ("2022-04", "Bryan Reynolds", "PIT", 2, 13.5, None, 2022),
 ]
 
-# Qualifying-offer signings: (normalized player name, offseason year) whose
-# signing club forfeited draft compensation. Confident cases only; re-signing
-# your own QO'd player costs nothing and is excluded by construction.
+# Qualifying-offer signings: (normalized player name, offseason year) for
+# every player who declined a qualifying offer and signed with a NEW club,
+# which forfeited draft compensation (v5.9: complete for the 2012-13 through
+# 2025-26 offseasons, from MLB.com's QO decision history; re-signings with the
+# offering club cost nothing and are excluded). Left out because the signing
+# came after that June's draft, so no pick was forfeited: Kendrys Morales
+# (2013-14), Craig Kimbrel and Dallas Keuchel (2018-19). Before 2012 the
+# Elias Type A/B system governed compensation; it is not modeled.
 QO = {
- ("jason heyward",2015),("justin upton",2015),
- ("dexter fowler",2016),("ian desmond",2016),
- ("jake arrieta",2017),("alex cobb",2017),("lance lynn",2017),
- ("carlos santana",2017),("eric hosmer",2017),
- ("bryce harper",2018),("patrick corbin",2018),
- ("gerrit cole",2019),("anthony rendon",2019),("hyun jin ryu",2019),
- ("madison bumgarner",2019),
- ("george springer",2020),("trevor bauer",2020),
- ("carlos correa",2021),("marcus semien",2021),("corey seager",2021),
- ("robbie ray",2021),("kevin gausman",2021),("trevor story",2021),
- ("nick castellanos",2021),("eduardo rodriguez",2021),
- ("trea turner",2022),("xander bogaerts",2022),("jacob degrom",2022),
- ("carlos rodon",2022),("dansby swanson",2022),("chris bassitt",2022),
- ("blake snell",2023),("matt chapman",2023),("josh hader",2023),
- ("shohei ohtani",2023),("sonny gray",2023),
- ("juan soto",2024),("corbin burnes",2024),("max fried",2024),
- ("willy adames",2024),("alex bregman",2024),("anthony santander",2024),
- ("christian walker",2024),("nick pivetta",2024),("luis severino",2024),
- ("kyle tucker",2025),("dylan cease",2025),("bo bichette",2025),
- ("framber valdez",2025),("ranger suarez",2025),("edwin diaz",2025),
+ ("michael bourn",2012),("josh hamilton",2012),("kyle lohse",2012),("rafael soriano",2012),("nick swisher",2012),("bj upton",2012),
+ ("carlos beltran",2013),("robinson cano",2013),("shin soo choo",2013),("nelson cruz",2013),("jacoby ellsbury",2013),("curtis granderson",2013),("ubaldo jimenez",2013),("brian mccann",2013),("ervin santana",2013),
+ ("melky cabrera",2014),("nelson cruz",2014),("michael cuddyer",2014),("russell martin",2014),("hanley ramirez",2014),("david robertson",2014),("pablo sandoval",2014),("ervin santana",2014),("max scherzer",2014),("james shields",2014),
+ ("wei yin chen",2015),("ian desmond",2015),("zack greinke",2015),("yovani gallardo",2015),("jason heyward",2015),("ian kennedy",2015),("john lackey",2015),("daniel murphy",2015),("jeff samardzija",2015),("justin upton",2015),("jordan zimmermann",2015),
+ ("ian desmond",2016),("edwin encarnacion",2016),("dexter fowler",2016),
+ ("jake arrieta",2017),("lorenzo cain",2017),("alex cobb",2017),("wade davis",2017),("greg holland",2017),("eric hosmer",2017),("lance lynn",2017),("carlos santana",2017),
+ ("patrick corbin",2018),("yasmani grandal",2018),("bryce harper",2018),("aj pollock",2018),
+ ("madison bumgarner",2019),("gerrit cole",2019),("josh donaldson",2019),("marcell ozuna",2019),("anthony rendon",2019),("will smith",2019),("zack wheeler",2019),
+ ("trevor bauer",2020),("george springer",2020),
+ ("nick castellanos",2021),("carlos correa",2021),("freddie freeman",2021),("robbie ray",2021),("eduardo rodriguez",2021),("corey seager",2021),("marcus semien",2021),("trevor story",2021),("noah syndergaard",2021),
+ ("tyler anderson",2022),("chris bassitt",2022),("xander bogaerts",2022),("willson contreras",2022),("jacob degrom",2022),("nathan eovaldi",2022),("carlos rodon",2022),("dansby swanson",2022),("trea turner",2022),
+ ("shohei ohtani",2023),("josh hader",2023),("sonny gray",2023),("blake snell",2023),("matt chapman",2023),
+ ("willy adames",2024),("alex bregman",2024),("corbin burnes",2024),("max fried",2024),("nick pivetta",2024),("luis severino",2024),("anthony santander",2024),("juan soto",2024),("christian walker",2024),
+ ("bo bichette",2025),("dylan cease",2025),("edwin diaz",2025),("ranger suarez",2025),("kyle tucker",2025),("framber valdez",2025),
 }
 
 # CBT/present-value totals for FA deals where deferrals famously diverge

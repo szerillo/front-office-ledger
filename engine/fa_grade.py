@@ -19,10 +19,8 @@ from contracts_recent import RECENT
 from contracts_ext import QO, FA_CBT
 from fa_grade_lib import norm, DPW
 
-QO_CHARGE = 0.0  # v5.9: off. The qualifying-offer table covers about 40% of
-                 # the QOs issued since 2012 (51 of ~135), so charging the draft
-                 # pick forfeited for those 51 and not the rest graded clubs
-                 # unevenly; the charge returns when the table is complete.
+QO_CHARGE = 1.0  # wins: the draft pick forfeited signing another club's QO'd free agent
+                 # (v5.9: QO table complete for the 2012-13 to 2025-26 offseasons)
 MOVE_POP = []   # v5.5: (cost in wins, net) for every graded signing
                  # (second-round-pick value on our pick curve; flat v1)
 
