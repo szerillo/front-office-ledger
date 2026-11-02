@@ -11,7 +11,7 @@ s = open(P).read()
 
 CH_LABEL = {"trade": "Trade", "draft": "Draft pick vs. slot",
             "waiver": "Waiver / Rule 5", "fa": "Free agency vs. contract cost",
-            "intl": "International amateur class", "ext": "Extension vs. class market"}
+            "intl": "International amateur class", "ext": "Extension vs. the path it replaced"}
 def esc(x): return (x or "").replace("\\", "").replace('"', '&quot;').replace("\n", " ")
 
 def build_styles(res):
@@ -72,9 +72,39 @@ def build_styles(res):
 
 STYLES = build_styles(res)
 
+# v5.9: one number per deal. Card trade entries read the trade book's seat
+# value (trade_book.py, the same engine math), so a card, the "every trade"
+# table, the H2H list and the trees agree; and a trade sits under "best" only
+# when positive and under "worst" only when negative (r2 audit items 3, 16).
+_TBX = {}
+_cfg0 = json.load(open("/work/regimes.json"))
+_TID2AB0 = {x["teamId"]: x["abbr"] for x in _cfg0["regimes"]}
+for _d, _seats in json.load(open("/work/trade_book.json"))["trades"]:
+    for _st in _seats:
+        _TBX.setdefault((_d, _st[0]), []).append(_st)
+CUR_TID = [None]
+def tb_net(d):
+    """the trade book's seat value for a card's trade decision, else its own"""
+    if d.get("ch") != "trade" or CUR_TID[0] is None: return d["net"]
+    seats = _TBX.get((d["d"][:10], _TID2AB0.get(CUR_TID[0])), [])
+    pids = {str(p) for p in (d.get("pids") or []) if p}
+    hit = [st for st in seats if pids & {str(p) for p, _ in st[2] + st[3]}]
+    if len(hit) == 1 or (hit and len(seats) == 1): return round(hit[0][1], 1)
+    if not pids and len(seats) == 1: return round(seats[0][1], 1)
+    return d["net"]
+def by_sign(best, worst):
+    """re-sort a channel's best/worst lists by sign, one row per deal"""
+    seen, rows = set(), []
+    for e in best + worst:
+        k = (e["d"], tuple(sorted(e.get("pids") or [])), e.get("h", "")[:60] if not e.get("pids") else "")
+        if k in seen: continue
+        seen.add(k); rows.append(e)
+    b = sorted([e for e in rows if e["war"] > 0], key=lambda e: -e["war"])
+    w = sorted([e for e in rows if e["war"] < 0], key=lambda e: e["war"])
+    return b, w
+
 def trade_note(d):
-    base = (f"Auto-scored: value in {d.get('vin', 0):+0.1f} vs value out {d.get('vout', 0):+0.1f}, "
-            "control windows, leverage-weighted, discounted 10%/yr to the deal date.")
+    base = f"Auto-scored: value in {d.get('vin', 0):+0.1f} vs value out {d.get('vout', 0):+0.1f} (control windows net of salary, 10%/yr discount)."
     a = d.get("att")
     if a and a.get("n_out"):
         gap = d.get("vout", 0) - a["out"]
@@ -89,7 +119,7 @@ def trade_note(d):
     return base
 
 def row(d):
-    r = dict(d=d["d"][:10], war=d["net"], real=True,
+    r = dict(d=d["d"][:10], war=tb_net(d), real=True,
              open=d.get("unsettled", int(d["d"][:4]) >= 2021),
              t=CH_LABEL.get(d["ch"], "") + ("" if d["ch"] != "walk" else " · passive loss, shown for context, not graded"),
              h=esc(d["h"]) + ' <span class="badge-real">COMPUTED</span>')
@@ -107,9 +137,10 @@ def chan_ledgers(r):
     led = r.get("led", {})
     fa = r.get("fa_led", dict(best=[], worst=[]))
     ext_all = r.get("ext_tops", [])
+    _tb, _tw = by_sign([row(d) for d in led.get("trade", {}).get("best", [])],
+                       [row(d) for d in led.get("trade", {}).get("worst", [])])
     return dict(
-        trade=dict(best=[row(d) for d in led.get("trade", {}).get("best", [])],
-                   worst=[row(d) for d in led.get("trade", {}).get("worst", [])]),
+        trade=dict(best=_tb, worst=_tw),
         draft=dict(best=[row(d) for d in led.get("draft", {}).get("best", [])],
                    worst=[row(d) for d in led.get("draft", {}).get("worst", [])]),
         waiver=dict(best=[row(d) for d in led.get("waiver", {}).get("best", [])],
@@ -125,12 +156,13 @@ _START = {x["teamId"]: x["start"] for x in json.load(open("/work/regimes.json"))
 auto = []
 CURATED_FULL = {}
 for r in res:
+    CUR_TID[0] = r["teamId"]
     badge = '<span class="badge-real">COMPUTED</span>'
     best_tr, worst_tr, acq, loss = [], [], [], []
     pool = (list(r["top"]) + list(r.get("fa_tops", [])) + list(r.get("intl_tops", []))
             + list(r.get("ext_tops", [])))
     for d in pool:
-        e = dict(d=d["d"][:10], war=d["net"], real=True,
+        e = dict(d=d["d"][:10], war=tb_net(d), real=True,
                  open=d.get("unsettled", int(d["d"][:4]) >= 2021),
                  t=(CH_LABEL.get(d["ch"], d["ch"]) + ""),
                  h=esc(d["h"]) + " " + badge)
@@ -140,7 +172,7 @@ for r in res:
         if d.get("proj"): e["proj"] = d["proj"]
         if d["ch"] == "trade":
             e["note"] = trade_note(d)
-            (best_tr if d["net"] >= 0 else worst_tr).append(e)
+            (best_tr if e["war"] > 0 else worst_tr if e["war"] < 0 else []).append(e)
         else:
             (acq if d["net"] >= 0 else loss).append(e)
     best_tr.sort(key=lambda x: -x["war"]); worst_tr.sort(key=lambda x: x["war"])
@@ -192,7 +224,7 @@ def swap(s, anchor, end_marker, payload):
     assert j > i, end_marker
     return s[:i] + anchor + payload + s[j:]
 
-s = swap(s, "const AUTO_REGIMES = ", ";\n\n/* =", json.dumps(auto, separators=(",", ":")))
+s = swap(s, "const AUTO_REGIMES = ", ";\n\n/* =", json.dumps(auto, separators=(",", ":"), ensure_ascii=False))
 
 # ---- ARCHIVE (historical) regimes -> LB_HIST, full report cards ----
 import os
@@ -206,11 +238,12 @@ if os.path.exists("/work/hist_results.json"):
             if pts >= thr: return g
         return 30
     for r in hres:
+        CUR_TID[0] = r["teamId"]
         badge = '<span class="badge-real">COMPUTED</span>'
-        pool = list(r["top"])
+        pool = list(r["top"]) + list(r.get("fa_tops", [])) + list(r.get("ext_tops", []))   # v5.9: archive FA and extensions are graded
         best_tr, worst_tr, acq, loss = [], [], [], []
         for d in pool:
-            e = dict(d=d["d"][:10], war=d["net"], real=True,
+            e = dict(d=d["d"][:10], war=tb_net(d), real=True,
                      open=d.get("unsettled", int(d["d"][:4]) >= 2021),
                      t=(CH_LABEL.get(d["ch"], d["ch"]) + " · archive sweep"),
                      h=esc(d["h"]) + " " + badge)
@@ -220,7 +253,7 @@ if os.path.exists("/work/hist_results.json"):
             if d.get("proj"): e["proj"] = d["proj"]
             if d["ch"] == "trade":
                 e["note"] = trade_note(d)
-                (best_tr if d["net"] >= 0 else worst_tr).append(e)
+                (best_tr if e["war"] > 0 else worst_tr if e["war"] < 0 else []).append(e)
             else:
                 (acq if d["net"] >= 0 else loss).append(e)
         best_tr.sort(key=lambda x: -x["war"]); worst_tr.sort(key=lambda x: x["war"])
@@ -243,7 +276,7 @@ if os.path.exists("/work/hist_results.json"):
         suc.update(po=po, sw=sw, pen=pen, ws=ws, g=sgrade(pts))
         fa = r["chan"]["fa"]
         def hrow(d):
-            e = dict(d=d["d"][:10], war=d["net"], real=True, open=d.get("unsettled", int(d["d"][:4]) >= 2021),
+            e = dict(d=d["d"][:10], war=tb_net(d), real=True, open=d.get("unsettled", int(d["d"][:4]) >= 2021),
                      t=CH_LABEL.get(d["ch"], d["ch"]) + (" · archive sweep" if d["ch"] != "walk" else " · passive loss, shown for context, not graded"),
                      h=esc(d["h"]) + ' <span class="badge-real">COMPUTED</span>')
             if d.get("sides"): e["sides"] = [[esc(lbl), [[esc(nm), str(v)] for nm, v in assets]] for lbl, assets in d["sides"]]
@@ -253,41 +286,92 @@ if os.path.exists("/work/hist_results.json"):
             if d["ch"] == "trade": e["note"] = trade_note(d)
             return e
         led = r.get("led", {})
+        _hb, _hw = by_sign([hrow(d) for d in led.get("trade", {}).get("best", [])],
+                           [hrow(d) for d in led.get("trade", {}).get("worst", [])])
         chl = dict(
-            trade=dict(best=[hrow(d) for d in led.get("trade", {}).get("best", [])],
-                       worst=[hrow(d) for d in led.get("trade", {}).get("worst", [])]),
+            trade=dict(best=_hb, worst=_hw),
             draft=dict(best=[hrow(d) for d in led.get("draft", {}).get("best", [])],
                        worst=[hrow(d) for d in led.get("draft", {}).get("worst", [])]),
             waiver=dict(best=[hrow(d) for d in led.get("waiver", {}).get("best", [])],
                         worst=[hrow(d) for d in led.get("waiver", {}).get("worst", [])]),
-            fa=dict(best=[], worst=[]), intl=dict(best=[], worst=[]), ext=dict(best=[], worst=[]),
+            fa=dict(best=[hrow(d) for d in r.get("fa_led", {}).get("best", [])],
+                    worst=[hrow(d) for d in r.get("fa_led", {}).get("worst", [])]),
+            intl=dict(best=[], worst=[]),
+            ext=dict(best=[hrow(d) for d in r.get("ext_tops", []) if d.get("net", 0) >= 0 and d.get("sides")],
+                     worst=[hrow(d) for d in r.get("ext_tops", []) if d.get("net", 0) < 0]),
         )
         flags = r.get("flags", [])
+        # v5.9: the club's name in the seasons this regime ran (Cleveland
+        # Indians for Hart and Shapiro, Tampa Bay Devil Rays for LaMar,
+        # Florida Marlins for Beinfest through 2011); `team` stays the
+        # franchise key the page matches on
+        from era_names import era_team as _era
+        _sd = r.get("startDate") or f'{r["start"]}-01-01'
+        _y0 = int(_sd[:4]) + (1 if int(_sd[5:7]) >= 8 else 0)
+        _y1 = max(_y0, int(str(r.get("endDate") or r["end"])[:4]) - (1 if (r.get("endDate") or "")[5:7] in ("01", "02", "03") else 0))
+        _eras = []
+        for _y in range(_y0, _y1 + 1):
+            _n = _era(r["team"], _y)
+            if _n not in _eras: _eras.append(_n)
+        _team_era = " / ".join(_eras) if _eras else r["team"]
         hist_cards.append(dict(
-            id=r["id"], exec=r["exec"],
+            id=r["id"], exec=r["exec"], teamEra=_team_era,
             title="Head of Baseball Operations · archive regime",
             team=r["team"], start=r["start"], end=r["end"], era="hist",
             startDate=r.get("startDate"), endDate=r.get("endDate"),
             trueStart=r.get("trueStart"), flags=flags,
             seasons=round(r["seasons"], 1), seatSeasons=r.get("seatSeasons"), titles=ws,
             forGrade=r["forGrade"], smallSample=r["seasons"] < 3, realCard=True,
-            realBadge="COMPUTED · ARCHIVE SWEEP · TRADE/DRAFT/WAIVER GRADED; FA SHOWN RAW, DEV/EXT NOT SCORED FOR PAST WINDOWS",
+            realBadge="COMPUTED · ARCHIVE SWEEP · INTERNATIONAL AND RETENTION NOT SCORED",
             success=suc,
             chan=dict(draft=r["chan"]["draft"], trade=r["chan"]["trade"],
-                      fa=dict(net=0.0, g=None, n=fa["n"], raw=fa["net"]),
+                      fa=r["chan"]["fa"],
                       waiver=r["chan"]["waiver"],
-                      intl=dict(net=0.0, g=None, n=0), ext=dict(net=0.0, g=None, n=0)),
+                      intl=dict(net=0.0, g=None, n=0), ext=r["chan"].get("ext") or dict(net=0.0, g=None, n=0)),
             surplus="≈$%dM" % round(r["total"] * 9.2),
             decisions=(r["chan"]["trade"]["n"] + r["chan"]["draft"]["n"]
-                       + r["chan"]["waiver"]["n"] + fa["n"]),
+                       + r["chan"]["waiver"]["n"] + fa["n"] + (r["chan"].get("ext") or {}).get("n", 0)),
             cum=r.get("cum"),
             ledgers=dict(bestTrades=best_tr[:3], worstTrades=worst_tr[:3],
                          bestAcq=acq[:4], losses=loss[:3]),
             chanLedgers=chl,
-            allx=r.get("allx", {}),
+            allx=dict(r.get("allx", {}), fa=r.get("allx_fa", []), ext=r.get("allx_ext", [])),
             walk=[hrow(d) for d in r.get("walk", [])],
         ))
-    s = swap(s, "const LB_HIST = ", ";\n\n/* =", json.dumps(hist_cards, separators=(",", ":")))
+    # v5.9: the archive cards outgrew the deploy limit. Three lossless
+    # compactions, expanded by the page on load (expandHistCards): ledger
+    # entries that repeat a channel-ledger entry become references, the
+    # COMPUTED badge is a token, and the full free-agent list keeps the priced
+    # signings (the unpriced ones are counted)
+    BADGE = ' <span class="badge-real">COMPUTED</span>'
+    for c in hist_cards:
+        idx = {}
+        for ch, sides in c["chanLedgers"].items():
+            for side, lst in sides.items():
+                for i_, e in enumerate(lst): idx.setdefault((e.get("d"), e.get("h")), f"{ch}:{side}:{i_}")
+        for k, lst in c["ledgers"].items():
+            c["ledgers"][k] = [({"ref": idx[(e.get("d"), e.get("h"))]} if (e.get("d"), e.get("h")) in idx else e) for e in lst]
+        def tok(o):
+            if isinstance(o, dict):
+                for kk, vv in o.items():
+                    if kk == "h" and isinstance(vv, str): o[kk] = vv.replace(BADGE, " \u00a7C")
+                    else: tok(vv)
+            elif isinstance(o, list):
+                for vv in o: tok(vv)
+        tok(c["chanLedgers"]); tok(c["ledgers"]); tok(c["walk"])
+        def trim(o):
+            # every archive entry is real data; "open" is only stored when true
+            if isinstance(o, dict):
+                if o.get("real") is True: o.pop("real")
+                if o.get("open") is False: o.pop("open")
+                for vv in o.values(): trim(vv)
+            elif isinstance(o, list):
+                for vv in o: trim(vv)
+        trim(c["chanLedgers"]); trim(c["ledgers"]); trim(c["walk"])
+        fa_rows = c["allx"].get("fa") or []
+        c["allx"]["fa"] = [x for x in fa_rows if len(x) > 2 and x[2] is not None]
+        c["faUnpriced"] = len(fa_rows) - len(c["allx"]["fa"])
+    s = swap(s, "const LB_HIST = ", ";\n\n/* =", json.dumps(hist_cards, separators=(",", ":"), ensure_ascii=False))
     print(f"archive cards: {len(hist_cards)}")
 
 # ---- Deal Desk data pack ----
@@ -309,17 +393,17 @@ champ_cards_g = []
 if os.path.exists("/work/champs_computed.json"):
     champs = json.load(open("/work/champs_computed.json"))
     champ_cards_g = champs["cards"]
-    s = swap(s, "const CHAMPS_AUTO = ", ";\n\n// cross-title", json.dumps(champs["cards"], indent=0))
-    s = swap(s, "const CHAMP_LINES = ", ";\n\nconst ALL_CHAMPS", json.dumps(champs["lines"], indent=0))
+    s = swap(s, "const CHAMPS_AUTO = ", ";\n\n// cross-title", json.dumps(champs["cards"], indent=0, ensure_ascii=False))
+    s = swap(s, "const CHAMP_LINES = ", ";\n\nconst ALL_CHAMPS", json.dumps(champs["lines"], indent=0, ensure_ascii=False))
     print(f"computed champions: {len(champs['cards'])} cards + through lines")
 
 devmap = {r["id"]: dict(r.get("dev", {}), tops=[dict(d=t["d"], war=t["net"], h=esc(t["h"]))
           for t in r.get("dev_tops", [])[:5]]) for r in res if r["id"] in ("lad", "bal", "mil")}
-s = swap(s, "const DEV_MAP = ", ";\nconst devOf", json.dumps(devmap, indent=0))
+s = swap(s, "const DEV_MAP = ", ";\nconst devOf", json.dumps(devmap, indent=0, ensure_ascii=False))
 
 extmap = {r["id"]: dict(r["chan"]["ext"], tops=[dict(d=t["d"], war=t["net"], h=esc(t["h"]))
           for t in r.get("ext_tops", [])[:4]]) for r in res if r["id"] in ("lad", "bal", "mil")}
-s = swap(s, "const EXT_MAP = ", ";\nconst extOf", json.dumps(extmap, indent=0))
+s = swap(s, "const EXT_MAP = ", ";\nconst extOf", json.dumps(extmap, indent=0, ensure_ascii=False))
 
 # player moves / names / ranks
 cfg = json.load(open("/work/regimes.json"))
@@ -359,6 +443,10 @@ if pidset:
          "'Declared Free Agency','Claimed Off Waivers','Rule 5 Selection','Released','Selected') "
          "order by date" % ",".join("?" * len(pidset)))
     seen = set()
+    from feed_text import clean as _ft_clean, garble_score as _ft_score
+    _MV_AT = {}
+    def _trim120(t):
+        return t if len(t) <= 120 else t[:120].rsplit(" ", 1)[0].rstrip(",;: ") + "…"
     for pid, nm, d, tid, ty, desc, ft, tt in con.execute(q, tuple(pidset)):
         pid = str(pid)
         # v5.3.2: a minor-league deal is a real move (Morel to the Mets in July
@@ -368,14 +456,21 @@ if pidset:
             prev = MOVES.get(pid, [])
             if not prev or prev[-1][1] != "Minor-league deal" or n2a(tt) is None: continue
         k = (pid, d, ty)
-        if k in seen: continue
+        # v5.9: duplicate feed rows for one transaction: keep the cleanest
+        # text (feed_text.py), never "traded  to Los Angeles Dodgers for ."
+        _txt = _ft_clean(desc or "", nm, ty if ty != "Minor-league deal" else "Signed as Free Agent", ft, tt)
+        if k in seen:
+            _prev = _MV_AT.get(k)
+            if _prev is not None and _ft_score(_prev[4]) > _ft_score(_txt): _prev[4] = esc(_trim120(_txt))
+            continue
         seen.add(k)
         ab = TID2.get(tid, "?")
         fa_, ta_ = n2a(ft), n2a(tt)
         if ty == "Declared Free Agency" and not fa_: fa_ = ab
         if ty in ("Signed as Free Agent", "Claimed Off Waivers", "Rule 5 Selection") and not ta_: ta_ = ab
         NAMES.setdefault(pid, nm)
-        MOVES.setdefault(pid, []).append([d, ty, fa_, ta_, esc((desc or "")[:120])])
+        MOVES.setdefault(pid, []).append([d, ty, fa_, ta_, esc(_trim120(_txt))])
+        _MV_AT[k] = MOVES[pid][-1]
     for pid in MOVES:
         mlb_sign = {(m[0], m[3]) for m in MOVES[pid] if m[1] == "Signed as Free Agent"}
         MOVES[pid] = [m for m in MOVES[pid] if not (m[1] == "Minor-league deal" and (m[0], m[3]) in mlb_sign)][-24:]   # the most recent moves
@@ -422,12 +517,45 @@ for pid in pidset | tb_pids | allx_pids:
     ly = max(t[0] for t in rec["rows"])
     last = [t for t in rec["rows"] if t[0] == ly][-1]
     FATE[pid] = [last[0], NAME2AB.get(last[1], "")]
+# v5.9: display names as MLB lists them today (Stats API fullName, cached in
+# statsapi_cache/names.json): the feed's names at transaction time drop
+# suffixes ("Ken Griffey" for id 115135, Junior; "Bobby Witt" for Witt Jr.)
+_NM_F = "/work/statsapi_cache/names.json"
+try: _SANM = json.load(open(_NM_F))
+except Exception: _SANM = {}
+try:
+    for _k, _v in json.load(open("/work/statsapi_cache/people.json")).items():
+        if _k != "__asof" and _v.get("name"): _SANM.setdefault(_k, _v["name"])
+except Exception: pass
+_want = sorted({str(p) for p in list(NAMES) + list((TB or {}).get("names", {}))} - set(_SANM))
+if _want:
+    import urllib.request as _ur
+    for _i in range(0, len(_want), 150):
+        try:
+            _r = json.load(_ur.urlopen(_ur.Request("https://statsapi.mlb.com/api/v1/people?personIds=" + ",".join(_want[_i:_i + 150]),
+                                                   headers={"User-Agent": "Mozilla/5.0"}), timeout=60))
+            for _pp in _r.get("people", []): _SANM[str(_pp["id"])] = _pp.get("fullName")
+        except Exception as _e:
+            print("name fetch failed:", _e); break
+    json.dump(_SANM, open(_NM_F, "w"))
+_nfix = 0
+for _k in list(NAMES):
+    if _SANM.get(str(_k)) and NAMES[_k] != _SANM[str(_k)]: NAMES[_k] = _SANM[str(_k)]; _nfix += 1
+if TB is not None:
+    for _k in list(TB["names"]):
+        if _SANM.get(str(_k)) and TB["names"][_k] != _SANM[str(_k)]: TB["names"][_k] = _SANM[str(_k)]; _nfix += 1
+print("names set to MLB's current listing:", _nfix)
 print(f"moves {len(MOVES)} | ranks {len(RANKS)} players | fates {len(FATE)}")
-mv_js = ("const PLAYER_MOVES = " + json.dumps(MOVES, separators=(",", ":"))
-         + ";\nconst PLAYER_NAMES = " + json.dumps(NAMES, separators=(",", ":"))
-         + ";\nconst PLAYER_RANKS = " + json.dumps(RANKS, separators=(",", ":"))
-         + ";\nconst PLAYER_FATE = " + json.dumps(FATE, separators=(",", ":")) + ";\n\n")
-i = s.find("const PLAYER_MOVES = ")
+# v5.9: move types travel as indexes into PLAYER_MOVE_TYPES (expanded on load)
+_MT = sorted({m[1] for ms in MOVES.values() for m in ms})
+_MTI = {t: i for i, t in enumerate(_MT)}
+MOVES = {k: [[m[0], _MTI[m[1]]] + list(m[2:]) for m in ms] for k, ms in MOVES.items()}
+mv_js = ("const PLAYER_MOVE_TYPES = " + json.dumps(_MT, ensure_ascii=False) + ";\nconst PLAYER_MOVES = " + json.dumps(MOVES, separators=(",", ":"), ensure_ascii=False)
+         + ";\nconst PLAYER_NAMES = " + json.dumps(NAMES, separators=(",", ":"), ensure_ascii=False)
+         + ";\nconst PLAYER_RANKS = " + json.dumps(RANKS, separators=(",", ":"), ensure_ascii=False)
+         + ";\nconst PLAYER_FATE = " + json.dumps(FATE, separators=(",", ":"), ensure_ascii=False)
+         + ";\nfor(const _k in PLAYER_MOVES) PLAYER_MOVES[_k].forEach(m => { if(typeof m[1] === 'number') m[1] = PLAYER_MOVE_TYPES[m[1]]; });\n\n")
+i = s.find("const PLAYER_MOVE_TYPES = ") if "const PLAYER_MOVE_TYPES = " in s else s.find("const PLAYER_MOVES = ")
 assert i >= 0
 tail_anchor = "const PLAYER_FATE" if "const PLAYER_FATE" in s else "const PLAYER_RANKS"
 j = s.find("\n\n", s.find(tail_anchor, i))
@@ -435,7 +563,7 @@ s = s[:i] + mv_js + s[j+2:]
 _KEEP = ("chan", "chanLedgers", "allx", "cum", "decisions", "seasons", "forGrade", "surplus", "walk", "h2h",
          "startDate", "dna", "dnaTags", "start", "titles", "success")
 _cx = {k: {f: v[f] for f in _KEEP if f in v} for k, v in CURATED_FULL.items()}
-cx_js = "const CURATED_EXTRA = " + json.dumps(_cx, separators=(",", ":")) + ";\nREGIMES.forEach(r => { const x = CURATED_EXTRA[r.id]; if(x){ Object.assign(r, x); r.realBadge = 'COMPUTED · FULL LEDGER · WITH HAND-WRITTEN SHOWCASE DECISIONS'; } });\n"
+cx_js = "const CURATED_EXTRA = " + json.dumps(_cx, separators=(",", ":"), ensure_ascii=False) + ";\nREGIMES.forEach(r => { const x = CURATED_EXTRA[r.id]; if(x){ Object.assign(r, x); r.realBadge = 'COMPUTED · FULL LEDGER · WITH HAND-WRITTEN SHOWCASE DECISIONS'; } });\n"
 k = s.find("const CURATED_EXTRA = ")
 if k >= 0:
     s = s[:k] + cx_js + s[s.find("});\n", s.find("REGIMES.forEach(r => { const x = CURATED_EXTRA", k)) + 4:]
@@ -443,7 +571,7 @@ else:
     k = s.find("const PLAYER_MOVES = ")
     s = s[:k] + cx_js + s[k:]
 if TB is not None:
-    tb_js = "const TRADE_BOOK = " + json.dumps(TB, separators=(",", ":")) + ";\n"
+    tb_js = "const TRADE_BOOK = " + json.dumps(TB, separators=(",", ":"), ensure_ascii=False) + ";\n"
     k = s.find("const TRADE_BOOK = ")
     if k >= 0:
         s = s[:k] + tb_js + s[s.find(";\n", k) + 2:]
@@ -495,7 +623,7 @@ def _bands(pairs, nb=5):
         out.append([seg[-1][0] if b < nb - 1 else 9999, q, len(seg)])
     return out
 MOVE_BANDS = {k: _bands(v) for k, v in _pop.items() if v}
-s = _re.sub(r"const MOVE_BANDS = .*?;\n", lambda m: "const MOVE_BANDS = " + json.dumps(MOVE_BANDS, separators=(",", ":")) + ";\n", s, count=1, flags=_re.S)
+s = _re.sub(r"const MOVE_BANDS = .*?;\n", lambda m: "const MOVE_BANDS = " + json.dumps(MOVE_BANDS, separators=(",", ":"), ensure_ascii=False) + ";\n", s, count=1, flags=_re.S)
 print("move bands:", {k: [b[2] for b in v] for k, v in MOVE_BANDS.items()})
 # v5.4: readers know the metric as Ledger WAR; "LVM" was internal shorthand
 import re
