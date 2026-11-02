@@ -2,9 +2,25 @@
 
 A decision-level accounting system for sports front offices. Every draft pick, trade, signing, and waiver claim, graded against the market expectation for that transaction type and attributed to the executive regime that made it. Inspired by OOTP's Decision History screen; built for real MLB data first, schema designed to extend to other leagues.
 
+## v5.9 the adversarial review (November 2026)
+
+Three reviewers tried to break the site (facts, page, methodology); every finding is logged with its fix in `docs/methodology-v32-addendum.md` (v5.9). The engine changes:
+
+- **Extensions own only free-agent seasons.** The seasons a club already controls stay with the decision that acquired the player (draft, trade, international signing); the extension is graded on its salary against the arbitration path it replaced and on the free-agent seasons it bought, centered by service class. The Cabrera, Rizzo and Lindor trades no longer lose their controlled seasons to the extension that followed.
+- **No leverage weight in grades.** The win-curve weight charged sellers at the buyer's leverage and moved value from bad clubs to good ones by construction; grades are unweighted, leverage stays in the forward tools.
+- **Arbitration salaries are charged in trades and waiver claims**; free-agent money is priced by contract year and deal size everywhere (trades, free agency, the Desk); posting fees count.
+- **Open trades carry the at-the-time expectation of prospects** not yet in the majors, fading as real seasons replace it (calibrated on 2011-2018 trades), so recent sellers and buyers are not graded on half a ledger.
+- **Control is dated from the MLB debut** (a mid-season debut runs control one season longer); trade windows run to the end of control; the draft is centered by class; draft credit ends at a release.
+- **Archive regimes are graded on free agency and extensions**; interim GMs who traded are listed; the Mozeliak start is fixed; Rule 5 conduits and two missing blockbuster returns (Cliff Lee 2009, Victor Martinez 2009) are repaired.
+- **Retention is age-conditioned and excludes rentals**; the qualifying-offer charge/credit is off until the QO table is complete.
+- **One grading curve:** rates shrink toward average by two seasons, and every channel's letter is read in units of that channel's spread (A+ is the top ~5% of its channel).
+- **Forward tools:** projections carry age attrition; Desk letters are pricing grades; the assistant GM prices the luxury tax; the Scenario Room's hindsight comes from the trade book.
+
+Page fixes: shareable URLs for every view, persisted theme, accessible names, Escape closes overlays, Desk and Simulator input bounds, accent-insensitive search, current clubs and statuses for every player (MLB Stats API), same-name contract merges resolved, era-correct club names. Tests: `tests/t_ui2.mjs`, `tests/t_consistency.mjs`.
+
 ## v5.8 the pre-public audit (November 2026)
 
-Four independent reviews (facts, engine math, page, forward tools) before wider promotion. One contract book with an ownership rule (a later contract owns its seasons) removes the double counts between trades, extensions, drafts and free agency; traded players are graded as assets (flips included); salary is charged in one unit; free agency is graded by contract year; pre-2009 waivers are two-sided; the predictive validation was corrected for look-ahead and now reports a weak signal honestly; projections are rate times playing time; the assistant GM and Deal Desk follow the CBA and the payroll; the 2026 draft class is on the boards. Details: `docs/methodology-v32-addendum.md` (v5.8); tests: `tests/t_consistency.mjs`.
+Four independent reviews (facts, engine math, page, forward tools) before wider promotion. One contract book with an ownership rule (a later contract owns its seasons) removes the double counts between trades, extensions, drafts and free agency; traded players are graded as assets (flips included); salary is charged in one unit; free agency is graded by contract year; pre-2009 waivers are two-sided; the predictive validation was corrected for look-ahead (v5.9: it shows no out-of-sample predictive gain, reported as such); projections are rate times playing time; the assistant GM and Deal Desk follow the CBA and the payroll; the 2026 draft class is on the boards. Details: `docs/methodology-v32-addendum.md` (v5.8); tests: `tests/t_consistency.mjs`.
 
 ## v5.7 positional credit, salary in trades, full lists (November 2026)
 
@@ -85,7 +101,7 @@ Every computed number on the site was re-derived by independent checks and the f
 
 **28 CHAMPIONSHIP LEDGERS (v3.3):** every WS winner 1998-2025, each roster piece clickable into its onward chain. The era through-line: median title core 48% self-built 1998-2009, 90% 2010-2025. The inherited-core championship is going extinct. *(Corrected in v5.0.1: with 29 titles and the v4.8 roster accounting the split is 48% vs 74%, and seven of seventeen titles since 2010 came on majority-inherited cores, so the 'extinct' reading is withdrawn.)*
 
-**VALIDATION v2 (v3.3):** predictive study pooled over 574 regime-years from 112 regimes; partial r 0.276 with cluster-bootstrap 95% CI [0.16, 0.37]; grouped 5-fold CV lifts out-of-sample R2 0.184 -> 0.245 on held-out regimes. Accounting (2015-2025 full-coverage era): r = 0.853, MAE 5.3 wins. `engine/validation.py`.
+**VALIDATION v2 (v3.3):** predictive study pooled over regime-years from 112 regimes. *(Superseded: the v3.3 figures, partial r 0.276 and an out-of-sample lift, came from a predictor that leaked later seasons; corrected in v5.8, and in v5.9 the corrected study shows no out-of-sample predictive gain. See `data/validation.json`.)* Accounting (2015-2025 full-coverage era): r = 0.853, MAE 5.3 wins. `engine/validation.py`.
 
 **COMPS v2 + SHAREABILITY (v3.3):** trade comps matched on control bucket + buyer posture; OG/Twitter cards with generated preview image, favicon, first-visit intro, mobile pass.
 
