@@ -127,9 +127,9 @@ for r in res:
     net = p["real"] - p["exp"]
     r["chan"]["intl"] = dict(net=round(net, 1), g=grade(net / r["seasons"]), n=p["n"])
     tops = sorted(p["tops"], key=lambda t: -t[0])[:5]
-    r["intl_tops"] = [dict(d=dt, ch="intl", net=round(v, 1),
+    r["intl_tops"] = [dict(d=dt, ch="intl", net=round(v, 1), st=0.5,
                            h=f"Int'l amateur signing: {nm} ({y} class)",
-                           sides=[["Realized on signing org (class year +10)", [[nm, f"{v:+.1f}"]]],
+                           sides=[["Produced in his six control seasons (any club)", [[nm, f"{v:+.1f}"]]],
                                   ["Class baseline", [["league class value over 30 clubs, near-equal pools", "shared"]]]],
                            pids=[pp])
                       for v, y, nm, pp, dt in tops if v >= 0.5]
@@ -139,4 +139,5 @@ for r in res:
     print(f"{r['abbr']:<6}{net:>+9.1f}{p['real']:>8.1f}{p['exp']:>7.1f}{p['n']:>5}   {best}")
 
 json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
+json.dump({"intl": [[0.5, round(v, 2)] for (_t, _y, _p, _n, v, _d) in ifa]}, open("/work/move_pop_intl.json", "w"))
 print("\nmerged chan.intl into sweep_results.json")

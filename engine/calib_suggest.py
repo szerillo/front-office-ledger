@@ -109,7 +109,8 @@ def suggest(r, hist):
         if c["pit"] != r["pit"]: continue   # hard filter: same player type only
         cBlend = c["p1"] * 0.65 + c["p2"] * 0.35
         cPeak = max(c["p1"], c["p2"])
-        s = abs(cBlend - pBlend) * 1.0 + abs(cPeak - pPeak) * 0.5 + abs(c["age"] - r["age"]) * 0.45
+        # v5.5: the market of today: each winter between comp and player adds 0.05
+        s = abs(cBlend - pBlend) * 1.0 + abs(cPeak - pPeak) * 0.5 + abs(c["age"] - r["age"]) * 0.45 + 0.05 * (r["off"] - c["off"])
         scored.append((s, c, cBlend))
     scored.sort(key=lambda x: x[0])
     comps8 = scored[:8]
@@ -127,6 +128,8 @@ def suggest(r, hist):
     if comps:
         adj = [(c["tot"] / c["yrs"]) * (DPWH[yr1] / DPWH[min(c["off"] + 1, 2026)]) for c in comps]
         mktY = int(median(sorted(c["yrs"] for c in comps)))
+        if pBlend >= 3.0:   # v5.5: regulars get the 30th-percentile comp term (the median ran long)
+            ys = sorted(c["yrs"] for c in comps); mktY = ys[min(len(ys) - 1, int(0.3 * (len(ys) - 1) + 0.5))]
         mktAAV = median(adj)
     else:
         mktY, mktAAV = 3, DPWH[yr1]
@@ -148,7 +151,7 @@ def suggest(r, hist):
     ped = max(v * (0.88 ** k) for k, v in enumerate([r["p1"], r["p2"], r["p3"], r["p4"], r["p5"]]))
     eff = max(per[0], ped * (0.62 + 0.25 * young))
     gate = 2.8 if r["pit"] else 3.2
-    w = max(0.0, min(1.0, (eff - gate) / 2.5))
+    w = max(0.0, min(0.6, (eff - gate) / 2.5))   # v5.5: the model never outweighs the market
     yW = max(w, max(0.0, min(1.0, (eff - 2.1) / 2.7)))
     cap = max(2, min(13, 11 - (agesign - 26) - (1 if r["pit"] else 0) + round(2 * w)))
     fairY = 1
@@ -161,13 +164,12 @@ def suggest(r, hist):
     for i in range(fairY):
         v = max(per[i], base * (0.93 ** i)) if w > 0.3 else per[i]
         v = v if v <= 4.5 else 4.5 + (v - 4.5) * 0.7
-        conv = 1.0 + 0.45 * min(max(0.0, v - 3.5), 3.0) / 3.0
+        conv = 1.0   # v5.5: elite premium removed (backtest: $200M+ offers ran 25% rich)
         fairT += v * DPWH[yr1] * pm * conv * (geff ** max(0, i - 1))
     sugY = round((1 - yW) * mktY + yW * fairY)
     sugAAV = (1 - w) * mktAAV + w * fairT / max(fairY, 1)
     sugT = sugAAV * sugY
-    if w >= 0.5:
-        sugY = min(cap + 2, sugY + round(3 * w * (0.5 + 0.5 * young)))  # total unchanged
+    # v5.5: no extra "spread" years for stars (backtest: $200M+ offers ran 2.7 years long)
     return mktY, mktT, fairY, fairT, sugY, sugT
 
 # walk forward

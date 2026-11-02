@@ -24,6 +24,7 @@ level, not yet in the sweep); LVM gaps as documented in ledger_war.py.
 """
 from era_names import draft_day
 from asset_rules import control_value, draft_maturity
+MOVE_POP = {"waiver": [], "draft": []}
 import json, math, sqlite3, sys
 from collections import defaultdict
 from tradegroup import dedupe_rows, group_trades
@@ -270,9 +271,10 @@ for reg in cfg["regimes"]:
             v = val(r["person_id"], names if claim else club_names(r["to_team"]), yr, yr+3, inside=True)
             net = v if claim else -v
             wv_net += net; n_wv += 1; ynet[yr] += net
+            MOVE_POP["waiver"].append([0.5, round(net, 2)])
             dna["waiver"][ptype(r["person_id"])] += net
             if abs(net) > 0.05:
-                decs.append(dict(d=r["date"], ch="waiver", net=round(net,1),
+                decs.append(dict(d=r["date"], ch="waiver", net=round(net,1), st=0.5,
                                  h=(r["description"] or "waiver claim")[:110],
                                  sides=[[("Claimed · 3-yr value on club" if claim else "Lost on waivers · 3-yr value elsewhere"),
                                          [[r["person_name"] or "?", f"{net:+.1f}"]]],
@@ -329,7 +331,7 @@ for reg in cfg["regimes"]:
                       [[nm, f"{v:+.1f}"] for (_, nm, v) in sorted(ins_det, key=lambda t: -t[2])] or [["(no valued players)", "0.0"]]],
                      ["Surrendered · value realized on " + (", ".join(dests) if dests else "counterparty"),
                       [[nm, f"{-v:+.1f}"] for (_, nm, _, v) in sorted(out_det, key=lambda t: -t[3])] or [["(no valued players)", "0.0"]]]]
-            decs.append(dict(d=d, ch="trade", net=round(net,1), h=(desc or "trade")[:220],
+            decs.append(dict(d=d, ch="trade", net=round(net,1), st=round(max(abs(vin), abs(vout)), 2), h=(desc or "trade")[:220],
                              vin=round(vin,1), vout=round(vout,1), sides=sides, att=att,
                              pids=[p for (p, _, _) in ins_det] + [p for (p, _, _, _) in out_det]))
     # draft
@@ -351,9 +353,10 @@ for reg in cfg["regimes"]:
         exp = slot_expectation(pk) * draft_maturity(yr) * (0.5 if unsigned else 1.0)
         dr_real += realized; dr_exp += exp
         net = realized - exp; ynet[yr] += net
+        MOVE_POP["draft"].append([round(exp, 2), round(net, 2)])
         dna["draft"][ptype(p["person_id"])] += net
         if abs(net) >= 1.2:
-            decs.append(dict(d=draft_day(yr), ch="draft", net=round(net,1),
+            decs.append(dict(d=draft_day(yr), ch="draft", net=round(net,1), st=round(exp, 2),
                              h=f"Drafted {p['person_name']} (#{pk} overall, {yr})",
                              sides=[["Produced in his six control seasons", [[p["person_name"] + " · with this club", f"{realized_here:+.1f}"]]
                                      + ([[ "· for other clubs after a trade or move (graded in that decision)", f"{realized - realized_here:+.1f}"]] if abs(realized - realized_here) >= 0.05 else [])],
@@ -391,4 +394,6 @@ for reg in cfg["regimes"]:
           f"| FA raw {fa_raw:+.1f} (ungraded) | total {total:+.1f} over {seasons} yrs", flush=True)
 
 json.dump(results, open("/work/sweep_results.json", "w"), indent=1)
+# v5.5: every decision of each kind, for grading single moves against moves of their size
+json.dump(MOVE_POP, open("/work/move_pop_sweep.json", "w"))
 print("WROTE sweep_results.json", flush=True)

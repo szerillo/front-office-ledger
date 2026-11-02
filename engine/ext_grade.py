@@ -100,6 +100,7 @@ def grade_comp(nps):
 
 res = json.load(open("/work/sweep_results.json"))
 per = defaultdict(lambda: dict(net=0.0, n=0, decs=[]))
+MOVE_POP = []   # v5.5: (cost in wins, net) for every graded extension
 skipped = []
 
 for _e in EXT:
@@ -137,7 +138,8 @@ for _e in EXT:
         continue
     per[tid]["net"] += n; per[tid]["n"] += 1
     cbtnote = f", CBT ${use_tot:.0f}M" if cbt else ""
-    per[tid]["decs"].append(dict(d=sign_date, ch="ext", net=round(n, 1),
+    MOVE_POP.append([round(implied, 2), round(n, 2)])
+    per[tid]["decs"].append(dict(d=sign_date, ch="ext", net=round(n, 1), st=round(implied, 2),
         h=f"Extended {player} · {yrs} yr / ${tot:.1f}M ({cls} market{cbtnote})",
         sides=[["Production (LVM on club, covered seasons)", [[player, f"{realized:+.1f}"]]],
                [f"Cost vs {cls} extension market", [[f"${use_tot:.0f}M over {yrs} yr at {int(DISC[cls]*100)}% of market $/win", f"{-implied:+.1f}"]]]],
@@ -160,5 +162,6 @@ for r in res:
     print(f"{r['abbr']:<6}{(p['net'] if covered else 0):>+9.1f}{p['n']:>4}   {names}")
 
 json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
+json.dump({"ext": MOVE_POP}, open("/work/move_pop_ext.json", "w"))
 print("\nmerged chan.ext into sweep_results.json")
 for s in skipped: print("  skipped (outside regime):", s)

@@ -20,6 +20,7 @@ from contracts_ext import QO, FA_CBT
 from fa_grade_lib import norm, DPW
 
 QO_CHARGE = 1.0  # wins: draft-comp forfeited signing a QO'd free agent
+MOVE_POP = []   # v5.5: (cost in wins, net) for every graded signing
                  # (second-round-pick value on our pick curve; flat v1)
 
 POS = json.load(open("/work/positions.json"))
@@ -103,7 +104,8 @@ for r in res:
         fasides = [["Production (LVM on club, elapsed seasons)", [[x["person_name"], f"{realized:+.1f}"]]],
                    ["Contract cost in wins" + (" (QO draft comp included)" if (pn, off) in QO else ""),
                     [[f"${tot:.0f}M over {yrs} yr at market $/win", f"{-(implied + (QO_CHARGE if (pn, off) in QO else 0)):+.1f}"]]]]
-        decs.append(dict(d=x["date"], ch="fa", net=round(n, 1),
+        MOVE_POP.append([round(implied, 2), round(n, 2)])
+        decs.append(dict(d=x["date"], ch="fa", net=round(n, 1), st=round(implied, 2),
                          h=f"Signed {x['person_name']} · {yrs} yr / ${tot:.1f}M ({off}-{str(off+1)[2:]} winter, {src}{note})",
                          sides=fasides, pids=[x["person_id"]]))
     covered = matched >= 8
@@ -124,4 +126,5 @@ for r in res:
     print(f"{r['abbr']:<5}{(net if covered else 0):>+8.1f}{matched:>9}{len(majors):>8}   {best} / worst {worst:+.1f}")
 
 json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
+json.dump({"fa": MOVE_POP}, open("/work/move_pop_fa.json", "w"))
 print("\nmerged graded FA into sweep_results.json")
