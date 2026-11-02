@@ -275,4 +275,4 @@ print("\nmerged chan.ext into sweep_results.json and hist_results.json")
 
 # v5.9: per-deal summary (methodology chart + audit)
 json.dump([dict(p=e["player"], ab=e["ab"], s=e["sign"], cls=e["cls"], yrs=e["yrs"], tot=e["tot"], net=round(e["net"], 2),
-                pf=e.get("proj_final"), n=len(e["seasons"])) for e in EVAL], open("/work/ext_eval.json", "w"))
+                pf=e.get("proj_final"), n=len(e["seasons"]), pid=e["pid"], cost=round(e["cost"], 2)) for e in EVAL], open("/work/ext_eval.json", "w"))
