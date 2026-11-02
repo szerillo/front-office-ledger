@@ -78,10 +78,11 @@ def trade_note(d):
     a = d.get("att")
     if a and a.get("n_out"):
         gap = d.get("vout", 0) - a["out"]
-        verdict = ("the pieces outperformed their marks, bad luck more than bad process" if gap > 2.5
-                   else "the pieces underperformed their marks, the process was better than the outcome" if gap < -2.5
-                   else "the outcome tracked the marks, this one is on the process")
-        base += (f" PROCESS CHECK: the {a['n_out']} ranked piece(s) surrendered carried a Pipeline mark of about "
+        verdict = ("they beat their marks, so the deal cost more than a fair read at the time expected" if gap > 2.5
+                   else "they fell short of their marks, so the outcome flatters the process" if gap < -2.5
+                   else "they did about what their marks said")
+        _n = a['n_out']
+        base += (f" PROCESS CHECK: the {_n} ranked {'piece' if _n == 1 else 'pieces'} surrendered carried a Pipeline mark of about "
                  f"{a['out']:+0.1f} wins at the time; they realized {d.get('vout', 0):+0.1f} for the counterparty, so {verdict}.")
     if a and a.get("n_in"):
         base += f" Acquired ranked pieces were marked {a['inn']:+0.1f} at the time."
@@ -148,10 +149,10 @@ for r in res:
     auto.append(dict(
         id=r["id"], exec=r["exec"], startDate=_START.get(r["teamId"]),
         title="Head of Baseball Operations" + (" (interim)" if "interim" in flags else ""),
-        team=r["team"], start=r["start"], seasons=round(r["seasons"]),
+        team=r["team"], start=r["start"], seasons=round(r["seasons"], 1), seatSeasons=r.get("seatSeasons"), flags=flags,
         titles=r.get("titles", 0),
         forGrade=r["forGrade"], smallSample=r["seasons"] < 3, realCard=True,
-        realBadge="COMPUTED · FULL LEDGER · THROUGH OCT 2026",
+        realBadge="COMPUTED · FULL LEDGER · THROUGH THE 2026 SEASON",
         success=dict(wpct=r["success"]["wpct"], div=r["success"]["div"],
                      po=r["success"].get("po"), sw=r["success"].get("sw"),
                      pen=r["success"].get("pen"), ws=r["success"].get("ws"),
@@ -223,10 +224,12 @@ if os.path.exists("/work/hist_results.json"):
         acq.sort(key=lambda x: -x["war"]); loss.sort(key=lambda x: x["war"])
         # postseason detail over seasons held
         sd, ed = r["startDate"], r["endDate"]
-        s_first = r["start"] + (1 if sd[5:7] > "07" else 0)
-        s_last = r["end"] - (1 if ed[5:7] < "04" else 0)
+        # October belongs to whoever held the seat when the season ended (v5.4)
+        from regime_window import record as _rec
+        _octs = _rec(r["teamId"], sd, ed, {})[3]
+        s_first, s_last = (min(_octs), max(_octs)) if _octs else (1, 0)
         po = sw = pen = ws = 0
-        for y in range(s_first, s_last + 1):
+        for y in _octs:
             rec = PS.get(f'{r["teamId"]}:{y}')
             if rec:
                 po += rec["berth"]; sw += rec["sw"]; pen += rec["pennant"]; ws += rec["ws"]
@@ -263,7 +266,7 @@ if os.path.exists("/work/hist_results.json"):
             team=r["team"], start=r["start"], end=r["end"], era="hist",
             startDate=r.get("startDate"), endDate=r.get("endDate"),
             trueStart=r.get("trueStart"), flags=flags,
-            seasons=round(r["seasons"], 1), titles=ws,
+            seasons=round(r["seasons"], 1), seatSeasons=r.get("seatSeasons"), titles=ws,
             forGrade=r["forGrade"], smallSample=r["seasons"] < 3, realCard=True,
             realBadge="COMPUTED · ARCHIVE SWEEP · TRADE/DRAFT/WAIVER GRADED; FA SHOWN RAW, DEV/EXT NOT SCORED FOR PAST WINDOWS",
             success=suc,
@@ -362,7 +365,9 @@ if pidset:
         if ty in ("Signed as Free Agent", "Claimed Off Waivers", "Rule 5 Selection") and not ta_: ta_ = ab
         NAMES.setdefault(pid, nm)
         MOVES.setdefault(pid, []).append([d, ty, fa_, ta_, esc((desc or "")[:120])])
-    for pid in MOVES: MOVES[pid] = MOVES[pid][-24:]      # the most recent moves, not the oldest
+    for pid in MOVES:
+        mlb_sign = {(m[0], m[3]) for m in MOVES[pid] if m[1] == "Signed as Free Agent"}
+        MOVES[pid] = [m for m in MOVES[pid] if not (m[1] == "Minor-league deal" and (m[0], m[3]) in mlb_sign)][-24:]   # the most recent moves
 ranks_all = json.load(open("/work/prospect_ranks.json"))
 RANKS = {}
 for rr in ranks_all:
@@ -437,5 +442,8 @@ for _r in res:
     _t = _re.compile(r"titles:\d+").search(s, _i)
     s = s[:_t.start()] + "titles:%d" % _su["ws"] + s[_t.end():]
     print("curated success synced:", _r["id"], _lit)
+# v5.4: readers know the metric as Ledger WAR; "LVM" was internal shorthand
+import re
+s = re.sub(r"\bLVM\b", "WAR", s)
 open(P, "w").write(s)
 print(f"regenerated {len(auto)} auto regimes (v3 data)")
