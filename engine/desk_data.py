@@ -300,7 +300,10 @@ if not DECL:      # feed unreachable: fall back to the Nov 1 snapshot
 json.dump({str(k): v for k, v in DECL.items()}, open("/work/fa_declared_2026.json.tmp", "w"))
 byid = {p[1]: p for p in players}
 for pid, d in DECL.items():
-    if pid in byid: STATUS[pid] = ["fa", f"filed for free agency {d}"]
+    if pid in byid:
+        import datetime as _dt
+        _d = _dt.date.fromisoformat(d[:10])
+        STATUS[pid] = ["fa", f"filed {_d.strftime('%b')} {_d.day}"]
 for nm, why in W.FA.items():
     p = P_(nm)
     if p: STATUS[p[1]] = ["fa", why]
