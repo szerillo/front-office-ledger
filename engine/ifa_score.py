@@ -14,7 +14,8 @@ Classification (automated, documented):
   The under-25 pool rule (2017+) is why the age cap sits above 18: Cuban
   and Asian amateur-classified pros land in the pool too.
 
-Scoring: realized = LVM while on the signing org (class year +10 cap);
+Scoring: realized = value in the player's six control seasons, wherever he
+played them (v5.5 asset accounting; a later trade is graded in the trade);
 baseline = league class value over 30 clubs; regime net = sum over classes.
 Known gaps: value-relevant signees only (kids without MLB time count as
 volume, not value); signing dates are as-filed; posting-system pros with
@@ -23,6 +24,7 @@ major-league deals (Ohtani, Yamamoto) are NOT here, they stay in FA-major.
 Merges chan.intl into sweep_results.json in place.
 """
 import json
+from asset_rules import control_value
 def grade_comp_ifa(nps):
     for thr, g in [(8.0,80),(5.5,75),(3.5,70),(2.2,65),(1.2,60),(0.4,55),
                    (-0.4,50),(-1.2,45),(-2.2,40),(-3.5,35)]:
@@ -78,7 +80,9 @@ for r in rows:
     if a > 23.0: continue
     tid = r["team_id"]; names = ALIAS.get(tid, {REG[tid]["team"]})
     yr = int(r["date"][:4])
-    realized = sum(v for (y, tm, v) in LVM[pid]["rows"] if tm in names and yr <= y <= yr + 10)
+    # v5.5 asset accounting (asset_rules.py): six control seasons, any club;
+    # a signee later traded is graded once, in the trade
+    realized = control_value(LVM[pid])
     ifa.append((tid, yr, pid, r["person_name"], round(realized, 2), r["date"]))
 print(f"classified IFA signings (value-relevant): {len(ifa)}", flush=True)
 

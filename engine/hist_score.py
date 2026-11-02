@@ -22,6 +22,7 @@ started earlier are truncated and flagged, with trueStart shown.
 Writes hist_results.json.
 """
 from era_names import draft_day
+from asset_rules import control_value, draft_maturity
 import json, math, os, sqlite3
 from collections import defaultdict
 from tradegroup import dedupe_rows, group_trades
@@ -264,14 +265,20 @@ for i, reg in enumerate(REGS):
         yr = int(p["year"]); pk = int(p["pick_overall"])
         later = REDRAFT.get(str(p["person_id"]), ())
         unsigned = any(y2 > yr for y2 in later)
-        realized = 0.0 if unsigned else val(p["person_id"], names, yr, END_YEAR, inside=True)
-        exp = slot_expectation(pk) * maturity(yr) * (0.5 if unsigned else 1.0)
+        # v5.5 asset accounting (asset_rules.py): the pick is worth what the
+        # player produced in his six control seasons, wherever he played them;
+        # a later trade is graded in the trade channel, never here as well
+        _prec = LVM.get(int(p["person_id"])) if p["person_id"] else None
+        realized = 0.0 if unsigned else control_value(_prec)
+        realized_here = 0.0 if unsigned else control_value(_prec, names)
+        exp = slot_expectation(pk) * draft_maturity(yr) * (0.5 if unsigned else 1.0)
         dr_real += realized; dr_exp += exp
         net = realized - exp; ynet[yr] += net
         if abs(net) >= 1.5:
             decs.append(dict(d=draft_day(yr), ch="draft", net=round(net,1),
                              h=f"Drafted {p['person_name']} (#{pk} overall, {yr})",
-                             sides=[["Realized on club", [[p["person_name"], f"{realized:+.1f}"]]],
+                             sides=[["Produced in his six control seasons", [[p["person_name"] + " · with this club", f"{realized_here:+.1f}"]]
+                                     + ([[ "· for other clubs after a trade or move (graded in that decision)", f"{realized - realized_here:+.1f}"]] if abs(realized - realized_here) >= 0.05 else [])],
                                     ["Slot expectation", [[f"pick #{pk}, maturity-adjusted", f"{-exp:+.1f}"]]]],
                              pids=[p["person_id"]]))
     dr_net = dr_real - dr_exp
