@@ -2,6 +2,10 @@
 
 A decision-level accounting system for sports front offices. Every draft pick, trade, signing, and waiver claim, graded against the market expectation for that transaction type and attributed to the executive regime that made it. Inspired by OOTP's Decision History screen; built for real MLB data first, schema designed to extend to other leagues.
 
+## v5.7 positional credit, salary in trades, full lists (November 2026)
+
+Ledger WAR now weights positional credit by games actually played at each position (Arraez, a first baseman and DH, drops from 3.0 to 1.3 in 2025). Trades are graded net of the guaranteed salary that came with each player, with publicly reported cash where it is known (Arenado to Arizona). Report cards list every draft pick, free-agent signing, extension, international signing, waiver move and walk, sortable. The Scenario Room plays the archive blind, grades process only, and adds a live Winter 2027 pack; the assistant GM recommends natural fits ranked by depth-chart gain. Details: `docs/methodology-v32-addendum.md` (v5.7).
+
 ## v5.6 the market model (November 2026)
 
 Every projected contract now blends the comps-and-projection rules with a gradient-boosted market model trained on 1,581 real free-agent deals and the box-score lines the market saw (`engine/contract_model.py`), moved to today's market. Walk-forward backtest on 1,029 signings: typical miss 0.66 years / $3.0M AAV / $13.6M total. The international channel now counts every amateur signing, not only future big leaguers. Details: `docs/methodology-v32-addendum.md` (v5.6).
