@@ -17,7 +17,7 @@
     "n": 111
    },
    "draft": {
-    "net": 5.5,
+    "net": 7.3,
     "g": 60,
     "n": 63
    },
@@ -39,8 +39,8 @@
     "n": 4
    },
    "intl": {
-    "net": -5.8,
-    "g": 45,
+    "net": -9.5,
+    "g": 40,
     "n": 9
    },
    "ret": {
@@ -79,7 +79,7 @@
     ]
    }
   },
-  "total": 8.6,
+  "total": 6.7,
   "forGrade": 55,
   "success": {
    "wpct": ".494",
@@ -94,29 +94,29 @@
   },
   "cum": [
    -6.4,
-   1.7,
-   -10.2,
-   9.3,
-   3.3,
-   -1.4,
-   12.5,
-   0.8,
-   -0.0,
-   -2.0,
-   1.6
+   5.2,
+   -6.7,
+   8.6,
+   3.6,
+   1.9,
+   15.4,
+   2.9,
+   1.6,
+   -0.2,
+   3.4
   ],
   "top": [
    {
     "d": "2019-06-03",
     "ch": "draft",
-    "net": 18.9,
+    "net": 18.2,
     "h": "Drafted Corbin Carroll (#16 overall, 2019)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Corbin Carroll",
+        "Corbin Carroll \u00b7 with this club",
         "+21.5"
        ]
       ]
@@ -126,7 +126,7 @@
       [
        [
         "pick #16, maturity-adjusted",
-        "-2.5"
+        "-3.3"
        ]
       ]
      ]
@@ -173,8 +173,8 @@
      "n_in": 1
     },
     "pids": [
-     "666971",
      "672515",
+     "666971",
      "662139"
     ],
     "comps": [
@@ -256,9 +256,9 @@
      "n_in": 1
     },
     "pids": [
-     "596133",
      "608348",
      "670370",
+     "596133",
      "502671"
     ],
     "comps": [
@@ -289,6 +289,39 @@
       "recv": 9.6,
       "paid": -0.4
      }
+    ]
+   },
+   {
+    "d": "2017-06-12",
+    "ch": "draft",
+    "net": 12.4,
+    "h": "Drafted Daulton Varsho (#68 overall, 2017)",
+    "sides": [
+     [
+      "Produced in his six control seasons",
+      [
+       [
+        "Daulton Varsho \u00b7 with this club",
+        "+6.3"
+       ],
+       [
+        "\u00b7 for other clubs after a trade or move (graded in that decision)",
+        "+7.4"
+       ]
+      ]
+     ],
+     [
+      "Slot expectation",
+      [
+       [
+        "pick #68, maturity-adjusted",
+        "-1.4"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "662139"
     ]
    },
    {
@@ -435,14 +468,14 @@
    {
     "d": "2020-06-10",
     "ch": "draft",
-    "net": 6.8,
+    "net": 6.7,
     "h": "Drafted Brandon Pfaadt (#149 overall, 2020)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Brandon Pfaadt",
+        "Brandon Pfaadt \u00b7 with this club",
         "+7.1"
        ]
       ]
@@ -452,7 +485,7 @@
       [
        [
         "pick #149, maturity-adjusted",
-        "-0.3"
+        "-0.4"
        ]
       ]
      ]
@@ -544,73 +577,6 @@
      "net": -2.3,
      "final": -8.9
     }
-   },
-   {
-    "d": "2020-08-31",
-    "ch": "trade",
-    "net": -6.3,
-    "h": "Arizona Diamondbacks traded LHP Robbie Ray and cash to Toronto Blue Jays for LHP Travis Bergen.",
-    "vin": -0.1,
-    "vout": 6.2,
-    "sides": [
-     [
-      "Acquired (control-window value, leverage-weighted)",
-      [
-       [
-        "Travis Bergen",
-        "-0.1"
-       ]
-      ]
-     ],
-     [
-      "Surrendered \u00b7 value realized on Toronto Blue Jays",
-      [
-       [
-        "Robbie Ray",
-        "-6.2"
-       ]
-      ]
-     ]
-    ],
-    "att": {
-     "out": 0,
-     "n_out": 0,
-     "inn": 0,
-     "n_in": 0
-    },
-    "pids": [
-     "664157",
-     "592662"
-    ],
-    "comps": [
-     {
-      "yr": 2020,
-      "ab": "LAA",
-      "who": "Packy Naughton",
-      "ck": "3+",
-      "po": "mid",
-      "recv": -0.1,
-      "paid": -0.3
-     },
-     {
-      "yr": 2020,
-      "ab": "NYY",
-      "who": "Rob Brantly",
-      "ck": "3+",
-      "po": "mid",
-      "recv": -0.1,
-      "paid": 0
-     },
-     {
-      "yr": 2020,
-      "ab": "PIT",
-      "who": "Tyler Bashlor",
-      "ck": "3+",
-      "po": "mid",
-      "recv": -0.1,
-      "paid": 0
-     }
-    ]
    }
   ],
   "led": {
@@ -654,8 +620,8 @@
        "n_in": 1
       },
       "pids": [
-       "666971",
        "672515",
+       "666971",
        "662139"
       ],
       "comps": [
@@ -1036,9 +1002,9 @@
        "n_in": 1
       },
       "pids": [
-       "596133",
        "608348",
        "670370",
+       "596133",
        "502671"
       ],
       "comps": [
@@ -1268,8 +1234,8 @@
        "n_in": 0
       },
       "pids": [
-       "606466",
        "592836",
+       "606466",
        "657205",
        "516416",
        "571745"
@@ -1383,14 +1349,14 @@
      {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": 18.9,
+      "net": 18.2,
       "h": "Drafted Corbin Carroll (#16 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Corbin Carroll",
+          "Corbin Carroll \u00b7 with this club",
           "+21.5"
          ]
         ]
@@ -1400,7 +1366,7 @@
         [
          [
           "pick #16, maturity-adjusted",
-          "-2.5"
+          "-3.3"
          ]
         ]
        ]
@@ -1410,46 +1376,21 @@
       ]
      },
      {
-      "d": "2020-06-10",
-      "ch": "draft",
-      "net": 6.8,
-      "h": "Drafted Brandon Pfaadt (#149 overall, 2020)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Brandon Pfaadt",
-          "+7.1"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #149, maturity-adjusted",
-          "-0.3"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "694297"
-      ]
-     },
-     {
       "d": "2017-06-12",
       "ch": "draft",
-      "net": 5.4,
+      "net": 12.4,
       "h": "Drafted Daulton Varsho (#68 overall, 2017)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Daulton Varsho",
+          "Daulton Varsho \u00b7 with this club",
           "+6.3"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+7.4"
          ]
         ]
        ],
@@ -1458,7 +1399,7 @@
         [
          [
           "pick #68, maturity-adjusted",
-          "-0.9"
+          "-1.4"
          ]
         ]
        ]
@@ -1468,16 +1409,78 @@
       ]
      },
      {
+      "d": "2020-06-10",
+      "ch": "draft",
+      "net": 6.7,
+      "h": "Drafted Brandon Pfaadt (#149 overall, 2020)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Brandon Pfaadt \u00b7 with this club",
+          "+7.1"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #149, maturity-adjusted",
+          "-0.4"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "694297"
+      ]
+     },
+     {
+      "d": "2018-06-04",
+      "ch": "draft",
+      "net": 5.4,
+      "h": "Drafted Jake McCarthy (#39 overall, 2018)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Jake McCarthy \u00b7 with this club",
+          "+4.6"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+2.8"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #39, maturity-adjusted",
+          "-2.1"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "664983"
+      ]
+     },
+     {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": 4.7,
+      "net": 4.4,
       "h": "Drafted Ryne Nelson (#56 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Ryne Nelson",
+          "Ryne Nelson \u00b7 with this club",
           "+5.7"
          ]
         ]
@@ -1487,7 +1490,7 @@
         [
          [
           "pick #56, maturity-adjusted",
-          "-1.0"
+          "-1.3"
          ]
         ]
        ]
@@ -1495,50 +1498,21 @@
       "pids": [
        "669194"
       ]
-     },
-     {
-      "d": "2018-06-04",
-      "ch": "draft",
-      "net": 3.2,
-      "h": "Drafted Jake McCarthy (#39 overall, 2018)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Jake McCarthy",
-          "+4.6"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #39, maturity-adjusted",
-          "-1.4"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "664983"
-      ]
      }
     ],
     "worst": [
      {
       "d": "2017-06-12",
       "ch": "draft",
-      "net": -3.4,
+      "net": -4.8,
       "h": "Drafted Pavin Smith (#7 overall, 2017)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Pavin Smith",
-          "+0.8"
+          "Pavin Smith \u00b7 with this club",
+          "+1.4"
          ]
         ]
        ],
@@ -1547,7 +1521,7 @@
         [
          [
           "pick #7, maturity-adjusted",
-          "-4.2"
+          "-6.2"
          ]
         ]
        ]
@@ -1559,14 +1533,14 @@
      {
       "d": "2022-07-17",
       "ch": "draft",
-      "net": -2.9,
+      "net": -3.1,
       "h": "Drafted Druw Jones (#2 overall, 2022)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Druw Jones",
+          "Druw Jones \u00b7 with this club",
           "+0.0"
          ]
         ]
@@ -1576,7 +1550,7 @@
         [
          [
           "pick #2, maturity-adjusted",
-          "-2.9"
+          "-3.1"
          ]
         ]
        ]
@@ -1588,14 +1562,14 @@
      {
       "d": "2021-07-11",
       "ch": "draft",
-      "net": -2.6,
+      "net": -2.9,
       "h": "Drafted Jordan Lawlar (#6 overall, 2021)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Jordan Lawlar",
+          "Jordan Lawlar \u00b7 with this club",
           "+0.3"
          ]
         ]
@@ -1605,7 +1579,7 @@
         [
          [
           "pick #6, maturity-adjusted",
-          "-2.8"
+          "-3.2"
          ]
         ]
        ]
@@ -1617,14 +1591,14 @@
      {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": -2.1,
+      "net": -2.7,
       "h": "Drafted Blake Walston (#26 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Blake Walston",
+          "Blake Walston \u00b7 with this club",
           "-0.2"
          ]
         ]
@@ -1634,7 +1608,7 @@
         [
          [
           "pick #26, maturity-adjusted",
-          "-1.9"
+          "-2.4"
          ]
         ]
        ]
@@ -1646,15 +1620,19 @@
      {
       "d": "2017-06-12",
       "ch": "draft",
-      "net": -2.1,
+      "net": -2.5,
       "h": "Drafted Drew Ellis (#44 overall, 2017)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Drew Ellis",
+          "Drew Ellis \u00b7 with this club",
           "-0.8"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+0.2"
          ]
         ]
        ],
@@ -1663,7 +1641,7 @@
         [
          [
           "pick #44, maturity-adjusted",
-          "-1.3"
+          "-1.9"
          ]
         ]
        ]
@@ -2063,7 +2041,7 @@
   "dna": {
    "draft": {
     "pit": -3.9,
-    "bat": 9.4
+    "bat": 11.2
    },
    "trade_in": {
     "pit": 26.5,
@@ -3177,8 +3155,8 @@
     "n": 133
    },
    "draft": {
-    "net": 22.9,
-    "g": 75,
+    "net": 28.9,
+    "g": 80,
     "n": 49
    },
    "waiver": {
@@ -3199,8 +3177,8 @@
     "n": 7
    },
    "intl": {
-    "net": -4.1,
-    "g": 45,
+    "net": -8.2,
+    "g": 40,
     "n": 2
    },
    "ret": {
@@ -3239,7 +3217,7 @@
     ]
    }
   },
-  "total": 95.0,
+  "total": 96.9,
   "forGrade": 80,
   "success": {
    "wpct": ".571",
@@ -3254,15 +3232,15 @@
   },
   "cum": [
    -2.4,
-   -1.1,
-   14.9,
-   27.1,
-   35.9,
-   57.7,
-   84.6,
-   86.3,
-   86.3,
-   90.6
+   -1.8,
+   22.3,
+   34.6,
+   43.0,
+   64.4,
+   90.8,
+   92.2,
+   92.4,
+   96.6
   ],
   "top": [
    {
@@ -3530,14 +3508,14 @@
    {
     "d": "2019-06-03",
     "ch": "draft",
-    "net": 17.6,
+    "net": 17.5,
     "h": "Drafted Michael Harris II (#98 overall, 2019)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Michael Harris II",
+        "Michael Harris II \u00b7 with this club",
         "+18.3"
        ]
       ]
@@ -3547,7 +3525,7 @@
       [
        [
         "pick #98, maturity-adjusted",
-        "-0.6"
+        "-0.8"
        ]
       ]
      ]
@@ -3559,14 +3537,14 @@
    {
     "d": "2020-06-10",
     "ch": "draft",
-    "net": 10.4,
+    "net": 10.3,
     "h": "Drafted Spencer Strider (#126 overall, 2020)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Spencer Strider",
+        "Spencer Strider \u00b7 with this club",
         "+10.8"
        ]
       ]
@@ -3576,7 +3554,7 @@
       [
        [
         "pick #126, maturity-adjusted",
-        "-0.4"
+        "-0.5"
        ]
       ]
      ]
@@ -3592,10 +3570,10 @@
     "h": "Drafted Drake Baldwin (#96 overall, 2022)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Drake Baldwin",
+        "Drake Baldwin \u00b7 with this club",
         "+9.4"
        ]
       ]
@@ -3694,17 +3672,21 @@
     }
    },
    {
-    "d": "2020-06-10",
+    "d": "2019-06-03",
     "ch": "draft",
-    "net": 4.6,
-    "h": "Drafted Bryce Elder (#156 overall, 2020)",
+    "net": 6.5,
+    "h": "Drafted Shea Langeliers (#9 overall, 2019)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Bryce Elder",
-        "+4.9"
+        "Shea Langeliers \u00b7 with this club",
+        "+0.0"
+       ],
+       [
+        "\u00b7 for other clubs after a trade or move (graded in that decision)",
+        "+11.0"
        ]
       ]
      ],
@@ -3712,14 +3694,14 @@
       "Slot expectation",
       [
        [
-        "pick #156, maturity-adjusted",
-        "-0.3"
+        "pick #9, maturity-adjusted",
+        "-4.5"
        ]
       ]
      ]
     ],
     "pids": [
-     "693821"
+     "669127"
     ]
    }
   ],
@@ -4281,9 +4263,9 @@
        "n_in": 0
       },
       "pids": [
+       "435221",
        "408236",
        "518586",
-       "435221",
        "431148",
        "461314"
       ],
@@ -4463,14 +4445,14 @@
      {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": 17.6,
+      "net": 17.5,
       "h": "Drafted Michael Harris II (#98 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Michael Harris II",
+          "Michael Harris II \u00b7 with this club",
           "+18.3"
          ]
         ]
@@ -4480,7 +4462,7 @@
         [
          [
           "pick #98, maturity-adjusted",
-          "-0.6"
+          "-0.8"
          ]
         ]
        ]
@@ -4492,14 +4474,14 @@
      {
       "d": "2020-06-10",
       "ch": "draft",
-      "net": 10.4,
+      "net": 10.3,
       "h": "Drafted Spencer Strider (#126 overall, 2020)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Spencer Strider",
+          "Spencer Strider \u00b7 with this club",
           "+10.8"
          ]
         ]
@@ -4509,7 +4491,7 @@
         [
          [
           "pick #126, maturity-adjusted",
-          "-0.4"
+          "-0.5"
          ]
         ]
        ]
@@ -4525,10 +4507,10 @@
       "h": "Drafted Drake Baldwin (#96 overall, 2022)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Drake Baldwin",
+          "Drake Baldwin \u00b7 with this club",
           "+9.4"
          ]
         ]
@@ -4548,16 +4530,49 @@
       ]
      },
      {
+      "d": "2019-06-03",
+      "ch": "draft",
+      "net": 6.5,
+      "h": "Drafted Shea Langeliers (#9 overall, 2019)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Shea Langeliers \u00b7 with this club",
+          "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+11.0"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #9, maturity-adjusted",
+          "-4.5"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "669127"
+      ]
+     },
+     {
       "d": "2020-06-10",
       "ch": "draft",
-      "net": 4.6,
+      "net": 4.5,
       "h": "Drafted Bryce Elder (#156 overall, 2020)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Bryce Elder",
+          "Bryce Elder \u00b7 with this club",
           "+4.9"
          ]
         ]
@@ -4567,7 +4582,7 @@
         [
          [
           "pick #156, maturity-adjusted",
-          "-0.3"
+          "-0.4"
          ]
         ]
        ]
@@ -4575,49 +4590,20 @@
       "pids": [
        "693821"
       ]
-     },
-     {
-      "d": "2021-07-11",
-      "ch": "draft",
-      "net": 4.3,
-      "h": "Drafted Spencer Schwellenbach (#59 overall, 2021)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Spencer Schwellenbach",
-          "+4.9"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #59, maturity-adjusted",
-          "-0.7"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "680885"
-      ]
      }
     ],
     "worst": [
      {
       "d": "2018-06-04",
       "ch": "draft",
-      "net": -3.9,
+      "net": -5.5,
       "h": "Drafted Carter Stewart (#8 overall, 2018)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Carter Stewart",
+          "Carter Stewart \u00b7 with this club",
           "+0.0"
          ]
         ]
@@ -4627,7 +4613,7 @@
         [
          [
           "pick #8, maturity-adjusted",
-          "-3.9"
+          "-5.5"
          ]
         ]
        ]
@@ -4639,44 +4625,19 @@
      {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": -3.5,
-      "h": "Drafted Shea Langeliers (#9 overall, 2019)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Shea Langeliers",
-          "+0.0"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #9, maturity-adjusted",
-          "-3.5"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "669127"
-      ]
-     },
-     {
-      "d": "2019-06-03",
-      "ch": "draft",
-      "net": -2.4,
+      "net": -3.7,
       "h": "Drafted Braden Shewmake (#21 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Braden Shewmake",
+          "Braden Shewmake \u00b7 with this club",
           "-0.2"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "-0.7"
          ]
         ]
        ],
@@ -4685,7 +4646,7 @@
         [
          [
           "pick #21, maturity-adjusted",
-          "-2.2"
+          "-2.8"
          ]
         ]
        ]
@@ -4695,17 +4656,17 @@
       ]
      },
      {
-      "d": "2020-06-10",
+      "d": "2018-06-04",
       "ch": "draft",
       "net": -1.7,
-      "h": "Drafted Jared Shuster (#25 overall, 2020)",
+      "h": "Drafted Greyson Jenista (#49 overall, 2018)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Jared Shuster",
-          "-0.1"
+          "Greyson Jenista \u00b7 with this club",
+          "+0.0"
          ]
         ]
        ],
@@ -4713,27 +4674,27 @@
         "Slot expectation",
         [
          [
-          "pick #25, maturity-adjusted",
+          "pick #49, maturity-adjusted",
           "-1.7"
          ]
         ]
        ]
       ],
       "pids": [
-       "694363"
+       "680571"
       ]
      },
      {
       "d": "2021-07-11",
       "ch": "draft",
-      "net": -1.4,
+      "net": -1.5,
       "h": "Drafted Ryan Cusick (#24 overall, 2021)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Ryan Cusick",
+          "Ryan Cusick \u00b7 with this club",
           "+0.0"
          ]
         ]
@@ -4743,13 +4704,46 @@
         [
          [
           "pick #24, maturity-adjusted",
-          "-1.4"
+          "-1.5"
          ]
         ]
        ]
       ],
       "pids": [
        "680743"
+      ]
+     },
+     {
+      "d": "2020-06-10",
+      "ch": "draft",
+      "net": -1.4,
+      "h": "Drafted Jared Shuster (#25 overall, 2020)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Jared Shuster \u00b7 with this club",
+          "-0.1"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+0.6"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #25, maturity-adjusted",
+          "-2.0"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "694363"
       ]
      }
     ]
@@ -5142,8 +5136,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": 10.6,
-    "bat": 12.3
+    "pit": 10.9,
+    "bat": 18.0
    },
    "trade_in": {
     "pit": 40.8,
@@ -6306,7 +6300,7 @@
     "n": 120
    },
    "draft": {
-    "net": 23.7,
+    "net": 30.8,
     "g": 80,
     "n": 52
    },
@@ -6328,8 +6322,8 @@
     "n": 2
    },
    "intl": {
-    "net": -1.5,
-    "g": 50,
+    "net": -3.2,
+    "g": 45,
     "n": 4
    },
    "ret": {
@@ -6346,8 +6340,8 @@
     "worst2": []
    }
   },
-  "total": 41.7,
-  "forGrade": 70,
+  "total": 47.0,
+  "forGrade": 75,
   "success": {
    "wpct": ".469",
    "div": 1,
@@ -6361,27 +6355,27 @@
   },
   "cum": [
    -1.0,
-   28.0,
-   31.0,
-   35.1,
-   33.5,
+   36.9,
+   37.8,
+   43.6,
    41.3,
-   34.8,
-   40.7,
-   42.3
+   48.5,
+   41.6,
+   47.7,
+   49.3
   ],
   "top": [
    {
     "d": "2019-06-03",
     "ch": "draft",
-    "net": 23.3,
+    "net": 22.9,
     "h": "Drafted Gunnar Henderson (#42 overall, 2019)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Gunnar Henderson",
+        "Gunnar Henderson \u00b7 with this club",
         "+24.6"
        ]
       ]
@@ -6391,42 +6385,13 @@
       [
        [
         "pick #42, maturity-adjusted",
-        "-1.3"
+        "-1.7"
        ]
       ]
      ]
     ],
     "pids": [
      "683002"
-    ]
-   },
-   {
-    "d": "2019-06-03",
-    "ch": "draft",
-    "net": 11.5,
-    "h": "Drafted Adley Rutschman (#1 overall, 2019)",
-    "sides": [
-     [
-      "Realized on club",
-      [
-       [
-        "Adley Rutschman",
-        "+19.6"
-       ]
-      ]
-     ],
-     [
-      "Slot expectation",
-      [
-       [
-        "pick #1, maturity-adjusted",
-        "-8.1"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "668939"
     ]
    },
    {
@@ -6494,6 +6459,39 @@
       "recv": 0.0,
       "paid": -0.1
      }
+    ]
+   },
+   {
+    "d": "2019-06-03",
+    "ch": "draft",
+    "net": 9.8,
+    "h": "Drafted Adley Rutschman (#1 overall, 2019)",
+    "sides": [
+     [
+      "Produced in his six control seasons",
+      [
+       [
+        "Adley Rutschman \u00b7 with this club",
+        "+19.6"
+       ],
+       [
+        "\u00b7 for other clubs after a trade or move (graded in that decision)",
+        "+0.6"
+       ]
+      ]
+     ],
+     [
+      "Slot expectation",
+      [
+       [
+        "pick #1, maturity-adjusted",
+        "-10.4"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "668939"
     ]
    },
    {
@@ -6649,6 +6647,68 @@
     }
    },
    {
+    "d": "2020-06-10",
+    "ch": "draft",
+    "net": -7.1,
+    "h": "Drafted Heston Kjerstad (#2 overall, 2020)",
+    "sides": [
+     [
+      "Produced in his six control seasons",
+      [
+       [
+        "Heston Kjerstad \u00b7 with this club",
+        "-0.8"
+       ]
+      ]
+     ],
+     [
+      "Slot expectation",
+      [
+       [
+        "pick #2, maturity-adjusted",
+        "-6.3"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "677008"
+    ]
+   },
+   {
+    "d": "2019-06-03",
+    "ch": "draft",
+    "net": 6.9,
+    "h": "Drafted Joey Ortiz (#108 overall, 2019)",
+    "sides": [
+     [
+      "Produced in his six control seasons",
+      [
+       [
+        "Joey Ortiz \u00b7 with this club",
+        "-0.1"
+       ],
+       [
+        "\u00b7 for other clubs after a trade or move (graded in that decision)",
+        "+7.7"
+       ]
+      ]
+     ],
+     [
+      "Slot expectation",
+      [
+       [
+        "pick #108, maturity-adjusted",
+        "-0.7"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "687401"
+    ]
+   },
+   {
     "d": "2022-08-02",
     "ch": "trade",
     "net": 6.5,
@@ -6694,8 +6754,8 @@
      "n_in": 0
     },
     "pids": [
-     "693725",
      "700249",
+     "693725",
      "700357",
      "666974",
      "605347"
@@ -6735,119 +6795,6 @@
      "out": 0.0,
      "net": 2.2,
      "final": 8.7
-    }
-   },
-   {
-    "d": "2020-06-10",
-    "ch": "draft",
-    "net": -6.0,
-    "h": "Drafted Heston Kjerstad (#2 overall, 2020)",
-    "sides": [
-     [
-      "Realized on club",
-      [
-       [
-        "Heston Kjerstad",
-        "-0.8"
-       ]
-      ]
-     ],
-     [
-      "Slot expectation",
-      [
-       [
-        "pick #2, maturity-adjusted",
-        "-5.2"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "677008"
-    ]
-   },
-   {
-    "d": "2022-04-03",
-    "ch": "trade",
-    "net": -5.5,
-    "h": "Baltimore Orioles traded RHP Cole Sulser and LHP Tanner Scott to Miami Marlins for OF Kevin Guerrero and LHP Antonio Velez.",
-    "vin": 0.0,
-    "vout": 5.5,
-    "sides": [
-     [
-      "Acquired (control-window value, leverage-weighted)",
-      [
-       [
-        "Antonio Velez",
-        "+0.0"
-       ],
-       [
-        "Kevin Guerrero",
-        "+0.0"
-       ]
-      ]
-     ],
-     [
-      "Surrendered \u00b7 value realized on Miami Marlins",
-      [
-       [
-        "Tanner Scott",
-        "-5.4"
-       ],
-       [
-        "Cole Sulser",
-        "-0.1"
-       ]
-      ]
-     ]
-    ],
-    "att": {
-     "out": 0,
-     "n_out": 0,
-     "inn": 0,
-     "n_in": 0
-    },
-    "pids": [
-     "669163",
-     "698931",
-     "642121",
-     "656945"
-    ],
-    "comps": [
-     {
-      "yr": 2022,
-      "ab": "BAL",
-      "who": "Luis Osorio",
-      "ck": "3+",
-      "po": "mid",
-      "recv": 0.0,
-      "paid": -0.0
-     },
-     {
-      "yr": 2022,
-      "ab": "MIN",
-      "who": "Brayan Medina",
-      "ck": "3+",
-      "po": "mid",
-      "recv": 0.0,
-      "paid": 0
-     },
-     {
-      "yr": 2022,
-      "ab": "MIN",
-      "who": "John Andreoli",
-      "ck": "3+",
-      "po": "mid",
-      "recv": 0.0,
-      "paid": 0
-     }
-    ],
-    "unsettled": true,
-    "proj": {
-     "inn": 0.8,
-     "out": 0.0,
-     "net": 0.8,
-     "final": -4.7
     }
    }
   ],
@@ -6973,8 +6920,8 @@
        "n_in": 0
       },
       "pids": [
-       "693725",
        "700249",
+       "693725",
        "700357",
        "666974",
        "605347"
@@ -7121,11 +7068,11 @@
           "+4.8"
          ],
          [
-          "Kyle Brnovich",
+          "Zach Peek",
           "+0.0"
          ],
          [
-          "Zach Peek",
+          "Kyle Brnovich",
           "+0.0"
          ],
          [
@@ -7151,10 +7098,10 @@
        "n_in": 0
       },
       "pids": [
+       "686745",
+       "686599",
        "680694",
        "676755",
-       "686599",
-       "686745",
        "605164"
       ],
       "comps": [
@@ -7632,14 +7579,14 @@
      {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": 23.3,
+      "net": 22.9,
       "h": "Drafted Gunnar Henderson (#42 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Gunnar Henderson",
+          "Gunnar Henderson \u00b7 with this club",
           "+24.6"
          ]
         ]
@@ -7649,7 +7596,7 @@
         [
          [
           "pick #42, maturity-adjusted",
-          "-1.3"
+          "-1.7"
          ]
         ]
        ]
@@ -7661,15 +7608,19 @@
      {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": 11.5,
+      "net": 9.8,
       "h": "Drafted Adley Rutschman (#1 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Adley Rutschman",
+          "Adley Rutschman \u00b7 with this club",
           "+19.6"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+0.6"
          ]
         ]
        ],
@@ -7678,7 +7629,7 @@
         [
          [
           "pick #1, maturity-adjusted",
-          "-8.1"
+          "-10.4"
          ]
         ]
        ]
@@ -7688,16 +7639,49 @@
       ]
      },
      {
+      "d": "2019-06-03",
+      "ch": "draft",
+      "net": 6.9,
+      "h": "Drafted Joey Ortiz (#108 overall, 2019)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Joey Ortiz \u00b7 with this club",
+          "-0.1"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+7.7"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #108, maturity-adjusted",
+          "-0.7"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "687401"
+      ]
+     },
+     {
       "d": "2020-06-10",
       "ch": "draft",
-      "net": 5.0,
+      "net": 4.7,
       "h": "Drafted Jordan Westburg (#30 overall, 2020)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Jordan Westburg",
+          "Jordan Westburg \u00b7 with this club",
           "+6.4"
          ]
         ]
@@ -7707,7 +7691,7 @@
         [
          [
           "pick #30, maturity-adjusted",
-          "-1.5"
+          "-1.8"
          ]
         ]
        ]
@@ -7717,17 +7701,21 @@
       ]
      },
      {
-      "d": "2021-07-11",
+      "d": "2019-06-03",
       "ch": "draft",
-      "net": 3.8,
-      "h": "Drafted Colton Cowser (#5 overall, 2021)",
+      "net": 3.4,
+      "h": "Drafted Kyle Stowers (#71 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Colton Cowser",
-          "+6.8"
+          "Kyle Stowers \u00b7 with this club",
+          "-0.4"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+4.9"
          ]
         ]
        ],
@@ -7735,43 +7723,14 @@
         "Slot expectation",
         [
          [
-          "pick #5, maturity-adjusted",
-          "-3.0"
+          "pick #71, maturity-adjusted",
+          "-1.1"
          ]
         ]
        ]
       ],
       "pids": [
-       "681297"
-      ]
-     },
-     {
-      "d": "2020-06-10",
-      "ch": "draft",
-      "net": 2.2,
-      "h": "Drafted Coby Mayo (#103 overall, 2020)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Coby Mayo",
-          "+2.7"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #103, maturity-adjusted",
-          "-0.5"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "691723"
+       "669065"
       ]
      }
     ],
@@ -7779,14 +7738,14 @@
      {
       "d": "2020-06-10",
       "ch": "draft",
-      "net": -6.0,
+      "net": -7.1,
       "h": "Drafted Heston Kjerstad (#2 overall, 2020)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Heston Kjerstad",
+          "Heston Kjerstad \u00b7 with this club",
           "-0.8"
          ]
         ]
@@ -7796,7 +7755,7 @@
         [
          [
           "pick #2, maturity-adjusted",
-          "-5.2"
+          "-6.3"
          ]
         ]
        ]
@@ -7808,14 +7767,14 @@
      {
       "d": "2022-07-17",
       "ch": "draft",
-      "net": -2.7,
+      "net": -3.1,
       "h": "Drafted Jackson Holliday (#1 overall, 2022)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Jackson Holliday",
+          "Jackson Holliday \u00b7 with this club",
           "+1.1"
          ]
         ]
@@ -7825,7 +7784,7 @@
         [
          [
           "pick #1, maturity-adjusted",
-          "-3.8"
+          "-4.1"
          ]
         ]
        ]
@@ -7837,15 +7796,19 @@
      {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": -1.2,
-      "h": "Drafted Kyle Stowers (#71 overall, 2019)",
+      "net": -1.5,
+      "h": "Drafted Darell Hernaiz (#138 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Kyle Stowers",
-          "-0.4"
+          "Darell Hernaiz \u00b7 with this club",
+          "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "-1.0"
          ]
         ]
        ],
@@ -7853,14 +7816,43 @@
         "Slot expectation",
         [
          [
-          "pick #71, maturity-adjusted",
-          "-0.8"
+          "pick #138, maturity-adjusted",
+          "-0.6"
          ]
         ]
        ]
       ],
       "pids": [
-       "669065"
+       "687231"
+      ]
+     },
+     {
+      "d": "2020-06-10",
+      "ch": "draft",
+      "net": -1.4,
+      "h": "Drafted Hudson Haskin (#39 overall, 2020)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Hudson Haskin \u00b7 with this club",
+          "+0.0"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #39, maturity-adjusted",
+          "-1.4"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "681370"
       ]
      }
     ]
@@ -8224,8 +8216,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": -1.7,
-    "bat": 25.5
+    "pit": -2.3,
+    "bat": 33.0
    },
    "trade_in": {
     "pit": 33.9,
@@ -9377,7 +9369,7 @@
     "n": 60
    },
    "draft": {
-    "net": 2.7,
+    "net": 2.5,
     "g": 65,
     "n": 15
    },
@@ -9417,7 +9409,7 @@
     "worst2": []
    }
   },
-  "total": -1.6,
+  "total": -1.8,
   "forGrade": 45,
   "success": {
    "wpct": ".529",
@@ -9432,9 +9424,9 @@
   },
   "cum": [
    -10.6,
-   -8.0,
-   0.1,
-   4.3
+   -8.3,
+   -0.0,
+   4.1
   ],
   "top": [
    {
@@ -9873,10 +9865,10 @@
      "n_in": 1
     },
     "pids": [
-     "663855",
-     "690986",
      "808366",
+     "663855",
      "696486",
+     "690986",
      "646240"
     ],
     "comps": [
@@ -10032,9 +10024,9 @@
      "n_in": 0
     },
     "pids": [
+     "669711",
      "690916",
      "700113",
-     "669711",
      "657077"
     ],
     "comps": [
@@ -10590,10 +10582,10 @@
        "n_in": 1
       },
       "pids": [
-       "663855",
-       "690986",
        "808366",
+       "663855",
        "696486",
+       "690986",
        "646240"
       ],
       "comps": [
@@ -10872,14 +10864,14 @@
      {
       "d": "2024-07-14",
       "ch": "draft",
-      "net": 3.4,
+      "net": 3.3,
       "h": "Drafted Payton Tolle (#50 overall, 2024)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Payton Tolle",
+          "Payton Tolle \u00b7 with this club",
           "+3.5"
          ]
         ]
@@ -10889,7 +10881,7 @@
         [
          [
           "pick #50, maturity-adjusted",
-          "-0.1"
+          "-0.2"
          ]
         ]
        ]
@@ -11232,7 +11224,7 @@
   "dna": {
    "draft": {
     "pit": 3.1,
-    "bat": -0.5
+    "bat": -0.6
    },
    "trade_in": {
     "pit": 26.1,
@@ -12085,7 +12077,7 @@
     "n": 86
    },
    "draft": {
-    "net": -4.6,
+    "net": -3.9,
     "g": 40,
     "n": 31
    },
@@ -12107,7 +12099,7 @@
     "n": 3
    },
    "intl": {
-    "net": 0.8,
+    "net": -0.3,
     "g": 50,
     "n": 2
    },
@@ -12140,7 +12132,7 @@
     ]
    }
   },
-  "total": 8.1,
+  "total": 7.6,
   "forGrade": 60,
   "success": {
    "wpct": ".506",
@@ -12155,12 +12147,12 @@
   },
   "cum": [
    -9.7,
-   2.7,
-   -3.8,
-   -11.5,
-   -15.0,
-   -13.2,
-   -7.3
+   2.3,
+   -4.5,
+   -12.7,
+   -14.4,
+   -12.5,
+   -6.7
   ],
   "top": [
    {
@@ -12409,7 +12401,7 @@
         "+0.0"
        ],
        [
-        "Yeison Santana",
+        "Ismael Mena",
         "+0.0"
        ],
        [
@@ -12417,7 +12409,7 @@
         "+0.0"
        ],
        [
-        "Ismael Mena",
+        "Yeison Santana",
         "+0.0"
        ],
        [
@@ -12448,10 +12440,10 @@
     },
     "pids": [
      "683357",
-     "678220",
+     "691190",
      "605200",
      "691262",
-     "691190",
+     "678220",
      "506433",
      "605170"
     ],
@@ -13145,8 +13137,8 @@
        "n_in": 0
       },
       "pids": [
-       "605280",
        "621438",
+       "605280",
        "800473"
       ],
       "comps": [
@@ -13278,7 +13270,7 @@
           "+0.0"
          ],
          [
-          "Yeison Santana",
+          "Ismael Mena",
           "+0.0"
          ],
          [
@@ -13286,7 +13278,7 @@
           "+0.0"
          ],
          [
-          "Ismael Mena",
+          "Yeison Santana",
           "+0.0"
          ],
          [
@@ -13317,10 +13309,10 @@
       },
       "pids": [
        "683357",
-       "678220",
+       "691190",
        "605200",
        "691262",
-       "691190",
+       "678220",
        "506433",
        "605170"
       ],
@@ -13587,8 +13579,72 @@
     ]
    },
    "draft": {
-    "best": [],
-    "worst": []
+    "best": [
+     {
+      "d": "2024-07-14",
+      "ch": "draft",
+      "net": 1.6,
+      "h": "Drafted Cam Smith (#14 overall, 2024)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Cam Smith \u00b7 with this club",
+          "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+2.2"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #14, maturity-adjusted",
+          "-0.5"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "701358"
+      ]
+     }
+    ],
+    "worst": [
+     {
+      "d": "2021-07-11",
+      "ch": "draft",
+      "net": -1.3,
+      "h": "Drafted Jordan Wicks (#21 overall, 2021)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Jordan Wicks \u00b7 with this club",
+          "+0.4"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #21, maturity-adjusted",
+          "-1.6"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "696136"
+      ]
+     }
+    ]
    },
    "waiver": {
     "best": [
@@ -13949,8 +14005,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": -2.6,
-    "bat": -1.9
+    "pit": -3.2,
+    "bat": -0.7
    },
    "trade_in": {
     "pit": 39.1,
@@ -15084,8 +15140,8 @@
     "n": 59
    },
    "draft": {
-    "net": 2.0,
-    "g": 60,
+    "net": 1.5,
+    "g": 55,
     "n": 17
    },
    "waiver": {
@@ -15124,7 +15180,7 @@
     "worst2": []
    }
   },
-  "total": -0.4,
+  "total": -0.8,
   "forGrade": 50,
   "success": {
    "wpct": ".375",
@@ -15139,9 +15195,9 @@
   },
   "cum": [
    -3.5,
-   -9.9,
-   -6.3,
-   -8.6
+   -10.5,
+   -6.7,
+   -9.0
   ],
   "top": [
    {
@@ -15190,10 +15246,10 @@
      "n_in": 1
     },
     "pids": [
+     "694214",
+     "621051",
      "689672",
      "683568",
-     "621051",
-     "694214",
      "656302"
     ],
     "comps": [
@@ -15249,11 +15305,11 @@
         "+7.5"
        ],
        [
-        "Jeral Perez",
+        "Alexander Albertus",
         "+0.0"
        ],
        [
-        "Alexander Albertus",
+        "Jeral Perez",
         "+0.0"
        ]
       ]
@@ -15284,8 +15340,8 @@
     },
     "pids": [
      "678246",
-     "800419",
      "800316",
+     "800419",
      "502054",
      "656629",
      "607200"
@@ -15598,11 +15654,11 @@
      "n_in": 0
     },
     "pids": [
+     "803035",
+     "647336",
+     "670032",
      "694363",
      "669699",
-     "647336",
-     "803035",
-     "670032",
      "607481"
     ],
     "comps": [
@@ -15649,10 +15705,10 @@
     "h": "Drafted Sam Antonacci (#140 overall, 2024)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Sam Antonacci",
+        "Sam Antonacci \u00b7 with this club",
         "+2.3"
        ]
       ]
@@ -15765,11 +15821,11 @@
           "+7.5"
          ],
          [
-          "Jeral Perez",
+          "Alexander Albertus",
           "+0.0"
          ],
          [
-          "Alexander Albertus",
+          "Jeral Perez",
           "+0.0"
          ]
         ]
@@ -15800,8 +15856,8 @@
       },
       "pids": [
        "678246",
-       "800419",
        "800316",
+       "800419",
        "502054",
        "656629",
        "607200"
@@ -15954,8 +16010,8 @@
        "n_in": 0
       },
       "pids": [
-       "663855",
        "689818",
+       "663855",
        "695721"
       ],
       "comps": [
@@ -16190,10 +16246,10 @@
        "n_in": 1
       },
       "pids": [
+       "694214",
+       "621051",
        "689672",
        "683568",
-       "621051",
-       "694214",
        "656302"
       ],
       "comps": [
@@ -16431,11 +16487,11 @@
        "n_in": 0
       },
       "pids": [
+       "803035",
+       "647336",
+       "670032",
        "694363",
        "669699",
-       "647336",
-       "803035",
-       "670032",
        "607481"
       ],
       "comps": [
@@ -16560,10 +16616,10 @@
       "h": "Drafted Sam Antonacci (#140 overall, 2024)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Sam Antonacci",
+          "Sam Antonacci \u00b7 with this club",
           "+2.3"
          ]
         ]
@@ -16915,7 +16971,7 @@
   ],
   "dna": {
    "draft": {
-    "pit": 0.2,
+    "pit": -0.1,
     "bat": 1.7
    },
    "trade_in": {
@@ -17492,8 +17548,8 @@
     "n": 77
    },
    "draft": {
-    "net": 5.9,
-    "g": 65,
+    "net": 3.5,
+    "g": 60,
     "n": 37
    },
    "waiver": {
@@ -17554,7 +17610,7 @@
     ]
    }
   },
-  "total": -16.7,
+  "total": -19.1,
   "forGrade": 35,
   "success": {
    "wpct": ".475",
@@ -17569,12 +17625,12 @@
   },
   "cum": [
    -3.7,
-   0.1,
-   -20.6,
-   -17.2,
-   -16.3,
-   -13.6,
-   -13.5
+   -0.6,
+   -21.6,
+   -19.1,
+   -18.8,
+   -16.0,
+   -15.9
   ],
   "top": [
    {
@@ -17702,10 +17758,10 @@
      "n_in": 1
     },
     "pids": [
-     "682622",
-     "686651",
      "695490",
+     "682622",
      "681097",
+     "686651",
      "622491"
     ],
     "comps": [
@@ -17787,9 +17843,9 @@
      "n_in": 0
     },
     "pids": [
-     "668715",
-     "680727",
      "687952",
+     "680727",
+     "668715",
      "641816"
     ],
     "comps": [
@@ -17832,14 +17888,14 @@
    {
     "d": "2021-07-11",
     "ch": "draft",
-    "net": 4.6,
+    "net": 4.5,
     "h": "Drafted Andrew Abbott (#53 overall, 2021)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Andrew Abbott",
+        "Andrew Abbott \u00b7 with this club",
         "+5.3"
        ]
       ]
@@ -17849,42 +17905,13 @@
       [
        [
         "pick #53, maturity-adjusted",
-        "-0.7"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "671096"
-    ]
-   },
-   {
-    "d": "2024-07-14",
-    "ch": "draft",
-    "net": 3.8,
-    "h": "Drafted Chase Burns (#2 overall, 2024)",
-    "sides": [
-     [
-      "Realized on club",
-      [
-       [
-        "Chase Burns",
-        "+4.6"
-       ]
-      ]
-     ],
-     [
-      "Slot expectation",
-      [
-       [
-        "pick #2, maturity-adjusted",
         "-0.8"
        ]
       ]
      ]
     ],
     "pids": [
-     "695505"
+     "671096"
     ]
    },
    {
@@ -17917,16 +17944,45 @@
     ]
    },
    {
+    "d": "2024-07-14",
+    "ch": "draft",
+    "net": 3.4,
+    "h": "Drafted Chase Burns (#2 overall, 2024)",
+    "sides": [
+     [
+      "Produced in his six control seasons",
+      [
+       [
+        "Chase Burns \u00b7 with this club",
+        "+4.6"
+       ]
+      ]
+     ],
+     [
+      "Slot expectation",
+      [
+       [
+        "pick #2, maturity-adjusted",
+        "-1.2"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "695505"
+    ]
+   },
+   {
     "d": "2021-07-11",
     "ch": "draft",
-    "net": 3.3,
+    "net": 3.2,
     "h": "Drafted Matt McLain (#17 overall, 2021)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Matt McLain",
+        "Matt McLain \u00b7 with this club",
         "+5.0"
        ]
       ]
@@ -17936,7 +17992,7 @@
       [
        [
         "pick #17, maturity-adjusted",
-        "-1.7"
+        "-1.8"
        ]
       ]
      ]
@@ -18020,9 +18076,9 @@
        "n_in": 0
       },
       "pids": [
-       "668715",
-       "680727",
        "687952",
+       "680727",
+       "668715",
        "641816"
       ],
       "comps": [
@@ -18483,10 +18539,10 @@
        "n_in": 1
       },
       "pids": [
-       "682622",
-       "686651",
        "695490",
+       "682622",
        "681097",
+       "686651",
        "622491"
       ],
       "comps": [
@@ -18752,14 +18808,14 @@
      {
       "d": "2021-07-11",
       "ch": "draft",
-      "net": 4.6,
+      "net": 4.5,
       "h": "Drafted Andrew Abbott (#53 overall, 2021)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Andrew Abbott",
+          "Andrew Abbott \u00b7 with this club",
           "+5.3"
          ]
         ]
@@ -18769,7 +18825,7 @@
         [
          [
           "pick #53, maturity-adjusted",
-          "-0.7"
+          "-0.8"
          ]
         ]
        ]
@@ -18781,14 +18837,14 @@
      {
       "d": "2024-07-14",
       "ch": "draft",
-      "net": 3.8,
+      "net": 3.4,
       "h": "Drafted Chase Burns (#2 overall, 2024)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Chase Burns",
+          "Chase Burns \u00b7 with this club",
           "+4.6"
          ]
         ]
@@ -18798,7 +18854,7 @@
         [
          [
           "pick #2, maturity-adjusted",
-          "-0.8"
+          "-1.2"
          ]
         ]
        ]
@@ -18810,14 +18866,14 @@
      {
       "d": "2021-07-11",
       "ch": "draft",
-      "net": 3.3,
+      "net": 3.2,
       "h": "Drafted Matt McLain (#17 overall, 2021)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Matt McLain",
+          "Matt McLain \u00b7 with this club",
           "+5.0"
          ]
         ]
@@ -18827,7 +18883,7 @@
         [
          [
           "pick #17, maturity-adjusted",
-          "-1.7"
+          "-1.8"
          ]
         ]
        ]
@@ -18843,10 +18899,10 @@
       "h": "Drafted Sal Stewart (#32 overall, 2022)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Sal Stewart",
+          "Sal Stewart \u00b7 with this club",
           "+2.5"
          ]
         ]
@@ -18866,7 +18922,66 @@
       ]
      }
     ],
-    "worst": []
+    "worst": [
+     {
+      "d": "2021-07-11",
+      "ch": "draft",
+      "net": -1.3,
+      "h": "Drafted Jay Allen II (#30 overall, 2021)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Jay Allen II \u00b7 with this club",
+          "+0.0"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #30, maturity-adjusted",
+          "-1.3"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "695481"
+      ]
+     },
+     {
+      "d": "2022-07-17",
+      "ch": "draft",
+      "net": -1.2,
+      "h": "Drafted Cam Collier (#18 overall, 2022)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Cam Collier \u00b7 with this club",
+          "+0.0"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #18, maturity-adjusted",
+          "-1.2"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "702253"
+      ]
+     }
+    ]
    },
    "waiver": {
     "best": [
@@ -19256,8 +19371,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": 6.8,
-    "bat": -0.9
+    "pit": 5.5,
+    "bat": -2.0
    },
    "trade_in": {
     "pit": 17.8,
@@ -20039,7 +20154,7 @@
     "n": 130
    },
    "draft": {
-    "net": 44.3,
+    "net": 42.1,
     "g": 80,
     "n": 65
    },
@@ -20061,8 +20176,8 @@
     "n": 3
    },
    "intl": {
-    "net": -8.8,
-    "g": 40,
+    "net": 3.7,
+    "g": 55,
     "n": 7
    },
    "ret": {
@@ -20094,7 +20209,7 @@
     ]
    }
   },
-  "total": 88.3,
+  "total": 98.5,
   "forGrade": 80,
   "success": {
    "wpct": ".553",
@@ -20109,31 +20224,31 @@
   },
   "cum": [
    5.2,
-   31.6,
-   22.8,
-   45.5,
-   61.3,
-   72.9,
-   61.1,
-   60.1,
-   53.1,
-   54.1,
-   53.0,
-   54.6
+   33.2,
+   25.3,
+   47.9,
+   62.5,
+   73.1,
+   60.8,
+   59.1,
+   51.5,
+   51.7,
+   50.8,
+   52.3
   ],
   "top": [
    {
     "d": "2016-06-09",
     "ch": "draft",
-    "net": 20.2,
+    "net": 19.3,
     "h": "Drafted Shane Bieber (#122 overall, 2016)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Shane Bieber",
-        "+20.8"
+        "Shane Bieber \u00b7 with this club",
+        "+20.1"
        ]
       ]
      ],
@@ -20142,7 +20257,7 @@
       [
        [
         "pick #122, maturity-adjusted",
-        "-0.5"
+        "-0.8"
        ]
       ]
      ]
@@ -20154,14 +20269,14 @@
    {
     "d": "2018-06-04",
     "ch": "draft",
-    "net": 17.1,
+    "net": 16.9,
     "h": "Drafted Steven Kwan (#163 overall, 2018)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Steven Kwan",
+        "Steven Kwan \u00b7 with this club",
         "+17.5"
        ]
       ]
@@ -20171,7 +20286,7 @@
       [
        [
         "pick #163, maturity-adjusted",
-        "-0.4"
+        "-0.5"
        ]
       ]
      ]
@@ -20242,12 +20357,12 @@
      "n_in": 0
     },
     "pids": [
-     "595978",
      "672356",
-     "676282",
+     "595978",
+     "647304",
      "615698",
      "680911",
-     "647304",
+     "676282",
      "605182",
      "656185",
      "663362"
@@ -20429,14 +20544,14 @@
    {
     "d": "2021-07-11",
     "ch": "draft",
-    "net": 9.6,
+    "net": 9.5,
     "h": "Drafted Tanner Bibee (#156 overall, 2021)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Tanner Bibee",
+        "Tanner Bibee \u00b7 with this club",
         "+9.8"
        ]
       ]
@@ -20542,11 +20657,11 @@
         "+7.7"
        ],
        [
-        "Josh Wolf",
+        "Isaiah Greene",
         "+0.0"
        ],
        [
-        "Isaiah Greene",
+        "Josh Wolf",
         "+0.0"
        ]
       ]
@@ -20572,10 +20687,10 @@
      "n_in": 0
     },
     "pids": [
-     "683181",
-     "693309",
      "665926",
      "642708",
+     "693309",
+     "683181",
      "596019",
      "471911"
     ],
@@ -20675,12 +20790,12 @@
        "n_in": 0
       },
       "pids": [
-       "595978",
        "672356",
-       "676282",
+       "595978",
+       "647304",
        "615698",
        "680911",
-       "647304",
+       "676282",
        "605182",
        "656185",
        "663362"
@@ -21168,11 +21283,11 @@
           "+7.7"
          ],
          [
-          "Josh Wolf",
+          "Isaiah Greene",
           "+0.0"
          ],
          [
-          "Isaiah Greene",
+          "Josh Wolf",
           "+0.0"
          ]
         ]
@@ -21198,10 +21313,10 @@
        "n_in": 0
       },
       "pids": [
-       "683181",
-       "693309",
        "665926",
        "642708",
+       "693309",
+       "683181",
        "596019",
        "471911"
       ],
@@ -21281,8 +21396,8 @@
        "n_in": 1
       },
       "pids": [
-       "467793",
        "641343",
+       "467793",
        "650490",
        "642121",
        "429665"
@@ -21397,15 +21512,15 @@
      {
       "d": "2016-06-09",
       "ch": "draft",
-      "net": 20.2,
+      "net": 19.3,
       "h": "Drafted Shane Bieber (#122 overall, 2016)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Shane Bieber",
-          "+20.8"
+          "Shane Bieber \u00b7 with this club",
+          "+20.1"
          ]
         ]
        ],
@@ -21414,7 +21529,7 @@
         [
          [
           "pick #122, maturity-adjusted",
-          "-0.5"
+          "-0.8"
          ]
         ]
        ]
@@ -21426,14 +21541,14 @@
      {
       "d": "2018-06-04",
       "ch": "draft",
-      "net": 17.1,
+      "net": 16.9,
       "h": "Drafted Steven Kwan (#163 overall, 2018)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Steven Kwan",
+          "Steven Kwan \u00b7 with this club",
           "+17.5"
          ]
         ]
@@ -21443,7 +21558,7 @@
         [
          [
           "pick #163, maturity-adjusted",
-          "-0.4"
+          "-0.5"
          ]
         ]
        ]
@@ -21455,14 +21570,14 @@
      {
       "d": "2021-07-11",
       "ch": "draft",
-      "net": 9.6,
+      "net": 9.5,
       "h": "Drafted Tanner Bibee (#156 overall, 2021)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Tanner Bibee",
+          "Tanner Bibee \u00b7 with this club",
           "+9.8"
          ]
         ]
@@ -21484,14 +21599,14 @@
      {
       "d": "2021-07-11",
       "ch": "draft",
-      "net": 6.6,
+      "net": 6.4,
       "h": "Drafted Gavin Williams (#23 overall, 2021)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Gavin Williams",
+          "Gavin Williams \u00b7 with this club",
           "+8.0"
          ]
         ]
@@ -21501,7 +21616,7 @@
         [
          [
           "pick #23, maturity-adjusted",
-          "-1.4"
+          "-1.6"
          ]
         ]
        ]
@@ -21513,15 +21628,19 @@
      {
       "d": "2016-06-09",
       "ch": "draft",
-      "net": 5.2,
+      "net": 6.2,
       "h": "Drafted Aaron Civale (#92 overall, 2016)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Aaron Civale",
+          "Aaron Civale \u00b7 with this club",
           "+5.9"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+1.4"
          ]
         ]
        ],
@@ -21530,7 +21649,7 @@
         [
          [
           "pick #92, maturity-adjusted",
-          "-0.7"
+          "-1.1"
          ]
         ]
        ]
@@ -21542,17 +21661,54 @@
     ],
     "worst": [
      {
+      "d": "2017-06-12",
+      "ch": "draft",
+      "net": -4.5,
+      "h": "Drafted Tyler Freeman (#71 overall, 2017)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Tyler Freeman \u00b7 with this club",
+          "-0.6"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "-2.6"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #71, maturity-adjusted",
+          "-1.3"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "671289"
+      ]
+     },
+     {
       "d": "2016-06-09",
       "ch": "draft",
-      "net": -3.3,
+      "net": -3.0,
       "h": "Drafted Will Benson (#14 overall, 2016)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Will Benson",
+          "Will Benson \u00b7 with this club",
           "-0.4"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+1.8"
          ]
         ]
        ],
@@ -21561,7 +21717,7 @@
         [
          [
           "pick #14, maturity-adjusted",
-          "-2.9"
+          "-4.4"
          ]
         ]
        ]
@@ -21571,45 +21727,16 @@
       ]
      },
      {
-      "d": "2016-06-09",
-      "ch": "draft",
-      "net": -2.1,
-      "h": "Drafted Nolan Jones (#55 overall, 2016)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Nolan Jones",
-          "-1.0"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #55, maturity-adjusted",
-          "-1.1"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "666134"
-      ]
-     },
-     {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": -1.8,
+      "net": -2.3,
       "h": "Drafted Daniel Espino (#24 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Daniel Espino",
+          "Daniel Espino \u00b7 with this club",
           "+0.3"
          ]
         ]
@@ -21619,7 +21746,7 @@
         [
          [
           "pick #24, maturity-adjusted",
-          "-2.0"
+          "-2.6"
          ]
         ]
        ]
@@ -21629,16 +21756,45 @@
       ]
      },
      {
+      "d": "2018-06-04",
+      "ch": "draft",
+      "net": -2.3,
+      "h": "Drafted Ethan Hankins (#35 overall, 2018)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Ethan Hankins \u00b7 with this club",
+          "+0.0"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #35, maturity-adjusted",
+          "-2.3"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "677945"
+      ]
+     },
+     {
       "d": "2020-06-10",
       "ch": "draft",
-      "net": -1.8,
+      "net": -2.1,
       "h": "Drafted Carson Tucker (#23 overall, 2020)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Carson Tucker",
+          "Carson Tucker \u00b7 with this club",
           "+0.0"
          ]
         ]
@@ -21648,42 +21804,13 @@
         [
          [
           "pick #23, maturity-adjusted",
-          "-1.8"
+          "-2.1"
          ]
         ]
        ]
       ],
       "pids": [
        "691020"
-      ]
-     },
-     {
-      "d": "2017-06-12",
-      "ch": "draft",
-      "net": -1.7,
-      "h": "Drafted Johnathan Rodr\u00edguez (#102 overall, 2017)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Johnathan Rodr\u00edguez",
-          "-1.0"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #102, maturity-adjusted",
-          "-0.6"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "671286"
       ]
      }
     ]
@@ -22076,8 +22203,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": 41.8,
-    "bat": 2.5
+    "pit": 37.8,
+    "bat": 4.3
    },
    "trade_in": {
     "pit": 58.9,
@@ -22672,6 +22799,64 @@
    }
   ],
   "intl_tops": [
+   {
+    "d": "2016-12-07",
+    "ch": "intl",
+    "net": 11.4,
+    "h": "Int'l amateur signing: Yainer Diaz (2016 class)",
+    "sides": [
+     [
+      "Realized on signing org (class year +10)",
+      [
+       [
+        "Yainer Diaz",
+        "+11.4"
+       ]
+      ]
+     ],
+     [
+      "Class baseline",
+      [
+       [
+        "league class value over 30 clubs, near-equal pools",
+        "shared"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "673237"
+    ]
+   },
+   {
+    "d": "2019-07-02",
+    "ch": "intl",
+    "net": 10.7,
+    "h": "Int'l amateur signing: Junior Caminero (2019 class)",
+    "sides": [
+     [
+      "Realized on signing org (class year +10)",
+      [
+       [
+        "Junior Caminero",
+        "+10.7"
+       ]
+      ]
+     ],
+     [
+      "Class baseline",
+      [
+       [
+        "league class value over 30 clubs, near-equal pools",
+        "shared"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "691406"
+    ]
+   },
    {
     "d": "2017-07-02",
     "ch": "intl",
@@ -23991,8 +24176,8 @@
     "n": 57
    },
    "draft": {
-    "net": 3.9,
-    "g": 65,
+    "net": 2.6,
+    "g": 60,
     "n": 23
    },
    "waiver": {
@@ -24013,7 +24198,7 @@
     "n": 1
    },
    "intl": {
-    "net": -0.1,
+    "net": -0.0,
     "g": 50,
     "n": 0
    },
@@ -24053,7 +24238,7 @@
     ]
    }
   },
-  "total": -1.9,
+  "total": -3.1,
   "forGrade": 45,
   "success": {
    "wpct": ".509",
@@ -24068,41 +24253,12 @@
   },
   "cum": [
    -0.2,
-   14.5,
-   6.7,
-   6.2,
-   5.1
+   13.5,
+   5.2,
+   4.9,
+   3.8
   ],
   "top": [
-   {
-    "d": "2023-07-09",
-    "ch": "draft",
-    "net": 5.5,
-    "h": "Drafted Kevin McGonigle (#37 overall, 2023)",
-    "sides": [
-     [
-      "Realized on club",
-      [
-       [
-        "Kevin McGonigle",
-        "+5.9"
-       ]
-      ]
-     ],
-     [
-      "Slot expectation",
-      [
-       [
-        "pick #37, maturity-adjusted",
-        "-0.4"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "805808"
-    ]
-   },
    {
     "d": "2023-02-17",
     "ch": "waiver",
@@ -24130,6 +24286,35 @@
     ],
     "pids": [
      "663947"
+    ]
+   },
+   {
+    "d": "2023-07-09",
+    "ch": "draft",
+    "net": 5.4,
+    "h": "Drafted Kevin McGonigle (#37 overall, 2023)",
+    "sides": [
+     [
+      "Produced in his six control seasons",
+      [
+       [
+        "Kevin McGonigle \u00b7 with this club",
+        "+5.9"
+       ]
+      ]
+     ],
+     [
+      "Slot expectation",
+      [
+       [
+        "pick #37, maturity-adjusted",
+        "-0.5"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "805808"
     ]
    },
    {
@@ -24170,8 +24355,8 @@
      "n_in": 0
     },
     "pids": [
-     "669234",
      "663977",
+     "669234",
      "641729"
     ],
     "comps": [
@@ -24252,11 +24437,11 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Brady Smith",
+        "Zyhir Hope",
         "+0.0"
        ],
        [
-        "Zyhir Hope",
+        "Brady Smith",
         "+0.0"
        ],
        [
@@ -24282,9 +24467,9 @@
      "n_in": 2
     },
     "pids": [
+     "814307",
      "689981",
      "806224",
-     "814307",
      "669373"
     ],
     "comps": [
@@ -24336,11 +24521,11 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Kash Mayfield",
+        "Jackson Wolf",
         "+0.0"
        ],
        [
-        "Jackson Wolf",
+        "Kash Mayfield",
         "+0.0"
        ]
       ]
@@ -24366,8 +24551,8 @@
      "n_in": 0
     },
     "pids": [
-     "824026",
      "680232",
+     "824026",
      "669398",
      "663554"
     ],
@@ -24577,11 +24762,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Kash Mayfield",
+          "Jackson Wolf",
           "+0.0"
          ],
          [
-          "Jackson Wolf",
+          "Kash Mayfield",
           "+0.0"
          ]
         ]
@@ -24607,8 +24792,8 @@
        "n_in": 0
       },
       "pids": [
-       "824026",
        "680232",
+       "824026",
        "669398",
        "663554"
       ],
@@ -24769,9 +24954,9 @@
        "n_in": 0
       },
       "pids": [
+       "665155",
        "663837",
        "664848",
-       "665155",
        "665019",
        "642397"
       ],
@@ -25005,8 +25190,8 @@
        "n_in": 0
       },
       "pids": [
-       "669234",
        "663977",
+       "669234",
        "641729"
       ],
       "comps": [
@@ -25058,11 +25243,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Brady Smith",
+          "Zyhir Hope",
           "+0.0"
          ],
          [
-          "Zyhir Hope",
+          "Brady Smith",
           "+0.0"
          ],
          [
@@ -25088,9 +25273,9 @@
        "n_in": 2
       },
       "pids": [
+       "814307",
        "689981",
        "806224",
-       "814307",
        "669373"
       ],
       "comps": [
@@ -25369,14 +25554,14 @@
      {
       "d": "2023-07-09",
       "ch": "draft",
-      "net": 5.5,
+      "net": 5.4,
       "h": "Drafted Kevin McGonigle (#37 overall, 2023)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Kevin McGonigle",
+          "Kevin McGonigle \u00b7 with this club",
           "+5.9"
          ]
         ]
@@ -25386,7 +25571,7 @@
         [
          [
           "pick #37, maturity-adjusted",
-          "-0.4"
+          "-0.5"
          ]
         ]
        ]
@@ -25786,8 +25971,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": -0.8,
-    "bat": 4.6
+    "pit": -1.1,
+    "bat": 3.6
    },
    "trade_in": {
     "pit": 2.2,
@@ -26675,8 +26860,8 @@
     "n": 63
    },
    "draft": {
-    "net": -2.4,
-    "g": 45,
+    "net": -3.5,
+    "g": 40,
     "n": 24
    },
    "waiver": {
@@ -26697,7 +26882,7 @@
     "n": 1
    },
    "intl": {
-    "net": -0.1,
+    "net": -0.0,
     "g": 50,
     "n": 0
    },
@@ -26715,7 +26900,7 @@
     "worst2": []
    }
   },
-  "total": -10.5,
+  "total": -11.5,
   "forGrade": 35,
   "success": {
    "wpct": ".452",
@@ -26730,10 +26915,10 @@
   },
   "cum": [
    -11.1,
-   -20.3,
-   -14.0,
-   -16.2,
-   -15.4
+   -21.0,
+   -15.3,
+   -17.4,
+   -16.5
   ],
   "top": [
    {
@@ -27976,8 +28161,8 @@
        "n_in": 0
       },
       "pids": [
-       "681895",
        "674444",
+       "681895",
        "572191"
       ],
       "comps": [
@@ -28021,7 +28206,37 @@
    },
    "draft": {
     "best": [],
-    "worst": []
+    "worst": [
+     {
+      "d": "2023-07-09",
+      "ch": "draft",
+      "net": -1.4,
+      "h": "Drafted Blake Mitchell (#8 overall, 2023)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Blake Mitchell \u00b7 with this club",
+          "+0.0"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #8, maturity-adjusted",
+          "-1.4"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "805810"
+      ]
+     }
+    ]
    },
    "waiver": {
     "best": [
@@ -28324,8 +28539,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": -1.2,
-    "bat": -1.3
+    "pit": -1.6,
+    "bat": -2.0
    },
    "trade_in": {
     "pit": 12.8,
@@ -29028,8 +29243,8 @@
      "n_in": 1
     },
     "pids": [
-     "694208",
      "702576",
+     "694208",
      "666171"
     ],
     "comps": [
@@ -29155,15 +29370,15 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
+        "Arjun Nimmala",
+        "+0.0"
+       ],
+       [
         "Eddie Micheletti Jr.",
         "+0.0"
        ],
        [
         "Angel Rivero",
-        "+0.0"
-       ],
-       [
-        "Arjun Nimmala",
         "+0.0"
        ]
       ]
@@ -29185,9 +29400,9 @@
      "n_in": 1
     },
     "pids": [
+     "805796",
      "804446",
      "821022",
-     "805796",
      "667755"
     ],
     "comps": [
@@ -29328,8 +29543,8 @@
        "n_in": 1
       },
       "pids": [
-       "694208",
        "702576",
+       "694208",
        "666171"
       ],
       "comps": [
@@ -29455,15 +29670,15 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
+          "Arjun Nimmala",
+          "+0.0"
+         ],
+         [
           "Eddie Micheletti Jr.",
           "+0.0"
          ],
          [
           "Angel Rivero",
-          "+0.0"
-         ],
-         [
-          "Arjun Nimmala",
           "+0.0"
          ]
         ]
@@ -29485,9 +29700,9 @@
        "n_in": 1
       },
       "pids": [
+       "805796",
        "804446",
        "821022",
-       "805796",
        "667755"
       ],
       "comps": [
@@ -29697,8 +29912,8 @@
     "n": 216
    },
    "draft": {
-    "net": 17.7,
-    "g": 70,
+    "net": 14.0,
+    "g": 65,
     "n": 62
    },
    "waiver": {
@@ -29719,8 +29934,8 @@
     "n": 4
    },
    "intl": {
-    "net": 1.0,
-    "g": 50,
+    "net": 14.8,
+    "g": 70,
     "n": 16
    },
    "ret": {
@@ -29759,8 +29974,8 @@
     ]
    }
   },
-  "total": 57.9,
-  "forGrade": 70,
+  "total": 68.0,
+  "forGrade": 75,
   "success": {
    "wpct": ".616",
    "div": 11,
@@ -29774,49 +29989,20 @@
   },
   "cum": [
    36.8,
-   48.7,
-   83.9,
+   45.9,
+   71.3,
+   75.1,
+   83.7,
    86.9,
-   95.2,
-   88.2,
-   102.2,
-   112.8,
-   107.1,
-   118.5,
-   99.2,
-   97.7,
-   99.1
+   100.5,
+   109.7,
+   103.9,
+   114.8,
+   95.3,
+   94.0,
+   95.4
   ],
   "top": [
-   {
-    "d": "2016-06-09",
-    "ch": "draft",
-    "net": 27.7,
-    "h": "Drafted Will Smith (#32 overall, 2016)",
-    "sides": [
-     [
-      "Realized on club",
-      [
-       [
-        "Will Smith",
-        "+29.5"
-       ]
-      ]
-     ],
-     [
-      "Slot expectation",
-      [
-       [
-        "pick #32, maturity-adjusted",
-        "-1.8"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "669257"
-    ]
-   },
    {
     "d": "2020-02-10",
     "ch": "trade",
@@ -29863,8 +30049,8 @@
      "n_in": 0
     },
     "pids": [
-     "456034",
      "605141",
+     "456034",
      "669023",
      "657136",
      "657077"
@@ -29897,6 +30083,35 @@
       "recv": 29.8,
       "paid": 37.2
      }
+    ]
+   },
+   {
+    "d": "2016-06-09",
+    "ch": "draft",
+    "net": 20.4,
+    "h": "Drafted Will Smith (#32 overall, 2016)",
+    "sides": [
+     [
+      "Produced in his six control seasons",
+      [
+       [
+        "Will Smith \u00b7 with this club",
+        "+23.0"
+       ]
+      ]
+     ],
+     [
+      "Slot expectation",
+      [
+       [
+        "pick #32, maturity-adjusted",
+        "-2.6"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "669257"
     ]
    },
    {
@@ -30130,15 +30345,15 @@
    {
     "d": "2015-06-08",
     "ch": "draft",
-    "net": 8.9,
+    "net": 8.4,
     "h": "Drafted Walker Buehler (#24 overall, 2015)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Walker Buehler",
-        "+11.1"
+        "Walker Buehler \u00b7 with this club",
+        "+11.6"
        ]
       ]
      ],
@@ -30147,7 +30362,7 @@
       [
        [
         "pick #24, maturity-adjusted",
-        "-2.2"
+        "-3.2"
        ]
       ]
      ]
@@ -30214,11 +30429,11 @@
      "n_in": 1
     },
     "pids": [
-     "276520",
-     "501593",
-     "622072",
-     "462382",
      "606299",
+     "501593",
+     "462382",
+     "276520",
+     "622072",
      "621064",
      "493343",
      "572089"
@@ -30369,8 +30584,8 @@
        "n_in": 0
       },
       "pids": [
-       "456034",
        "605141",
+       "456034",
        "669023",
        "657136",
        "657077"
@@ -30607,11 +30822,11 @@
        "n_in": 1
       },
       "pids": [
-       "276520",
-       "501593",
-       "622072",
-       "462382",
        "606299",
+       "501593",
+       "462382",
+       "276520",
+       "622072",
        "621064",
        "493343",
        "572089"
@@ -31078,15 +31293,15 @@
      {
       "d": "2016-06-09",
       "ch": "draft",
-      "net": 27.7,
+      "net": 20.4,
       "h": "Drafted Will Smith (#32 overall, 2016)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Will Smith",
-          "+29.5"
+          "Will Smith \u00b7 with this club",
+          "+23.0"
          ]
         ]
        ],
@@ -31095,7 +31310,7 @@
         [
          [
           "pick #32, maturity-adjusted",
-          "-1.8"
+          "-2.6"
          ]
         ]
        ]
@@ -31107,15 +31322,15 @@
      {
       "d": "2015-06-08",
       "ch": "draft",
-      "net": 8.9,
+      "net": 8.4,
       "h": "Drafted Walker Buehler (#24 overall, 2015)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Walker Buehler",
-          "+11.1"
+          "Walker Buehler \u00b7 with this club",
+          "+11.6"
          ]
         ]
        ],
@@ -31124,7 +31339,7 @@
         [
          [
           "pick #24, maturity-adjusted",
-          "-2.2"
+          "-3.2"
          ]
         ]
        ]
@@ -31134,106 +31349,21 @@
       ]
      },
      {
-      "d": "2016-06-09",
-      "ch": "draft",
-      "net": 2.8,
-      "h": "Drafted Dustin May (#101 overall, 2016)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Dustin May",
-          "+3.4"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #101, maturity-adjusted",
-          "-0.7"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "669160"
-      ]
-     },
-     {
-      "d": "2021-07-11",
-      "ch": "draft",
-      "net": 1.4,
-      "h": "Drafted Ben Casparius (#162 overall, 2021)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Ben Casparius",
-          "+1.7"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #162, maturity-adjusted",
-          "-0.2"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "676508"
-      ]
-     },
-     {
-      "d": "2016-06-09",
-      "ch": "draft",
-      "net": 1.4,
-      "h": "Drafted Gavin Lux (#20 overall, 2016)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Gavin Lux",
-          "+3.8"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #20, maturity-adjusted",
-          "-2.4"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "666158"
-      ]
-     }
-    ],
-    "worst": [
-     {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": -2.3,
+      "net": 5.5,
       "h": "Drafted Michael Busch (#31 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Michael Busch",
+          "Michael Busch \u00b7 with this club",
           "-0.7"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+8.3"
          ]
         ]
        ],
@@ -31242,7 +31372,7 @@
         [
          [
           "pick #31, maturity-adjusted",
-          "-1.7"
+          "-2.1"
          ]
         ]
        ]
@@ -31252,16 +31382,117 @@
       ]
      },
      {
+      "d": "2019-06-03",
+      "ch": "draft",
+      "net": 2.9,
+      "h": "Drafted Ryan Pepiot (#102 overall, 2019)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Ryan Pepiot \u00b7 with this club",
+          "+0.2"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+3.5"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #102, maturity-adjusted",
+          "-0.8"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "686752"
+      ]
+     },
+     {
       "d": "2017-06-12",
       "ch": "draft",
-      "net": -2.2,
+      "net": 2.0,
+      "h": "Drafted Connor Wong (#100 overall, 2017)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Connor Wong \u00b7 with this club",
+          "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+3.0"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #100, maturity-adjusted",
+          "-1.0"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "657136"
+      ]
+     }
+    ],
+    "worst": [
+     {
+      "d": "2015-06-08",
+      "ch": "draft",
+      "net": -3.4,
+      "h": "Drafted Willie Calhoun (#132 overall, 2015)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Willie Calhoun \u00b7 with this club",
+          "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "-2.7"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #132, maturity-adjusted",
+          "-0.7"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "641432"
+      ]
+     },
+     {
+      "d": "2017-06-12",
+      "ch": "draft",
+      "net": -3.2,
       "h": "Drafted Jeren Kendall (#23 overall, 2017)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Jeren Kendall",
+          "Jeren Kendall \u00b7 with this club",
           "+0.0"
          ]
         ]
@@ -31271,7 +31502,7 @@
         [
          [
           "pick #23, maturity-adjusted",
-          "-2.2"
+          "-3.2"
          ]
         ]
        ]
@@ -31283,14 +31514,14 @@
      {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": -2.0,
+      "net": -2.5,
       "h": "Drafted Kody Hoese (#25 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Kody Hoese",
+          "Kody Hoese \u00b7 with this club",
           "+0.0"
          ]
         ]
@@ -31300,7 +31531,7 @@
         [
          [
           "pick #25, maturity-adjusted",
-          "-2.0"
+          "-2.5"
          ]
         ]
        ]
@@ -31312,15 +31543,19 @@
      {
       "d": "2016-06-09",
       "ch": "draft",
-      "net": -1.6,
+      "net": -1.8,
       "h": "Drafted Jordan Sheffield (#36 overall, 2016)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Jordan Sheffield",
+          "Jordan Sheffield \u00b7 with this club",
           "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+0.6"
          ]
         ]
        ],
@@ -31329,13 +31564,42 @@
         [
          [
           "pick #36, maturity-adjusted",
-          "-1.6"
+          "-2.4"
          ]
         ]
        ]
       ],
       "pids": [
        "642068"
+      ]
+     },
+     {
+      "d": "2017-06-12",
+      "ch": "draft",
+      "net": -1.5,
+      "h": "Drafted Morgan Cooper (#62 overall, 2017)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Morgan Cooper \u00b7 with this club",
+          "+0.0"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #62, maturity-adjusted",
+          "-1.5"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "668729"
       ]
      }
     ]
@@ -31728,8 +31992,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": -0.5,
-    "bat": 18.2
+    "pit": -0.0,
+    "bat": 14.0
    },
    "trade_in": {
     "pit": 59.0,
@@ -32383,16 +32647,103 @@
     ]
    },
    {
-    "d": "2018-09-25",
+    "d": "2015-07-02",
     "ch": "intl",
-    "net": 2.4,
-    "h": "Int'l amateur signing: Edgardo Henriquez (2018 class)",
+    "net": 9.5,
+    "h": "Int'l amateur signing: Oneil Cruz (2015 class)",
     "sides": [
      [
       "Realized on signing org (class year +10)",
       [
        [
-        "Edgardo Henriquez",
+        "Oneil Cruz",
+        "+9.5"
+       ]
+      ]
+     ],
+     [
+      "Class baseline",
+      [
+       [
+        "league class value over 30 clubs, near-equal pools",
+        "shared"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "665833"
+    ]
+   },
+   {
+    "d": "2017-09-07",
+    "ch": "intl",
+    "net": 5.8,
+    "h": "Int'l amateur signing: Miguel Vargas (2017 class)",
+    "sides": [
+     [
+      "Realized on signing org (class year +10)",
+      [
+       [
+        "Miguel Vargas",
+        "+5.8"
+       ]
+      ]
+     ],
+     [
+      "Class baseline",
+      [
+       [
+        "league class value over 30 clubs, near-equal pools",
+        "shared"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "678246"
+    ]
+   },
+   {
+    "d": "2016-07-02",
+    "ch": "intl",
+    "net": 3.2,
+    "h": "Int'l amateur signing: Edwin Uceta (2016 class)",
+    "sides": [
+     [
+      "Realized on signing org (class year +10)",
+      [
+       [
+        "Edwin Uceta",
+        "+3.2"
+       ]
+      ]
+     ],
+     [
+      "Class baseline",
+      [
+       [
+        "league class value over 30 clubs, near-equal pools",
+        "shared"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "670955"
+    ]
+   },
+   {
+    "d": "2015-09-13",
+    "ch": "intl",
+    "net": 2.4,
+    "h": "Int'l amateur signing: Juan Morillo (2015 class)",
+    "sides": [
+     [
+      "Realized on signing org (class year +10)",
+      [
+       [
+        "Juan Morillo",
         "+2.4"
        ]
       ]
@@ -32408,7 +32759,7 @@
      ]
     ],
     "pids": [
-     "683618"
+     "666661"
     ]
    }
   ],
@@ -33138,7 +33489,7 @@
     "n": 56
    },
    "draft": {
-    "net": -0.9,
+    "net": -1.1,
     "g": 45,
     "n": 18
    },
@@ -33178,7 +33529,7 @@
     "worst2": []
    }
   },
-  "total": -17.4,
+  "total": -17.6,
   "forGrade": 30,
   "success": {
    "wpct": ".455",
@@ -33193,9 +33544,9 @@
   },
   "cum": [
    0.1,
-   -11.7,
-   -7.8,
-   -18.0
+   -12.1,
+   -8.0,
+   -18.2
   ],
   "top": [
    {
@@ -33324,9 +33675,9 @@
      "n_in": 0
     },
     "pids": [
-     "682663",
-     "800254",
      "691858",
+     "800254",
+     "682663",
      "665862"
     ],
     "comps": [
@@ -33407,7 +33758,7 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Brendan Jones",
+        "Dylan Jasso",
         "+0.0"
        ],
        [
@@ -33415,11 +33766,11 @@
         "+0.0"
        ],
        [
-        "Dylan Jasso",
+        "Juan Matheus",
         "+0.0"
        ],
        [
-        "Juan Matheus",
+        "Brendan Jones",
         "+0.0"
        ]
       ]
@@ -33441,10 +33792,10 @@
      "n_in": 0
     },
     "pids": [
-     "800957",
-     "827665",
      "815734",
+     "827665",
      "801276",
+     "800957",
      "677960"
     ],
     "comps": [
@@ -33981,11 +34332,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Jun-Seok Shim",
+          "Garret Forrester",
           "+0.0"
          ],
          [
-          "Garret Forrester",
+          "Jun-Seok Shim",
           "+0.0"
          ]
         ]
@@ -34007,8 +34358,8 @@
        "n_in": 0
       },
       "pids": [
-       "807149",
        "807720",
+       "807149",
        "650559"
       ],
       "comps": [
@@ -34250,9 +34601,9 @@
        "n_in": 0
       },
       "pids": [
-       "682663",
-       "800254",
        "691858",
+       "800254",
+       "682663",
        "665862"
       ],
       "comps": [
@@ -34304,7 +34655,7 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Brendan Jones",
+          "Dylan Jasso",
           "+0.0"
          ],
          [
@@ -34312,11 +34663,11 @@
           "+0.0"
          ],
          [
-          "Dylan Jasso",
+          "Juan Matheus",
           "+0.0"
          ],
          [
-          "Juan Matheus",
+          "Brendan Jones",
           "+0.0"
          ]
         ]
@@ -34338,10 +34689,10 @@
        "n_in": 0
       },
       "pids": [
-       "800957",
-       "827665",
        "815734",
+       "827665",
        "801276",
+       "800957",
        "677960"
       ],
       "comps": [
@@ -34783,7 +35134,7 @@
   "dna": {
    "draft": {
     "pit": -0.2,
-    "bat": -0.8
+    "bat": -0.9
    },
    "trade_in": {
     "pit": 3.3,
@@ -35250,7 +35601,7 @@
     "n": 75
    },
    "draft": {
-    "net": -2.9,
+    "net": -3.9,
     "g": 40,
     "n": 25
    },
@@ -35272,7 +35623,7 @@
     "n": 2
    },
    "intl": {
-    "net": -0.1,
+    "net": -0.0,
     "g": 50,
     "n": 0
    },
@@ -35298,7 +35649,7 @@
     ]
    }
   },
-  "total": 64.0,
+  "total": 63.1,
   "forGrade": 80,
   "success": {
    "wpct": ".594",
@@ -35313,10 +35664,10 @@
   },
   "cum": [
    32.2,
-   41.8,
-   48.7,
-   56.4,
-   53.9
+   41.2,
+   47.5,
+   55.4,
+   52.9
   ],
   "top": [
    {
@@ -35362,8 +35713,8 @@
     },
     "pids": [
      "687866",
-     "606303",
      "661388",
+     "606303",
      "665923"
     ],
     "comps": [
@@ -35983,8 +36334,8 @@
       },
       "pids": [
        "687866",
-       "606303",
        "661388",
+       "606303",
        "665923"
       ],
       "comps": [
@@ -37110,8 +37461,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": -1.0,
-    "bat": -1.9
+    "pit": -1.3,
+    "bat": -2.6
    },
    "trade_in": {
     "pit": 28.8,
@@ -38654,7 +39005,7 @@
     "n": 63
    },
    "draft": {
-    "net": 2.8,
+    "net": 2.5,
     "g": 65,
     "n": 13
    },
@@ -38694,7 +39045,7 @@
     "worst2": []
    }
   },
-  "total": -17.5,
+  "total": -17.8,
   "forGrade": 30,
   "success": {
    "wpct": ".506",
@@ -38709,9 +39060,9 @@
   },
   "cum": [
    -1.6,
-   6.2,
-   4.6,
-   -0.7
+   5.8,
+   4.3,
+   -1.0
   ],
   "top": [
    {
@@ -38864,14 +39215,14 @@
    {
     "d": "2024-07-14",
     "ch": "draft",
-    "net": 3.2,
+    "net": 3.1,
     "h": "Drafted Carson Benge (#19 overall, 2024)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Carson Benge",
+        "Carson Benge \u00b7 with this club",
         "+3.5"
        ]
       ]
@@ -38881,7 +39232,7 @@
       [
        [
         "pick #19, maturity-adjusted",
-        "-0.3"
+        "-0.4"
        ]
       ]
      ]
@@ -40034,14 +40385,14 @@
      {
       "d": "2024-07-14",
       "ch": "draft",
-      "net": 3.2,
+      "net": 3.1,
       "h": "Drafted Carson Benge (#19 overall, 2024)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Carson Benge",
+          "Carson Benge \u00b7 with this club",
           "+3.5"
          ]
         ]
@@ -40051,7 +40402,7 @@
         [
          [
           "pick #19, maturity-adjusted",
-          "-0.3"
+          "-0.4"
          ]
         ]
        ]
@@ -40451,8 +40802,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": -0.3,
-    "bat": 3.0
+    "pit": -0.4,
+    "bat": 2.9
    },
    "trade_in": {
     "pit": 8.6,
@@ -41245,8 +41596,8 @@
     "n": 303
    },
    "draft": {
-    "net": 17.1,
-    "g": 60,
+    "net": -58.9,
+    "g": 30,
     "n": 148
    },
    "waiver": {
@@ -41267,8 +41618,8 @@
     "n": 2
    },
    "intl": {
-    "net": -0.7,
-    "g": 50,
+    "net": 17.5,
+    "g": 60,
     "n": 41
    },
    "ret": {
@@ -41307,8 +41658,8 @@
     ]
    }
   },
-  "total": 25.6,
-  "forGrade": 55,
+  "total": -32.2,
+  "forGrade": 45,
   "success": {
    "wpct": ".585",
    "div": 15,
@@ -41321,66 +41672,37 @@
    "ws": 4
   },
   "cum": [
-   -17.8,
-   -41.0,
-   -42.0,
-   -49.7,
-   -50.1,
-   -67.8,
-   -47.9,
-   -32.1,
-   -24.0,
-   -35.0,
-   -27.2,
+   -20.0,
+   -44.7,
+   -47.2,
+   -55.4,
+   -56.9,
+   -76.2,
+   -59.6,
+   -63.7,
+   -39.3,
+   -53.9,
+   -47.8,
+   -58.4,
+   -58.9,
+   -61.6,
+   -80.6,
+   -70.8,
+   -56.7,
+   -36.4,
+   -46.4,
+   -26.1,
+   -27.5,
+   -30.8,
+   -27.0,
    -36.2,
-   -37.1,
-   -38.8,
-   -54.5,
-   -0.1,
-   14.0,
-   36.5,
-   28.6,
-   49.2,
-   49.3,
-   42.4,
-   46.6,
-   38.6,
-   36.3,
-   34.3,
-   50.5,
-   59.3,
-   61.2
+   -39.1,
+   -41.4,
+   -25.6,
+   -16.7,
+   -14.8
   ],
   "top": [
-   {
-    "d": "2013-06-06",
-    "ch": "draft",
-    "net": 64.3,
-    "h": "Drafted Aaron Judge (#32 overall, 2013)",
-    "sides": [
-     [
-      "Realized on club",
-      [
-       [
-        "Aaron Judge",
-        "+66.2"
-       ]
-      ]
-     ],
-     [
-      "Slot expectation",
-      [
-       [
-        "pick #32, maturity-adjusted",
-        "-1.9"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "592450"
-    ]
-   },
    {
     "d": "2004-02-16",
     "ch": "trade",
@@ -41454,17 +41776,17 @@
     ]
    },
    {
-    "d": "2005-06-07",
+    "d": "2013-06-06",
     "ch": "draft",
-    "net": 22.5,
-    "h": "Drafted Brett Gardner (#109 overall, 2005)",
+    "net": 22.7,
+    "h": "Drafted Aaron Judge (#32 overall, 2013)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Brett Gardner",
-        "+23.1"
+        "Aaron Judge \u00b7 with this club",
+        "+25.3"
        ]
       ]
      ],
@@ -41472,14 +41794,14 @@
       "Slot expectation",
       [
        [
-        "pick #109, maturity-adjusted",
-        "-0.7"
+        "pick #32, maturity-adjusted",
+        "-2.6"
        ]
       ]
      ]
     ],
     "pids": [
-     "458731"
+     "592450"
     ]
    },
    {
@@ -41520,8 +41842,8 @@
      "n_in": 0
     },
     "pids": [
-     "276342",
      "150097",
+     "276342",
      "136780"
     ],
     "comps": [
@@ -41600,8 +41922,8 @@
      "n_in": 0
     },
     "pids": [
-     "430897",
      "444427",
+     "430897",
      "400140",
      "457812",
      "471919"
@@ -41863,6 +42185,73 @@
      "net": 6.2,
      "final": 20.7
     }
+   },
+   {
+    "d": "2014-12-05",
+    "ch": "trade",
+    "net": 13.3,
+    "h": "Arizona Diamondbacks Traded SS Didi Gregorius to New York Yankees; Detroit Tigers Traded 2B Domingo Leyba and LHP Robbie Ray to Arizona Diamondbacks and New York Yankees Traded RHP Shane Greene to Detroit Tigers.",
+    "vin": 15.9,
+    "vout": 2.6,
+    "sides": [
+     [
+      "Acquired (control-window value, leverage-weighted)",
+      [
+       [
+        "Didi Gregorius",
+        "+15.9"
+       ]
+      ]
+     ],
+     [
+      "Surrendered \u00b7 value realized on Detroit Tigers",
+      [
+       [
+        "Shane Greene",
+        "-2.6"
+       ]
+      ]
+     ]
+    ],
+    "att": {
+     "out": 0,
+     "n_out": 0,
+     "inn": 0,
+     "n_in": 0
+    },
+    "pids": [
+     "544369",
+     "572888"
+    ],
+    "comps": [
+     {
+      "yr": 2018,
+      "ab": "PIT",
+      "who": "Bryan Reynolds",
+      "ck": "3+",
+      "po": "mid",
+      "recv": 16.3,
+      "paid": 0.9
+     },
+     {
+      "yr": 2015,
+      "ab": "LAA",
+      "who": "Andrelton Simmons",
+      "ck": "3+",
+      "po": "contend",
+      "recv": 16.1,
+      "paid": 2.1
+     },
+     {
+      "yr": 2011,
+      "ab": "WSH",
+      "who": "Gio Gonzalez",
+      "ck": "3+",
+      "po": "mid",
+      "recv": 14.5,
+      "paid": 0.0
+     }
+    ]
    }
   ],
   "led": {
@@ -41986,8 +42375,8 @@
        "n_in": 0
       },
       "pids": [
-       "430897",
        "444427",
+       "430897",
        "400140",
        "457812",
        "471919"
@@ -42215,8 +42604,8 @@
        "n_in": 1
       },
       "pids": [
-       "553883",
        "501381",
+       "553883",
        "456051",
        "524968"
       ],
@@ -42290,8 +42679,8 @@
        "n_in": 0
       },
       "pids": [
-       "276342",
        "150097",
+       "276342",
        "136780"
       ],
       "comps": [
@@ -42518,8 +42907,8 @@
        "n_in": 0
       },
       "pids": [
-       "570257",
        "608336",
+       "570257",
        "669701",
        "657248",
        "677649",
@@ -42628,15 +43017,15 @@
      {
       "d": "2013-06-06",
       "ch": "draft",
-      "net": 64.3,
+      "net": 22.7,
       "h": "Drafted Aaron Judge (#32 overall, 2013)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Aaron Judge",
-          "+66.2"
+          "Aaron Judge \u00b7 with this club",
+          "+25.3"
          ]
         ]
        ],
@@ -42645,7 +43034,7 @@
         [
          [
           "pick #32, maturity-adjusted",
-          "-1.9"
+          "-2.6"
          ]
         ]
        ]
@@ -42655,46 +43044,21 @@
       ]
      },
      {
-      "d": "2005-06-07",
-      "ch": "draft",
-      "net": 22.5,
-      "h": "Drafted Brett Gardner (#109 overall, 2005)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Brett Gardner",
-          "+23.1"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #109, maturity-adjusted",
-          "-0.7"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "458731"
-      ]
-     },
-     {
       "d": "2014-06-05",
       "ch": "draft",
-      "net": 7.2,
+      "net": 8.3,
       "h": "Drafted Jordan Montgomery (#122 overall, 2014)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Jordan Montgomery",
+          "Jordan Montgomery \u00b7 with this club",
           "+7.8"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+1.3"
          ]
         ]
        ],
@@ -42703,7 +43067,7 @@
         [
          [
           "pick #122, maturity-adjusted",
-          "-0.5"
+          "-0.8"
          ]
         ]
        ]
@@ -42715,14 +43079,14 @@
      {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": 7.0,
+      "net": 6.5,
       "h": "Drafted Anthony Volpe (#30 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Anthony Volpe",
+          "Anthony Volpe \u00b7 with this club",
           "+8.7"
          ]
         ]
@@ -42732,7 +43096,7 @@
         [
          [
           "pick #30, maturity-adjusted",
-          "-1.7"
+          "-2.2"
          ]
         ]
        ]
@@ -42742,17 +43106,17 @@
       ]
      },
      {
-      "d": "2009-06-09",
+      "d": "2006-06-06",
       "ch": "draft",
-      "net": 6.0,
-      "h": "Drafted Adam Warren (#135 overall, 2009)",
+      "net": 5.6,
+      "h": "Drafted Joba Chamberlain (#41 overall, 2006)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Adam Warren",
-          "+6.5"
+          "Joba Chamberlain \u00b7 with this club",
+          "+7.8"
          ]
         ]
        ],
@@ -42760,88 +43124,63 @@
         "Slot expectation",
         [
          [
-          "pick #135, maturity-adjusted",
-          "-0.5"
+          "pick #41, maturity-adjusted",
+          "-2.1"
          ]
         ]
        ]
       ],
       "pids": [
-       "476589"
+       "501955"
+      ]
+     },
+     {
+      "d": "2020-06-10",
+      "ch": "draft",
+      "net": 5.5,
+      "h": "Drafted Austin Wells (#28 overall, 2020)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Austin Wells \u00b7 with this club",
+          "+7.4"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #28, maturity-adjusted",
+          "-1.9"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "669224"
       ]
      }
     ],
     "worst": [
      {
-      "d": "2005-06-07",
-      "ch": "draft",
-      "net": -3.0,
-      "h": "Drafted C.J. Henry (#17 overall, 2005)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "C.J. Henry",
-          "+0.0"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #17, maturity-adjusted",
-          "-3.0"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "476015"
-      ]
-     },
-     {
-      "d": "2015-06-08",
-      "ch": "draft",
-      "net": -2.8,
-      "h": "Drafted James Kaprielian (#16 overall, 2015)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "James Kaprielian",
-          "+0.0"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #16, maturity-adjusted",
-          "-2.8"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "621076"
-      ]
-     },
-     {
       "d": "2016-06-09",
       "ch": "draft",
-      "net": -2.6,
+      "net": -4.2,
       "h": "Drafted Blake Rutherford (#18 overall, 2016)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Blake Rutherford",
+          "Blake Rutherford \u00b7 with this club",
           "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "-0.4"
          ]
         ]
        ],
@@ -42850,7 +43189,7 @@
         [
          [
           "pick #18, maturity-adjusted",
-          "-2.6"
+          "-3.8"
          ]
         ]
        ]
@@ -42860,16 +43199,45 @@
       ]
      },
      {
+      "d": "2005-06-07",
+      "ch": "draft",
+      "net": -3.9,
+      "h": "Drafted C.J. Henry (#17 overall, 2005)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "C.J. Henry \u00b7 with this club",
+          "+0.0"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #17, maturity-adjusted",
+          "-3.9"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "476015"
+      ]
+     },
+     {
       "d": "1998-06-02",
       "ch": "draft",
-      "net": -2.5,
+      "net": -3.2,
       "h": "Drafted Andy Brown (#24 overall, 1998)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Andy Brown",
+          "Andy Brown \u00b7 with this club",
           "+0.0"
          ]
         ]
@@ -42879,7 +43247,7 @@
         [
          [
           "pick #24, maturity-adjusted",
-          "-2.5"
+          "-3.2"
          ]
         ]
        ]
@@ -42889,16 +43257,16 @@
       ]
      },
      {
-      "d": "2001-06-05",
+      "d": "2013-06-06",
       "ch": "draft",
-      "net": -2.5,
-      "h": "Drafted John-Ford Griffin (#23 overall, 2001)",
+      "net": -3.1,
+      "h": "Drafted Eric Jagielo (#26 overall, 2013)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "John-Ford Griffin",
+          "Eric Jagielo \u00b7 with this club",
           "+0.0"
          ]
         ]
@@ -42907,14 +43275,47 @@
         "Slot expectation",
         [
          [
-          "pick #23, maturity-adjusted",
-          "-2.5"
+          "pick #26, maturity-adjusted",
+          "-3.1"
          ]
         ]
        ]
       ],
       "pids": [
-       "424366"
+       "592429"
+      ]
+     },
+     {
+      "d": "2015-06-08",
+      "ch": "draft",
+      "net": -3.1,
+      "h": "Drafted James Kaprielian (#16 overall, 2015)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "James Kaprielian \u00b7 with this club",
+          "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+0.9"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #16, maturity-adjusted",
+          "-4.1"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "621076"
       ]
      }
     ]
@@ -43307,8 +43708,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": -7.5,
-    "bat": 24.5
+    "pit": 0.4,
+    "bat": -59.3
    },
    "trade_in": {
     "pit": 109.6,
@@ -43877,7 +44278,7 @@
    {
     "d": "2012-05-31",
     "ch": "intl",
-    "net": 13.1,
+    "net": 11.3,
     "h": "Int'l amateur signing: Luis Severino (2012 class)",
     "sides": [
      [
@@ -43885,7 +44286,7 @@
       [
        [
         "Luis Severino",
-        "+13.1"
+        "+11.3"
        ]
       ]
      ],
@@ -43904,17 +44305,17 @@
     ]
    },
    {
-    "d": "2015-07-02",
+    "d": "2017-07-02",
     "ch": "intl",
-    "net": 1.3,
-    "h": "Int'l amateur signing: Oswaldo Cabrera (2015 class)",
+    "net": 8.6,
+    "h": "Int'l amateur signing: Ezequiel Duran (2017 class)",
     "sides": [
      [
       "Realized on signing org (class year +10)",
       [
        [
-        "Oswaldo Cabrera",
-        "+1.3"
+        "Ezequiel Duran",
+        "+8.6"
        ]
       ]
      ],
@@ -43929,21 +44330,21 @@
      ]
     ],
     "pids": [
-     "665828"
+     "677649"
     ]
    },
    {
-    "d": "2015-11-09",
+    "d": "2012-08-02",
     "ch": "intl",
-    "net": 0.6,
-    "h": "Int'l amateur signing: Jhony Brito (2015 class)",
+    "net": 7.0,
+    "h": "Int'l amateur signing: Thairo Estrada (2012 class)",
     "sides": [
      [
       "Realized on signing org (class year +10)",
       [
        [
-        "Jhony Brito",
-        "+0.6"
+        "Thairo Estrada",
+        "+7.0"
        ]
       ]
      ],
@@ -43958,7 +44359,65 @@
      ]
     ],
     "pids": [
-     "666745"
+     "642731"
+    ]
+   },
+   {
+    "d": "2011-01-06",
+    "ch": "intl",
+    "net": 6.5,
+    "h": "Int'l amateur signing: Giovanny Gallegos (2011 class)",
+    "sides": [
+     [
+      "Realized on signing org (class year +10)",
+      [
+       [
+        "Giovanny Gallegos",
+        "+6.5"
+       ]
+      ]
+     ],
+     [
+      "Class baseline",
+      [
+       [
+        "league class value over 30 clubs, near-equal pools",
+        "shared"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "606149"
+    ]
+   },
+   {
+    "d": "2012-01-28",
+    "ch": "intl",
+    "net": 4.0,
+    "h": "Int'l amateur signing: Jorge Mateo (2012 class)",
+    "sides": [
+     [
+      "Realized on signing org (class year +10)",
+      [
+       [
+        "Jorge Mateo",
+        "+4.0"
+       ]
+      ]
+     ],
+     [
+      "Class baseline",
+      [
+       [
+        "league class value over 30 clubs, near-equal pools",
+        "shared"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "622761"
     ]
    }
   ],
@@ -44753,7 +45212,7 @@
     "n": 110
    },
    "draft": {
-    "net": -1.6,
+    "net": -2.8,
     "g": 45,
     "n": 28
    },
@@ -44775,7 +45234,7 @@
     "n": 3
    },
    "intl": {
-    "net": -0.7,
+    "net": -0.2,
     "g": 50,
     "n": 1
    },
@@ -44808,7 +45267,7 @@
     ]
    }
   },
-  "total": 26.4,
+  "total": 25.8,
   "forGrade": 70,
   "success": {
    "wpct": ".553",
@@ -44823,12 +45282,12 @@
   },
   "cum": [
    6.4,
-   7.5,
-   23.5,
-   14.1,
-   30.2,
-   34.9,
-   36.7
+   7.1,
+   22.8,
+   13.2,
+   29.0,
+   33.8,
+   35.6
   ],
   "top": [
    {
@@ -44873,8 +45332,8 @@
      "n_in": 0
     },
     "pids": [
-     "666200",
      "682192",
+     "666200",
      "806965",
      "702708"
     ],
@@ -45289,10 +45748,10 @@
     "h": "Drafted Orion Kerkering (#152 overall, 2022)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Orion Kerkering",
+        "Orion Kerkering \u00b7 with this club",
         "+4.1"
        ]
       ]
@@ -45431,8 +45890,8 @@
        "n_in": 0
       },
       "pids": [
-       "666200",
        "682192",
+       "666200",
        "806965",
        "702708"
       ],
@@ -46102,8 +46561,8 @@
        "n_in": 0
       },
       "pids": [
-       "642397",
        "665019",
+       "642397",
        "664848",
        "663837",
        "665155"
@@ -46156,10 +46615,10 @@
       "h": "Drafted Orion Kerkering (#152 overall, 2022)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Orion Kerkering",
+          "Orion Kerkering \u00b7 with this club",
           "+4.1"
          ]
         ]
@@ -46569,8 +47028,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": 2.8,
-    "bat": -4.4
+    "pit": 2.5,
+    "bat": -5.3
    },
    "trade_in": {
     "pit": 37.8,
@@ -47078,7 +47537,37 @@
     ]
    }
   ],
-  "intl_tops": [],
+  "intl_tops": [
+   {
+    "d": "2021-06-15",
+    "ch": "intl",
+    "net": 0.5,
+    "h": "Int'l amateur signing: Hao-Yu Lee (2021 class)",
+    "sides": [
+     [
+      "Realized on signing org (class year +10)",
+      [
+       [
+        "Hao-Yu Lee",
+        "+0.5"
+       ]
+      ]
+     ],
+     [
+      "Class baseline",
+      [
+       [
+        "league class value over 30 clubs, near-equal pools",
+        "shared"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "701678"
+    ]
+   }
+  ],
   "dev": {
    "net": 12.2,
    "g": 45,
@@ -47639,8 +48128,8 @@
     "n": 117
    },
    "draft": {
-    "net": 7.8,
-    "g": 65,
+    "net": 3.4,
+    "g": 55,
     "n": 42
    },
    "waiver": {
@@ -47661,7 +48150,7 @@
     "n": 4
    },
    "intl": {
-    "net": 2.0,
+    "net": 1.7,
     "g": 55,
     "n": 3
    },
@@ -47679,7 +48168,7 @@
     "worst2": []
    }
   },
-  "total": -3.5,
+  "total": -8.3,
   "forGrade": 45,
   "success": {
    "wpct": ".433",
@@ -47694,13 +48183,13 @@
   },
   "cum": [
    0.0,
-   3.9,
-   -17.1,
-   -22.2,
-   -12.4,
-   -9.1,
-   -5.1,
-   -4.3
+   2.4,
+   -19.6,
+   -25.1,
+   -16.5,
+   -13.8,
+   -9.5,
+   -8.8
   ],
   "top": [
    {
@@ -47790,14 +48279,14 @@
    {
     "d": "2023-07-09",
     "ch": "draft",
-    "net": 12.1,
+    "net": 11.3,
     "h": "Drafted Paul Skenes (#1 overall, 2023)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Paul Skenes",
+        "Paul Skenes \u00b7 with this club",
         "+14.3"
        ]
       ]
@@ -47807,7 +48296,7 @@
       [
        [
         "pick #1, maturity-adjusted",
-        "-2.2"
+        "-3.0"
        ]
       ]
      ]
@@ -47891,14 +48380,14 @@
    {
     "d": "2021-07-11",
     "ch": "draft",
-    "net": -6.0,
+    "net": -6.7,
     "h": "Drafted Henry Davis (#1 overall, 2021)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Henry Davis",
+        "Henry Davis \u00b7 with this club",
         "-0.6"
        ]
       ]
@@ -47908,7 +48397,7 @@
       [
        [
         "pick #1, maturity-adjusted",
-        "-5.4"
+        "-6.1"
        ]
       ]
      ]
@@ -47963,10 +48452,10 @@
      "n_in": 0
     },
     "pids": [
+     "664337",
+     "675986",
      "672710",
      "683500",
-     "675986",
-     "664337",
      "592791"
     ],
     "comps": [
@@ -48002,14 +48491,14 @@
    {
     "d": "2020-06-10",
     "ch": "draft",
-    "net": 4.7,
+    "net": 4.4,
     "h": "Drafted Carmen Mlodzinski (#31 overall, 2020)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Carmen Mlodzinski",
+        "Carmen Mlodzinski \u00b7 with this club",
         "+6.1"
        ]
       ]
@@ -48019,7 +48508,7 @@
       [
        [
         "pick #31, maturity-adjusted",
-        "-1.4"
+        "-1.7"
        ]
       ]
      ]
@@ -48048,11 +48537,11 @@
         "+1.4"
        ],
        [
-        "Hudson Head",
+        "Omar Cruz",
         "+0.0"
        ],
        [
-        "Omar Cruz",
+        "Hudson Head",
         "+0.0"
        ],
        [
@@ -48078,9 +48567,9 @@
      "n_in": 0
     },
     "pids": [
-     "687431",
-     "670280",
      "678316",
+     "670280",
+     "687431",
      "682848",
      "666148",
      "605397"
@@ -48422,9 +48911,9 @@
        "n_in": 0
       },
       "pids": [
-       "693312",
        "605507",
        "669002",
+       "693312",
        "607732"
       ],
       "comps": [
@@ -48651,10 +49140,10 @@
        "n_in": 0
       },
       "pids": [
+       "664337",
+       "675986",
        "672710",
        "683500",
-       "675986",
-       "664337",
        "592791"
       ],
       "comps": [
@@ -48707,11 +49196,11 @@
           "+1.4"
          ],
          [
-          "Hudson Head",
+          "Omar Cruz",
           "+0.0"
          ],
          [
-          "Omar Cruz",
+          "Hudson Head",
           "+0.0"
          ],
          [
@@ -48737,9 +49226,9 @@
        "n_in": 0
       },
       "pids": [
-       "687431",
-       "670280",
        "678316",
+       "670280",
+       "687431",
        "682848",
        "666148",
        "605397"
@@ -48890,8 +49379,8 @@
        "n_in": 0
       },
       "pids": [
-       "670912",
        "682650",
+       "670912",
        "500779",
        "608717"
       ],
@@ -48939,14 +49428,14 @@
      {
       "d": "2023-07-09",
       "ch": "draft",
-      "net": 12.1,
+      "net": 11.3,
       "h": "Drafted Paul Skenes (#1 overall, 2023)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Paul Skenes",
+          "Paul Skenes \u00b7 with this club",
           "+14.3"
          ]
         ]
@@ -48956,7 +49445,7 @@
         [
          [
           "pick #1, maturity-adjusted",
-          "-2.2"
+          "-3.0"
          ]
         ]
        ]
@@ -48968,14 +49457,14 @@
      {
       "d": "2020-06-10",
       "ch": "draft",
-      "net": 4.7,
+      "net": 4.4,
       "h": "Drafted Carmen Mlodzinski (#31 overall, 2020)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Carmen Mlodzinski",
+          "Carmen Mlodzinski \u00b7 with this club",
           "+6.1"
          ]
         ]
@@ -48985,7 +49474,7 @@
         [
          [
           "pick #31, maturity-adjusted",
-          "-1.4"
+          "-1.7"
          ]
         ]
        ]
@@ -48997,14 +49486,14 @@
      {
       "d": "2020-06-10",
       "ch": "draft",
-      "net": 3.0,
+      "net": 2.8,
       "h": "Drafted Jared Jones (#44 overall, 2020)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Jared Jones",
+          "Jared Jones \u00b7 with this club",
           "+4.0"
          ]
         ]
@@ -49014,7 +49503,7 @@
         [
          [
           "pick #44, maturity-adjusted",
-          "-1.1"
+          "-1.3"
          ]
         ]
        ]
@@ -49030,10 +49519,10 @@
       "h": "Drafted Bubba Chandler (#72 overall, 2021)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Bubba Chandler",
+          "Bubba Chandler \u00b7 with this club",
           "+2.9"
          ]
         ]
@@ -49057,14 +49546,14 @@
      {
       "d": "2021-07-11",
       "ch": "draft",
-      "net": -6.0,
+      "net": -6.7,
       "h": "Drafted Henry Davis (#1 overall, 2021)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Henry Davis",
+          "Henry Davis \u00b7 with this club",
           "-0.6"
          ]
         ]
@@ -49074,7 +49563,7 @@
         [
          [
           "pick #1, maturity-adjusted",
-          "-5.4"
+          "-6.1"
          ]
         ]
        ]
@@ -49086,14 +49575,14 @@
      {
       "d": "2022-07-17",
       "ch": "draft",
-      "net": -2.3,
+      "net": -2.5,
       "h": "Drafted Termarr Johnson (#4 overall, 2022)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Termarr Johnson",
+          "Termarr Johnson \u00b7 with this club",
           "+0.0"
          ]
         ]
@@ -49103,7 +49592,7 @@
         [
          [
           "pick #4, maturity-adjusted",
-          "-2.3"
+          "-2.5"
          ]
         ]
        ]
@@ -49444,8 +49933,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": 16.3,
-    "bat": -8.5
+    "pit": 14.2,
+    "bat": -10.8
    },
    "trade_in": {
     "pit": 23.3,
@@ -50678,8 +51167,8 @@
     "n": 136
    },
    "draft": {
-    "net": -39.7,
-    "g": 30,
+    "net": -0.1,
+    "g": 50,
     "n": 68
    },
    "waiver": {
@@ -50700,8 +51189,8 @@
     "n": 6
    },
    "intl": {
-    "net": -1.2,
-    "g": 50,
+    "net": -3.1,
+    "g": 45,
     "n": 16
    },
    "ret": {
@@ -50740,7 +51229,7 @@
     ]
    }
   },
-  "total": -152.9,
+  "total": -115.3,
   "forGrade": 30,
   "success": {
    "wpct": ".495",
@@ -50755,18 +51244,18 @@
   },
   "cum": [
    -39.0,
-   -54.4,
-   -58.2,
-   -57.9,
-   -77.4,
-   -66.0,
-   -99.5,
-   -92.9,
-   -111.0,
-   -112.1,
-   -98.1,
-   -92.6,
-   -95.4
+   -55.9,
+   -55.8,
+   -53.7,
+   -61.8,
+   -34.6,
+   -69.6,
+   -52.4,
+   -70.8,
+   -72.2,
+   -58.6,
+   -53.0,
+   -55.9
   ],
   "top": [
    {
@@ -50827,8 +51316,8 @@
      "n_in": 0
     },
     "pids": [
-     "622103",
      "620454",
+     "622103",
      "571976",
      "641343",
      "425784",
@@ -50920,8 +51409,8 @@
      "n_in": 0
     },
     "pids": [
-     "613534",
      "656186",
+     "613534",
      "543592",
      "620443",
      "662253",
@@ -51086,8 +51575,8 @@
      "n_in": 0
     },
     "pids": [
-     "630105",
      "502054",
+     "630105",
      "669364",
      "592669",
      "606019"
@@ -51184,9 +51673,9 @@
      "n_in": 0
     },
     "pids": [
-     "605182",
-     "663362",
      "656185",
+     "663362",
+     "605182",
      "615698",
      "647304",
      "676282",
@@ -51314,35 +51803,6 @@
     }
    },
    {
-    "d": "2021-07-11",
-    "ch": "draft",
-    "net": 11.9,
-    "h": "Drafted Jackson Merrill (#27 overall, 2021)",
-    "sides": [
-     [
-      "Realized on club",
-      [
-       [
-        "Jackson Merrill",
-        "+13.1"
-       ]
-      ]
-     ],
-     [
-      "Slot expectation",
-      [
-       [
-        "pick #27, maturity-adjusted",
-        "-1.2"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "701538"
-    ]
-   },
-   {
     "d": "2015-12-08",
     "ch": "trade",
     "net": -11.8,
@@ -51408,6 +51868,35 @@
       "paid": -0.0
      }
     ]
+   },
+   {
+    "d": "2021-07-11",
+    "ch": "draft",
+    "net": 11.7,
+    "h": "Drafted Jackson Merrill (#27 overall, 2021)",
+    "sides": [
+     [
+      "Produced in his six control seasons",
+      [
+       [
+        "Jackson Merrill \u00b7 with this club",
+        "+13.1"
+       ]
+      ]
+     ],
+     [
+      "Slot expectation",
+      [
+       [
+        "pick #27, maturity-adjusted",
+        "-1.4"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "701538"
+    ]
    }
   ],
   "led": {
@@ -51459,8 +51948,8 @@
        "n_in": 0
       },
       "pids": [
-       "630105",
        "502054",
+       "630105",
        "669364",
        "592669",
        "606019"
@@ -51622,8 +52111,8 @@
        "n_in": 0
       },
       "pids": [
-       "665487",
        "605304",
+       "665487",
        "448306"
       ],
       "comps": [
@@ -51710,8 +52199,8 @@
        "n_in": 0
       },
       "pids": [
-       "506433",
        "605170",
+       "506433",
        "605200",
        "678220",
        "683357",
@@ -51890,8 +52379,8 @@
        "n_in": 0
       },
       "pids": [
-       "622103",
        "620454",
+       "622103",
        "571976",
        "641343",
        "425784",
@@ -51983,8 +52472,8 @@
        "n_in": 0
       },
       "pids": [
-       "613534",
        "656186",
+       "613534",
        "543592",
        "620443",
        "662253",
@@ -52165,9 +52654,9 @@
        "n_in": 0
       },
       "pids": [
-       "605182",
-       "663362",
        "656185",
+       "663362",
+       "605182",
        "615698",
        "647304",
        "676282",
@@ -52279,14 +52768,14 @@
      {
       "d": "2021-07-11",
       "ch": "draft",
-      "net": 11.9,
+      "net": 11.7,
       "h": "Drafted Jackson Merrill (#27 overall, 2021)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Jackson Merrill",
+          "Jackson Merrill \u00b7 with this club",
           "+13.1"
          ]
         ]
@@ -52296,7 +52785,7 @@
         [
          [
           "pick #27, maturity-adjusted",
-          "-1.2"
+          "-1.4"
          ]
         ]
        ]
@@ -52304,50 +52793,23 @@
       "pids": [
        "701538"
       ]
-     }
-    ],
-    "worst": [
-     {
-      "d": "2017-06-12",
-      "ch": "draft",
-      "net": -5.3,
-      "h": "Drafted MacKenzie Gore (#3 overall, 2017)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "MacKenzie Gore",
-          "+0.4"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #3, maturity-adjusted",
-          "-5.8"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "669022"
-      ]
      },
      {
-      "d": "2018-06-04",
+      "d": "2021-07-11",
       "ch": "draft",
-      "net": -5.3,
-      "h": "Drafted Ryan Weathers (#7 overall, 2018)",
+      "net": 8.8,
+      "h": "Drafted James Wood (#62 overall, 2021)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Ryan Weathers",
-          "-1.3"
+          "James Wood \u00b7 with this club",
+          "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+9.5"
          ]
         ]
        ],
@@ -52355,28 +52817,32 @@
         "Slot expectation",
         [
          [
-          "pick #7, maturity-adjusted",
-          "-4.1"
+          "pick #62, maturity-adjusted",
+          "-0.7"
          ]
         ]
        ]
       ],
       "pids": [
-       "677960"
+       "695578"
       ]
      },
      {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": -4.4,
+      "net": 8.3,
       "h": "Drafted CJ Abrams (#6 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "CJ Abrams",
+          "CJ Abrams \u00b7 with this club",
           "-0.1"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+13.8"
          ]
         ]
        ],
@@ -52385,7 +52851,7 @@
         [
          [
           "pick #6, maturity-adjusted",
-          "-4.2"
+          "-5.4"
          ]
         ]
        ]
@@ -52395,17 +52861,89 @@
       ]
      },
      {
+      "d": "2018-06-04",
+      "ch": "draft",
+      "net": 6.1,
+      "h": "Drafted Xavier Edwards (#38 overall, 2018)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Xavier Edwards \u00b7 with this club",
+          "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+8.3"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #38, maturity-adjusted",
+          "-2.1"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "669364"
+      ]
+     },
+     {
+      "d": "2019-06-03",
+      "ch": "draft",
+      "net": 3.7,
+      "h": "Drafted Matt Brash (#113 overall, 2019)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Matt Brash \u00b7 with this club",
+          "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+4.3"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #113, maturity-adjusted",
+          "-0.7"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "666374"
+      ]
+     }
+    ],
+    "worst": [
+     {
       "d": "2020-06-10",
       "ch": "draft",
-      "net": -3.2,
+      "net": -4.3,
       "h": "Drafted Robert Hassell III (#8 overall, 2020)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Robert Hassell III",
+          "Robert Hassell III \u00b7 with this club",
           "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "-0.4"
          ]
         ]
        ],
@@ -52414,7 +52952,7 @@
         [
          [
           "pick #8, maturity-adjusted",
-          "-3.2"
+          "-3.9"
          ]
         ]
        ]
@@ -52424,17 +52962,21 @@
       ]
      },
      {
-      "d": "2016-06-09",
+      "d": "2018-06-04",
       "ch": "draft",
-      "net": -3.1,
-      "h": "Drafted Cal Quantrill (#8 overall, 2016)",
+      "net": -3.4,
+      "h": "Drafted Ryan Weathers (#7 overall, 2018)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Cal Quantrill",
-          "+1.0"
+          "Ryan Weathers \u00b7 with this club",
+          "-1.3"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+3.8"
          ]
         ]
        ],
@@ -52442,14 +52984,101 @@
         "Slot expectation",
         [
          [
-          "pick #8, maturity-adjusted",
-          "-4.0"
+          "pick #7, maturity-adjusted",
+          "-5.8"
          ]
         ]
        ]
       ],
       "pids": [
-       "615698"
+       "677960"
+      ]
+     },
+     {
+      "d": "2016-06-09",
+      "ch": "draft",
+      "net": -3.2,
+      "h": "Drafted Hudson Potts (#24 overall, 2016)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Hudson Potts \u00b7 with this club",
+          "+0.0"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #24, maturity-adjusted",
+          "-3.2"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "668888"
+      ]
+     },
+     {
+      "d": "2015-06-08",
+      "ch": "draft",
+      "net": -2.0,
+      "h": "Drafted Jacob Nix (#86 overall, 2015)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Jacob Nix \u00b7 with this club",
+          "-0.9"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #86, maturity-adjusted",
+          "-1.2"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "656798"
+      ]
+     },
+     {
+      "d": "2016-06-09",
+      "ch": "draft",
+      "net": -1.9,
+      "h": "Drafted Michael Reed (#48 overall, 2016)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Michael Reed \u00b7 with this club",
+          "+0.0"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #48, maturity-adjusted",
+          "-1.9"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "642002"
       ]
      }
     ]
@@ -52842,8 +53471,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": -27.3,
-    "bat": -12.4
+    "pit": -9.7,
+    "bat": 9.6
    },
    "trade_in": {
     "pit": 84.6,
@@ -53464,17 +54093,17 @@
   ],
   "intl_tops": [
    {
-    "d": "2016-07-07",
+    "d": "2015-02-11",
     "ch": "intl",
-    "net": 6.7,
-    "h": "Int'l amateur signing: Adrian Morejon (2016 class)",
+    "net": 10.0,
+    "h": "Int'l amateur signing: Emmanuel Clase (2015 class)",
     "sides": [
      [
       "Realized on signing org (class year +10)",
       [
        [
-        "Adrian Morejon",
-        "+6.7"
+        "Emmanuel Clase",
+        "+10.0"
        ]
       ]
      ],
@@ -53489,7 +54118,7 @@
      ]
     ],
     "pids": [
-     "670970"
+     "661403"
     ]
    },
    {
@@ -53522,6 +54151,64 @@
     ]
    },
    {
+    "d": "2017-07-02",
+    "ch": "intl",
+    "net": 2.0,
+    "h": "Int'l amateur signing: Brandon Valenzuela (2017 class)",
+    "sides": [
+     [
+      "Realized on signing org (class year +10)",
+      [
+       [
+        "Brandon Valenzuela",
+        "+2.0"
+       ]
+      ]
+     ],
+     [
+      "Class baseline",
+      [
+       [
+        "league class value over 30 clubs, near-equal pools",
+        "shared"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "678218"
+    ]
+   },
+   {
+    "d": "2016-07-07",
+    "ch": "intl",
+    "net": 1.7,
+    "h": "Int'l amateur signing: Adrian Morejon (2016 class)",
+    "sides": [
+     [
+      "Realized on signing org (class year +10)",
+      [
+       [
+        "Adrian Morejon",
+        "+1.7"
+       ]
+      ]
+     ],
+     [
+      "Class baseline",
+      [
+       [
+        "league class value over 30 clubs, near-equal pools",
+        "shared"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "670970"
+    ]
+   },
+   {
     "d": "2015-08-25",
     "ch": "intl",
     "net": 0.7,
@@ -53548,35 +54235,6 @@
     ],
     "pids": [
      "666703"
-    ]
-   },
-   {
-    "d": "2016-12-19",
-    "ch": "intl",
-    "net": 0.6,
-    "h": "Int'l amateur signing: Michel Baez (2016 class)",
-    "sides": [
-     [
-      "Realized on signing org (class year +10)",
-      [
-       [
-        "Michel Baez",
-        "+0.6"
-       ]
-      ]
-     ],
-     [
-      "Class baseline",
-      [
-       [
-        "league class value over 30 clubs, near-equal pools",
-        "shared"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "673258"
     ]
    }
   ],
@@ -54099,7 +54757,7 @@
     "n": 24
    },
    "draft": {
-    "net": -0.1,
+    "net": 0.0,
     "g": 50,
     "n": 9
    },
@@ -54139,7 +54797,7 @@
     "worst2": []
    }
   },
-  "total": -9.0,
+  "total": -8.9,
   "forGrade": 30,
   "success": {
    "wpct": ".451",
@@ -54154,8 +54812,8 @@
   },
   "cum": [
    0.0,
-   -1.0,
-   -9.0
+   -0.9,
+   -8.9
   ],
   "top": [
    {
@@ -55281,7 +55939,7 @@
   "dna": {
    "draft": {
     "pit": 0.0,
-    "bat": -0.1
+    "bat": 0.0
    },
    "trade_in": {
     "pit": 2.6,
@@ -55679,8 +56337,8 @@
     "n": 207
    },
    "draft": {
-    "net": 23.9,
-    "g": 75,
+    "net": 10.0,
+    "g": 65,
     "n": 60
    },
    "waiver": {
@@ -55701,8 +56359,8 @@
     "n": 5
    },
    "intl": {
-    "net": 15.4,
-    "g": 70,
+    "net": 4.6,
+    "g": 55,
     "n": 10
    },
    "ret": {
@@ -55741,8 +56399,8 @@
     ]
    }
   },
-  "total": 41.2,
-  "forGrade": 70,
+  "total": 16.5,
+  "forGrade": 60,
   "success": {
    "wpct": ".515",
    "div": 1,
@@ -55756,30 +56414,30 @@
   },
   "cum": [
    -4.5,
-   -24.0,
-   -43.7,
-   -16.6,
-   -9.5,
-   9.8,
-   5.6,
-   26.0,
-   25.9,
-   36.6,
-   36.0,
-   35.3
+   -28.5,
+   -50.5,
+   -25.7,
+   -19.5,
+   -1.6,
+   -6.1,
+   13.3,
+   12.1,
+   22.4,
+   22.1,
+   21.4
   ],
   "top": [
    {
     "d": "2018-06-04",
     "ch": "draft",
-    "net": 25.8,
+    "net": 25.5,
     "h": "Drafted Cal Raleigh (#90 overall, 2018)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Cal Raleigh",
+        "Cal Raleigh \u00b7 with this club",
         "+26.5"
        ]
       ]
@@ -55789,7 +56447,7 @@
       [
        [
         "pick #90, maturity-adjusted",
-        "-0.7"
+        "-1.0"
        ]
       ]
      ]
@@ -55852,10 +56510,10 @@
      "n_in": 1
     },
     "pids": [
+     "620443",
+     "662253",
      "664034",
      "666211",
-     "662253",
-     "620443",
      "656186",
      "613534",
      "543592"
@@ -56047,35 +56705,6 @@
     }
    },
    {
-    "d": "2018-06-04",
-    "ch": "draft",
-    "net": 11.6,
-    "h": "Drafted Logan Gilbert (#14 overall, 2018)",
-    "sides": [
-     [
-      "Realized on club",
-      [
-       [
-        "Logan Gilbert",
-        "+14.4"
-       ]
-      ]
-     ],
-     [
-      "Slot expectation",
-      [
-       [
-        "pick #14, maturity-adjusted",
-        "-2.8"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "669302"
-    ]
-   },
-   {
     "d": "2024-07-26",
     "ch": "trade",
     "net": 11.3,
@@ -56162,14 +56791,14 @@
    {
     "d": "2019-06-03",
     "ch": "draft",
-    "net": 11.0,
+    "net": 10.4,
     "h": "Drafted George Kirby (#20 overall, 2019)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "George Kirby",
+        "George Kirby \u00b7 with this club",
         "+13.3"
        ]
       ]
@@ -56179,13 +56808,42 @@
       [
        [
         "pick #20, maturity-adjusted",
-        "-2.3"
+        "-2.9"
        ]
       ]
      ]
     ],
     "pids": [
      "669923"
+    ]
+   },
+   {
+    "d": "2018-06-04",
+    "ch": "draft",
+    "net": 10.4,
+    "h": "Drafted Logan Gilbert (#14 overall, 2018)",
+    "sides": [
+     [
+      "Produced in his six control seasons",
+      [
+       [
+        "Logan Gilbert \u00b7 with this club",
+        "+14.4"
+       ]
+      ]
+     ],
+     [
+      "Slot expectation",
+      [
+       [
+        "pick #14, maturity-adjusted",
+        "-4.0"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "669302"
     ]
    },
    {
@@ -56242,11 +56900,11 @@
      "n_in": 2
     },
     "pids": [
+     "457803",
+     "672284",
+     "461872",
      "639373",
      "643290",
-     "461872",
-     "672284",
-     "457803",
      "429664",
      "621242"
     ],
@@ -56338,10 +56996,10 @@
        "n_in": 1
       },
       "pids": [
+       "620443",
+       "662253",
        "664034",
        "666211",
-       "662253",
-       "620443",
        "656186",
        "613534",
        "543592"
@@ -56591,9 +57249,9 @@
        "n_in": 0
       },
       "pids": [
-       "686527",
        "668942",
        "669208",
+       "686527",
        "623149"
       ],
       "comps": [
@@ -56823,11 +57481,11 @@
        "n_in": 2
       },
       "pids": [
+       "457803",
+       "672284",
+       "461872",
        "639373",
        "643290",
-       "461872",
-       "672284",
-       "457803",
        "429664",
        "621242"
       ],
@@ -57074,14 +57732,14 @@
      {
       "d": "2018-06-04",
       "ch": "draft",
-      "net": 25.8,
+      "net": 25.5,
       "h": "Drafted Cal Raleigh (#90 overall, 2018)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Cal Raleigh",
+          "Cal Raleigh \u00b7 with this club",
           "+26.5"
          ]
         ]
@@ -57091,7 +57749,7 @@
         [
          [
           "pick #90, maturity-adjusted",
-          "-0.7"
+          "-1.0"
          ]
         ]
        ]
@@ -57101,45 +57759,16 @@
       ]
      },
      {
-      "d": "2018-06-04",
-      "ch": "draft",
-      "net": 11.6,
-      "h": "Drafted Logan Gilbert (#14 overall, 2018)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Logan Gilbert",
-          "+14.4"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #14, maturity-adjusted",
-          "-2.8"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "669302"
-      ]
-     },
-     {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": 11.0,
+      "net": 10.4,
       "h": "Drafted George Kirby (#20 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "George Kirby",
+          "George Kirby \u00b7 with this club",
           "+13.3"
          ]
         ]
@@ -57149,7 +57778,7 @@
         [
          [
           "pick #20, maturity-adjusted",
-          "-2.3"
+          "-2.9"
          ]
         ]
        ]
@@ -57159,16 +57788,45 @@
       ]
      },
      {
+      "d": "2018-06-04",
+      "ch": "draft",
+      "net": 10.4,
+      "h": "Drafted Logan Gilbert (#14 overall, 2018)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Logan Gilbert \u00b7 with this club",
+          "+14.4"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #14, maturity-adjusted",
+          "-4.0"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "669302"
+      ]
+     },
+     {
       "d": "2021-07-11",
       "ch": "draft",
-      "net": 3.5,
+      "net": 3.4,
       "h": "Drafted Bryce Miller (#113 overall, 2021)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Bryce Miller",
+          "Bryce Miller \u00b7 with this club",
           "+3.8"
          ]
         ]
@@ -57190,45 +57848,16 @@
     ],
     "worst": [
      {
-      "d": "2020-06-10",
-      "ch": "draft",
-      "net": -3.5,
-      "h": "Drafted Emerson Hancock (#6 overall, 2020)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Emerson Hancock",
-          "+0.1"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #6, maturity-adjusted",
-          "-3.6"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "676106"
-      ]
-     },
-     {
       "d": "2017-06-12",
       "ch": "draft",
-      "net": -3.5,
+      "net": -4.8,
       "h": "Drafted Evan White (#17 overall, 2017)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Evan White",
+          "Evan White \u00b7 with this club",
           "-0.9"
          ]
         ]
@@ -57238,7 +57867,7 @@
         [
          [
           "pick #17, maturity-adjusted",
-          "-2.6"
+          "-3.8"
          ]
         ]
        ]
@@ -57248,17 +57877,17 @@
       ]
      },
      {
-      "d": "2021-07-11",
+      "d": "2020-06-10",
       "ch": "draft",
-      "net": -2.0,
-      "h": "Drafted Harry Ford (#12 overall, 2021)",
+      "net": -4.2,
+      "h": "Drafted Emerson Hancock (#6 overall, 2020)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Harry Ford",
-          "-0.0"
+          "Emerson Hancock \u00b7 with this club",
+          "+0.1"
          ]
         ]
        ],
@@ -57266,27 +57895,93 @@
         "Slot expectation",
         [
          [
-          "pick #12, maturity-adjusted",
-          "-2.0"
+          "pick #6, maturity-adjusted",
+          "-4.3"
          ]
         ]
        ]
       ],
       "pids": [
-       "695670"
+       "676106"
       ]
      },
      {
       "d": "2016-06-09",
       "ch": "draft",
-      "net": -1.2,
+      "net": -2.2,
+      "h": "Drafted Donovan Walton (#147 overall, 2016)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Donovan Walton \u00b7 with this club",
+          "-0.4"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "-1.1"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #147, maturity-adjusted",
+          "-0.7"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "622268"
+      ]
+     },
+     {
+      "d": "2016-06-09",
+      "ch": "draft",
+      "net": -1.8,
+      "h": "Drafted Kyle Lewis (#11 overall, 2016)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Kyle Lewis \u00b7 with this club",
+          "+3.5"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "-0.4"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #11, maturity-adjusted",
+          "-5.0"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "641786"
+      ]
+     },
+     {
+      "d": "2016-06-09",
+      "ch": "draft",
+      "net": -1.8,
       "h": "Drafted Joe Rizzo (#50 overall, 2016)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Joe Rizzo",
+          "Joe Rizzo \u00b7 with this club",
           "+0.0"
          ]
         ]
@@ -57296,7 +57991,7 @@
         [
          [
           "pick #50, maturity-adjusted",
-          "-1.2"
+          "-1.8"
          ]
         ]
        ]
@@ -57695,8 +58390,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": 14.4,
-    "bat": 9.4
+    "pit": 9.7,
+    "bat": 0.3
    },
    "trade_in": {
     "pit": 69.3,
@@ -59340,11 +60035,11 @@
         "+0.4"
        ],
        [
-        "Yhoiker Fajardo",
+        "Blake Aita",
         "+0.0"
        ],
        [
-        "Blake Aita",
+        "Yhoiker Fajardo",
         "+0.0"
        ]
       ]
@@ -59367,8 +60062,8 @@
     },
     "pids": [
      "690928",
-     "823369",
      "820832",
+     "823369",
      "575929"
     ],
     "comps": [
@@ -59424,11 +60119,11 @@
         "+0.0"
        ],
        [
-        "Brandon Clarke",
+        "Richard Fitts",
         "+0.0"
        ],
        [
-        "Richard Fitts",
+        "Brandon Clarke",
         "+0.0"
        ]
       ]
@@ -59451,8 +60146,8 @@
     },
     "pids": [
      "702642",
-     "700251",
      "690916",
+     "700251",
      "543243"
     ],
     "comps": [
@@ -59504,11 +60199,11 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Sandro Santana",
+        "Daniel Eagen",
         "+0.0"
        ],
        [
-        "Daniel Eagen",
+        "Sandro Santana",
         "+0.0"
        ]
       ]
@@ -59530,8 +60225,8 @@
      "n_in": 0
     },
     "pids": [
-     "811139",
      "811666",
+     "811139",
      "663457"
     ],
     "comps": [
@@ -59660,11 +60355,11 @@
         "+0.0"
        ],
        [
-        "Tai Peete",
+        "Colton Ledbetter",
         "+0.0"
        ],
        [
-        "Colton Ledbetter",
+        "Tai Peete",
         "+0.0"
        ]
       ]
@@ -59687,8 +60382,8 @@
     },
     "pids": [
      "701388",
-     "806191",
      "807742",
+     "806191",
      "680977"
     ],
     "comps": [
@@ -59955,11 +60650,11 @@
           "+0.4"
          ],
          [
-          "Yhoiker Fajardo",
+          "Blake Aita",
           "+0.0"
          ],
          [
-          "Blake Aita",
+          "Yhoiker Fajardo",
           "+0.0"
          ]
         ]
@@ -59982,8 +60677,8 @@
       },
       "pids": [
        "690928",
-       "823369",
        "820832",
+       "823369",
        "575929"
       ],
       "comps": [
@@ -60039,11 +60734,11 @@
           "+0.0"
          ],
          [
-          "Brandon Clarke",
+          "Richard Fitts",
           "+0.0"
          ],
          [
-          "Richard Fitts",
+          "Brandon Clarke",
           "+0.0"
          ]
         ]
@@ -60066,8 +60761,8 @@
       },
       "pids": [
        "702642",
-       "700251",
        "690916",
+       "700251",
        "543243"
       ],
       "comps": [
@@ -60119,11 +60814,11 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Sandro Santana",
+          "Daniel Eagen",
           "+0.0"
          ],
          [
-          "Daniel Eagen",
+          "Sandro Santana",
           "+0.0"
          ]
         ]
@@ -60145,8 +60840,8 @@
        "n_in": 0
       },
       "pids": [
-       "811139",
        "811666",
+       "811139",
        "663457"
       ],
       "comps": [
@@ -60202,11 +60897,11 @@
           "+0.0"
          ],
          [
-          "Tai Peete",
+          "Colton Ledbetter",
           "+0.0"
          ],
          [
-          "Colton Ledbetter",
+          "Tai Peete",
           "+0.0"
          ]
         ]
@@ -60229,8 +60924,8 @@
       },
       "pids": [
        "701388",
-       "806191",
        "807742",
+       "806191",
        "680977"
       ],
       "comps": [
@@ -60576,7 +61271,7 @@
     "n": 231
    },
    "draft": {
-    "net": -19.3,
+    "net": -26.1,
     "g": 30,
     "n": 65
    },
@@ -60598,7 +61293,7 @@
     "n": 2
    },
    "intl": {
-    "net": 1.7,
+    "net": -0.1,
     "g": 50,
     "n": 2
    },
@@ -60638,7 +61333,7 @@
     ]
    }
   },
-  "total": 21.2,
+  "total": 12.6,
   "forGrade": 60,
   "success": {
    "wpct": ".557",
@@ -60653,16 +61348,16 @@
   },
   "cum": [
    2.9,
-   19.8,
-   46.0,
-   25.6,
-   23.4,
-   12.6,
-   36.9,
-   42.4,
-   19.1,
-   -5.4,
-   0.0
+   14.3,
+   43.0,
+   20.5,
+   17.4,
+   6.9,
+   30.9,
+   35.8,
+   12.1,
+   -12.2,
+   -6.8
   ],
   "top": [
    {
@@ -60711,8 +61406,8 @@
      "n_in": 1
     },
     "pids": [
-     "592669",
      "669364",
+     "592669",
      "606019",
      "630105",
      "502054"
@@ -60793,10 +61488,10 @@
      "n_in": 3
     },
     "pids": [
-     "669358",
      "642083",
      "607192",
      "640457",
+     "669358",
      "502042"
     ],
     "comps": [
@@ -60871,9 +61566,9 @@
      "n_in": 0
     },
     "pids": [
-     "642232",
-     "605480",
      "665799",
+     "605480",
+     "642232",
      "592767"
     ],
     "comps": [
@@ -61352,10 +62047,10 @@
        "n_in": 3
       },
       "pids": [
-       "669358",
        "642083",
        "607192",
        "640457",
+       "669358",
        "502042"
       ],
       "comps": [
@@ -61430,9 +62125,9 @@
        "n_in": 0
       },
       "pids": [
-       "642232",
-       "605480",
        "665799",
+       "605480",
+       "642232",
        "592767"
       ],
       "comps": [
@@ -61726,8 +62421,8 @@
        "n_in": 1
       },
       "pids": [
-       "592669",
        "669364",
+       "592669",
        "606019",
        "630105",
        "502054"
@@ -62096,14 +62791,14 @@
      {
       "d": "2018-06-04",
       "ch": "draft",
-      "net": 8.2,
+      "net": 7.5,
       "h": "Drafted Shane McClanahan (#31 overall, 2018)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Shane McClanahan",
+          "Shane McClanahan \u00b7 with this club",
           "+10.0"
          ]
         ]
@@ -62113,7 +62808,7 @@
         [
          [
           "pick #31, maturity-adjusted",
-          "-1.7"
+          "-2.5"
          ]
         ]
        ]
@@ -62125,15 +62820,19 @@
      {
       "d": "2018-06-04",
       "ch": "draft",
-      "net": 2.9,
+      "net": 5.9,
       "h": "Drafted Taj Bradley (#150 overall, 2018)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Taj Bradley",
+          "Taj Bradley \u00b7 with this club",
           "+3.3"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+3.1"
          ]
         ]
        ],
@@ -62142,7 +62841,7 @@
         [
          [
           "pick #150, maturity-adjusted",
-          "-0.4"
+          "-0.6"
          ]
         ]
        ]
@@ -62154,14 +62853,14 @@
      {
       "d": "2022-07-17",
       "ch": "draft",
-      "net": 2.5,
+      "net": 2.4,
       "h": "Drafted Chandler Simpson (#70 overall, 2022)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Chandler Simpson",
+          "Chandler Simpson \u00b7 with this club",
           "+2.9"
          ]
         ]
@@ -62183,14 +62882,14 @@
      {
       "d": "2020-06-10",
       "ch": "draft",
-      "net": 2.2,
+      "net": 2.0,
       "h": "Drafted Ian Seymour (#57 overall, 2020)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Ian Seymour",
+          "Ian Seymour \u00b7 with this club",
           "+3.0"
          ]
         ]
@@ -62200,7 +62899,7 @@
         [
          [
           "pick #57, maturity-adjusted",
-          "-0.9"
+          "-1.0"
          ]
         ]
        ]
@@ -62214,14 +62913,14 @@
      {
       "d": "2017-06-12",
       "ch": "draft",
-      "net": -4.4,
+      "net": -6.9,
       "h": "Drafted Brendan McKay (#4 overall, 2017)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Brendan McKay",
+          "Brendan McKay \u00b7 with this club",
           "+0.8"
          ]
         ]
@@ -62231,7 +62930,7 @@
         [
          [
           "pick #4, maturity-adjusted",
-          "-5.2"
+          "-7.6"
          ]
         ]
        ]
@@ -62241,17 +62940,21 @@
       ]
      },
      {
-      "d": "2018-06-04",
+      "d": "2017-06-12",
       "ch": "draft",
-      "net": -2.6,
-      "h": "Drafted Matthew Liberatore (#16 overall, 2018)",
+      "net": -3.4,
+      "h": "Drafted Michael Mercado (#40 overall, 2017)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Matthew Liberatore",
+          "Michael Mercado \u00b7 with this club",
           "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "-1.2"
          ]
         ]
        ],
@@ -62259,28 +62962,32 @@
         "Slot expectation",
         [
          [
-          "pick #16, maturity-adjusted",
-          "-2.6"
+          "pick #40, maturity-adjusted",
+          "-2.1"
          ]
         ]
        ]
       ],
       "pids": [
-       "669461"
+       "675650"
       ]
      },
      {
       "d": "2019-06-03",
       "ch": "draft",
-      "net": -2.1,
+      "net": -3.1,
       "h": "Drafted Greg Jones (#22 overall, 2019)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Greg Jones",
+          "Greg Jones \u00b7 with this club",
           "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "-0.4"
          ]
         ]
        ],
@@ -62289,7 +62996,7 @@
         [
          [
           "pick #22, maturity-adjusted",
-          "-2.1"
+          "-2.7"
          ]
         ]
        ]
@@ -62299,16 +63006,45 @@
       ]
      },
      {
+      "d": "2018-06-04",
+      "ch": "draft",
+      "net": -2.4,
+      "h": "Drafted Nick Schnell (#32 overall, 2018)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Nick Schnell \u00b7 with this club",
+          "+0.0"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #32, maturity-adjusted",
+          "-2.4"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "678010"
+      ]
+     },
+     {
       "d": "2021-07-11",
       "ch": "draft",
-      "net": -2.1,
+      "net": -2.2,
       "h": "Drafted Carson Williams (#28 overall, 2021)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Carson Williams",
+          "Carson Williams \u00b7 with this club",
           "-0.8"
          ]
         ]
@@ -62318,42 +63054,13 @@
         [
          [
           "pick #28, maturity-adjusted",
-          "-1.2"
+          "-1.4"
          ]
         ]
        ]
       ],
       "pids": [
        "700246"
-      ]
-     },
-     {
-      "d": "2020-06-10",
-      "ch": "draft",
-      "net": -1.7,
-      "h": "Drafted Nick Bitsko (#24 overall, 2020)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Nick Bitsko",
-          "+0.0"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #24, maturity-adjusted",
-          "-1.7"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "691767"
       ]
      }
     ]
@@ -62746,8 +63453,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": -0.6,
-    "bat": -18.7
+    "pit": 0.0,
+    "bat": -26.2
    },
    "trade_in": {
     "pit": 92.2,
@@ -63245,6 +63952,35 @@
     ],
     "pids": [
      "677551"
+    ]
+   },
+   {
+    "d": "2018-07-02",
+    "ch": "intl",
+    "net": 1.5,
+    "h": "Int'l amateur signing: Anthony Molina (2018 class)",
+    "sides": [
+     [
+      "Realized on signing org (class year +10)",
+      [
+       [
+        "Anthony Molina",
+        "+1.5"
+       ]
+      ]
+     ],
+     [
+      "Class baseline",
+      [
+       [
+        "league class value over 30 clubs, near-equal pools",
+        "shared"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "683627"
     ]
    }
   ],
@@ -64217,7 +64953,7 @@
     "n": 49
    },
    "draft": {
-    "net": 7.3,
+    "net": 6.5,
     "g": 70,
     "n": 18
    },
@@ -64239,7 +64975,7 @@
     "n": 0
    },
    "intl": {
-    "net": -0.1,
+    "net": -0.0,
     "g": 50,
     "n": 0
    },
@@ -64265,7 +65001,7 @@
     ]
    }
   },
-  "total": 4.1,
+  "total": 3.5,
   "forGrade": 55,
   "success": {
    "wpct": ".497",
@@ -64280,23 +65016,23 @@
   },
   "cum": [
    -2.9,
-   2.1,
-   1.6,
-   0.7,
-   3.5
+   1.5,
+   0.8,
+   0.0,
+   2.8
   ],
   "top": [
    {
     "d": "2023-07-09",
     "ch": "draft",
-    "net": 8.1,
+    "net": 7.7,
     "h": "Drafted Wyatt Langford (#4 overall, 2023)",
     "sides": [
      [
-      "Realized on club",
+      "Produced in his six control seasons",
       [
        [
-        "Wyatt Langford",
+        "Wyatt Langford \u00b7 with this club",
         "+9.5"
        ]
       ]
@@ -64306,7 +65042,7 @@
       [
        [
         "pick #4, maturity-adjusted",
-        "-1.3"
+        "-1.8"
        ]
       ]
      ]
@@ -65478,14 +66214,14 @@
      {
       "d": "2023-07-09",
       "ch": "draft",
-      "net": 8.1,
+      "net": 7.7,
       "h": "Drafted Wyatt Langford (#4 overall, 2023)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Wyatt Langford",
+          "Wyatt Langford \u00b7 with this club",
           "+9.5"
          ]
         ]
@@ -65495,7 +66231,7 @@
         [
          [
           "pick #4, maturity-adjusted",
-          "-1.3"
+          "-1.8"
          ]
         ]
        ]
@@ -65896,7 +66632,7 @@
   "dna": {
    "draft": {
     "pit": -0.4,
-    "bat": 7.6
+    "bat": 7.0
    },
    "trade_in": {
     "pit": 10.0,
@@ -66565,8 +67301,8 @@
     "n": 176
    },
    "draft": {
-    "net": -9.7,
-    "g": 40,
+    "net": -23.0,
+    "g": 30,
     "n": 56
    },
    "waiver": {
@@ -66587,8 +67323,8 @@
     "n": 3
    },
    "intl": {
-    "net": 7.6,
-    "g": 60,
+    "net": 24.6,
+    "g": 75,
     "n": 9
    },
    "ret": {
@@ -66627,7 +67363,7 @@
     ]
    }
   },
-  "total": 47.2,
+  "total": 50.9,
   "forGrade": 70,
   "success": {
    "wpct": ".510",
@@ -66642,48 +67378,19 @@
   },
   "cum": [
    2.8,
-   23.7,
-   27.1,
-   14.2,
-   6.9,
-   10.2,
-   24.4,
-   27.9,
-   27.0,
-   34.3,
-   50.0,
-   52.5
+   18.1,
+   17.6,
+   4.9,
+   -4.9,
+   -1.6,
+   11.9,
+   15.2,
+   13.9,
+   20.8,
+   36.7,
+   39.2
   ],
   "top": [
-   {
-    "d": "2016-06-09",
-    "ch": "draft",
-    "net": 18.1,
-    "h": "Drafted Bo Bichette (#66 overall, 2016)",
-    "sides": [
-     [
-      "Realized on club",
-      [
-       [
-        "Bo Bichette",
-        "+19.0"
-       ]
-      ]
-     ],
-     [
-      "Slot expectation",
-      [
-       [
-        "pick #66, maturity-adjusted",
-        "-1.0"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "666182"
-    ]
-   },
    {
     "d": "2022-12-23",
     "ch": "trade",
@@ -66762,6 +67469,35 @@
      "net": -2.2,
      "final": -18.8
     }
+   },
+   {
+    "d": "2016-06-09",
+    "ch": "draft",
+    "net": 14.0,
+    "h": "Drafted Bo Bichette (#66 overall, 2016)",
+    "sides": [
+     [
+      "Produced in his six control seasons",
+      [
+       [
+        "Bo Bichette \u00b7 with this club",
+        "+15.4"
+       ]
+      ]
+     ],
+     [
+      "Slot expectation",
+      [
+       [
+        "pick #66, maturity-adjusted",
+        "-1.4"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "666182"
+    ]
    },
    {
     "d": "2022-03-16",
@@ -66890,8 +67626,8 @@
      "n_in": 0
     },
     "pids": [
-     "606192",
      "493114",
+     "606192",
      "434538"
     ],
     "comps": [
@@ -67327,8 +68063,8 @@
        "n_in": 0
       },
       "pids": [
-       "606192",
        "493114",
+       "606192",
        "434538"
       ],
       "comps": [
@@ -67893,8 +68629,8 @@
        "n_in": 0
       },
       "pids": [
-       "641856",
        "592273",
+       "641856",
        "457918"
       ],
       "comps": [
@@ -67934,15 +68670,15 @@
      {
       "d": "2016-06-09",
       "ch": "draft",
-      "net": 18.1,
+      "net": 14.0,
       "h": "Drafted Bo Bichette (#66 overall, 2016)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Bo Bichette",
-          "+19.0"
+          "Bo Bichette \u00b7 with this club",
+          "+15.4"
          ]
         ]
        ],
@@ -67951,7 +68687,7 @@
         [
          [
           "pick #66, maturity-adjusted",
-          "-1.0"
+          "-1.4"
          ]
         ]
        ]
@@ -67961,45 +68697,16 @@
       ]
      },
      {
-      "d": "2019-06-03",
-      "ch": "draft",
-      "net": 2.0,
-      "h": "Drafted Alek Manoah (#11 overall, 2019)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Alek Manoah",
-          "+5.1"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #11, maturity-adjusted",
-          "-3.1"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "666201"
-      ]
-     },
-     {
       "d": "2022-07-17",
       "ch": "draft",
       "net": 1.7,
       "h": "Drafted Mason Fluharty (#158 overall, 2022)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Mason Fluharty",
+          "Mason Fluharty \u00b7 with this club",
           "+1.9"
          ]
         ]
@@ -68021,15 +68728,19 @@
      {
       "d": "2016-06-09",
       "ch": "draft",
-      "net": 1.6,
+      "net": 1.2,
       "h": "Drafted Cavan Biggio (#162 overall, 2016)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Cavan Biggio",
+          "Cavan Biggio \u00b7 with this club",
           "+2.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "-0.2"
          ]
         ]
        ],
@@ -68038,7 +68749,7 @@
         [
          [
           "pick #162, maturity-adjusted",
-          "-0.4"
+          "-0.6"
          ]
         ]
        ]
@@ -68046,108 +68757,25 @@
       "pids": [
        "624415"
       ]
-     },
-     {
-      "d": "2024-07-14",
-      "ch": "draft",
-      "net": 1.3,
-      "h": "Drafted Trey Yesavage (#20 overall, 2024)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Trey Yesavage",
-          "+1.6"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #20, maturity-adjusted",
-          "-0.3"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "702056"
-      ]
      }
     ],
     "worst": [
      {
-      "d": "2020-06-10",
-      "ch": "draft",
-      "net": -3.8,
-      "h": "Drafted Austin Martin (#5 overall, 2020)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Austin Martin",
-          "+0.0"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #5, maturity-adjusted",
-          "-3.8"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "668885"
-      ]
-     },
-     {
-      "d": "2018-06-04",
-      "ch": "draft",
-      "net": -3.0,
-      "h": "Drafted Jordan Groshans (#12 overall, 2018)",
-      "sides": [
-       [
-        "Realized on club",
-        [
-         [
-          "Jordan Groshans",
-          "+0.0"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #12, maturity-adjusted",
-          "-3.0"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "677954"
-      ]
-     },
-     {
       "d": "2016-06-09",
       "ch": "draft",
-      "net": -2.4,
+      "net": -4.3,
       "h": "Drafted T.J. Zeuch (#21 overall, 2016)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "T.J. Zeuch",
+          "T.J. Zeuch \u00b7 with this club",
           "-0.1"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "-0.7"
          ]
         ]
        ],
@@ -68156,7 +68784,7 @@
         [
          [
           "pick #21, maturity-adjusted",
-          "-2.4"
+          "-3.5"
          ]
         ]
        ]
@@ -68166,16 +68794,78 @@
       ]
      },
      {
+      "d": "2018-06-04",
+      "ch": "draft",
+      "net": -4.3,
+      "h": "Drafted Jordan Groshans (#12 overall, 2018)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Jordan Groshans \u00b7 with this club",
+          "+0.0"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #12, maturity-adjusted",
+          "-4.3"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "677954"
+      ]
+     },
+     {
+      "d": "2020-06-10",
+      "ch": "draft",
+      "net": -3.7,
+      "h": "Drafted Austin Martin (#5 overall, 2020)",
+      "sides": [
+       [
+        "Produced in his six control seasons",
+        [
+         [
+          "Austin Martin \u00b7 with this club",
+          "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+0.9"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #5, maturity-adjusted",
+          "-4.6"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "668885"
+      ]
+     },
+     {
       "d": "2017-06-12",
       "ch": "draft",
-      "net": -2.2,
+      "net": -3.3,
       "h": "Drafted Logan Warmoth (#22 overall, 2017)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Logan Warmoth",
+          "Logan Warmoth \u00b7 with this club",
           "+0.0"
          ]
         ]
@@ -68185,7 +68875,7 @@
         [
          [
           "pick #22, maturity-adjusted",
-          "-2.2"
+          "-3.3"
          ]
         ]
        ]
@@ -68195,17 +68885,21 @@
       ]
      },
      {
-      "d": "2021-07-11",
+      "d": "2017-06-12",
       "ch": "draft",
-      "net": -1.6,
-      "h": "Drafted Gunnar Hoglund (#19 overall, 2021)",
+      "net": -2.4,
+      "h": "Drafted Nate Pearson (#28 overall, 2017)",
       "sides": [
        [
-        "Realized on club",
+        "Produced in his six control seasons",
         [
          [
-          "Gunnar Hoglund",
-          "+0.0"
+          "Nate Pearson \u00b7 with this club",
+          "+0.3"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+0.1"
          ]
         ]
        ],
@@ -68213,14 +68907,14 @@
         "Slot expectation",
         [
          [
-          "pick #19, maturity-adjusted",
-          "-1.6"
+          "pick #28, maturity-adjusted",
+          "-2.8"
          ]
         ]
        ]
       ],
       "pids": [
-       "680684"
+       "663878"
       ]
      }
     ]
@@ -68613,8 +69307,8 @@
   ],
   "dna": {
    "draft": {
-    "pit": -14.0,
-    "bat": 4.3
+    "pit": -18.9,
+    "bat": -4.1
    },
    "trade_in": {
     "pit": 65.5,
@@ -69202,9 +69896,38 @@
   ],
   "intl_tops": [
    {
+    "d": "2016-08-03",
+    "ch": "intl",
+    "net": 16.8,
+    "h": "Int'l amateur signing: Gabriel Moreno (2016 class)",
+    "sides": [
+     [
+      "Realized on signing org (class year +10)",
+      [
+       [
+        "Gabriel Moreno",
+        "+16.8"
+       ]
+      ]
+     ],
+     [
+      "Class baseline",
+      [
+       [
+        "league class value over 30 clubs, near-equal pools",
+        "shared"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "672515"
+    ]
+   },
+   {
     "d": "2016-09-24",
     "ch": "intl",
-    "net": 18.0,
+    "net": 15.3,
     "h": "Int'l amateur signing: Alejandro Kirk (2016 class)",
     "sides": [
      [
@@ -69212,7 +69935,7 @@
       [
        [
         "Alejandro Kirk",
-        "+18.0"
+        "+15.3"
        ]
       ]
      ],
@@ -69231,17 +69954,17 @@
     ]
    },
    {
-    "d": "2016-08-03",
+    "d": "2016-07-04",
     "ch": "intl",
-    "net": 0.5,
-    "h": "Int'l amateur signing: Gabriel Moreno (2016 class)",
+    "net": 11.6,
+    "h": "Int'l amateur signing: Otto Lopez (2016 class)",
     "sides": [
      [
       "Realized on signing org (class year +10)",
       [
        [
-        "Gabriel Moreno",
-        "+0.5"
+        "Otto Lopez",
+        "+11.6"
        ]
       ]
      ],
@@ -69256,7 +69979,7 @@
      ]
     ],
     "pids": [
-     "672515"
+     "672640"
     ]
    }
   ],
@@ -70092,7 +70815,7 @@
       "Acquired (control-window value, leverage-weighted)",
       [
        [
-        "Devin Fitz-Gerald",
+        "Yeremy Cabrera",
         "+0.0"
        ],
        [
@@ -70100,11 +70823,11 @@
         "+0.0"
        ],
        [
-        "Gavin Fien",
+        "Devin Fitz-Gerald",
         "+0.0"
        ],
        [
-        "Yeremy Cabrera",
+        "Gavin Fien",
         "+0.0"
        ],
        [
@@ -70130,11 +70853,11 @@
      "n_in": 2
     },
     "pids": [
+     "800393",
+     "691730",
      "694673",
      "803849",
-     "691730",
      "815818",
-     "800393",
      "669022"
     ],
     "comps": [
@@ -70338,15 +71061,15 @@
         "+0.4"
        ],
        [
+        "Josh Hartle",
+        "+0.0"
+       ],
+       [
         "Nick Mitchell",
         "+0.0"
        ],
        [
         "Kendeglys Virguez",
-        "+0.0"
-       ],
-       [
-        "Josh Hartle",
         "+0.0"
        ]
       ]
@@ -70368,10 +71091,10 @@
      "n_in": 0
     },
     "pids": [
-     "814455",
-     "802068",
      "691776",
+     "814455",
      "702021",
+     "802068",
      "656492"
     ],
     "comps": [
@@ -70738,7 +71461,7 @@
         "Acquired (control-window value, leverage-weighted)",
         [
          [
-          "Devin Fitz-Gerald",
+          "Yeremy Cabrera",
           "+0.0"
          ],
          [
@@ -70746,11 +71469,11 @@
           "+0.0"
          ],
          [
-          "Gavin Fien",
+          "Devin Fitz-Gerald",
           "+0.0"
          ],
          [
-          "Yeremy Cabrera",
+          "Gavin Fien",
           "+0.0"
          ],
          [
@@ -70776,11 +71499,11 @@
        "n_in": 2
       },
       "pids": [
+       "800393",
+       "691730",
        "694673",
        "803849",
-       "691730",
        "815818",
-       "800393",
        "669022"
       ],
       "comps": [
@@ -70836,15 +71559,15 @@
           "+0.4"
          ],
          [
+          "Josh Hartle",
+          "+0.0"
+         ],
+         [
           "Nick Mitchell",
           "+0.0"
          ],
          [
           "Kendeglys Virguez",
-          "+0.0"
-         ],
-         [
-          "Josh Hartle",
           "+0.0"
          ]
         ]
@@ -70866,10 +71589,10 @@
        "n_in": 0
       },
       "pids": [
-       "814455",
-       "802068",
        "691776",
+       "814455",
        "702021",
+       "802068",
        "656492"
       ],
       "comps": [
