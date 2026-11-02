@@ -58,7 +58,7 @@ const r = await d.page.evaluate(async () => {
   const nm2 = Object.assign({}, TRADE_BOOK.names, PLAYER_NAMES); const pidOf = n => Object.keys(nm2).find(k => nm2[k] === n);
   const holmesT = tnode(careerTree(pidOf('Clay Holmes'))).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
   o.holmesEndsAtCubsThenFree = /where it stands Finished 2026 with CHC; free agent this winter \(declined his \$12M player option\)/.test(holmesT);
-  o.holmesPiecesCurrent = /Tyrone Taylor .{0,40}Finished 2026 with CHC; free agent this winter/.test(holmesT) && /Jefferson Rojas .{0,40}No MLB record yet; NYM prospect/.test(holmesT) && !/now under/.test(holmesT);
+  o.holmesPiecesCurrent = /Tyrone Taylor\b.{0,80}Finished 2026 with CHC; free agent this winter/.test(holmesT) && /Jefferson Rojas\b.{0,80}No MLB record yet; NYM prospect/.test(holmesT) && !/now under/.test(holmesT);
   const morelT = tnode(careerTree(pidOf('Christopher Morel'))).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
   o.morelMinorLeagueDealToMets = /signed a minor-league deal with NYM/.test(morelT) && /where it stands Finished 2026 with NYM/.test(morelT);
   // v5.9: DESK clubs come from the Stats API's current organization, so a

@@ -348,8 +348,8 @@ Object.assign(R, await m.page.evaluate(async () => {
   const svg = [...document.querySelectorAll('#gmbody svg')].find(s => /similar real winters/.test(s.getAttribute('aria-label') || ''));
   const vb = svg ? +svg.getAttribute('viewBox').split(' ')[2] : 999;
   o.i27_chartTextReadable = !!svg && svg.getBoundingClientRect().width / vb * 10.5 >= 9;
-  gmState.stage = 2; gmState.open.tab = 'trade'; gmShow(); await wait(30);
-  o.i28_labelsStayWithControls = ['gm-tr-them', 'gm-tr-find', 'gm-tr-view', 'gm-tr-pos', 'gm-tr-sort'].every(id => { const el = document.getElementById(id), lb = el.labels[0]; return lb && lb.parentNode === el.parentNode && Math.abs(lb.getBoundingClientRect().top - el.getBoundingClientRect().top) < 14; });
+  gmState.stage = 2; gmState.open.tab = 'trade'; gmState.tr = {them: 'SD', want: [], give: []}; gmShow(); await wait(30);
+  o.i28_labelsStayWithControls = ['gm-tr-find', 'gm-tr-view', 'gm-tr-pos', 'gm-tr-sort'].every(id => { const el = document.getElementById(id), lb = el.labels[0]; return lb && lb.parentNode === el.parentNode && Math.abs(lb.getBoundingClientRect().top - el.getBoundingClientRect().top) < 14; });
   const ext = [...document.querySelectorAll('#gmbody button')].find(b => b.textContent === 'Extensions');
   o.i28_tabsFit = !!ext && ext.scrollWidth <= ext.clientWidth + 1 && over() <= 2;
   document.documentElement.dataset.theme = 'dark'; await wait(30);
