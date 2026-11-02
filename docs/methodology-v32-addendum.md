@@ -1428,3 +1428,107 @@ wins; Dodgers: -29.5 to +21.3); validation is unchanged (partial r 0.26,
 Offseason Simulator now letter every proposed move by its percentile among
 real moves of the same kind and size, against the same typical returns; the
 simulator's winter letter is the money-weighted percentile of its moves.
+
+## v5.8 (November 2, 2026): the pre-public audit
+
+Four independent reviews (facts, engine math, the page, the forward-looking
+tools) read the site and the code before wider promotion. What they found and
+what changed:
+
+**One contract book, one ownership rule (`engine/contract_book.py`).** Every
+guaranteed contract the ledger knows now lives in one table resolved to
+player ids: free-agent deals from the 1997-98 winter on (2,766; the 1997-2005
+winters from news and ESPN lists, research file `data/research/fa_1997_2005.csv`)
+and extensions from 1998 on (806; `data/research/ext_1998_2014.csv` adds 532).
+A later contract owns its seasons. That one rule removed three double counts
+the math review measured: trade windows running into the acquiring club's own
+later extension or re-signing (79 cases, 239.6 WAR; Mookie Betts's 2021-25
+counted in the 2020 trade and again in his extension), draft and
+international control years running into graded extension seasons (19
+players, 113.9 WAR), and free-agent deals overlapping the extension that
+replaced them (Manny Machado 2023-26). Four extension start seasons were a
+year early (Altuve, Sale, Goldschmidt, Verlander) and are fixed.
+
+**Draft calibration.** With control years capped where a later contract
+begins, round 1-5 picks 1998-2016 produced 1.058x the slot curve (1.305x
+uncapped), and the maturity shape was refit on the same pool.
+
+**Traded players are assets.** The acquiring club is credited with the
+player's control window wherever he plays it (a quick flip is graded in the
+flip), ending at a new contract, a free-agent filing or a release; in the
+trade season, what he produced after leaving the sending club. Before, a flip
+left the original seller charged nothing (Mike Piazza's May 1998 trade read
+as a +30 win for the Dodgers). Multi-team deals filed as separate
+transactions are linked when the same player moves between the clubs within
+three days.
+
+**One money unit.** Salary that moves in a trade is charged at what that money
+typically buys in free agency: salary above the minimum, at that season's
+$/win, times the typical free-agent return (0.87). Taking on a typical
+contract is neutral and dumping one is not free money. Reported cash by
+season: Arenado to Arizona (2026), David Price to Los Angeles (2020).
+
+**Free agency graded by contract year.** A season of a free-agent deal returned
+1.06 wins per win of cost in year one, 0.80 in year two, 0.74, 0.69 and 0.50
+from year five (2006-26 seasons, every priced deal by every club). A deal is
+graded only for the seasons the signing club held it: a trade passes the rest
+to the trade ledger; a release keeps the dead money. Seasons before 2006 use
+$/win scaled from MLB's average payroll and their own era's typical return
+(1.52x the curve, partly because the 1997-2005 lists over-represent big
+deals). Extensions: 1.30 in year one down to 0.87 from year five, against the
+service-class market. Nov-Dec re-signings now match that winter's deal, not
+the previous one.
+
+**Waivers before 2009.** The feed filed only the claiming side; the losing side
+is now added from the claim, so the channel is two-sided in every era.
+
+**International.** The expectation counts only league signings dated on or after
+a regime's start (a regime hired in October is no longer charged for the July
+class it could not sign); single signings are graded against their class's
+average signee; a letter needs a class at least five seasons old.
+
+**Evidence floors and the composite.** A channel letter needs priced decisions
+with an expectation (matured picks, extensions with seasons played). A
+channel too thin to grade counts at its expectation, zero (before, the
+leaderboard filled it with a positive league average, about +1.4 wins a
+season across channels).
+
+**Validation, corrected.** The predictive check let seasons produced after each
+date leak into the predictor (a trade's later seasons predicting the wins
+they produced). Rebuilt on value as realized by each season, and run after the
+archive scorer: partial r 0.11, 95% CI -0.01 to 0.27, out-of-sample R² 0.187
+without decision value and 0.174 with it. The grades measure decisions
+against expectation; they are not by themselves a forecast of next year's
+standings. The page says so.
+
+**Projections.** Rate times playing time: WAR per PA or IP over 2024-26 weighted
+5/4/3 and regressed by sample size toward the role's league rate, times
+expected playing time (60% the two fullest recent seasons, 40% the weighted
+line with missed seasons at zero, capped at a full season). Missed time is no
+longer counted twice; two seasons without MLB time means no projection.
+
+**Contract offers.** One big platform year (3+ wins and 1.5x either prior
+season) prices off the weighted three-year line in the rules (backtest on 61
+such signings: bias +4.3 to +0.5) and the blended offer is cut to the
+historical outcome for that group (median 0.89 of the offer, 0.27 years
+shorter, 48 signings). A player who declined a player option is priced at
+least at it. Brandon Lowe 4/$124M becomes 3/$83M; Luis Arraez 3/$53M becomes
+2/$31M.
+
+**Forward tools.** The assistant GM never recommends a qualifying offer the CBA
+forbids (Skubal, Gausman, Griffin and Gray were the cases; Gallen's 2025 QO
+is now recorded), names the actual hole, never says to go past our number for
+a player under a win or 34 and older, filters targets by payroll capacity,
+reads posture from 2026 wins and the 2027 roster together, and counts
+deferred deals at CBT value for the tax note. Deal Desk trades grade on
+surplus net of salary, leverage on near-term big-league value only; invalid
+inputs are refused; only a player's own club can extend him. The 2026 draft
+class (98 signed top-100 picks, MLB Stats API) joins the prospect and farm
+boards at draft-slot value discounted three years.
+
+**Facts.** Pujols 10/$240M (was $250M); Max Muncy signed with the Dodgers in
+April 2017 (was 2015); deadline scenario records are the morning of the deal;
+Billy Beane ran the Athletics through November 2022 (Forst from then); the
+2020-21 Mets front office (Sandy Alderson) is in the archive; the Padres' 2011
+handoff is dated October; Cooper Pratt 8/$50.75M; Contreras's option $14.5M;
+championship medians 56/46/72%.
