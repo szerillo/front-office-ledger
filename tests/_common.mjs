@@ -10,7 +10,7 @@ catch {
 }
 export async function open(viewport){
   const url = process.env.TARGET === 'live'
-    ? (process.env.LIVE_URL || 'https://szerillo.github.io/front-office-ledger/') + '?v=' + Date.now()
+    ? (process.env.LIVE_URL || 'https://frontofficeledger.com/') + '?v=' + Date.now()
     : 'file://' + (process.env.PAGE || '/work/front-office-ledger-prototype.html');
   const browser = await chromium.launch();
   const page = await browser.newPage({viewport: viewport || {width:1500, height:1000}});
