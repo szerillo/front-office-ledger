@@ -157515,7 +157515,7 @@ function dkFindPlayer(label){
 }
 function dkPieceChip(pc, side, i){
   const pr = dkProjPiece(pc);
-  const label = pc.kind==='player' ? `${pc.p[0]} (${pc.p[2]||'FA'}, ${pc.p[3]?'P':'pos'}, age ${pc.p[4]}) <a href="#" onclick="treeOverlay(${pc.p[1]}, '${pc.p[2]||''}'); return false" style="color:var(--muted); font-size:11px">tree</a>`
+  const label = pc.kind==='player' ? `${pc.p[0]} (${pc.p[2]||'FA'}, ${pc.p[3]?'P':'pos'}, age ${pc.p[4]}${gmIsProsRow(pc.p) ? ', ' + gmPLabel(pc.p) : ''}) <a href="#" onclick="treeOverlay(${pc.p[1]}, '${pc.p[2]||''}'); return false" style="color:var(--muted); font-size:11px">tree</a>`
               : pc.kind==='prospect' ? `Prospect, rank #${pc.rank}` : `Draft pick #${pc.pick} (${pc.year})`;
   const ctrlUI = pc.kind==='player' ? ` · control <button onclick="dkCtrl('${side}',${i},-1)" style="padding:0 6px">−</button> ${pc.ctrl}y <button onclick="dkCtrl('${side}',${i},1)" style="padding:0 6px">+</button>` : '';
   return `<div class="card" style="padding:8px 12px; margin:6px 0; display:flex; justify-content:space-between; align-items:center; gap:10px">
@@ -157527,8 +157527,22 @@ function dkRemove(side, i){ dkState[side].splice(i,1); renderDesk(); }
 function dkAdd(side){
   const inp = document.getElementById('dk-in-'+side);
   const p = dkFindPlayer(inp.value);
-  if(p){ dkState[side].push({kind:'player', p:p, ctrl:gmCtrlOf(p)}); inp.value=''; renderDesk(); return; }
+  if(p && (gmIsFA(p) || (gmStatus(p)||[])[0] === 'out')){
+    inp.value = ''; inp.placeholder = gmIsFA(p) ? `${p[0]} is a free agent: price him under Free-agent signing` : `${p[0]}: ${(gmStatus(p)||['',''])[1]}`;
+    inp.style.borderColor = 'var(--bad)'; setTimeout(()=>inp.style.borderColor='', 2500); return;
+  }
+  if(p){ dkState[side].push({kind:'player', p:p, ctrl:gmIsProsRow(p) ? 6 : gmCtrlOf(p)}); inp.value=''; renderDesk(); return; }
   inp.style.borderColor = 'var(--bad)'; setTimeout(()=>inp.style.borderColor='', 1200);
+}
+function dkFarmOptions(club){
+  // the club's real farm: Top 100 by rank, then the org tier by expectation
+  const farm = (DESK.players||[]).filter(p => p[2] === club && gmIsProsRow(p) && !((gmStatus(p)||[])[0] === 'fa')).sort((a,b) => gmPV(b) - gmPV(a));
+  return `<option value="">${club} farm (${farm.length})…</option>` + farm.map(p => `<option value="${p[1]}">${p[0].replace(/"/g,'&quot;')} · ${gmPLabel(p)} · ${p[13]||p[12]} · ${fmtW(gmPV(p))}</option>`).join('');
+}
+function dkAddFarm(side){
+  const sel = document.getElementById('dk-farm-'+side);
+  const p = (DESK.players||[]).find(x => x[1] === +sel.value);
+  if(p){ dkState[side].push({kind:'player', p, ctrl:6}); renderDesk(); }
 }
 function dkAddProspect(side){
   const r = +document.getElementById('dk-rank-'+side).value;
@@ -157709,6 +157723,17 @@ function dkPostedRows(sg){
     <div style="font-size:12.5px; margin-top:4px; color:var(--muted)">No MLB line yet: his row is a translation. Each of his last three seasons is matched to the five nearest imports since 2017-18 (role, age, production, league), and the row carries what those players actually produced per season over their first two MLB seasons (translated 2024-26: ${['2024','2025','2026'].map(y=>pz.translated[y]===undefined?'n/a':fmtW(pz.translated[y])).join(' / ')} WAR).</div>${pub}
     <div style="font-weight:600; margin-top:10px">Nearest posted-market comps (his 2025-26 lines vs. their final pre-MLB season)</div>${rows}`;
 }
+function dkStatusNote(p){
+  // the real winter, said plainly before any price: who is actually available
+  const st = gmStatus(p);
+  const bk = hzBookEnd()[p[1]] || 0;
+  let t = '';
+  if(st && st[0] === 'out') t = `${p[0]} is not available: ${st[1]}.`;
+  else if(st && (st[0] === 'pendfa' || st[0] === 'pendin')) t = `${p[0]}: ${st[1]}.`;
+  else if(!gmIsFA(p) && bk >= 2027) t = `${p[0]} is under contract with ${p[2]} through ${bk}${st && st[0] === 'ctr' ? ` (${st[1]})` : ''}; this prices a hypothetical.`;
+  else if(!gmIsFA(p) && gmControlled(p)) t = `${p[0]} is under club control with ${p[2]} through ${gmCtrlEnd(p)}; this prices a hypothetical.`;
+  return t ? `<div class="ttype" style="margin-top:8px; border-left:3px solid var(--rule); padding-left:8px">${t}</div>` : '';
+}
 function dkSuggestHtml(p, mode, cls){
   const sg = dkSuggest(p, mode, cls);
   const rows = sg.pz ? dkPostedRows(sg) : sg.comps.map(c=>{
@@ -157720,7 +157745,7 @@ function dkSuggestHtml(p, mode, cls){
   }).join('');
   const applyBtn = (y,t,who) => `<button onclick="document.getElementById('dk-${mode}-yrs').value=${y}; document.getElementById('dk-${mode}-m').value=${t}; dkEval()" class="grade g55" style="cursor:pointer; border:none; padding:3px 10px; margin-left:8px">try it</button>`;
   return `<div class="card" style="padding:12px 16px; margin-top:10px">
-      <strong>Suggested terms for ${p[0]}</strong>
+      <strong>Suggested terms for ${p[0]}</strong>${mode === 'fa' ? dkStatusNote(p) : ''}
       <div style="font-size:13.5px; margin-top:6px">Ledger offer: <strong>${sg.sugYrs} yr / $${sg.sugTot}M</strong> <span style="color:var(--muted)">(calibrated blend${sg.w>0?`, ${Math.round(sg.w*100)}% model weight at this projection level`:' = pure market comps at this projection level'}; backtested on 1,196 real signings 2010-2025: typical miss 0.7 yrs / $3.2M AAV)</span>${applyBtn(sg.sugYrs, sg.sugTot, 'sug')}</div>
       <div style="font-size:13px; margin-top:4px">Model-fair offer: <strong>${sg.fairYrs} yr / $${sg.fairTot}M</strong> <span style="color:var(--muted)">(pays full price for ${fmtW(sg.fairProj)} projected WAR; years run until projected value thins)</span>${applyBtn(sg.fairYrs, sg.fairTot, 'fair')}</div>
       <div style="font-size:13px; margin-top:4px">Market-comp offer: <strong>${sg.mktYrs} yr / $${sg.mktTot}M</strong> <span style="color:var(--muted)">(median terms of the nearest comps, AAV inflated to 2027 dollars${mode==='ext'?', class discount applied':''})</span>${applyBtn(sg.mktYrs, sg.mktTot, 'mkt')}</div>
@@ -157731,6 +157756,10 @@ function dkSuggestNow(mode){
   const p = dkFindPlayer(document.getElementById('dk-'+mode+'-player').value);
   const host = document.getElementById('dk-suggest');
   if(!p){ host.innerHTML=''; return; }
+  if(mode === 'ext'){
+    const sv = gmSvc(p), auto = gmIsProsRow(p) || sv < 0.2 ? 'predebut' : sv < 3 ? 'early' : sv < 6 ? 'arb' : 'vet';
+    if(dkSuggestNow._last !== p[1]){ document.getElementById('dk-ext-cls').value = auto; dkSuggestNow._last = p[1]; }
+  }
   const cls = mode==='ext' ? document.getElementById('dk-ext-cls').value : null;
   host.innerHTML = dkSuggestHtml(p, mode, cls);
 }
@@ -157784,6 +157813,9 @@ function dkFaVerdict(){
   const projTot = dkProjSeasons(p, yrs, false).total;
   const aav = tot/yrs;
   let implied = 0; for(let i=1;i<=yrs;i++){ implied += aav/((DESK.market.dpw[String(2026+i)]) || 11.5); }
+  const pzF = (DESK.posted||{})[p[1]];
+  const feeF = pzF ? dkPostingFee(tot) : 0;
+  implied += feeF / ((DESK.market.dpw['2027']) || 10);
   const surplus = projTot - implied - (qo?1:0);
   const g = surplus>=3?'A':surplus>=1?'B':surplus>=-1?'C':surplus>=-3?'D':'F';
   const ppw = projTot>0 ? (tot/projTot).toFixed(1) : 'inf';
@@ -157799,10 +157831,10 @@ function dkFaVerdict(){
       ? `He covers a real ${youAbA} hole (${weakA.join(', ')} below the everyday bar), which is when stretching is forgivable.`
       : `${youAbA}'s holes are ${weakA.join(', ')}; he plays none of them.`);
   }
-  return `
+  return `${dkStatusNote(p)}
     <div class="tiles" style="margin-top:12px">
       <div class="card tile"><div class="lbl">Projected WAR, ${yrs} yrs</div><div class="val pos">${fmtW(projTot)}</div><div class="dlt">${p[0]}, age ${p[4]+1}-${p[4]+yrs}, aging curve applied</div></div>
-      <div class="card tile"><div class="lbl">Contract cost in wins</div><div class="val neg">${fmtW(-implied)}</div><div class="dlt">$${tot}M at market $/win${qo?' + 1.0 QO draft comp':''}</div></div>
+      <div class="card tile"><div class="lbl">Contract cost in wins</div><div class="val neg">${fmtW(-implied)}</div><div class="dlt">$${tot}M at market $/win${feeF?` + $${feeF.toFixed(1)}M posting fee`:''}${qo?' + 1.0 QO draft comp':''}</div></div>
       <div class="card tile"><div class="lbl">Projected surplus</div><div class="val ${surplus>=0?'pos':'neg'}">${fmtW(surplus)}</div><div class="dlt">$${ppw}M per projected win (market ~$10M)</div></div>
       <div class="card tile"><div class="lbl">Desk grade</div><div class="val"><span class="grade ${g==='A'?'g70':g==='B'?'g60':g==='C'?'g50':g==='D'?'g40':'g30'}" style="font-size:26px; padding:4px 14px">${g}</span></div><div class="dlt">vs the FA channel's zero line (1,630 graded free-agent contracts)</div></div>
     </div>
@@ -157816,8 +157848,8 @@ function dkExtVerdict(){
   const tot = +document.getElementById('dk-ext-m').value || 0;
   if(!p) return '<div class="sub">Pick a player from the list first.</div>';
   const career = Math.abs(p[5])+Math.abs(p[6])+Math.abs(p[7]);
-  const prospectish = career < 1.5 && p[9] > 0;
-  const projTot = prospectish ? dkInterp(DESK.vrank, p[9]) * Math.min(1, yrs/6)
+  const prospectish = career < 1.5 && (p[9] > 0 || !!(DESK.pros||{})[p[1]]);
+  const projTot = prospectish ? gmPV(p) * Math.min(1, yrs/6)
                               : dkProjSeasons(p, yrs, false).total;
   const disc = DESK.market.extDiscount[cls];
   const aav = tot/yrs;
@@ -157827,7 +157859,7 @@ function dkExtVerdict(){
   const g = classNet>=3?'A':classNet>=1?'B':classNet>=-1?'C':classNet>=-3?'D':'F';
   return `
     <div class="tiles" style="margin-top:12px">
-      <div class="card tile"><div class="lbl">Projected WAR, ${yrs} yrs</div><div class="val pos">${fmtW(projTot)}</div><div class="dlt">${p[0]}${prospectish?' (pre-debut: rank expectation)':''}</div></div>
+      <div class="card tile"><div class="lbl">Projected WAR, ${yrs} yrs</div><div class="val pos">${fmtW(projTot)}</div><div class="dlt">${p[0]}${prospectish?(p[9]>0?' (pre-debut: Top 100 rank expectation)':' (pre-debut: org-prospect expectation, '+gmPLabel(p)+')'):''}</div></div>
       <div class="card tile"><div class="lbl">Cost in wins</div><div class="val neg">${fmtW(-implied)}</div><div class="dlt">$${tot}M at open-market $/win</div></div>
       <div class="card tile"><div class="lbl">Vs class market</div><div class="val ${classNet>=0?'pos':'neg'}">${fmtW(classNet)}</div><div class="dlt">net of raw cost: ${fmtW(net)} · ${cls} deals pay ~${Math.round(disc*100)}% of market</div></div>
       <div class="card tile"><div class="lbl">Desk grade</div><div class="val"><span class="grade ${g==='A'?'g70':g==='B'?'g60':g==='C'?'g50':g==='D'?'g40':'g30'}" style="font-size:26px; padding:4px 14px">${g}</span></div><div class="dlt">vs the class market (ext channel rules)</div></div>
@@ -158037,7 +158069,7 @@ function renderDesk(){
   if(!DESK){ document.getElementById('deskbody').innerHTML = '<div class="sub">Desk data not loaded in this build.</div>'; return; }
   const abbrs = Object.keys(DESK.teams||{}).sort();
   if(!deskInit){ deskInit = true; }
-  const dl = `<datalist id="dk-players">${DESK.players.map(p=>`<option value="${p[0].replace(/"/g,'&quot;')} [${p[1]}]">${p[2]||'FA'} · ${p[3]?'P':'pos'} · age ${p[4]} · 24-26: ${p[5]}/${p[6]}/${p[7]}${p[9]?` · rank #${p[9]}`:''}</option>`).join('')}</datalist>`;
+  const dl = `<datalist id="dk-players">${DESK.players.map(p=>`<option value="${p[0].replace(/"/g,'&quot;')} [${p[1]}]">${p[2]||'FA'} · ${p[3]?'P':'pos'} · age ${p[4]} · 24-26: ${p[5]}/${p[6]}/${p[7]}${p[9]?` · rank #${p[9]}`:(DESK.pros||{})[p[1]]?` · ${gmPLabel(p)}`:''}${(DESK.posted||{})[p[1]]?' · posted':''}</option>`).join('')}</datalist>`;
   const modeSel = `<div class="filters" style="margin-bottom:10px">
     <label>Move type</label>
     <select onchange="dkState.mode=this.value; renderDesk()">
@@ -158056,7 +158088,7 @@ function renderDesk(){
         <input id="dk-in-${side}" list="dk-players" placeholder="type a player name…" style="flex:1; min-width:150px; background:var(--surface-2); color:var(--ink); border:1px solid var(--rule); border-radius:6px; padding:6px 8px">
         <button onclick="dkAdd('${side}')" class="grade g60" style="cursor:pointer; border:none">+ player</button></div>
       <div style="display:flex; gap:6px; margin-top:6px; flex-wrap:wrap; font-size:12px">
-        <input id="dk-rank-${side}" type="number" min="1" max="100" placeholder="top-100 rank" style="width:110px; background:var(--surface-2); color:var(--ink); border:1px solid var(--rule); border-radius:6px; padding:5px 8px"><button onclick="dkAddProspect('${side}')" style="cursor:pointer">+ prospect</button>
+        <select id="dk-farm-${side}" style="max-width:260px; background:var(--surface-2); color:var(--ink); border:1px solid var(--rule); border-radius:6px; padding:5px 6px">${dkFarmOptions(side === 'recv' ? dkState.them : dkState.you)}</select><button onclick="dkAddFarm('${side}')" style="cursor:pointer">+ prospect</button>
         <input id="dk-pick-${side}" type="number" min="1" max="620" placeholder="pick #" style="width:90px; background:var(--surface-2); color:var(--ink); border:1px solid var(--rule); border-radius:6px; padding:5px 8px"><button onclick="dkAddPick('${side}')" style="cursor:pointer">+ 2027 pick</button></div>
     </div>`;
     body = `<div class="filters" style="margin-bottom:10px">
