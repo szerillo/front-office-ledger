@@ -342,12 +342,17 @@ MOVES, NAMES = {}, {}
 if pidset:
     q = ("select person_id, person_name, date, team_id, type_desc, description, from_team, to_team from sweep_tx "
          "where person_id in (%s) and type_desc in ('Trade','Signed as Free Agent',"
-         "'Declared Free Agency','Claimed Off Waivers','Rule 5 Selection','Released') "
+         "'Declared Free Agency','Claimed Off Waivers','Rule 5 Selection','Released','Selected') "
          "order by date" % ",".join("?" * len(pidset)))
     seen = set()
     for pid, nm, d, tid, ty, desc, ft, tt in con.execute(q, tuple(pidset)):
         pid = str(pid)
-        if ty == "Signed as Free Agent" and "minor league" in (desc or "").lower(): continue
+        # v5.3.2: a minor-league deal is a real move (Morel to the Mets in July
+        # 2026); a contract selection counts only when it follows one
+        if ty == "Signed as Free Agent" and "minor league" in (desc or "").lower(): ty = "Minor-league deal"
+        if ty == "Selected":
+            prev = MOVES.get(pid, [])
+            if not prev or prev[-1][1] != "Minor-league deal" or n2a(tt) is None: continue
         k = (pid, d, ty)
         if k in seen: continue
         seen.add(k)
@@ -357,7 +362,7 @@ if pidset:
         if ty in ("Signed as Free Agent", "Claimed Off Waivers", "Rule 5 Selection") and not ta_: ta_ = ab
         NAMES.setdefault(pid, nm)
         MOVES.setdefault(pid, []).append([d, ty, fa_, ta_, esc((desc or "")[:120])])
-    for pid in MOVES: MOVES[pid] = MOVES[pid][:14]
+    for pid in MOVES: MOVES[pid] = MOVES[pid][-24:]      # the most recent moves, not the oldest
 ranks_all = json.load(open("/work/prospect_ranks.json"))
 RANKS = {}
 for rr in ranks_all:
@@ -381,7 +386,10 @@ FATE = {}
 for pid in pidset | tb_pids:
     rec = _lvm.get(pid)
     if not rec or not rec["rows"]: continue
-    last = max(rec["rows"], key=lambda t: t[0])
+    # the LAST club of the final season (rows run in order within a season):
+    # max() picked the first, so Holmes read NYM after his August trade to CHC
+    ly = max(t[0] for t in rec["rows"])
+    last = [t for t in rec["rows"] if t[0] == ly][-1]
     FATE[pid] = [last[0], NAME2AB.get(last[1], "")]
 print(f"moves {len(MOVES)} | ranks {len(RANKS)} players | fates {len(FATE)}")
 mv_js = ("const PLAYER_MOVES = " + json.dumps(MOVES, separators=(",", ":"))
