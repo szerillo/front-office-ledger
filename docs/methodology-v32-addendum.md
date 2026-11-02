@@ -1340,14 +1340,39 @@ signings whose terms are not in the contract book are listed, not priced),
 every extension, every international signing that reached value, every
 waiver and Rule 5 move in both directions, and every free agent who walked.
 
-**Why so many "partial" badges.** A channel letter needs evidence: 3 priced
-free-agent deals, 2 extensions. The contract book is deep for the 2006-21
-winters (about 90-110 major-league deals each) but holds only about 30 per
-winter for 2022-25, so regimes hired since 2022 often lack a free-agent or
-extension letter; the composite fills those at the league-average rate.
-The free-agent evidence floor drops from 8 deals to 3 (the per-move letters
-already carry the uncertainty). Filling the 2022-25 book from public
-trackers is the next data task.
+**Why so many "partial" badges, and the fix.** A channel letter needs
+evidence: 3 priced free-agent deals, 2 extensions. The contract book was deep
+for the 2006-21 winters (about 90-110 major-league deals each) but held only
+about 30 curated majors per winter for 2022-25, so regimes hired since 2022
+often lacked a free-agent or extension letter. The free-agent evidence floor
+drops from 8 deals to 3, and the book is now complete for those winters (next
+paragraph). Partial badges on the current leaderboard fell from 15 to 11, and
+most of the rest are regimes with one or two seasons in the chair.
+
+**The full contract book (same day).** The 2022-25 free-agent book now holds
+every guaranteed major-league deal: 560 signings (137, 137, 140 and 146 by
+winter), built from MLB Trade Rumors' team-by-team Offseason in Review posts
+and cross-checked against NBC, MLB.com, ESPN, Fox, CBS and AP. Guaranteed
+totals include buyouts; accepted qualifying offers count as one-year
+re-signings; split and minor-league deals are excluded. All 129 previously
+curated deals reappear, two differing by a buyout. The extension book adds
+203 deals from 2015-2026 (MLB Trade Rumors' extension tracker through July
+2022, then deal-by-deal reports), for 286 in all; curated rows win where the
+two disagree. A deal signed through March covers that season; April-June
+covers it for players within three seasons of debut; otherwise the next.
+Milwaukee under Matt Arnold goes from 2 priced signings to 16 (free agency
+graded D) and from 2 extensions to 3 (graded C).
+
+The fuller book moves the contract model. Walk-forward backtest on 1,439
+signings 2012-2025: typical miss 0.54 years / $2.8M AAV / $10.5M total (rules
+alone $12.2M); offers of $50M or more land at a median 97% of the real deal.
+Rules alone, 1,607 signings 2010-2025: 0.57 years / $3.0M AAV / $11.4M. The
+market drift (median real contract over the ensemble price, 2021-25 deals it
+priced at $25M or more) falls from 14% to 8% on 106 deals; the 2024 and 2025
+winters alone ran 38% above it, but with a 95% interval of 0.93 to 1.65 on 48
+deals, too noisy to adopt yet. Against Baseball America's predictions for
+this winter the median miss is now 0.50 in log terms with a median ratio of
+0.95 (the lower drift is most of the change).
 
 **Scenario Room: process only.** The archive plays blind (names, club,
 executive and date revealed after the decision), and the grade is process
@@ -1366,9 +1391,7 @@ after re-slotting, and charge a fielder used at DH for the glove and
 positional credit he loses (0.4 wins for a first baseman, 0.8-0.9 for a
 corner outfielder, 1.2-1.5 for an infielder, 1.3 for a catcher or center
 fielder). Rebuilding clubs are shown players 29 or younger; fringe clubs 32
-or younger. Contract backtest after the WAR rebuild: typical miss 0.65 years /
-$2.9M AAV / $12.8M total; $50M+ offers at a median 100% of the real deal;
-2021-25 market drift 14% over the published $/win curve.
+or younger.
 
 Tests: `tests/t_consistency.mjs` (v5.7 block).
 
@@ -1381,8 +1404,8 @@ catchers: in its walk-forward backtest, catchers signed for $5M or more
 landed 0.27 log points further above its price than other players (n=39),
 so half of that gap is applied (x1.3) to catchers with a blended platform of
 1.5 wins or more. Against Baseball America's predictions for this winter's
-top 45 free agents the median miss moves from 0.47 to 0.41 in log terms and
-the median ratio from 0.95 to 1.03. Ryan Jeffers prices at 2 years / $29M
-($14.5M AAV); the remaining gap to the public consensus (about four years)
+top 45 free agents the median miss moved from 0.47 to 0.41 in log terms
+before the full-book refit (see above). Ryan Jeffers prices at 2 years / $32M
+($16.0M AAV) after the refit; the remaining gap to the public consensus (about four years)
 is term: his 2026 was 92 games (fractured hamate), and catchers his age with
 his blended platform have historically signed for two years.
