@@ -1206,6 +1206,22 @@ Susana to Soto; Soto to King and Thorpe; Thorpe to Cease), and a "still
 expected" line on open branches: the Ledger Projection over remaining control
 for major leaguers, comparables' six-season value for prospects.
 
+**Big Boards (new tab, "Look ahead").** Three rankings from the models the
+Simulator and Desk already use, each with its backtest stated on the page:
+the 2026-27 free-agent class by projected 2027 WAR with the Ledger offer
+(years and dollars, a likely range equal to the backtest's typical miss of
+about $3.2M a year, and posting fees for posted players); the top 100
+prospects by Ledger value (six-season discounted WAR: rank curve for ranked
+prospects, comparables for everyone else) with the comparables' peak and
+4-win odds; and farm systems ranked on their ten most valuable prospects,
+with the full total, Top 100 count, and Double-A/Triple-A share. Ranks now
+come from the current (2026) Pipeline list only; a 2025 rank had outlived
+Kristian Campbell's graduation.
+
+**The pitch.** The site now says what it is in the masthead, the intro, and
+the share cards: a decision-making model that grades every move since 1998
+and prices the moves still to be made.
+
 **Copy.** Every "lev-adj" on the site explains itself on hover or tap; the nav
 drops its redundant labels; the beta tag reads "built entirely from public
 data"; and the validation section opens by asking who watches the Watchmen.
