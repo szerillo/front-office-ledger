@@ -210,8 +210,8 @@
      "n_in": 1
     },
     "pids": [
-     "666971",
      "672515",
+     "666971",
      "662139"
     ],
     "comps": [
@@ -412,10 +412,10 @@
      "n_in": 0
     },
     "pids": [
-     "682056",
      "650668",
-     "660789",
+     "682056",
      "592761",
+     "660789",
      "516782",
      "647315"
     ],
@@ -599,8 +599,8 @@
        "n_in": 1
       },
       "pids": [
-       "666971",
        "672515",
+       "666971",
        "662139"
       ],
       "comps": [
@@ -840,10 +840,10 @@
        "n_in": 2
       },
       "pids": [
-       "666179",
-       "656266",
-       "668942",
        "656686",
+       "666179",
+       "668942",
+       "656266",
        "425844"
       ],
       "comps": [
@@ -919,9 +919,9 @@
        "n_in": 1
       },
       "pids": [
-       "670370",
-       "608348",
        "596133",
+       "608348",
+       "670370",
        "502671"
       ],
       "comps": [
@@ -1007,10 +1007,10 @@
        "n_in": 0
       },
       "pids": [
-       "682056",
        "650668",
-       "660789",
+       "682056",
        "592761",
+       "660789",
        "516782",
        "647315"
       ],
@@ -4558,7 +4558,7 @@
     "ch": "fa",
     "net": -7.4,
     "st": 9.41,
-    "h": "Signed Madison Bumgarner \u00b7 5 yr / $85.0M (2019-20 winter, espn, QO signing, draft comp charged)",
+    "h": "Signed Madison Bumgarner \u00b7 5 yr / $85.0M (2019-20 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -4588,7 +4588,7 @@
     "ch": "fa",
     "net": -7.3,
     "st": 7.14,
-    "h": "Signed Corbin Burnes \u00b7 6 yr / $210.0M (2024-25 winter, recent, QO signing, draft comp charged)",
+    "h": "Signed Corbin Burnes \u00b7 6 yr / $210.0M (2024-25 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -4618,7 +4618,7 @@
     "ch": "fa",
     "net": 2.3,
     "st": 0.12,
-    "h": "Signed Chris Iannetta \u00b7 1 yr / $1.7M (2016-17 winter, espn)",
+    "h": "Signed Chris Iannetta \u00b7 1 yr / $1.7M (2016-17 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -4648,7 +4648,7 @@
     "ch": "fa",
     "net": 2.2,
     "st": 1.26,
-    "h": "Signed Joc Pederson \u00b7 1 yr / $12.5M (2023-24 winter, recent)",
+    "h": "Signed Joc Pederson \u00b7 1 yr / $12.5M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -4681,7 +4681,7 @@
      "ch": "fa",
      "net": 2.3,
      "st": 0.12,
-     "h": "Signed Chris Iannetta \u00b7 1 yr / $1.7M (2016-17 winter, espn)",
+     "h": "Signed Chris Iannetta \u00b7 1 yr / $1.7M (2016-17 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -4711,7 +4711,7 @@
      "ch": "fa",
      "net": 2.2,
      "st": 1.26,
-     "h": "Signed Joc Pederson \u00b7 1 yr / $12.5M (2023-24 winter, recent)",
+     "h": "Signed Joc Pederson \u00b7 1 yr / $12.5M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -4741,7 +4741,7 @@
      "ch": "fa",
      "net": 2.0,
      "st": 0.7,
-     "h": "Signed Michael Soroka \u00b7 1 yr / $7.5M (2025-26 winter, recent)",
+     "h": "Signed Michael Soroka \u00b7 1 yr / $7.5M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -4771,7 +4771,7 @@
      "ch": "fa",
      "net": 1.7,
      "st": 0.13,
-     "h": "Signed Randal Grichuk \u00b7 1 yr / $2.0M (2023-24 winter, recent)",
+     "h": "Signed Randal Grichuk \u00b7 1 yr / $2.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -4801,7 +4801,7 @@
      "ch": "fa",
      "net": 1.2,
      "st": 0.01,
-     "h": "Signed T.J. McFarland \u00b7 1 yr / $0.8M (2017-18 winter, espn)",
+     "h": "Signed T.J. McFarland \u00b7 1 yr / $0.8M (2017-18 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -4833,7 +4833,7 @@
      "ch": "fa",
      "net": -7.4,
      "st": 9.41,
-     "h": "Signed Madison Bumgarner \u00b7 5 yr / $85.0M (2019-20 winter, espn, QO signing, draft comp charged)",
+     "h": "Signed Madison Bumgarner \u00b7 5 yr / $85.0M (2019-20 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -4863,7 +4863,7 @@
      "ch": "fa",
      "net": -7.3,
      "st": 7.14,
-     "h": "Signed Corbin Burnes \u00b7 6 yr / $210.0M (2024-25 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Corbin Burnes \u00b7 6 yr / $210.0M (2024-25 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -4893,7 +4893,7 @@
      "ch": "fa",
      "net": -2.1,
      "st": 1.98,
-     "h": "Signed Merrill Kelly \u00b7 2 yr / $40.0M (2025-26 winter, recent)",
+     "h": "Signed Merrill Kelly \u00b7 2 yr / $40.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -4923,7 +4923,7 @@
      "ch": "fa",
      "net": -1.7,
      "st": 4.19,
-     "h": "Signed Lourdes Gurriel Jr. \u00b7 3 yr / $42.0M (2023-24 winter, recent)",
+     "h": "Signed Lourdes Gurriel Jr. \u00b7 3 yr / $42.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -4953,7 +4953,7 @@
      "ch": "fa",
      "net": -1.5,
      "st": 2.61,
-     "h": "Signed Jordan Montgomery \u00b7 1 yr / $25.0M (2023-24 winter, recent)",
+     "h": "Signed Jordan Montgomery \u00b7 1 yr / $25.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -5411,7 +5411,7 @@
      },
      {
       "d": "2022-12-23",
-      "h": "Got Gabriel Moreno, Lourdes Gurriel Jr. for Daulton Varsho",
+      "h": "Got Lourdes Gurriel Jr., Gabriel Moreno for Daulton Varsho",
       "net": 9.0
      },
      {
@@ -5477,12 +5477,12 @@
     "deals": [
      {
       "d": "2025-07-31",
-      "h": "Got Hunter Cranton, Tyler Locklear, Juan Burgos for Eugenio Su\u00e1rez",
+      "h": "Got Juan Burgos, Tyler Locklear, Hunter Cranton for Eugenio Su\u00e1rez",
       "net": -0.6
      },
      {
       "d": "2025-07-24",
-      "h": "Got Brandyn Garcia, Ashton Izzi for Josh Naylor",
+      "h": "Got Ashton Izzi, Brandyn Garcia for Josh Naylor",
       "net": 1.7
      },
      {
@@ -5522,7 +5522,7 @@
      },
      {
       "d": "2016-11-23",
-      "h": "Got Ketel Marte, Taijuan Walker for Zac Curtis, Jean Segura, Mitch Haniger",
+      "h": "Got Taijuan Walker, Ketel Marte for Zac Curtis, Jean Segura, Mitch Haniger",
       "net": -3.5
      }
     ]
@@ -5553,7 +5553,7 @@
     "deals": [
      {
       "d": "2026-02-05",
-      "h": "Got Kade Strowd, Jos\u00e9 Mej\u00eda, Wellington Aracena for Blaze Alexander",
+      "h": "Got Wellington Aracena, Kade Strowd, Jos\u00e9 Mej\u00eda for Blaze Alexander",
       "net": -0.6
      },
      {
@@ -10582,7 +10582,7 @@
     "ch": "fa",
     "net": 3.5,
     "st": 2.78,
-    "h": "Signed Josh Donaldson \u00b7 1 yr / $23.0M (2018-19 winter, espn)",
+    "h": "Signed Josh Donaldson \u00b7 1 yr / $23.0M (2018-19 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -10612,7 +10612,7 @@
     "ch": "fa",
     "net": -3.3,
     "st": 3.69,
-    "h": "Signed Will Smith \u00b7 3 yr / $39.0M (2019-20 winter, espn, QO signing, draft comp charged)",
+    "h": "Signed Will Smith \u00b7 3 yr / $39.0M (2019-20 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -10642,7 +10642,7 @@
     "ch": "fa",
     "net": 3.3,
     "st": 6.92,
-    "h": "Signed Marcell Ozuna \u00b7 4 yr / $64.0M (2020-21 winter, espn)",
+    "h": "Signed Marcell Ozuna \u00b7 4 yr / $64.0M (2020-21 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -10672,7 +10672,7 @@
     "ch": "fa",
     "net": -3.2,
     "st": 1.98,
-    "h": "Signed Ha-Seong Kim \u00b7 1 yr / $20.0M (2025-26 winter, recent)",
+    "h": "Signed Ha-Seong Kim \u00b7 1 yr / $20.0M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -10705,7 +10705,7 @@
      "ch": "fa",
      "net": 3.5,
      "st": 2.78,
-     "h": "Signed Josh Donaldson \u00b7 1 yr / $23.0M (2018-19 winter, espn)",
+     "h": "Signed Josh Donaldson \u00b7 1 yr / $23.0M (2018-19 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -10735,7 +10735,7 @@
      "ch": "fa",
      "net": 3.3,
      "st": 6.92,
-     "h": "Signed Marcell Ozuna \u00b7 4 yr / $64.0M (2020-21 winter, espn)",
+     "h": "Signed Marcell Ozuna \u00b7 4 yr / $64.0M (2020-21 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -10765,7 +10765,7 @@
      "ch": "fa",
      "net": 2.1,
      "st": 1.68,
-     "h": "Signed Charlie Morton \u00b7 1 yr / $15.0M (2020-21 winter, espn)",
+     "h": "Signed Charlie Morton \u00b7 1 yr / $15.0M (2020-21 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -10795,7 +10795,7 @@
      "ch": "fa",
      "net": 1.7,
      "st": 2.92,
-     "h": "Signed Reynaldo L\u00f3pez \u00b7 3 yr / $30.0M (2023-24 winter, recent)",
+     "h": "Signed Reynaldo L\u00f3pez \u00b7 3 yr / $30.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -10825,7 +10825,7 @@
      "ch": "fa",
      "net": 1.6,
      "st": 1.76,
-     "h": "Signed Travis d'Arnaud \u00b7 2 yr / $16.0M (2019-20 winter, espn)",
+     "h": "Signed Travis d'Arnaud \u00b7 2 yr / $16.0M (2019-20 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -10857,7 +10857,7 @@
      "ch": "fa",
      "net": -3.3,
      "st": 3.69,
-     "h": "Signed Will Smith \u00b7 3 yr / $39.0M (2019-20 winter, espn, QO signing, draft comp charged)",
+     "h": "Signed Will Smith \u00b7 3 yr / $39.0M (2019-20 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -10887,7 +10887,7 @@
      "ch": "fa",
      "net": -3.2,
      "st": 1.98,
-     "h": "Signed Ha-Seong Kim \u00b7 1 yr / $20.0M (2025-26 winter, recent)",
+     "h": "Signed Ha-Seong Kim \u00b7 1 yr / $20.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -10917,7 +10917,7 @@
      "ch": "fa",
      "net": -1.9,
      "st": 2.16,
-     "h": "Signed Cole Hamels \u00b7 1 yr / $18.0M (2019-20 winter, espn)",
+     "h": "Signed Cole Hamels \u00b7 1 yr / $18.0M (2019-20 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -10947,7 +10947,7 @@
      "ch": "fa",
      "net": -1.6,
      "st": 1.21,
-     "h": "Signed Drew Smyly \u00b7 1 yr / $11.0M (2020-21 winter, espn)",
+     "h": "Signed Drew Smyly \u00b7 1 yr / $11.0M (2020-21 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -10977,7 +10977,7 @@
      "ch": "fa",
      "net": -1.5,
      "st": 1.89,
-     "h": "Signed Eddie Rosario \u00b7 2 yr / $18.0M (2021-22 winter, espn)",
+     "h": "Signed Eddie Rosario \u00b7 2 yr / $18.0M (2021-22 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -11457,7 +11457,7 @@
     "deals": [
      {
       "d": "2023-12-15",
-      "h": "Got Matt Carpenter, Ray Kerr for Drew Campbell",
+      "h": "Got Ray Kerr, Matt Carpenter for Drew Campbell",
       "net": -0.1
      },
      {
@@ -11597,7 +11597,7 @@
      },
      {
       "d": "2017-12-16",
-      "h": "Got Brandon McCarthy, Charlie Culberson, Scott Kazmir, Adri\u00e1n Gonz\u00e1lez for Matt Kemp",
+      "h": "Got Adri\u00e1n Gonz\u00e1lez, Brandon McCarthy, Charlie Culberson, Scott Kazmir for Matt Kemp",
       "net": 0.2
      },
      {
@@ -11744,7 +11744,7 @@
      },
      {
       "d": "2023-12-03",
-      "h": "Got Evan White, Jarred Kelenic, Marco Gonzales for Jackson Kowar, Cole Phillips",
+      "h": "Got Jarred Kelenic, Evan White, Marco Gonzales for Jackson Kowar, Cole Phillips",
       "net": -0.7
      },
      {
@@ -11795,7 +11795,7 @@
     "deals": [
      {
       "d": "2026-08-02",
-      "h": "Got Bailey Falter, Lane Thomas for Lucas Braun, Carter Holton",
+      "h": "Got Lane Thomas, Bailey Falter for Lucas Braun, Carter Holton",
       "net": -1.6
      },
      {
@@ -12182,11 +12182,11 @@
         "+1.2"
        ],
        [
-        "Juan Rojas",
+        "Juan Nu\u00f1ez",
         "+0.2"
        ],
        [
-        "Juan Nu\u00f1ez",
+        "Juan Rojas",
         "+0.2"
        ]
       ]
@@ -12208,10 +12208,10 @@
      "n_in": 0
     },
     "pids": [
-     "700357",
      "693725",
-     "700249",
      "666974",
+     "700357",
+     "700249",
      "605347"
     ],
     "comps": [
@@ -12264,11 +12264,11 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Kevin Guerrero",
+        "Antonio Velez",
         "+0.2"
        ],
        [
-        "Antonio Velez",
+        "Kevin Guerrero",
         "+0.2"
        ]
       ]
@@ -12294,8 +12294,8 @@
      "n_in": 0
     },
     "pids": [
-     "698931",
      "669163",
+     "698931",
      "642121",
      "656945"
     ],
@@ -12391,11 +12391,11 @@
           "+1.2"
          ],
          [
-          "Juan Rojas",
+          "Juan Nu\u00f1ez",
           "+0.2"
          ],
          [
-          "Juan Nu\u00f1ez",
+          "Juan Rojas",
           "+0.2"
          ]
         ]
@@ -12417,10 +12417,10 @@
        "n_in": 0
       },
       "pids": [
-       "700357",
        "693725",
-       "700249",
        "666974",
+       "700357",
+       "700249",
        "605347"
       ],
       "comps": [
@@ -12555,11 +12555,11 @@
           "+0.9"
          ],
          [
-          "Zach Peek",
+          "Kyle Brnovich",
           "+0.0"
          ],
          [
-          "Kyle Brnovich",
+          "Zach Peek",
           "+0.0"
          ]
         ]
@@ -12581,10 +12581,10 @@
        "n_in": 0
       },
       "pids": [
-       "676755",
-       "686745",
-       "686599",
        "680694",
+       "676755",
+       "686599",
+       "686745",
        "605164"
       ],
       "comps": [
@@ -12634,7 +12634,7 @@
           "+3.0"
          ],
          [
-          "Enddy Azocar",
+          "Harold Rivas",
           "+0.5"
          ],
          [
@@ -12642,7 +12642,7 @@
           "+0.5"
          ],
          [
-          "Harold Rivas",
+          "Enddy Azocar",
           "+0.5"
          ],
          [
@@ -12672,11 +12672,11 @@
        "n_in": 1
       },
       "pids": [
-       "665966",
-       "821150",
+       "829093",
        "804817",
        "809254",
-       "829093",
+       "821150",
+       "665966",
        "668670",
        "668939"
       ],
@@ -12955,11 +12955,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Kevin Guerrero",
+          "Antonio Velez",
           "+0.2"
          ],
          [
-          "Antonio Velez",
+          "Kevin Guerrero",
           "+0.2"
          ]
         ]
@@ -12985,8 +12985,8 @@
        "n_in": 0
       },
       "pids": [
-       "698931",
        "669163",
+       "698931",
        "642121",
        "656945"
       ],
@@ -16296,7 +16296,7 @@
     "ch": "fa",
     "net": -3.0,
     "st": 3.28,
-    "h": "Signed Tyler O'Neill \u00b7 3 yr / $49.5M (2024-25 winter, recent)",
+    "h": "Signed Tyler O'Neill \u00b7 3 yr / $49.5M (2024-25 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -16326,7 +16326,7 @@
     "ch": "fa",
     "net": 2.1,
     "st": 0.17,
-    "h": "Signed Ram\u00f3n Laureano \u00b7 1 yr / $4.0M (2024-25 winter, recent)",
+    "h": "Signed Ram\u00f3n Laureano \u00b7 1 yr / $4.0M (2024-25 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -16356,7 +16356,7 @@
     "ch": "fa",
     "net": -1.8,
     "st": 0.47,
-    "h": "Signed Kyle Gibson \u00b7 1 yr / $5.2M (2024-25 winter, recent)",
+    "h": "Signed Kyle Gibson \u00b7 1 yr / $5.2M (2024-25 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -16386,7 +16386,7 @@
     "ch": "fa",
     "net": 1.5,
     "st": 1.03,
-    "h": "Signed Kyle Gibson \u00b7 1 yr / $10.0M (2022-23 winter, recent)",
+    "h": "Signed Kyle Gibson \u00b7 1 yr / $10.0M (2022-23 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -16419,7 +16419,7 @@
      "ch": "fa",
      "net": 2.1,
      "st": 0.17,
-     "h": "Signed Ram\u00f3n Laureano \u00b7 1 yr / $4.0M (2024-25 winter, recent)",
+     "h": "Signed Ram\u00f3n Laureano \u00b7 1 yr / $4.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -16449,7 +16449,7 @@
      "ch": "fa",
      "net": 1.5,
      "st": 1.03,
-     "h": "Signed Kyle Gibson \u00b7 1 yr / $10.0M (2022-23 winter, recent)",
+     "h": "Signed Kyle Gibson \u00b7 1 yr / $10.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -16479,7 +16479,7 @@
      "ch": "fa",
      "net": 1.2,
      "st": 3.12,
-     "h": "Signed Pete Alonso \u00b7 5 yr / $155.0M (2025-26 winter, recent)",
+     "h": "Signed Pete Alonso \u00b7 5 yr / $155.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -16509,7 +16509,7 @@
      "ch": "fa",
      "net": 1.1,
      "st": 0.28,
-     "h": "Signed Jose Iglesias \u00b7 1 yr / $3.0M (2019-20 winter, espn)",
+     "h": "Signed Jose Iglesias \u00b7 1 yr / $3.0M (2019-20 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -16539,7 +16539,7 @@
      "ch": "fa",
      "net": 0.5,
      "st": 0.74,
-     "h": "Signed Jordan Lyles \u00b7 1 yr / $7.0M (2021-22 winter, espn)",
+     "h": "Signed Jordan Lyles \u00b7 1 yr / $7.0M (2021-22 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -16571,7 +16571,7 @@
      "ch": "fa",
      "net": -3.0,
      "st": 3.28,
-     "h": "Signed Tyler O'Neill \u00b7 3 yr / $49.5M (2024-25 winter, recent)",
+     "h": "Signed Tyler O'Neill \u00b7 3 yr / $49.5M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -16601,7 +16601,7 @@
      "ch": "fa",
      "net": -1.8,
      "st": 0.47,
-     "h": "Signed Kyle Gibson \u00b7 1 yr / $5.2M (2024-25 winter, recent)",
+     "h": "Signed Kyle Gibson \u00b7 1 yr / $5.2M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -16631,7 +16631,7 @@
      "ch": "fa",
      "net": -1.5,
      "st": 1.29,
-     "h": "Signed Tomoyuki Sugano \u00b7 1 yr / $13.0M (2024-25 winter, recent)",
+     "h": "Signed Tomoyuki Sugano \u00b7 1 yr / $13.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -16661,7 +16661,7 @@
      "ch": "fa",
      "net": -1.3,
      "st": 1.37,
-     "h": "Signed Ryan Helsley \u00b7 2 yr / $28.0M (2025-26 winter, recent)",
+     "h": "Signed Ryan Helsley \u00b7 2 yr / $28.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -16691,7 +16691,7 @@
      "ch": "fa",
      "net": -1.1,
      "st": 0.47,
-     "h": "Signed Mychal Givens \u00b7 1 yr / $5.0M (2022-23 winter, recent)",
+     "h": "Signed Mychal Givens \u00b7 1 yr / $5.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -17069,12 +17069,12 @@
     "deals": [
      {
       "d": "2025-07-31",
-      "h": "Got Raimon Gomez, Anthony Nunez, Chandler Marsh for Cedric Mullins",
+      "h": "Got Chandler Marsh, Anthony Nunez, Raimon Gomez for Cedric Mullins",
       "net": 2.4
      },
      {
       "d": "2025-07-25",
-      "h": "Got Cameron Foster, Wellington Aracena for Gregory Soto",
+      "h": "Got Wellington Aracena, Cameron Foster for Gregory Soto",
       "net": 0.6
      },
      {
@@ -17102,7 +17102,7 @@
      },
      {
       "d": "2024-05-25",
-      "h": "Got Aneuris Rodriguez, Thyago Vieira for Garrett Stallings",
+      "h": "Got Thyago Vieira, Aneuris Rodriguez for Garrett Stallings",
       "net": -0.4
      },
      {
@@ -17283,7 +17283,7 @@
     "deals": [
      {
       "d": "2026-05-08",
-      "h": "Got Enyel Garcia, Maicol Lauriano for cash/PTBNL",
+      "h": "Got Maicol Lauriano, Enyel Garcia for cash/PTBNL",
       "net": 1.0
      },
      {
@@ -17339,7 +17339,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Alex Hoppe, Brock Moore, Harrison Kreiling for Taylor Ward",
+      "h": "Got Alex Hoppe, Harrison Kreiling, Brock Moore for Taylor Ward",
       "net": 2.7
      },
      {
@@ -17502,7 +17502,7 @@
      },
      {
       "d": "2020-08-30",
-      "h": "Got Greg Cullen, AJ Graffanino for Tommy Milone",
+      "h": "Got AJ Graffanino, Greg Cullen for Tommy Milone",
       "net": 0.2
      }
     ]
@@ -17852,8 +17852,8 @@
      "n_in": 0
     },
     "pids": [
-     "690916",
      "669711",
+     "690916",
      "700113",
      "657077"
     ],
@@ -18195,9 +18195,9 @@
      "n_in": 0
     },
     "pids": [
-     "678011",
-     "655316",
      "702332",
+     "655316",
+     "678011",
      "666152",
      "690986",
      "675660"
@@ -18286,8 +18286,8 @@
        "n_in": 0
       },
       "pids": [
-       "690916",
        "669711",
+       "690916",
        "700113",
        "657077"
       ],
@@ -18946,9 +18946,9 @@
        "n_in": 0
       },
       "pids": [
-       "678011",
-       "655316",
        "702332",
+       "655316",
+       "678011",
        "666152",
        "690986",
        "675660"
@@ -20149,7 +20149,7 @@
     "ch": "fa",
     "net": -2.8,
     "st": 2.14,
-    "h": "Signed Walker Buehler \u00b7 1 yr / $21.1M (2024-25 winter, recent)",
+    "h": "Signed Walker Buehler \u00b7 1 yr / $21.1M (2024-25 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -20179,7 +20179,7 @@
     "ch": "fa",
     "net": -1.7,
     "st": 0.9,
-    "h": "Signed Liam Hendriks \u00b7 2 yr / $10.0M (2023-24 winter, recent)",
+    "h": "Signed Liam Hendriks \u00b7 2 yr / $10.0M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -20209,7 +20209,7 @@
     "ch": "fa",
     "net": -1.6,
     "st": 4.13,
-    "h": "Signed Alex Bregman \u00b7 3 yr / $120.0M (2024-25 winter, recent, QO signing, draft comp charged)",
+    "h": "Signed Alex Bregman \u00b7 3 yr / $120.0M (2024-25 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -20239,7 +20239,7 @@
     "ch": "fa",
     "net": -1.4,
     "st": 3.94,
-    "h": "Signed Lucas Giolito \u00b7 2 yr / $38.5M (2023-24 winter, recent)",
+    "h": "Signed Lucas Giolito \u00b7 2 yr / $38.5M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -20272,7 +20272,7 @@
      "ch": "fa",
      "net": 1.4,
      "st": 1.05,
-     "h": "Signed Aroldis Chapman \u00b7 1 yr / $10.8M (2024-25 winter, recent)",
+     "h": "Signed Aroldis Chapman \u00b7 1 yr / $10.8M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -20302,7 +20302,7 @@
      "ch": "fa",
      "net": 1.2,
      "st": 0.03,
-     "h": "Signed Cooper Criswell \u00b7 1 yr / $1.0M (2023-24 winter, recent)",
+     "h": "Signed Cooper Criswell \u00b7 1 yr / $1.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -20332,7 +20332,7 @@
      "ch": "fa",
      "net": 0.9,
      "st": 0.16,
-     "h": "Signed Justin Wilson \u00b7 1 yr / $2.2M (2024-25 winter, recent)",
+     "h": "Signed Justin Wilson \u00b7 1 yr / $2.2M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -20362,7 +20362,7 @@
      "ch": "fa",
      "net": 0.5,
      "st": 0.54,
-     "h": "Signed Isiah Kiner-Falefa \u00b7 1 yr / $6.0M (2025-26 winter, recent)",
+     "h": "Signed Isiah Kiner-Falefa \u00b7 1 yr / $6.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -20392,7 +20392,7 @@
      "ch": "fa",
      "net": 0.1,
      "st": 2.6,
-     "h": "Signed Ranger Suarez \u00b7 5 yr / $130.0M (2025-26 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Ranger Suarez \u00b7 5 yr / $130.0M (2025-26 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -20424,7 +20424,7 @@
      "ch": "fa",
      "net": -2.8,
      "st": 2.14,
-     "h": "Signed Walker Buehler \u00b7 1 yr / $21.1M (2024-25 winter, recent)",
+     "h": "Signed Walker Buehler \u00b7 1 yr / $21.1M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -20454,7 +20454,7 @@
      "ch": "fa",
      "net": -1.7,
      "st": 0.9,
-     "h": "Signed Liam Hendriks \u00b7 2 yr / $10.0M (2023-24 winter, recent)",
+     "h": "Signed Liam Hendriks \u00b7 2 yr / $10.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -20484,7 +20484,7 @@
      "ch": "fa",
      "net": -1.6,
      "st": 4.13,
-     "h": "Signed Alex Bregman \u00b7 3 yr / $120.0M (2024-25 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Alex Bregman \u00b7 3 yr / $120.0M (2024-25 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -20514,7 +20514,7 @@
      "ch": "fa",
      "net": -1.4,
      "st": 3.94,
-     "h": "Signed Lucas Giolito \u00b7 2 yr / $38.5M (2023-24 winter, recent)",
+     "h": "Signed Lucas Giolito \u00b7 2 yr / $38.5M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -20544,7 +20544,7 @@
      "ch": "fa",
      "net": -0.4,
      "st": 1.74,
-     "h": "Signed Patrick Sandoval \u00b7 2 yr / $18.2M (2024-25 winter, recent)",
+     "h": "Signed Patrick Sandoval \u00b7 2 yr / $18.2M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -20941,7 +20941,7 @@
      },
      {
       "d": "2023-12-05",
-      "h": "Got Nicholas Judice, Richard Fitts, Greg Weissert for Alex Verdugo",
+      "h": "Got Nicholas Judice, Greg Weissert, Richard Fitts for Alex Verdugo",
       "net": 3.2
      }
     ]
@@ -20992,12 +20992,12 @@
     "deals": [
      {
       "d": "2026-02-09",
-      "h": "Got Caleb Durbin, Andruw Monasterio, Anthony Seigler for David Hamilton, Kyle Harrison, Shane Drohan",
+      "h": "Got Andruw Monasterio, Anthony Seigler, Caleb Durbin for David Hamilton, Kyle Harrison, Shane Drohan",
       "net": -2.1
      },
      {
       "d": "2025-04-07",
-      "h": "Got John Holobetz, Yophery Rodriguez for Quinn Priester",
+      "h": "Got Yophery Rodriguez, John Holobetz for Quinn Priester",
       "net": -1.1
      },
      {
@@ -21020,7 +21020,7 @@
      },
      {
       "d": "2025-12-04",
-      "h": "Got Tyler Samaniego, Adonys Guzman, Johan Oviedo for Jesus Travieso, Jhostynxon Garcia",
+      "h": "Got Johan Oviedo, Tyler Samaniego, Adonys Guzman for Jesus Travieso, Jhostynxon Garcia",
       "net": 1.1
      },
      {
@@ -21084,7 +21084,7 @@
      },
      {
       "d": "2025-06-15",
-      "h": "Got Jordan Hicks, Jose Bello, Kyle Harrison, James Tibbs III for Rafael Devers",
+      "h": "Got James Tibbs III, Jordan Hicks, Kyle Harrison, Jose Bello for Rafael Devers",
       "net": 0.7
      }
     ]
@@ -21419,8 +21419,8 @@
      "n_in": 1
     },
     "pids": [
-     "622075",
      "683737",
+     "622075",
      "814307",
      "701328"
     ],
@@ -21678,7 +21678,7 @@
         "+0.1"
        ],
        [
-        "Yeison Santana",
+        "Ismael Mena",
         "+0.1"
        ],
        [
@@ -21686,7 +21686,7 @@
         "+0.1"
        ],
        [
-        "Ismael Mena",
+        "Yeison Santana",
         "+0.1"
        ],
        [
@@ -21716,11 +21716,11 @@
      "n_in": 0
     },
     "pids": [
-     "678220",
-     "691262",
-     "683357",
      "691190",
+     "683357",
      "605200",
+     "691262",
+     "678220",
      "506433",
      "605170"
     ],
@@ -21979,8 +21979,8 @@
        "n_in": 1
       },
       "pids": [
-       "622075",
        "683737",
+       "622075",
        "814307",
        "701328"
       ],
@@ -22352,7 +22352,7 @@
           "+0.1"
          ],
          [
-          "Yeison Santana",
+          "Ismael Mena",
           "+0.1"
          ],
          [
@@ -22360,7 +22360,7 @@
           "+0.1"
          ],
          [
-          "Ismael Mena",
+          "Yeison Santana",
           "+0.1"
          ],
          [
@@ -22390,11 +22390,11 @@
        "n_in": 0
       },
       "pids": [
-       "678220",
-       "691262",
-       "683357",
        "691190",
+       "683357",
        "605200",
+       "691262",
+       "678220",
        "506433",
        "605170"
       ],
@@ -24964,7 +24964,7 @@
     "ch": "fa",
     "net": 8.7,
     "st": 10.48,
-    "h": "Signed Dansby Swanson \u00b7 7 yr / $177.0M (2022-23 winter, recent, QO signing, draft comp charged)",
+    "h": "Signed Dansby Swanson \u00b7 7 yr / $177.0M (2022-23 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -24994,7 +24994,7 @@
     "ch": "fa",
     "net": 4.4,
     "st": 1.04,
-    "h": "Signed Carson Kelly \u00b7 2 yr / $11.5M (2024-25 winter, recent)",
+    "h": "Signed Carson Kelly \u00b7 2 yr / $11.5M (2024-25 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -25024,7 +25024,7 @@
     "ch": "fa",
     "net": 3.2,
     "st": 1.86,
-    "h": "Signed Cody Bellinger \u00b7 1 yr / $17.5M (2022-23 winter, recent)",
+    "h": "Signed Cody Bellinger \u00b7 1 yr / $17.5M (2022-23 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -25054,7 +25054,7 @@
     "ch": "fa",
     "net": -2.7,
     "st": 6.1,
-    "h": "Signed Jameson Taillon \u00b7 4 yr / $68.0M (2022-23 winter, recent)",
+    "h": "Signed Jameson Taillon \u00b7 4 yr / $68.0M (2022-23 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -25087,7 +25087,7 @@
      "ch": "fa",
      "net": 8.7,
      "st": 10.48,
-     "h": "Signed Dansby Swanson \u00b7 7 yr / $177.0M (2022-23 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Dansby Swanson \u00b7 7 yr / $177.0M (2022-23 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -25117,7 +25117,7 @@
      "ch": "fa",
      "net": 4.4,
      "st": 1.04,
-     "h": "Signed Carson Kelly \u00b7 2 yr / $11.5M (2024-25 winter, recent)",
+     "h": "Signed Carson Kelly \u00b7 2 yr / $11.5M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -25147,7 +25147,7 @@
      "ch": "fa",
      "net": 3.2,
      "st": 1.86,
-     "h": "Signed Cody Bellinger \u00b7 1 yr / $17.5M (2022-23 winter, recent)",
+     "h": "Signed Cody Bellinger \u00b7 1 yr / $17.5M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -25177,7 +25177,7 @@
      "ch": "fa",
      "net": 2.0,
      "st": 2.86,
-     "h": "Signed Matthew Boyd \u00b7 2 yr / $29.0M (2024-25 winter, recent)",
+     "h": "Signed Matthew Boyd \u00b7 2 yr / $29.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -25207,7 +25207,7 @@
      "ch": "fa",
      "net": 1.9,
      "st": 3.53,
-     "h": "Signed Alex Bregman \u00b7 5 yr / $175.0M (2025-26 winter, recent)",
+     "h": "Signed Alex Bregman \u00b7 5 yr / $175.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -25239,7 +25239,7 @@
      "ch": "fa",
      "net": -2.7,
      "st": 6.1,
-     "h": "Signed Jameson Taillon \u00b7 4 yr / $68.0M (2022-23 winter, recent)",
+     "h": "Signed Jameson Taillon \u00b7 4 yr / $68.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -25269,7 +25269,7 @@
      "ch": "fa",
      "net": -2.0,
      "st": 1.37,
-     "h": "Signed Trey Mancini \u00b7 2 yr / $14.0M (2022-23 winter, recent)",
+     "h": "Signed Trey Mancini \u00b7 2 yr / $14.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -25299,7 +25299,7 @@
      "ch": "fa",
      "net": -1.5,
      "st": 1.91,
-     "h": "Signed Drew Smyly \u00b7 2 yr / $19.0M (2022-23 winter, recent)",
+     "h": "Signed Drew Smyly \u00b7 2 yr / $19.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -25329,7 +25329,7 @@
      "ch": "fa",
      "net": -1.5,
      "st": 3.21,
-     "h": "Signed Shota Imanaga \u00b7 1 yr / $22.0M (2025-26 winter, recent, $9.8M posting fee charged)",
+     "h": "Signed Shota Imanaga \u00b7 1 yr / $22.0M (2025-26 winter, $9.8M posting fee charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -25359,7 +25359,7 @@
      "ch": "fa",
      "net": -1.2,
      "st": 0.38,
-     "h": "Signed Andrelton Simmons \u00b7 1 yr / $4.0M (2021-22 winter, espn)",
+     "h": "Signed Andrelton Simmons \u00b7 1 yr / $4.0M (2021-22 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -25683,7 +25683,7 @@
      },
      {
       "d": "2024-01-11",
-      "h": "Got Michael Busch, Yency Almonte for Zyhir Hope, Jackson Ferris",
+      "h": "Got Yency Almonte, Michael Busch for Zyhir Hope, Jackson Ferris",
       "net": 7.0
      },
      {
@@ -25716,7 +25716,7 @@
      },
      {
       "d": "2020-12-29",
-      "h": "Got Zach Davies, Reginald Preciado, Ismael Mena, Owen Caissie, Yeison Santana for Yu Darvish, Victor Caratini",
+      "h": "Got Ismael Mena, Yeison Santana, Owen Caissie, Reginald Preciado, Zach Davies for Yu Darvish, Victor Caratini",
       "net": -4.3
      }
     ]
@@ -25922,7 +25922,7 @@
      },
      {
       "d": "2021-07-29",
-      "h": "Got Kevin Alc\u00e1ntara, Alexander Vizca\u00edno for Anthony Rizzo",
+      "h": "Got Alexander Vizca\u00edno, Kevin Alc\u00e1ntara for Anthony Rizzo",
       "net": 0.1
      }
     ]
@@ -25935,7 +25935,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Clay Holmes, Tyrone Taylor for Jefferson Rojas",
+      "h": "Got Tyrone Taylor, Clay Holmes for Jefferson Rojas",
       "net": -1.6
      },
      {
@@ -26234,9 +26234,9 @@
      "n_in": 2
     },
     "pids": [
-     "682790",
-     "695731",
      "691019",
+     "695731",
+     "682790",
      "805367",
      "676979"
     ],
@@ -26294,11 +26294,11 @@
         "+3.4"
        ],
        [
-        "Jeral Perez",
+        "Alexander Albertus",
         "+0.3"
        ],
        [
-        "Alexander Albertus",
+        "Jeral Perez",
         "+0.3"
        ]
       ]
@@ -26328,9 +26328,9 @@
      "n_in": 1
     },
     "pids": [
-     "800419",
      "678246",
      "800316",
+     "800419",
      "502054",
      "656629",
      "607200"
@@ -26493,10 +26493,10 @@
      "n_in": 1
     },
     "pids": [
-     "694214",
      "689672",
      "683568",
      "621051",
+     "694214",
      "656302"
     ],
     "comps": [
@@ -26796,9 +26796,9 @@
        "n_in": 2
       },
       "pids": [
-       "682790",
-       "695731",
        "691019",
+       "695731",
+       "682790",
        "805367",
        "676979"
       ],
@@ -26856,11 +26856,11 @@
           "+3.4"
          ],
          [
-          "Jeral Perez",
+          "Alexander Albertus",
           "+0.3"
          ],
          [
-          "Alexander Albertus",
+          "Jeral Perez",
           "+0.3"
          ]
         ]
@@ -26890,9 +26890,9 @@
        "n_in": 1
       },
       "pids": [
-       "800419",
        "678246",
        "800316",
+       "800419",
        "502054",
        "656629",
        "607200"
@@ -27207,10 +27207,10 @@
        "n_in": 1
       },
       "pids": [
-       "694214",
        "689672",
        "683568",
        "621051",
+       "694214",
        "656302"
       ],
       "comps": [
@@ -28986,7 +28986,7 @@
     "ch": "fa",
     "net": -2.3,
     "st": 0.38,
-    "h": "Signed Mart\u00edn Maldonado \u00b7 1 yr / $4.2M (2023-24 winter, recent)",
+    "h": "Signed Mart\u00edn Maldonado \u00b7 1 yr / $4.2M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -29016,7 +29016,7 @@
     "ch": "fa",
     "net": -2.0,
     "st": 0.29,
-    "h": "Signed Josh Rojas \u00b7 1 yr / $3.5M (2024-25 winter, recent)",
+    "h": "Signed Josh Rojas \u00b7 1 yr / $3.5M (2024-25 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -29046,7 +29046,7 @@
     "ch": "fa",
     "net": 1.3,
     "st": 0.36,
-    "h": "Signed Erick Fedde \u00b7 2 yr / $15.0M (2023-24 winter, recent)",
+    "h": "Signed Erick Fedde \u00b7 2 yr / $15.0M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -29076,7 +29076,7 @@
     "ch": "fa",
     "net": 1.2,
     "st": 0.39,
-    "h": "Signed Sean Newcomb \u00b7 1 yr / $4.5M (2025-26 winter, recent)",
+    "h": "Signed Sean Newcomb \u00b7 1 yr / $4.5M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -29109,7 +29109,7 @@
      "ch": "fa",
      "net": 1.3,
      "st": 0.36,
-     "h": "Signed Erick Fedde \u00b7 2 yr / $15.0M (2023-24 winter, recent)",
+     "h": "Signed Erick Fedde \u00b7 2 yr / $15.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -29139,7 +29139,7 @@
      "ch": "fa",
      "net": 1.2,
      "st": 0.39,
-     "h": "Signed Sean Newcomb \u00b7 1 yr / $4.5M (2025-26 winter, recent)",
+     "h": "Signed Sean Newcomb \u00b7 1 yr / $4.5M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -29169,7 +29169,7 @@
      "ch": "fa",
      "net": 1.1,
      "st": 0.13,
-     "h": "Signed Mike Tauchman \u00b7 1 yr / $1.9M (2024-25 winter, recent)",
+     "h": "Signed Mike Tauchman \u00b7 1 yr / $1.9M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -29199,7 +29199,7 @@
      "ch": "fa",
      "net": 1.1,
      "st": 1.68,
-     "h": "Signed Munetaka Murakami \u00b7 2 yr / $34.0M (2025-26 winter, recent)",
+     "h": "Signed Munetaka Murakami \u00b7 2 yr / $34.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -29229,7 +29229,7 @@
      "ch": "fa",
      "net": 0.4,
      "st": 0.05,
-     "h": "Signed Paul DeJong \u00b7 1 yr / $1.8M (2023-24 winter, recent)",
+     "h": "Signed Paul DeJong \u00b7 1 yr / $1.8M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -29261,7 +29261,7 @@
      "ch": "fa",
      "net": -2.3,
      "st": 0.38,
-     "h": "Signed Mart\u00edn Maldonado \u00b7 1 yr / $4.2M (2023-24 winter, recent)",
+     "h": "Signed Mart\u00edn Maldonado \u00b7 1 yr / $4.2M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -29291,7 +29291,7 @@
      "ch": "fa",
      "net": -2.0,
      "st": 0.29,
-     "h": "Signed Josh Rojas \u00b7 1 yr / $3.5M (2024-25 winter, recent)",
+     "h": "Signed Josh Rojas \u00b7 1 yr / $3.5M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -29321,7 +29321,7 @@
      "ch": "fa",
      "net": -0.8,
      "st": 0.03,
-     "h": "Signed Bryse Wilson \u00b7 1 yr / $1.1M (2024-25 winter, recent)",
+     "h": "Signed Bryse Wilson \u00b7 1 yr / $1.1M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -29351,7 +29351,7 @@
      "ch": "fa",
      "net": -0.8,
      "st": 0.54,
-     "h": "Signed Austin Hays \u00b7 1 yr / $6.0M (2025-26 winter, recent)",
+     "h": "Signed Austin Hays \u00b7 1 yr / $6.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -29381,7 +29381,7 @@
      "ch": "fa",
      "net": -0.7,
      "st": 0.24,
-     "h": "Signed Mike Clevinger \u00b7 1 yr / $3.0M (2023-24 winter, recent)",
+     "h": "Signed Mike Clevinger \u00b7 1 yr / $3.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -29495,7 +29495,7 @@
      },
      {
       "d": "2024-12-11",
-      "h": "Got Wikelman Gonz\u00e1lez, Braden Montgomery, Chase Meidroth, Kyle Teel for Garrett Crochet",
+      "h": "Got Chase Meidroth, Wikelman Gonz\u00e1lez, Braden Montgomery, Kyle Teel for Garrett Crochet",
       "net": 11.8
      },
      {
@@ -29528,12 +29528,12 @@
      },
      {
       "d": "2025-11-18",
-      "h": "Got Everson Pereira, Tanner Murray for Yoendrys G\u00f3mez, Steven Wilson",
+      "h": "Got Tanner Murray, Everson Pereira for Yoendrys G\u00f3mez, Steven Wilson",
       "net": 0.2
      },
      {
       "d": "2025-07-31",
-      "h": "Got Curtis Mead, Duncan Davitt, Ben Peoples for Adrian Houser",
+      "h": "Got Ben Peoples, Duncan Davitt, Curtis Mead for Adrian Houser",
       "net": 0.9
      },
      {
@@ -29566,7 +29566,7 @@
      },
      {
       "d": "2024-03-13",
-      "h": "Got Steven Wilson, Drew Thorpe, Jairo Iriarte, Samuel Zavala for Dylan Cease",
+      "h": "Got Steven Wilson, Samuel Zavala, Jairo Iriarte, Drew Thorpe for Dylan Cease",
       "net": -3.9
      }
     ]
@@ -29589,7 +29589,7 @@
      },
      {
       "d": "2026-01-20",
-      "h": "Got Luisangel Acu\u00f1a, Truman Pauley for Luis Robert Jr.",
+      "h": "Got Truman Pauley, Luisangel Acu\u00f1a for Luis Robert Jr.",
       "net": -0.4
      },
      {
@@ -29648,7 +29648,7 @@
      },
      {
       "d": "2023-11-16",
-      "h": "Got Nicky Lopez, Michael Soroka, Braden Shewmake, Jared Shuster, Riley Gowens for Aaron Bummer",
+      "h": "Got Jared Shuster, Nicky Lopez, Michael Soroka, Braden Shewmake, Riley Gowens for Aaron Bummer",
       "net": -0.5
      }
     ]
@@ -29666,7 +29666,7 @@
      },
      {
       "d": "2024-02-03",
-      "h": "Got Prelander Berroa, Zach DeLoach for Gregory Santos",
+      "h": "Got Zach DeLoach, Prelander Berroa for Gregory Santos",
       "net": 0.4
      }
     ]
@@ -29702,7 +29702,7 @@
      },
      {
       "d": "2026-06-11",
-      "h": "Got Dylan Campbell, Jose Colmenares for Derek Hill",
+      "h": "Got Jose Colmenares, Dylan Campbell for Derek Hill",
       "net": 0.4
      },
      {
@@ -30051,11 +30051,11 @@
      "n_in": 0
     },
     "pids": [
-     "641584",
-     "643290",
-     "683175",
      "682227",
+     "641584",
+     "683175",
      "682728",
+     "643290",
      "608385",
      "553993"
     ],
@@ -30139,8 +30139,8 @@
      "n_in": 0
     },
     "pids": [
-     "687952",
      "668715",
+     "687952",
      "680727",
      "641816"
     ],
@@ -30422,8 +30422,8 @@
        "n_in": 0
       },
       "pids": [
-       "687952",
        "668715",
+       "687952",
        "680727",
        "641816"
       ],
@@ -30904,11 +30904,11 @@
        "n_in": 0
       },
       "pids": [
-       "641584",
-       "643290",
-       "683175",
        "682227",
+       "641584",
+       "683175",
        "682728",
+       "643290",
        "608385",
        "553993"
       ],
@@ -33335,7 +33335,7 @@
     "ch": "fa",
     "net": -4.3,
     "st": 4.5,
-    "h": "Signed Jeimer Candelario \u00b7 3 yr / $45.0M (2023-24 winter, recent)",
+    "h": "Signed Jeimer Candelario \u00b7 3 yr / $45.0M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -33365,7 +33365,7 @@
     "ch": "fa",
     "net": 1.9,
     "st": 1.32,
-    "h": "Signed Nick Martinez \u00b7 2 yr / $26.0M (2023-24 winter, recent)",
+    "h": "Signed Nick Martinez \u00b7 2 yr / $26.0M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -33395,7 +33395,7 @@
     "ch": "fa",
     "net": -1.5,
     "st": 0.75,
-    "h": "Signed Wil Myers \u00b7 1 yr / $7.5M (2022-23 winter, recent)",
+    "h": "Signed Wil Myers \u00b7 1 yr / $7.5M (2022-23 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -33425,7 +33425,7 @@
     "ch": "fa",
     "net": 1.4,
     "st": 0.07,
-    "h": "Signed JJ Bleday \u00b7 1 yr / $1.4M (2025-26 winter, recent)",
+    "h": "Signed JJ Bleday \u00b7 1 yr / $1.4M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -33458,7 +33458,7 @@
      "ch": "fa",
      "net": 1.9,
      "st": 1.32,
-     "h": "Signed Nick Martinez \u00b7 2 yr / $26.0M (2023-24 winter, recent)",
+     "h": "Signed Nick Martinez \u00b7 2 yr / $26.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -33488,7 +33488,7 @@
      "ch": "fa",
      "net": 1.4,
      "st": 0.07,
-     "h": "Signed JJ Bleday \u00b7 1 yr / $1.4M (2025-26 winter, recent)",
+     "h": "Signed JJ Bleday \u00b7 1 yr / $1.4M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -33518,7 +33518,7 @@
      "ch": "fa",
      "net": 0.6,
      "st": 0.16,
-     "h": "Signed Buck Farmer \u00b7 1 yr / $2.2M (2023-24 winter, recent)",
+     "h": "Signed Buck Farmer \u00b7 1 yr / $2.2M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -33548,7 +33548,7 @@
      "ch": "fa",
      "net": 0.4,
      "st": 1.54,
-     "h": "Signed Emilio Pag\u00e1n \u00b7 2 yr / $16.0M (2023-24 winter, recent)",
+     "h": "Signed Emilio Pag\u00e1n \u00b7 2 yr / $16.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -33578,7 +33578,7 @@
      "ch": "fa",
      "net": 0.3,
      "st": 0.45,
-     "h": "Signed Austin Hays \u00b7 1 yr / $5.0M (2024-25 winter, recent)",
+     "h": "Signed Austin Hays \u00b7 1 yr / $5.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -33610,7 +33610,7 @@
      "ch": "fa",
      "net": -4.3,
      "st": 4.5,
-     "h": "Signed Jeimer Candelario \u00b7 3 yr / $45.0M (2023-24 winter, recent)",
+     "h": "Signed Jeimer Candelario \u00b7 3 yr / $45.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -33640,7 +33640,7 @@
      "ch": "fa",
      "net": -1.5,
      "st": 0.75,
-     "h": "Signed Wil Myers \u00b7 1 yr / $7.5M (2022-23 winter, recent)",
+     "h": "Signed Wil Myers \u00b7 1 yr / $7.5M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -33670,7 +33670,7 @@
      "ch": "fa",
      "net": -0.9,
      "st": 0.28,
-     "h": "Signed Curt Casali \u00b7 1 yr / $3.2M (2022-23 winter, recent)",
+     "h": "Signed Curt Casali \u00b7 1 yr / $3.2M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -33700,7 +33700,7 @@
      "ch": "fa",
      "net": -0.8,
      "st": 1.47,
-     "h": "Signed Eugenio Su\u00e1rez \u00b7 1 yr / $15.0M (2025-26 winter, recent)",
+     "h": "Signed Eugenio Su\u00e1rez \u00b7 1 yr / $15.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -33730,7 +33730,7 @@
      "ch": "fa",
      "net": -0.5,
      "st": 0.44,
-     "h": "Signed Donovan Solano \u00b7 1 yr / $4.5M (2021-22 winter, espn)",
+     "h": "Signed Donovan Solano \u00b7 1 yr / $4.5M (2021-22 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -33928,7 +33928,7 @@
      },
      {
       "d": "2022-07-30",
-      "h": "Got Edwin Arroyo, Andrew Moore, Levi Stoudt, Noelvi Marte for Luis Castillo",
+      "h": "Got Levi Stoudt, Andrew Moore, Edwin Arroyo, Noelvi Marte for Luis Castillo",
       "net": -0.9
      },
      {
@@ -33938,7 +33938,7 @@
      },
      {
       "d": "2022-03-14",
-      "h": "Got Connor Phillips, Brandon Williamson, Luis Chevalier, Jake Fraley, Justin Dunn for Jesse Winker, Eugenio Su\u00e1rez",
+      "h": "Got Luis Chevalier, Connor Phillips, Jake Fraley, Brandon Williamson, Justin Dunn for Jesse Winker, Eugenio Su\u00e1rez",
       "net": -7.4
      }
     ]
@@ -33997,7 +33997,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Alejandro Rivera, Juan Brito for Nathaniel Lowe",
+      "h": "Got Juan Brito, Alejandro Rivera for Nathaniel Lowe",
       "net": 1.8
      },
      {
@@ -34153,7 +34153,7 @@
     "deals": [
      {
       "d": "2024-07-30",
-      "h": "Got Jakob Junis, Joey Wiemer for Frankie Montas",
+      "h": "Got Joey Wiemer, Jakob Junis for Frankie Montas",
       "net": 1.6
      },
      {
@@ -34430,11 +34430,11 @@
         "+4.7"
        ],
        [
-        "Josh Wolf",
+        "Isaiah Greene",
         "+0.1"
        ],
        [
-        "Isaiah Greene",
+        "Josh Wolf",
         "+0.1"
        ]
       ]
@@ -34460,10 +34460,10 @@
      "n_in": 0
     },
     "pids": [
-     "683181",
-     "642708",
      "665926",
+     "642708",
      "693309",
+     "683181",
      "596019",
      "471911"
     ],
@@ -34560,12 +34560,12 @@
      "n_in": 0
     },
     "pids": [
-     "676282",
-     "647304",
-     "672356",
      "680911",
-     "615698",
+     "647304",
      "595978",
+     "672356",
+     "615698",
+     "676282",
      "605182",
      "656185",
      "663362"
@@ -34647,8 +34647,8 @@
      "n_in": 1
     },
     "pids": [
-     "641343",
      "467793",
+     "641343",
      "650490",
      "642121",
      "429665"
@@ -34845,11 +34845,11 @@
           "+4.7"
          ],
          [
-          "Josh Wolf",
+          "Isaiah Greene",
           "+0.1"
          ],
          [
-          "Isaiah Greene",
+          "Josh Wolf",
           "+0.1"
          ]
         ]
@@ -34875,10 +34875,10 @@
        "n_in": 0
       },
       "pids": [
-       "683181",
-       "642708",
        "665926",
+       "642708",
        "693309",
+       "683181",
        "596019",
        "471911"
       ],
@@ -34975,12 +34975,12 @@
        "n_in": 0
       },
       "pids": [
-       "676282",
-       "647304",
-       "672356",
        "680911",
-       "615698",
+       "647304",
        "595978",
+       "672356",
+       "615698",
+       "676282",
        "605182",
        "656185",
        "663362"
@@ -35272,8 +35272,8 @@
        "n_in": 1
       },
       "pids": [
-       "641343",
        "467793",
+       "641343",
        "650490",
        "642121",
        "429665"
@@ -38300,7 +38300,7 @@
     "ch": "fa",
     "net": -1.4,
     "st": 0.42,
-    "h": "Signed Juan Uribe \u00b7 1 yr / $4.0M (2015-16 winter, espn)",
+    "h": "Signed Juan Uribe \u00b7 1 yr / $4.0M (2015-16 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -38330,7 +38330,7 @@
     "ch": "fa",
     "net": -1.3,
     "st": 1.18,
-    "h": "Signed Carlos Santana \u00b7 1 yr / $12.0M (2024-25 winter, recent)",
+    "h": "Signed Carlos Santana \u00b7 1 yr / $12.0M (2024-25 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -38360,7 +38360,7 @@
     "ch": "fa",
     "net": 1.1,
     "st": 0.69,
-    "h": "Signed C\u00e9sar Hern\u00e1ndez \u00b7 1 yr / $6.2M (2019-20 winter, espn)",
+    "h": "Signed C\u00e9sar Hern\u00e1ndez \u00b7 1 yr / $6.2M (2019-20 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -38390,7 +38390,7 @@
     "ch": "fa",
     "net": 1.1,
     "st": 0.08,
-    "h": "Signed Colin Holderman \u00b7 1 yr / $1.5M (2025-26 winter, recent)",
+    "h": "Signed Colin Holderman \u00b7 1 yr / $1.5M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -38423,7 +38423,7 @@
      "ch": "fa",
      "net": 1.1,
      "st": 0.69,
-     "h": "Signed C\u00e9sar Hern\u00e1ndez \u00b7 1 yr / $6.2M (2019-20 winter, espn)",
+     "h": "Signed C\u00e9sar Hern\u00e1ndez \u00b7 1 yr / $6.2M (2019-20 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -38453,7 +38453,7 @@
      "ch": "fa",
      "net": 1.1,
      "st": 0.08,
-     "h": "Signed Colin Holderman \u00b7 1 yr / $1.5M (2025-26 winter, recent)",
+     "h": "Signed Colin Holderman \u00b7 1 yr / $1.5M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -38483,7 +38483,7 @@
      "ch": "fa",
      "net": 0.8,
      "st": 0.0,
-     "h": "Signed Ben Lively \u00b7 1 yr / $0.8M (2023-24 winter, recent)",
+     "h": "Signed Ben Lively \u00b7 1 yr / $0.8M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -38513,7 +38513,7 @@
      "ch": "fa",
      "net": 0.5,
      "st": 0.22,
-     "h": "Signed Oliver P\u00e9rez \u00b7 1 yr / $2.5M (2018-19 winter, espn)",
+     "h": "Signed Oliver P\u00e9rez \u00b7 1 yr / $2.5M (2018-19 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -38543,7 +38543,7 @@
      "ch": "fa",
      "net": 0.5,
      "st": 0.39,
-     "h": "Signed Jakob Junis \u00b7 1 yr / $4.5M (2024-25 winter, recent)",
+     "h": "Signed Jakob Junis \u00b7 1 yr / $4.5M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -38575,7 +38575,7 @@
      "ch": "fa",
      "net": -1.4,
      "st": 0.42,
-     "h": "Signed Juan Uribe \u00b7 1 yr / $4.0M (2015-16 winter, espn)",
+     "h": "Signed Juan Uribe \u00b7 1 yr / $4.0M (2015-16 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -38605,7 +38605,7 @@
      "ch": "fa",
      "net": -1.3,
      "st": 1.18,
-     "h": "Signed Carlos Santana \u00b7 1 yr / $12.0M (2024-25 winter, recent)",
+     "h": "Signed Carlos Santana \u00b7 1 yr / $12.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -38635,7 +38635,7 @@
      "ch": "fa",
      "net": -0.9,
      "st": 0.88,
-     "h": "Signed Josh Bell \u00b7 2 yr / $33.0M (2022-23 winter, recent)",
+     "h": "Signed Josh Bell \u00b7 2 yr / $33.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -38665,7 +38665,7 @@
      "ch": "fa",
      "net": -0.8,
      "st": 4.75,
-     "h": "Signed Edwin Encarnaci\u00f3n \u00b7 3 yr / $60.0M (2016-17 winter, espn, QO signing, draft comp charged)",
+     "h": "Signed Edwin Encarnaci\u00f3n \u00b7 3 yr / $60.0M (2016-17 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -38695,7 +38695,7 @@
      "ch": "fa",
      "net": -0.8,
      "st": 0.88,
-     "h": "Signed Yonder Alonso \u00b7 2 yr / $16.0M (2017-18 winter, espn)",
+     "h": "Signed Yonder Alonso \u00b7 2 yr / $16.0M (2017-18 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -39214,12 +39214,12 @@
      },
      {
       "d": "2020-08-31",
-      "h": "Got Cal Quantrill, Joey Cantillo, Owen Miller, Josh Naylor, Gabriel Arias, Austin Hedges for Mike Clevinger, Greg Allen, Matt Waldron",
+      "h": "Got Cal Quantrill, Austin Hedges, Josh Naylor, Gabriel Arias, Joey Cantillo, Owen Miller for Mike Clevinger, Greg Allen, Matt Waldron",
       "net": 10.8
      },
      {
       "d": "2019-07-31",
-      "h": "Got Victor Nova, Logan Allen, Franmil Reyes for cash/PTBNL",
+      "h": "Got Franmil Reyes, Victor Nova, Logan Allen for cash/PTBNL",
       "net": 0.4
      },
      {
@@ -39234,7 +39234,7 @@
      },
      {
       "d": "2018-07-19",
-      "h": "Got Brad Hand, Adam Cimber for Francisco Mej\u00eda",
+      "h": "Got Adam Cimber, Brad Hand for Francisco Mej\u00eda",
       "net": 2.7
      }
     ]
@@ -39262,7 +39262,7 @@
      },
      {
       "d": "2019-07-28",
-      "h": "Got Christian Arroyo, Hunter Wood for Ruben Cardenas",
+      "h": "Got Hunter Wood, Christian Arroyo for Ruben Cardenas",
       "net": 0.5
      },
      {
@@ -39546,7 +39546,7 @@
     "deals": [
      {
       "d": "2024-12-10",
-      "h": "Got Josh Hartle, Michael Kennedy, Luis Ortiz for cash/PTBNL",
+      "h": "Got Michael Kennedy, Josh Hartle, Luis Ortiz for cash/PTBNL",
       "net": 1.9
      },
      {
@@ -39592,7 +39592,7 @@
     "deals": [
      {
       "d": "2026-08-01",
-      "h": "Got Blake Perkins, Craig Yoho for Bo Naylor, Codi Heuer",
+      "h": "Got Craig Yoho, Blake Perkins for Bo Naylor, Codi Heuer",
       "net": 0.0
      },
      {
@@ -40029,8 +40029,8 @@
      "n_in": 0
     },
     "pids": [
-     "815081",
      "821197",
+     "815081",
      "622608"
     ],
     "comps": [
@@ -40109,8 +40109,8 @@
      "n_in": 0
     },
     "pids": [
-     "666397",
      "701487",
+     "666397",
      "700978"
     ],
     "comps": [
@@ -40652,8 +40652,8 @@
        "n_in": 0
       },
       "pids": [
-       "815081",
        "821197",
+       "815081",
        "622608"
       ],
       "comps": [
@@ -40809,8 +40809,8 @@
        "n_in": 0
       },
       "pids": [
-       "666397",
        "701487",
+       "666397",
        "700978"
       ],
       "comps": [
@@ -41388,7 +41388,7 @@
     "ch": "fa",
     "net": -0.6,
     "st": 0.54,
-    "h": "Signed Jose Quintana \u00b7 1 yr / $6.0M (2025-26 winter, recent)",
+    "h": "Signed Jose Quintana \u00b7 1 yr / $6.0M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -41418,7 +41418,7 @@
     "ch": "fa",
     "net": 0.5,
     "st": 0.58,
-    "h": "Signed Willi Castro \u00b7 2 yr / $12.8M (2025-26 winter, recent)",
+    "h": "Signed Willi Castro \u00b7 2 yr / $12.8M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -41448,7 +41448,7 @@
     "ch": "fa",
     "net": 0.1,
     "st": 0.75,
-    "h": "Signed Michael Lorenzen \u00b7 1 yr / $8.0M (2025-26 winter, recent)",
+    "h": "Signed Michael Lorenzen \u00b7 1 yr / $8.0M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -41478,7 +41478,7 @@
     "ch": "fa",
     "net": -0.0,
     "st": 0.45,
-    "h": "Signed Tomoyuki Sugano \u00b7 1 yr / $5.1M (2025-26 winter, recent)",
+    "h": "Signed Tomoyuki Sugano \u00b7 1 yr / $5.1M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -41511,7 +41511,7 @@
      "ch": "fa",
      "net": 0.5,
      "st": 0.58,
-     "h": "Signed Willi Castro \u00b7 2 yr / $12.8M (2025-26 winter, recent)",
+     "h": "Signed Willi Castro \u00b7 2 yr / $12.8M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -41541,7 +41541,7 @@
      "ch": "fa",
      "net": 0.1,
      "st": 0.75,
-     "h": "Signed Michael Lorenzen \u00b7 1 yr / $8.0M (2025-26 winter, recent)",
+     "h": "Signed Michael Lorenzen \u00b7 1 yr / $8.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -41573,7 +41573,7 @@
      "ch": "fa",
      "net": -0.6,
      "st": 0.54,
-     "h": "Signed Jose Quintana \u00b7 1 yr / $6.0M (2025-26 winter, recent)",
+     "h": "Signed Jose Quintana \u00b7 1 yr / $6.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -41660,7 +41660,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Aiden May, Connor Norby for Victor Vodnik",
+      "h": "Got Connor Norby, Aiden May for Victor Vodnik",
       "net": 0.9
      },
      {
@@ -41881,8 +41881,8 @@
      "n_in": 0
     },
     "pids": [
-     "689414",
      "687074",
+     "689414",
      "608348"
     ],
     "comps": [
@@ -41965,8 +41965,8 @@
      "n_in": 2
     },
     "pids": [
-     "806224",
      "814307",
+     "806224",
      "689981",
      "669373"
     ],
@@ -42054,9 +42054,9 @@
      "n_in": 0
     },
     "pids": [
+     "665155",
      "663837",
      "664848",
-     "665155",
      "665019",
      "642397"
     ],
@@ -42136,8 +42136,8 @@
      "n_in": 0
     },
     "pids": [
-     "663977",
      "669234",
+     "663977",
      "641729"
     ],
     "comps": [
@@ -42280,8 +42280,8 @@
        "n_in": 0
       },
       "pids": [
-       "689414",
        "687074",
+       "689414",
        "608348"
       ],
       "comps": [
@@ -42364,8 +42364,8 @@
        "n_in": 2
       },
       "pids": [
-       "806224",
        "814307",
+       "806224",
        "689981",
        "669373"
       ],
@@ -42690,9 +42690,9 @@
        "n_in": 0
       },
       "pids": [
+       "665155",
        "663837",
        "664848",
-       "665155",
        "665019",
        "642397"
       ],
@@ -42772,8 +42772,8 @@
        "n_in": 0
       },
       "pids": [
-       "663977",
        "669234",
+       "663977",
        "641729"
       ],
       "comps": [
@@ -44530,7 +44530,7 @@
     "ch": "fa",
     "net": -3.1,
     "st": 3.87,
-    "h": "Signed Framber Valdez \u00b7 3 yr / $115.0M (2025-26 winter, recent, QO signing, draft comp charged)",
+    "h": "Signed Framber Valdez \u00b7 3 yr / $115.0M (2025-26 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -44560,7 +44560,7 @@
     "ch": "fa",
     "net": -1.9,
     "st": 2.39,
-    "h": "Signed Kenta Maeda \u00b7 2 yr / $24.0M (2023-24 winter, recent)",
+    "h": "Signed Kenta Maeda \u00b7 2 yr / $24.0M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -44590,7 +44590,7 @@
     "ch": "fa",
     "net": 1.8,
     "st": 0.71,
-    "h": "Signed Jack Flaherty \u00b7 1 yr / $14.0M (2023-24 winter, recent)",
+    "h": "Signed Jack Flaherty \u00b7 1 yr / $14.0M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -44620,7 +44620,7 @@
     "ch": "fa",
     "net": 1.4,
     "st": 0.43,
-    "h": "Signed Michael Lorenzen \u00b7 1 yr / $8.5M (2022-23 winter, recent)",
+    "h": "Signed Michael Lorenzen \u00b7 1 yr / $8.5M (2022-23 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -44653,7 +44653,7 @@
      "ch": "fa",
      "net": 1.8,
      "st": 0.71,
-     "h": "Signed Jack Flaherty \u00b7 1 yr / $14.0M (2023-24 winter, recent)",
+     "h": "Signed Jack Flaherty \u00b7 1 yr / $14.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -44683,7 +44683,7 @@
      "ch": "fa",
      "net": 1.4,
      "st": 0.43,
-     "h": "Signed Michael Lorenzen \u00b7 1 yr / $8.5M (2022-23 winter, recent)",
+     "h": "Signed Michael Lorenzen \u00b7 1 yr / $8.5M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -44713,7 +44713,7 @@
      "ch": "fa",
      "net": 1.4,
      "st": 1.5,
-     "h": "Signed Gleyber Torres \u00b7 1 yr / $15.0M (2024-25 winter, recent)",
+     "h": "Signed Gleyber Torres \u00b7 1 yr / $15.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -44743,7 +44743,7 @@
      "ch": "fa",
      "net": 0.9,
      "st": 3.49,
-     "h": "Signed Jack Flaherty \u00b7 2 yr / $35.0M (2024-25 winter, recent)",
+     "h": "Signed Jack Flaherty \u00b7 2 yr / $35.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -44773,7 +44773,7 @@
      "ch": "fa",
      "net": 0.7,
      "st": 0.22,
-     "h": "Signed Andrew Chafin \u00b7 1 yr / $4.8M (2023-24 winter, recent)",
+     "h": "Signed Andrew Chafin \u00b7 1 yr / $4.8M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -44805,7 +44805,7 @@
      "ch": "fa",
      "net": -3.1,
      "st": 3.87,
-     "h": "Signed Framber Valdez \u00b7 3 yr / $115.0M (2025-26 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Framber Valdez \u00b7 3 yr / $115.0M (2025-26 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -44835,7 +44835,7 @@
      "ch": "fa",
      "net": -1.9,
      "st": 2.39,
-     "h": "Signed Kenta Maeda \u00b7 2 yr / $24.0M (2023-24 winter, recent)",
+     "h": "Signed Kenta Maeda \u00b7 2 yr / $24.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -44865,7 +44865,7 @@
      "ch": "fa",
      "net": -1.4,
      "st": 1.5,
-     "h": "Signed Alex Cobb \u00b7 1 yr / $15.0M (2024-25 winter, recent)",
+     "h": "Signed Alex Cobb \u00b7 1 yr / $15.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -44895,7 +44895,7 @@
      "ch": "fa",
      "net": -1.4,
      "st": 1.26,
-     "h": "Signed Justin Verlander \u00b7 1 yr / $13.0M (2025-26 winter, recent)",
+     "h": "Signed Justin Verlander \u00b7 1 yr / $13.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -44925,7 +44925,7 @@
      "ch": "fa",
      "net": -1.1,
      "st": 0.9,
-     "h": "Signed Kyle Finnegan \u00b7 2 yr / $19.0M (2025-26 winter, recent)",
+     "h": "Signed Kyle Finnegan \u00b7 2 yr / $19.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -45142,12 +45142,12 @@
      },
      {
       "d": "2024-07-30",
-      "h": "Got Chase Lee, Joseph Montalvo for Andrew Chafin",
+      "h": "Got Joseph Montalvo, Chase Lee for Andrew Chafin",
       "net": 1.2
      },
      {
       "d": "2024-07-28",
-      "h": "Got Tyler Owens, Liam Hicks for Carson Kelly",
+      "h": "Got Liam Hicks, Tyler Owens for Carson Kelly",
       "net": 4.4
      }
     ]
@@ -45160,12 +45160,12 @@
     "deals": [
      {
       "d": "2026-08-02",
-      "h": "Got River Ryan, Brady Smith, Zyhir Hope for Tarik Skubal",
+      "h": "Got Zyhir Hope, River Ryan, Brady Smith for Tarik Skubal",
       "net": 3.6
      },
      {
       "d": "2024-07-30",
-      "h": "Got Trey Sweeney, Thayron Liranzo for Jack Flaherty",
+      "h": "Got Thayron Liranzo, Trey Sweeney for Jack Flaherty",
       "net": 0.2
      },
      {
@@ -45216,7 +45216,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Jackson Wolf, Kash Mayfield for Gage Workman, Casey Mize",
+      "h": "Got Kash Mayfield, Jackson Wolf for Gage Workman, Casey Mize",
       "net": 2.1
      },
      {
@@ -45358,7 +45358,7 @@
      },
      {
       "d": "2023-01-07",
-      "h": "Got Donny Sands, Nick Maton, Matt Vierling for Kody Clemens, Gregory Soto",
+      "h": "Got Matt Vierling, Nick Maton, Donny Sands for Kody Clemens, Gregory Soto",
       "net": -3.2
      }
     ]
@@ -46013,8 +46013,8 @@
      "n_in": 0
     },
     "pids": [
-     "663568",
      "686701",
+     "663568",
      "666023"
     ],
     "comps": [
@@ -46257,8 +46257,8 @@
        "n_in": 0
       },
       "pids": [
-       "663568",
        "686701",
+       "663568",
        "666023"
       ],
       "comps": [
@@ -48136,7 +48136,7 @@
     "ch": "fa",
     "net": 3.0,
     "st": 3.03,
-    "h": "Signed Seth Lugo \u00b7 3 yr / $45.0M (2023-24 winter, recent)",
+    "h": "Signed Seth Lugo \u00b7 3 yr / $45.0M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -48166,7 +48166,7 @@
     "ch": "fa",
     "net": -2.0,
     "st": 1.22,
-    "h": "Signed Hunter Renfroe \u00b7 2 yr / $13.0M (2023-24 winter, recent)",
+    "h": "Signed Hunter Renfroe \u00b7 2 yr / $13.0M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -48196,7 +48196,7 @@
     "ch": "fa",
     "net": 1.8,
     "st": 1.64,
-    "h": "Signed Michael Wacha \u00b7 2 yr / $32.0M (2023-24 winter, recent)",
+    "h": "Signed Michael Wacha \u00b7 2 yr / $32.0M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -48226,7 +48226,7 @@
     "ch": "fa",
     "net": -1.6,
     "st": 0.4,
-    "h": "Signed Adam Frazier \u00b7 1 yr / $4.5M (2023-24 winter, recent)",
+    "h": "Signed Adam Frazier \u00b7 1 yr / $4.5M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -48259,7 +48259,7 @@
      "ch": "fa",
      "net": 3.0,
      "st": 3.03,
-     "h": "Signed Seth Lugo \u00b7 3 yr / $45.0M (2023-24 winter, recent)",
+     "h": "Signed Seth Lugo \u00b7 3 yr / $45.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -48289,7 +48289,7 @@
      "ch": "fa",
      "net": 1.8,
      "st": 1.64,
-     "h": "Signed Michael Wacha \u00b7 2 yr / $32.0M (2023-24 winter, recent)",
+     "h": "Signed Michael Wacha \u00b7 2 yr / $32.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -48319,7 +48319,7 @@
      "ch": "fa",
      "net": 0.5,
      "st": 0.12,
-     "h": "Signed Ryan Yarbrough \u00b7 1 yr / $3.0M (2022-23 winter, recent)",
+     "h": "Signed Ryan Yarbrough \u00b7 1 yr / $3.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -48349,7 +48349,7 @@
      "ch": "fa",
      "net": 0.5,
      "st": 0.33,
-     "h": "Signed Aroldis Chapman \u00b7 1 yr / $3.8M (2022-23 winter, recent)",
+     "h": "Signed Aroldis Chapman \u00b7 1 yr / $3.8M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -48379,7 +48379,7 @@
      "ch": "fa",
      "net": 0.5,
      "st": 0.86,
-     "h": "Signed Zack Greinke \u00b7 1 yr / $8.5M (2022-23 winter, recent)",
+     "h": "Signed Zack Greinke \u00b7 1 yr / $8.5M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -48411,7 +48411,7 @@
      "ch": "fa",
      "net": -2.0,
      "st": 1.22,
-     "h": "Signed Hunter Renfroe \u00b7 2 yr / $13.0M (2023-24 winter, recent)",
+     "h": "Signed Hunter Renfroe \u00b7 2 yr / $13.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -48441,7 +48441,7 @@
      "ch": "fa",
      "net": -1.6,
      "st": 0.4,
-     "h": "Signed Adam Frazier \u00b7 1 yr / $4.5M (2023-24 winter, recent)",
+     "h": "Signed Adam Frazier \u00b7 1 yr / $4.5M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -48471,7 +48471,7 @@
      "ch": "fa",
      "net": -1.4,
      "st": 1.69,
-     "h": "Signed Jordan Lyles \u00b7 2 yr / $17.0M (2022-23 winter, recent)",
+     "h": "Signed Jordan Lyles \u00b7 2 yr / $17.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -48501,7 +48501,7 @@
      "ch": "fa",
      "net": -1.0,
      "st": 0.46,
-     "h": "Signed Will Smith \u00b7 1 yr / $5.0M (2023-24 winter, recent)",
+     "h": "Signed Will Smith \u00b7 1 yr / $5.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -48531,7 +48531,7 @@
      "ch": "fa",
      "net": -0.9,
      "st": 2.14,
-     "h": "Signed Carlos Est\u00e9vez \u00b7 2 yr / $22.0M (2024-25 winter, recent)",
+     "h": "Signed Carlos Est\u00e9vez \u00b7 2 yr / $22.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -48936,7 +48936,7 @@
      },
      {
       "d": "2025-12-14",
-      "h": "Got Nick Mears, Isaac Collins for Angel Zerpa",
+      "h": "Got Isaac Collins, Nick Mears for Angel Zerpa",
       "net": -0.6
      },
      {
@@ -48951,7 +48951,7 @@
      },
      {
       "d": "2023-12-14",
-      "h": "Got Ryan Brady, Cam Devanney for Taylor Clarke",
+      "h": "Got Cam Devanney, Ryan Brady for Taylor Clarke",
       "net": -0.3
      }
     ]
@@ -48964,7 +48964,7 @@
     "deals": [
      {
       "d": "2025-07-31",
-      "h": "Got Stephen Kolek, Ryan Bergert for Freddy Fermin",
+      "h": "Got Ryan Bergert, Stephen Kolek for Freddy Fermin",
       "net": 1.7
      },
      {
@@ -49160,7 +49160,7 @@
      },
      {
       "d": "2023-08-01",
-      "h": "Got Derlin Figueroa, Devin Mann for Ryan Yarbrough",
+      "h": "Got Devin Mann, Derlin Figueroa for Ryan Yarbrough",
       "net": 0.2
      }
     ]
@@ -50303,10 +50303,10 @@
      "n_in": 1
     },
     "pids": [
-     "622072",
-     "276520",
      "606299",
+     "276520",
      "462382",
+     "622072",
      "501593",
      "621064",
      "493343",
@@ -50473,11 +50473,11 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Jackson Ferris",
+        "Zyhir Hope",
         "+0.3"
        ],
        [
-        "Zyhir Hope",
+        "Jackson Ferris",
         "+0.3"
        ]
       ]
@@ -50503,8 +50503,8 @@
      "n_in": 0
     },
     "pids": [
-     "701328",
      "814307",
+     "701328",
      "622075",
      "683737"
     ],
@@ -50754,10 +50754,10 @@
        "n_in": 1
       },
       "pids": [
-       "622072",
-       "276520",
        "606299",
+       "276520",
        "462382",
+       "622072",
        "501593",
        "621064",
        "493343",
@@ -51039,11 +51039,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Jackson Ferris",
+          "Zyhir Hope",
           "+0.3"
          ],
          [
-          "Zyhir Hope",
+          "Jackson Ferris",
           "+0.3"
          ]
         ]
@@ -51069,8 +51069,8 @@
        "n_in": 0
       },
       "pids": [
-       "701328",
        "814307",
+       "701328",
        "622075",
        "683737"
       ],
@@ -51158,8 +51158,8 @@
        "n_in": 0
       },
       "pids": [
-       "456034",
        "605141",
+       "456034",
        "669023",
        "657136",
        "657077"
@@ -51330,9 +51330,9 @@
        "n_in": 1
       },
       "pids": [
+       "608672",
        "593423",
        "572204",
-       "608672",
        "594988",
        "641525",
        "606299"
@@ -55229,7 +55229,7 @@
     "ch": "fa",
     "net": 12.0,
     "st": 7.58,
-    "h": "Signed Justin Turner \u00b7 4 yr / $64.0M (2016-17 winter, espn)",
+    "h": "Signed Justin Turner \u00b7 4 yr / $64.0M (2016-17 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -55259,7 +55259,7 @@
     "ch": "fa",
     "net": 11.7,
     "st": 14.3,
-    "h": "Signed Freddie Freeman \u00b7 6 yr / $162.0M (2021-22 winter, espn, QO signing, draft comp charged)",
+    "h": "Signed Freddie Freeman \u00b7 6 yr / $162.0M (2021-22 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -55289,7 +55289,7 @@
     "ch": "fa",
     "net": 11.3,
     "st": 14.32,
-    "h": "Signed Shohei Ohtani \u00b7 10 yr / $460.8M (2023-24 winter, recent, QO signing, draft comp charged)",
+    "h": "Signed Shohei Ohtani \u00b7 10 yr / $460.8M (2023-24 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -55319,7 +55319,7 @@
     "ch": "fa",
     "net": -10.4,
     "st": 11.52,
-    "h": "Signed Trevor Bauer \u00b7 3 yr / $102.0M (2020-21 winter, espn, QO signing, draft comp charged)",
+    "h": "Signed Trevor Bauer \u00b7 3 yr / $102.0M (2020-21 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -55352,7 +55352,7 @@
      "ch": "fa",
      "net": 12.0,
      "st": 7.58,
-     "h": "Signed Justin Turner \u00b7 4 yr / $64.0M (2016-17 winter, espn)",
+     "h": "Signed Justin Turner \u00b7 4 yr / $64.0M (2016-17 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -55382,7 +55382,7 @@
      "ch": "fa",
      "net": 11.7,
      "st": 14.3,
-     "h": "Signed Freddie Freeman \u00b7 6 yr / $162.0M (2021-22 winter, espn, QO signing, draft comp charged)",
+     "h": "Signed Freddie Freeman \u00b7 6 yr / $162.0M (2021-22 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -55412,7 +55412,7 @@
      "ch": "fa",
      "net": 11.3,
      "st": 14.32,
-     "h": "Signed Shohei Ohtani \u00b7 10 yr / $460.8M (2023-24 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Shohei Ohtani \u00b7 10 yr / $460.8M (2023-24 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -55442,7 +55442,7 @@
      "ch": "fa",
      "net": 3.9,
      "st": 3.82,
-     "h": "Signed Justin Turner \u00b7 2 yr / $34.0M (2020-21 winter, espn)",
+     "h": "Signed Justin Turner \u00b7 2 yr / $34.0M (2020-21 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -55472,7 +55472,7 @@
      "ch": "fa",
      "net": 1.7,
      "st": 1.91,
-     "h": "Signed Clayton Kershaw \u00b7 1 yr / $17.0M (2021-22 winter, espn)",
+     "h": "Signed Clayton Kershaw \u00b7 1 yr / $17.0M (2021-22 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -55504,7 +55504,7 @@
      "ch": "fa",
      "net": -10.4,
      "st": 11.52,
-     "h": "Signed Trevor Bauer \u00b7 3 yr / $102.0M (2020-21 winter, espn, QO signing, draft comp charged)",
+     "h": "Signed Trevor Bauer \u00b7 3 yr / $102.0M (2020-21 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -55534,7 +55534,7 @@
      "ch": "fa",
      "net": -7.1,
      "st": 6.11,
-     "h": "Signed Kyle Tucker \u00b7 4 yr / $240.0M (2025-26 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Kyle Tucker \u00b7 4 yr / $240.0M (2025-26 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -55564,7 +55564,7 @@
      "ch": "fa",
      "net": -3.6,
      "st": 7.43,
-     "h": "Signed Blake Snell \u00b7 5 yr / $182.0M (2024-25 winter, recent)",
+     "h": "Signed Blake Snell \u00b7 5 yr / $182.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -55594,7 +55594,7 @@
      "ch": "fa",
      "net": -2.9,
      "st": 2.29,
-     "h": "Signed Edwin D\u00edaz \u00b7 3 yr / $69.0M (2025-26 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Edwin D\u00edaz \u00b7 3 yr / $69.0M (2025-26 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -55624,7 +55624,7 @@
      "ch": "fa",
      "net": -2.4,
      "st": 6.29,
-     "h": "Signed Chris Taylor \u00b7 4 yr / $60.0M (2021-22 winter, espn)",
+     "h": "Signed Chris Taylor \u00b7 4 yr / $60.0M (2021-22 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -56245,7 +56245,7 @@
      },
      {
       "d": "2014-12-18",
-      "h": "Got Joe Wieland, Yasmani Grandal for Tim Federowicz, Matt Kemp",
+      "h": "Got Yasmani Grandal, Joe Wieland for Tim Federowicz, Matt Kemp",
       "net": 16.1
      }
     ]
@@ -56263,7 +56263,7 @@
      },
      {
       "d": "2025-07-30",
-      "h": "Got Paul Gervase, Ben Rortvedt for Hunter Feduccia",
+      "h": "Got Ben Rortvedt, Paul Gervase for Hunter Feduccia",
       "net": 0.0
      },
      {
@@ -56273,7 +56273,7 @@
      },
      {
       "d": "2023-12-16",
-      "h": "Got Manuel Margot, Tyler Glasnow for Jonny DeLuca, Ryan Pepiot",
+      "h": "Got Tyler Glasnow, Manuel Margot for Jonny DeLuca, Ryan Pepiot",
       "net": -5.4
      },
      {
@@ -56391,7 +56391,7 @@
      },
      {
       "d": "2017-03-01",
-      "h": "Got Aneurys Zabala, Drew Jackson for Chase De Jong",
+      "h": "Got Drew Jackson, Aneurys Zabala for Chase De Jong",
       "net": 0.4
      },
      {
@@ -56457,7 +56457,7 @@
      },
      {
       "d": "2024-02-05",
-      "h": "Got Christian Zazueta, Matt Gage for Caleb Ferguson",
+      "h": "Got Matt Gage, Christian Zazueta for Caleb Ferguson",
       "net": 0.2
      },
      {
@@ -56558,7 +56558,7 @@
      },
      {
       "d": "2022-08-02",
-      "h": "Got Nick Frasso, Moises Brito for Alex De Jesus, Mitch White",
+      "h": "Got Moises Brito, Nick Frasso for Alex De Jesus, Mitch White",
       "net": -0.2
      },
      {
@@ -56685,7 +56685,7 @@
     "deals": [
      {
       "d": "2025-07-31",
-      "h": "Got Zach Ehrhard, James Tibbs III for Dustin May",
+      "h": "Got James Tibbs III, Zach Ehrhard for Dustin May",
       "net": 1.0
      },
      {
@@ -57012,11 +57012,11 @@
         "+5.6"
        ],
        [
-        "Dillon Head",
+        "Nathan Martorella",
         "+0.3"
        ],
        [
-        "Nathan Martorella",
+        "Dillon Head",
         "+0.3"
        ],
        [
@@ -57042,10 +57042,10 @@
      "n_in": 0
     },
     "pids": [
-     "702977",
-     "808970",
-     "805300",
      "687210",
+     "805300",
+     "808970",
+     "702977",
      "650333"
     ],
     "comps": [
@@ -57128,8 +57128,8 @@
      "n_in": 0
     },
     "pids": [
-     "691858",
      "682663",
+     "691858",
      "800254",
      "665862"
     ],
@@ -57296,8 +57296,8 @@
      "n_in": 1
     },
     "pids": [
-     "688363",
      "800049",
+     "688363",
      "702281",
      "810891",
      "663773",
@@ -57357,11 +57357,11 @@
         "+0.7"
        ],
        [
-        "Chase Jaworsky",
+        "Esmil Valencia",
         "+0.4"
        ],
        [
-        "Esmil Valencia",
+        "Chase Jaworsky",
         "+0.4"
        ]
       ]
@@ -57384,8 +57384,8 @@
     },
     "pids": [
      "687473",
-     "814172",
      "806982",
+     "814172",
      "660821"
     ],
     "comps": [
@@ -57616,11 +57616,11 @@
           "+5.6"
          ],
          [
-          "Dillon Head",
+          "Nathan Martorella",
           "+0.3"
          ],
          [
-          "Nathan Martorella",
+          "Dillon Head",
           "+0.3"
          ],
          [
@@ -57646,10 +57646,10 @@
        "n_in": 0
       },
       "pids": [
-       "702977",
-       "808970",
-       "805300",
        "687210",
+       "805300",
+       "808970",
+       "702977",
        "650333"
       ],
       "comps": [
@@ -57740,8 +57740,8 @@
        "n_in": 1
       },
       "pids": [
-       "688363",
        "800049",
+       "688363",
        "702281",
        "810891",
        "663773",
@@ -57801,11 +57801,11 @@
           "+0.7"
          ],
          [
-          "Chase Jaworsky",
+          "Esmil Valencia",
           "+0.4"
          ],
          [
-          "Esmil Valencia",
+          "Chase Jaworsky",
           "+0.4"
          ]
         ]
@@ -57828,8 +57828,8 @@
       },
       "pids": [
        "687473",
-       "814172",
        "806982",
+       "814172",
        "660821"
       ],
       "comps": [
@@ -58079,8 +58079,8 @@
        "n_in": 0
       },
       "pids": [
-       "691858",
        "682663",
+       "691858",
        "800254",
        "665862"
       ],
@@ -59469,7 +59469,7 @@
     "ch": "fa",
     "net": -2.5,
     "st": 0.46,
-    "h": "Signed Tim Anderson \u00b7 1 yr / $5.0M (2023-24 winter, recent)",
+    "h": "Signed Tim Anderson \u00b7 1 yr / $5.0M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -59499,7 +59499,7 @@
     "ch": "fa",
     "net": -1.3,
     "st": 0.13,
-    "h": "Signed Christopher Morel \u00b7 1 yr / $2.0M (2025-26 winter, recent)",
+    "h": "Signed Christopher Morel \u00b7 1 yr / $2.0M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -59529,7 +59529,7 @@
     "ch": "fa",
     "net": -1.1,
     "st": 1.26,
-    "h": "Signed Pete Fairbanks \u00b7 1 yr / $13.0M (2025-26 winter, recent)",
+    "h": "Signed Pete Fairbanks \u00b7 1 yr / $13.0M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -59559,7 +59559,7 @@
     "ch": "fa",
     "net": -0.8,
     "st": 0.34,
-    "h": "Signed Chris Paddack \u00b7 1 yr / $4.0M (2025-26 winter, recent)",
+    "h": "Signed Chris Paddack \u00b7 1 yr / $4.0M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -59592,7 +59592,7 @@
      "ch": "fa",
      "net": 0.4,
      "st": 0.14,
-     "h": "Signed Cal Quantrill \u00b7 1 yr / $3.5M (2024-25 winter, recent)",
+     "h": "Signed Cal Quantrill \u00b7 1 yr / $3.5M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -59624,7 +59624,7 @@
      "ch": "fa",
      "net": -2.5,
      "st": 0.46,
-     "h": "Signed Tim Anderson \u00b7 1 yr / $5.0M (2023-24 winter, recent)",
+     "h": "Signed Tim Anderson \u00b7 1 yr / $5.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -59654,7 +59654,7 @@
      "ch": "fa",
      "net": -1.3,
      "st": 0.13,
-     "h": "Signed Christopher Morel \u00b7 1 yr / $2.0M (2025-26 winter, recent)",
+     "h": "Signed Christopher Morel \u00b7 1 yr / $2.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -59684,7 +59684,7 @@
      "ch": "fa",
      "net": -1.1,
      "st": 1.26,
-     "h": "Signed Pete Fairbanks \u00b7 1 yr / $13.0M (2025-26 winter, recent)",
+     "h": "Signed Pete Fairbanks \u00b7 1 yr / $13.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -59714,7 +59714,7 @@
      "ch": "fa",
      "net": -0.8,
      "st": 0.34,
-     "h": "Signed Chris Paddack \u00b7 1 yr / $4.0M (2025-26 winter, recent)",
+     "h": "Signed Chris Paddack \u00b7 1 yr / $4.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -59744,7 +59744,7 @@
      "ch": "fa",
      "net": -0.2,
      "st": 0.08,
-     "h": "Signed John King \u00b7 1 yr / $1.5M (2025-26 winter, recent)",
+     "h": "Signed John King \u00b7 1 yr / $1.5M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -59838,12 +59838,12 @@
     "deals": [
      {
       "d": "2024-07-30",
-      "h": "Got Graham Pauley, Robby Snelling, Adam Mazur, Jay Beshears for Bryan Hoeing, Tanner Scott",
+      "h": "Got Robby Snelling, Graham Pauley, Jay Beshears, Adam Mazur for Bryan Hoeing, Tanner Scott",
       "net": 3.0
      },
      {
       "d": "2024-05-04",
-      "h": "Got Jakob Marsee, Woo-Suk Go, Dillon Head, Nathan Martorella for Luis Arraez",
+      "h": "Got Jakob Marsee, Nathan Martorella, Dillon Head, Woo-Suk Go for Luis Arraez",
       "net": 4.8
      }
     ]
@@ -59856,12 +59856,12 @@
     "deals": [
      {
       "d": "2026-01-13",
-      "h": "Got Dillon Lewis, Juan Matheus, Brendan Jones, Dylan Jasso for Ryan Weathers",
+      "h": "Got Dillon Lewis, Juan Matheus, Dylan Jasso, Brendan Jones for Ryan Weathers",
       "net": -0.2
      },
      {
       "d": "2024-07-27",
-      "h": "Got Agust\u00edn Ram\u00edrez, Jared Serna, Abrahan Ramirez for Jazz Chisholm Jr.",
+      "h": "Got Jared Serna, Agust\u00edn Ram\u00edrez, Abrahan Ramirez for Jazz Chisholm Jr.",
       "net": -4.3
      },
      {
@@ -59938,12 +59938,12 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Brandan Bidois, Hyun Seung Lee, Brian Sanchez for Lake Bachar",
+      "h": "Got Brian Sanchez, Hyun Seung Lee, Brandan Bidois for Lake Bachar",
       "net": 1.2
      },
      {
       "d": "2024-07-30",
-      "h": "Got Jun-Seok Shim, Garret Forrester for Bryan De La Cruz",
+      "h": "Got Garret Forrester, Jun-Seok Shim for Bryan De La Cruz",
       "net": 2.1
      },
      {
@@ -59994,7 +59994,7 @@
      },
      {
       "d": "2024-12-22",
-      "h": "Got Emaarion Boyd, Starlyn Caba for Paul McIntosh, Jes\u00fas Luzardo",
+      "h": "Got Starlyn Caba, Emaarion Boyd for Paul McIntosh, Jes\u00fas Luzardo",
       "net": -2.6
      }
     ]
@@ -60053,7 +60053,7 @@
      },
      {
       "d": "2026-08-03",
-      "h": "Got Jacob Kisting, Brayden Taylor, Adrian Santana for Liam Hicks",
+      "h": "Got Brayden Taylor, Jacob Kisting, Adrian Santana for Liam Hicks",
       "net": 2.4
      },
      {
@@ -60078,7 +60078,7 @@
      },
      {
       "d": "2023-11-17",
-      "h": "Got Vidal Bruj\u00e1n, Calvin Faucher for Andrew Lindsey, Erick Lara, Jake Mangum",
+      "h": "Got Calvin Faucher, Vidal Bruj\u00e1n for Andrew Lindsey, Erick Lara, Jake Mangum",
       "net": 0.0
      }
     ]
@@ -60096,7 +60096,7 @@
      },
      {
       "d": "2024-07-25",
-      "h": "Got Deyvison De Los Santos, Andrew Pintar for A.J. Puk",
+      "h": "Got Andrew Pintar, Deyvison De Los Santos for A.J. Puk",
       "net": -0.3
      },
      {
@@ -60155,7 +60155,7 @@
     "deals": [
      {
       "d": "2024-12-11",
-      "h": "Got Echedry Vargas, Maximo Acosta, Brayan Mendoza for Jake Burger",
+      "h": "Got Maximo Acosta, Echedry Vargas, Brayan Mendoza for Jake Burger",
       "net": 0.0
      },
      {
@@ -60298,9 +60298,9 @@
      "n_in": 0
     },
     "pids": [
+     "606303",
      "661388",
      "687866",
-     "606303",
      "665923"
     ],
     "comps": [
@@ -60464,8 +60464,8 @@
     },
     "pids": [
      "665625",
-     "676083",
      "694372",
+     "676083",
      "592669"
     ],
     "comps": [
@@ -60798,8 +60798,8 @@
      "n_in": 0
     },
     "pids": [
-     "641482",
      "702332",
+     "641482",
      "642207"
     ],
     "comps": [
@@ -60886,9 +60886,9 @@
        "n_in": 0
       },
       "pids": [
+       "606303",
        "661388",
        "687866",
-       "606303",
        "665923"
       ],
       "comps": [
@@ -61052,8 +61052,8 @@
       },
       "pids": [
        "665625",
-       "676083",
        "694372",
+       "676083",
        "592669"
       ],
       "comps": [
@@ -63015,7 +63015,7 @@
     "ch": "fa",
     "net": -1.8,
     "st": 3.46,
-    "h": "Signed Rhys Hoskins \u00b7 2 yr / $34.0M (2023-24 winter, recent)",
+    "h": "Signed Rhys Hoskins \u00b7 2 yr / $34.0M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -63045,7 +63045,7 @@
     "ch": "fa",
     "net": -1.4,
     "st": 0.28,
-    "h": "Signed Luis Rengifo \u00b7 1 yr / $3.5M (2025-26 winter, recent)",
+    "h": "Signed Luis Rengifo \u00b7 1 yr / $3.5M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -63075,7 +63075,7 @@
     "ch": "fa",
     "net": -1.0,
     "st": 0.83,
-    "h": "Signed Wade Miley \u00b7 1 yr / $8.5M (2023-24 winter, recent)",
+    "h": "Signed Wade Miley \u00b7 1 yr / $8.5M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -63105,7 +63105,7 @@
     "ch": "fa",
     "net": -1.0,
     "st": 2.19,
-    "h": "Signed Brandon Woodruff \u00b7 1 yr / $22.0M (2025-26 winter, recent)",
+    "h": "Signed Brandon Woodruff \u00b7 1 yr / $22.0M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -63138,7 +63138,7 @@
      "ch": "fa",
      "net": 0.9,
      "st": 0.0,
-     "h": "Signed Blake Perkins \u00b7 1 yr / $0.7M (2022-23 winter, recent)",
+     "h": "Signed Blake Perkins \u00b7 1 yr / $0.7M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -63168,7 +63168,7 @@
      "ch": "fa",
      "net": 0.9,
      "st": 0.1,
-     "h": "Signed Gary S\u00e1nchez \u00b7 1 yr / $1.8M (2025-26 winter, recent)",
+     "h": "Signed Gary S\u00e1nchez \u00b7 1 yr / $1.8M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -63198,7 +63198,7 @@
      "ch": "fa",
      "net": 0.8,
      "st": 0.11,
-     "h": "Signed Joe Ross \u00b7 1 yr / $1.8M (2023-24 winter, recent)",
+     "h": "Signed Joe Ross \u00b7 1 yr / $1.8M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -63228,7 +63228,7 @@
      "ch": "fa",
      "net": 0.5,
      "st": 0.03,
-     "h": "Signed Tyler Alexander \u00b7 1 yr / $1.0M (2024-25 winter, recent)",
+     "h": "Signed Tyler Alexander \u00b7 1 yr / $1.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -63260,7 +63260,7 @@
      "ch": "fa",
      "net": -1.8,
      "st": 3.46,
-     "h": "Signed Rhys Hoskins \u00b7 2 yr / $34.0M (2023-24 winter, recent)",
+     "h": "Signed Rhys Hoskins \u00b7 2 yr / $34.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -63290,7 +63290,7 @@
      "ch": "fa",
      "net": -1.4,
      "st": 0.28,
-     "h": "Signed Luis Rengifo \u00b7 1 yr / $3.5M (2025-26 winter, recent)",
+     "h": "Signed Luis Rengifo \u00b7 1 yr / $3.5M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -63320,7 +63320,7 @@
      "ch": "fa",
      "net": -1.0,
      "st": 0.83,
-     "h": "Signed Wade Miley \u00b7 1 yr / $8.5M (2023-24 winter, recent)",
+     "h": "Signed Wade Miley \u00b7 1 yr / $8.5M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -63350,7 +63350,7 @@
      "ch": "fa",
      "net": -1.0,
      "st": 2.19,
-     "h": "Signed Brandon Woodruff \u00b7 1 yr / $22.0M (2025-26 winter, recent)",
+     "h": "Signed Brandon Woodruff \u00b7 1 yr / $22.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -63380,7 +63380,7 @@
      "ch": "fa",
      "net": -0.6,
      "st": 0.01,
-     "h": "Signed Elvin Rodr\u00edguez \u00b7 1 yr / $0.9M (2024-25 winter, recent)",
+     "h": "Signed Elvin Rodr\u00edguez \u00b7 1 yr / $0.9M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -63656,7 +63656,7 @@
      },
      {
       "d": "2024-12-13",
-      "h": "Got Caleb Durbin, Nestor Cortes for Devin Williams",
+      "h": "Got Nestor Cortes, Caleb Durbin for Devin Williams",
       "net": 3.2
      },
      {
@@ -63694,7 +63694,7 @@
      },
      {
       "d": "2024-02-01",
-      "h": "Got DL Hall, Joey Ortiz for Corbin Burnes",
+      "h": "Got Joey Ortiz, DL Hall for Corbin Burnes",
       "net": 6.4
      }
     ]
@@ -63730,7 +63730,7 @@
     "deals": [
      {
       "d": "2026-02-09",
-      "h": "Got Shane Drohan, Kyle Harrison, David Hamilton for Andruw Monasterio, Caleb Durbin, Anthony Seigler",
+      "h": "Got Shane Drohan, David Hamilton, Kyle Harrison for Andruw Monasterio, Caleb Durbin, Anthony Seigler",
       "net": 2.1
      },
      {
@@ -63980,7 +63980,7 @@
      },
      {
       "d": "2025-07-31",
-      "h": "Got Jordan Montgomery, Shelby Miller for cash/PTBNL",
+      "h": "Got Shelby Miller, Jordan Montgomery for cash/PTBNL",
       "net": 0.1
      },
      {
@@ -66017,8 +66017,8 @@
        "n_in": 0
       },
       "pids": [
-       "621438",
        "605288",
+       "621438",
        "689441"
       ],
       "comps": [
@@ -68264,7 +68264,7 @@
     "ch": "fa",
     "net": -3.6,
     "st": 4.25,
-    "h": "Signed Bo Bichette \u00b7 3 yr / $126.0M (2025-26 winter, recent, QO signing, draft comp charged)",
+    "h": "Signed Bo Bichette \u00b7 3 yr / $126.0M (2025-26 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -68294,7 +68294,7 @@
     "ch": "fa",
     "net": -3.3,
     "st": 1.98,
-    "h": "Signed Jorge Polanco \u00b7 2 yr / $40.0M (2025-26 winter, recent)",
+    "h": "Signed Jorge Polanco \u00b7 2 yr / $40.0M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -68324,7 +68324,7 @@
     "ch": "fa",
     "net": -2.8,
     "st": 3.39,
-    "h": "Signed Frankie Montas \u00b7 2 yr / $34.0M (2024-25 winter, recent)",
+    "h": "Signed Frankie Montas \u00b7 2 yr / $34.0M (2024-25 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -68354,7 +68354,7 @@
     "ch": "fa",
     "net": -2.5,
     "st": 5.05,
-    "h": "Signed Sean Manaea \u00b7 3 yr / $75.0M (2024-25 winter, recent)",
+    "h": "Signed Sean Manaea \u00b7 3 yr / $75.0M (2024-25 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -68387,7 +68387,7 @@
      "ch": "fa",
      "net": 1.6,
      "st": 1.87,
-     "h": "Signed Clay Holmes \u00b7 3 yr / $38.0M (2024-25 winter, recent)",
+     "h": "Signed Clay Holmes \u00b7 3 yr / $38.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -68417,7 +68417,7 @@
      "ch": "fa",
      "net": 1.1,
      "st": 1.32,
-     "h": "Signed Luis Severino \u00b7 1 yr / $13.0M (2023-24 winter, recent)",
+     "h": "Signed Luis Severino \u00b7 1 yr / $13.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -68447,7 +68447,7 @@
      "ch": "fa",
      "net": 1.0,
      "st": 1.42,
-     "h": "Signed Sean Manaea \u00b7 2 yr / $28.0M (2023-24 winter, recent)",
+     "h": "Signed Sean Manaea \u00b7 2 yr / $28.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -68477,7 +68477,7 @@
      "ch": "fa",
      "net": 0.9,
      "st": 2.76,
-     "h": "Signed Pete Alonso \u00b7 2 yr / $54.0M (2024-25 winter, recent)",
+     "h": "Signed Pete Alonso \u00b7 2 yr / $54.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -68507,7 +68507,7 @@
      "ch": "fa",
      "net": 0.6,
      "st": 0.53,
-     "h": "Signed Luke Weaver \u00b7 2 yr / $22.0M (2025-26 winter, recent)",
+     "h": "Signed Luke Weaver \u00b7 2 yr / $22.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -68539,7 +68539,7 @@
      "ch": "fa",
      "net": -3.6,
      "st": 4.25,
-     "h": "Signed Bo Bichette \u00b7 3 yr / $126.0M (2025-26 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Bo Bichette \u00b7 3 yr / $126.0M (2025-26 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -68569,7 +68569,7 @@
      "ch": "fa",
      "net": -3.3,
      "st": 1.98,
-     "h": "Signed Jorge Polanco \u00b7 2 yr / $40.0M (2025-26 winter, recent)",
+     "h": "Signed Jorge Polanco \u00b7 2 yr / $40.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -68599,7 +68599,7 @@
      "ch": "fa",
      "net": -2.8,
      "st": 3.39,
-     "h": "Signed Frankie Montas \u00b7 2 yr / $34.0M (2024-25 winter, recent)",
+     "h": "Signed Frankie Montas \u00b7 2 yr / $34.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -68629,7 +68629,7 @@
      "ch": "fa",
      "net": -2.5,
      "st": 5.05,
-     "h": "Signed Sean Manaea \u00b7 3 yr / $75.0M (2024-25 winter, recent)",
+     "h": "Signed Sean Manaea \u00b7 3 yr / $75.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -68659,7 +68659,7 @@
      "ch": "fa",
      "net": -1.7,
      "st": 10.47,
-     "h": "Signed Juan Soto \u00b7 15 yr / $765.0M (2024-25 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Juan Soto \u00b7 15 yr / $765.0M (2024-25 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -68877,7 +68877,7 @@
     "deals": [
      {
       "d": "2026-08-02",
-      "h": "Got \u00c9milien Pitre, Aidan Smith, Gary Gill Hill for Freddy Peralta",
+      "h": "Got Aidan Smith, Gary Gill Hill, \u00c9milien Pitre for Freddy Peralta",
       "net": 0.7
      },
      {
@@ -68981,7 +68981,7 @@
      },
      {
       "d": "2023-12-20",
-      "h": "Got Tyrone Taylor, Adrian Houser for Coleman Crow",
+      "h": "Got Adrian Houser, Tyrone Taylor for Coleman Crow",
       "net": 2.2
      }
     ]
@@ -69345,8 +69345,8 @@
      "n_in": 0
     },
     "pids": [
-     "150097",
      "276342",
+     "150097",
      "136780"
     ],
     "comps": [
@@ -69500,8 +69500,8 @@
      "n_in": 0
     },
     "pids": [
-     "150409",
      "150404",
+     "150409",
      "150414",
      "116400"
     ],
@@ -69666,8 +69666,8 @@
     },
     "pids": [
      "622197",
-     "641856",
      "476589",
+     "641856",
      "650402",
      "547973"
     ],
@@ -69778,8 +69778,8 @@
        "n_in": 0
       },
       "pids": [
-       "150409",
        "150404",
+       "150409",
        "150414",
        "116400"
       ],
@@ -69861,8 +69861,8 @@
       },
       "pids": [
        "622197",
-       "641856",
        "476589",
+       "641856",
        "650402",
        "547973"
       ],
@@ -70078,8 +70078,8 @@
        "n_in": 0
       },
       "pids": [
-       "430897",
        "444427",
+       "430897",
        "400140",
        "457812",
        "471919"
@@ -70233,8 +70233,8 @@
        "n_in": 0
       },
       "pids": [
-       "150097",
        "276342",
+       "150097",
        "136780"
       ],
       "comps": [
@@ -79256,7 +79256,7 @@
     "ch": "fa",
     "net": 15.1,
     "st": 16.76,
-    "h": "Signed Aaron Judge \u00b7 9 yr / $360.0M (2022-23 winter, recent)",
+    "h": "Signed Aaron Judge \u00b7 9 yr / $360.0M (2022-23 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -79286,7 +79286,7 @@
     "ch": "fa",
     "net": -6.9,
     "st": 8.54,
-    "h": "Signed Carl Pavano \u00b7 4 yr / $40.0M (2004-05 winter, fa97)",
+    "h": "Signed Carl Pavano \u00b7 4 yr / $40.0M (2004-05 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -79316,7 +79316,7 @@
     "ch": "fa",
     "net": 6.8,
     "st": 4.85,
-    "h": "Signed Hideki Matsui \u00b7 3 yr / $21.0M (2002-03 winter, fa97)",
+    "h": "Signed Hideki Matsui \u00b7 3 yr / $21.0M (2002-03 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -79346,7 +79346,7 @@
     "ch": "fa",
     "net": -6.6,
     "st": 45.95,
-    "h": "Signed Alex Rodriguez \u00b7 10 yr / $275.0M (2007-08 winter, espn)",
+    "h": "Signed Alex Rodriguez \u00b7 10 yr / $275.0M (2007-08 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -79379,7 +79379,7 @@
      "ch": "fa",
      "net": 15.1,
      "st": 16.76,
-     "h": "Signed Aaron Judge \u00b7 9 yr / $360.0M (2022-23 winter, recent)",
+     "h": "Signed Aaron Judge \u00b7 9 yr / $360.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -79409,7 +79409,7 @@
      "ch": "fa",
      "net": 6.8,
      "st": 4.85,
-     "h": "Signed Hideki Matsui \u00b7 3 yr / $21.0M (2002-03 winter, fa97)",
+     "h": "Signed Hideki Matsui \u00b7 3 yr / $21.0M (2002-03 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -79439,7 +79439,7 @@
      "ch": "fa",
      "net": 6.0,
      "st": 2.81,
-     "h": "Signed DJ LeMahieu \u00b7 2 yr / $24.0M (2018-19 winter, espn)",
+     "h": "Signed DJ LeMahieu \u00b7 2 yr / $24.0M (2018-19 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -79469,7 +79469,7 @@
      "ch": "fa",
      "net": 4.6,
      "st": 1.46,
-     "h": "Signed David Wells \u00b7 2 yr / $7.0M (2001-02 winter, fa97)",
+     "h": "Signed David Wells \u00b7 2 yr / $7.0M (2001-02 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -79499,7 +79499,7 @@
      "ch": "fa",
      "net": 4.3,
      "st": 10.85,
-     "h": "Signed Johnny Damon \u00b7 4 yr / $52.0M (2005-06 winter, fa97)",
+     "h": "Signed Johnny Damon \u00b7 4 yr / $52.0M (2005-06 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -79531,7 +79531,7 @@
      "ch": "fa",
      "net": -6.9,
      "st": 8.54,
-     "h": "Signed Carl Pavano \u00b7 4 yr / $40.0M (2004-05 winter, fa97)",
+     "h": "Signed Carl Pavano \u00b7 4 yr / $40.0M (2004-05 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -79561,7 +79561,7 @@
      "ch": "fa",
      "net": -6.6,
      "st": 45.95,
-     "h": "Signed Alex Rodriguez \u00b7 10 yr / $275.0M (2007-08 winter, espn)",
+     "h": "Signed Alex Rodriguez \u00b7 10 yr / $275.0M (2007-08 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -79591,7 +79591,7 @@
      "ch": "fa",
      "net": -6.2,
      "st": 4.0,
-     "h": "Signed David Cone \u00b7 1 yr / $12.0M (1999-00 winter, fa97)",
+     "h": "Signed David Cone \u00b7 1 yr / $12.0M (1999-00 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -79621,7 +79621,7 @@
      "ch": "fa",
      "net": -5.6,
      "st": 19.49,
-     "h": "Signed Jacoby Ellsbury \u00b7 7 yr / $153.0M (2013-14 winter, espn, QO signing, draft comp charged)",
+     "h": "Signed Jacoby Ellsbury \u00b7 7 yr / $153.0M (2013-14 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -79651,7 +79651,7 @@
      "ch": "fa",
      "net": -4.4,
      "st": 5.04,
-     "h": "Signed Steve Karsay \u00b7 4 yr / $22.2M (2001-02 winter, fa97)",
+     "h": "Signed Steve Karsay \u00b7 4 yr / $22.2M (2001-02 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -80467,7 +80467,7 @@
      },
      {
       "d": "2026-08-01",
-      "h": "Got Luis Cruz, Omar Alfonzo for Camilo Doval",
+      "h": "Got Omar Alfonzo, Luis Cruz for Camilo Doval",
       "net": 0.6
      },
      {
@@ -80525,7 +80525,7 @@
      },
      {
       "d": "2023-11-17",
-      "h": "Got Jace Avina, Brian Sanchez for Jake Bauers",
+      "h": "Got Brian Sanchez, Jace Avina for Jake Bauers",
       "net": -3.1
      }
     ]
@@ -80604,7 +80604,7 @@
      },
      {
       "d": "2023-12-11",
-      "h": "Got Victor Gonz\u00e1lez, Jorbit Vivas for Trey Sweeney",
+      "h": "Got Jorbit Vivas, Victor Gonz\u00e1lez for Trey Sweeney",
       "net": 0.7
      },
      {
@@ -80637,7 +80637,7 @@
      },
      {
       "d": "2022-12-28",
-      "h": "Got Caleb Durbin, Indigo Diaz for Lucas Luetge",
+      "h": "Got Indigo Diaz, Caleb Durbin for Lucas Luetge",
       "net": 4.8
      }
     ]
@@ -80650,7 +80650,7 @@
     "deals": [
      {
       "d": "2024-12-20",
-      "h": "Got Fernando Cruz, Alex Jackson for Jose Trevino",
+      "h": "Got Alex Jackson, Fernando Cruz for Jose Trevino",
       "net": 2.6
      },
      {
@@ -80731,7 +80731,7 @@
      },
      {
       "d": "2016-08-31",
-      "h": "Got Jio Orozco, Juan De Paula for Ben Gamel",
+      "h": "Got Juan De Paula, Jio Orozco for Ben Gamel",
       "net": -1.9
      }
     ]
@@ -80769,7 +80769,7 @@
      },
      {
       "d": "2016-07-31",
-      "h": "Got Ben Heller, Clint Frazier, Justus Sheffield, J.P. Feyereisen for Andrew Miller",
+      "h": "Got Ben Heller, Clint Frazier, J.P. Feyereisen, Justus Sheffield for Andrew Miller",
       "net": -1.2
      },
      {
@@ -80805,7 +80805,7 @@
     "deals": [
      {
       "d": "2024-07-30",
-      "h": "Got Thomas Balboni Jr., Enyel De Los Santos for Brandon Lockridge",
+      "h": "Got Enyel De Los Santos, Thomas Balboni Jr. for Brandon Lockridge",
       "net": -1.2
      },
      {
@@ -81525,8 +81525,8 @@
      "n_in": 0
     },
     "pids": [
-     "665019",
      "642397",
+     "665019",
      "664848",
      "663837",
      "665155"
@@ -82000,8 +82000,8 @@
        "n_in": 0
       },
       "pids": [
-       "665019",
        "642397",
+       "665019",
        "664848",
        "663837",
        "665155"
@@ -84484,7 +84484,7 @@
     "ch": "fa",
     "net": 11.2,
     "st": 12.5,
-    "h": "Signed J.T. Realmuto \u00b7 5 yr / $115.5M (2020-21 winter, espn)",
+    "h": "Signed J.T. Realmuto \u00b7 5 yr / $115.5M (2020-21 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -84514,7 +84514,7 @@
     "ch": "fa",
     "net": -6.5,
     "st": 8.5,
-    "h": "Signed Nick Castellanos \u00b7 5 yr / $100.0M (2021-22 winter, espn, QO signing, draft comp charged)",
+    "h": "Signed Nick Castellanos \u00b7 5 yr / $100.0M (2021-22 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -84544,7 +84544,7 @@
     "ch": "fa",
     "net": 6.2,
     "st": 11.33,
-    "h": "Signed Trea Turner \u00b7 11 yr / $300.0M (2022-23 winter, recent, QO signing, draft comp charged)",
+    "h": "Signed Trea Turner \u00b7 11 yr / $300.0M (2022-23 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -84574,7 +84574,7 @@
     "ch": "fa",
     "net": 6.1,
     "st": 8.39,
-    "h": "Signed Kyle Schwarber \u00b7 4 yr / $79.0M (2021-22 winter, espn)",
+    "h": "Signed Kyle Schwarber \u00b7 4 yr / $79.0M (2021-22 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -84607,7 +84607,7 @@
      "ch": "fa",
      "net": 11.2,
      "st": 12.5,
-     "h": "Signed J.T. Realmuto \u00b7 5 yr / $115.5M (2020-21 winter, espn)",
+     "h": "Signed J.T. Realmuto \u00b7 5 yr / $115.5M (2020-21 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -84637,7 +84637,7 @@
      "ch": "fa",
      "net": 6.2,
      "st": 11.33,
-     "h": "Signed Trea Turner \u00b7 11 yr / $300.0M (2022-23 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Trea Turner \u00b7 11 yr / $300.0M (2022-23 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -84667,7 +84667,7 @@
      "ch": "fa",
      "net": 6.1,
      "st": 8.39,
-     "h": "Signed Kyle Schwarber \u00b7 4 yr / $79.0M (2021-22 winter, espn)",
+     "h": "Signed Kyle Schwarber \u00b7 4 yr / $79.0M (2021-22 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -84697,7 +84697,7 @@
      "ch": "fa",
      "net": 2.9,
      "st": 1.48,
-     "h": "Signed Matt Strahm \u00b7 2 yr / $15.0M (2022-23 winter, recent)",
+     "h": "Signed Matt Strahm \u00b7 2 yr / $15.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -84727,7 +84727,7 @@
      "ch": "fa",
      "net": 0.6,
      "st": 0.13,
-     "h": "Signed Spencer Turnbull \u00b7 1 yr / $2.0M (2023-24 winter, recent)",
+     "h": "Signed Spencer Turnbull \u00b7 1 yr / $2.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -84759,7 +84759,7 @@
      "ch": "fa",
      "net": -6.5,
      "st": 8.5,
-     "h": "Signed Nick Castellanos \u00b7 5 yr / $100.0M (2021-22 winter, espn, QO signing, draft comp charged)",
+     "h": "Signed Nick Castellanos \u00b7 5 yr / $100.0M (2021-22 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -84789,7 +84789,7 @@
      "ch": "fa",
      "net": -4.8,
      "st": 7.37,
-     "h": "Signed Taijuan Walker \u00b7 4 yr / $72.0M (2022-23 winter, recent)",
+     "h": "Signed Taijuan Walker \u00b7 4 yr / $72.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -84819,7 +84819,7 @@
      "ch": "fa",
      "net": -3.8,
      "st": 3.12,
-     "h": "Signed Didi Gregorius \u00b7 2 yr / $28.0M (2020-21 winter, espn)",
+     "h": "Signed Didi Gregorius \u00b7 2 yr / $28.0M (2020-21 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -84849,7 +84849,7 @@
      "ch": "fa",
      "net": -1.4,
      "st": 0.95,
-     "h": "Signed Adolis Garc\u00eda \u00b7 1 yr / $10.0M (2025-26 winter, recent)",
+     "h": "Signed Adolis Garc\u00eda \u00b7 1 yr / $10.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -84879,7 +84879,7 @@
      "ch": "fa",
      "net": -1.1,
      "st": 0.78,
-     "h": "Signed Whit Merrifield \u00b7 1 yr / $8.0M (2023-24 winter, recent)",
+     "h": "Signed Whit Merrifield \u00b7 1 yr / $8.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -85427,7 +85427,7 @@
      },
      {
       "d": "2024-12-22",
-      "h": "Got Jes\u00fas Luzardo, Paul McIntosh for Starlyn Caba, Emaarion Boyd",
+      "h": "Got Paul McIntosh, Jes\u00fas Luzardo for Starlyn Caba, Emaarion Boyd",
       "net": 2.6
      }
     ]
@@ -85689,7 +85689,7 @@
      },
      {
       "d": "2023-11-14",
-      "h": "Got Robert Moore, Hendry Mendez for Oliver Dunn",
+      "h": "Got Hendry Mendez, Robert Moore for Oliver Dunn",
       "net": 0.6
      }
     ]
@@ -86080,8 +86080,8 @@
     },
     "pids": [
      "678316",
-     "682848",
      "687431",
+     "682848",
      "670280",
      "666148",
      "605397"
@@ -86155,8 +86155,8 @@
      "n_in": 0
     },
     "pids": [
-     "660829",
      "660636",
+     "660829",
      "605280"
     ],
     "comps": [
@@ -86258,8 +86258,8 @@
      "n_in": 0
     },
     "pids": [
-     "640444",
      "678868",
+     "640444",
      "605137"
     ],
     "comps": [
@@ -86433,8 +86433,8 @@
       },
       "pids": [
        "678316",
-       "682848",
        "687431",
+       "682848",
        "670280",
        "666148",
        "605397"
@@ -86810,8 +86810,8 @@
        "n_in": 0
       },
       "pids": [
-       "660829",
        "660636",
+       "660829",
        "605280"
       ],
       "comps": [
@@ -86883,8 +86883,8 @@
        "n_in": 0
       },
       "pids": [
-       "640444",
        "678868",
+       "640444",
        "605137"
       ],
       "comps": [
@@ -86964,10 +86964,10 @@
        "n_in": 0
       },
       "pids": [
-       "683500",
-       "672710",
-       "664337",
        "675986",
+       "664337",
+       "672710",
+       "683500",
        "592791"
       ],
       "comps": [
@@ -89540,7 +89540,7 @@
     "ch": "fa",
     "net": -2.3,
     "st": 1.16,
-    "h": "Signed Marcell Ozuna \u00b7 1 yr / $12.0M (2025-26 winter, recent)",
+    "h": "Signed Marcell Ozuna \u00b7 1 yr / $12.0M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -89570,7 +89570,7 @@
     "ch": "fa",
     "net": 2.0,
     "st": 0.07,
-    "h": "Signed Jose Quintana \u00b7 1 yr / $2.0M (2021-22 winter, espn)",
+    "h": "Signed Jose Quintana \u00b7 1 yr / $2.0M (2021-22 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -89600,7 +89600,7 @@
     "ch": "fa",
     "net": 1.4,
     "st": 0.19,
-    "h": "Signed Yasmani Grandal \u00b7 1 yr / $2.5M (2023-24 winter, recent)",
+    "h": "Signed Yasmani Grandal \u00b7 1 yr / $2.5M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -89630,7 +89630,7 @@
     "ch": "fa",
     "net": -1.2,
     "st": 0.01,
-    "h": "Signed JT Riddle \u00b7 1 yr / $0.8M (2019-20 winter, espn)",
+    "h": "Signed JT Riddle \u00b7 1 yr / $0.8M (2019-20 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -89663,7 +89663,7 @@
      "ch": "fa",
      "net": 2.0,
      "st": 0.07,
-     "h": "Signed Jose Quintana \u00b7 1 yr / $2.0M (2021-22 winter, espn)",
+     "h": "Signed Jose Quintana \u00b7 1 yr / $2.0M (2021-22 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -89693,7 +89693,7 @@
      "ch": "fa",
      "net": 1.4,
      "st": 0.19,
-     "h": "Signed Yasmani Grandal \u00b7 1 yr / $2.5M (2023-24 winter, recent)",
+     "h": "Signed Yasmani Grandal \u00b7 1 yr / $2.5M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -89723,7 +89723,7 @@
      "ch": "fa",
      "net": 1.0,
      "st": 0.4,
-     "h": "Signed Rich Hill \u00b7 1 yr / $8.0M (2022-23 winter, recent)",
+     "h": "Signed Rich Hill \u00b7 1 yr / $8.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -89753,7 +89753,7 @@
      "ch": "fa",
      "net": 0.8,
      "st": 0.12,
-     "h": "Signed Caleb Ferguson \u00b7 1 yr / $3.0M (2024-25 winter, recent)",
+     "h": "Signed Caleb Ferguson \u00b7 1 yr / $3.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -89783,7 +89783,7 @@
      "ch": "fa",
      "net": 0.8,
      "st": 0.72,
-     "h": "Signed Gregory Soto \u00b7 1 yr / $7.8M (2025-26 winter, recent)",
+     "h": "Signed Gregory Soto \u00b7 1 yr / $7.8M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -89815,7 +89815,7 @@
      "ch": "fa",
      "net": -2.3,
      "st": 1.16,
-     "h": "Signed Marcell Ozuna \u00b7 1 yr / $12.0M (2025-26 winter, recent)",
+     "h": "Signed Marcell Ozuna \u00b7 1 yr / $12.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -89845,7 +89845,7 @@
      "ch": "fa",
      "net": -1.2,
      "st": 0.01,
-     "h": "Signed JT Riddle \u00b7 1 yr / $0.8M (2019-20 winter, espn)",
+     "h": "Signed JT Riddle \u00b7 1 yr / $0.8M (2019-20 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -89875,7 +89875,7 @@
      "ch": "fa",
      "net": -1.2,
      "st": 0.47,
-     "h": "Signed Andrew Heaney \u00b7 1 yr / $5.2M (2024-25 winter, recent)",
+     "h": "Signed Andrew Heaney \u00b7 1 yr / $5.2M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -89905,7 +89905,7 @@
      "ch": "fa",
      "net": -0.9,
      "st": 0.16,
-     "h": "Signed Austin Hedges \u00b7 1 yr / $5.0M (2022-23 winter, recent)",
+     "h": "Signed Austin Hedges \u00b7 1 yr / $5.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -89935,7 +89935,7 @@
      "ch": "fa",
      "net": -0.9,
      "st": 0.26,
-     "h": "Signed Rowdy Tellez \u00b7 1 yr / $3.2M (2023-24 winter, recent)",
+     "h": "Signed Rowdy Tellez \u00b7 1 yr / $3.2M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -90405,17 +90405,17 @@
      },
      {
       "d": "2023-08-01",
-      "h": "Got Jackson Wolf, Alfonso Rivas III, Estuar Suero for Rich Hill, Ji Man Choi",
+      "h": "Got Estuar Suero, Jackson Wolf, Alfonso Rivas III for Rich Hill, Ji Man Choi",
       "net": 2.1
      },
      {
       "d": "2021-07-26",
-      "h": "Got Michell Miliano, Tucupita Marcano, Jack Suwinski for Adam Frazier",
+      "h": "Got Michell Miliano, Jack Suwinski, Tucupita Marcano for Adam Frazier",
       "net": 1.1
      },
      {
       "d": "2021-01-19",
-      "h": "Got Hudson Head, Drake Fellows, Omar Cruz, David Bednar for Joe Musgrove",
+      "h": "Got Drake Fellows, Omar Cruz, David Bednar, Hudson Head for Joe Musgrove",
       "net": 4.4
      }
     ]
@@ -90438,7 +90438,7 @@
      },
      {
       "d": "2025-07-31",
-      "h": "Got Edgleen Perez, Rafael Flores Jr., Brian Sanchez for David Bednar",
+      "h": "Got Rafael Flores Jr., Brian Sanchez, Edgleen Perez for David Bednar",
       "net": 0.0
      },
      {
@@ -90458,12 +90458,12 @@
      },
      {
       "d": "2021-07-26",
-      "h": "Got Diego Castillo, Hoy Park for Clay Holmes",
+      "h": "Got Hoy Park, Diego Castillo for Clay Holmes",
       "net": -4.7
      },
      {
       "d": "2021-01-24",
-      "h": "Got Miguel Yajure, Roansy Contreras, Canaan Smith-Njigba, Maikol Escotto for Jameson Taillon",
+      "h": "Got Roansy Contreras, Canaan Smith-Njigba, Maikol Escotto, Miguel Yajure for Jameson Taillon",
       "net": -2.6
      }
     ]
@@ -90496,7 +90496,7 @@
      },
      {
       "d": "2020-01-27",
-      "h": "Got Brennan Malone, Liover Peguero for Starling Marte",
+      "h": "Got Liover Peguero, Brennan Malone for Starling Marte",
       "net": -6.1
      }
     ]
@@ -90509,7 +90509,7 @@
     "deals": [
      {
       "d": "2025-12-19",
-      "h": "Got Brandon Lowe, Mason Montgomery, Jake Mangum for cash/PTBNL",
+      "h": "Got Mason Montgomery, Brandon Lowe, Jake Mangum for cash/PTBNL",
       "net": 8.7
      },
      {
@@ -90860,7 +90860,7 @@
      },
      {
       "d": "2021-07-28",
-      "h": "Got Joaquin Tejada, Carter Bins for Tyler Anderson",
+      "h": "Got Carter Bins, Joaquin Tejada for Tyler Anderson",
       "net": 0.3
      }
     ]
@@ -90921,7 +90921,7 @@
      },
      {
       "d": "2021-07-30",
-      "h": "Got Bryse Wilson, Ricky DeVito for Richard Rodr\u00edguez",
+      "h": "Got Ricky DeVito, Bryse Wilson for Richard Rodr\u00edguez",
       "net": 0.4
      },
      {
@@ -91134,8 +91134,8 @@
      "n_in": 0
     },
     "pids": [
-     "543148",
      "461314",
+     "543148",
      "518735",
      "621107",
      "543921"
@@ -91209,8 +91209,8 @@
      "n_in": 0
     },
     "pids": [
-     "665487",
      "605304",
+     "665487",
      "448306"
     ],
     "comps": [
@@ -91302,8 +91302,8 @@
      "n_in": 0
     },
     "pids": [
-     "605137",
      "665742",
+     "605137",
      "690987",
      "682928",
      "703186",
@@ -91403,10 +91403,10 @@
      "n_in": 0
     },
     "pids": [
-     "543054",
+     "605169",
      "647304",
      "622491",
-     "605169",
+     "543054",
      "488768",
      "594027",
      "607067"
@@ -91720,9 +91720,9 @@
      "n_in": 0
     },
     "pids": [
-     "605182",
-     "656185",
      "663362",
+     "656185",
+     "605182",
      "615698",
      "647304",
      "676282",
@@ -91803,8 +91803,8 @@
        "n_in": 0
       },
       "pids": [
-       "665487",
        "605304",
+       "665487",
        "448306"
       ],
       "comps": [
@@ -91892,10 +91892,10 @@
        "n_in": 0
       },
       "pids": [
-       "543054",
+       "605169",
        "647304",
        "622491",
-       "605169",
+       "543054",
        "488768",
        "594027",
        "607067"
@@ -91977,10 +91977,10 @@
        "n_in": 2
       },
       "pids": [
-       "663531",
-       "641319",
-       "642770",
        "622534",
+       "663531",
+       "642770",
+       "641319",
        "518886"
       ],
       "comps": [
@@ -92153,8 +92153,8 @@
        "n_in": 0
       },
       "pids": [
-       "630105",
        "502054",
+       "630105",
        "669364",
        "592669",
        "606019"
@@ -92238,8 +92238,8 @@
        "n_in": 0
       },
       "pids": [
-       "543148",
        "461314",
+       "543148",
        "518735",
        "621107",
        "543921"
@@ -92333,8 +92333,8 @@
        "n_in": 0
       },
       "pids": [
-       "605137",
        "665742",
+       "605137",
        "690987",
        "682928",
        "703186",
@@ -92628,9 +92628,9 @@
        "n_in": 0
       },
       "pids": [
-       "605182",
-       "656185",
        "663362",
+       "656185",
+       "605182",
        "615698",
        "647304",
        "676282",
@@ -96058,7 +96058,7 @@
     "ch": "fa",
     "net": 7.9,
     "st": 14.19,
-    "h": "Signed Manny Machado \u00b7 10 yr / $300.0M (2018-19 winter, espn)",
+    "h": "Signed Manny Machado \u00b7 10 yr / $300.0M (2018-19 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -96088,7 +96088,7 @@
     "ch": "fa",
     "net": -5.4,
     "st": 9.46,
-    "h": "Signed Eric Hosmer \u00b7 8 yr / $144.0M (2017-18 winter, espn, QO signing, draft comp charged)",
+    "h": "Signed Eric Hosmer \u00b7 8 yr / $144.0M (2017-18 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -96118,7 +96118,7 @@
     "ch": "fa",
     "net": 4.2,
     "st": 10.55,
-    "h": "Signed Xander Bogaerts \u00b7 11 yr / $280.0M (2022-23 winter, recent, QO signing, draft comp charged)",
+    "h": "Signed Xander Bogaerts \u00b7 11 yr / $280.0M (2022-23 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -96148,7 +96148,7 @@
     "ch": "fa",
     "net": 4.2,
     "st": 0.03,
-    "h": "Signed Jurickson Profar \u00b7 1 yr / $1.0M (2023-24 winter, recent)",
+    "h": "Signed Jurickson Profar \u00b7 1 yr / $1.0M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -96181,7 +96181,7 @@
      "ch": "fa",
      "net": 7.9,
      "st": 14.19,
-     "h": "Signed Manny Machado \u00b7 10 yr / $300.0M (2018-19 winter, espn)",
+     "h": "Signed Manny Machado \u00b7 10 yr / $300.0M (2018-19 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -96211,7 +96211,7 @@
      "ch": "fa",
      "net": 4.2,
      "st": 10.55,
-     "h": "Signed Xander Bogaerts \u00b7 11 yr / $280.0M (2022-23 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Xander Bogaerts \u00b7 11 yr / $280.0M (2022-23 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -96241,7 +96241,7 @@
      "ch": "fa",
      "net": 4.2,
      "st": 0.03,
-     "h": "Signed Jurickson Profar \u00b7 1 yr / $1.0M (2023-24 winter, recent)",
+     "h": "Signed Jurickson Profar \u00b7 1 yr / $1.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -96271,7 +96271,7 @@
      "ch": "fa",
      "net": 3.0,
      "st": 0.37,
-     "h": "Signed Craig Stammen \u00b7 2 yr / $4.5M (2017-18 winter, espn)",
+     "h": "Signed Craig Stammen \u00b7 2 yr / $4.5M (2017-18 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -96301,7 +96301,7 @@
      "ch": "fa",
      "net": 1.4,
      "st": 0.12,
-     "h": "Signed Jhoulys Chac\u00edn \u00b7 1 yr / $1.8M (2016-17 winter, espn)",
+     "h": "Signed Jhoulys Chac\u00edn \u00b7 1 yr / $1.8M (2016-17 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -96333,7 +96333,7 @@
      "ch": "fa",
      "net": -5.4,
      "st": 9.46,
-     "h": "Signed Eric Hosmer \u00b7 8 yr / $144.0M (2017-18 winter, espn, QO signing, draft comp charged)",
+     "h": "Signed Eric Hosmer \u00b7 8 yr / $144.0M (2017-18 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -96363,7 +96363,7 @@
      "ch": "fa",
      "net": -4.1,
      "st": 3.74,
-     "h": "Signed James Shields \u00b7 4 yr / $75.0M (2014-15 winter, espn, QO signing, draft comp charged)",
+     "h": "Signed James Shields \u00b7 4 yr / $75.0M (2014-15 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -96393,7 +96393,7 @@
      "ch": "fa",
      "net": -2.2,
      "st": 0.28,
-     "h": "Signed Jered Weaver \u00b7 1 yr / $3.0M (2016-17 winter, espn)",
+     "h": "Signed Jered Weaver \u00b7 1 yr / $3.0M (2016-17 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -96423,7 +96423,7 @@
      "ch": "fa",
      "net": -1.7,
      "st": 3.65,
-     "h": "Signed Drew Pomeranz \u00b7 4 yr / $34.0M (2019-20 winter, espn)",
+     "h": "Signed Drew Pomeranz \u00b7 4 yr / $34.0M (2019-20 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -96453,7 +96453,7 @@
      "ch": "fa",
      "net": -1.4,
      "st": 0.42,
-     "h": "Signed Alexei Ramirez \u00b7 1 yr / $4.0M (2015-16 winter, espn)",
+     "h": "Signed Alexei Ramirez \u00b7 1 yr / $4.0M (2015-16 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -97185,7 +97185,7 @@
      },
      {
       "d": "2014-12-18",
-      "h": "Got Matt Kemp, Tim Federowicz for Yasmani Grandal, Joe Wieland",
+      "h": "Got Tim Federowicz, Matt Kemp for Yasmani Grandal, Joe Wieland",
       "net": -16.1
      }
     ]
@@ -97208,7 +97208,7 @@
      },
      {
       "d": "2020-08-31",
-      "h": "Got Dan Altavilla, Austin Nola, Austin Adams for Luis Torrens, Andr\u00e9s Mu\u00f1oz, Ty France, Taylor Trammell",
+      "h": "Got Austin Adams, Austin Nola, Dan Altavilla for Luis Torrens, Andr\u00e9s Mu\u00f1oz, Ty France, Taylor Trammell",
       "net": -7.9
      },
      {
@@ -97233,7 +97233,7 @@
      },
      {
       "d": "2015-11-12",
-      "h": "Got Nelson Ward, Enyel De Los Santos for Joaqu\u00edn Benoit",
+      "h": "Got Enyel De Los Santos, Nelson Ward for Joaqu\u00edn Benoit",
       "net": 0.0
      }
     ]
@@ -97299,7 +97299,7 @@
     "deals": [
      {
       "d": "2024-07-30",
-      "h": "Got Bryan Hoeing, Tanner Scott for Adam Mazur, Jay Beshears, Robby Snelling, Graham Pauley",
+      "h": "Got Tanner Scott, Bryan Hoeing for Adam Mazur, Jay Beshears, Robby Snelling, Graham Pauley",
       "net": -3.0
      },
      {
@@ -97370,7 +97370,7 @@
      },
      {
       "d": "2019-12-06",
-      "h": "Got Jake Cronenworth, Tommy Pham for Xavier Edwards, Hunter Renfroe, Esteban Quiroz",
+      "h": "Got Tommy Pham, Jake Cronenworth for Xavier Edwards, Hunter Renfroe, Esteban Quiroz",
       "net": 4.2
      },
      {
@@ -97472,7 +97472,7 @@
      },
      {
       "d": "2018-01-06",
-      "h": "Got Edward Olivares, Jared Carkuff for Yangervis Solarte",
+      "h": "Got Jared Carkuff, Edward Olivares for Yangervis Solarte",
       "net": -0.2
      },
      {
@@ -97495,7 +97495,7 @@
      },
      {
       "d": "2023-12-07",
-      "h": "Got Drew Thorpe, Kyle Higashioka, Jhony Brito, Michael King, Randy V\u00e1squez for Juan Soto, Trent Grisham",
+      "h": "Got Randy V\u00e1squez, Drew Thorpe, Kyle Higashioka, Jhony Brito, Michael King for Juan Soto, Trent Grisham",
       "net": -1.9
      },
      {
@@ -97692,9 +97692,9 @@
      "n_in": 1
     },
     "pids": [
+     "687551",
      "694918",
      "676130",
-     "687551",
      "643511"
     ],
     "comps": [
@@ -97950,11 +97950,11 @@
         "+0.4"
        ],
        [
-        "Parks Harber",
+        "Carlos De La Rosa",
         "+0.4"
        ],
        [
-        "Carlos De La Rosa",
+        "Parks Harber",
         "+0.4"
        ]
       ]
@@ -97976,10 +97976,10 @@
      "n_in": 0
     },
     "pids": [
-     "801639",
      "683679",
-     "692238",
+     "801639",
      "822215",
+     "692238",
      "666808"
     ],
     "comps": [
@@ -98032,11 +98032,11 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Henry Lalane",
+        "Kaeden Kent",
         "+0.5"
        ],
        [
-        "Kaeden Kent",
+        "Henry Lalane",
         "+0.5"
        ]
       ]
@@ -98058,8 +98058,8 @@
      "n_in": 0
     },
     "pids": [
-     "700649",
      "809763",
+     "700649",
      "671218"
     ],
     "comps": [
@@ -98300,9 +98300,9 @@
        "n_in": 1
       },
       "pids": [
+       "687551",
        "694918",
        "676130",
-       "687551",
        "643511"
       ],
       "comps": [
@@ -98528,11 +98528,11 @@
           "+0.4"
          ],
          [
-          "Parks Harber",
+          "Carlos De La Rosa",
           "+0.4"
          ],
          [
-          "Carlos De La Rosa",
+          "Parks Harber",
           "+0.4"
          ]
         ]
@@ -98554,10 +98554,10 @@
        "n_in": 0
       },
       "pids": [
-       "801639",
        "683679",
-       "692238",
+       "801639",
        "822215",
+       "692238",
        "666808"
       ],
       "comps": [
@@ -98610,11 +98610,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Henry Lalane",
+          "Kaeden Kent",
           "+0.5"
          ],
          [
-          "Kaeden Kent",
+          "Henry Lalane",
           "+0.5"
          ]
         ]
@@ -98636,8 +98636,8 @@
        "n_in": 0
       },
       "pids": [
-       "700649",
        "809763",
+       "700649",
        "671218"
       ],
       "comps": [
@@ -99563,7 +99563,7 @@
     "ch": "fa",
     "net": 3.5,
     "st": 0.58,
-    "h": "Signed Luis Arraez \u00b7 1 yr / $12.0M (2025-26 winter, recent)",
+    "h": "Signed Luis Arraez \u00b7 1 yr / $12.0M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -99593,7 +99593,7 @@
     "ch": "fa",
     "net": -1.3,
     "st": 0.98,
-    "h": "Signed Harrison Bader \u00b7 2 yr / $20.5M (2025-26 winter, recent)",
+    "h": "Signed Harrison Bader \u00b7 2 yr / $20.5M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -99623,7 +99623,7 @@
     "ch": "fa",
     "net": 0.7,
     "st": 1.5,
-    "h": "Signed Justin Verlander \u00b7 1 yr / $15.0M (2024-25 winter, recent)",
+    "h": "Signed Justin Verlander \u00b7 1 yr / $15.0M (2024-25 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -99653,7 +99653,7 @@
     "ch": "fa",
     "net": 0.6,
     "st": 0.07,
-    "h": "Signed Sam Hentges \u00b7 1 yr / $1.4M (2025-26 winter, recent)",
+    "h": "Signed Sam Hentges \u00b7 1 yr / $1.4M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -99686,7 +99686,7 @@
      "ch": "fa",
      "net": 3.5,
      "st": 0.58,
-     "h": "Signed Luis Arraez \u00b7 1 yr / $12.0M (2025-26 winter, recent)",
+     "h": "Signed Luis Arraez \u00b7 1 yr / $12.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -99716,7 +99716,7 @@
      "ch": "fa",
      "net": 0.7,
      "st": 1.5,
-     "h": "Signed Justin Verlander \u00b7 1 yr / $15.0M (2024-25 winter, recent)",
+     "h": "Signed Justin Verlander \u00b7 1 yr / $15.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -99746,7 +99746,7 @@
      "ch": "fa",
      "net": 0.6,
      "st": 0.07,
-     "h": "Signed Sam Hentges \u00b7 1 yr / $1.4M (2025-26 winter, recent)",
+     "h": "Signed Sam Hentges \u00b7 1 yr / $1.4M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -99776,7 +99776,7 @@
      "ch": "fa",
      "net": 0.3,
      "st": 0.48,
-     "h": "Signed Tyler Mahle \u00b7 1 yr / $10.0M (2025-26 winter, recent)",
+     "h": "Signed Tyler Mahle \u00b7 1 yr / $10.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -99808,7 +99808,7 @@
      "ch": "fa",
      "net": -1.3,
      "st": 0.98,
-     "h": "Signed Harrison Bader \u00b7 2 yr / $20.5M (2025-26 winter, recent)",
+     "h": "Signed Harrison Bader \u00b7 2 yr / $20.5M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -99838,7 +99838,7 @@
      "ch": "fa",
      "net": -0.4,
      "st": 1.06,
-     "h": "Signed Adrian Houser \u00b7 2 yr / $22.0M (2025-26 winter, recent)",
+     "h": "Signed Adrian Houser \u00b7 2 yr / $22.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -99868,7 +99868,7 @@
      "ch": "fa",
      "net": -0.2,
      "st": 5.26,
-     "h": "Signed Willy Adames \u00b7 7 yr / $182.0M (2024-25 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Willy Adames \u00b7 7 yr / $182.0M (2024-25 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -99956,7 +99956,7 @@
     "deals": [
      {
       "d": "2025-07-30",
-      "h": "Got Jos\u00e9 Butt\u00f3, Blade Tidwell, Drew Gilbert for Tyler Rogers",
+      "h": "Got Blade Tidwell, Jos\u00e9 Butt\u00f3, Drew Gilbert for Tyler Rogers",
       "net": 4.4
      },
      {
@@ -99974,12 +99974,12 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Henry Lalane, Kaeden Kent for Heliot Ramos",
+      "h": "Got Kaeden Kent, Henry Lalane for Heliot Ramos",
       "net": 1.1
      },
      {
       "d": "2025-07-31",
-      "h": "Got Jesus Rodriguez, Trystan Vrieling, Parks Harber, Carlos De La Rosa for Camilo Doval",
+      "h": "Got Trystan Vrieling, Carlos De La Rosa, Jesus Rodriguez, Parks Harber for Camilo Doval",
       "net": 1.1
      }
     ]
@@ -100376,9 +100376,9 @@
     },
     "pids": [
      "662253",
+     "620443",
      "666211",
      "664034",
-     "620443",
      "656186",
      "613534",
      "543592"
@@ -100551,8 +100551,8 @@
      "n_in": 0
     },
     "pids": [
-     "608385",
      "553993",
+     "608385",
      "641584",
      "643290",
      "682227",
@@ -100736,9 +100736,9 @@
       },
       "pids": [
        "662253",
+       "620443",
        "666211",
        "664034",
-       "620443",
        "656186",
        "613534",
        "543592"
@@ -100828,8 +100828,8 @@
        "n_in": 0
       },
       "pids": [
-       "608385",
        "553993",
+       "608385",
        "641584",
        "643290",
        "682227",
@@ -101475,11 +101475,11 @@
        "n_in": 2
       },
       "pids": [
-       "639373",
        "672284",
+       "639373",
        "461872",
-       "643290",
        "457803",
+       "643290",
        "429664",
        "621242"
       ],
@@ -105067,7 +105067,7 @@
     "ch": "fa",
     "net": -4.3,
     "st": 6.28,
-    "h": "Signed Yusei Kikuchi \u00b7 3 yr / $43.0M (2018-19 winter, espn, $10.3M posting fee charged)",
+    "h": "Signed Yusei Kikuchi \u00b7 3 yr / $43.0M (2018-19 winter, $10.3M posting fee charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -105097,7 +105097,7 @@
     "ch": "fa",
     "net": -4.0,
     "st": 5.09,
-    "h": "Signed Robbie Ray \u00b7 5 yr / $115.0M (2021-22 winter, espn, QO signing, draft comp charged)",
+    "h": "Signed Robbie Ray \u00b7 5 yr / $115.0M (2021-22 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -105127,7 +105127,7 @@
     "ch": "fa",
     "net": -2.3,
     "st": 2.39,
-    "h": "Signed Mitch Garver \u00b7 2 yr / $24.0M (2023-24 winter, recent)",
+    "h": "Signed Mitch Garver \u00b7 2 yr / $24.0M (2023-24 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -105157,7 +105157,7 @@
     "ch": "fa",
     "net": 2.2,
     "st": 0.74,
-    "h": "Signed Jorge Polanco \u00b7 1 yr / $7.8M (2024-25 winter, recent)",
+    "h": "Signed Jorge Polanco \u00b7 1 yr / $7.8M (2024-25 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -105190,7 +105190,7 @@
      "ch": "fa",
      "net": 2.2,
      "st": 0.74,
-     "h": "Signed Jorge Polanco \u00b7 1 yr / $7.8M (2024-25 winter, recent)",
+     "h": "Signed Jorge Polanco \u00b7 1 yr / $7.8M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -105220,7 +105220,7 @@
      "ch": "fa",
      "net": 0.7,
      "st": 0.62,
-     "h": "Signed Norichika Aoki \u00b7 1 yr / $5.5M (2015-16 winter, espn)",
+     "h": "Signed Norichika Aoki \u00b7 1 yr / $5.5M (2015-16 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -105250,7 +105250,7 @@
      "ch": "fa",
      "net": 0.7,
      "st": 0.03,
-     "h": "Signed Kendall Graveman \u00b7 1 yr / $1.2M (2020-21 winter, espn)",
+     "h": "Signed Kendall Graveman \u00b7 1 yr / $1.2M (2020-21 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -105280,7 +105280,7 @@
      "ch": "fa",
      "net": 0.6,
      "st": 0.02,
-     "h": "Signed Trevor Gott \u00b7 1 yr / $1.2M (2022-23 winter, recent)",
+     "h": "Signed Trevor Gott \u00b7 1 yr / $1.2M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -105310,7 +105310,7 @@
      "ch": "fa",
      "net": 0.5,
      "st": 0.04,
-     "h": "Signed Cory Gearrin \u00b7 1 yr / $1.4M (2018-19 winter, espn)",
+     "h": "Signed Cory Gearrin \u00b7 1 yr / $1.4M (2018-19 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -105342,7 +105342,7 @@
      "ch": "fa",
      "net": -4.3,
      "st": 6.28,
-     "h": "Signed Yusei Kikuchi \u00b7 3 yr / $43.0M (2018-19 winter, espn, $10.3M posting fee charged)",
+     "h": "Signed Yusei Kikuchi \u00b7 3 yr / $43.0M (2018-19 winter, $10.3M posting fee charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -105372,7 +105372,7 @@
      "ch": "fa",
      "net": -4.0,
      "st": 5.09,
-     "h": "Signed Robbie Ray \u00b7 5 yr / $115.0M (2021-22 winter, espn, QO signing, draft comp charged)",
+     "h": "Signed Robbie Ray \u00b7 5 yr / $115.0M (2021-22 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -105402,7 +105402,7 @@
      "ch": "fa",
      "net": -2.3,
      "st": 2.39,
-     "h": "Signed Mitch Garver \u00b7 2 yr / $24.0M (2023-24 winter, recent)",
+     "h": "Signed Mitch Garver \u00b7 2 yr / $24.0M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -105432,7 +105432,7 @@
      "ch": "fa",
      "net": -1.7,
      "st": 1.83,
-     "h": "Signed Josh Naylor \u00b7 5 yr / $92.5M (2025-26 winter, recent)",
+     "h": "Signed Josh Naylor \u00b7 5 yr / $92.5M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -105462,7 +105462,7 @@
      "ch": "fa",
      "net": -1.7,
      "st": 0.57,
-     "h": "Signed Rob Refsnyder \u00b7 1 yr / $6.2M (2025-26 winter, recent)",
+     "h": "Signed Rob Refsnyder \u00b7 1 yr / $6.2M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -105966,7 +105966,7 @@
      },
      {
       "d": "2020-08-31",
-      "h": "Got Taylor Trammell, Andr\u00e9s Mu\u00f1oz, Ty France, Luis Torrens for Dan Altavilla, Austin Adams, Austin Nola",
+      "h": "Got Luis Torrens, Ty France, Taylor Trammell, Andr\u00e9s Mu\u00f1oz for Dan Altavilla, Austin Adams, Austin Nola",
       "net": 7.9
      },
      {
@@ -106140,7 +106140,7 @@
      },
      {
       "d": "2023-07-31",
-      "h": "Got Dominic Canzone, Josh Rojas, Ryan Bliss for Paul Sewald",
+      "h": "Got Ryan Bliss, Josh Rojas, Dominic Canzone for Paul Sewald",
       "net": 4.7
      },
      {
@@ -106170,7 +106170,7 @@
      },
      {
       "d": "2016-11-23",
-      "h": "Got Jean Segura, Zac Curtis, Mitch Haniger for Ketel Marte, Taijuan Walker",
+      "h": "Got Mitch Haniger, Jean Segura, Zac Curtis for Ketel Marte, Taijuan Walker",
       "net": 3.5
      }
     ]
@@ -106221,7 +106221,7 @@
      },
      {
       "d": "2018-11-19",
-      "h": "Got Erik Swanson, Justus Sheffield, Dom Thompson-Williams for James Paxton",
+      "h": "Got Dom Thompson-Williams, Erik Swanson, Justus Sheffield for James Paxton",
       "net": 0.1
      },
      {
@@ -106319,7 +106319,7 @@
      },
      {
       "d": "2017-08-06",
-      "h": "Got Mike Marjama, Ryan Garton for Anthony Misiewicz, Luis Rengifo, Osmy Gregorio",
+      "h": "Got Ryan Garton, Mike Marjama for Anthony Misiewicz, Luis Rengifo, Osmy Gregorio",
       "net": -2.8
      },
      {
@@ -106344,7 +106344,7 @@
      },
      {
       "d": "2016-11-18",
-      "h": "Got Taylor Motter, Richie Shaffer for Dylan Thompson, Dalton Kelly, Andrew Kittredge",
+      "h": "Got Richie Shaffer, Taylor Motter for Dylan Thompson, Dalton Kelly, Andrew Kittredge",
       "net": -2.2
      }
     ]
@@ -106479,7 +106479,7 @@
     "deals": [
      {
       "d": "2026-08-02",
-      "h": "Got Nolan Jones, Seranthony Dom\u00ednguez, Boston Smith for Luis Castillo",
+      "h": "Got Nolan Jones, Boston Smith, Seranthony Dom\u00ednguez for Luis Castillo",
       "net": 1.4
      },
      {
@@ -106952,11 +106952,11 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Yhoiker Fajardo",
+        "Blake Aita",
         "+0.5"
        ],
        [
-        "Blake Aita",
+        "Yhoiker Fajardo",
         "+0.5"
        ],
        [
@@ -106982,9 +106982,9 @@
      "n_in": 0
     },
     "pids": [
+     "820832",
      "823369",
      "690928",
-     "820832",
      "575929"
     ],
     "comps": [
@@ -107067,8 +107067,8 @@
      "n_in": 0
     },
     "pids": [
-     "690916",
      "702642",
+     "690916",
      "700251",
      "543243"
     ],
@@ -107526,11 +107526,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Yhoiker Fajardo",
+          "Blake Aita",
           "+0.5"
          ],
          [
-          "Blake Aita",
+          "Yhoiker Fajardo",
           "+0.5"
          ],
          [
@@ -107556,9 +107556,9 @@
        "n_in": 0
       },
       "pids": [
+       "820832",
        "823369",
        "690928",
-       "820832",
        "575929"
       ],
       "comps": [
@@ -107641,8 +107641,8 @@
        "n_in": 0
       },
       "pids": [
-       "690916",
        "702642",
+       "690916",
        "700251",
        "543243"
       ],
@@ -108103,7 +108103,7 @@
     "ch": "fa",
     "net": 1.7,
     "st": 0.61,
-    "h": "Signed Dustin May \u00b7 1 yr / $12.5M (2025-26 winter, recent)",
+    "h": "Signed Dustin May \u00b7 1 yr / $12.5M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -108133,7 +108133,7 @@
     "ch": "fa",
     "net": -0.7,
     "st": 0.13,
-    "h": "Signed Ram\u00f3n Ur\u00edas \u00b7 1 yr / $2.0M (2025-26 winter, recent)",
+    "h": "Signed Ram\u00f3n Ur\u00edas \u00b7 1 yr / $2.0M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -108163,7 +108163,7 @@
     "ch": "fa",
     "net": -0.3,
     "st": 0.28,
-    "h": "Signed Ryne Stanek \u00b7 1 yr / $3.5M (2025-26 winter, recent)",
+    "h": "Signed Ryne Stanek \u00b7 1 yr / $3.5M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -108196,7 +108196,7 @@
      "ch": "fa",
      "net": 1.7,
      "st": 0.61,
-     "h": "Signed Dustin May \u00b7 1 yr / $12.5M (2025-26 winter, recent)",
+     "h": "Signed Dustin May \u00b7 1 yr / $12.5M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -108228,7 +108228,7 @@
      "ch": "fa",
      "net": -0.7,
      "st": 0.13,
-     "h": "Signed Ram\u00f3n Ur\u00edas \u00b7 1 yr / $2.0M (2025-26 winter, recent)",
+     "h": "Signed Ram\u00f3n Ur\u00edas \u00b7 1 yr / $2.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -108258,7 +108258,7 @@
      "ch": "fa",
      "net": -0.3,
      "st": 0.28,
-     "h": "Signed Ryne Stanek \u00b7 1 yr / $3.5M (2025-26 winter, recent)",
+     "h": "Signed Ryne Stanek \u00b7 1 yr / $3.5M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -108368,12 +108368,12 @@
     "deals": [
      {
       "d": "2025-12-22",
-      "h": "Got Hunter Dobbins, Blake Aita, Yhoiker Fajardo for Willson Contreras",
+      "h": "Got Yhoiker Fajardo, Hunter Dobbins, Blake Aita for Willson Contreras",
       "net": -1.4
      },
      {
       "d": "2025-11-25",
-      "h": "Got Brandon Clarke, Patrick Galle, Richard Fitts for Sonny Gray",
+      "h": "Got Brandon Clarke, Richard Fitts, Patrick Galle for Sonny Gray",
       "net": -0.8
      }
     ]
@@ -108634,10 +108634,10 @@
      "n_in": 3
     },
     "pids": [
-     "642083",
-     "669358",
      "607192",
+     "669358",
      "640457",
+     "642083",
      "502042"
     ],
     "comps": [
@@ -108709,8 +108709,8 @@
      "n_in": 0
     },
     "pids": [
-     "642121",
      "650490",
+     "642121",
      "641343"
     ],
     "comps": [
@@ -108854,9 +108854,9 @@
      "n_in": 0
     },
     "pids": [
+     "642232",
      "665799",
      "605480",
-     "642232",
      "592767"
     ],
     "comps": [
@@ -109014,8 +109014,8 @@
      "n_in": 0
     },
     "pids": [
-     "820901",
      "689200",
+     "820901",
      "682254",
      "664040",
      "663968"
@@ -109268,10 +109268,10 @@
        "n_in": 3
       },
       "pids": [
-       "642083",
-       "669358",
        "607192",
+       "669358",
        "640457",
+       "642083",
        "502042"
       ],
       "comps": [
@@ -109343,8 +109343,8 @@
        "n_in": 0
       },
       "pids": [
-       "642121",
        "650490",
+       "642121",
        "641343"
       ],
       "comps": [
@@ -109420,9 +109420,9 @@
        "n_in": 0
       },
       "pids": [
+       "642232",
        "665799",
        "605480",
-       "642232",
        "592767"
       ],
       "comps": [
@@ -109650,8 +109650,8 @@
        "n_in": 0
       },
       "pids": [
-       "820901",
        "689200",
+       "820901",
        "682254",
        "664040",
        "663968"
@@ -109821,8 +109821,8 @@
        "n_in": 0
       },
       "pids": [
-       "676534",
        "443558",
+       "676534",
        "675977",
        "657746"
       ],
@@ -109899,8 +109899,8 @@
        "n_in": 0
       },
       "pids": [
-       "811315",
        "807744",
+       "811315",
        "806223",
        "668227"
       ],
@@ -112720,7 +112720,7 @@
     "ch": "fa",
     "net": 4.8,
     "st": 2.07,
-    "h": "Signed Zach Eflin \u00b7 3 yr / $40.0M (2022-23 winter, recent)",
+    "h": "Signed Zach Eflin \u00b7 3 yr / $40.0M (2022-23 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -112750,7 +112750,7 @@
     "ch": "fa",
     "net": 4.4,
     "st": 0.26,
-    "h": "Signed Mike Zunino \u00b7 1 yr / $3.0M (2020-21 winter, espn)",
+    "h": "Signed Mike Zunino \u00b7 1 yr / $3.0M (2020-21 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -112780,7 +112780,7 @@
     "ch": "fa",
     "net": 3.3,
     "st": 3.56,
-    "h": "Signed Charlie Morton \u00b7 2 yr / $30.0M (2018-19 winter, espn)",
+    "h": "Signed Charlie Morton \u00b7 2 yr / $30.0M (2018-19 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -112810,7 +112810,7 @@
     "ch": "fa",
     "net": 2.6,
     "st": 0.22,
-    "h": "Signed Logan Morrison \u00b7 1 yr / $2.5M (2016-17 winter, espn)",
+    "h": "Signed Logan Morrison \u00b7 1 yr / $2.5M (2016-17 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -112843,7 +112843,7 @@
      "ch": "fa",
      "net": 4.8,
      "st": 2.07,
-     "h": "Signed Zach Eflin \u00b7 3 yr / $40.0M (2022-23 winter, recent)",
+     "h": "Signed Zach Eflin \u00b7 3 yr / $40.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -112873,7 +112873,7 @@
      "ch": "fa",
      "net": 4.4,
      "st": 0.26,
-     "h": "Signed Mike Zunino \u00b7 1 yr / $3.0M (2020-21 winter, espn)",
+     "h": "Signed Mike Zunino \u00b7 1 yr / $3.0M (2020-21 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -112903,7 +112903,7 @@
      "ch": "fa",
      "net": 3.3,
      "st": 3.56,
-     "h": "Signed Charlie Morton \u00b7 2 yr / $30.0M (2018-19 winter, espn)",
+     "h": "Signed Charlie Morton \u00b7 2 yr / $30.0M (2018-19 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -112933,7 +112933,7 @@
      "ch": "fa",
      "net": 2.6,
      "st": 0.22,
-     "h": "Signed Logan Morrison \u00b7 1 yr / $2.5M (2016-17 winter, espn)",
+     "h": "Signed Logan Morrison \u00b7 1 yr / $2.5M (2016-17 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -112963,7 +112963,7 @@
      "ch": "fa",
      "net": 2.3,
      "st": 1.02,
-     "h": "Signed Wilson Ramos \u00b7 2 yr / $12.5M (2016-17 winter, espn)",
+     "h": "Signed Wilson Ramos \u00b7 2 yr / $12.5M (2016-17 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -112995,7 +112995,7 @@
      "ch": "fa",
      "net": -0.8,
      "st": 0.4,
-     "h": "Signed Carlos G\u00f3mez \u00b7 1 yr / $4.0M (2017-18 winter, espn)",
+     "h": "Signed Carlos G\u00f3mez \u00b7 1 yr / $4.0M (2017-18 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -113025,7 +113025,7 @@
      "ch": "fa",
      "net": -0.8,
      "st": 0.04,
-     "h": "Signed Chris Devenski \u00b7 1 yr / $1.1M (2023-24 winter, recent)",
+     "h": "Signed Chris Devenski \u00b7 1 yr / $1.1M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -113055,7 +113055,7 @@
      "ch": "fa",
      "net": -0.7,
      "st": 0.72,
-     "h": "Signed Ha-Seong Kim \u00b7 2 yr / $29.0M (2024-25 winter, recent)",
+     "h": "Signed Ha-Seong Kim \u00b7 2 yr / $29.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -113085,7 +113085,7 @@
      "ch": "fa",
      "net": -0.6,
      "st": 0.23,
-     "h": "Signed Jake Fraley \u00b7 1 yr / $3.0M (2025-26 winter, recent)",
+     "h": "Signed Jake Fraley \u00b7 1 yr / $3.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -113115,7 +113115,7 @@
      "ch": "fa",
      "net": -0.5,
      "st": 0.31,
-     "h": "Signed Phil Maton \u00b7 1 yr / $6.5M (2023-24 winter, recent)",
+     "h": "Signed Phil Maton \u00b7 1 yr / $6.5M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -113574,7 +113574,7 @@
      },
      {
       "d": "2018-12-13",
-      "h": "Got Yandy D\u00edaz, Cole Sulser for Jake Bauers",
+      "h": "Got Cole Sulser, Yandy D\u00edaz for Jake Bauers",
       "net": 10.5
      },
      {
@@ -113617,7 +113617,7 @@
      },
      {
       "d": "2023-12-16",
-      "h": "Got Ryan Pepiot, Jonny DeLuca for Tyler Glasnow, Manuel Margot",
+      "h": "Got Jonny DeLuca, Ryan Pepiot for Tyler Glasnow, Manuel Margot",
       "net": 5.4
      },
      {
@@ -113723,7 +113723,7 @@
      },
      {
       "d": "2025-12-19",
-      "h": "Got Slater de Brun, Austin Overn, Caden Bodine, Michael Forret for Shane Baz",
+      "h": "Got Caden Bodine, Michael Forret, Slater de Brun, Austin Overn for Shane Baz",
       "net": 0.3
      },
      {
@@ -113733,7 +113733,7 @@
      },
      {
       "d": "2024-07-26",
-      "h": "Got Matthew Etzel, Jackson Baumeister, Mac Horvath for Zach Eflin",
+      "h": "Got Jackson Baumeister, Mac Horvath, Matthew Etzel for Zach Eflin",
       "net": 1.9
      },
      {
@@ -113776,7 +113776,7 @@
      },
      {
       "d": "2025-11-18",
-      "h": "Got Steven Wilson, Yoendrys G\u00f3mez for Everson Pereira, Tanner Murray",
+      "h": "Got Yoendrys G\u00f3mez, Steven Wilson for Everson Pereira, Tanner Murray",
       "net": -0.2
      },
      {
@@ -113809,7 +113809,7 @@
     "deals": [
      {
       "d": "2024-07-28",
-      "h": "Got Homer Bush Jr., Dylan Lesko, J.D. Gonzalez for Jason Adam",
+      "h": "Got J.D. Gonzalez, Homer Bush Jr., Dylan Lesko for Jason Adam",
       "net": 0.7
      },
      {
@@ -113824,17 +113824,17 @@
      },
      {
       "d": "2020-12-29",
-      "h": "Got Luis Pati\u00f1o, Blake Hunt, Cole Wilcox, Francisco Mej\u00eda for Blake Snell",
+      "h": "Got Luis Pati\u00f1o, Cole Wilcox, Francisco Mej\u00eda, Blake Hunt for Blake Snell",
       "net": -1.7
      },
      {
       "d": "2020-02-08",
-      "h": "Got Manuel Margot, Logan Driscoll for Emilio Pag\u00e1n",
+      "h": "Got Logan Driscoll, Manuel Margot for Emilio Pag\u00e1n",
       "net": 1.1
      },
      {
       "d": "2019-12-06",
-      "h": "Got Xavier Edwards, Hunter Renfroe, Esteban Quiroz for Jake Cronenworth, Tommy Pham",
+      "h": "Got Hunter Renfroe, Xavier Edwards, Esteban Quiroz for Jake Cronenworth, Tommy Pham",
       "net": -4.2
      },
      {
@@ -113915,7 +113915,7 @@
      },
      {
       "d": "2024-07-26",
-      "h": "Got Brody Hopkins, Aidan Smith, Ty Cummings for Randy Arozarena",
+      "h": "Got Aidan Smith, Brody Hopkins, Ty Cummings for Randy Arozarena",
       "net": -6.4
      },
      {
@@ -113945,12 +113945,12 @@
      },
      {
       "d": "2018-11-08",
-      "h": "Got Mike Zunino, Michael Plassmeyer, Guillermo Heredia for Jake Fraley, Mallex Smith",
+      "h": "Got Guillermo Heredia, Mike Zunino, Michael Plassmeyer for Jake Fraley, Mallex Smith",
       "net": -3.3
      },
      {
       "d": "2018-05-25",
-      "h": "Got Andrew Moore, Tommy Romero for Denard Span, Alex Colom\u00e9",
+      "h": "Got Tommy Romero, Andrew Moore for Denard Span, Alex Colom\u00e9",
       "net": -3.2
      },
      {
@@ -113960,7 +113960,7 @@
      },
      {
       "d": "2017-08-06",
-      "h": "Got Anthony Misiewicz, Osmy Gregorio, Luis Rengifo for Ryan Garton, Mike Marjama",
+      "h": "Got Osmy Gregorio, Luis Rengifo, Anthony Misiewicz for Ryan Garton, Mike Marjama",
       "net": 2.8
      },
      {
@@ -113980,12 +113980,12 @@
      },
      {
       "d": "2017-01-11",
-      "h": "Got Ryan Yarbrough, Carlos Vargas for Drew Smyly",
+      "h": "Got Carlos Vargas, Ryan Yarbrough for Drew Smyly",
       "net": 4.3
      },
      {
       "d": "2016-11-18",
-      "h": "Got Dylan Thompson, Dalton Kelly, Andrew Kittredge for Taylor Motter, Richie Shaffer",
+      "h": "Got Andrew Kittredge, Dylan Thompson, Dalton Kelly for Taylor Motter, Richie Shaffer",
       "net": 2.2
      }
     ]
@@ -114079,7 +114079,7 @@
     "deals": [
      {
       "d": "2024-07-28",
-      "h": "Got Hunter Bigge, Ty Johnson, Christopher Morel for Isaac Paredes",
+      "h": "Got Christopher Morel, Hunter Bigge, Ty Johnson for Isaac Paredes",
       "net": -4.7
      },
      {
@@ -114089,7 +114089,7 @@
      },
      {
       "d": "2023-08-01",
-      "h": "Got Adrian Sampson, Manuel Rodr\u00edguez for Josh Roberson",
+      "h": "Got Manuel Rodr\u00edguez, Adrian Sampson for Josh Roberson",
       "net": 0.7
      },
      {
@@ -114254,7 +114254,7 @@
      },
      {
       "d": "2023-11-17",
-      "h": "Got Jake Mangum, Andrew Lindsey, Erick Lara for Calvin Faucher, Vidal Bruj\u00e1n",
+      "h": "Got Erick Lara, Andrew Lindsey, Jake Mangum for Calvin Faucher, Vidal Bruj\u00e1n",
       "net": 0.0
      }
     ]
@@ -114287,7 +114287,7 @@
      },
      {
       "d": "2018-05-01",
-      "h": "Got Sam McWilliams, Colin Poche for cash/PTBNL",
+      "h": "Got Colin Poche, Sam McWilliams for cash/PTBNL",
       "net": 1.4
      },
      {
@@ -114368,7 +114368,7 @@
     "deals": [
      {
       "d": "2025-07-31",
-      "h": "Got Marshall Toole, Everson Pereira for Jos\u00e9 Caballero",
+      "h": "Got Everson Pereira, Marshall Toole for Jos\u00e9 Caballero",
       "net": -0.3
      },
      {
@@ -117153,7 +117153,7 @@
     "ch": "fa",
     "net": -6.4,
     "st": 15.48,
-    "h": "Signed Jacob deGrom \u00b7 5 yr / $185.0M (2022-23 winter, recent, QO signing, draft comp charged)",
+    "h": "Signed Jacob deGrom \u00b7 5 yr / $185.0M (2022-23 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -117183,7 +117183,7 @@
     "ch": "fa",
     "net": -1.8,
     "st": 3.7,
-    "h": "Signed Joc Pederson \u00b7 2 yr / $37.0M (2024-25 winter, recent)",
+    "h": "Signed Joc Pederson \u00b7 2 yr / $37.0M (2024-25 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -117213,7 +117213,7 @@
     "ch": "fa",
     "net": 1.5,
     "st": 0.04,
-    "h": "Signed Shawn Armstrong \u00b7 1 yr / $1.1M (2024-25 winter, recent)",
+    "h": "Signed Shawn Armstrong \u00b7 1 yr / $1.1M (2024-25 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -117243,7 +117243,7 @@
     "ch": "fa",
     "net": 1.4,
     "st": 0.04,
-    "h": "Signed Tyler Alexander \u00b7 1 yr / $1.1M (2025-26 winter, recent)",
+    "h": "Signed Tyler Alexander \u00b7 1 yr / $1.1M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -117276,7 +117276,7 @@
      "ch": "fa",
      "net": 1.5,
      "st": 0.04,
-     "h": "Signed Shawn Armstrong \u00b7 1 yr / $1.1M (2024-25 winter, recent)",
+     "h": "Signed Shawn Armstrong \u00b7 1 yr / $1.1M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -117306,7 +117306,7 @@
      "ch": "fa",
      "net": 1.4,
      "st": 0.04,
-     "h": "Signed Tyler Alexander \u00b7 1 yr / $1.1M (2025-26 winter, recent)",
+     "h": "Signed Tyler Alexander \u00b7 1 yr / $1.1M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -117336,7 +117336,7 @@
      "ch": "fa",
      "net": 1.1,
      "st": 0.08,
-     "h": "Signed Will Smith \u00b7 1 yr / $1.5M (2022-23 winter, recent)",
+     "h": "Signed Will Smith \u00b7 1 yr / $1.5M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -117366,7 +117366,7 @@
      "ch": "fa",
      "net": 0.9,
      "st": 0.4,
-     "h": "Signed Kirby Yates \u00b7 1 yr / $4.5M (2023-24 winter, recent)",
+     "h": "Signed Kirby Yates \u00b7 1 yr / $4.5M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -117396,7 +117396,7 @@
      "ch": "fa",
      "net": 0.9,
      "st": 1.25,
-     "h": "Signed Kyle Higashioka \u00b7 2 yr / $13.5M (2024-25 winter, recent)",
+     "h": "Signed Kyle Higashioka \u00b7 2 yr / $13.5M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -117428,7 +117428,7 @@
      "ch": "fa",
      "net": -6.4,
      "st": 15.48,
-     "h": "Signed Jacob deGrom \u00b7 5 yr / $185.0M (2022-23 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Jacob deGrom \u00b7 5 yr / $185.0M (2022-23 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -117458,7 +117458,7 @@
      "ch": "fa",
      "net": -1.8,
      "st": 3.7,
-     "h": "Signed Joc Pederson \u00b7 2 yr / $37.0M (2024-25 winter, recent)",
+     "h": "Signed Joc Pederson \u00b7 2 yr / $37.0M (2024-25 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -117488,7 +117488,7 @@
      "ch": "fa",
      "net": -1.2,
      "st": 2.1,
-     "h": "Signed Mart\u00edn P\u00e9rez \u00b7 1 yr / $19.6M (2022-23 winter, recent)",
+     "h": "Signed Mart\u00edn P\u00e9rez \u00b7 1 yr / $19.6M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -117518,7 +117518,7 @@
      "ch": "fa",
      "net": -1.0,
      "st": 0.34,
-     "h": "Signed Chris Martin \u00b7 1 yr / $4.0M (2025-26 winter, recent)",
+     "h": "Signed Chris Martin \u00b7 1 yr / $4.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -117548,7 +117548,7 @@
      "ch": "fa",
      "net": -0.9,
      "st": 0.12,
-     "h": "Signed Andrew Knizner \u00b7 1 yr / $1.8M (2023-24 winter, recent)",
+     "h": "Signed Andrew Knizner \u00b7 1 yr / $1.8M (2023-24 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -118130,8 +118130,8 @@
      "n_in": 0
     },
     "pids": [
-     "493114",
      "606192",
+     "493114",
      "434538"
     ],
     "comps": [
@@ -118539,8 +118539,8 @@
        "n_in": 0
       },
       "pids": [
-       "493114",
        "606192",
+       "493114",
        "434538"
       ],
       "comps": [
@@ -122436,7 +122436,7 @@
     "ch": "fa",
     "net": 12.3,
     "st": 10.48,
-    "h": "Signed Kevin Gausman \u00b7 5 yr / $110.0M (2021-22 winter, espn)",
+    "h": "Signed Kevin Gausman \u00b7 5 yr / $110.0M (2021-22 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -122466,7 +122466,7 @@
     "ch": "fa",
     "net": 5.2,
     "st": 2.03,
-    "h": "Signed Marcus Semien \u00b7 1 yr / $18.0M (2020-21 winter, espn)",
+    "h": "Signed Marcus Semien \u00b7 1 yr / $18.0M (2020-21 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -122496,7 +122496,7 @@
     "ch": "fa",
     "net": -5.2,
     "st": 3.7,
-    "h": "Signed Anthony Santander \u00b7 5 yr / $92.5M (2024-25 winter, recent, QO signing, draft comp charged)",
+    "h": "Signed Anthony Santander \u00b7 5 yr / $92.5M (2024-25 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -122526,7 +122526,7 @@
     "ch": "fa",
     "net": 4.3,
     "st": 16.06,
-    "h": "Signed George Springer \u00b7 6 yr / $150.0M (2020-21 winter, espn, QO signing, draft comp charged)",
+    "h": "Signed George Springer \u00b7 6 yr / $150.0M (2020-21 winter, QO signing, draft comp charged)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -122559,7 +122559,7 @@
      "ch": "fa",
      "net": 12.3,
      "st": 10.48,
-     "h": "Signed Kevin Gausman \u00b7 5 yr / $110.0M (2021-22 winter, espn)",
+     "h": "Signed Kevin Gausman \u00b7 5 yr / $110.0M (2021-22 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -122589,7 +122589,7 @@
      "ch": "fa",
      "net": 5.2,
      "st": 2.03,
-     "h": "Signed Marcus Semien \u00b7 1 yr / $18.0M (2020-21 winter, espn)",
+     "h": "Signed Marcus Semien \u00b7 1 yr / $18.0M (2020-21 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -122619,7 +122619,7 @@
      "ch": "fa",
      "net": 4.3,
      "st": 16.06,
-     "h": "Signed George Springer \u00b7 6 yr / $150.0M (2020-21 winter, espn, QO signing, draft comp charged)",
+     "h": "Signed George Springer \u00b7 6 yr / $150.0M (2020-21 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -122649,7 +122649,7 @@
      "ch": "fa",
      "net": 3.0,
      "st": 0.85,
-     "h": "Signed Robbie Ray \u00b7 1 yr / $8.0M (2020-21 winter, espn)",
+     "h": "Signed Robbie Ray \u00b7 1 yr / $8.0M (2020-21 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -122679,7 +122679,7 @@
      "ch": "fa",
      "net": 1.9,
      "st": 0.92,
-     "h": "Signed Kevin Kiermaier \u00b7 1 yr / $9.0M (2022-23 winter, recent)",
+     "h": "Signed Kevin Kiermaier \u00b7 1 yr / $9.0M (2022-23 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -122711,7 +122711,7 @@
      "ch": "fa",
      "net": -5.2,
      "st": 3.7,
-     "h": "Signed Anthony Santander \u00b7 5 yr / $92.5M (2024-25 winter, recent, QO signing, draft comp charged)",
+     "h": "Signed Anthony Santander \u00b7 5 yr / $92.5M (2024-25 winter, QO signing, draft comp charged)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -122741,7 +122741,7 @@
      "ch": "fa",
      "net": -3.1,
      "st": 2.16,
-     "h": "Signed Jos\u00e9 Bautista \u00b7 1 yr / $18.0M (2016-17 winter, espn)",
+     "h": "Signed Jos\u00e9 Bautista \u00b7 1 yr / $18.0M (2016-17 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -122771,7 +122771,7 @@
      "ch": "fa",
      "net": -3.1,
      "st": 2.73,
-     "h": "Signed Tanner Roark \u00b7 2 yr / $24.0M (2019-20 winter, espn)",
+     "h": "Signed Tanner Roark \u00b7 2 yr / $24.0M (2019-20 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -122801,7 +122801,7 @@
      "ch": "fa",
      "net": -1.9,
      "st": 2.53,
-     "h": "Signed Kendrys Morales \u00b7 3 yr / $33.0M (2016-17 winter, espn)",
+     "h": "Signed Kendrys Morales \u00b7 3 yr / $33.0M (2016-17 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -122831,7 +122831,7 @@
      "ch": "fa",
      "net": -1.4,
      "st": 9.07,
-     "h": "Signed Hyun Jin Ryu \u00b7 4 yr / $80.0M (2019-20 winter, espn)",
+     "h": "Signed Hyun Jin Ryu \u00b7 4 yr / $80.0M (2019-20 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -123488,7 +123488,7 @@
      },
      {
       "d": "2022-08-02",
-      "h": "Got Alex De Jesus, Mitch White for Nick Frasso, Moises Brito",
+      "h": "Got Mitch White, Alex De Jesus for Nick Frasso, Moises Brito",
       "net": 0.2
      },
      {
@@ -123541,7 +123541,7 @@
      },
      {
       "d": "2024-07-27",
-      "h": "Got Yohendrick Pi\u00f1ango, Josh Rivera for Nate Pearson",
+      "h": "Got Josh Rivera, Yohendrick Pi\u00f1ango for Nate Pearson",
       "net": 0.5
      },
      {
@@ -123686,7 +123686,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Dameury Pena, John Klein, Dasan Hill for Jeff Hoffman",
+      "h": "Got Dasan Hill, John Klein, Dameury Pena for Jeff Hoffman",
       "net": 1.4
      },
      {
@@ -123755,7 +123755,7 @@
      },
      {
       "d": "2021-01-22",
-      "h": "Got Mallex Smith, Darlin Guzman for Hector Perez",
+      "h": "Got Darlin Guzman, Mallex Smith for Hector Perez",
       "net": 0.1
      }
     ]
@@ -123890,7 +123890,7 @@
      },
      {
       "d": "2022-11-16",
-      "h": "Got Erik Swanson, Adam Macko for Teoscar Hern\u00e1ndez",
+      "h": "Got Adam Macko, Erik Swanson for Teoscar Hern\u00e1ndez",
       "net": -1.1
      },
      {
@@ -124030,11 +124030,11 @@
         "+1.9"
        ],
        [
-        "Gavin Fien",
+        "Yeremy Cabrera",
         "+0.5"
        ],
        [
-        "Yeremy Cabrera",
+        "Gavin Fien",
         "+0.5"
        ],
        [
@@ -124060,10 +124060,10 @@
      "n_in": 2
     },
     "pids": [
-     "691730",
-     "803849",
-     "815818",
      "800393",
+     "803849",
+     "691730",
+     "815818",
      "694673",
      "669022"
     ],
@@ -124200,11 +124200,11 @@
         "+0.5"
        ],
        [
-        "Josh Hartle",
+        "Kendeglys Virguez",
         "+0.5"
        ],
        [
-        "Kendeglys Virguez",
+        "Josh Hartle",
         "+0.5"
        ]
       ]
@@ -124227,9 +124227,9 @@
     },
     "pids": [
      "814455",
-     "691776",
      "702021",
      "802068",
+     "691776",
      "656492"
     ],
     "comps": [
@@ -124282,11 +124282,11 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Ben Grable",
+        "Jack Cebert",
         "+0.5"
        ],
        [
-        "Jack Cebert",
+        "Ben Grable",
         "+0.5"
        ],
        [
@@ -124316,10 +124316,10 @@
      "n_in": 0
     },
     "pids": [
+     "656234",
+     "701411",
      "695066",
      "672442",
-     "701411",
-     "656234",
      "671277"
     ],
     "comps": [
@@ -124549,11 +124549,11 @@
           "+1.9"
          ],
          [
-          "Gavin Fien",
+          "Yeremy Cabrera",
           "+0.5"
          ],
          [
-          "Yeremy Cabrera",
+          "Gavin Fien",
           "+0.5"
          ],
          [
@@ -124579,10 +124579,10 @@
        "n_in": 2
       },
       "pids": [
-       "691730",
-       "803849",
-       "815818",
        "800393",
+       "803849",
+       "691730",
+       "815818",
        "694673",
        "669022"
       ],
@@ -124644,11 +124644,11 @@
           "+0.5"
          ],
          [
-          "Josh Hartle",
+          "Kendeglys Virguez",
           "+0.5"
          ],
          [
-          "Kendeglys Virguez",
+          "Josh Hartle",
           "+0.5"
          ]
         ]
@@ -124671,9 +124671,9 @@
       },
       "pids": [
        "814455",
-       "691776",
        "702021",
        "802068",
+       "691776",
        "656492"
       ],
       "comps": [
@@ -124726,11 +124726,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Ben Grable",
+          "Jack Cebert",
           "+0.5"
          ],
          [
-          "Jack Cebert",
+          "Ben Grable",
           "+0.5"
          ],
          [
@@ -124760,10 +124760,10 @@
        "n_in": 0
       },
       "pids": [
+       "656234",
+       "701411",
        "695066",
        "672442",
-       "701411",
-       "656234",
        "671277"
       ],
       "comps": [
@@ -125565,7 +125565,7 @@
     "ch": "fa",
     "net": 1.3,
     "st": 0.24,
-    "h": "Signed Foster Griffin \u00b7 1 yr / $5.5M (2025-26 winter, recent)",
+    "h": "Signed Foster Griffin \u00b7 1 yr / $5.5M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -125595,7 +125595,7 @@
     "ch": "fa",
     "net": -1.1,
     "st": 0.64,
-    "h": "Signed Zack Littell \u00b7 1 yr / $7.0M (2025-26 winter, recent)",
+    "h": "Signed Zack Littell \u00b7 1 yr / $7.0M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -125625,7 +125625,7 @@
     "ch": "fa",
     "net": -0.8,
     "st": 0.15,
-    "h": "Signed Miles Mikolas \u00b7 1 yr / $2.2M (2025-26 winter, recent)",
+    "h": "Signed Miles Mikolas \u00b7 1 yr / $2.2M (2025-26 winter)",
     "sides": [
      [
       "Production (Ledger WAR on club, elapsed seasons)",
@@ -125658,7 +125658,7 @@
      "ch": "fa",
      "net": 1.3,
      "st": 0.24,
-     "h": "Signed Foster Griffin \u00b7 1 yr / $5.5M (2025-26 winter, recent)",
+     "h": "Signed Foster Griffin \u00b7 1 yr / $5.5M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -125690,7 +125690,7 @@
      "ch": "fa",
      "net": -1.1,
      "st": 0.64,
-     "h": "Signed Zack Littell \u00b7 1 yr / $7.0M (2025-26 winter, recent)",
+     "h": "Signed Zack Littell \u00b7 1 yr / $7.0M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -125720,7 +125720,7 @@
      "ch": "fa",
      "net": -0.8,
      "st": 0.15,
-     "h": "Signed Miles Mikolas \u00b7 1 yr / $2.2M (2025-26 winter, recent)",
+     "h": "Signed Miles Mikolas \u00b7 1 yr / $2.2M (2025-26 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
@@ -125831,7 +125831,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Jack Cebert, Jake Bird, Yovanny Cruz, Ben Grable for Luis Garc\u00eda Jr.",
+      "h": "Got Ben Grable, Yovanny Cruz, Jake Bird, Jack Cebert for Luis Garc\u00eda Jr.",
       "net": 1.3
      },
      {
