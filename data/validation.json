@@ -11,14 +11,14 @@
  "predictive": {
   "n": 576,
   "regimes": 112,
-  "coef_decision_value": 0.00168,
+  "coef_decision_value": 0.00169,
   "coef_wpct": 0.473,
   "r2_base": 0.193,
   "r2_full": 0.202,
   "r2_gain": 0.009,
-  "partial_r": 0.107,
+  "partial_r": 0.108,
   "partial_r_ci": [
-   -0.02,
+   -0.019,
    0.276
   ],
   "boot_B": 2000,
