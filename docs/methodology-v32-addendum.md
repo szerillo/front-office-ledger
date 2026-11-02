@@ -1171,3 +1171,44 @@ item below changed a number or a sentence a reader would see.
   independent and unaffiliated with MLB or any club.
 
 Tests: `tests/t_launch.mjs` (new) covers each item above.
+
+## v5.5 (November 2, 2026): one asset, one entry
+
+**Draft and international signings are graded as assets** (`engine/asset_rules.py`).
+A pick is worth what the player produced in his six control seasons (debut
+season plus five), wherever he played them. If the club trades him, the trade
+channel charges what he produced for his new club and credits what came
+back; the two entries net to what the club turned the pick into. Before, the
+draft only counted seasons with the drafting club, so a traded draftee read
+as a draft miss and a trade loss at once (CJ Abrams and MacKenzie Gore were
+charged twice to San Diego), and a homegrown star's extension years were
+credited to the draft as well as graded, net of cost, in the extension
+channel. Both are gone.
+
+The slot expectation is re-calibrated on the new definition: across every
+round 1-5 pick of 1998-2016, control-season value ran 1.309 times the slot
+curve, and the share realized N years after the draft is fit on all classes
+(0.12 at two years, 0.47 at five, 0.80 at seven, full at ten). Pooled across
+classes the league's draft net is about zero (ratio 0.985). Preller's draft
+channel moves from a deep negative to −0.1 (C+); his trades still carry the
+cost of trading those players away. International signings use the same
+six-season definition, and their class baseline is recomputed on it.
+
+**Every trade, every move graded.** Report cards list every trade in the
+tenure from the trade book, sortable, beside the five best and worst; each
+decision carries its own letter (A+ six or more wins, A three, B one, C within
+a win, D to −3, F beyond), and the channel's grade is stated once per channel
+rather than stamped on the "best" lists.
+
+**Trees.** A browsable player finder (scroll the full ledger, alphabetical by
+last name), the Soto chain as a showcase (Abrams, Gore, Wood, Hassell and
+Susana to Soto; Soto to King and Thorpe; Thorpe to Cease), and a "still
+expected" line on open branches: the Ledger Projection over remaining control
+for major leaguers, comparables' six-season value for prospects.
+
+**Copy.** Every "lev-adj" on the site explains itself on hover or tap; the nav
+drops its redundant labels; the beta tag reads "built entirely from public
+data"; and the validation section opens by asking who watches the Watchmen.
+
+Validation after the change: partial r 0.265 (95% CI 0.16 to 0.37) across 575
+regime-years from 112 regimes; out-of-sample R² 0.177 to 0.234.
