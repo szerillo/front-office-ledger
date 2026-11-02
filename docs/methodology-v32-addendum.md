@@ -1194,11 +1194,38 @@ channel moves from a deep negative to −0.1 (C+); his trades still carry the
 cost of trading those players away. International signings use the same
 six-season definition, and their class baseline is recomputed on it.
 
-**Every trade, every move graded.** Report cards list every trade in the
-tenure from the trade book, sortable, beside the five best and worst; each
-decision carries its own letter (A+ six or more wins, A three, B one, C within
-a win, D to −3, F beyond), and the channel's grade is stated once per channel
-rather than stamped on the "best" lists.
+**Every trade, every move graded against moves of its size.** Report cards
+list every trade in the tenure from the trade book, sortable, beside the five
+best and worst, and the channel's grade is stated once per channel rather
+than stamped on the "best" lists. Each decision carries its own letter, and
+the letter is relative to expectation for that kind and size of move: every
+decision the engines graded (all clubs and regimes; trades from both seats of
+the full trade book) is split into stake bands, where the stake is what the
+move put at risk in wins (contract cost for signings and extensions, slot
+expectation for picks, the larger side of a trade). Within its band a move's
+letter is its percentile: F bottom 10%, D to 30%, C the middle 40%, B to 90%,
+A to 97.5%, A+ above. A $4.5M signing that returns three wins over its cost
+(Craig Stammen) is an A+; the same three wins from a $300M deal would be
+middling. Waiver moves and international signings, which carry no comparable
+price, are ranked within their channel as a whole.
+
+**Contract projections recalibrated.** Grading the Ledger offer by the size of
+the offer (not the size of the real contract) showed the problem a reader
+would notice: when it offered $50M or more, the real contract came in at a
+median 80% of the offer, about a year shorter, and $200M+ offers ran 2.7 years
+long. Four rule changes, each tested on all 1,197 signings 2010-2025 with only
+the information available that winter: no extra "spread" years for stars; no
+convex premium for elite seasons; the model never weighs more than 60%
+against the market comps; comps from recent winters count as more similar
+(0.05 per winter of distance); and regulars take the 30th-percentile comp term
+rather than the median. Result: the median real contract is now 92% of a $50M+
+offer (years 0.6 long), and the overall miss is 0.69 years / $3.2M AAV /
+$13.9M total (was $14.5M). Against this winter's published predictions the
+headline numbers now sit in the same range (Skubal 7 years / $348M); the
+players where the Ledger still differs most are the ones Ledger WAR rates
+differently from the public (Brandon Lowe's 5.7-WAR 2026, Luis Arraez), and
+the Big Board shows each player's last three Ledger WAR seasons so the reason
+is visible.
 
 **Trees.** A browsable player finder (scroll the full ledger, alphabetical by
 last name), the Soto chain as a showcase (Abrams, Gore, Wood, Hassell and
@@ -1226,5 +1253,5 @@ and prices the moves still to be made.
 drops its redundant labels; the beta tag reads "built entirely from public
 data"; and the validation section opens by asking who watches the Watchmen.
 
-Validation after the change: partial r 0.265 (95% CI 0.16 to 0.37) across 575
-regime-years from 112 regimes; out-of-sample R² 0.177 to 0.234.
+Validation after the change: partial r 0.265 (95% CI 0.16 to 0.38) across 575
+regime-years from 112 regimes; out-of-sample R² 0.177 to 0.230.
