@@ -550,12 +550,20 @@ print(f"moves {len(MOVES)} | ranks {len(RANKS)} players | fates {len(FATE)}")
 _MT = sorted({m[1] for ms in MOVES.values() for m in ms})
 _MTI = {t: i for i, t in enumerate(_MT)}
 MOVES = {k: [[m[0], _MTI[m[1]]] + list(m[2:]) for m in ms] for k, ms in MOVES.items()}
-mv_js = ("const PLAYER_MOVE_TYPES = " + json.dumps(_MT, ensure_ascii=False) + ";\nconst PLAYER_MOVES = " + json.dumps(MOVES, separators=(",", ":"), ensure_ascii=False)
-         + ";\nconst PLAYER_NAMES = " + json.dumps(NAMES, separators=(",", ":"), ensure_ascii=False)
+# v5.9: the career move log (about a third of the page) ships as moves.js
+# beside the page and loads in parallel; the page declares empty bindings and
+# anything drawn before it lands is redrawn on the "moves-loaded" event
+_mv_body = ("PLAYER_MOVE_TYPES = " + json.dumps(_MT, ensure_ascii=False) + ";\nPLAYER_MOVES = " + json.dumps(MOVES, separators=(",", ":"), ensure_ascii=False)
+            + ";\nfor(const _k in PLAYER_MOVES) PLAYER_MOVES[_k].forEach(m => { if(typeof m[1] === 'number') m[1] = PLAYER_MOVE_TYPES[m[1]]; });\n"
+            + "window.MOVES_READY = true; window.dispatchEvent(new Event('moves-loaded'));\n")
+import hashlib as _hl
+MOVES_VER = _hl.md5(_mv_body.encode()).hexdigest()[:10]
+open(os.path.join(os.path.dirname(P), "moves.js"), "w").write(_mv_body)
+mv_js = ("let PLAYER_MOVE_TYPES = [], PLAYER_MOVES = {};"
+         + "\nconst PLAYER_NAMES = " + json.dumps(NAMES, separators=(",", ":"), ensure_ascii=False)
          + ";\nconst PLAYER_RANKS = " + json.dumps(RANKS, separators=(",", ":"), ensure_ascii=False)
-         + ";\nconst PLAYER_FATE = " + json.dumps(FATE, separators=(",", ":"), ensure_ascii=False)
-         + ";\nfor(const _k in PLAYER_MOVES) PLAYER_MOVES[_k].forEach(m => { if(typeof m[1] === 'number') m[1] = PLAYER_MOVE_TYPES[m[1]]; });\n\n")
-i = s.find("const PLAYER_MOVE_TYPES = ") if "const PLAYER_MOVE_TYPES = " in s else s.find("const PLAYER_MOVES = ")
+         + ";\nconst PLAYER_FATE = " + json.dumps(FATE, separators=(",", ":"), ensure_ascii=False) + ";\n\n")
+i = min(x for x in (s.find("let PLAYER_MOVE_TYPES = "), s.find("const PLAYER_MOVE_TYPES = "), s.find("const PLAYER_MOVES = ")) if x >= 0)
 assert i >= 0
 tail_anchor = "const PLAYER_FATE" if "const PLAYER_FATE" in s else "const PLAYER_RANKS"
 j = s.find("\n\n", s.find(tail_anchor, i))
@@ -568,7 +576,7 @@ k = s.find("const CURATED_EXTRA = ")
 if k >= 0:
     s = s[:k] + cx_js + s[s.find("});\n", s.find("REGIMES.forEach(r => { const x = CURATED_EXTRA", k)) + 4:]
 else:
-    k = s.find("const PLAYER_MOVES = ")
+    k = min(x for x in (s.find("let PLAYER_MOVE_TYPES = "), s.find("const PLAYER_MOVES = ")) if x >= 0)
     s = s[:k] + cx_js + s[k:]
 if TB is not None:
     tb_js = "const TRADE_BOOK = " + json.dumps(TB, separators=(",", ":"), ensure_ascii=False) + ";\n"
@@ -576,7 +584,7 @@ if TB is not None:
     if k >= 0:
         s = s[:k] + tb_js + s[s.find(";\n", k) + 2:]
     else:
-        k = s.find("const PLAYER_MOVES = ")
+        k = min(x for x in (s.find("let PLAYER_MOVE_TYPES = "), s.find("const PLAYER_MOVES = ")) if x >= 0)
         s = s[:k] + tb_js + s[k:]
     print("trade book spliced:", len(TB["trades"]), "trades,", len(TB["names"]), "extra names")
 
@@ -628,5 +636,6 @@ print("move bands:", {k: [b[2] for b in v] for k, v in MOVE_BANDS.items()})
 # v5.4: readers know the metric as Ledger WAR; "LVM" was internal shorthand
 import re
 s = re.sub(r"\bLVM\b", "WAR", s)
+s = _re.sub(r"moves\.js\?v=[0-9a-f]*", "moves.js?v=" + MOVES_VER, s)
 open(P, "w").write(s)
 print(f"regenerated {len(auto)} auto regimes (v3 data)")
