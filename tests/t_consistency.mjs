@@ -52,7 +52,7 @@ const r = await d.page.evaluate(() => {
   o.fullListsOnCard = ['draft','fa','waiver','walk'].every(k => lists.includes(k)) && sd.allx.draft.length >= 40 && sd.allx.waiver.length >= 10;
   // v5.7: trades are net of guaranteed salary, with publicly reported cash (Arenado: STL paid $22M of his 2026)
   const ar = TRADE_BOOK.trades.find(t => t[0] === '2026-01-13' && t[1].some(s => s[0] === 'STL'));
-  o.arenadoTradeNetOfSalary = !!ar && ar[1].find(s => s[0] === 'ARI')[1] > 3;
+  o.arenadoTradeNetOfSalary = !!ar && ar[1].find(s => s[0] === 'ARI')[1] >= 2.5;   // v5.9: the prospect back carries his open expectation
   // v5.7: positional credit by games played (Arraez 2025 no longer a 3-win DH/1B)
   const ra = DESK.players.find(x => x[0] === 'Luis Arraez');
   o.arraezPositionalFix = !!ra && ra[6] < 2;
@@ -71,7 +71,9 @@ const r = await d.page.evaluate(() => {
   // v5.7: free agency and extensions grade against a typical club's return on the money, not zero
   const faG = AUTO_REGIMES.map(x => x.chan.fa && x.chan.fa.g).filter(g => g != null);
   o.faCenteredOnTypical = chanTypical('fa') > 0.7 && chanTypical('fa') < 1.1 && faG.filter(g => g <= 35).length <= faG.length / 3 && faG.filter(g => g >= 60).length >= 3;
-  o.extCenteredOnTypical = chanTypical('ext') > 0.7 && chanTypical('ext') < 1.5;
+  // v5.9: extensions centered by class (the league's average result per win of cost)
+  const _xr = (DESK.market.typ || {}).ext || {};
+  o.extCenteredOnTypical = ['pre-debut','early','arb','veteran'].every(k => typeof _xr[k] === 'number' && Math.abs(_xr[k]) < 2);
   // desk and simulator letters rank against real moves of the same size
   o.deskLettersBySize = moveGrade(3, 'trade', 0.5) !== moveGrade(3, 'trade', 40) && gmMoveLetter({kind:'fa', st: 0.3, rel: 1.5}) !== gmMoveLetter({kind:'fa', st: 25, rel: 1.5});
   // v5.8 audit fixes
@@ -88,6 +90,23 @@ const r = await d.page.evaluate(() => {
   o.unscoredFilledAtZero = chanAvg().fa === 0 && chanAvg().ext === 0;
   const tb26 = TRADE_BOOK.trades.find(t => t[0] === '2020-02-10' && t[1].some(s => s[0] === 'LAD'));
   o.bettsExtensionOwnsItsSeasons = !!tb26 && tb26[1].find(s => s[0] === 'LAD')[1] < 10;
+  // v5.9 adversarial-review fixes
+  const cab = TRADE_BOOK.trades.find(t => t[0] === '2007-12-04' && t[1].some(x => x[0] === 'DET' && x[2].some(([pid]) => String(pid) === '408234')));
+  o.cabreraTradeKeepsControl = !!cab && cab[1].find(x => x[0] === 'DET' && x[2].some(([pid]) => String(pid) === '408234'))[2].find(([pid]) => String(pid) === '408234')[1] > 3;
+  o.tradesStillZeroSum = TRADE_BOOK.trades.filter(t => Math.abs(t[1].reduce((a, x) => a + x[1], 0)) > 0.5).length <= 5;
+  normalizeCurated();
+  const _allg = [...AUTO_REGIMES, ...LB_HIST].filter(x => !x.isNew && x.forGrade != null);
+  o.letterCurveNotExtreme = _allg.filter(x => x.forGrade === 80).length / _allg.length <= 0.1 && _allg.filter(x => (x.chan.trade || {}).g === 80).length / _allg.length <= 0.12;
+  o.archiveGradedOnFAandExt = LB_HIST.filter(x => x.chan.fa && x.chan.fa.g != null).length >= 40 && LB_HIST.filter(x => x.chan.ext && x.chan.ext.g != null).length >= 15;
+  o.scenarioHindsightMatchesBook = SCEN.filter(sc => sc.kind === 'trade' && sc.outcome && sc.outcome.net != null).every(sc => {
+    const seats = TRADE_BOOK.trades.filter(t => t[0] === sc.date).flatMap(t => t[1]).filter(x => x[0] === sc.team);
+    return !seats.length || seats.some(x => Math.abs(x[1] - sc.outcome.net) <= 0.15); });
+  o.deskPricesOverpay = (() => { const sk = DESK.players.find(x => x[0] === 'Tarik Skubal'); if(!sk || !gmIsFA(sk)) return true;
+    const q = dkSuggest(sk, 'fa', null); dkState.mode = 'fa'; switchView('desk'); renderDesk();
+    document.getElementById('dk-fa-player').value = sk[0]; document.getElementById('dk-fa-yrs').value = q.sugYrs; document.getElementById('dk-fa-m').value = Math.round(q.sugTot * 1.5);
+    const t = dkFaVerdict().replace(/<[^>]+>/g, ' '); const g = (t.match(/Desk grade\s+(\S+)/) || [])[1]; return g === 'D' || g === 'F'; })();
+  o.olderDealsCarryAttrition = (() => { const j = DESK.players.find(x => x[0] === 'Aaron Judge'); if(!j) return true;
+    return dkProjSeasons(j, 8, false).total < dkProjSeasons(j, 8, false, true).total * 0.8; })();
   return o;
 });
 await d.page.waitForTimeout(400);

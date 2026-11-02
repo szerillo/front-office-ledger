@@ -35,7 +35,13 @@ const r = await d.page.evaluate(() => {
   o.ramirezSpring2017 = ram.date.startsWith('2017') && ram.ctx.season === 2016 && ram.market.ext === 1 && ram.market.mktTot < 120 && ram.player.age === 24;
   const gr = SCEN.find(s => s.id.endsWith('greinke'));
   o.greinkeHasOdorizzi = gr.send.some(p => p.name === 'Jake Odorizzi');
-  o.liveSetupMatchesStanding = !/edge of the wild-card race/.test(SCEN.find(s => s.id.startsWith('live')).setup);
+  // v5.9: the Holmes deadline deal was made (Aug 3, 2026) and grades in the
+  // trade book, so it plays as an archive deal with an open return, not a
+  // "live" what-if; its outcome is the trade book's seat value
+  const hol = SCEN.find(s => s.id.includes('holmes'));
+  const holTb = TRADE_BOOK.trades.filter(t => t[0] === '2026-08-03').flatMap(t => t[1]).find(st => st[0] === 'NYM' && st[3].some(([p]) => pName(p) === 'Clay Holmes'));
+  o.liveSetupMatchesStanding = !!hol && !/edge of the wild-card race/.test(hol.setup) && !SCEN.some(s => s.id.startsWith('live'))
+    && !!holTb && Math.abs(hol.outcome.net - holTb[1]) < 0.051;
   // simulator comps see recent winters' trades
   o.recentWintersHaveTrades = [2024, 2025].every(y => GMC.winters.filter(w => w.w === y).reduce((a, w) => a + w.trN, 0) > 50);
   // curated cards agree with the computed trade book on the Burnes deal

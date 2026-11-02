@@ -61,7 +61,13 @@ const r = await d.page.evaluate(async () => {
   o.holmesPiecesCurrent = /Tyrone Taylor .{0,40}Finished 2026 with CHC; free agent this winter/.test(holmesT) && /Jefferson Rojas .{0,40}No MLB record yet; NYM prospect/.test(holmesT) && !/now under/.test(holmesT);
   const morelT = tnode(careerTree(pidOf('Christopher Morel'))).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
   o.morelMinorLeagueDealToMets = /signed a minor-league deal with NYM/.test(morelT) && /where it stands Finished 2026 with NYM/.test(morelT);
-  o.fateMatchesCurrentClub = Object.entries(PLAYER_FATE).every(([pid, [ly, lab]]) => { if(ly < 2026) return true; const q = DESK.players.find(x => x[1] === +pid); return !q || !q[2] || !lab || q[2] === lab; });
+  // v5.9: DESK clubs come from the Stats API's current organization, so a
+  // player traded, claimed, signed or released after his last 2026 game is
+  // on his new club (Blake Perkins CLE, Richard Fitts STL). The fate keeps
+  // the club he finished 2026 with; where they differ, the chain must say
+  // where he is now (or carry a winter status), never silently disagree.
+  o.fateMatchesCurrentClub = Object.entries(PLAYER_FATE).every(([pid, [ly, lab]]) => { if(ly < 2026) return true; const q = DESK.players.find(x => x[1] === +pid); if(!q || !q[2] || !lab || q[2] === lab) return true;
+    return !!(DESK.status||{})[pid] || new RegExp('with ' + q[2] + '\\b').test(chainFate(pid, lab).nm); });
   // the Deal Desk reads the same winter and the same farms
   switchView('desk'); dkState.mode = 'trade'; dkState.you = 'LAD'; dkState.them = 'TB'; dkState.send = []; dkState.recv = []; renderDesk();
   const recvIds = [...document.getElementById('dk-sel-recv').options].map(x => +x.value).filter(Boolean);

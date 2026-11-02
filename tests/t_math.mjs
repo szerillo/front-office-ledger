@@ -15,7 +15,7 @@ const r = await d.page.evaluate(async () => {
   // one net figure per regime, one grade rule for every card
   $('#erasel').value = 'active';
   const rows = lbRows();
-  o.forGradeFollowsRule = rows.every(x => x.isNew ? x.forGrade == null : x.forGrade === gradeComp(x.gradeNet / Math.max(x.seasons, GRADE_FLOOR)));  // v5.4 evidence floor + unscored channels at league average
+  o.forGradeFollowsRule = rows.every(x => x.isNew ? x.forGrade == null : x.forGrade === gradeZ(x.gradeNet / (x.seasons + GRADE_K) / GRADE_SD.comp));  // v5.9 shrinkage + one curve
   o.reportTileMatchesLeaderboard = rows.every(x => { if(x.isNew) return true; renderReport(x.id); const m = document.querySelector('#rc-tiles').innerText.match(/Net value vs\. expectation\s*([+\-]?\d+\.\d)/); return m && Math.abs(+m[1] - x.net) <= 0.15; });
   o.retentionNotRunaway = AUTO_REGIMES.every(x => Math.abs((x.chan.ret && x.chan.ret.net2) || 0) < 60);   // NYY had +133 from re-signings
   // champions: biggest channel is the biggest; computed card is canonical
