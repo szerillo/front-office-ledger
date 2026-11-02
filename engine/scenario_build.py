@@ -113,7 +113,12 @@ CURATED_TIER = {
     "Hanley Ramirez": 8, "Cameron Maybin": 8, "Andrew Miller": 15,
     "Matt LaPorta": 30, "Michael Brantley": 75, "Anibal Sanchez": 40,
     "Jake Odorizzi": 75, "Jeremy Jeffress": 90,
+    # post-2011 pieces the preseason list missed, by deal year: Franklin Perez,
+    # Houston's top pitching prospect at the 2017 deadline (#39 on the next
+    # preseason list), placed in the top-100 tier
+    "Franklin Perez": 60,
 }
+CURATED_TIER_YR = {"Franklin Perez": 2017}
 
 def piece_info(pid, name, yr, month):
     pid = int(pid) if pid else None
@@ -130,8 +135,19 @@ def piece_info(pid, name, yr, month):
     curated = 0
     import unicodedata
     plain = unicodedata.normalize("NFKD", name or "").encode("ascii", "ignore").decode()
-    if not rank and not has_mlb and yr < 2011 and plain in CURATED_TIER:
+    # v5.9: a prospect with a cup of coffee is still a prospect (Maybin and
+    # Andrew Miller had brief 2006-07 debuts and were still consensus top
+    # prospects at the Cabrera deal): the curated tier applies whenever the
+    # piece was rookie-eligible, and he is valued as a prospect
+    light = sum(abs(v) for y, v in d.items() if y <= yr) < 1.5 and sum(1 for y, v in d.items() if y < yr and abs(v) > 0.05) <= 1
+    if not rank and plain in CURATED_TIER and (yr < 2011 or CURATED_TIER_YR.get(plain) == yr) and (not has_mlb or light):
         rank, curated = CURATED_TIER[plain], 1
+        has_mlb = False
+    elif not rank and yr >= 2012 and not (has_mlb and not light):
+        # in-season deals read the preseason list; a piece missing from it
+        # carries his rank from the previous preseason list, flagged
+        prev = RANKS.get(yr - 1, {}).get(pid, 0)
+        if prev: rank, curated = prev, 2
     return dict(pid=pid, name=name, age=age, plat=plat, cur=cur, rank=rank, mlb=1 if has_mlb else 0, cur8d=curated)
 
 def exp_value(pieces, ck, headline):
@@ -223,6 +239,17 @@ for date, ab, headline, seat, setup in TRADES:
         my_recv, my_sent = sent, recv
         my_exp_in, my_exp_out = exp_sent, exp_recv
         out_in, out_out = deal["paid"], deal["recv"]
+    # v5.9: hindsight comes from the trade book, the same valuation the report
+    # cards, the trade ledger and the trees use (the deal archive's own
+    # valuation disagreed with them on 10 of 11 deals, Cabrera +27 vs -13)
+    _tb_seat = None
+    for _d, _seats in json.load(open("/work/trade_book.json"))["trades"]:
+        if _d != date: continue
+        for _st in _seats:
+            if _st[0] == TID2AB[seat_tid] and any(str(p) in {str(x) for x, _ in recv_raw + sent_raw} for p, _ in _st[2] + _st[3]):
+                _tb_seat = _st if _tb_seat is None else [_st[0], _tb_seat[1] + _st[1], _tb_seat[2] + _st[2], _tb_seat[3] + _st[3]]
+    if _tb_seat:
+        out_in = round(sum(v for _, v in _tb_seat[2]), 1); out_out = round(sum(v for _, v in _tb_seat[3]), 1)
     exp_market_price = round((my_exp_in if seat == "buyer" else my_exp_out) * RATIO[ck], 1)
     # ex-ante call from the BUYER's price regardless of seat
     buyer_out = my_exp_out if seat == "buyer" else my_exp_in
@@ -325,33 +352,52 @@ for picks, kindlbl, setups in ((FA_PICKS, "fa", FA_SETUP), (EXT_PICKS, "ext", EX
         ))
         print("built", scenarios[-1]["id"], "surplus", scenarios[-1]["outcome"]["surplus"])
 
-# ---------------- live scenario (unsettled, 2026) ----------------
+# ---------------- 2026 deadline deal (made Aug 3, 2026; return still open) ----------------
+# v5.9: this used to run as a "live" what-if with a hand-entered projected
+# net. The deal was actually made (Holmes and Taylor to the Cubs for
+# Jefferson Rojas) and the trade book grades it, so it now plays as an
+# archive decision whose outcome is the trade book's seat value, open.
 rawranks = json.load(open("/work/prospect_ranks.json"))
 rojas = [(rr["pid"], rr["rank"]) for rr in rawranks if rr["year"] == 2026 and rr["name"] == "Jefferson Rojas"]
 def pid_by_name(nm):
     for pid, rec in LVM.items():
         if rec["name"] == nm: return pid
     return None
-st = standings(2026, date="08/03/2026", tid=121)
-holmes = piece_info(pid_by_name("Clay Holmes"), "Clay Holmes", 2026, 8)
-scenarios.append(dict(
-    id="live-2026-rojas", kind="trade", seat="seller",
-    team="NYM", teamName="New York Mets", opp="CHC", exec_=exec_at(121, "2026-08-03"),
-    date="2026-08-03", phase="deadline",
-    setup="Deadline day, and the season has gotten away from you. Chicago wants your veteran right-hander Clay Holmes and outfielder Tyrone Taylor, both free agents this winter, and offers its shortstop prospect back.",
-    ctx=dict(w=st["w"] if st else 57, l=st["l"] if st else 54, gb=st["gb"] if st else "-",
-             rank=st["rank"] if st else None, season=2026, lev=round(leverage(round((st["w"]/(st["w"]+st["l"]))*162)), 2) if st else 1.0,
-             dpw=9.7, needs=needs(121, 2026)),
-    recv=[dict(pid=None, name="Jefferson Rojas", age=21, plat=0.0, cur=0.0,
-               rank=(rojas[0][1] if rojas else 45), mlb=0, cur8d=0)],
-    send=[holmes, piece_info(pid_by_name("Tyrone Taylor"), "Tyrone Taylor", 2026, 8)],
-    ck="+1", bust=BUST["+1"],
-    exante=dict(expIn=round(vrank_ev(rojas[0][1]) if rojas else vrank_ev(45), 1),
-                expOut=round(max(holmes["plat"], 0) * 1.6, 1), expPrice=None, call="SELLER", ratio=RATIO["+1"]),
-    outcome=dict(recv=None, paid=None, net=-6.4, settled=0,
-                 note="Holmes and Taylor are both free agents now (Holmes declined his 2027 option); Rojas' value is still his prospect expectation, so the number below is a projection, not a result."),
-))
-print("built live-2026-rojas")
+st = standings(2026, date="08/02/2026", tid=121)
+TB = json.load(open("/work/trade_book.json"))
+_seat = None
+for _d, _seats in TB["trades"]:
+    if _d == "2026-08-03":
+        for _st in _seats:
+            if _st[0] == "NYM" and any(TB["names"].get(str(p), "") == "Clay Holmes" or str(p) == str(pid_by_name("Clay Holmes")) for p, _ in _st[3]):
+                _seat = _st
+if st and _seat:
+    holmes = piece_info(pid_by_name("Clay Holmes"), "Clay Holmes", 2026, 8)
+    _wp = st["w"] / max(st["w"] + st["l"], 1)
+    _gb = st["gb"]
+    _race = ("the season has gotten away from you" if _wp < 0.48 or (_gb not in ("-", None) and float(_gb) >= 10)
+             else f"you are {_gb} games out of the division lead at {st['w']}-{st['l']}" if _gb not in ("-", None)
+             else f"you lead the division at {st['w']}-{st['l']}")
+    _in = round(sum(v for _, v in _seat[2]), 1); _out = round(sum(v for _, v in _seat[3]), 1)
+    scenarios.append(dict(
+        id="tr-2026-NYM-holmes", kind="trade", seat="seller",
+        team="NYM", teamName="New York Mets", opp="CHC", exec_=exec_at(121, "2026-08-03"),
+        date="2026-08-03", phase="deadline",
+        setup=f"Deadline day, and {_race}. Chicago wants your veteran right-hander Clay Holmes and outfielder Tyrone Taylor, both headed for free agency this winter, and offers its shortstop prospect back.",
+        ctx=dict(w=st["w"], l=st["l"], gb=st["gb"], rank=st["rank"], season=2026,
+                 lev=round(leverage(round(_wp * 162)), 2), dpw=9.7, needs=needs(121, 2026)),
+        recv=[dict(pid=rojas[0][0] if rojas else None, name="Jefferson Rojas", age=21, plat=0.0, cur=0.0,
+                   rank=(rojas[0][1] if rojas else 45), mlb=0, cur8d=0)],
+        send=[holmes, piece_info(pid_by_name("Tyrone Taylor"), "Tyrone Taylor", 2026, 8)],
+        ck="rental", bust=BUST["rental"],
+        exante=dict(expIn=round(vrank_ev(rojas[0][1]) if rojas else vrank_ev(45), 1),
+                    expOut=round(max(holmes["plat"], 0) * CTRLMULT["rental"], 1), expPrice=None, call="SELLER", ratio=RATIO["rental"]),
+        outcome=dict(recv=_in, paid=_out, net=round(_seat[1], 1), settled=0,
+                     note="The deal was made on Aug 3, 2026. Holmes and Taylor were rentals (both free agents now); Rojas has not reached the majors, so his side is still open."),
+    ))
+    print("built tr-2026-NYM-holmes net", round(_seat[1], 1))
+else:
+    print("MISS 2026 Holmes deal (standings or trade book)")
 
 json.dump(scenarios, open("/work/scenarios.json", "w"), separators=(",", ":"))
 import os

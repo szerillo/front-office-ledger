@@ -24,7 +24,7 @@ Writes hist_results.json.
 from era_names import draft_day
 from asset_rules import control_value, draft_maturity
 MOVE_POP = {"waiver": [], "draft": []}
-from asset_rules import contract_cost, trade_window, DRAFT_K, DRAFT_SHAPE
+from asset_rules import contract_cost, trade_window, waiver_window, DRAFT_K, DRAFT_SHAPE, draft_k
 import json, math, os, sqlite3
 from collections import defaultdict
 from tradegroup import dedupe_rows, group_trades
@@ -59,10 +59,13 @@ def grade_comp(nps):
                    (-0.4,50),(-1.2,45),(-2.2,40),(-3.5,35)]:
         if nps >= thr: return g
     return 30
-def success_grade(wpct, div):
+def success_grade(wpct, div, seasons=6):
     base = 65 if wpct>=.560 else 60 if wpct>=.540 else 55 if wpct>=.520 else \
            50 if wpct>=.500 else 45 if wpct>=.480 else 40 if wpct>=.460 else 35 if wpct>=.440 else 30
-    return min(80, base + min(10, 3*div))
+    # v5.9: the division-title bonus is a RATE (titles per season in the seat),
+    # so a 21-season tenure with 4 titles no longer earns the full bonus that a
+    # 4-season tenure with 4 titles does; one title every two seasons = +10
+    return min(80, base + min(10, round(20 * div / max(seasons, 1))))
 
 hcfg = json.load(open("/work/regimes_hist.json"))
 cfg = json.load(open("/work/regimes.json"))
@@ -224,7 +227,7 @@ for i, reg in enumerate(REGS):
             trades["rows"].append(r)
         elif t == "Claimed Off Waivers":
             claim = r["to_team"] in names
-            _vs = val_series(r["person_id"], names if claim else club_names(r["to_team"]), yr, yr+3, inside=True)
+            _vs = waiver_window(r["person_id"], names if claim else club_names(r["to_team"]), r["date"])[1]
             v = sum(_vs.values())
             net = v if claim else -v
             wv_net += net; n_wv += 1
@@ -234,13 +237,13 @@ for i, reg in enumerate(REGS):
             if abs(net) > 0.05:
                 decs.append(dict(d=r["date"], ch="waiver", net=round(net,1), st=0.5,
                                  h=(r["description"] or "waiver claim")[:110],
-                                 sides=[[("Claimed · 3-yr value on club" if claim else "Lost on waivers · 3-yr value elsewhere"),
+                                 sides=[[("Claimed · next 4 seasons, net of salary" if claim else "Lost on waivers · his next 4 seasons, net of salary"),
                                          [[r["person_name"] or "?", f"{net:+.1f}"]]],
                                         ["Baseline", [["waiver channel expectation", "0.0"]]]],
                                  pids=[r["person_id"]]))
         elif t == "Rule 5 Selection":
             pick = r["to_team"] in names
-            _vs = val_series(r["person_id"], names if pick else club_names(r["to_team"]), yr, yr+3, inside=True)
+            _vs = waiver_window(r["person_id"], names if pick else club_names(r["to_team"]), r["date"])[1]
             v = sum(_vs.values())
             r5n = (v if pick else -v)
             wv_net += r5n; n_r5 += 1
@@ -289,7 +292,7 @@ for i, reg in enumerate(REGS):
         net = vin - vout; tr_net += net
         if abs(net) >= 1.2:
             dests = sorted({dest for (_, _, dest, _) in out_det})
-            sides = [["Acquired (control-window value, leverage-weighted)",
+            sides = [["Acquired (control-window value, net of salary)",
                       [[nm, f"{v:+.1f}"] for (_, nm, v) in sorted(ins_det, key=lambda t: -t[2])] or [["(no valued players)", "0.0"]]],
                      ["Surrendered · value realized on " + (", ".join(dests) if dests else "counterparty"),
                       [[nm, f"{-v:+.1f}"] for (_, nm, _, v) in sorted(out_det, key=lambda t: -t[3])] or [["(no valued players)", "0.0"]]]]
@@ -317,14 +320,14 @@ for i, reg in enumerate(REGS):
         for _y, _x in _rs.items(): ynet[_y] += _x
         _slot = exp / max(draft_maturity(yr), 1e-9)
         for _y in range(yr, END_YEAR + 1):
-            _inc = DRAFT_K * (DRAFT_SHAPE.get(_y - yr, 1.0) - (DRAFT_SHAPE.get(_y - yr - 1, 1.0) if _y > yr else 0.0))
+            _inc = draft_k(yr) * (DRAFT_SHAPE.get(_y - yr, 1.0) - (DRAFT_SHAPE.get(_y - yr - 1, 1.0) if _y > yr else 0.0))
             ynet[_y] -= _slot * _inc
         MOVE_POP["draft"].append([round(exp, 2), round(net, 2)])
         ALLX["draft"].append([draft_day(yr), p["person_name"], pk, round(realized, 1), round(realized_here, 1), round(exp, 1), round(net, 1), p["person_id"]])
         if abs(net) >= 1.5:
             decs.append(dict(d=draft_day(yr), ch="draft", net=round(net,1), st=round(exp, 2),
                              h=f"Drafted {p['person_name']} (#{pk} overall, {yr})",
-                             sides=[["Produced in his six control seasons", [[p["person_name"] + " · with this club", f"{realized_here:+.1f}"]]
+                             sides=[["Produced in his control seasons", [[p["person_name"] + " · with this club", f"{realized_here:+.1f}"]]
                                      + ([[ "· for other clubs after a trade or move (graded in that decision)", f"{realized - realized_here:+.1f}"]] if abs(realized - realized_here) >= 0.05 else [])],
                                     ["Slot expectation", [[f"pick #{pk}, maturity-adjusted", f"{-exp:+.1f}"]]]],
                              pids=[p["person_id"]]))
@@ -352,8 +355,10 @@ for i, reg in enumerate(REGS):
             fa=dict(net=round(fa_raw,1), g=None, n=n_fa),
         ),
         total=round(total,1), forGrade=grade_comp(total/seasons),
-        success=dict(wpct=f"{wpct:.3f}".lstrip('0'), div=div, g=success_grade(wpct, div), w=w, l=l),
-        cum=[round(sum(ynet[y] for y in range(y_start, yy + 1)), 1) for yy in range(y_start, y_end + 1)],
+        success=dict(wpct=f"{wpct:.3f}".lstrip('0'), div=div, g=success_grade(wpct, div, seasons), w=w, l=l),
+        # v5.9: the value-time ledger runs to 2026, past the end of the tenure: the
+        # decisions a regime made keep paying off (or costing) after it leaves
+        cum=[round(sum(ynet[y] for y in range(y_start, yy + 1)), 1) for yy in range(y_start, 2027)],
         top=decs[:8],
         led=dict(trade=chbw("trade"), draft=chbw("draft"), waiver=chbw("waiver", 3)),
         allx=ALLX,

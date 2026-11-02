@@ -28,6 +28,22 @@ def norm(nm):
     return s.lower().replace(".", "").replace(" jr", "").strip()
 
 QOn = {(norm(n), y) for (n, y) in QO}
+QO_CREDIT = 0.0   # v5.9: off with the FA channel's QO charge (the QO table covers ~40% of QOs)
+BY = {int(k): v for k, v in json.load(open("/work/ages.json")).items()}
+def age_band(pid, yr):
+    """v5.9: age at the departure season: <=29, 30-32, 33-35, 36+"""
+    b = BY.get(int(pid)) if pid else None
+    if not b: return 1
+    a = yr - b
+    return 0 if a <= 29 else 1 if a <= 32 else 2 if a <= 35 else 3
+def rental(pid, names, yr):
+    """v5.9: acquired during the filing season (a deadline rental): his walk
+    is part of the trade, whose window already ends at the filing"""
+    rec = LVM.get(int(pid)) if pid else None
+    if not rec: return False
+    here = [tm for (y, tm, v) in rec["rows"] if tm in names and y < yr]
+    other = [tm for (y, tm, v) in rec["rows"] if y == yr and tm not in names]
+    return not here and bool(other)
 
 _raw = json.load(open("/work/lvm_cache.json"))
 LVM = {int(k): v for k, v in _raw.items() if not k.startswith("__")}
@@ -69,12 +85,13 @@ for r in events:
     prior = val(pid, names, yr - 2, yr, inside=True)
     if prior <= 0.5: continue          # same population the regimes are graded on
     if resigned(pid, names, yr): continue
+    if rental(pid, names, yr): continue
     fut = val(pid, names, yr + 1, yr + 3, inside=False)
-    pairs.append((prior, fut))
+    pairs.append((prior, fut, age_band(pid, yr)))
 
 EDGES = [0.0, 0.5, 1.0, 2.0, 3.0, 4.5, 6.5, 9.0, 13.0, 99.0]
 bins = defaultdict(list)
-for p, f in pairs:
+for p, f, _a in pairs:
     for i in range(len(EDGES) - 1):
         if EDGES[i] <= p < EDGES[i+1]:
             bins[i].append((p, f)); break
@@ -99,9 +116,17 @@ def expect(prior):
             return y0 + f * (y1 - y0)
     return 0.0
 
+# v5.9: age. Letting a 37-year-old walk scored as skill (+0.88 per departure
+# at 36+, -0.59 at 29 and under): the curve now carries an age multiplier,
+# fit on the same departures (separable: future = curve(prior) x A[age band])
+_ab = defaultdict(lambda: [0.0, 0.0])
+for p, f, a in pairs: _ab[a][0] += f; _ab[a][1] += expect(p)
+AGE_MULT = {a: (x[0] / x[1] if x[1] else 1.0) for a, x in _ab.items()}
+print("age multipliers (<=29, 30-32, 33-35, 36+):", {a: round(m, 3) for a, m in sorted(AGE_MULT.items())})
+def expect_age(prior, band): return expect(prior) * AGE_MULT.get(band, 1.0)
 # centering: the interpolated curve is not exactly mean-preserving; shift it
 # so the league-wide mean gap per graded departure is zero by construction
-_g = [expect(p) - f for p, f in pairs]
+_g = [expect_age(p, a) - f for p, f, a in pairs]
 CENTER = -sum(_g) / len(_g) if _g else 0.0
 print(f"centering shift per departure: {CENTER:+.3f} (n={len(_g)})")
 
@@ -137,11 +162,12 @@ for r in res:
         prior = val(pid, names, yr - 2, yr, inside=True)
         if prior <= 0.5: continue
         if resigned(pid, names, yr): continue
+        if rental(pid, names, yr): continue
         fut = val(pid, names, yr + 1, yr + 3, inside=False)
-        exp = expect(prior) + CENTER
+        exp = expect_age(prior, age_band(pid, yr)) + CENTER
         gap = exp - fut            # positive: departed player did LESS than market expected: good call
         if (norm(x["person_name"]), yr) in QOn:
-            gap += 1.0; qo_n += 1
+            gap += QO_CREDIT; qo_n += 1
         net2 += gap; n2 += 1
         if fut - exp > 1.5:
             worst.append((x["person_name"], yr, round(prior,1), round(fut,1), round(exp,1)))

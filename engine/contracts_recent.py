@@ -549,7 +549,7 @@ RECENT = [
  (2025,"Alek Manoah","LAA",1,1.95),  # mlbtraderumors.com
  (2025,"Gary Sánchez","MIL",1,1.75),  # mlbtraderumors.com
  (2025,"Germán Márquez","SD",1,1.75),  # mlbtraderumors.com
- (2025,"Luis García Jr.","NYM",1,1.75),  # mlbtraderumors.com
+ (2025,"Luis García","NYM",1,1.75),  # mlbtraderumors.com
  (2025,"Jalen Beeks","TEX",1,1.6),  # mlbtraderumors.com
  (2025,"Taylor Clarke","ARI",1,1.55),  # mlbtraderumors.com
  (2025,"Colin Holderman","CLE",1,1.5),  # mlbtraderumors.com

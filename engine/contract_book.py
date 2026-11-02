@@ -54,21 +54,13 @@ def norm(nm):
     x = unicodedata.normalize("NFKD", nm or "").encode("ascii", "ignore").decode()
     return x.lower().replace(".", "").replace(" jr", "").replace(" sr", "").replace(" ii", "").replace(" iii", "").strip()
 
-NAME2PIDS = defaultdict(list)
-for pid, rec in LVM.items():
-    NAME2PIDS[norm(rec.get("name", ""))].append(pid)
-
-def resolve(name, ab, start):
-    """the player id: by name, preferring the candidate who played for the
-    club around the contract's start, then the one most active then"""
-    c = NAME2PIDS.get(norm(name), [])
-    if len(c) <= 1: return c[0] if c else None
-    names = NAMES.get(ab, set())
-    def score(pid):
-        rows = LVM[pid]["rows"]
-        near = [r for r in rows if start - 2 <= r[0] <= start + 1]
-        return (sum(1 for r in near if r[1] in names), sum(abs(r[2]) for r in near))
-    return max(c, key=score)
+from pid_resolve import Resolver as _Resolver
+_RES = _Resolver(LVM)
+def resolve(name, ab, start, kind="fa", yrs=1):
+    """the player id by name, club, era and career stage (pid_resolve.py, v5.9:
+    the old name-plus-club-presence rule tagged the OF Chris Young's 2014 Mets
+    deal to the RHP and Roberto Hernandez's 2007 Cleveland deal to Carmona)"""
+    return _RES.resolve(name, ab, start, kind, yrs)
 
 raw = []   # (kind, sign 'YYYY-MM', start season, player, abbr, yrs, total, src)
 for row in csv.DictReader(open(f"{ROOT}/research/fa_1997_2005.csv")):
@@ -112,11 +104,16 @@ if _os2.path.exists(f"{ROOT}/research/contracts_pre1998.csv"):
             raw.append((row["kind"].strip(), row["date"][:7], int(row["first_season"]), row["player"], row["team"].strip(),
                         int(row["years"]), float(row["total_m"]), "pre98"))
         except Exception: pass
+# v5.9: one deal, one row. An extension that a free-agent list also carries
+# (Eduardo Escobar ARI Oct 2018 3/21, Michael Wacha KC Nov 2024 3/51) was
+# graded twice, once per channel; the extension row stands.
+_extk = {(norm(pl), ab, start, yrs, round(tot)) for kind, sign, start, pl, ab, yrs, tot, src in raw if kind == "ext"}
+raw = [x for x in raw if not (x[0] == "fa" and (norm(x[3]), x[4], x[2], x[5], round(x[6])) in _extk)]
 book = []
 seen = set()
 for kind, sign, start, pl, ab, yrs, tot, src in raw:
     if ab not in NAMES or yrs < 1: continue
-    pid = resolve(pl, ab, start)
+    pid = resolve(pl, ab, start, kind, yrs)
     if pid is None: continue
     k = (pid, start, ab, kind)
     if k in seen: continue
@@ -143,7 +140,8 @@ for pid, cs in by_pid.items():
 import sqlite3
 _con = sqlite3.connect(f"{ROOT}/ledger.sqlite")
 TRADED = defaultdict(list)
-for _pid, _d, _ft in _con.execute("select person_id, date, from_team from sweep_tx where type_desc='Trade' and person_id is not null"):
+# v5.9: a waiver claim moves the contract too (the claiming club takes it on)
+for _pid, _d, _ft in _con.execute("select person_id, date, from_team from sweep_tx where type_desc in ('Trade','Claimed Off Waivers') and person_id is not null"):
     TRADED[int(_pid)].append((_d, _ft))
 def traded_away(pid, ab, after):
     """first season in which the club traded him away after `after` (YYYY-MM)"""
@@ -190,8 +188,35 @@ def typical(k, y):
     r = TYPICAL_FA.get(min(k, 5), TYPICAL_FA_ALL)
     return r * (ERA_ADJ if y < 2006 else 1.0)
 
+# v5.9: the typical return also depends on the SIZE of the deal. Cheap deals
+# (under half a win of market cost a season) return about twice their cost,
+# $15-30M deals well under it; one curve by contract year read a club that
+# signs many small deals as skilled and a club that signs stars as wasteful.
+# Size bands by market cost per season (wins at the signing season's $/win);
+# the band multiplier is fit on top of the contract-year curve (separable,
+# pooled over every priced 2006+ season), so each band is judged against
+# deals of its own size.
+BANDS = [0.5, 1.5, 3.0]          # wins of market cost per season: <0.5, 0.5-1.5, 1.5-3, 3+
+def band(c):
+    w = max(0.0, c["aav"] - LEAGUE_MIN) / dpw(c["start"])
+    return sum(1 for b in BANDS if w >= b)
+_bw = defaultdict(lambda: [0.0, 0.0, 0])
+for c in book:
+    if c["kind"] != "fa": continue
+    b = band(c)
+    for k, y, w, sh in c["held"]:
+        if y < 2006: continue
+        cost = max(0.0, c["aav"] - LEAGUE_MIN) / dpw(y) * sh
+        a = _bw[b]; a[0] += w; a[1] += cost * TYPICAL_FA.get(min(k, 5), TYPICAL_FA_ALL); a[2] += 1
+BAND_MULT = {b: round(a[0] / a[1], 3) for b, a in sorted(_bw.items()) if a[1] > 0}
+print("size-band multipliers (seasons):", {b: (BAND_MULT[b], _bw[b][2]) for b in BAND_MULT})
+def typical_b(k, y, b):
+    return typical(k, y) * BAND_MULT.get(b, 1.0)
+for c in book:
+    c["band"] = band(c)
+
 json.dump(dict(book=book, dpw={str(k): v for k, v in sorted(DPW.items())}, league_min=LEAGUE_MIN,
-               typical_fa=TYPICAL_FA, typical_fa_all=TYPICAL_FA_ALL, era_adj_pre2006=ERA_ADJ,
+               typical_fa=TYPICAL_FA, typical_fa_all=TYPICAL_FA_ALL, era_adj_pre2006=ERA_ADJ, band_mult=BAND_MULT, bands=BANDS,
                counts={"fa": sum(1 for c in book if c["kind"] == "fa"), "ext": sum(1 for c in book if c["kind"] == "ext")}),
           open(f"{ROOT}/contract_book.json", "w"), separators=(",", ":"))
 print(f"contract book: {len(book)} contracts resolved of {len(raw)} "

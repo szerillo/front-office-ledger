@@ -68,6 +68,64 @@ DRAFTED = defaultdict(list)
 for row in con.execute("select person_id, cast(year as int) y, team from draft_picks where person_id is not null"):
     DRAFTED[str(row["person_id"])].append((row["y"], row["team"]))
 
+# ---- v5.9 provenance resolution (no guessing) ----
+# When the feed has no acquisition row, the source is resolved in order:
+#  1. the contract book: a free-agent deal with the club and no earlier
+#     tenure there (Teixeira, NYY, Dec 2008, 8 yr / $180M)
+#  2. CHAMP_PROV: pre-feed acquisitions from the public record
+#  3. the Stats API draft: the club's own pick (draftYear + draft/{year})
+#  4. the Stats API roster history: first pro assignment in the club's system
+#     (an amateur signing by the club)
+#  5. otherwise "Acquisition not on file", never a guessed draft pick
+from feed_text import clean as feed_clean
+CB = json.load(open("/work/contract_book.json"))["book"]
+CB_BY = defaultdict(list)
+for _c in CB: CB_BY[int(_c["pid"])].append(_c)
+CHAMP_PROV = {
+    # (pid, club abbr): (channel, date, how). Public record (MLB.com,
+    # Baseball Almanac, club histories); the feed starts in 2005.
+    (110840, "BOS"): ("trade", "2003-12", "Acquired from the Colorado Rockies in a trade, Dec 2003"),
+    (132788, "BOS"): ("trade", "2003-02", "Purchased from the Florida Marlins, Feb 2003"),
+    (400083, "SF"):  ("intl", "2008-12", "Signed as a minor-league free agent, Dec 2008 (originally a 1998 Tigers draft pick)"),
+    (124288, "NYY"): ("intl", "1985-09", "Signed as an amateur free agent from Puerto Rico, Sep 1985 (before Puerto Rico entered the draft)"),
+    (119064, "ARI"): ("trade", "1997-11-18", "Taken from the Minnesota Twins in the Nov 1997 expansion draft"),
+    (133340, "NYY"): ("fa", "1998-03-07", "Signed as a free agent after defecting from Cuba, Mar 7 1998 (4 yr / $6.6M)"),
+}
+_SC = "/work/statsapi_cache"
+_os.makedirs(_SC, exist_ok=True)
+def _cget(fn, url):
+    p = f"{_SC}/{fn}"
+    if _os.path.exists(p): return json.load(open(p))
+    try:
+        d = json.load(_ur.urlopen(_ur.Request(url, headers={"User-Agent": "Mozilla/5.0"}), timeout=60))
+    except Exception:
+        return None
+    json.dump(d, open(p, "w")); _t.sleep(0.1)
+    return d
+def draft_by_club(pid, tid):
+    """(year, round, pick) when the Stats API draft lists him as this club's pick"""
+    pp = _cget(f"person_{pid}.json", f"https://statsapi.mlb.com/api/v1/people/{pid}?hydrate=rosterEntries")
+    per = ((pp or {}).get("people") or [{}])[0]
+    yrs = {per.get("draftYear")} - {None}
+    for y in sorted(yrs):
+        dd = _cget(f"draft_{y}.json", f"https://statsapi.mlb.com/api/v1/draft/{y}")
+        for rd in ((dd or {}).get("drafts") or {}).get("rounds", []):
+            for pk in rd.get("picks", []):
+                if (pk.get("person") or {}).get("id") == pid and (pk.get("team") or {}).get("id") == tid:
+                    return (y, pk.get("pickRound"), pk.get("pickNumber"))
+    return None
+def first_pro_org(pid):
+    """(parent org id, team name, start date) of his first professional assignment"""
+    pp = _cget(f"person_{pid}.json", f"https://statsapi.mlb.com/api/v1/people/{pid}?hydrate=rosterEntries")
+    per = ((pp or {}).get("people") or [{}])[0]
+    ents = sorted((e for e in per.get("rosterEntries", []) if e.get("startDate")), key=lambda e: e["startDate"])
+    if not ents: return None
+    e = ents[0]; tm = e.get("team") or {}; y = e["startDate"][:4]
+    if tm.get("id") in TEAMS: return (tm["id"], tm.get("name"), e["startDate"])
+    td = _cget(f"team_{tm.get('id')}_{y}.json", f"https://statsapi.mlb.com/api/v1/teams/{tm.get('id')}?season={y}")
+    t0 = ((td or {}).get("teams") or [{}])[0]
+    return (t0.get("parentOrgId"), tm.get("name"), e["startDate"])
+
 CH_LABEL = dict(trade="Trade", fa="Free agent signing", draft="Draft",
                 intl="Int'l / minor-lg find", inherited="Inherited")
 
@@ -121,33 +179,61 @@ for (yr, tid) in CHAMPS_WS:
         dr = [t for t in DRAFTED.get(str(pid), []) if t[1] in names and t[0] <= yr]
         dr_year = max((t[0] for t in dr), default=None)
         ch, how, d = None, None, None
-        if acq and (dr_year is None or acq["date"] >= f"{dr_year}-06-01"):
+        # a free-agent deal with this club and no earlier tenure here (the feed
+        # can miss the signing: Teixeira, Dec 2008)
+        first_club_season = min((y for (y, tm, v) in LVM[pid]["rows"] if tm in names), default=yr)
+        cb_fa = [c for c in CB_BY.get(pid, []) if c["club"] == abbr and c["kind"] == "fa" and c["start"] <= yr
+                 and c["start"] <= first_club_season and f'{c["sign"]}-31' <= cutoff]
+        cb_fa = max(cb_fa, key=lambda c: c["sign"]) if cb_fa else None
+        if cb_fa and acq and acq["date"][:7] >= cb_fa["sign"]: cb_fa = None
+        prov = CHAMP_PROV.get((pid, abbr))
+        if prov and acq and acq["date"] >= prov[1]: prov = None
+        if prov:
+            ch, d, how = prov
+        elif cb_fa:
+            ch = "fa"; d = cb_fa["sign"]
+            how = f'Signed as a free agent, {cb_fa["yrs"]} yr / ${cb_fa["tot"]:g}M (contract book, signed {cb_fa["sign"]})'
+        elif acq and (dr_year is None or acq["date"] >= f"{dr_year}-06-01"):
             d = acq["date"]
             t = acq["type_desc"]
-            if t == "Trade": ch = "trade"
+            # waiver claims and Rule 5 picks count with trades, as the legend says
+            if t in ("Trade", "Claimed Off Waivers", "Rule 5 Selection"): ch = "trade"
             elif t == "Signed as Free Agent":
                 ch = "fa"
-                if "minor league" in (acq["description"] or "").lower(): ch = "intl"
+                if "minor league" in (acq["description"] or "").lower():
+                    ch = "intl"
+                    # a draftee's first contract is a "minor league" signing in
+                    # the feed (Brandon Belt 2009, Justin Wrobleski 2021)
+                    dbc = draft_by_club(pid, tid)
+                    if dbc and dbc[0] == int(d[:4]):
+                        ch = "draft"; d = draft_day(dbc[0])
             else: ch = "intl"
-            how = (acq["description"] or t)
+            alts = [x["description"] for x in con.execute(
+                "select description from sweep_tx where person_id=? and date=? and type_desc=?",
+                (str(pid), acq["date"], acq["type_desc"]))]
+            how = feed_clean(acq["description"] or t, nm, t, acq["from_team"], acq["to_team"], alts)
+            if ch == "draft":
+                how = f"Drafted by the club, {dbc[0]} (round {dbc[1]}, pick {dbc[2]}); signed {acq['date']}"
             if len(how) > 140:
                 how = how[:140].rsplit(" ", 1)[0].rstrip(",;: ") + "…"
         elif dr_year:
             ch = "draft"; d = draft_day(dr_year); how = f"Drafted by the club, {dr_year}"
         else:
-            # no record in the 2005+ feed and no draft row: amateur signing or pre-floor
-            first_club_season = min((y for (y, tm, v) in LVM[pid]["rows"] if tm in names), default=yr)
-            if first_club_season >= 1987 and birth_country(pid) in DRAFT_TERRITORY:
-                # born in draft territory: he can only have entered through the
-                # amateur draft, which predates the draft table (Jeter, Posada,
-                # Rollins, Glaus); not an international or minor-league find
-                ch = "draft"; d = f"~{first_club_season - 3}"; how = "Amateur draft pick (before the draft table's coverage; born in draft territory)"
-            elif first_club_season >= 1987:
-                ch = "intl"; d = f"~{first_club_season - 2}"; how = "Amateur / minor-league signing (no major-league transaction on record)"
-            else:
+            # no feed row and no draft-table row: resolve from the Stats API
+            dbc = draft_by_club(pid, tid)
+            fpo = None if dbc else first_pro_org(pid)
+            if dbc:
+                ch = "draft"; d = draft_day(dbc[0]); how = f"Drafted by the club, {dbc[0]} (round {dbc[1]}, pick {dbc[2]})"
+            elif fpo and fpo[0] == tid:
+                ch = "intl"; d = fpo[2][:10]; how = f"Came up through the club's system (earliest assignment on file: {fpo[1]}, {fpo[2][:4]})"
+            elif first_club_season < 1987:
                 ch = "inherited"; d = "pre-1985"; how = "Acquired before the 1985 provenance floor (Retrosheet backfill starts 1985)"
+            else:
+                ch = "unk"; d = None; how = "Acquisition not on file"
+                print("   provenance not on file:", yr, abbr, nm, pid)
         tag = "reg" if (d and not d.startswith("pre") and str(d).lstrip("~") >= tag_start) else "inh"
         if ch == "inherited": tag = "inh"
+        if ch == "unk": tag = "unk"
         bucket = "inherited" if tag == "inh" else ch
         roster.append([nm, ch if ch != "inherited" else "intl", how, str(d), tag, round(w, 1), str(pid)])
     total = sum(r[5] for r in roster)

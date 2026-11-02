@@ -21,7 +21,13 @@ NAMES = TB.get("names", {})
 
 pair = defaultdict(list)     # (A, B) -> [dict(d, h, net)]
 for d, seats in TB["trades"]:
-    S = {s[0]: s for s in seats}
+    # v5.9: a club with two seats in one linked deal (SD in the 2014-12-19 Myers
+    # deal) keeps both: merge them instead of letting the second overwrite the first
+    S = {}
+    for s in seats:
+        if s[0] in S:
+            a = S[s[0]]; S[s[0]] = [a[0], a[1] + s[1], a[2] + s[2], a[3] + s[3]]
+        else: S[s[0]] = list(s)
     for a, sa in S.items():
         if a not in REG or d < REG[a]["start"]: continue
         for b, sb in S.items():

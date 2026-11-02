@@ -99,92 +99,122 @@ def grade_comp(nps):
     return 30
 
 res = json.load(open("/work/sweep_results.json"))
-per = defaultdict(lambda: dict(net=0.0, n=0, decs=[]))
+HIST = json.load(open("/work/hist_results.json"))
 MOVE_POP = []   # v5.5: (cost in wins, net) for every graded extension
 skipped = []
 
-# v5.7: graded against expectation AND investment. Pass 1 prices every
-# extension in the book (all clubs, all regimes) and measures what a typical
-# club got back per win of class-market cost; pass 2 grades each regime's
-# deals against that typical return, so the expectation scales with the money.
-EVAL = []
+# v5.9: an extension is graded against the path it replaced.
+#   * In his controlled seasons the value already belongs to the decision
+#     that acquired him (draft, trade, international signing: an extension
+#     no longer cuts those windows short). The extension changes only what
+#     the club PAYS there: credit the estimated arbitration salary it
+#     replaced (pre-arbitration seasons at the minimum), charge the
+#     extension's salary.
+#   * In the free-agent seasons it buys, it is a free-agent deal: production
+#     against the cost at market $/win times the typical free-agent return
+#     for that year of free agency and deal size.
+#   * Then each class (pre-debut, early, arbitration, veteran) is centered:
+#     the league's average result per win of cost for that class is the
+#     expectation, so a club is judged on WHICH players it locked up and at
+#     what price, not on which kind of extension it favors (the v5.7-5.8
+#     fixed class discounts left early extensions at 1.39x expectation and
+#     veteran ones at 0.84x, so the letter mostly read class mix).
+import sys as _sys
+_sys.path.insert(0, "/work")
+import asset_rules as AR
 CB = json.load(open("/work/contract_book.json"))
 CB_DPW = {int(k): v for k, v in CB["dpw"].items()}; LMIN = CB.get("league_min", 0.75)
+def wins_of(m, y): return max(0.0, m - LMIN) / CB_DPW.get(y, AR.dpw(y))
+EVAL = []
 for c in CB["book"]:
     if c["kind"] != "ext": continue
     sign, player, ab, yrs, tot = c["sign"], c["name"], c["club"], c["yrs"], c["tot"]
     if ab not in ABBR2TID: continue
-    tid = ABBR2TID[ab]; reg = REG[tid]
-    sign_date = sign + "-15"
-    pid = str(c["pid"])
-    sy = int(sign[:4])
+    tid = ABBR2TID[ab]
+    pid = str(c["pid"]); sy = int(sign[:4])
     dy = debut_year(pid) if pid else None
     if dy is None or dy > sy: cls = "pre-debut"
     elif sy - dy <= 2: cls = "early"
     elif sy - dy <= 5: cls = "arb"
     else: cls = "veteran"
-    # v5.8: the seasons this deal owns (a later contract owns its own), held
-    # by the club until it trades him (the trade carries the rest, salary
-    # included); a release keeps the dead money. Wander Franco's deal stops
-    # at 2023 (restricted list, unpaid).
+    ce = AR.control_end(int(pid))
     held = [h for h in c.get("held", []) if h[1] <= (2023 if player == "Wander Franco" else 2026)]
-    seasons = [h[1] for h in held]
-    realized = sum(h[2] for h in held)
-    costs = [(h[0], max(0.0, c["aav"] - LMIN) / (DISC[cls] * CB_DPW.get(h[1], 9.7)) * h[3]) for h in held]
-    implied = sum(x for _, x in costs)
-    EVAL.append(dict(sign=sign, player=player, tid=tid, reg=reg, sign_date=sign_date, pid=pid, cls=cls,
-                     yrs=yrs, tot=tot, cbt=None, use_tot=tot, seasons=seasons, realized=realized, implied=implied,
-                     held=held, costs=costs))
-# typical return by contract year, pooled over every priced extension
-_acc = defaultdict(lambda: [0.0, 0.0])
+    ctrl_save = 0.0; fa_prod = 0.0; fa_exp = 0.0; cost = 0.0; ctrl_n = fa_n = 0; inc = {}; cst = {}
+    for k, y, w, sh in held:
+        ext_c = wins_of(c["aav"], y) * sh
+        if ce is not None and y <= ce:
+            arb = AR.arb_salary(int(pid), y) or LMIN
+            v_ = (wins_of(arb, y) - ext_c) * AR.money_unit(y)
+            ctrl_save += v_; ctrl_n += 1
+        else:
+            kk = y - ce if ce is not None else k
+            e_ = ext_c * AR.typical_fa(kk, y, c.get("band"))
+            v_ = w - e_
+            fa_prod += w; fa_exp += e_; fa_n += 1
+        cost += ext_c; inc[y] = inc.get(y, 0.0) + v_; cst[y] = cst.get(y, 0.0) + ext_c
+    raw = ctrl_save + fa_prod - fa_exp
+    EVAL.append(dict(sign=sign, player=player, tid=tid, ab=ab, sign_date=sign + "-15", pid=pid, cls=cls, yrs=yrs, tot=tot,
+                     seasons=[h[1] for h in held], raw=raw, cost=cost, ctrl_save=ctrl_save, fa_prod=fa_prod, fa_exp=fa_exp,
+                     ctrl_n=ctrl_n, fa_n=fa_n, inc=inc, cst=cst))
+_acc = defaultdict(lambda: [0.0, 0.0, 0])
 for e in EVAL:
-    for (k, cst), h in zip(e["costs"], e["held"]):
-        a_ = _acc[min(k, 5)]; a_[0] += h[2]; a_[1] += cst
-TYP_EXT = {k: round(a_[0] / a_[1], 3) for k, a_ in sorted(_acc.items()) if a_[1] > 0}
-TYPICAL = round(sum(a_[0] for a_ in _acc.values()) / max(sum(a_[1] for a_ in _acc.values()), 1e-9), 3)
+    if e["seasons"]: a_ = _acc[e["cls"]]; a_[0] += e["raw"]; a_[1] += e["cost"]; a_[2] += 1
+CLASS_RATE = {k: round(a_[0] / a_[1], 3) for k, a_ in _acc.items() if a_[1] > 0}
 for e in EVAL:
-    e["expected"] = sum(cst * TYP_EXT.get(min(k, 5), TYPICAL) for k, cst in e["costs"])
-print(f"typical extension return by contract year {TYP_EXT} (pooled {TYPICAL}) over {len(EVAL)} book extensions")
+    e["expected"] = CLASS_RATE.get(e["cls"], 0.0) * e["cost"]
+    e["net"] = e["raw"] - e["expected"]
+print("typical extension result per win of cost, by class:", CLASS_RATE, {k: a_[2] for k, a_ in _acc.items()})
+TYPICAL = CLASS_RATE
+json.dump(CLASS_RATE, open("/work/ext_class_rate.json", "w"))
 
-for e in EVAL:
-    sign, player, tid, reg, sign_date, pid, cls = e["sign"], e["player"], e["tid"], e["reg"], e["sign_date"], e["pid"], e["cls"]
-    yrs, tot, cbt, use_tot, seasons, realized, implied = e["yrs"], e["tot"], e["cbt"], e["use_tot"], e["seasons"], e["realized"], e["implied"]
-    if sign_date < reg["start"]:
-        skipped.append((player, reg.get("abbr"), "predates regime")); continue
-    expected = e["expected"]
-    n = realized - expected
-    if not seasons:                  # freshly signed, nothing elapsed
-        per[tid]["decs"].append(dict(d=sign_date, ch="ext", net=0.0,
-            h=f"Extended {player} · {yrs} yr / ${tot:.1f}M ({cls}) · no seasons elapsed, OPEN"))
-        per[tid]["n"] += 1
-        continue
-    per[tid]["net"] += n; per[tid]["n"] += 1
-    cbtnote = f", CBT ${use_tot:.0f}M" if cbt else ""
-    MOVE_POP.append([round(implied, 2), round(n, 2)])
-    per[tid]["decs"].append(dict(d=sign_date, ch="ext", net=round(n, 1), st=round(implied, 2),
-        h=f"Extended {player} · {yrs} yr / ${tot:.1f}M ({cls} market{cbtnote})",
-        sides=[["Production (Ledger WAR on club, covered seasons)", [[player, f"{realized:+.1f}"]]],
-               [f"What a typical club gets for this money", [[f"${use_tot:.0f}M over {yrs} yr at {int(DISC[cls]*100)}% of market $/win: {implied:.1f} wins of class-market cost x the typical return for those contract years", f"{-expected:+.1f}"]]]],
-        pids=[pid] if pid else []))
-
-print(f"{'team':<6}{'EXT net':>9}{'n':>4}   deals")
-for r in res:
-    tid = r["teamId"]; p = per.get(tid, dict(net=0.0, n=0, decs=[]))
-    scored = [d for d in p["decs"] if "OPEN" not in d["h"]]
-    covered = len(scored) >= 2        # v5.8: two PRICED deals with seasons played, not two signatures
-    r["chan"]["ext"] = dict(net=round(p["net"], 1) if covered else 0, typical=round(TYPICAL, 3),
-                            g=grade(p["net"] / r["seasons"]) if covered and scored else None,
-                            n=p["n"])
-    if covered and scored:
-        r["total"] = round(r["total"] + p["net"], 1)
-        r["forGrade"] = grade_comp(r["total"] / r["seasons"])
-    p["decs"].sort(key=lambda d: -abs(d["net"]))
-    r["ext_tops"] = p["decs"][:4]
-    r["allx_ext"] = [[d["d"], d["h"], d["net"], d.get("st")] for d in sorted(p["decs"], key=lambda d: d["d"])]
-    names = ", ".join(d["h"][9:].split(" ·")[0] for d in p["decs"][:3]) or "-"
-    print(f"{r['abbr']:<6}{(p['net'] if covered else 0):>+9.1f}{p['n']:>4}   {names}")
-
+def grade_ext(results, archive=False):
+    per = defaultdict(lambda: dict(net=0.0, n=0, decs=[]))
+    for r in results:
+        tid = r["teamId"]
+        st = max(r["startDate"], "1998-01-01")
+        en = (r.get("endDate") or "9999-12-31") if archive else "9999-12-31"
+        for e in EVAL:
+            if e["tid"] != tid or not (st <= e["sign_date"] <= en): continue
+            p = per[r["id"]]
+            if not e["seasons"]:
+                p["decs"].append(dict(d=e["sign_date"], ch="ext", net=0.0,
+                    h=f"Extended {e['player']} · {e['yrs']} yr / ${e['tot']:.1f}M ({e['cls']}) · no seasons elapsed, OPEN"))
+                p["n"] += 1; continue
+            n = e["net"]; p["net"] += n; p["n"] += 1
+            rate = CLASS_RATE.get(e["cls"], 0.0)
+            for _y, _v in e["inc"].items():
+                p.setdefault("inc", {}); p["inc"][_y] = p["inc"].get(_y, 0.0) + _v - rate * e["cst"].get(_y, 0.0)
+            MOVE_POP.append([round(e["cost"], 2), round(n, 2)])
+            sides = []
+            if e["ctrl_n"]: sides.append(["Controlled seasons: arbitration path minus extension salary", [[f"{e['ctrl_n']} season(s)", f"{e['ctrl_save']:+.1f}"]]])
+            if e["fa_n"]: sides.append(["Bought-out free-agent seasons: production vs a typical free-agent return on the money",
+                                        [[e["player"], f"{e['fa_prod']:+.1f}"], ["typical return on that money", f"{-e['fa_exp']:+.1f}"]]])
+            sides.append([f"Typical {e['cls']} extension of this size", [[f"{e['cost']:.1f} wins of cost x the class average", f"{-e['expected']:+.1f}"]]])
+            p["decs"].append(dict(d=e["sign_date"], ch="ext", net=round(n, 1), st=round(e["cost"], 2),
+                h=f"Extended {e['player']} · {e['yrs']} yr / ${e['tot']:.1f}M ({e['cls']})", sides=sides, pids=[e["pid"]]))
+    for r in results:
+        p = per.get(r["id"], dict(net=0.0, n=0, decs=[]))
+        scored = [d for d in p["decs"] if "OPEN" not in d["h"]]
+        covered = len(scored) >= 2
+        # v5.9: the net always counts (an extension's free-agent seasons are graded
+        # nowhere else); a letter needs two priced deals
+        r["chan"]["ext"] = dict(net=round(p["net"], 1), typical=CLASS_RATE,
+                                g=grade(p["net"] / r["seasons"]) if covered else None, n=p["n"], scored=len(scored))
+        if scored:
+            r["total"] = round(r["total"] + p["net"], 1)
+            r["forGrade"] = grade_comp(r["total"] / r["seasons"])
+            if r.get("cum") and p.get("inc"):
+                y0c = r["start"]
+                r["cum"] = [round(v + sum(x for yy, x in p["inc"].items() if yy <= y0c + i), 1) for i, v in enumerate(r["cum"])]
+        p["decs"].sort(key=lambda d: -abs(d["net"]))
+        r["ext_tops"] = p["decs"][:4]
+        r["allx_ext"] = [[d["d"], d["h"], d["net"], d.get("st")] for d in sorted(p["decs"], key=lambda d: d["d"])]
+        if not archive:
+            names = ", ".join(d["h"][9:].split(" ·")[0] for d in p["decs"][:3]) or "-"
+            print(f"{r['abbr']:<6}{(p['net'] if covered else 0):>+9.1f}{p['n']:>4}   {names}")
+grade_ext(res)
+grade_ext(HIST, archive=True)     # v5.9: archive regimes are graded on extensions too
 json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
+json.dump(HIST, open("/work/hist_results.json", "w"), indent=1)
 json.dump({"ext": MOVE_POP}, open("/work/move_pop_ext.json", "w"))
-print("\nmerged chan.ext into sweep_results.json")
-for s in skipped: print("  skipped (outside regime):", s)
+print("\nmerged chan.ext into sweep_results.json and hist_results.json")

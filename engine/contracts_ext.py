@@ -40,7 +40,8 @@ EXT = [
     ('2022-06', 'Yordan Alvarez', 'HOU', 6, 115.0, None),       # 2023-2028
     ('2023-04', 'Logan Webb', 'SF', 5, 90.0, None),             # 2024-2028
     ('2025-04', 'Geraldo Perdomo', 'ARI', 4, 45.0, None),       # 2026-2029
-    ('2019-01', 'Nolan Arenado', 'COL', 9, 275.0, None),        # 2019-2027 incl the exercised 2027 (AAV approximation on the 2027 add-on)
+    ('2019-01', 'Nolan Arenado', 'COL', 8, 260.0, None),        # 2019-2026 as Colorado signed it (v5.9; was 9/275)
+    ('2021-02', 'Nolan Arenado', 'STL', 1, 15.0, None, 2027),   # the 2027 year St. Louis added in the Feb 2021 trade restructure
  # LAD (Friedman 2014-)
  ("2020-07","Mookie Betts","LAD",12,365,306.7),
  ("2024-03","Will Smith","LAD",10,140,None),
@@ -202,7 +203,7 @@ EXT = [
     ("2018-03", "Eugenio Suárez", "CIN", 7, 66.0, None, 2018),
     ("2018-03", "Christian Vázquez", "BOS", 3, 13.55, None, 2018),
     ("2018-03", "Scott Kingery", "PHI", 6, 24.0, None, 2018),
-    ("2018-04", "Charlie Blackmon", "COL", 6, 108.0, None, 2019),
+    ("2018-04", "Charlie Blackmon", "COL", 6, 108.0, None, 2018),   # 2018-23 (v5.9; was 2019)
     ("2018-10", "Eduardo Escobar", "ARI", 3, 21.0, None, 2019),
     ("2018-11", "Clayton Kershaw", "LAD", 3, 93.0, None, 2019),
     ("2018-11", "Raisel Iglesias", "CIN", 3, 24.125, None, 2019),
@@ -282,7 +283,7 @@ EXT = [
     ("2022-04", "Emmanuel Clase", "CLE", 5, 20.0, None, 2022),
     ("2022-04", "Ryan Pressly", "HOU", 2, 30.0, None, 2023),
     ("2022-04", "Manuel Margot", "TB", 2, 19.0, None, 2023),
-    ("2022-04", "Myles Straw", "CLE", 5, 25.0, None, 2023),
+    ("2022-04", "Myles Straw", "CLE", 5, 25.0, None, 2022),        # 2022-26, 2027-28 club options (v5.9; was 2023)
     ("2022-04", "Garrett Whitlock", "BOS", 4, 18.75, None, 2022),
     ("2022-04", "Kyle Freeland", "COL", 5, 64.5, None, 2023),
     ("2022-05", "John Means", "BAL", 2, 5.925, None, 2023),
@@ -319,7 +320,7 @@ EXT = [
     ("2026-02", "Max Muncy", "LAD", 1, 10.0, None, 2026),
     ("2026-02", "Chris Sale", "ATL", 1, 27.0, None, 2026),
     ("2026-03", "Cristopher Sánchez", "PHI", 6, 107.0, None, 2026),
-    ("2026-03", "Nico Hoerner", "CHC", 6, 141.0, None, 2026),
+    ("2026-03", "Nico Hoerner", "CHC", 6, 141.0, None, 2027),     # 2027-32; his 3 yr / $35M deal runs through 2026 (v5.9)
     ("2026-04", "Kevin McGonigle", "DET", 8, 150.0, None, 2026),
     ("2026-05", "Luis Torrens", "NYM", 2, 11.5, None, 2027),
     ("2026-06", "Luis Lara", "MIL", 7, 31.0, None, 2026),

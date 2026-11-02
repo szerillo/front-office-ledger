@@ -28,7 +28,7 @@ CONTRACTS = [
     ("Salvador Perez", "KC", 2027, 2027, 12.5, "2 yr / $25M, 2026-27"),
     ("Victor Caratini", "MIN", 2027, 2027, 7.0, "2 yr / $14M, 2026-27"),
     ("Willi Castro", "COL", 2027, 2027, 6.4, "2 yr / $12.8M, 2026-27"),
-    ("Ryan McMahon", "NYY", 2027, 2027, 10.0, "final year of 7 yr / $70M"),
+    ("Ryan McMahon", "NYY", 2027, 2027, 10.0, "final year of 6 yr / $70M (2022-27)"),
     ("Reynaldo López", "ATL", 2027, 2027, 10.0, "2027 guaranteed in his restructure"),
     ("Luis Torrens", "NYM", 2027, 2028, 5.75, "2 yr / $11.5M extension, 2027-28"),
     ("Luis Castillo", "CWS", 2027, 2027, 21.6, "final guaranteed year (2028 vesting option)"),

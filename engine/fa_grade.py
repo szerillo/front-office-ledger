@@ -19,7 +19,10 @@ from contracts_recent import RECENT
 from contracts_ext import QO, FA_CBT
 from fa_grade_lib import norm, DPW
 
-QO_CHARGE = 1.0  # wins: draft-comp forfeited signing a QO'd free agent
+QO_CHARGE = 0.0  # v5.9: off. The qualifying-offer table covers about 40% of
+                 # the QOs issued since 2012 (51 of ~135), so charging the draft
+                 # pick forfeited for those 51 and not the rest graded clubs
+                 # unevenly; the charge returns when the table is complete.
 MOVE_POP = []   # v5.5: (cost in wins, net) for every graded signing
                  # (second-round-pick value on our pick curve; flat v1)
 
@@ -73,16 +76,39 @@ CB = json.load(open("/work/contract_book.json"))
 CB_DPW = {int(k): v for k, v in CB["dpw"].items()}
 TYP = {int(k): v for k, v in CB["typical_fa"].items()}
 ERA = CB.get("era_adj_pre2006", 1.0); LMIN = CB.get("league_min", 0.75)
-def typical(k, y): return TYP.get(min(k, 5), CB["typical_fa_all"]) * (ERA if y < 2006 else 1.0)
+BAND = {int(k): v for k, v in CB.get("band_mult", {}).items()}
+def typical(k, y, b=None):
+    """v5.9: by contract year AND deal size (contract_book.py band multipliers)"""
+    return TYP.get(min(k, 5), CB["typical_fa_all"]) * (ERA if y < 2006 else 1.0) * (BAND.get(b, 1.0) if b is not None else 1.0)
+# v5.9: posting fees are part of the price of a posted player (charged as
+# year-one money; public reports of the fee paid to the NPB/KBO club)
+POSTING_FEE = {   # (player id, signing club) -> fee $M
+    (493137, "BOS"): 51.11,  # Daisuke Matsuzaka, Dec 2006
+    (506432, "NYY"): 26.0,   # Kei Igawa, Dec 2006
+    (506433, "TEX"): 51.7,   # Yu Darvish, Jan 2012
+    (547888, "NYY"): 20.0,   # Masahiro Tanaka, Jan 2014
+    (547943, "LAD"): 25.7,   # Hyun Jin Ryu, Dec 2012
+    (628317, "LAD"): 20.0,   # Kenta Maeda, Jan 2016
+    (660271, "LAA"): 20.0,   # Shohei Ohtani, Dec 2017 (signing as an international pro: IFA channel)
+    (579328, "SEA"): 10.275, # Yusei Kikuchi, Jan 2019
+    (673548, "CHC"): 14.6,   # Seiya Suzuki, Mar 2022
+    (807799, "BOS"): 15.4,   # Masataka Yoshida, Dec 2022
+    (808967, "LAD"): 50.6,   # Yoshinobu Yamamoto, Dec 2023
+    (684007, "CHC"): 9.825,  # Shota Imanaga, Jan 2024
+    (808982, "SF"): 18.825, # Jung Hoo Lee, Dec 2023
+    (673490, "SD"): 5.3,    # Ha-Seong Kim, Jan 2021
+    (628356, "PIT"): 5.0,    # Jung Ho Kang, Jan 2015
+    (457292, "MIN"): 5.33,   # Tsuyoshi Nishioka, Dec 2010
+}
 FA_BOOK = defaultdict(list)
 for c in CB["book"]:
     if c["kind"] == "fa": FA_BOOK[(int(c["pid"]), c["club"])].append(c)
 TID2AB = {r["teamId"]: r["abbr"] for r in cfg["regimes"]}
-def priced(tid, start):
+def priced(tid, start, end="9999-12-31"):
     rows = con.execute("""select date, person_id, person_name from sweep_tx
-        where team_id=? and date>=? and type_desc='Signed as Free Agent'
+        where team_id=? and date>=? and date<=? and type_desc='Signed as Free Agent'
         and lower(description) not like '%minor league%' and person_id is not null""",
-        (tid, start)).fetchall()
+        (tid, start, end)).fetchall()
     seen = set(); used = set(); out = []
     for x in rows:
         k = (x["date"], x["person_id"])
@@ -102,21 +128,38 @@ def priced(tid, start):
         held = [h for h in c.get("held", []) if h[1] <= 2026]
         if not held: out.append(dict(x=x, hit=(off, c["yrs"], c["tot"], c["src"]), open=True)); continue
         realized = sum(h[2] for h in held)
+        b = c.get("band")
         cost = sum(max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] for h in held)
-        expected = sum(max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] * typical(h[0], h[1]) for h in held)
-        out.append(dict(x=x, hit=(off, c["yrs"], c["tot"], c["src"]), pn=norm(x["person_name"]), cbt=None,
-                        implied=cost, expected=expected, realized=realized, seasons=[h[1] for h in held]))
+        expected = sum(max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] * typical(h[0], h[1], b) for h in held)
+        fee = POSTING_FEE.get((int(x["person_id"]), TID2AB[tid]), 0.0)
+        if fee:
+            fc = fee / CB_DPW.get(held[0][1], 9.7)
+            cost += fc; expected += fc * typical(1, held[0][1], b)
+        # v5.9: per-season increments (value-time), so the card's cumulative
+        # chart carries free agency too
+        inc = {}
+        for i_, h in enumerate(held):
+            e_ = max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] * typical(h[0], h[1], b)
+            if i_ == 0 and fee: e_ += fee / CB_DPW.get(held[0][1], 9.7) * typical(1, held[0][1], b)
+            inc[h[1]] = inc.get(h[1], 0.0) + h[2] - e_
+        out.append(dict(x=x, hit=(off, c["yrs"], c["tot"], c["src"]), pn=norm(x["person_name"]), cbt=None, fee=fee,
+                        implied=cost, expected=expected, realized=realized, seasons=[h[1] for h in held], inc=inc))
     return out
 TYPICAL = CB["typical_fa_all"]
 print(f"typical return by contract year {TYP} (pooled {TYPICAL}), pre-2006 x{ERA}")
 
 print(f"\n{'team':<5}{'FA net':>8}{'matched':>9}{'majors':>8}   best / worst signing")
-for r in res:
-    tid = r["teamId"]; names = ALIAS.get(tid, {REG[tid]["team"]})
-    start = max(REG[tid]["start"], "1998-01-01")       # v5.8: the book now reaches the 1997-98 winter
-    sigs = priced(tid, start)
+def grade_file(res, archive=False):
+  for r in res:
+    tid = r["teamId"]
+    if archive:
+        start = max(r["startDate"], "1998-01-01"); end = r.get("endDate") or "9999-12-31"
+    else:
+        start = max(REG[tid]["start"], "1998-01-01"); end = "9999-12-31"   # v5.8: the book now reaches the 1997-98 winter
+    sigs = priced(tid, start, end)
     majors = [s["x"] for s in sigs]
     net = 0.0; matched = 0; decs = []; allx = []   # v5.7: every major-league signing, priced or not
+    fa_inc = {}
     fa_dna = dict(pit=0.0, bat=0.0)
     for s_ in sigs:
         x = s_["x"]
@@ -129,12 +172,14 @@ for r in res:
         n = realized - expected
         notes = []
         if cbt: notes.append(f"CBT ${cbt:.0f}M used for cost")
+        if s_.get("fee"): notes.append(f"${s_['fee']:.1f}M posting fee charged")
         qo = (pn, off) in QO
         if qo:
             n -= QO_CHARGE
             notes.append("QO signing, draft comp charged")
         note = (", " + ", ".join(notes)) if notes else ""
         net += n; matched += 1
+        for _y, _v in s_["inc"].items(): fa_inc[_y] = fa_inc.get(_y, 0.0) + _v
         fa_dna["pit" if POS.get(str(x["person_id"])) in PITPOS else "bat"] += n
         fasides = [["Production (Ledger WAR on club, elapsed seasons)", [[x["person_name"], f"{realized:+.1f}"]]],
                    ["What a typical club gets for this money" + (" (QO draft comp included)" if qo else ""),
@@ -146,13 +191,16 @@ for r in res:
                          sides=fasides, pids=[x["person_id"]]))
     covered = matched >= 3     # v5.7: the same evidence floor as every other channel (was 8)
     r["allx_fa"] = allx
-    r["chan"]["fa"] = dict(net=round(net, 1) if covered else 0,
+    r["chan"]["fa"] = dict(net=round(net, 1),   # v5.9: the net always counts; a letter needs three priced deals
                            g=grade(net / r["seasons"]) if covered else None,
                            n=matched, majors=len(majors), typical=round(TYPICAL, 3),
                            raw=r["chan"]["fa"].get("net", r["chan"]["fa"].get("raw", 0)))
-    if covered:
+    if matched:
         r["total"] = round(r["total"] + net, 1)
         r["forGrade"] = grade_comp(r["total"] / r["seasons"])
+        if r.get("cum"):
+            y0c = r["start"]
+            r["cum"] = [round(v + sum(x for yy, x in fa_inc.items() if yy <= y0c + i), 1) for i, v in enumerate(r["cum"])]
     decs.sort(key=lambda d: -abs(d["net"]))
     r["fa_tops"] = decs[:4]
     r.setdefault("dna", {})["fa"] = {k: round(v, 1) for k, v in fa_dna.items()}
@@ -162,6 +210,10 @@ for r in res:
     worst = min(decs, key=lambda d: d["net"])["net"] if decs else 0
     print(f"{r['abbr']:<5}{(net if covered else 0):>+8.1f}{matched:>9}{len(majors):>8}   {best} / worst {worst:+.1f}")
 
+grade_file(res)
+H = json.load(open("/work/hist_results.json"))
+grade_file(H, archive=True)      # v5.9: archive regimes are graded on free agency too
+json.dump(H, open("/work/hist_results.json", "w"), indent=1)
 json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
 json.dump({"fa": MOVE_POP}, open("/work/move_pop_fa.json", "w"))
 print("\nmerged graded FA into sweep_results.json")

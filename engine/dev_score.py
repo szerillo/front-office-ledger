@@ -63,7 +63,10 @@ con = sqlite3.connect("/work/ledger.sqlite"); con.row_factory = sqlite3.Row
 
 # draft book: pid -> (year, overall, team name)
 draft = {}
-for r in con.execute("select person_id, year, pick_overall, team from draft_picks where person_id is not null"):
+# v5.9: a player drafted twice keeps his LAST (signed) pick, the same rule the
+# draft channel's re-draft screen uses (Rutschman read as "acquired" from his
+# unsigned high-school pick)
+for r in con.execute("select person_id, year, pick_overall, team from draft_picks where person_id is not null order by cast(year as int)"):
     draft[r["person_id"]] = (int(r["year"]), int(r["pick_overall"] or 999), r["team"])
 TEAMNAME2ID = {r["team"]: r["teamId"] for r in cfg["regimes"]}
 ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
@@ -113,6 +116,10 @@ for pid, ymap in by_pid.items():
         dr = draft.get(pid)
         if dr and name2tid(dr[2]) == h0 and dr[0] >= y0 - 6:
             implied = D(dr[1]); how = f"own draft pick #{dr[1]} ({dr[0]})"
+        elif meta[pid].get("bc") == "Japan" and not dr:
+            # v5.9: a finished NPB pro (Ohtani, Sasaki) arrives already
+            # developed: priced at his entry rank, no development credit
+            implied = V(ymap[y0]); how = "signed as an international pro"
         elif (meta[pid].get("bc") not in NA_DRAFT) and first_org(pid) == h0 and not dr:
             implied = 0.5; how = "own international signing"
         elif dr and name2tid(dr[2]) != h0:

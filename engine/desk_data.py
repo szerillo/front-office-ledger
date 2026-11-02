@@ -10,7 +10,7 @@ Writes desk_data.json:
   teams:   {abbr: 2026 win total}
   deals:   compact 1998-2023 archive [yr, ab, ph, ck, po, recv, paid, who]
 """
-import json, sqlite3
+import json, sqlite3, os
 from collections import defaultdict
 
 LVM = {int(k): v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
@@ -71,6 +71,33 @@ try:
     PT_RAW = json.load(open("/work/playtime.json"))
 except Exception:
     PT_RAW = {}
+# minor-league role for pitchers with no MLB workload: the prospect model's
+# games-started share (pros_peak.json), else the Stats API minor-league
+# year-by-year line (cached), else SP for a ranked prospect
+_PK_POS = {k: z.get("pos") for k, z in json.load(open("/work/pros_peak.json"))["players"].items()}
+_MR_F = "/work/statsapi_cache/milb_role.json"
+try: _MILB_ROLE = json.load(open(_MR_F))
+except Exception: _MILB_ROLE = {}
+def _milb_role(pid, ranked):
+    k = str(pid)
+    if _PK_POS.get(k) in ("SP", "RP"): return _PK_POS[k]
+    if k not in _MILB_ROLE:
+        gs = gp = 0
+        try:
+            import urllib.request as _u
+            _d = json.load(_u.urlopen(_u.Request(f"https://statsapi.mlb.com/api/v1/people/{k}/stats?stats=yearByYear&group=pitching&sportIds=11,12,13,14,16&leagueListId=milb_all",
+                                                 headers={"User-Agent": "Mozilla/5.0"}), timeout=30))
+            sp = [x for st in _d.get("stats", []) for x in st.get("splits", [])]
+            yrs = sorted({x.get("season") for x in sp}, reverse=True)[:2]
+            for x in sp:
+                if x.get("season") in yrs:
+                    gs += x["stat"].get("gamesStarted", 0) or 0; gp += x["stat"].get("gamesPlayed", 0) or 0
+        except Exception:
+            gp = -1
+        _MILB_ROLE[k] = [gs, gp]
+    gs, gp = _MILB_ROLE[k]
+    if gp > 0: return "SP" if gs / gp >= 0.5 else "RP"
+    return "SP" if ranked else "RP"
 for p in players:
     svc = p.pop(10)                      # mlb_seasons appended during build
     p.append(DUR.get(str(p[1]), 1.0))    # idx 10: durability
@@ -84,10 +111,15 @@ for p in players:
     raw = pp or ("P" if p[3] else "OF")
     if raw in ("RHP", "LHP", "P", "TWP"):
         rec = PT_RAW.get(str(p[1]), {})
-        role = "RP"
+        role = None
         for season in ("2026", "2025", "2024"):
             ip, g = (rec.get(season) or [0, 0, 0])[1], (rec.get(season) or [0, 0, 0])[2]
             if ip > 0 and g > 0: role = "SP" if ip / g >= 3.0 else "RP"; break
+        if role is None:
+            # v5.9: no MLB workload (a prospect): the minor-league games-started
+            # share decides (Seth Hernandez, Ryan Sloan, Thomas White start;
+            # the old default tagged every one of them RP)
+            role = _milb_role(p[1], bool(p[9]))
         raw = role
     p.append(raw)
     # idx 14: pedigree (v4.4) - best season of the last five, decayed 0.88/yr,
@@ -95,6 +127,8 @@ for p in players:
     dd = BY[p[1]][0]
     p.append(round(max(dd.get(2026 - k, 0.0) * (0.88 ** k) for k in range(5)), 2))
 print("desk players:", len(players), "| with durability:", sum(1 for p in players if p[10] != 1.0))
+try: json.dump(_MILB_ROLE, open(_MR_F, "w"))
+except Exception: pass
 
 # resolve org for ranked prospects with no MLB track (no value rows -> no team abbr)
 import urllib.request as _ur, time as _t
@@ -149,7 +183,7 @@ def short_to_tid(short):
             return r["teamId"]
     return None
 raw_contracts = []
-with open("/work/repo/data/contracts_espn.csv") as f:
+with open("/work/data/contracts_espn.csv") as f:
     for row in csv.DictReader(f):
         tid = short_to_tid(row["to_team"])
         if tid: raw_contracts.append((int(row["offseason"]), row["player"], tid, int(row["years"]), float(row["total_m"]), 0))
@@ -168,22 +202,45 @@ for _e in EXT:
     if ab in AB2TID:
         EXT_META[(off, pl, AB2TID[ab])] = (dt, float(tot) if cbt else None)
         raw_contracts.append((off, pl, AB2TID[ab], yrs, float(cbt if cbt else tot), 1))
+# v5.9: resolve by name AND club, era and career stage (pid_resolve.py, the
+# same resolver the engine book uses); the old join kept the namesake with
+# the most WAR, so the Dodgers' catcher carried LHP Will Smith's deals
+from pid_resolve import Resolver as _Resolver
+_RES = _Resolver(LVM, extra=[(p[0], p[1]) for p in players])
+_TID2AB_B = {r["teamId"]: r["abbr"] for r in cfg["regimes"]}
 book = []
+_seen_k = set()
+try:
+    _PPL0 = json.load(open("/work/statsapi_cache/people.json"))
+except Exception:
+    _PPL0 = {}
+def _birth_year(pid):
+    if str(pid) in AGES: return AGES[str(pid)]
+    b = (_PPL0.get(str(pid)) or {}).get("birth") or ""
+    return int(b[:4]) if b else 0
+# an extension listed again as a free-agent signing (same player, club,
+# season, terms): the extension row stands
+_ext_k = set()
 for (off, pl, tid, yrs, tot, typ) in raw_contracts:
-    cands = NAME2PIDS.get(norm(pl), [])
-    pid = None
-    if len(cands) == 1: pid = cands[0]
-    elif len(cands) > 1:
-        pid = max(cands, key=lambda p: abs(BY[p][0].get(off, 0)) + abs(BY[p][0].get(off - 1, 0)))
+    if typ == 1:
+        _p = _RES.resolve(pl, _TID2AB_B.get(tid), off + 1, "ext", yrs)
+        if _p: _ext_k.add((_p, off, tid, yrs, round(tot, 1)))
+for (off, pl, tid, yrs, tot, typ) in raw_contracts:
+    pid = _RES.resolve(pl, _TID2AB_B.get(tid), off + 1, "fa" if typ == 0 else "ext", yrs)
     if pid is None: continue
-    d = BY[pid][0]
+    # one contract, one row: the same deal listed as both a free-agent signing
+    # and an extension (Escobar ARI 2018, Wacha KC 2024) keeps the first source
+    _k = (pid, off, tid, yrs, round(tot, 1))
+    if _k in _seen_k or (typ == 0 and _k in _ext_k): continue
+    _seen_k.add(_k)
+    d = BY[pid][0] if pid in BY else {}
     plat1 = round(d.get(off, 0), 1)             # platform season
     plat2 = round(d.get(off - 1, 0), 1)         # season before
-    age = off - AGES.get(str(pid), 0)
+    age = off - _birth_year(pid)
     if not (18 < age < 46): continue
     names = TEAMNAMES.get(tid, set())
     elapsed = min(yrs, 2026 - off)
-    realized = round(sum(v for (y, tm, v) in LVM[pid]["rows"]
+    realized = round(sum(v for (y, tm, v) in (LVM.get(pid) or {"rows": []})["rows"]
                          if off + 1 <= y <= off + elapsed and tm in names), 1) if elapsed > 0 else None
     pit = 1 if POS.get(str(pid)) in PITPOS else 0
     pgroup = (lambda p: "C" if p == "C" else "IF" if p in ("1B","2B","3B","SS") else
@@ -339,6 +396,34 @@ for ab, xs in byorg.items():
             players.append(row); have[pid] = row; n_new += 1
         elif not have[pid][2]: have[pid][2] = ab
         PROS_OUT[spid] = [z["lvl"], z["ev6d"], z["y1"], z["line"], k + 1, None]
+# ---- v5.9 currency pass: every desk row's club comes from the Stats API ----
+# The value cache knows the last club a player APPEARED for, so a player
+# traded, claimed or released without playing for his new club stayed with
+# the old one (Blake Perkins on MIL after his Aug 1 trade to CLE, Richard
+# Fitts on BOS after the Sonny Gray deal). currentTeam (mapped to its parent
+# organization) is the club that holds him today; a free agent keeps the
+# club he left. People records are cached in statsapi_cache/people.json.
+import tx_refresh as _TXR, os as _os, datetime as _dtm
+_PPL_F = "/work/statsapi_cache/people.json"
+try:
+    PEOPLE = json.load(open(_PPL_F))
+except Exception:
+    PEOPLE = {}
+_need = [p[1] for p in players if str(p[1]) not in PEOPLE or PEOPLE.get("__asof") != _dtm.date.today().isoformat()]
+if _need:
+    _fresh = _TXR.fetch_people(_need)
+    if _fresh:
+        PEOPLE.update(_fresh); PEOPLE["__asof"] = _dtm.date.today().isoformat()
+        json.dump(PEOPLE, open(_PPL_F, "w"))
+_moved = 0
+for p in players:
+    rec = PEOPLE.get(str(p[1])) or {}
+    org = rec.get("team") if rec.get("team") in TID2AB_ALL else rec.get("parent")
+    ab = TID2AB_ALL.get(org)
+    if ab and ab != p[2]:
+        _moved += 1; p[2] = ab
+print("currency pass: clubs refreshed from statsapi currentTeam:", _moved)
+
 # org slot follows the club he is with now (v5.4: a prospect moved since the
 # minor-league season read the old system's slot, so two players shared CHC #19)
 _byclub = defaultdict(list)
@@ -376,6 +461,9 @@ for nm in W.CONTROLLED_AFTER_DECLINE:
 # 3. contracts the base book lacks (typ 2: on file, never a pricing comp)
 def add_contract(p, ab, y0, y1, aav, label):
     yrs = y1 - y0 + 1
+    # v5.9: a deal the base book already carries (Shelby Miller's 2 yr Cubs
+    # deal, Torrens' extension) gets its status label but no second row
+    if any(r[11] == p[1] and r[12] != 2 and r[1] + 1 <= y0 and r[1] + r[3] >= y1 for r in book): return
     book.append([p[0], y0 - 1, ab, yrs, round(aav * yrs, 2), y0 - 1 - AGES.get(str(p[1]), 2000), p[3],
                  p[7], p[6], "", 0, p[1], 2, p[12], label])
 for nm, ab, y0, y1, aav, label in W.CONTRACTS:
@@ -409,6 +497,94 @@ for nm, kind, amt, buy in W.PENDING:
 for nm, why in W.OUT.items():
     p = P_(nm)
     if p: STATUS[p[1]] = ["out", why]
+# ---- v5.9 currency pass: availability from the league transaction feed ----
+# (statsapi transactions Jan 2025 - today, statsapi_cache/tx.json).
+#  - restricted or ineligible list with no activation for 60+ days: out
+#    (Luis L. Ortiz, the Clase case, since Jul 3 2025)
+#  - retired with no later signing: out (Rizzo Sep 13 2025, Mancini Sep 19 2026)
+#  - elected free agency or released since Oct 1 2025 with no later signing: fa
+#  - no 2026 MLB game at 36 or older (or an inactive people record) with no
+#    contract into 2027: out, so long-gone veterans leave the free-agent
+#    board (Charlie Morton, Rich Hill, Yuli Gurriel)
+try:
+    _TX = json.load(open("/work/statsapi_cache/tx.json"))
+    if _TX.get("asof") != _dtm.date.today().isoformat(): raise ValueError("stale")
+    _TX = _TX["tx"]
+except Exception:
+    try: _TX = _TXR.fetch_tx()
+    except BaseException: _TX = json.load(open("/work/statsapi_cache/tx.json"))["tx"]
+_ev = defaultdict(list)
+_desk_ids = {p[1] for p in players}
+for t in _TX:
+    pid = (t.get("person") or {}).get("id")
+    if pid not in _desk_ids: continue
+    _ev[pid].append((t.get("date", ""), t.get("id", 0), t.get("typeDesc", ""), t.get("description") or "",
+                     (t.get("toTeam") or {}).get("name", ""), (t.get("fromTeam") or {}).get("name", "")))
+_today = _dtm.date.today()
+def _fmt(d):
+    x = _dtm.date.fromisoformat(d[:10]); return f"{x.strftime('%b')} {x.day}, {x.year}"
+_book_2027 = {r[11] for r in book if r[1] + r[3] >= 2027}
+_cur_n = defaultdict(int)
+for p in players:
+    pid = p[1]
+    evs = sorted(_ev.get(pid, []))
+    restricted = retired = freed = last_join = None
+    for d, _, ty, desc, to_, fr_ in evs:
+        l = desc.lower()
+        if ("restricted list" in l or "ineligible list" in l) and "placed" in l: restricted = (d, "restricted" if "restricted" in l else "ineligible")
+        elif restricted and d > restricted[0] and ty != "Number Change" and "roster status changed" not in l:
+            restricted = None                 # activated, released, assigned, traded: back in play
+        if ty == "Retired": retired = d
+        if ty in ("Declared Free Agency", "Released") and d >= "2025-10-01": freed = (d, ty, desc)
+        if ty in ("Signed as Free Agent", "Trade", "Claimed Off Waivers", "Rule 5 Selection", "Purchase",
+                  "Contract Purchased", "Acquired", "Obtained"):
+            freed = None                      # a later signing or trade puts him back on a club
+            if retired and d > retired: retired = None
+            last_join = (d, ty, desc)
+        if ty in ("Selected", "Contract Purchased", "Purchase"): last_join = (d, ty, desc)
+    # the people record's open roster entry settles what the feed leaves
+    # vague (Profar: "roster status changed" Mar 6 2026 = restricted list)
+    for _st, _since in (PEOPLE.get(str(pid)) or {}).get("lists") or []:
+        if _since and (not restricted or _since[:10] > restricted[0]) and not any(e[0] > _since[:10] and e[2] in ("Released", "Trade", "Signed as Free Agent", "Declared Free Agency") for e in evs):
+            restricted = (_since[:10], "restricted" if "restricted" in _st.lower() else "ineligible" if "ineligible" in _st.lower() else "suspended")
+    cur = STATUS.get(pid)
+    if restricted and (_today - _dtm.date.fromisoformat(restricted[0][:10])).days >= 60:
+        if not cur or cur[0] != "out":
+            STATUS[pid] = ["out", f"on the {restricted[1]} list since {_fmt(restricted[0])}; not modeled as available"]
+            _cur_n["restricted"] += 1
+        continue
+    if retired:
+        if not cur or cur[0] != "out":
+            STATUS[pid] = ["out", f"retired {_fmt(retired)}"]; _cur_n["retired"] += 1
+        continue
+    if cur and cur[0] not in ("fa", "pendfa"): continue
+    rec = PEOPLE.get(str(pid)) or {}
+    played26 = abs(p[7]) > 0.05 or any(x > 0 for x in ((PT_RAW.get(str(pid)) or {}).get("2026") or [0, 0, 0]))
+    has_mlb = (p[11] or 0) > 0 or abs(p[5]) + abs(p[6]) > 0.05
+    if has_mlb and not played26 and pid not in _book_2027 and (p[4] >= 36 or rec.get("active") is False):
+        why = f"did not play in MLB in 2026 (age {p[4]})" if p[4] >= 36 else "did not play in MLB in 2026 (inactive)"
+        if cur: why = "filed for free agency, but " + why
+        STATUS[pid] = ["out", why + "; not modeled as available or on the free-agent board"]; _cur_n["inactive"] += 1
+        continue
+    if cur: continue
+    if freed:
+        d, ty, desc = freed
+        _who = None
+        for _r0 in cfg["regimes"]:
+            if desc.startswith(_r0["team"]) or any(desc.startswith(a) for a in cfg["aliases"].get(str(_r0["teamId"]), [])): _who = _r0["abbr"]
+        verb = "released" if ty == "Released" else "elected free agency"
+        STATUS[pid] = ["fa", f"{verb}{(' by ' + _who) if (_who and ty == 'Released') else ''} {_fmt(d)}; unsigned"]
+        _cur_n["fa"] += 1
+        continue
+    # a veteran's in-season minor-league contract, never selected to the
+    # 40-man roster, runs out with the season: a free agent this winter, not
+    # a controlled player of that organization (Eric Haase, Germán Márquez)
+    if (last_join and last_join[1] == "Signed as Free Agent" and "minor league" in last_join[2].lower()
+            and last_join[0] >= "2026-03-01" and (p[11] or 0) >= 3):
+        _who = (last_join[2].split(" signed ")[0]).strip()
+        STATUS[pid] = ["fa", f"minor-league contract with the {_who} (signed {_fmt(last_join[0])}) ended with the season"]
+        _cur_n["fa_minor"] += 1
+print("currency pass statuses:", dict(_cur_n))
 # any free agent whose book row runs past 2026 is voided from 2027 on
 cover27 = {r[11] for r in book if r[1] + r[3] >= 2027 and r[12] != 2}
 for pid, (code, _) in STATUS.items():
@@ -487,13 +663,16 @@ try:
             _pos = ((_per.get("primaryPosition") or {}).get("abbreviation") or "")
             _pit = 1 if _pos in ("P", "RHP", "LHP") else 0
             _bd = _per.get("birthDate")
-            _age = (2026 - int(_bd[:4])) if _bd else 21
+            # season age (age on June 30, the convention every other row uses):
+            # Eric Booth Jr., born Jul 4 2008, is 17, not 18
+            _age = (2026 - int(_bd[:4]) - (1 if _bd[5:10] > "06-30" else 0)) if _bd else 21
             _grp = "SP" if _pit else ("C" if _pos == "C" else "IF" if _pos in ("1B","2B","3B","SS") else "OF")
             players.append([_per.get("fullName", "?"), _pid, _ab, _pit, _age, 0.0, 0.0, 0.0, 6, 0, 1.0, 0.0,
                             _grp, ("SP" if _pit else (_pos or "IF")), 0.0, 0, None, 0])
 except Exception as _e:
     print("2026 draft fetch failed:", _e)
 print("2026 draftees added:", len(DRAFT26))
+_CBK = json.load(open("/work/contract_book.json"))
 out = dict(
     draft26={str(k): v for k, v in DRAFT26.items()},
     players=players,
@@ -506,7 +685,10 @@ out = dict(
                      2022:8.5,2023:9.0,2024:9.3,2025:9.5,2026:9.7}.items()},
                 buckets={"rental": dict(ratio=0.8, bust=0.55), "+1": dict(ratio=0.99, bust=0.48),
                          "+2": dict(ratio=0.86, bust=0.39), "3+": dict(ratio=0.37, bust=0.71)},
-                extDiscount={"predebut": 0.35, "early": 0.45, "arb": 0.60, "vet": 0.90}),
+                extDiscount={"predebut": 0.35, "early": 0.45, "arb": 0.60, "vet": 0.90},
+                # v5.9: the channels' own expectations, so a Desk letter means what the realized grade will mean
+                typ=dict(fa=_CBK["typical_fa"], faAll=_CBK["typical_fa_all"], band=_CBK.get("band_mult", {}), bands=_CBK.get("bands", [0.5, 1.5, 3.0]),
+                         ext=(json.load(open("/work/ext_class_rate.json")) if os.path.exists("/work/ext_class_rate.json") else {}))),
     slot=[[1, 9.9], [2, 7.5], [3, 6.7], [5, 5.5], [8, 4.6], [12, 3.6], [17, 3.0], [22, 2.6],
           [30, 2.1], [45, 1.5], [65, 1.1], [90, 0.85], [120, 0.6], [200, 0.35], [400, 0.18], [620, 0.10]],
     drift=1.08,   # v5.7: 2021-25 winters' contracts ran 8% above the $/win curve (median of 106 deals the ensemble priced at $25M+, full 2022-25 book; contract_model.py)
@@ -526,6 +708,7 @@ out = dict(
     rookie=PROS["rookie"],
     t100lvl=PROS["top100Level"],
     cbt={"2026": 244, "2027": None},  # 2027+ awaits the next CBA
+    cachePlayers=len(LVM),            # v5.9: the page's copy reads this count
 )
 json.dump(out, open("/work/desk_data.json", "w"), separators=(",", ":"))
 import os
