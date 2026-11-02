@@ -176,6 +176,44 @@ def arb_salary(pid, y):
     step = {1: 1.0, 2: 1.5, 3: 3.1}[y - ce + 3]
     return max(0.75, (0.6 + basis) * step * dpw(y) / 9.7)
 
+_EXTSAL = {}
+def ext_salary(c, y):
+    """v5.9 (Nov 2): an extension's salary by season. Extensions are paid on a
+    rising schedule (a few million in the pre-arbitration years, arbitration-
+    like money next, the bulk in the free-agent years they buy), so charging
+    the average salary every season front-loaded the cost and graded every
+    young-player extension as a loss in its early years. The guaranteed total
+    is spread over the contract's seasons in proportion to what each season
+    would have cost on the path it replaced: the minimum in pre-arbitration
+    seasons (doubled: these deals pay a premium for the security), the award
+    model's arbitration salary (on his level when he signed, at least that
+    of a 3-win regular, the kind of player clubs extend), and the average
+    salary in free-agent seasons (never below his last arbitration season). Fixed at signing: later play never moves
+    it. Corbin Carroll's 8/$111M comes out about $3M a season through 2026
+    and $28M in 2029-30, close to the deal's actual schedule."""
+    key = (c["pid"], c["start"], c["yrs"], c["sign"])
+    sch = _EXTSAL.get(key)
+    if sch is None:
+        yrs = list(range(c["start"], c["start"] + c["yrs"]))
+        ce = control_end(c["pid"])
+        if ce is None:
+            sch = {yy: c["aav"] for yy in yrs}
+        else:
+            w = season_war(c["pid"]); sy = int(str(c["sign"])[:4])
+            basis = max(3.0, w.get(sy - 1, 0.0), 0.5 * (w.get(sy - 1, 0.0) + w.get(sy - 2, 0.0)))
+            wt = {}
+            for yy in yrs:
+                if yy > ce: wt[yy] = None
+                elif yy >= ce - 2: wt[yy] = max(0.75, (0.6 + basis) * {1: 1.0, 2: 1.5, 3: 3.1}[yy - ce + 3] * dpw(yy) / 9.7)
+                else: wt[yy] = 1.5
+            top = max([v for v in wt.values() if v is not None] + [c["aav"]])
+            wt = {yy: (top if v is None else v) for yy, v in wt.items()}
+            s = sum(wt.values())
+            sc = c["tot"] / s if s > 0 else 1.0
+            sch = {yy: v * sc for yy, v in wt.items()}
+        _EXTSAL[key] = sch
+    return sch.get(y, c["aav"])
+
 def contract_unit(c, y):
     """money unit for a season of contract c: a free-agent contract (and an
     extension's bought-out free-agent seasons) at the typical return for that
@@ -196,7 +234,8 @@ def _cost_table():
     B = _book(); mn = B.get("league_min", 0.75)
     for pid, ys in B["_own"].items():
         for y, c in ys.items():
-            _COST.setdefault(pid, {})[y] = max(0.0, c["aav"] - mn) / dpw(y) * contract_unit(c, y)
+            m = ext_salary(c, y) if c["kind"] == "ext" else c["aav"]
+            _COST.setdefault(pid, {})[y] = max(0.0, m - mn) / dpw(y) * contract_unit(c, y)
     for pid, ys in NET_PAID.items():
         for y, m in ys.items():
             _COST.setdefault(int(pid), {})[y] = max(0.0, m - mn) / dpw(y) * money_unit(y)

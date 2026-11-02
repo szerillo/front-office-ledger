@@ -139,9 +139,10 @@ for c in CB["book"]:
     else: cls = "veteran"
     ce = AR.control_end(int(pid))
     held = [h for h in c.get("held", []) if h[1] <= (2023 if player == "Wander Franco" else 2026)]
-    ctrl_save = 0.0; fa_prod = 0.0; fa_exp = 0.0; cost = 0.0; ctrl_n = fa_n = 0; inc = {}; cst = {}
+    ctrl_save = 0.0; fa_prod = 0.0; fa_exp = 0.0; cost = 0.0; ctrl_n = fa_n = 0; inc = {}; cst = {}; kof = {}
     for k, y, w, sh in held:
-        ext_c = wins_of(c["aav"], y) * sh
+        kof[y] = k
+        ext_c = wins_of(AR.ext_salary(c, y), y) * sh
         if ce is not None and y <= ce:
             arb = AR.arb_salary(int(pid), y) or LMIN
             v_ = (wins_of(arb, y) - ext_c) * AR.money_unit(y)
@@ -155,17 +156,66 @@ for c in CB["book"]:
     raw = ctrl_save + fa_prod - fa_exp
     EVAL.append(dict(sign=sign, player=player, tid=tid, ab=ab, sign_date=sign + "-15", pid=pid, cls=cls, yrs=yrs, tot=tot,
                      seasons=[h[1] for h in held], raw=raw, cost=cost, ctrl_save=ctrl_save, fa_prod=fa_prod, fa_exp=fa_exp,
-                     ctrl_n=ctrl_n, fa_n=fa_n, inc=inc, cst=cst))
+                     ctrl_n=ctrl_n, fa_n=fa_n, inc=inc, cst=cst, kof=kof))
 _acc = defaultdict(lambda: [0.0, 0.0, 0])
 for e in EVAL:
     if e["seasons"]: a_ = _acc[e["cls"]]; a_[0] += e["raw"]; a_[1] += e["cost"]; a_[2] += 1
 CLASS_RATE = {k: round(a_[0] / a_[1], 3) for k, a_ in _acc.items() if a_[1] > 0}
+# v5.9 (Nov 2): the extension's cost now follows a rising salary schedule
+# (asset_rules.ext_salary) instead of its average salary, so the early
+# seasons of a young player's extension are no longer charged as if they
+# were free-agent seasons (Corbin Carroll, 8/$111M, read -2.4 after three
+# seasons of 4-7 wins). A contract-year centering was tried first; it set
+# the bar for today's deals by the 2008-2014 team-friendly early extensions
+# that had reached their free-agent years, so it was dropped: one rate per
+# class, per win of cost.
+def rate_of(cl, k): return CLASS_RATE.get(cl, 0.0)
 for e in EVAL:
-    e["expected"] = CLASS_RATE.get(e["cls"], 0.0) * e["cost"]
+    e["exp_y"] = {y: rate_of(e["cls"], e["kof"][y]) * e["cst"].get(y, 0.0) for y in e["inc"]}
+    e["expected"] = sum(e["exp_y"].values())
     e["net"] = e["raw"] - e["expected"]
+
+# v5.9: a projected finish for deals still running (shown beside the grade,
+# never in it). Production: the 5/4/3-weighted last three seasons, regressed
+# 20% toward 1.5 wins, aged (+0.1 a year through 27, flat to 30, -0.4 to 33,
+# -0.6 after) with the same attrition the Desk uses; arbitration seasons
+# priced on the projected prior season; the same class-and-year expectation.
+AGES = {int(k): v for k, v in json.load(open("/work/ages.json")).items()}
+def proj_series(pid, years):
+    w = AR.season_war(int(pid))
+    base = (5 * w.get(2026, 0) + 4 * w.get(2025, 0) + 3 * w.get(2024, 0)) / 12.0
+    base = 0.8 * base + 0.2 * 1.5
+    by = AGES.get(int(pid)); out = {}; v = base; surv = 1.0
+    for i, y in enumerate(years):
+        age = (y - by) if by else 29
+        v += 0.1 if age <= 27 else 0.0 if age <= 30 else -0.4 if age <= 33 else -0.6
+        if i >= 1: surv *= (0.97 if age <= 26 else 0.94 if age <= 29 else 0.89 if age <= 32 else 0.84 if age <= 35 else 0.78)
+        out[y] = max(v, 0.0) * surv
+    return out
+for e, c in zip([x for x in EVAL], [c for c in CB["book"] if c["kind"] == "ext" and c["club"] in ABBR2TID]):
+    pass
+_BYKEY = {(c["name"], c["sign"], c["club"]): c for c in CB["book"] if c["kind"] == "ext"}
+for e in EVAL:
+    c = _BYKEY.get((e["player"], e["sign"], e["ab"]))
+    if not c or not c.get("own"): e["proj_final"] = None; continue
+    future = [y for y in c["own"] if y > 2026]
+    if not future or (e["player"] == "Wander Franco"): e["proj_final"] = None; continue
+    ce = AR.control_end(int(e["pid"])); pr = proj_series(e["pid"], future)
+    k0 = len(c["own"]) - len(future); fut = 0.0
+    for i, y in enumerate(future):
+        ext_c = wins_of(AR.ext_salary(c, y), y); k = k0 + i + 1
+        if ce is not None and y <= ce:
+            prior = pr.get(y - 1, AR.season_war(int(e["pid"])).get(y - 1, 0.0))
+            n_ = y - ce + 3
+            arb = max(0.75, (0.6 + max(prior, 0)) * {1: 1.0, 2: 1.5, 3: 3.1}.get(n_, 0.0) * AR.dpw(y) / 9.7) if n_ >= 1 else LMIN
+            v_ = (wins_of(arb, y) - ext_c) * AR.money_unit(y)
+        else:
+            v_ = pr[y] - ext_c * AR.typical_fa(y - (ce if ce is not None else c["start"] - 1), y, c.get("band"))
+        fut += v_ - rate_of(e["cls"], k) * ext_c
+    e["proj_final"] = round(e["net"] + fut, 1)
 print("typical extension result per win of cost, by class:", CLASS_RATE, {k: a_[2] for k, a_ in _acc.items()})
 TYPICAL = CLASS_RATE
-json.dump(CLASS_RATE, open("/work/ext_class_rate.json", "w"))
+json.dump(dict(cls=CLASS_RATE), open("/work/ext_class_rate.json", "w"))
 
 def grade_ext(results, archive=False):
     per = defaultdict(lambda: dict(net=0.0, n=0, decs=[]))
@@ -181,16 +231,20 @@ def grade_ext(results, archive=False):
                     h=f"Extended {e['player']} · {e['yrs']} yr / ${e['tot']:.1f}M ({e['cls']}) · no seasons elapsed, OPEN"))
                 p["n"] += 1; continue
             n = e["net"]; p["net"] += n; p["n"] += 1
-            rate = CLASS_RATE.get(e["cls"], 0.0)
             for _y, _v in e["inc"].items():
-                p.setdefault("inc", {}); p["inc"][_y] = p["inc"].get(_y, 0.0) + _v - rate * e["cst"].get(_y, 0.0)
+                p.setdefault("inc", {}); p["inc"][_y] = p["inc"].get(_y, 0.0) + _v - e["exp_y"].get(_y, 0.0)
             MOVE_POP.append([round(e["cost"], 2), round(n, 2)])
             sides = []
             if e["ctrl_n"]: sides.append(["Controlled seasons: arbitration path minus extension salary", [[f"{e['ctrl_n']} season(s)", f"{e['ctrl_save']:+.1f}"]]])
             if e["fa_n"]: sides.append(["Bought-out free-agent seasons: production vs a typical free-agent return on the money",
                                         [[e["player"], f"{e['fa_prod']:+.1f}"], ["typical return on that money", f"{-e['fa_exp']:+.1f}"]]])
-            sides.append([f"Typical {e['cls']} extension of this size", [[f"{e['cost']:.1f} wins of cost x the class average", f"{-e['expected']:+.1f}"]]])
-            p["decs"].append(dict(d=e["sign_date"], ch="ext", net=round(n, 1), st=round(e["cost"], 2),
+            sides.append([f"Typical {e['cls']} extension", [[f"{e['cost']:.1f} wins of cost x {CLASS_RATE.get(e['cls'], 0.0):+.2f} (the league's {e['cls']} extensions, per win of cost)", f"{-e['expected']:+.1f}"]]])
+            _left = e["yrs"] - len(e["seasons"])
+            if _left > 0: sides.append(["Still to come", [[f"{_left} of {e['yrs']} seasons not yet played: the arbitration and free-agent years, where an extension's savings land", "open"]]])
+            if e.get("proj_final") is not None:
+                sides.append(["Projected at the end of the deal (Ledger Projection; shown, never graded)", [["final net vs a typical extension", f"{e['proj_final']:+.1f}"]]])
+            p["decs"].append(dict(d=e["sign_date"], ch="ext", net=round(n, 1), st=round(e["cost"], 2), projFinal=e.get("proj_final"),
+                pre=bool(e["fa_n"] == 0 and e.get("proj_final") is not None),
                 h=f"Extended {e['player']} · {e['yrs']} yr / ${e['tot']:.1f}M ({e['cls']})", sides=sides, pids=[e["pid"]]))
     for r in results:
         p = per.get(r["id"], dict(net=0.0, n=0, decs=[]))
@@ -208,7 +262,7 @@ def grade_ext(results, archive=False):
                 r["cum"] = [round(v + sum(x for yy, x in p["inc"].items() if yy <= y0c + i), 1) for i, v in enumerate(r["cum"])]
         p["decs"].sort(key=lambda d: -abs(d["net"]))
         r["ext_tops"] = p["decs"][:4]
-        r["allx_ext"] = [[d["d"], d["h"], d["net"], d.get("st")] for d in sorted(p["decs"], key=lambda d: d["d"])]
+        r["allx_ext"] = [[d["d"], d["h"], d["net"], d.get("st"), d.get("projFinal"), 1 if d.get("pre") else 0] for d in sorted(p["decs"], key=lambda d: d["d"])]
         if not archive:
             names = ", ".join(d["h"][9:].split(" ·")[0] for d in p["decs"][:3]) or "-"
             print(f"{r['abbr']:<6}{(p['net'] if covered else 0):>+9.1f}{p['n']:>4}   {names}")
@@ -218,3 +272,7 @@ json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
 json.dump(HIST, open("/work/hist_results.json", "w"), indent=1)
 json.dump({"ext": MOVE_POP}, open("/work/move_pop_ext.json", "w"))
 print("\nmerged chan.ext into sweep_results.json and hist_results.json")
+
+# v5.9: per-deal summary (methodology chart + audit)
+json.dump([dict(p=e["player"], ab=e["ab"], s=e["sign"], cls=e["cls"], yrs=e["yrs"], tot=e["tot"], net=round(e["net"], 2),
+                pf=e.get("proj_final"), n=len(e["seasons"])) for e in EVAL], open("/work/ext_eval.json", "w"))

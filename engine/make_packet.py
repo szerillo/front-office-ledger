@@ -56,17 +56,18 @@ E.append(Paragraph(
 
 E.append(Paragraph("What the system does", st_h))
 E.append(Paragraph(
-    "<b>Six graded acquisition channels.</b> Trades are scored from both seats over control windows (value counts "
-    "while the player stays with the club), with each delivered season weighted by win-curve leverage at the receiving "
-    "club and discounted 10% per year to the deal date. Draft picks grade against a maturity-adjusted slot-expectation "
-    "curve. Free agency grades realized value net of contract cost against 1,630 real contracts, with qualifying-offer "
-    "signings charged their forfeited draft compensation and deferral-heavy deals costed at CBT present value. "
-    "Extensions grade against the extension market for the player's service class, because the pre-arb discount is "
-    "structural and the skill is choosing whom to lock up. International signings grade against their bonus-pool "
-    "class. Waiver claims grade against zero, the cleanest read on pro scouting.", st_b))
+    "<b>Six graded acquisition channels.</b> Trades are scored from both seats over the player's control window "
+    "wherever he plays it, net of the salary that moves (arbitration included), discounted 10% per year; a prospect "
+    "not yet in the majors carries his at-the-time rank expectation until his real seasons replace it. Draft picks "
+    "grade against what the league got from the same slot in the same draft. Free agency grades realized value "
+    "against what a typical club gets for the same money in the same contract years on a deal of the same size, from "
+    "a book of about 3,600 contracts, with deferral-heavy deals costed at CBT present value and posting fees charged. "
+    "Extensions grade against the path they replaced (arbitration in controlled seasons, the free-agent market "
+    "after), centered by service class. International signings grade against their bonus-pool class. Waiver claims "
+    "grade against zero, net of the contract that moves.", st_b))
 E.append(Paragraph(
-    "<b>Two eras, one engine.</b> Beyond the 30 active regimes, the same scorer runs over 110 archive regimes "
-    "(1998-2024) with their actual start and end dates: the complete Beane and Sabean windows, Epstein in both "
+    "<b>Two eras, one engine.</b> Beyond the 30 active regimes, the same scorer runs over 122 archive regimes "
+    "(1998-2026, interim GMs included) with their actual start and end dates: the complete Beane and Sabean windows, Epstein in both "
     "cities, Gillick in three, Cashman's full 29-year seat. Careers are comparable across eras on identical "
     "accounting, and every archive card carries the same clickable decision ledgers, market comps, and "
     "transaction trees as the active ones.", st_b))
@@ -136,7 +137,7 @@ tbl = Table([
                "predicting the next two seasons' W% after controlling for W% to date.", st_stat),
      Paragraph(f"<b>partial r = {P['partial_r']}</b> (95% CI {P['partial_r_ci'][0]} to {P['partial_r_ci'][1]})<br/>"
                f"out-of-sample R<super>2</super> {P['oos_r2_base']} to {P['oos_r2_full']} (grouped 5-fold CV)<br/>"
-               "the effect survives on held-out regimes", st_stat)],
+               "no out-of-sample gain: reported as such", st_stat)],
 ], colWidths=[4.7*inch, 2.1*inch])
 tbl.setStyle(TableStyle([
     ("BOX", (0,0), (-1,-1), 0.75, RULE), ("INNERGRID", (0,0), (-1,-1), 0.5, RULE),
@@ -151,28 +152,30 @@ E.append(Paragraph(
     "anchored to league RA9, park factors from home/away run environments (3-yr rolling, halved for the road "
     "split), defense from the SABR Defensive Index where published and Statcast fielding runs plus catcher framing "
     "elsewhere, and Statcast baserunning. Park factors (v1.5) and the archive sweep's full 25,000-player universe "
-    "put the accounting check at r = 0.86 (MAE 5.3 wins) across 327 team-seasons: fuller rosters sum closer to "
-    "team records, which is itself evidence the metric is additive the way WAR must be. The predictive study now "
-    f"carries real rigor: {P['n']} pooled regime-years from {P['regimes']} regimes, a cluster-bootstrap 95% interval on the "
-    f"partial correlation of [{P['partial_r_ci'][0]:.2f}, {P['partial_r_ci'][1]:.2f}], and grouped out-of-sample cross-validation (R-squared {P['oos_r2_base']:.3f} to {P['oos_r2_full']:.3f} on "
-    "held-out regimes). Known gaps (defense coverage thins before "
-    "2016) are disclosed on the site rather than patched quietly. Pooled regime-years overlap, so the predictive "
-    "check's effect size is the claim, not its p-value.", st_small))
+    "put the accounting check at r = 0.93 (MAE 4.8 wins) across 330 team-seasons: fuller rosters sum closer to "
+    "team records, which is itself evidence the metric is additive the way WAR must be. The predictive study: "
+    f"{P['n']} pooled regime-years from {P['regimes']} regimes, decision value counted only as it had been realized, a cluster-bootstrap 95% interval on the "
+    f"partial correlation of [{P['partial_r_ci'][0]:.2f}, {P['partial_r_ci'][1]:.2f}], and grouped out-of-sample cross-validation (R-squared {P['oos_r2_base']:.3f} without decision value, {P['oos_r2_full']:.3f} with it). "
+    "The honest reading: the grades measure what decisions returned against what was expected; they are not a forecast "
+    "of next year's standings. (An earlier version of this packet reported 0.27; that figure let later seasons leak into "
+    "the predictor.) Known gaps (defense coverage thins before 2016) are disclosed on the site rather than patched quietly.", st_small))
 
 E.append(Paragraph("Findings the consensus did not already have", st_h))
 for f in [
-    "<b>The best draft room of the data era is Brian Sabean's San Francisco</b>, +109 wins over slot (Posey, "
-    "Bumgarner, the dynasty's core), a nose ahead of Epstein's Boston at +104; among active regimes it is Chris "
-    "Antonetti's Cleveland at +44. Brian Cashman's full 29-year window tells the opposite of the public story: "
-    "trades +56 and drafts +17 above slot, while the checkbook grades 66 wins below water net of cost. (His draft "
-    "figure has fallen twice as the system improved: once when it caught itself crediting Gerrit Cole's "
-    "free-agent-era production to the 2008 pick that never signed, and again when the archive extension put his "
-    "barren 1999-2004 classes into the book. A system like this is supposed to correct itself in public.)",
-    "<b>The Baltimore gap, quantified:</b> elite grades on decisions and development against a D+ in results through "
-    "2026. Whether you weight the machine or the harvest is a values question; the ledger puts both numbers on one row.",
-    "<b>The best extension in the book is Cleveland's 2017 Jose Ramirez deal</b> at about +24 wins against the "
-    "class market. Atlanta's famous 2019 pair grades merely good, because the class baseline already expects "
-    "extensions to be team-friendly; the skill is picking the right player.",
+    "<b>The best draft room of the data era is Billy Beane's Oakland</b>, +76 wins over what the league got from "
+    "the same slots in the same drafts, ahead of John Schuerholz's Atlanta (+66); among sitting regimes it is Chris "
+    "Antonetti's Cleveland at +41. Brian Cashman's full 29-year window grades -143 on decisions (trades -75, drafts "
+    "-50 against their classes) beside the best results grade in the sport: the ledger prices decisions against what "
+    "the same money and picks typically return, and puts both numbers on one row.",
+    "<b>The Baltimore gap, quantified:</b> an A- on decisions (+24 in the draft room, +22 on the waiver wire) against "
+    "a D in results through 2026. Whether you weight the machine or the harvest is a values question.",
+    "<b>The best extension in the book is Detroit's 2008 Miguel Cabrera deal</b> at +27 wins against what that money "
+    "typically buys; the worst is his 2014 extension (-23). Extensions are judged against the path they replaced "
+    "(arbitration in controlled seasons, the free-agent market after) and centered by class, so the skill graded is "
+    "picking the right player.",
+    "<b>The ledger measured its own limits.</b> Split each front office's decisions into alternating halves: free "
+    "agency repeats (split-half r 0.29), trades, drafts and waivers do not. The letters are an accounting of results "
+    "against what a typical club gets from the same move, not a forecast, and the site says so.",
     "<b>Organizational DNA is measurable.</b> Measuring every player who changed orgs (performance in the two seasons "
     "after arriving vs the two before), the reputations fall out of the data unprompted: Cleveland improves "
     "defenders by about +2.5 runs per season and arms by +0.19 wins; Milwaukee, Tampa Bay, and San Diego profile as "

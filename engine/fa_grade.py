@@ -40,7 +40,7 @@ def short_to_tid(short):
         if any(short and short.lower() in nm.lower() for nm in names):
             return r["teamId"]
     return None
-with open("/work/contracts_espn.csv") as f:
+with open("/work/repo/data/contracts_espn.csv") as f:   # v5.9: the one maintained copy
     for row in csv.DictReader(f):
         tid = short_to_tid(row["to_team"])
         if tid: contracts[(row["player_norm"], int(row["offseason"]))].append(

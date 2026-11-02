@@ -38,28 +38,37 @@ for pid, rec in LVM.items():
         if 2015 <= y <= 2025:
             team_season[(tm, y)] += v
 
-wl = {}
 API = "https://statsapi.mlb.com/api/v1"
+# v5.9 (Nov 2): team-seasons are keyed by club id, not by name. Name keys
+# double-counted Oakland (a handful of players carry the current "Athletics"
+# label beside the full "Oakland Athletics" roster, and both matched the same
+# standings row by suffix) and dropped renamed clubs (Cleveland Indians).
+_cfg = json.load(open("/work/regimes.json"))
+TID_OF = {}
+for _r in _cfg["regimes"]: TID_OF[_r["team"]] = _r["teamId"]
+for _tid, _names in _cfg.get("aliases", {}).items():
+    for _nm in _names: TID_OF[_nm] = int(_tid)
+wl = {}; NM = {}
 for yr in range(2015, 2026):
     d = get(f"{API}/standings?leagueId=103,104&season={yr}&standingsTypes=regularSeason")
     for g in d.get("records", []):
         for t in g.get("teamRecords", []):
-            wl[(t["team"]["name"], yr)] = (t.get("wins", 0), t.get("losses", 0))
-
-def find_wl(tm, y):
-    if (tm, y) in wl: return wl[(tm, y)]
-    for (nm, yy), v in wl.items():
-        if yy == y and tm.endswith(nm): return v
-    return None
-
-xs, ys = [], []
-for (tm, y), lvm in team_season.items():
-    hit = find_wl(tm, y)
+            wl[(t["team"]["id"], yr)] = (t.get("wins", 0), t.get("losses", 0)); NM[(t["team"]["id"], yr)] = t["team"]["name"]
+            TID_OF.setdefault(t["team"]["name"], t["team"]["id"])
+by_tid = defaultdict(float); unmapped = defaultdict(float)
+for (tm, y), v in team_season.items():
+    tid = TID_OF.get(tm)
+    if tid is None: unmapped[tm] += v; continue
+    by_tid[(tid, y)] += v
+if unmapped: print("unmapped club names (excluded):", dict(unmapped))
+xs, ys, pts = [], [], []
+for (tid, y), lvm in sorted(by_tid.items()):
+    hit = wl.get((tid, y))
     if not hit: continue
     w, l = hit
     if w + l < 50: continue
     war_truth = w - 48.0 * (w + l) / 162.0
-    xs.append(lvm); ys.append(war_truth)
+    xs.append(lvm); ys.append(war_truth); pts.append([NM[(tid, y)], y, round(lvm, 1), round(war_truth, 1), w, l])
 
 n = len(xs)
 mx, my = sum(xs)/n, sum(ys)/n
@@ -72,6 +81,7 @@ mae = sum(abs(a - b) for a, b in zip(xs, ys)) / n
 acct = dict(n=n, r=round(r, 3), r2=round(r*r, 3), slope=round(slope, 3),
             mae=round(mae, 2), mean_lvm=round(mx, 1), mean_truth=round(my, 1))
 print("ACCOUNTING:", acct)
+acct["pts"] = pts
 
 # ---- 2. predictive power (v2: pooled active + archive, grouped CV, cluster bootstrap) ----
 """

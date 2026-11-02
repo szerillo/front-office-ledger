@@ -183,7 +183,7 @@ def short_to_tid(short):
             return r["teamId"]
     return None
 raw_contracts = []
-with open("/work/data/contracts_espn.csv") as f:
+with open("/work/repo/data/contracts_espn.csv") as f:
     for row in csv.DictReader(f):
         tid = short_to_tid(row["to_team"])
         if tid: raw_contracts.append((int(row["offseason"]), row["player"], tid, int(row["years"]), float(row["total_m"]), 0))
@@ -673,6 +673,7 @@ except Exception as _e:
     print("2026 draft fetch failed:", _e)
 print("2026 draftees added:", len(DRAFT26))
 _CBK = json.load(open("/work/contract_book.json"))
+_EXR = json.load(open("/work/ext_class_rate.json")) if os.path.exists("/work/ext_class_rate.json") else {}
 out = dict(
     draft26={str(k): v for k, v in DRAFT26.items()},
     players=players,
@@ -688,7 +689,7 @@ out = dict(
                 extDiscount={"predebut": 0.35, "early": 0.45, "arb": 0.60, "vet": 0.90},
                 # v5.9: the channels' own expectations, so a Desk letter means what the realized grade will mean
                 typ=dict(fa=_CBK["typical_fa"], faAll=_CBK["typical_fa_all"], band=_CBK.get("band_mult", {}), bands=_CBK.get("bands", [0.5, 1.5, 3.0]),
-                         ext=(json.load(open("/work/ext_class_rate.json")) if os.path.exists("/work/ext_class_rate.json") else {}))),
+                         ext=_EXR.get("cls", _EXR))),
     slot=[[1, 9.9], [2, 7.5], [3, 6.7], [5, 5.5], [8, 4.6], [12, 3.6], [17, 3.0], [22, 2.6],
           [30, 2.1], [45, 1.5], [65, 1.1], [90, 0.85], [120, 0.6], [200, 0.35], [400, 0.18], [620, 0.10]],
     drift=1.08,   # v5.7: 2021-25 winters' contracts ran 8% above the $/win curve (median of 106 deals the ensemble priced at $25M+, full 2022-25 book; contract_model.py)
