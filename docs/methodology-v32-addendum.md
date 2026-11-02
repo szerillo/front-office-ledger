@@ -1097,3 +1097,77 @@ and his four nearest comps with what they became).
   option)"; Jefferson Rojas, "now a prospect in the NYM system (#64, AA)".
 - Audit: all 1,006 players active in 2026 resolve to the same club on the
   trees as in the simulator; no tree renders empty or broken text.
+
+## v5.4 (November 2, 2026): the public-launch pass
+
+A fresh-eyes review of every tab, then fixes to the data and the copy. Each
+item below changed a number or a sentence a reader would see.
+
+**Grades and regime windows**
+- Seat time is measured in real seasons (`engine/regime_window.py`): a hire
+  or dismissal in mid-season holds the seat for that fraction of the season;
+  the W-L record counts games from the hire date (schedule API), and
+  division titles and October belong to whoever held the seat when the
+  season ended.
+- Evidence floor: a channel needs a minimum number of decisions to be graded
+  (3 for draft, trade, waiver, free agency, international, retention; 2 for
+  extensions); below it the cell reads "·" and the overall rating counts that
+  channel at the league-average rate. Per-season rates divide by at least 3
+  seasons, so a one-season regime cannot ride one lucky move to an A.
+  Regimes in the seat under a quarter season (the A's Taylor Smith, the
+  Astros' Randy Flores) show as "new" and are not graded or ranked.
+- Regime changes since v5.3: Taylor Smith (ATH, Oct 19), Randy Flores (HOU,
+  Oct 30); David Forst and Dana Brown move to the archive (112 regimes).
+- Ages use the June 30 season-age convention throughout.
+
+**Contracts**
+- Extensions signed in spring that cover the current season now start in
+  that season (Acuña, Albies, Merrill, Crawford, Hayes, Reynolds, Greene,
+  Griffin, both Ramírez deals); Glasnow's and Altuve's add-on years start the
+  following season. Willson Contreras's St. Louis deal moves from the
+  extension list to the free-agent book, where it belonged. The book is now
+  1,620 free-agent deals and 83 extensions, plus 32 contracts on file for 2027.
+- A player whose current contract is a free-agent deal (Senga, the posted
+  imports) reaches free agency when it ends; the Horizon salary book no
+  longer invents arbitration years after it.
+- Qualifying-offer charges added for Nick Pivetta and Luis Severino (2024-25).
+
+**Trades**
+- Three-team deals filed as separate one-way legs are joined into one deal
+  for every seat when the other two clubs also traded that day (the 2014
+  Myers deal, the 2025 Lowe/Burrows deal). A "player to be named later"
+  completion joins the deal that promised him (Trea Turner joins the Myers
+  deal; graded alone he read as a 25-win giveaway). 159 deals merged.
+- The curated Orioles and Brewers cards and the Ortiz chain now carry the
+  engine's current numbers. The Burnes trade, read as a fair price through
+  2025 (+1.2 for Baltimore on the leverage lens), now reads −7.1 after
+  Ortiz's 2026; the methodology says so instead of keeping the old verdict.
+
+**Scenario Room**
+- No future data: offseason scenarios no longer show the coming season as
+  "this season". The Ramírez extension is set in spring 2017 and priced
+  against the extension market (projection × years × $/win × the
+  pre-arbitration discount), not free agency. The Greinke deal includes
+  Jake Odorizzi; the Betts package text matches the real package. Pre-2006
+  scenarios use the first year of the $/win history. The assistant GM's lean
+  now follows the same market read the grade uses, from the seller's seat too.
+
+**Simulator, Desk, Horizon**
+- Simulator: open negotiations pinned at the top, position/roster/farm
+  filters and sorts on every board, a Call-ups step, a shareable depth-chart
+  image, and Start over. Desk: pickers list only the two clubs' players and
+  farms, send on the left, receive on the right, and an acceptance check.
+  Horizon: a league table of projected wins 2027-2031 with prospects'
+  season-by-season value included, and payroll figures that close to the
+  salary book. Offseason comps count trades from the full trade book through
+  the 2025-26 winter.
+
+**Copy**
+- Every +/- is explained (leaderboard legend, a one-minute guide atop
+  Methodology); "LVM" is gone from the page; plural forms are correct;
+  extension dates show the signing month; draft decisions carry the real
+  draft date; champion names and abbreviations are era-correct (2003 Florida
+  Marlins, 2002 Anaheim Angels); an About note states the site is
+  independent and unaffiliated with MLB or any club.
+
+Tests: `tests/t_launch.mjs` (new) covers each item above.
