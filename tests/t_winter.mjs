@@ -47,6 +47,16 @@ const r = await d.page.evaluate(async () => {
   o.promotedJoinsDepthChart = gmFullRoster().some(x => x[1] === tb[1]) && Math.abs(gmProj27(tb) - gmProsY1(tb)) < 1e-9;
   gmUndo(gmState.moves.find(m => m.kind === 'trade').id);
   o.undoReturnsProspects = !gmState.farmIn.has(tb[1]) && !gmState.outs.has(mine[0][1]) && !gmFullRoster().some(x => x[1] === tb[1]);
+  // the Deal Desk reads the same winter and the same farms
+  switchView('desk'); dkState.mode = 'trade'; dkState.you = 'NYM'; dkState.them = 'TB'; renderDesk();
+  o.deskNoRankNumberBox = !document.getElementById('dk-rank-recv') && document.getElementById('dk-farm-recv').options.length >= 16;
+  const inp = document.getElementById('dk-in-send'); inp.value = 'Tarik Skubal'; dkAdd('send');
+  o.deskFreeAgentNotATradePiece = !dkState.send.some(pc => pc.p && pc.p[0] === 'Tarik Skubal');
+  dkState.mode = 'fa'; renderDesk();
+  document.getElementById('dk-fa-player').value = 'Teruaki Sato'; document.getElementById('dk-fa-yrs').value = 4; document.getElementById('dk-fa-m').value = 62; dkEval();
+  o.deskChargesPostingFee = /posting fee/.test(document.getElementById('dk-out').innerText);
+  document.getElementById('dk-fa-player').value = 'Chris Sale'; dkSuggestNow('fa');
+  o.deskSaysUnderContract = /under contract with ATL through 2027/.test(document.getElementById('dk-suggest').innerText);
   return o;
 });
 await d.browser.close();
