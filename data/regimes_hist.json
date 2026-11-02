@@ -80,6 +80,15 @@
    "teamId": 121,
    "team": "New York Mets",
    "abbr": "NYM",
+   "exec": "Sandy Alderson",
+   "start": "2020-11-07",
+   "end": "2021-11-17",
+   "flags": []
+  },
+  {
+   "teamId": 121,
+   "team": "New York Mets",
+   "abbr": "NYM",
    "exec": "Billy Eppler",
    "start": "2021-11-18",
    "end": "2023-09-30",
@@ -93,7 +102,7 @@
    "abbr": "ATH",
    "exec": "Billy Beane",
    "start": "1998-01-01",
-   "end": "2015-10-04",
+   "end": "2022-11-17",
    "flags": [
     "truncated"
    ],
@@ -339,14 +348,14 @@
    "abbr": "SD",
    "exec": "Jed Hoyer",
    "start": "2009-10-26",
-   "end": "2011-12-06"
+   "end": "2011-10-24"
   },
   {
    "teamId": 135,
    "team": "San Diego Padres",
    "abbr": "SD",
    "exec": "Josh Byrnes",
-   "start": "2011-12-07",
+   "start": "2011-10-25",
    "end": "2014-06-22"
   },
   {
@@ -1109,7 +1118,7 @@
    "team": "Athletics",
    "abbr": "ATH",
    "exec": "David Forst",
-   "start": "2015-10-05",
+   "start": "2022-11-18",
    "end": "2026-08-07",
    "flags": []
   },
