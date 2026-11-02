@@ -2,6 +2,10 @@
 
 A decision-level accounting system for sports front offices. Every draft pick, trade, signing, and waiver claim, graded against the market expectation for that transaction type and attributed to the executive regime that made it. Inspired by OOTP's Decision History screen; built for real MLB data first, schema designed to extend to other leagues.
 
+## v5.5 one asset, one entry (November 2026)
+
+Drafted and internationally signed players are graded as assets: what they produced in their six control seasons wherever they played, against a slot expectation re-calibrated so the league's draft net is about zero. A later trade is graded once, in the trade (`engine/asset_rules.py`). Report cards list every trade in a tenure with a letter on every move; Transaction Trees get a browsable finder, the Soto chain, and projections on open branches. Details: `docs/methodology-v32-addendum.md` (v5.5); tests: `tests/t_consistency.mjs`.
+
 ## v5.4 public-launch pass (November 2026)
 
 Live at [szerillo.github.io/front-office-ledger/prototype](https://szerillo.github.io/front-office-ledger/prototype/). An independent fan project, not affiliated with MLB or any club; data from the public MLB Stats API and Retrosheet.
