@@ -7,14 +7,14 @@
    "year": 1998,
    "result": "Won World Series",
    "regime": "Brian Cashman",
-   "regimeNote": "title in year 1 of the regime \u00b7 continuity view: 71% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
+   "regimeNote": "title in year 1 of the regime \u00b7 continuity view: 74% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
      "Bernie Williams",
-     "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1988",
+     "intl",
+     "Signed as an amateur free agent from Puerto Rico, Sep 1985 (before Puerto Rico entered the draft)",
+     "1985-09",
      "inh",
      7.1,
      "124288"
@@ -22,8 +22,8 @@
     [
      "Derek Jeter",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1992",
+     "Drafted by the club, 1992 (round 1, pick 6)",
+     "1992-06-15",
      "inh",
      6.4,
      "116539"
@@ -85,26 +85,26 @@
     [
      "Jorge Posada",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1993",
+     "Drafted by the club, 1990 (round 24, pick 629)",
+     "1990-06-15",
      "inh",
      3.2,
      "120691"
     ],
     [
      "Orlando Hernandez",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1996",
-     "inh",
+     "fa",
+     "Signed as a free agent after defecting from Cuba, Mar 7 1998 (4 yr / $6.6M)",
+     "1998-03-07",
+     "reg",
      2.5,
      "133340"
     ],
     [
      "Andy Pettitte",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1992",
+     "Drafted by the club, 1990 (round 22, pick 577)",
+     "1990-06-15",
      "inh",
      2.0,
      "120485"
@@ -121,8 +121,8 @@
     [
      "Ramiro Mendoza",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1994",
+     "Came up through the club's system (earliest assignment on file: Greensboro Hornets, 1993)",
+     "1993-08-30",
      "inh",
      1.6,
      "118947"
@@ -130,8 +130,8 @@
     [
      "Shane Spencer",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1995",
+     "Drafted by the club, 1990 (round 28, pick 733)",
+     "1990-06-15",
      "inh",
      1.6,
      "133341"
@@ -163,14 +163,14 @@
    "year": 1999,
    "result": "Won World Series",
    "regime": "Brian Cashman",
-   "regimeNote": "title in year 2 of the regime \u00b7 continuity view: 76% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
+   "regimeNote": "title in year 2 of the regime \u00b7 continuity view: 91% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
      "Derek Jeter",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1992",
+     "Drafted by the club, 1992 (round 1, pick 6)",
+     "1992-06-15",
      "inh",
      8.7,
      "116539"
@@ -204,10 +204,10 @@
     ],
     [
      "Orlando Hernandez",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1996",
-     "inh",
+     "fa",
+     "Signed as a free agent after defecting from Cuba, Mar 7 1998 (4 yr / $6.6M)",
+     "1998-03-07",
+     "reg",
      2.7,
      "133340"
     ],
@@ -223,8 +223,8 @@
     [
      "Ramiro Mendoza",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1994",
+     "Came up through the club's system (earliest assignment on file: Greensboro Hornets, 1993)",
+     "1993-08-30",
      "inh",
      2.3,
      "118947"
@@ -240,9 +240,9 @@
     ],
     [
      "Hideki Irabu",
-     "trade",
-     "New York Yankees traded player, Rafael Medina, Rub\u00e9n Rivera to San Diego Padres; San Diego Padres traded Homer Bush, Gordie Amerson, Hideki\u2026",
-     "1997-04-22",
+     "fa",
+     "Signed as a free agent, 4 yr / $12.8M (contract book, signed 1997-05)",
+     "1997-05",
      "inh",
      2.0,
      "116400"
@@ -250,8 +250,8 @@
     [
      "Mariano Rivera",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1993",
+     "Came up through the club's system (earliest assignment on file: Greensboro Hornets, 1993)",
+     "1993-06-29",
      "inh",
      2.0,
      "121250"
@@ -259,8 +259,8 @@
     [
      "Andy Pettitte",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1992",
+     "Drafted by the club, 1990 (round 22, pick 577)",
+     "1990-06-15",
      "inh",
      2.0,
      "120485"
@@ -268,8 +268,8 @@
     [
      "Jorge Posada",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1993",
+     "Drafted by the club, 1990 (round 24, pick 629)",
+     "1990-06-15",
      "inh",
      1.9,
      "120691"
@@ -310,14 +310,14 @@
    "year": 2000,
    "result": "Won World Series",
    "regime": "Brian Cashman",
-   "regimeNote": "title in year 3 of the regime \u00b7 continuity view: 75% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
+   "regimeNote": "title in year 3 of the regime \u00b7 continuity view: 74% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
      "Jorge Posada",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1993",
+     "Drafted by the club, 1990 (round 24, pick 629)",
+     "1990-06-15",
      "inh",
      6.3,
      "120691"
@@ -325,8 +325,8 @@
     [
      "Derek Jeter",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1992",
+     "Drafted by the club, 1992 (round 1, pick 6)",
+     "1992-06-15",
      "inh",
      5.9,
      "116539"
@@ -343,8 +343,8 @@
     [
      "Andy Pettitte",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1992",
+     "Drafted by the club, 1990 (round 22, pick 577)",
+     "1990-06-15",
      "inh",
      3.2,
      "120485"
@@ -379,18 +379,18 @@
     [
      "Mariano Rivera",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1993",
+     "Came up through the club's system (earliest assignment on file: Greensboro Hornets, 1993)",
+     "1993-06-29",
      "inh",
      2.0,
      "121250"
     ],
     [
      "Orlando Hernandez",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1996",
-     "inh",
+     "fa",
+     "Signed as a free agent after defecting from Cuba, Mar 7 1998 (4 yr / $6.6M)",
+     "1998-03-07",
+     "reg",
      1.7,
      "133340"
     ],
@@ -481,18 +481,18 @@
     [
      "Byung-Hyun Kim",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1997",
+     "Came up through the club's system (earliest assignment on file: El Paso Diablos, 1999)",
+     "1999-04-08",
      "reg",
      2.1,
      "218294"
     ],
     [
      "Damian Miller",
-     "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1995",
-     "inh",
+     "trade",
+     "Taken from the Minnesota Twins in the Nov 1997 expansion draft",
+     "1997-11-18",
+     "reg",
      1.9,
      "119064"
     ],
@@ -508,8 +508,8 @@
     [
      "Jay Bell",
      "fa",
-     "Arizona Diamondbacks signed free agent Jay Bell. (Retrosheet archive)",
-     "1997-11-17",
+     "Signed as a free agent, 5 yr / $34M (contract book, signed 1997-12)",
+     "1997-12",
      "reg",
      1.5,
      "110826"
@@ -553,8 +553,8 @@
     [
      "Erubiel Durazo",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1997",
+     "Came up through the club's system (earliest assignment on file: Arizona Diamondbacks, 1999)",
+     "1999-07-26",
      "reg",
      1.2,
      "220194"
@@ -574,8 +574,8 @@
     [
      "Troy Glaus",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1995",
+     "Drafted by the club, 1997 (round 1, pick 3)",
+     "1997-06-15",
      "inh",
      4.1,
      "136267"
@@ -583,8 +583,8 @@
     [
      "Garret Anderson",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1994",
+     "Drafted by the club, 1990 (round 4, pick 123)",
+     "1990-06-15",
      "inh",
      3.9,
      "110236"
@@ -592,15 +592,15 @@
     [
      "Tim Salmon",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1994",
+     "Drafted by the club, 1989 (round 3, pick 69)",
+     "1989-06-15",
      "inh",
      3.9,
      "121640"
     ],
     [
      "David Eckstein",
-     "intl",
+     "trade",
      "Anaheim Angels claimed David Eckstein off waivers. (Retrosheet archive)",
      "2000-08-16",
      "reg",
@@ -610,8 +610,8 @@
     [
      "Jarrod Washburn",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1995",
+     "Drafted by the club, 1995 (round 2, pick 31)",
+     "1995-06-15",
      "inh",
      3.6,
      "132220"
@@ -663,7 +663,7 @@
     ],
     [
      "Ben Weber",
-     "intl",
+     "trade",
      "Anaheim Angels claimed Ben Weber off waivers. (Retrosheet archive)",
      "2000-08-30",
      "reg",
@@ -682,8 +682,8 @@
     [
      "Troy Percival",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1994",
+     "Drafted by the club, 1990 (round 6, pick 175)",
+     "1990-06-15",
      "inh",
      1.4,
      "120401"
@@ -691,8 +691,8 @@
     [
      "Darin Erstad",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1994",
+     "Drafted by the club, 1995 (round 1, pick 1)",
+     "1995-06-15",
      "inh",
      1.3,
      "113889"
@@ -748,8 +748,8 @@
     [
      "Luis Castillo",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1994",
+     "Came up through the club's system (earliest assignment on file: Kane County Cougars, 1995)",
+     "1995-04-08",
      "inh",
      4.0,
      "112116"
@@ -784,8 +784,8 @@
     [
      "\u00c1lex Gonz\u00e1lez",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~1996",
+     "Came up through the club's system (earliest assignment on file: Kane County Cougars, 1996)",
+     "1996-08-17",
      "inh",
      2.5,
      "136460"
@@ -838,8 +838,8 @@
     [
      "Miguel Cabrera",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2001",
+     "Came up through the club's system (earliest assignment on file: GCL Marlins, 2000)",
+     "2000-06-19",
      "inh",
      1.5,
      "408234"
@@ -930,7 +930,7 @@
     ],
     [
      "Bronson Arroyo",
-     "intl",
+     "trade",
      "Boston Red Sox claimed Bronson Arroyo off waivers. (Retrosheet archive)",
      "2003-02-04",
      "reg",
@@ -939,10 +939,10 @@
     ],
     [
      "Mark Bellhorn",
-     "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~2001",
-     "inh",
+     "trade",
+     "Acquired from the Colorado Rockies in a trade, Dec 2003",
+     "2003-12",
+     "reg",
      3.4,
      "110840"
     ],
@@ -957,10 +957,10 @@
     ],
     [
      "Kevin Millar",
-     "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~2000",
-     "inh",
+     "trade",
+     "Purchased from the Florida Marlins, Feb 2003",
+     "2003-02",
+     "reg",
      2.8,
      "132788"
     ],
@@ -1012,8 +1012,8 @@
     [
      "Nomar Garciaparra",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1993",
+     "Drafted by the club, 1994 (round 1, pick 12)",
+     "1994-06-15",
      "inh",
      1.2,
      "114596"
@@ -1123,8 +1123,8 @@
     [
      "Joe Crede",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1997",
+     "Drafted by the club, 1996 (round 5, pick 137)",
+     "1996-06-15",
      "inh",
      1.5,
      "150317"
@@ -1149,7 +1149,7 @@
     ],
     [
      "Bobby Jenks",
-     "intl",
+     "trade",
      "Chicago White Sox claimed Bobby Jenks off waivers. (Retrosheet archive)",
      "2004-12-17",
      "reg",
@@ -1326,9 +1326,9 @@
     ],
     [
      "Daisuke Matsuzaka",
-     "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2005",
+     "fa",
+     "Signed as a free agent, 6 yr / $52M (contract book, signed 2006-12)",
+     "2006-12",
      "reg",
      3.3,
      "493137"
@@ -1390,8 +1390,8 @@
     [
      "Hideki Okajima",
      "fa",
-     "Boston Red Sox signed free agent Hideki Okajima. (Retrosheet archive)",
-     "2006-11-30",
+     "Signed as a free agent, 2 yr / $2.5M (contract book, signed 2006-12)",
+     "2006-12",
      "reg",
      1.8,
      "506606"
@@ -1456,15 +1456,15 @@
     [
      "Jimmy Rollins",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1997",
+     "Drafted by the club, 1996 (round 2, pick 46)",
+     "1996-06-15",
      "inh",
      3.5,
      "276519"
     ],
     [
      "Shane Victorino",
-     "intl",
+     "trade",
      "Philadelphia Phillies selected Shane Victorino in the Rule 5 draft. (Retrosheet archive)",
      "2004-12-13",
      "inh",
@@ -1536,7 +1536,7 @@
     ],
     [
      "Greg Dobbs",
-     "intl",
+     "trade",
      "Philadelphia Phillies claimed Greg Dobbs off waivers. (Retrosheet archive)",
      "2007-01-15",
      "reg",
@@ -1552,14 +1552,14 @@
    "year": 2009,
    "result": "Won World Series",
    "regime": "Brian Cashman",
-   "regimeNote": "title in year 12 of the regime \u00b7 continuity view: 88% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
+   "regimeNote": "title in year 12 of the regime \u00b7 continuity view: 100% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
      "Derek Jeter",
      "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~1992",
+     "Drafted by the club, 1992 (round 1, pick 6)",
+     "1992-06-15",
      "inh",
      6.4,
      "116539"
@@ -1575,9 +1575,9 @@
     ],
     [
      "Mark Teixeira",
-     "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~2006",
+     "fa",
+     "Signed as a free agent, 8 yr / $180M (contract book, signed 2008-12)",
+     "2008-12",
      "reg",
      5.3,
      "407893"
@@ -1594,8 +1594,8 @@
     [
      "Robinson Can\u00f3",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2003",
+     "Came up through the club's system (earliest assignment on file: Greensboro Bats, 2002)",
+     "2002-04-04",
      "reg",
      5.1,
      "429664"
@@ -1684,8 +1684,8 @@
     [
      "Melky Cabrera",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2003",
+     "Came up through the club's system (earliest assignment on file: Staten Island Yankees, 2003)",
+     "2003-06-17",
      "reg",
      1.4,
      "466320"
@@ -1731,9 +1731,9 @@
     ],
     [
      "Andres Torres",
-     "draft",
-     "Amateur draft pick (before the draft table's coverage; born in draft territory)",
-     "~2006",
+     "intl",
+     "Signed as a minor-league free agent, Dec 2008 (originally a 1998 Tigers draft pick)",
+     "2008-12",
      "reg",
      4.0,
      "400083"
@@ -1777,8 +1777,8 @@
     [
      "Pablo Sandoval",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2006",
+     "Came up through the club's system (earliest assignment on file: AZL Giants, 2004)",
+     "2004-06-22",
      "reg",
      2.3,
      "467055"
@@ -1926,7 +1926,7 @@
      "trade",
      "St. Louis Cardinals traded Jim Edmonds to San Diego Padres; San Diego Padres traded David Freese to St. Louis Cardinals (Retrosheet archive)",
      "2007-12-14",
-     "inh",
+     "reg",
      2.6,
      "501896"
     ],
@@ -1996,7 +1996,7 @@
     [
      "Rafael Furcal",
      "trade",
-     "Springfield Cardinals Traded RF Alex Castellanos to Chattanooga Lookouts and Los Angeles Dodgers Traded cash and SS Rafael Furcal to St.\u2026",
+     "Los Angeles Dodgers traded cash and SS Rafael Furcal to St. Louis Cardinals.",
      "2011-07-31",
      "reg",
      1.3,
@@ -2026,7 +2026,7 @@
     [
      "Melky Cabrera",
      "trade",
-     "Kansas City Royals Traded LF Melky Cabrera to San Francisco Giants; San Francisco Giants Traded LHP Jonathan Sanchez to Kansas City Royals\u2026",
+     "Kansas City Royals traded LF Melky Cabrera to San Francisco Giants.",
      "2011-11-07",
      "reg",
      5.1,
@@ -2044,8 +2044,8 @@
     [
      "Pablo Sandoval",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2006",
+     "Came up through the club's system (earliest assignment on file: AZL Giants, 2004)",
+     "2004-06-22",
      "reg",
      3.2,
      "467055"
@@ -2070,9 +2070,9 @@
     ],
     [
      "Brandon Belt",
-     "intl",
-     "San Francisco Giants signed free agent 1B Brandon Belt to a minor league contract.",
-     "2009-08-17",
+     "draft",
+     "Drafted by the club, 2009 (round 5, pick 147); signed 2009-08-17",
+     "2009-06-09",
      "reg",
      2.3,
      "474832"
@@ -2134,8 +2134,8 @@
     [
      "H\u00e9ctor S\u00e1nchez",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2009",
+     "Came up through the club's system (earliest assignment on file: DSL Giants, 2007)",
+     "2007-06-02",
      "reg",
      1.2,
      "516949"
@@ -2173,7 +2173,7 @@
     [
      "Jarrod Saltalamacchia",
      "trade",
-     "Texas Rangers Traded C Jarrod Saltalamacchia to Boston Red Sox; Lowell Spinners Traded RHP Roman Mendez to Spokane Indians and Greenville\u2026",
+     "Texas Rangers traded C Jarrod Saltalamacchia to Boston Red Sox.",
      "2010-07-31",
      "inh",
      4.1,
@@ -2263,8 +2263,8 @@
     [
      "F\u00e9lix Doubront",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2008",
+     "Came up through the club's system (earliest assignment on file: GCL Red Sox, 2006)",
+     "2006-06-18",
      "inh",
      2.3,
      "467094"
@@ -2290,7 +2290,7 @@
     [
      "Junichi Tazawa",
      "fa",
-     "Boston Red Sox signed free agent RHP Junichi Tazawa.",
+     "Boston Red Sox signed free agent Junichi Tazawa. (Retrosheet archive)",
      "2008-12-04",
      "inh",
      1.4,
@@ -2338,8 +2338,8 @@
     [
      "Pablo Sandoval",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2006",
+     "Came up through the club's system (earliest assignment on file: AZL Giants, 2004)",
+     "2004-06-22",
      "reg",
      3.8,
      "467055"
@@ -2422,7 +2422,7 @@
     [
      "Lorenzo Cain",
      "trade",
-     "Milwaukee Brewers Traded SS Alcides Escobar, RHP Jeremy Jeffress and CF Lorenzo Cain to Kansas City Royals; Kansas City Royals Traded SS\u2026",
+     "Milwaukee Brewers traded SS Alcides Escobar, RHP Jeremy Jeffress and CF Lorenzo Cain to Kansas City Royals.",
      "2010-12-19",
      "reg",
      4.7,
@@ -2467,8 +2467,8 @@
     [
      "Yordano Ventura",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2011",
+     "Came up through the club's system (earliest assignment on file: DSL Royals, 2009)",
+     "2009-05-29",
      "reg",
      2.8,
      "570649"
@@ -2476,8 +2476,8 @@
     [
      "Salvador Perez",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2009",
+     "Came up through the club's system (earliest assignment on file: AZL Royals, 2007)",
+     "2007-06-22",
      "reg",
      2.3,
      "521692"
@@ -2521,8 +2521,8 @@
     [
      "Kelvin Herrera",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2009",
+     "Came up through the club's system (earliest assignment on file: DSL Royals, 2007)",
+     "2007-06-02",
      "reg",
      1.3,
      "516969"
@@ -2641,9 +2641,9 @@
     [
      "Willson Contreras",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2014",
-     "reg",
+     "Came up through the club's system (earliest assignment on file: DSL Cubs 2, 2010)",
+     "2010-07-31",
+     "inh",
      2.3,
      "575929"
     ],
@@ -2668,7 +2668,7 @@
     [
      "David Ross",
      "fa",
-     "Chicago Cubs signed free agent David Ross.",
+     "Chicago Cubs signed free agent C David Ross.",
      "2014-12-23",
      "reg",
      1.2,
@@ -2716,8 +2716,8 @@
     [
      "Jose Altuve",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2009",
+     "Came up through the club's system (earliest assignment on file: VSL Astros, 2007)",
+     "2007-05-13",
      "inh",
      8.2,
      "514888"
@@ -2752,7 +2752,7 @@
     [
      "Marwin Gonzalez",
      "trade",
-     "Boston Red Sox Traded SS Marwin Gonzalez to Houston Astros and Oklahoma City RedHawks Traded RHP Marco Antonio Duarte to Pawtucket Red Sox.",
+     "Boston Red Sox traded SS Marwin Gonzalez to Houston Astros.",
      "2011-12-08",
      "reg",
      4.6,
@@ -2761,8 +2761,8 @@
     [
      "Josh Reddick",
      "fa",
-     "Houston Astros signed free agent RF Josh Reddick.",
-     "2016-11-23",
+     "Signed as a free agent, 4 yr / $52M (contract book, signed 2016-12)",
+     "2016-12",
      "reg",
      3.9,
      "502210"
@@ -2779,8 +2779,8 @@
     [
      "Charlie Morton",
      "fa",
-     "Houston Astros signed free agent RHP Charlie Morton.",
-     "2016-11-16",
+     "Signed as a free agent, 2 yr / $14M (contract book, signed 2016-12)",
+     "2016-12",
      "reg",
      2.7,
      "450203"
@@ -2899,8 +2899,8 @@
     [
      "Xander Bogaerts",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2011",
+     "Came up through the club's system (earliest assignment on file: DSL Red Sox, 2010)",
+     "2010-05-28",
      "inh",
      5.5,
      "593428"
@@ -3082,8 +3082,8 @@
     [
      "Victor Robles",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2015",
+     "Came up through the club's system (earliest assignment on file: DSL Nationals, 2014)",
+     "2014-03-10",
      "reg",
      3.3,
      "645302"
@@ -3109,8 +3109,8 @@
     [
      "Wander Suero",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2016",
+     "Came up through the club's system (earliest assignment on file: DSL Nationals, 2010)",
+     "2010-05-29",
      "reg",
      1.9,
      "593833"
@@ -3286,8 +3286,8 @@
     [
      "Ozzie Albies",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2015",
+     "Came up through the club's system (earliest assignment on file: DSL Braves, 2014)",
+     "2014-02-20",
      "inh",
      4.9,
      "645277"
@@ -3304,8 +3304,8 @@
     [
      "Ronald Acu\u00f1a Jr.",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2016",
+     "Came up through the club's system (earliest assignment on file: Danville Braves, 2015)",
+     "2015-08-11",
      "inh",
      4.3,
      "660670"
@@ -3393,7 +3393,7 @@
     ],
     [
      "Guillermo Heredia",
-     "intl",
+     "trade",
      "Atlanta Braves claimed CF Guillermo Heredia off waivers from New York Mets.",
      "2021-02-24",
      "reg",
@@ -3415,8 +3415,8 @@
     [
      "Jose Altuve",
      "intl",
-     "Amateur / minor-league signing (no major-league transaction on record)",
-     "~2009",
+     "Came up through the club's system (earliest assignment on file: VSL Astros, 2007)",
+     "2007-05-13",
      "inh",
      7.5,
      "514888"
@@ -3442,7 +3442,7 @@
     [
      "Justin Verlander",
      "fa",
-     "Houston Astros signed free agent RHP Justin Verlander,  and.",
+     "Houston Astros signed free agent RHP Justin Verlander.",
      "2022-03-12",
      "reg",
      5.0,
@@ -3514,7 +3514,7 @@
     [
      "Rafael Montero",
      "trade",
-     "Houston Astros traded 3B Abraham Toro, RHP Joe Smith,  and  to Seattle Mariners for RHP Kendall Graveman and RHP Rafael Montero.",
+     "Houston Astros traded 3B Abraham Toro, RHP Joe Smith to Seattle Mariners for RHP Kendall Graveman and RHP Rafael Montero.",
      "2021-07-27",
      "reg",
      1.8,
@@ -3835,7 +3835,7 @@
     [
      "Alex Vesia",
      "trade",
-     "traded  to Los Angeles Dodgers for .",
+     "Miami Marlins traded LHP Alex Vesia and RHP Kyle Hurt to Los Angeles Dodgers for Dylan Floro.",
      "2021-02-12",
      "reg",
      1.2,
@@ -3843,7 +3843,7 @@
     ],
     [
      "Evan Phillips",
-     "intl",
+     "trade",
      "Los Angeles Dodgers claimed RHP Evan Phillips off waivers from Tampa Bay Rays.",
      "2021-08-16",
      "reg",
@@ -3964,17 +3964,17 @@
     [
      "Blake Snell",
      "fa",
-     "Los Angeles Dodgers signed free agent LHP Blake Snell.",
-     "2024-11-30",
+     "Signed as a free agent, 5 yr / $182M (contract book, signed 2024-12)",
+     "2024-12",
      "reg",
      1.8,
      "605483"
     ],
     [
      "Justin Wrobleski",
-     "intl",
-     "Los Angeles Dodgers signed free agent LHP Justin Wrobleski to a minor league contract.",
-     "2021-07-26",
+     "draft",
+     "Drafted by the club, 2021 (round 11, pick 342); signed 2021-07-26",
+     "2021-07-11",
      "reg",
      1.7,
      "680736"
@@ -4181,11 +4181,11 @@
   "earlyTitles": 11,
   "lateTitles": 9,
   "avgShare": {
-   "fa": 23.6,
-   "trade": 19.2,
-   "draft": 11.9,
-   "intl": 7.6,
-   "inherited": 37.8
+   "fa": 24.7,
+   "trade": 21.1,
+   "draft": 11.5,
+   "intl": 6.1,
+   "inherited": 36.6
   },
   "majorityFA": [
    "nyy09"
@@ -4209,11 +4209,12 @@
     "exec": "Brian Cashman",
     "tenure": 1,
     "total": 52.6,
-    "regShare": 7,
-    "contShare": 71,
+    "regShare": 12,
+    "contShare": 74,
     "mix": {
-     "inherited": 48.9,
-     "trade": 3.7
+     "inherited": 46.4,
+     "trade": 3.7,
+     "fa": 2.5
     }
    },
    {
@@ -4224,11 +4225,11 @@
     "exec": "Brian Cashman",
     "tenure": 2,
     "total": 45.1,
-    "regShare": 38,
-    "contShare": 76,
+    "regShare": 44,
+    "contShare": 91,
     "mix": {
-     "inherited": 27.9,
-     "fa": 9.9,
+     "inherited": 25.2,
+     "fa": 12.6,
      "trade": 7.3
     }
    },
@@ -4240,11 +4241,11 @@
     "exec": "Brian Cashman",
     "tenure": 3,
     "total": 36.9,
-    "regShare": 44,
-    "contShare": 75,
+    "regShare": 49,
+    "contShare": 74,
     "mix": {
-     "inherited": 20.7,
-     "fa": 7.5,
+     "inherited": 19.0,
+     "fa": 9.2,
      "trade": 8.7
     }
    },
@@ -4256,13 +4257,12 @@
     "exec": "Joe Garagiola Jr.",
     "tenure": 6,
     "total": 41.5,
-    "regShare": 95,
+    "regShare": 100,
     "contShare": null,
     "mix": {
-     "trade": 17.6,
+     "trade": 19.5,
      "fa": 18.7,
-     "intl": 3.3,
-     "inherited": 1.9
+     "intl": 3.3
     }
    },
    {
@@ -4277,8 +4277,7 @@
     "contShare": null,
     "mix": {
      "inherited": 19.8,
-     "intl": 5.4,
-     "trade": 7.4,
+     "trade": 12.8,
      "fa": 4.9
     }
    },
@@ -4306,13 +4305,12 @@
     "exec": "Theo Epstein",
     "tenure": 2,
     "total": 54.0,
-    "regShare": 38,
+    "regShare": 49,
     "contShare": null,
     "mix": {
-     "trade": 6.2,
-     "inherited": 33.5,
-     "fa": 10.8,
-     "intl": 3.5
+     "trade": 15.9,
+     "inherited": 27.3,
+     "fa": 10.8
     }
    },
    {
@@ -4327,9 +4325,8 @@
     "contShare": null,
     "mix": {
      "inherited": 16.1,
-     "trade": 9.5,
-     "fa": 9.9,
-     "intl": 1.2
+     "trade": 10.7,
+     "fa": 9.9
     }
    },
    {
@@ -4359,10 +4356,9 @@
     "regShare": 82,
     "contShare": null,
     "mix": {
-     "fa": 14.5,
+     "fa": 17.8,
      "trade": 12.9,
      "draft": 5.3,
-     "intl": 3.3,
      "inherited": 7.9
     }
    },
@@ -4379,8 +4375,7 @@
     "mix": {
      "inherited": 26.1,
      "fa": 6.1,
-     "trade": 3.9,
-     "intl": 1.3
+     "trade": 5.2
     }
    },
    {
@@ -4392,13 +4387,13 @@
     "tenure": 12,
     "total": 54.6,
     "regShare": 88,
-    "contShare": 88,
+    "contShare": 100,
     "mix": {
      "inherited": 6.4,
-     "fa": 29.4,
-     "draft": 8.7,
+     "fa": 34.7,
      "intl": 6.5,
-     "trade": 3.6
+     "trade": 3.6,
+     "draft": 3.4
     }
    },
    {
@@ -4413,8 +4408,8 @@
     "contShare": null,
     "mix": {
      "fa": 9.8,
-     "draft": 19.7,
-     "intl": 5.9,
+     "draft": 15.7,
+     "intl": 9.9,
      "trade": 2.4
     }
    },
@@ -4426,12 +4421,12 @@
     "exec": "John Mozeliak",
     "tenure": 4,
     "total": 47.7,
-    "regShare": 37,
+    "regShare": 42,
     "contShare": null,
     "mix": {
      "fa": 14.7,
-     "inherited": 30.2,
-     "trade": 2.8
+     "inherited": 27.6,
+     "trade": 5.4
     }
    },
    {
@@ -4445,9 +4440,9 @@
     "regShare": 100,
     "contShare": null,
     "mix": {
-     "draft": 16.0,
+     "draft": 18.3,
      "trade": 12.5,
-     "intl": 9.2,
+     "intl": 6.9,
      "fa": 1.4
     }
    },
@@ -4510,14 +4505,13 @@
     "exec": "Theo Epstein",
     "tenure": 5,
     "total": 50.8,
-    "regShare": 95,
+    "regShare": 91,
     "contShare": null,
     "mix": {
      "draft": 8.1,
      "trade": 21.3,
      "fa": 16.7,
-     "inherited": 2.4,
-     "intl": 2.3
+     "inherited": 4.7
     }
    },
    {
@@ -4600,8 +4594,8 @@
     "mix": {
      "inherited": 32.4,
      "fa": 4.9,
-     "intl": 3.7,
-     "trade": 1.2
+     "intl": 2.7,
+     "trade": 2.2
     }
    },
    {
@@ -4648,9 +4642,9 @@
     "contShare": null,
     "mix": {
      "fa": 20.8,
-     "trade": 12.5,
+     "trade": 13.6,
      "draft": 7.2,
-     "intl": 5.1
+     "intl": 4.0
     }
    },
    {
@@ -4665,9 +4659,9 @@
     "contShare": null,
     "mix": {
      "fa": 21.4,
-     "draft": 8.0,
+     "draft": 9.7,
      "trade": 8.2,
-     "intl": 10.0
+     "intl": 8.3
     }
    },
    {

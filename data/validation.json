@@ -9,22 +9,22 @@
   "mean_truth": 31.2
  },
  "predictive": {
-  "n": 575,
+  "n": 576,
   "regimes": 112,
-  "coef_decision_value": 0.00166,
-  "coef_wpct": 0.443,
-  "r2_base": 0.194,
-  "r2_full": 0.204,
-  "r2_gain": 0.01,
-  "partial_r": 0.113,
+  "coef_decision_value": 0.00168,
+  "coef_wpct": 0.473,
+  "r2_base": 0.193,
+  "r2_full": 0.202,
+  "r2_gain": 0.009,
+  "partial_r": 0.107,
   "partial_r_ci": [
-   -0.011,
-   0.272
+   -0.02,
+   0.276
   ],
   "boot_B": 2000,
-  "oos_r2_base": 0.187,
-  "oos_r2_full": 0.174,
-  "oos_gain": -0.013,
+  "oos_r2_base": 0.186,
+  "oos_r2_full": 0.154,
+  "oos_gain": -0.032,
   "cv": "grouped 5-fold by regime"
  }
 }

@@ -1,5 +1,5 @@
 {
- "comment": "Historical regimes, 1998-2024. Transaction floor 1998-01-01 (feed 2009+, Retrosheet backfill 1985-2008; rows before 1998 serve provenance only). Regimes seated before 1998 are truncated and flagged with their true start. Dates are month-precise; 'approx' marks records where the exact day is uncertain.",
+ "comment": "Historical regimes, 1998-2024. Transaction floor 1998-01-01 (feed 2009+, Retrosheet backfill 1985-2008; rows before 1998 serve provenance only). Regimes seated before 1998 are truncated and flagged with their true start. Dates are month-precise; 'approx' marks records where the exact day is uncertain. v5.9: interim GMs who made trades between permanent regimes are listed as their own (interim) regimes, so every trade seat 1998-2026 belongs to exactly one regime; Mozeliak's St. Louis start is his promotion, Oct 31 2007.",
  "regimes": [
   {
    "teamId": 111,
@@ -177,11 +177,9 @@
    "team": "St. Louis Cardinals",
    "abbr": "STL",
    "exec": "John Mozeliak",
-   "start": "2008-01-01",
+   "start": "2007-10-31",
    "end": "2025-09-30",
-   "flags": [
-    "approx"
-   ]
+   "flags": []
   },
   {
    "teamId": 120,
@@ -1130,6 +1128,114 @@
    "start": "2023-01-26",
    "end": "2026-08-24",
    "flags": []
+  },
+  {
+   "teamId": 119,
+   "team": "Los Angeles Dodgers",
+   "abbr": "LAD",
+   "exec": "Tommy Lasorda (interim)",
+   "start": "1998-06-22",
+   "end": "1998-08-31",
+   "flags": [
+    "smallish",
+    "interim"
+   ]
+  },
+  {
+   "teamId": 113,
+   "team": "Cincinnati Reds",
+   "abbr": "CIN",
+   "exec": "Brad Kullman / Leland Maddox (interim)",
+   "start": "2003-07-29",
+   "end": "2003-10-26",
+   "flags": [
+    "smallish",
+    "interim"
+   ]
+  },
+  {
+   "teamId": 136,
+   "team": "Seattle Mariners",
+   "abbr": "SEA",
+   "exec": "Lee Pelekoudas (interim)",
+   "start": "2008-06-17",
+   "end": "2008-10-21",
+   "flags": [
+    "smallish",
+    "interim"
+   ]
+  },
+  {
+   "teamId": 109,
+   "team": "Arizona Diamondbacks",
+   "abbr": "ARI",
+   "exec": "Jerry Dipoto (interim)",
+   "start": "2010-07-02",
+   "end": "2010-09-21",
+   "flags": [
+    "smallish",
+    "interim"
+   ]
+  },
+  {
+   "teamId": 135,
+   "team": "San Diego Padres",
+   "abbr": "SD",
+   "exec": "Omar Minaya / A.J. Hinch / Fred Uhlman Jr. (interim)",
+   "start": "2014-06-23",
+   "end": "2014-08-05",
+   "flags": [
+    "smallish",
+    "interim"
+   ]
+  },
+  {
+   "teamId": 108,
+   "team": "Los Angeles Angels",
+   "abbr": "LAA",
+   "exec": "Bill Stoneman (interim)",
+   "start": "2015-07-02",
+   "end": "2015-10-03",
+   "flags": [
+    "smallish",
+    "interim"
+   ]
+  },
+  {
+   "teamId": 142,
+   "team": "Minnesota Twins",
+   "abbr": "MIN",
+   "exec": "Rob Antony (interim)",
+   "start": "2016-07-19",
+   "end": "2016-10-02",
+   "flags": [
+    "smallish",
+    "interim"
+   ]
+  },
+  {
+   "teamId": 121,
+   "team": "New York Mets",
+   "abbr": "NYM",
+   "exec": "Omar Minaya / J.P. Ricciardi / John Ricco (interim)",
+   "start": "2018-06-27",
+   "end": "2018-10-28",
+   "flags": [
+    "smallish",
+    "interim"
+   ]
+  },
+  {
+   "teamId": 120,
+   "team": "Washington Nationals",
+   "abbr": "WSH",
+   "exec": "Mike DeBartolo (interim)",
+   "start": "2025-07-02",
+   "end": "2025-09-29",
+   "flags": [
+    "smallish",
+    "interim"
+   ]
   }
  ]
 }
