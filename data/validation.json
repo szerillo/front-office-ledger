@@ -1,30 +1,30 @@
 {
  "accounting": {
-  "n": 327,
-  "r": 0.864,
-  "r2": 0.747,
-  "slope": 0.818,
-  "mae": 5.35,
-  "mean_lvm": 33.2,
-  "mean_truth": 31.1
+  "n": 326,
+  "r": 0.865,
+  "r2": 0.749,
+  "slope": 0.824,
+  "mae": 5.34,
+  "mean_lvm": 33.0,
+  "mean_truth": 31.2
  },
  "predictive": {
   "n": 575,
   "regimes": 112,
-  "coef_decision_value": 0.00181,
-  "coef_wpct": 0.432,
+  "coef_decision_value": 0.00186,
+  "coef_wpct": 0.442,
   "r2_base": 0.184,
   "r2_full": 0.241,
   "r2_gain": 0.057,
   "partial_r": 0.265,
   "partial_r_ci": [
-   0.157,
-   0.375
+   0.153,
+   0.379
   ],
   "boot_B": 2000,
   "oos_r2_base": 0.177,
-  "oos_r2_full": 0.23,
-  "oos_gain": 0.054,
+  "oos_r2_full": 0.227,
+  "oos_gain": 0.051,
   "cv": "grouped 5-fold by regime"
  }
 }
