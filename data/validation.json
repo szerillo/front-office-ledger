@@ -11,20 +11,20 @@
  "predictive": {
   "n": 575,
   "regimes": 112,
-  "coef_decision_value": 0.00186,
-  "coef_wpct": 0.442,
+  "coef_decision_value": 0.00184,
+  "coef_wpct": 0.443,
   "r2_base": 0.184,
-  "r2_full": 0.241,
-  "r2_gain": 0.057,
-  "partial_r": 0.265,
+  "r2_full": 0.24,
+  "r2_gain": 0.056,
+  "partial_r": 0.262,
   "partial_r_ci": [
-   0.153,
-   0.379
+   0.151,
+   0.377
   ],
   "boot_B": 2000,
   "oos_r2_base": 0.177,
   "oos_r2_full": 0.227,
-  "oos_gain": 0.051,
+  "oos_gain": 0.05,
   "cv": "grouped 5-fold by regime"
  }
 }
