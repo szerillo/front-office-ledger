@@ -206,7 +206,7 @@ for r in res:
     nps = net / ds
     adj = nps - league_rate
     tops = sorted(pertops.get(tid, []), key=lambda t: -abs(t[0]))
-    r["dev"] = dict(net=round(net,1), g=grade(adj), n=pern.get(tid,0),
+    r["dev"] = dict(net=round(net,1), g=(grade(adj) if pern.get(tid,0) > 0 else None), n=pern.get(tid,0),   # v5.9: no letter without a development event
                     seasons=round(ds,1), rate=round(nps,2), lgRate=round(league_rate,2),
                     farmNow=round(farm_now.get(tid,0.0),1), farmN=farm_now_n.get(tid,0),
                     flows=dict(flows.get(tid,{})))
