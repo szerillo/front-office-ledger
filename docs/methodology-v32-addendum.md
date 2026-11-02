@@ -1051,3 +1051,27 @@ No outside projection numbers are used or shown. Code: `engine/prospects_peak.py
 Where it shows: the trade board and Deal Desk farm lists, the depth chart's
 call-ups, and every prospect's Deal Desk projection line (peak, odds, upside,
 and his four nearest comps with what they became).
+
+### v5.3.1 (same day): the low minors, discounting, and the Top 100 tests
+
+- Rookie ball (complex leagues and the DSL) and pre-2021 short-season A are
+  now in the translations and the comparables pool (34,825 prospect-seasons
+  in the backtest, up from 19,843). Complex-league clubs not in the
+  affiliate table are mapped to their parent by name.
+- Six-season value is now discounted 10% a year, the units of every surplus
+  figure in the simulator and of the Top 100 rank curve (the curve's average
+  for ranked prospects, 3.04, now matches the comps' discounted figure,
+  3.04). The v5.2 org tier was undiscounted and ran about 35% rich against
+  the rank curve.
+- Backtest after the change: outside the Top 100, comps r = 0.258 vs
+  0.192 for buckets; of the model's top 5% each cohort,
+  22% reached a 2-win peak against a 2.8% base rate.
+- Two ideas for the Top 100 were tested and NOT adopted. A level adjustment
+  to the rank curve (a ranked prospect already in Triple-A delivers more
+  inside six seasons: factors {'low': 0.85, 'mid': 0.94, 'AAA': 1.17}) looked better in
+  sample but scored r = 0.334 with each cohort held out, versus
+  0.336 for the plain curve. A 30/70 comps/rank blend scored about
+  0.34 versus 0.336: inside the noise. Top 100 value stays on the rank curve.
+- Each club's list is its 25 best by value plus its 10 highest ceilings not
+  already in, so high-upside teenagers in the low minors (who price low on six
+  discounted seasons) are on the board to be asked for.
