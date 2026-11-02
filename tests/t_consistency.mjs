@@ -68,6 +68,12 @@ const r = await d.page.evaluate(() => {
   o.scenWinter27 = scWinter27().length >= 8 && scWinter27().every(s => scAdjudicate(s, s.kind === 'trade' ? 'accept' : 'sign').outw === null);
   scAct('accept');
   o.scenProcessOnly = /not graded/.test(scScoreLine()) && /Cabrera/.test(document.getElementById('scenbody').innerText);
+  // v5.7: free agency and extensions grade against a typical club's return on the money, not zero
+  const faG = AUTO_REGIMES.map(x => x.chan.fa && x.chan.fa.g).filter(g => g != null);
+  o.faCenteredOnTypical = chanTypical('fa') > 0.55 && chanTypical('fa') < 0.85 && faG.filter(g => g <= 35).length <= faG.length / 3 && faG.filter(g => g >= 60).length >= 3;
+  o.extCenteredOnTypical = chanTypical('ext') > 0.7 && chanTypical('ext') < 1.3;
+  // desk and simulator letters rank against real moves of the same size
+  o.deskLettersBySize = moveGrade(3, 'trade', 0.5) !== moveGrade(3, 'trade', 40) && gmMoveLetter({kind:'fa', st: 0.3, rel: 0.6}) !== gmMoveLetter({kind:'fa', st: 25, rel: 0.6});
   return o;
 });
 await d.page.waitForTimeout(400);
