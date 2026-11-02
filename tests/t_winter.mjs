@@ -85,9 +85,13 @@ const r = await d.page.evaluate(async () => {
   o.deskChargesPostingFee = /posting fee/.test(document.getElementById('dk-out').innerText);
   document.getElementById('dk-fa-player').value = 'Chris Sale'; dkSuggestNow('fa');
   o.deskSaysUnderContract = /under contract with ATL through 2027/.test(document.getElementById('dk-suggest').innerText);
+  // the live winter: a free agent who signs on the league feed leaves the market and joins his club
+  { const sk2 = DESK.players.find(x => x[0] === 'Tarik Skubal'); const was = gmIsFA(sk2);
+    liveApply([{person: {id: sk2[1]}, toTeam: {id: 147}, typeCode: 'SFA', date: '2026-12-05', description: 'New York Yankees signed free agent LHP Tarik Skubal.'}]);
+    o.liveSigningApplied = was && !gmIsFA(sk2) && sk2[2] === 'NYY' && gmSalary27(sk2) > 20 && /Ledger offer/.test(gmStatus(sk2)[1]); }
   // the simulator: stars ask contenders for less, the rest of the market clears near the Ledger offer
   switchView('gm'); document.getElementById('gm-club').value = 'PIT'; gmStart();
-  const skb = DESK.players.find(x => x[0] === 'Tarik Skubal');
+  const skb = DESK.players.filter(x => gmIsFA(x)).sort((a, b) => gmProj27(b) - gmProj27(a))[0];
   const club0 = gmState.club, askPit = gmAsk(skb, false).tot; gmState.club = 'LAD'; const askLad = gmAsk(skb, false).tot; gmState.club = club0;
   o.simStarsDiscountContenders = askLad < askPit;
   gmState.stage = 2; gmState.open.tab = 'trade'; gmState.tr = {them: 'MIA', want: [], give: []}; gmShow(); gmAgmComplete();

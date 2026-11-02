@@ -16,8 +16,11 @@ export async function open(viewport){
   const page = await browser.newPage({viewport: viewport || {width:1500, height:1000}});
   const errors = [];
   page.on('pageerror', e => errors.push(e.message.slice(0, 160)));
+  // the live winter feed is tested on its own (t_winter); suites run on the Nov 1 data cut
+  if(!process.env.LIVE_FEED) await page.route('**/statsapi.mlb.com/**', r => r.abort());
   await page.goto(url, {waitUntil: 'load', timeout: 120000});
   await page.waitForTimeout(2600);
+  await page.waitForFunction(() => window.CARDS_READY === true && window.MOVES_READY === true, null, {timeout: 90000}).catch(() => {});
   return {browser, page, errors};
 }
 export function report(name, results, errors){
