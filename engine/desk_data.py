@@ -248,26 +248,41 @@ for spid, z in POSTED.items():
     players.append(row)
     club, lg, dl = W.POSTED[pid]
     STATUS[pid] = ["posted", f"posted by the {club} ({lg}); sign by {dl}"]
-# 1b. organizational prospects beyond the Top 100 (prospects_build.py):
-# empirical six-season and rookie-year expectations from the minor-league record
-PROS = json.load(open("/work/pros.json"))
-PROS_OUT = {}
+# 1b. prospects, Phase II (prospects_peak.py): minor-league translations plus
+# 100 nearest 2012-2019 comparables on age, level, translated rates,
+# position and pedigree. Every prospect carries a peak projection; org
+# prospects beyond the Top 100 are VALUED by their comps' six-season WAR
+# (Top 100 value stays on the rank curve, which the backtest still favors)
+PK = json.load(open("/work/pros_peak.json"))
+PROS = json.load(open("/work/pros.json"))     # rookie table, Top 100 levels (v5.2)
+PROS_OUT, PEAK = {}, {}
 have = {p[1]: p for p in players}
-n_new = 0
-for spid, z in PROS["org"].items():
+ranked_now = {p[1] for p in players if p[9]}
+byorg = defaultdict(list)
+for spid, z in PK["players"].items():
     pid = int(spid)
-    name, org, pit, age, lvl, ev6, y1, pos, line, terc, orank = z
-    if pid in have:
-        p = have[pid]
-        if abs(p[5]) + abs(p[6]) + abs(p[7]) >= 0.6 or p[9]: continue
-        if not p[2]: p[2] = org
-    else:
-        grp = "SP" if pos == "SP" else "RP" if pos == "RP" else "C" if pos == "C" else \
-            "IF" if pos in ("1B", "2B", "3B", "SS") else "OF"
-        dpos = pos if pos in ("C", "1B", "2B", "3B", "SS", "LF", "CF", "RF", "SP", "RP") else ("OF" if pos in ("OF", "DH") else "OF")
-        players.append([name, pid, org, pit, age, 0, 0, 0, 6, 0, 1.0, 0.0, grp, dpos, 0, 0]); n_new += 1
-    PROS_OUT[spid] = [lvl, ev6, y1, line, orank, terc]
-print("org prospects:", len(PROS_OUT), "| new desk rows:", n_new)
+    if z["rank"] or pid in ranked_now or not z["org"] or z["age"] > 26: continue
+    p = have.get(pid)
+    if p is not None and (abs(p[5]) + abs(p[6]) + abs(p[7]) >= 0.6): continue
+    byorg[z["org"]].append((z["ev6"], spid))
+n_new = 0
+for ab, xs in byorg.items():
+    for k, (_, spid) in enumerate(sorted(xs, reverse=True)[:25]):
+        z = PK["players"][spid]; pid = int(spid)
+        pos = z["pos"]
+        if pid not in have:
+            grp = "SP" if pos == "SP" else "RP" if pos == "RP" else "C" if pos == "C" else \
+                "IF" if pos in ("1B", "2B", "3B", "SS") else "OF"
+            dpos = pos if pos in ("C", "1B", "2B", "3B", "SS", "LF", "CF", "RF", "SP", "RP") else "OF"
+            row = [z["name"], pid, ab, 1 if z["kind"] == "P" else 0, z["age"], 0, 0, 0, 6, 0, 1.0, 0.0, grp, dpos, 0, 0]
+            players.append(row); have[pid] = row; n_new += 1
+        elif not have[pid][2]: have[pid][2] = ab
+        PROS_OUT[spid] = [z["lvl"], z["ev6"], z["y1"], z["line"], k + 1, None]
+for spid, z in PK["players"].items():
+    if int(spid) in have:
+        PEAK[spid] = [z["peak"], z["p2"], z["p4"], z["up"], z["y1"], z["lvl"], z["line"],
+                      [[c[0], c[1], c[4]] for c in z["comps"][:6]]]
+print("prospects: org tier", len(PROS_OUT), "| new desk rows:", n_new, "| peak projections on desk rows:", len(PEAK))
 # 2. filed for free agency: every filing in the league feed since Oct 1
 DECL = {}
 fd = get("https://statsapi.mlb.com/api/v1/transactions?startDate=2026-10-01&endDate=2026-11-30")
@@ -402,6 +417,8 @@ out = dict(
     posted=POSTED,
     qoIneligible=QO_INELIG,
     pros=PROS_OUT,
+    peak=PEAK,
+    peakBacktest=PK["backtest"],
     rookie=PROS["rookie"],
     t100lvl=PROS["top100Level"],
     cbt={"2026": 244, "2027": None},  # 2027+ awaits the next CBA
