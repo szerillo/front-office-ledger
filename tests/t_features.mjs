@@ -28,13 +28,16 @@ const r = await page.evaluate(() => {
   // GM surfaces
   switchView('gm'); document.getElementById('gm-club').value = 'MIL'; gmStart();
   const body = () => document.getElementById('gmbody').innerHTML;
-  out.agmInlineCalls = /AGM: (tender|non-tender candidate|offer it|let him walk)/.test(body());
+  out.agmInlineCalls = /Assistant GM: (tender|non-tender candidate|offer it|let him walk)/.test(body());
   out.depthStrip = body().includes('live, after your moves');
   gmState.stage = 2; gmState.open.tab = 'money'; gmShow();
   out.salaryBook = body().includes('salary book, 2027-2031');
   gmState.stage = 3; gmShow();
-  out.diamond = body().includes('<svg') && body().includes('ROTATION');
+  out.callupsStage = body().includes('Minor-league call-ups');
   gmState.stage = 4; gmShow();
+  out.diamond = body().includes('<svg') && body().includes('ROTATION');
+  out.depthSaveButton = body().includes('Save as image') && body().includes('gm-depth-card');
+  gmState.stage = 5; gmShow();
   out.reportCharts = body().includes('Where the money sits');
   // horizon salary
   switchView('horizon'); if(typeof renderHorizon === 'function') renderHorizon();

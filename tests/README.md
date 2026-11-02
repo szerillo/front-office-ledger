@@ -32,3 +32,12 @@ open decisions tagged, on-file rows never used as comps, CBA qualifying-offer
 eligibility, the posted class (presence, posted-market pricing, posting fee
 tiers, fee charged in surplus), and org prospects (a farm for every club,
 prospect trades moving farms, promotion onto the depth chart, undo).
+
+`t_launch.mjs` (v5.4) encodes the public-launch review: no internal jargon
+("LVM"), the About/disclaimer note and repo link, plain theme labels,
+pluralization, the +/- WAR guide, free-agent deals ending in free agency
+(Senga), extension start seasons (Acuña, Griffin, Altuve), era-correct
+champion names that still resolve to their regimes, a Scenario Room without
+hindsight (Betts), the Ramírez extension priced against extensions, the
+complete Greinke package, offseason comps that see the 2024-25 and 2025-26
+winters, and the curated Burnes cards agreeing with the computed trade book.

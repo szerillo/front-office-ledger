@@ -57,16 +57,22 @@ const r = await d.page.evaluate(async () => {
   // trees end where the player stands today (v5.3.2)
   const nm2 = Object.assign({}, TRADE_BOOK.names, PLAYER_NAMES); const pidOf = n => Object.keys(nm2).find(k => nm2[k] === n);
   const holmesT = tnode(careerTree(pidOf('Clay Holmes'))).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
-  o.holmesEndsAtCubsThenFree = /where it stands Finished 2026 with CHC; now a free agent \(declined his \$12M player option\)/.test(holmesT);
-  o.holmesPiecesCurrent = /Tyrone Taylor .{0,40}Finished 2026 with CHC; now a free agent/.test(holmesT) && /Jefferson Rojas .{0,40}now a prospect in the NYM system/.test(holmesT);
+  o.holmesEndsAtCubsThenFree = /where it stands Finished 2026 with CHC; free agent this winter \(declined his \$12M player option\)/.test(holmesT);
+  o.holmesPiecesCurrent = /Tyrone Taylor .{0,40}Finished 2026 with CHC; free agent this winter/.test(holmesT) && /Jefferson Rojas .{0,40}No MLB record yet; NYM prospect/.test(holmesT) && !/now under/.test(holmesT);
   const morelT = tnode(careerTree(pidOf('Christopher Morel'))).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
   o.morelMinorLeagueDealToMets = /signed a minor-league deal with NYM/.test(morelT) && /where it stands Finished 2026 with NYM/.test(morelT);
   o.fateMatchesCurrentClub = Object.entries(PLAYER_FATE).every(([pid, [ly, lab]]) => { if(ly < 2026) return true; const q = DESK.players.find(x => x[1] === +pid); return !q || !q[2] || !lab || q[2] === lab; });
   // the Deal Desk reads the same winter and the same farms
-  switchView('desk'); dkState.mode = 'trade'; dkState.you = 'NYM'; dkState.them = 'TB'; renderDesk();
-  o.deskNoRankNumberBox = !document.getElementById('dk-rank-recv') && document.getElementById('dk-farm-recv').options.length >= 16;
-  const inp = document.getElementById('dk-in-send'); inp.value = 'Tarik Skubal'; dkAdd('send');
-  o.deskFreeAgentNotATradePiece = !dkState.send.some(pc => pc.p && pc.p[0] === 'Tarik Skubal');
+  switchView('desk'); dkState.mode = 'trade'; dkState.you = 'LAD'; dkState.them = 'TB'; dkState.send = []; dkState.recv = []; renderDesk();
+  const recvIds = [...document.getElementById('dk-sel-recv').options].map(x => +x.value).filter(Boolean);
+  const sendIds = [...document.getElementById('dk-sel-send').options].map(x => +x.value).filter(Boolean);
+  o.deskPickersScopedToClubs = !document.getElementById('dk-rank-recv') && recvIds.length >= 30 && recvIds.every(id => DESK.players.find(x => x[1] === id)[2] === 'TB') && sendIds.every(id => DESK.players.find(x => x[1] === id)[2] === 'LAD');
+  o.deskFreeAgentNotATradePiece = !sendIds.includes(DESK.players.find(x => x[0] === 'Tarik Skubal')[1]);
+  o.deskSendLeftReceiveRight = document.getElementById('dk-sel-send').getBoundingClientRect().left < document.getElementById('dk-sel-recv').getBoundingClientRect().left || document.getElementById('dk-sel-send').getBoundingClientRect().top < document.getElementById('dk-sel-recv').getBoundingClientRect().top;
+  dkEval(); o.deskEmptyTradeNotGraded = /at least one piece on each side/.test(document.getElementById('dk-out').innerText);
+  document.getElementById('dk-sel-send').value = String(sendIds[sendIds.length - 1]); dkAddSel('send');
+  document.getElementById('dk-sel-recv').value = String(recvIds[0]); dkAddSel('recv'); dkEval();
+  o.deskAcceptanceCheck = /Would TB accept\?/.test(document.getElementById('dk-out').innerText);
   dkState.mode = 'fa'; renderDesk();
   document.getElementById('dk-fa-player').value = 'Teruaki Sato'; document.getElementById('dk-fa-yrs').value = 4; document.getElementById('dk-fa-m').value = 62; dkEval();
   o.deskChargesPostingFee = /posting fee/.test(document.getElementById('dk-out').innerText);
