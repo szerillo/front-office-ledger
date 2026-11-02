@@ -398,8 +398,23 @@ if os.path.exists("/work/trade_book.json"):
     TB["names"] = {p: TB["names"].get(p) for p in tb_pids if p not in NAMES and TB["names"].get(p)}
 else:
     tb_pids = set()
+# v5.8: every player linked from a card's full lists (draft, waivers, walks,
+# signings, international) gets a name and a fate too, so no link opens an
+# anonymous card
+allx_pids = set()
+for _fn in ("/work/sweep_results.json", "/work/hist_results.json"):
+    for _r in json.load(open(_fn)):
+        _ax = dict(_r.get("allx") or {})
+        _ax.update(fa=_r.get("allx_fa") or [], intl=_r.get("allx_intl") or [])
+        for _k, _rows in _ax.items():
+            _i = {"draft": 7, "waiver": 4, "walk": 4, "fa": 7, "intl": 4}.get(_k)
+            if _i is None: continue
+            for _row in _rows:
+                if len(_row) > _i and _row[_i]: allx_pids.add(str(_row[_i]))
+for _p in allx_pids:
+    if _p not in NAMES and _p in _lvm: NAMES[_p] = _lvm[_p].get("name") or NAMES.get(_p)
 FATE = {}
-for pid in pidset | tb_pids:
+for pid in pidset | tb_pids | allx_pids:
     rec = _lvm.get(pid)
     if not rec or not rec["rows"]: continue
     # the LAST club of the final season (rows run in order within a season):
