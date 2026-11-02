@@ -1409,3 +1409,22 @@ before the full-book refit (see above). Ryan Jeffers prices at 2 years / $32M
 ($16.0M AAV) after the refit; the remaining gap to the public consensus (about four years)
 is term: his 2026 was 92 games (fractured hamate), and catchers his age with
 his blended platform have historically signed for two years.
+
+**Graded against expectation and investment (same day).** Free agency was
+graded against zero: a signing "broke even" only if the player produced every
+win his salary bought at market $/win. Across 1,940 priced major-league
+signings by every club since the 2005-06 winter, the typical club got back
+0.704 wins per win of cost (the winner's curse: the club that wins an auction
+is usually the one that rated the player highest). Each signing's expectation
+is now its cost times that typical return, so the expectation scales with the
+money; extensions get the same treatment against their service-class market
+(typical return 0.971 over 269 priced extensions). Draft, trades, waivers,
+international signings and retention were already measured against an
+expectation (slot value, zero-sum trades, class baselines, conditioned
+departures). Effect on the current leaderboard: free-agency letters spread
+from mostly D/F to a D-to-A range (Yankees under Cashman: -83.9 to +20.4
+wins; Dodgers: -29.5 to +21.3); validation is unchanged (partial r 0.26,
+95% CI 0.15 to 0.38; out-of-sample R² 0.177 to 0.227). The Deal Desk and the
+Offseason Simulator now letter every proposed move by its percentile among
+real moves of the same kind and size, against the same typical returns; the
+simulator's winter letter is the money-weighted percentile of its moves.
