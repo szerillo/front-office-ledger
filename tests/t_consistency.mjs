@@ -46,6 +46,28 @@ const r = await d.page.evaluate(() => {
   // v5.6: contract offers blend the market model
   const sk = DESK.players.find(x => x[0] === 'Tarik Skubal'); const sg = dkSuggest(sk, 'fa', null);
   o.marketModelBlended = !!sg.gm && sg.sugTot > 250 && sg.sugTot < 450 && Object.keys(DESK.gbm || {}).length > 1000;
+  // v5.7: every decision of every kind is listed on the card, not only the top five
+  switchView('report', sd.id); renderReport(sd.id);
+  const lists = [...document.querySelectorAll('[id^="allx-"]')].map(x => x.id.slice(5));
+  o.fullListsOnCard = ['draft','fa','waiver','walk'].every(k => lists.includes(k)) && sd.allx.draft.length >= 40 && sd.allx.waiver.length >= 10;
+  // v5.7: trades are net of guaranteed salary, with publicly reported cash (Arenado: STL paid $22M of his 2026)
+  const ar = TRADE_BOOK.trades.find(t => t[0] === '2026-01-13' && t[1].some(s => s[0] === 'STL'));
+  o.arenadoTradeNetOfSalary = !!ar && ar[1].find(s => s[0] === 'ARI')[1] > 3;
+  // v5.7: positional credit by games played (Arraez 2025 no longer a 3-win DH/1B)
+  const ra = DESK.players.find(x => x[0] === 'Luis Arraez');
+  o.arraezPositionalFix = !!ra && ra[6] < 2;
+  // v5.7: the assistant GM fills holes with natural fits (no starter in the pen)
+  const sk2 = DESK.players.find(x => x[0] === 'Tarik Skubal');
+  o.noStarterForPenHole = !gmNaturalFit('RP', sk2) && gmNaturalFit('SP', sk2);
+  gmState.club = 'NYM'; gmState.stage = 2; gmState.open = {tab: 'fa'}; gmState.ins = []; gmState.outs = new Set(); gmState.lastNeg = null;
+  const adv = gmAdvisor().replace(/<[^>]+>/g, '');
+  o.advisorNoOutOfPosition = !/RP: [^;]*\(SP,/.test(adv) && !/DH: [^;]*\((LF|RF|CF|OF), [^;]*takes DH/.test(adv);
+  // v5.7: the Scenario Room grades process only; the archive plays blind; Winter 2027 is live
+  switchView('scen'); scState.idx = 0; scShow();
+  o.scenBlind = !/Cabrera|Detroit|Dombrowski/.test(document.getElementById('scenbody').innerText);
+  o.scenWinter27 = scWinter27().length >= 8 && scWinter27().every(s => scAdjudicate(s, s.kind === 'trade' ? 'accept' : 'sign').outw === null);
+  scAct('accept');
+  o.scenProcessOnly = /not graded/.test(scScoreLine()) && /Cabrera/.test(document.getElementById('scenbody').innerText);
   return o;
 });
 await d.page.waitForTimeout(400);

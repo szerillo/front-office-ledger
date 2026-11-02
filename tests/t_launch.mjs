@@ -45,7 +45,9 @@ const r = await d.page.evaluate(() => {
   const milCard = REGIMES.find(x => x.id === 'mil');
   const find = (card, re) => [].concat(...['bestTrades', 'worstTrades', 'ledger', 'top', 'bottom'].map(k => card[k] || [])).find(x => re.test(x.h || ''));
   const b1 = JSON.stringify(balCard).match(/RHP Corbin Burnes from MIL[^}]*?war:(-?[0-9.]+)/);
-  o.burnesCuratedMatchesBook = Math.abs(balNet - (-7.1)) < 0.05 && /war":-7\.1|war:-7\.1/.test(JSON.stringify(balCard)) && /"war":7\.1|war:7\.1|"war":\+?7\.1/.test(JSON.stringify(milCard));
+  // v5.7: the cards carry whatever the book computes (the number moved with the salary and positional fixes)
+  const bv = Math.abs(balNet).toFixed(1).replace('.', '\\.');
+  o.burnesCuratedMatchesBook = balNet < -3 && new RegExp('war":-' + bv).test(JSON.stringify(balCard)) && new RegExp('"war":' + bv).test(JSON.stringify(milCard));
   return o;
 });
 await d.browser.close();
