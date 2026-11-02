@@ -2,6 +2,10 @@
 
 A decision-level accounting system for sports front offices. Every draft pick, trade, signing, and waiver claim, graded against the market expectation for that transaction type and attributed to the executive regime that made it. Inspired by OOTP's Decision History screen; built for real MLB data first, schema designed to extend to other leagues.
 
+## v5.6 the market model (November 2026)
+
+Every projected contract now blends the comps-and-projection rules with a gradient-boosted market model trained on 1,581 real free-agent deals and the box-score lines the market saw (`engine/contract_model.py`), moved to today's market. Walk-forward backtest on 1,029 signings: typical miss 0.66 years / $3.0M AAV / $13.6M total. The international channel now counts every amateur signing, not only future big leaguers. Details: `docs/methodology-v32-addendum.md` (v5.6).
+
 ## v5.5 one asset, one entry (November 2026)
 
 Drafted and internationally signed players are graded as assets: what they produced in their six control seasons wherever they played, against a slot expectation re-calibrated so the league's draft net is about zero. A later trade is graded once, in the trade (`engine/asset_rules.py`). A new Big Boards tab ranks the 2026-27 free agents with projected contracts, the top 100 prospects, and all 30 farm systems. Report cards list every trade in a tenure with a letter on every move; Transaction Trees get a browsable finder, the Soto chain, and projections on open branches. Details: `docs/methodology-v32-addendum.md` (v5.5); tests: `tests/t_consistency.mjs`.
