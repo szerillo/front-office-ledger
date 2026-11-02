@@ -1075,3 +1075,25 @@ and his four nearest comps with what they became).
 - Each club's list is its 25 best by value plus its 10 highest ceilings not
   already in, so high-upside teenagers in the low minors (who price low on six
   discounted seasons) are on the board to be asked for.
+
+### v5.3.2 (same day): every tree ends where the player stands today
+
+- The last club of a player's final season is now the club he finished
+  with. The fate table took the FIRST club listed for that season, so
+  anyone traded in-season ended on the wrong club (Clay Holmes read NYM
+  after his August trade to the Cubs; Tyrone Taylor "left without a graded
+  move").
+- Minor-league deals are moves on the ledger, and a contract selection that
+  follows one is shown (Morel: released by Miami, minor-league deal with the
+  Mets in July, selected in August). Each player keeps his 24 most recent
+  moves (it was the 14 oldest).
+- Every chain ending and every trade piece now says where he stands this
+  winter, from the same data the simulator uses: a free agent (and how:
+  filed, declined option, opted out), likely a free agent (an open
+  decision), under contract and through when, under club control
+  (pre-arbitration or arbitration-eligible), a prospect in a named system
+  with his rank or org slot and level, posted, or retired. Holmes now ends
+  "Finished 2026 with CHC; now a free agent (declined his $12M player
+  option)"; Jefferson Rojas, "now a prospect in the NYM system (#64, AA)".
+- Audit: all 1,006 players active in 2026 resolve to the same club on the
+  trees as in the simulator; no tree renders empty or broken text.
