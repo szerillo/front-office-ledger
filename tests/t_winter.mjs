@@ -47,6 +47,13 @@ const r = await d.page.evaluate(async () => {
   o.promotedJoinsDepthChart = gmFullRoster().some(x => x[1] === tb[1]) && Math.abs(gmProj27(tb) - gmProsY1(tb)) < 1e-9;
   gmUndo(gmState.moves.find(m => m.kind === 'trade').id);
   o.undoReturnsProspects = !gmState.farmIn.has(tb[1]) && !gmState.outs.has(mine[0][1]) && !gmFullRoster().some(x => x[1] === tb[1]);
+  // Phase II: peak projections on prospects; org tier valued by its comps
+  const made = pl('Jesús Made');
+  o.peakOnTop100 = !!gmPeakOf(made) && /peak/.test(dkProjPlayer(made, 6).how) && Math.abs(dkProjPlayer(made, 6).total - dkInterp(DESK.vrank, made[9])) < 1e-9;
+  const org = DESK.players.find(p => (DESK.pros||{})[p[1]] && !p[9] && gmPeakOf(p) && Math.abs(p[5])+Math.abs(p[6])+Math.abs(p[7]) === 0);
+  o.orgValuedByComps = !!org && Math.abs(gmPV(org) - DESK.pros[org[1]][1]) < 1e-9 && /comparables/.test(dkProjPlayer(org, 6).how);
+  o.peakSane = Object.values(DESK.peak).every(k => k[0] >= 0 && k[0] <= 8 && k[2] <= k[1] + 1e-9 && k[1] <= 1 && k[7].length >= 4);
+  o.backtestBeatsBuckets = DESK.peakBacktest.unranked.comps_r > DESK.peakBacktest.unranked.level_age_bucket_r;
   // the Deal Desk reads the same winter and the same farms
   switchView('desk'); dkState.mode = 'trade'; dkState.you = 'NYM'; dkState.them = 'TB'; renderDesk();
   o.deskNoRankNumberBox = !document.getElementById('dk-rank-recv') && document.getElementById('dk-farm-recv').options.length >= 16;
