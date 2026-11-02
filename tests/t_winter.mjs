@@ -54,6 +54,14 @@ const r = await d.page.evaluate(async () => {
   o.orgValuedByComps = !!org && Math.abs(gmPV(org) - DESK.pros[org[1]][1]) < 1e-9 && /comparables/.test(dkProjPlayer(org, 6).how);
   o.peakSane = Object.values(DESK.peak).every(k => k[0] >= 0 && k[0] <= 8 && k[2] <= k[1] + 1e-9 && k[1] <= 1 && k[7].length >= 4);
   o.backtestBeatsBuckets = DESK.peakBacktest.unranked.comps_r > DESK.peakBacktest.unranked.level_age_bucket_r;
+  // trees end where the player stands today (v5.3.2)
+  const nm2 = Object.assign({}, TRADE_BOOK.names, PLAYER_NAMES); const pidOf = n => Object.keys(nm2).find(k => nm2[k] === n);
+  const holmesT = tnode(careerTree(pidOf('Clay Holmes'))).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+  o.holmesEndsAtCubsThenFree = /where it stands Finished 2026 with CHC; now a free agent \(declined his \$12M player option\)/.test(holmesT);
+  o.holmesPiecesCurrent = /Tyrone Taylor .{0,40}Finished 2026 with CHC; now a free agent/.test(holmesT) && /Jefferson Rojas .{0,40}now a prospect in the NYM system/.test(holmesT);
+  const morelT = tnode(careerTree(pidOf('Christopher Morel'))).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+  o.morelMinorLeagueDealToMets = /signed a minor-league deal with NYM/.test(morelT) && /where it stands Finished 2026 with NYM/.test(morelT);
+  o.fateMatchesCurrentClub = Object.entries(PLAYER_FATE).every(([pid, [ly, lab]]) => { if(ly < 2026) return true; const q = DESK.players.find(x => x[1] === +pid); return !q || !q[2] || !lab || q[2] === lab; });
   // the Deal Desk reads the same winter and the same farms
   switchView('desk'); dkState.mode = 'trade'; dkState.you = 'NYM'; dkState.them = 'TB'; renderDesk();
   o.deskNoRankNumberBox = !document.getElementById('dk-rank-recv') && document.getElementById('dk-farm-recv').options.length >= 16;
