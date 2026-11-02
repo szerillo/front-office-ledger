@@ -1532,3 +1532,44 @@ Billy Beane ran the Athletics through November 2022 (Forst from then); the
 2020-21 Mets front office (Sandy Alderson) is in the archive; the Padres' 2011
 handoff is dated October; Cooper Pratt 8/$50.75M; Contreras's option $14.5M;
 championship medians 56/46/72%.
+
+---
+
+## v5.9: the adversarial review (November 2, 2026)
+
+Three reviewers were asked to break the site before launch: a skeptical analyst on facts, a hostile QA engineer on the page, and a sabermetrician on the method. Their reports (about 70 findings) and the evidence scripts are in the working audit folder; every finding below is fixed unless marked otherwise.
+
+### Engine (method)
+
+1. **Extensions and the ownership rule.** v5.8 let any later contract own its seasons, so when an acquiring club extended a traded player, the trade lost his remaining controlled seasons and the seller was never charged for them (83 pieces, 228 wins); under archive regimes the extension seasons were graded by no channel (147 pieces, 334 wins). The Cabrera trade read DET -13.1. Fix: an extension owns only the seasons beyond the player's original club control. Inside control the acquiring decision keeps the value; the extension channel grades the salary it set there against the arbitration path it replaced, and the free-agent seasons it bought against a typical free-agent return. Each service class is centered on the league's average result per win of cost (the old fixed class discounts left early extensions at 1.39x expectation and veteran ones at 0.84x). Cabrera now reads DET -2.9 in the trade (two controlled seasons net of arbitration salary, against Maybin, Miller and Badenhop) and +27.3 in Dombrowski's 2008 extension.
+2. **Club control is dated.** Control runs six years of service from the MLB debut (debut dates from the MLB Stats API, `debut_fetch.py`): a debut after April 15 runs control through the sixth season after the debut season. Options and Super Two are not modeled. The draft and international windows use the same span.
+3. **Leverage removed from grades.** The win-curve weight was applied at the club where the wins were produced, so the seller was charged at the buyer's leverage: seats on clubs under 72 wins netted -375 wins with it and +33 without. Grades are unweighted (`asset_rules.USE_LEVERAGE = False`); the forward tools keep leverage for the club making the decision.
+4. **Open trades.** A prospect with no MLB season before the deal carries his expected value (the rank curve at the time of the deal x 1.077, or 0.489 wins unranked, both fit on 2011-2018 trades in `trade_calib.py`) times the share not yet realized (by seasons since the deal: 0.03, 0.16, 0.30, 0.47, 0.65, 0.79, 0.90, 0.96, ...). The value-time series and the validation use realized value only.
+5. **Draft centered by class.** With control dated from the debut and no extension cutoff, the pooled scale is 1.50 and the shape is re-fit on the matured 1998-2013 classes; each class has its own scale (league realized / slot x shape), shrunk toward the pool by 40 wins of expectation (`draft_calib.py`). Draft credit ends at a release or free-agent filing anywhere (before, the drafting club kept credit for production after it released the player).
+6. **Trade windows run to the end of control**, so a prospect traded years before his debut is charged to the trade for his late control seasons (187.6 wins had been credited to the drafting club and charged to no one). October-December deals start with the next season.
+7. **Money in one unit, by contract year and size.** Free-agent typical return is fit by contract year and by deal size (cost per season under 0.5 wins: 2.02x the year curve; 0.5-1.5: 0.94x; 1.5-3: 0.86x; 3+: 1.02x). Trade and waiver salary relief uses the moved contract's own year and size, so dumping the late years of a deal is neutral in expectation (A-Rod to Texas had been a +8.3 windfall). Posting fees are charged as year-one money in free agency.
+8. **Arbitration salaries charged** in trades and waiver claims for arbitration seasons with no contract: (0.6 + basis) x step (1.0/1.5/3.1) x the $/win drift, the Desk's calibrated model. Rough for stars (it runs low), disclosed.
+9. **Archive regimes graded on free agency and extensions** (`fa_grade.py`, `ext_grade.py` now run over `hist_results.json`). The salary relief archive regimes were credited for dumping their own signings is now matched by the charge for signing them.
+10. **Waivers.** A claim moves the contract (Alex Rios to the White Sox, 2009: Toronto is no longer charged his extension); the four-season window stops at a later contract, a release or a filing, net of salary.
+11. **Retention.** Expectation conditioned on age (multipliers 1.27 / 1.04 / 0.91 / 0.51 for 29 and under, 30-32, 33-35, 36+); deadline rentals who walk are excluded (the trade's window already ends at the filing).
+12. **Qualifying offers.** The QO table holds 51 of about 135 QOs issued since 2012, so the 1-win FA charge and retention credit are off until it is complete. Not fixed: completing the table needs a research pass.
+13. **Development.** A player drafted twice keeps his last (signed) pick; NPB pros (Ohtani, Sasaki) enter at their rank value with no development credit.
+14. **Attribution.** Mozeliak's St. Louis start is his promotion (Oct 31, 2007). Interim GMs who traded are their own regimes: Lasorda (LAD 1998), Kullman/Maddox (CIN 2003), Pelekoudas (SEA 2008), Dipoto (ARI 2010), Minaya/Hinch/Uhlman (SD 2014), Stoneman (LAA 2015), Antony (MIN 2016), Minaya/Ricciardi/Ricco (NYM 2018), DeBartolo (WSH 2025).
+15. **Feed repairs.** Rule 5 conduits (a pick traded within three days, e.g. Johan Santana 1999) are re-filed on the club that kept the player (`r5_conduit.py`); the Cliff Lee (2009-07-29) and Victor Martinez (2009-07-31) returns are added to `trade_repairs.json`.
+16. **Grading curve.** A rate is net / (seasons + 2) (shrinkage toward average), and each channel's letter reads that rate in units of the channel's spread across every graded regime, on one z scale (A+ from 1.65, A 1.2, A- 0.85, B+ 0.55, B 0.3, B- 0.12, C within 0.12, C- to -0.4, D to -0.85, D- to -1.65, F below). The composite uses the same scale on its own spread. Free agency and extension nets count in the composite whenever a deal was priced (their seasons are graded nowhere else); letters still need three and two priced deals.
+17. **Success.** The division-title bonus is a rate (titles per season in the seat).
+18. **Head to head.** A club with two seats in one linked deal keeps both.
+19. **Reliability, published.** Split-half correlation of each channel's decisions across regimes: free agency 0.28 (90 regimes), extensions 0.11 (54), trades -0.11 (131), draft -0.11 (128), waivers -0.01 (118). The letters are an accounting of results, not a skill estimate; the page says so.
+20. **Validation.** The predictor now includes free agency and extensions in the season their value arrived. Partial r 0.107, cluster-bootstrap 95% CI [-0.02, 0.28], out-of-sample R-squared 0.186 without it and 0.154 with it: no out-of-sample predictive gain. The launch article and the README no longer carry the 0.27 claim.
+
+### Forward tools
+
+- Projections carry age attrition from the second season (0.97 at 26 and under down to 0.78 at 36+, pitchers 0.06 lower), fit to the backtested 5-year overshoot (13% for hitters 22-24 up to 74% at 34-36). The market-price suggestion keeps the calibrated walk without attrition (it predicts what the market pays).
+- Desk letters are pricing grades: the projected edge over a typical deal as a share of the cost (A+ 30% or better, A 18%, B 6%, C within 6%, D to -18%, F beyond). The percentile-among-realized-outcomes letter compressed 79% of offers 50% over the model's price into a C.
+- The Desk free-agent and extension verdicts use the channels' own expectations (contract year, size band, class centering, arbitration path).
+- The assistant GM prices the luxury tax (a repeat payer's 30% plus surcharges) into its budget test and its quotes.
+- Scenario Room hindsight comes from the trade book.
+
+### Page and data (facts and UI reviews)
+
+Current clubs and statuses for every Desk player from the MLB Stats API (319 changed, restricted-list and retired players out, inactive 36+ veterans off the boards); one resolver for same-name contracts (Will Smith, Luis Lara, Chris Young, Luis Garcia, Alex Gonzalez, Roberto Hernandez); curated card numbers read the trade book; champions never guess an acquisition; era-correct club names on archive cards; prospect SP/RP from minor-league starts; Deal Desk and Simulator input bounds; no self-trades; accent-insensitive search; shareable URLs for every view; persisted theme and intro; one h1 and accessible names; Escape closes overlays; payroll chart covers multi-year winter deals; the analytics placeholder is gone. Regression checks: `tests/t_ui2.mjs`, `tests/t_consistency.mjs`.
