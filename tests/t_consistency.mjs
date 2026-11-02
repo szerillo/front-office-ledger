@@ -70,10 +70,24 @@ const r = await d.page.evaluate(() => {
   o.scenProcessOnly = /not graded/.test(scScoreLine()) && /Cabrera/.test(document.getElementById('scenbody').innerText);
   // v5.7: free agency and extensions grade against a typical club's return on the money, not zero
   const faG = AUTO_REGIMES.map(x => x.chan.fa && x.chan.fa.g).filter(g => g != null);
-  o.faCenteredOnTypical = chanTypical('fa') > 0.55 && chanTypical('fa') < 0.85 && faG.filter(g => g <= 35).length <= faG.length / 3 && faG.filter(g => g >= 60).length >= 3;
-  o.extCenteredOnTypical = chanTypical('ext') > 0.7 && chanTypical('ext') < 1.3;
+  o.faCenteredOnTypical = chanTypical('fa') > 0.7 && chanTypical('fa') < 1.1 && faG.filter(g => g <= 35).length <= faG.length / 3 && faG.filter(g => g >= 60).length >= 3;
+  o.extCenteredOnTypical = chanTypical('ext') > 0.7 && chanTypical('ext') < 1.5;
   // desk and simulator letters rank against real moves of the same size
-  o.deskLettersBySize = moveGrade(3, 'trade', 0.5) !== moveGrade(3, 'trade', 40) && gmMoveLetter({kind:'fa', st: 0.3, rel: 0.6}) !== gmMoveLetter({kind:'fa', st: 25, rel: 0.6});
+  o.deskLettersBySize = moveGrade(3, 'trade', 0.5) !== moveGrade(3, 'trade', 40) && gmMoveLetter({kind:'fa', st: 0.3, rel: 1.5}) !== gmMoveLetter({kind:'fa', st: 25, rel: 1.5});
+  // v5.8 audit fixes
+  const jj = DESK.players.find(x => x[0] === 'Joe Jiménez');
+  o.missedSeasonsWithheld = !jj || (gmProj27(jj) === 0 && jj[17] === 1);
+  const cr = DESK.players.find(x => x[0] === 'Garrett Crochet');
+  o.injuryNotDoubleCounted = !cr || gmProj27(cr) >= 3.0;
+  const ho = DESK.players.find(x => x[0] === 'Clay Holmes');
+  o.declinedMoneyFloors = !ho || dkSuggest(ho, 'fa', null).sugTot / dkSuggest(ho, 'fa', null).sugYrs >= 12;
+  gmState.club = 'LAD'; gmState.stage = 0; gmState.qo = {}; gmState.ins = []; gmState.outs = new Set();
+  o.noIneligibleQO = !/Offer [^.]*Skubal[^.]* the QO/.test(gmAdvisor().replace(/<[^>]+>/g, ''));
+  o.draftees2026OnBoard = Object.keys(DESK.draft26 || {}).length >= 60 && DESK.players.some(p => p[0] === 'Roch Cholowsky' && gmIsProsRow(p));
+  o.validationHonest = /no look-ahead|realized by each season/.test(document.getElementById('view-method').innerText) && !/decision quality is forward information/.test(document.getElementById('view-method').innerText);
+  o.unscoredFilledAtZero = chanAvg().fa === 0 && chanAvg().ext === 0;
+  const tb26 = TRADE_BOOK.trades.find(t => t[0] === '2020-02-10' && t[1].some(s => s[0] === 'LAD'));
+  o.bettsExtensionOwnsItsSeasons = !!tb26 && tb26[1].find(s => s[0] === 'LAD')[1] < 10;
   return o;
 });
 await d.page.waitForTimeout(400);

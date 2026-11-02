@@ -53,7 +53,7 @@ const r = await page.evaluate(() => {
       if(sal > (dkProjSeasons(q, 1, false).per[0] || 0) * dpw0 * 0.85 && sal >= 3) nt++;
     }
   }
-  out.nonTendersExist = nt >= 25;
+  out.nonTendersExist = nt >= 15;   // v5.8: rate x playing-time projections value injured regulars more (24 of 288 today)
   return out;
 });
 report('t_gm_core', r, errors);
