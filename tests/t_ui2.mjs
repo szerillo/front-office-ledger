@@ -367,6 +367,10 @@ Object.assign(R, await m.page.evaluate(async () => {
     return ids.every(id => { renderReport('lad'); renderReport(id); const sc = document.getElementById('rc-showcase');
       return !(sc && sc.innerText.trim()) || REGIMES.some(x => x.id === id); }); })();
   o.newRegimeNoDevLetter = AUTO_REGIMES.filter(x => (x.seatSeasons != null ? x.seatSeasons : x.seasons) < 0.25).every(x => !x.dev || x.dev.g == null);
+  // v5.9: dialogs close when the view changes; new regimes get an explicit empty state in Trees
+  o.dialogsCloseOnViewChange = (() => { treeOverlay(605141, 'LAD', 'Mookie Betts'); switchView('champs'); const a = !document.getElementById('tree-ov');
+    switchView('report', 'lad'); const row = document.querySelector('#rc-ledgers tbody tr'); if(row) row.click(); switchView('desk'); return a && !document.getElementById('overlay').classList.contains('on'); })();
+  o.newRegimeTreesEmptyState = (() => { switchView('trees'); const ts = document.getElementById('treesel'); ts.value = 'ath'; renderTrees(); return /no trades yet/.test(document.getElementById('treeswrap').innerText); })();
   return o;
 }));
 await m.browser.close();
