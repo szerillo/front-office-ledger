@@ -40,6 +40,12 @@ const r = await d.page.evaluate(() => {
   o.noStaleRanks = !DESK.players.some(p => p[0] === 'Kristian Campbell' && p[9] > 0);
   bdState.tab = 'farm'; renderBoards(); o.farmBoard = document.querySelectorAll('#boardsbody tbody tr').length === 30;
   o.forwardLookingPitch = /decision-making model/i.test(document.querySelector('.tagline').textContent) && /Looking ahead/.test(document.getElementById('introstrip') ? document.getElementById('introstrip').innerText : 'Looking ahead');
+  // v5.6: international volume counts every signing (Atlanta graded, with the sanctions context)
+  const atl = AUTO_REGIMES.find(x => abOf(x) === 'ATL');
+  o.braveIntlGraded = atl.chan.intl.n >= 50 && atl.chan.intl.g != null && /sanction/.test(atl.chan.intl.note || '');
+  // v5.6: contract offers blend the market model
+  const sk = DESK.players.find(x => x[0] === 'Tarik Skubal'); const sg = dkSuggest(sk, 'fa', null);
+  o.marketModelBlended = !!sg.gm && sg.sugTot > 250 && sg.sugTot < 450 && Object.keys(DESK.gbm || {}).length > 1000;
   return o;
 });
 await d.page.waitForTimeout(400);
