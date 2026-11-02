@@ -107,6 +107,8 @@ const r = await d.page.evaluate(() => {
     const t = dkFaVerdict().replace(/<[^>]+>/g, ' '); const g = (t.match(/Desk grade\s+(\S+)/) || [])[1]; return g === 'D' || g === 'F'; })();
   o.olderDealsCarryAttrition = (() => { const j = DESK.players.find(x => x[0] === 'Aaron Judge'); if(!j) return true;
     return dkProjSeasons(j, 8, false).total < dkProjSeasons(j, 8, false, true).total * 0.8; })();
+  // v5.9: the QO table is complete and the charge is on again
+  o.qoChargeOn = /QO signing, draft comp charged/.test(JSON.stringify(AUTO_REGIMES)) && /QO signing, draft comp charged/.test(JSON.stringify(LB_HIST));
   return o;
 });
 await d.page.waitForTimeout(400);
