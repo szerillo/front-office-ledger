@@ -62,49 +62,58 @@ def grade_comp(nps):
         if nps >= thr: return g
     return 30
 
-# v5.7: graded against expectation AND investment. A typical club gets back
-# only part of what free agency costs at market $/win (the winner's curse:
-# the club that wins the auction is the one that rated the player highest).
-# Pass 1 measures that typical return over every priced major-league signing
-# by every club since the 2005-06 winter; pass 2 grades each signing against
-# it, so the expectation scales with the money spent.
+# v5.8: priced from the contract book (contract_book.py): the seasons a deal
+# OWNS (a later contract owns its own), held by the signing club until it
+# trades him (the trade carries the rest, salary included); a release keeps
+# the dead money on the club. Expectation per season = cost at market $/win
+# (salary above the minimum) x what a typical club gets back for free-agent
+# money IN THAT CONTRACT YEAR (early years return more than late ones), so an
+# in-progress deal is judged against the years it has played.
+CB = json.load(open("/work/contract_book.json"))
+CB_DPW = {int(k): v for k, v in CB["dpw"].items()}
+TYP = {int(k): v for k, v in CB["typical_fa"].items()}
+ERA = CB.get("era_adj_pre2006", 1.0); LMIN = CB.get("league_min", 0.75)
+def typical(k, y): return TYP.get(min(k, 5), CB["typical_fa_all"]) * (ERA if y < 2006 else 1.0)
+FA_BOOK = defaultdict(list)
+for c in CB["book"]:
+    if c["kind"] == "fa": FA_BOOK[(int(c["pid"]), c["club"])].append(c)
+TID2AB = {r["teamId"]: r["abbr"] for r in cfg["regimes"]}
 def priced(tid, start):
-    names = ALIAS.get(tid, {REG[tid]["team"]})
     rows = con.execute("""select date, person_id, person_name from sweep_tx
         where team_id=? and date>=? and type_desc='Signed as Free Agent'
         and lower(description) not like '%minor league%' and person_id is not null""",
         (tid, start)).fetchall()
-    seen = set(); out = []
+    seen = set(); used = set(); out = []
     for x in rows:
         k = (x["date"], x["person_id"])
         if k in seen: continue
         seen.add(k)
-        pn = norm(x["person_name"]); ty = int(x["date"][:4])
-        hit = None
-        for off in (ty - 1, ty):
-            for (tid2, yrs, tot, src) in contracts.get((pn, off), []):
-                if tid2 == tid: hit = (off, yrs, tot, src); break
-            if hit: break
-        if not hit:
+        ty, tm = int(x["date"][:4]), int(x["date"][5:7])
+        offs = (ty, ty - 1) if tm >= 10 else (ty - 1, ty)     # v5.8: Nov/Dec re-signings belong to that winter
+        c = None
+        for off in offs:
+            for cc in FA_BOOK.get((int(x["person_id"]), TID2AB[tid]), []):
+                if cc["start"] == off + 1 and id(cc) not in used: c = cc; break
+            if c: break
+        if not c:
             out.append(dict(x=x, hit=None)); continue
-        off, yrs, tot, src = hit
-        cbt = FA_CBT.get((pn, off))
-        aav = (cbt if cbt else tot) / yrs
-        seasons = [y for y in range(off + 1, min(off + yrs, 2026) + 1)]
-        if not seasons: out.append(dict(x=x, hit=hit, open=True)); continue
-        implied = sum(aav / DPW[y] for y in seasons)
-        rec = LVM.get(x["person_id"])
-        realized = sum(v for (y, tm, v) in rec["rows"] if tm in names and y in seasons) if rec else 0.0
-        out.append(dict(x=x, hit=hit, pn=pn, cbt=cbt, implied=implied, realized=realized))
+        used.add(id(c))
+        off = c["start"] - 1
+        held = [h for h in c.get("held", []) if h[1] <= 2026]
+        if not held: out.append(dict(x=x, hit=(off, c["yrs"], c["tot"], c["src"]), open=True)); continue
+        realized = sum(h[2] for h in held)
+        cost = sum(max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] for h in held)
+        expected = sum(max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] * typical(h[0], h[1]) for h in held)
+        out.append(dict(x=x, hit=(off, c["yrs"], c["tot"], c["src"]), pn=norm(x["person_name"]), cbt=None,
+                        implied=cost, expected=expected, realized=realized, seasons=[h[1] for h in held]))
     return out
-_pop = [s for r0 in cfg["regimes"] for s in priced(r0["teamId"], "2005-01-01") if s.get("implied")]
-TYPICAL = sum(s["realized"] for s in _pop) / sum(s["implied"] for s in _pop)
-print(f"typical return: {TYPICAL:.3f} wins per market-cost win over {len(_pop)} priced signings")
+TYPICAL = CB["typical_fa_all"]
+print(f"typical return by contract year {TYP} (pooled {TYPICAL}), pre-2006 x{ERA}")
 
 print(f"\n{'team':<5}{'FA net':>8}{'matched':>9}{'majors':>8}   best / worst signing")
 for r in res:
     tid = r["teamId"]; names = ALIAS.get(tid, {REG[tid]["team"]})
-    start = max(REG[tid]["start"], "2005-01-01")
+    start = max(REG[tid]["start"], "1998-01-01")       # v5.8: the book now reaches the 1997-98 winter
     sigs = priced(tid, start)
     majors = [s["x"] for s in sigs]
     net = 0.0; matched = 0; decs = []; allx = []   # v5.7: every major-league signing, priced or not
@@ -116,8 +125,7 @@ for r in res:
             continue
         if s_.get("open"): continue
         off, yrs, tot, src = s_["hit"]; pn = s_["pn"]; cbt = s_["cbt"]
-        implied, realized = s_["implied"], s_["realized"]
-        expected = implied * TYPICAL
+        implied, realized, expected = s_["implied"], s_["realized"], s_["expected"]
         n = realized - expected
         notes = []
         if cbt: notes.append(f"CBT ${cbt:.0f}M used for cost")
@@ -130,7 +138,7 @@ for r in res:
         fa_dna["pit" if POS.get(str(x["person_id"])) in PITPOS else "bat"] += n
         fasides = [["Production (Ledger WAR on club, elapsed seasons)", [[x["person_name"], f"{realized:+.1f}"]]],
                    ["What a typical club gets for this money" + (" (QO draft comp included)" if qo else ""),
-                    [[f"${tot:.0f}M over {yrs} yr: {implied:.1f} wins at market $/win x {TYPICAL:.2f} typical return", f"{-(expected + (QO_CHARGE if qo else 0)):+.1f}"]]]]
+                    [[f"${tot:.0f}M over {yrs} yr: {implied:.1f} wins of cost at market $/win x the typical return for those contract years", f"{-(expected + (QO_CHARGE if qo else 0)):+.1f}"]]]]
         MOVE_POP.append([round(implied, 2), round(n, 2)])
         allx.append([x["date"], x["person_name"], yrs, round(tot, 1), round(realized, 1), round(expected + (QO_CHARGE if qo else 0), 1), round(n, 1), x["person_id"], round(implied, 2)])
         decs.append(dict(d=x["date"], ch="fa", net=round(n, 1), st=round(implied, 2),

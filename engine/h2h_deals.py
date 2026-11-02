@@ -1,78 +1,53 @@
-"""Per-pair deal lists for the Head-to-Head tab: merges a 'deals' array into
-each sweep_results h2h entry (date, short headline, net from this seat).
-Standalone and idempotent; touches nothing else."""
-from asset_rules import contract_cost
-import json, sqlite3
+"""Head-to-Head (v5.8): every pair record is built from the trade book, so
+the tab, the report cards and the trade ledger show one valuation of every
+deal (asset windows, salary, leverage, discounting). Before, the pair
+headline (archetype.py) and the deal list used two other valuations and
+could disagree in sign.
+
+For each trade, the pieces club A received FROM club B (the piece appears in
+B's outgoing list) count for A against B, and the pieces A sent to B count
+against A. Only deals made while both current regimes held their seats.
+Overwrites r["h2h"] in sweep_results.json and h2h_matrix.json. Run after
+trade_book.py.
+"""
+import json
 from collections import defaultdict
-from tradegroup import dedupe_rows, group_trades
 
-cfg = json.load(open("/work/regimes.json"))
+ROOT = "/work"
+cfg = json.load(open(f"{ROOT}/regimes.json"))
+REG = {r["abbr"]: r for r in cfg["regimes"]}
+TB = json.load(open(f"{ROOT}/trade_book.json"))
+NAMES = TB.get("names", {})
 
-def club_names(team):
-    """v5.1: every name a club has gone by (Indians/Guardians, Oakland
-    Athletics/Athletics, Marlins, Expos/Nationals...). Valuing a departed
-    piece on the single name in the transaction row closed his window at the
-    club's rename, so the two seats of one trade stopped mirroring."""
-    for _r in cfg["regimes"]:
-        _al = set(cfg["aliases"].get(str(_r["teamId"]), [])) | {_r["team"]}
-        if team in _al: return _al
-    return {team}
-LVM = {k: v for k, v in json.load(open("/work/lvm_cache.json")).items() if not k.startswith("__")}
-ALIAS = {int(k): set(v) for k, v in cfg["aliases"].items()}
-REG = {r["teamId"]: r for r in cfg["regimes"]}
-NAME2TID = {}
-for r in cfg["regimes"]:
-    NAME2TID[r["team"]] = r["teamId"]
-    for al in cfg["aliases"].get(str(r["teamId"]), []):
-        NAME2TID[al] = r["teamId"]
-con = sqlite3.connect("/work/ledger.sqlite"); con.row_factory = sqlite3.Row
+pair = defaultdict(list)     # (A, B) -> [dict(d, h, net)]
+for d, seats in TB["trades"]:
+    S = {s[0]: s for s in seats}
+    for a, sa in S.items():
+        if a not in REG or d < REG[a]["start"]: continue
+        for b, sb in S.items():
+            if b == a or b not in REG or d < REG[b]["start"]: continue
+            b_out = {p for p, _ in sb[3]}
+            a_out = {p for p, _ in sa[3]}
+            got = [(p, v) for p, v in sa[2] if p in b_out]
+            gave = [(p, v) for p, v in sa[3] if p in {q for q, _ in sb[2]}]
+            if not got and not gave: continue
+            nm = lambda xs: ", ".join(NAMES.get(str(p), "?") for p, _ in xs) or "cash/PTBNL"
+            net = sum(v for _, v in got) - sum(v for _, v in gave)
+            pair[(a, b)].append(dict(d=d, h=f"Got {nm(got)} for {nm(gave)}", net=round(net, 1)))
 
-def val_control(pid, teams, y0, cap=6):
-    rec = LVM.get(str(pid))
-    if not rec: return 0.0
-    byyear = defaultdict(list)
-    for y, tm, v in rec["rows"]: byyear[y].append((tm, v))
-    tot = 0.0
-    for y in range(y0, y0 + cap):
-        rows = byyear.get(y, [])
-        here = [v for (tm, v) in rows if tm in teams]
-        if rows and not here and y > y0: break
-        tot += sum(here)
-        if here: tot -= contract_cost(pid, y) * (len(here) / len(rows))   # v5.7: net of salary
-    return tot
-
-pair_deals = defaultdict(list)   # (tid, opp) -> [{d, h, net}]
-seen = set()
-for reg in cfg["regimes"]:
-    tid = reg["teamId"]; names = ALIAS.get(tid, {reg["team"]})
-    start = max(reg["start"], "2005-01-01")
-    _rows = dedupe_rows([dict(r) for r in con.execute("select * from sweep_tx where team_id=? and date>=? and type_desc='Trade'", (tid, start))], tid, start)
-    for (d, desc, rs) in group_trades(_rows, names):
-        yr = int(d[:4])
-        opps = {NAME2TID.get(x["to_team"]) for x in rs if x["from_team"] in names and x["to_team"]} | \
-               {NAME2TID.get(x["from_team"]) for x in rs if x["to_team"] in names and x["from_team"]}
-        opps = {o for o in opps if o and o != tid}
-        for opp in opps:
-            if d < REG[opp]["start"]: continue
-            key = (tid, opp, d, desc)
-            if key in seen: continue
-            seen.add(key)
-            got = [x for x in rs if x["to_team"] in names and x["person_id"] and NAME2TID.get(x["from_team"]) == opp]
-            gave = [x for x in rs if x["from_team"] in names and x["person_id"] and NAME2TID.get(x["to_team"]) == opp]
-            vin = sum(val_control(x["person_id"], names, yr) for x in got)
-            vout = sum(val_control(x["person_id"], club_names(x["to_team"]), yr) for x in gave)
-            gn = ", ".join(dict.fromkeys(x["person_name"] for x in got if x["person_name"])) or "cash/PTBNL"
-            vn = ", ".join(dict.fromkeys(x["person_name"] for x in gave if x["person_name"])) or "cash/PTBNL"
-            pair_deals[(tid, opp)].append(dict(d=d, h=f"Got {gn} for {vn}", net=round(vin - vout, 1)))
-
-res = json.load(open("/work/sweep_results.json"))
-AB2TID = {r["abbr"]: r["teamId"] for r in cfg["regimes"]}
-merged = 0
+res = json.load(open(f"{ROOT}/sweep_results.json"))
+matrix = {}
 for r in res:
-    for p in r.get("h2h", []):
-        key = (r["teamId"], AB2TID.get(p["opp"]))
-        deals = sorted(pair_deals.get(key, []), key=lambda x: x["d"], reverse=True)[:60]
-        p["deals"] = deals
-        merged += len(deals)
-json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
-print("pair deal lines merged:", merged)
+    a = r["abbr"]; partners = []
+    for (x, b), deals in pair.items():
+        if x != a: continue
+        net = round(sum(z["net"] for z in deals), 1)
+        matrix[f"{a}|{b}"] = dict(n=len(deals), net=net)
+        if len(deals) >= 2:
+            partners.append(dict(opp=b, exec=REG[b]["exec"], n=len(deals), net=net,
+                                 deals=sorted(deals, key=lambda z: z["d"], reverse=True)[:60]))
+    partners.sort(key=lambda p: -abs(p["net"]))
+    r["h2h"] = partners
+json.dump(res, open(f"{ROOT}/sweep_results.json", "w"), indent=1)
+json.dump(matrix, open(f"{ROOT}/h2h_matrix.json", "w"))
+print("h2h pairs from the trade book:", len(matrix), "| listed partners:", sum(len(r["h2h"]) for r in res))

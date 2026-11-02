@@ -11,7 +11,7 @@ Writes trade_book.json:
   {"trades": [[date, [[ab, net, [[pid, v], ...in], [[pid, v], ...out]], ...]], ...],
    "names": {pid: name}, "check": {...}}
 """
-from asset_rules import contract_cost
+from asset_rules import contract_cost, trade_window
 import json, math, sqlite3, time, urllib.request
 from collections import defaultdict
 
@@ -57,21 +57,10 @@ def lev(teams, yr):
     w = rec[0] * 162 / (rec[0] + rec[1])
     return 0.5 + 1.3 * math.exp(-((w - 89) ** 2) / 200.0)
 
-def val_control(pid, teams, y0, cap=6):
-    rec = LVM.get(int(pid)) if pid else None
-    if not rec: return 0.0
-    byyear = {}
-    for yr, tm, v in rec["rows"]:
-        byyear.setdefault(yr, []).append((tm, v))
-    tot = 0.0
-    for yr in range(y0, y0 + cap):
-        rows = byyear.get(yr, [])
-        here = [v for (tm, v) in rows if tm in teams]
-        if rows and not here and yr > y0: break
-        if here:
-            tot += sum(here) * lev(teams, yr) * (0.9 ** (yr - y0))
-            tot -= contract_cost(pid, yr) * (len(here) / len(rows)) * (0.9 ** (yr - y0))   # v5.7: net of salary
-    return tot
+def val_control(pid, teams, y0, cap=6, date=None, sender=None):
+    """v5.8: asset accounting (asset_rules.trade_window), the same function
+    every scorer uses"""
+    return trade_window(pid, teams, date or f"{y0}-07-01", lev=lev, cap=cap, sender=sender)[0]
 
 con = sqlite3.connect(f"{ROOT}/ledger.sqlite"); con.row_factory = sqlite3.Row
 from tradegroup import dedupe_rows, group_trades
@@ -97,6 +86,20 @@ for (_, _, _, keys) in seat_groups:
     ks = list(keys)
     for k in ks[1:]: parent[find(ks[0])] = find(k)
     find(ks[0])
+# v5.8: also link seat groups of different clubs that exchange the same
+# player within three days (a three-team deal or a flip filed as separate
+# transactions), so no club's half of a deal stands alone
+from datetime import date as _date
+def _dd(a, b): return abs((_date.fromisoformat(a[:10]) - _date.fromisoformat(b[:10])).days)
+_by_pid = defaultdict(list)
+for i, (tid, d, rs, keys) in enumerate(seat_groups):
+    for x in rs:
+        if x["person_id"] and str(x["person_id"]) != "0": _by_pid[str(x["person_id"])].append((x["date"], tid, next(iter(keys))))
+for pid, occ in _by_pid.items():
+    for i in range(len(occ)):
+        for j in range(i + 1, len(occ)):
+            if occ[i][1] != occ[j][1] and _dd(occ[i][0], occ[j][0]) <= 3:
+                parent[find(occ[i][2])] = find(occ[j][2])
 trades = defaultdict(list)
 for sg in seat_groups:
     trades[find(next(iter(sg[3])))].append(sg)
@@ -109,8 +112,9 @@ for root, sgs in trades.items():
         nm = ALIAS.get(tid, set()) | {next(r["team"] for r in cfg["regimes"] if r["teamId"] == tid)}
         ins = {x["person_id"] for x in rs if x["to_team"] in nm and x["person_id"] and str(x["person_id"]) != "0"}
         outs = {x["person_id"]: x["to_team"] for x in rs if x["from_team"] in nm and x["person_id"] and str(x["person_id"]) != "0" and x["to_team"]}
-        idet = [[str(p), round(val_control(p, nm, yr), 1)] for p in ins]
-        odet = [[str(p), round(val_control(p, club_names(dest), yr), 1)] for p, dest in outs.items()]
+        ins_from = {x["person_id"]: x["from_team"] for x in rs if x["to_team"] in nm and x["person_id"]}
+        idet = [[str(p), round(val_control(p, nm, yr, date=d, sender=club_names(ins_from.get(p, ""))), 1)] for p in ins]
+        odet = [[str(p), round(val_control(p, club_names(dest), yr, date=d, sender=nm), 1)] for p, dest in outs.items()]
         if not idet and not odet: continue
         net = sum(v for _, v in idet) - sum(v for _, v in odet)
         row.append([TID2AB.get(tid, "?"), round(net, 1), idet, odet])

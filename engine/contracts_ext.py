@@ -26,7 +26,7 @@ EXT = [
     # ---- 2027 club options exercised or plainly in-the-money (the 2026-27
     # winter reality pass; sources: the league option tracker, Nov 2026).
     # Encoded as one-year coverage at the option price.
-    ('2026-11', 'William Contreras', 'MIL', 1, 15.5, None),
+    ('2026-11', 'William Contreras', 'MIL', 1, 14.5, None),
     ('2026-11', 'Isaac Paredes', 'HOU', 1, 13.35, None),
     ('2026-11', 'Sandy Alcantara', 'MIA', 1, 21.0, None),
     # Emmanuel Clase removed v5.2: restricted list, option moot
@@ -116,7 +116,7 @@ EXT = [
  ("2024-03","Brayan Bello","BOS",6,55,None),        # 2024-2029
  # MIL (Arnold window filters)
  ("2023-12","Jackson Chourio","MIL",8,82,None),
- ("2026-03","Cooper Pratt","MIL",8,50,None),
+ ("2026-03","Cooper Pratt","MIL",8,50.75,None),
  # ATH (Forst)
  ("2025-01","Brent Rooker","ATH",5,60,None),
  ("2025-03","Lawrence Butler","ATH",7,65.5,None),
@@ -198,7 +198,7 @@ EXT = [
     ("2018-01", "Felipe Vázquez", "PIT", 4, 22.0, None, 2018),
     ("2018-02", "George Springer", "HOU", 2, 24.0, None, 2018),
     ("2018-03", "Paul DeJong", "STL", 6, 26.0, None, 2018),
-    ("2018-03", "José Altuve", "HOU", 5, 151.0, None, 2018),
+    ("2018-03", "José Altuve", "HOU", 5, 151.0, None, 2020),
     ("2018-03", "Eugenio Suárez", "CIN", 7, 66.0, None, 2018),
     ("2018-03", "Christian Vázquez", "BOS", 3, 13.55, None, 2018),
     ("2018-03", "Scott Kingery", "PHI", 6, 24.0, None, 2018),
@@ -219,9 +219,9 @@ EXT = [
     ("2019-03", "Ryan Pressly", "HOU", 2, 17.5, None, 2019),
     ("2019-03", "Eloy Jiménez", "CWS", 6, 43.0, None, 2019),
     ("2019-03", "Blake Snell", "TB", 5, 50.0, None, 2019),
-    ("2019-03", "Chris Sale", "BOS", 5, 145.0, None, 2019),
-    ("2019-03", "Paul Goldschmidt", "STL", 5, 130.0, None, 2019),
-    ("2019-03", "Justin Verlander", "HOU", 2, 66.0, None, 2019),
+    ("2019-03", "Chris Sale", "BOS", 5, 145.0, None, 2020),
+    ("2019-03", "Paul Goldschmidt", "STL", 5, 130.0, None, 2020),
+    ("2019-03", "Justin Verlander", "HOU", 2, 66.0, None, 2020),
     ("2019-03", "Kyle Hendricks", "CHC", 4, 55.5, None, 2019),
     ("2019-03", "Jacob deGrom", "NYM", 5, 137.5, None, 2019),
     ("2019-04", "Xander Bogaerts", "BOS", 6, 120.0, None, 2020),

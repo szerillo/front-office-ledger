@@ -99,7 +99,7 @@ OUT = {
 # opt-outs are modeled as the player staying unless his market clearly beats
 # the remaining money (none of the open ones do).
 PENDING = [
-    ("William Contreras", "club", 15.5, 0.0), ("Isaac Paredes", "club", 13.35, 0.0),
+    ("William Contreras", "club", 14.5, 0.0), ("Isaac Paredes", "club", 13.35, 0.0),
     ("Garrett Whitlock", "club", 8.25, 1.0), ("Kenley Jansen", "club", 12.0, 2.0),
     ("Ryan Mountcastle", "club", 7.5, 0.0), ("Colin Rea", "club", 7.5, 1.0),
     ("Antonio Senzatela", "club", 14.0, 0.0), ("Ryne Stanek", "club", 6.0, 1.0),
@@ -131,4 +131,5 @@ PRIOR_QO = {
     "Chris Bassitt": "NYM, 2022", "George Springer": "HOU, 2020", "Kenley Jansen": "LAD, 2016",
     "Shota Imanaga": "CHC, 2025 (accepted)", "Trent Grisham": "NYY, 2025 (accepted)",
     "Gleyber Torres": "DET, 2025 (accepted)", "Brandon Woodruff": "MIL, 2025 (accepted)",
+    "Zac Gallen": "ARI, 2025 (rejected)",
 }

@@ -225,6 +225,54 @@ for p in players:
         p[11] = sv["svc"]; n_svc += 1
     p[8] = max(1, min(6, 6 - int(_m.floor(p[11] + 1e-9))))
     p.append(len([w for w in (sv or {}).get("arb_winters", []) if w < 2026]))   # idx 15
+
+# ---- v5.8 projection base (idx 16) and availability flag (idx 17) ----
+# Rate x playing time, Marcel-style: WAR per PA (hitters) or per IP
+# (pitchers) over 2024-26 weighted 5/4/3, regressed toward the role's
+# league rate by adding K weighted units of league-average playing time,
+# times expected 2027 playing time (the same weights over every season since
+# his debut, a missed season counting as zero, capped at a full season).
+# Missed time is counted once, here; the page no longer multiplies by the
+# durability factor on top. Two straight seasons with no MLB time:
+# projection withheld (idx 17 = 1) and priced at zero.
+_W = {2026: 5, 2025: 4, 2024: 3}
+_CAP = {"bat": 680.0, "SP": 195.0, "RP": 75.0}
+_K = {"bat": 1200.0, "SP": 600.0, "RP": 450.0}
+def _role(p):
+    if not p[3]: return "bat"
+    return "SP" if p[13] == "SP" else "RP"
+def _pt(rec, y, role):
+    r = (rec or {}).get(str(y)) or [0, 0, 0]
+    return float(r[0] if role == "bat" else r[1])
+_acc = {"bat": [0.0, 0.0], "SP": [0.0, 0.0], "RP": [0.0, 0.0]}
+for p in players:
+    rec = PT_RAW.get(str(p[1])); role = _role(p)
+    for y, idx in ((2024, 5), (2025, 6), (2026, 7)):
+        pt = _pt(rec, y, role)
+        if pt > 0: _acc[role][0] += p[idx]; _acc[role][1] += pt
+POP_RATE = {k: (a[0] / a[1] if a[1] else 0.0) for k, a in _acc.items()}
+print("league WAR rate by role (per PA / per IP):", {k: round(v, 5) for k, v in POP_RATE.items()})
+for p in players:
+    rec = PT_RAW.get(str(p[1])); role = _role(p)
+    debut = min(BY[p[1]][0]) if BY.get(p[1]) and BY[p[1]][0] else 2026
+    if not rec:
+        p.append(None); p.append(0); continue          # no playing-time record: old formula on the page
+    num = den = 0.0; ptw = ptd = 0.0; pts = []
+    for y, idx in ((2024, 5), (2025, 6), (2026, 7)):
+        if y < debut: continue
+        pt = _pt(rec, y, role); w = _W[y]
+        ptw += w * pt; ptd += w; pts.append(pt)
+        if pt > 0: num += w * p[idx]; den += w * pt
+    if ptd == 0: p.append(None); p.append(0); continue
+    rate = (num + _K[role] * POP_RATE[role]) / (den + _K[role])
+    # expected playing time: 60% the average of his two fullest recent
+    # seasons, 40% the weighted line with missed time at zero (a single short
+    # season is partly a one-off; repeated ones are not)
+    top2 = sorted(pts, reverse=True)[:2]
+    pt_exp = min(0.6 * (sum(top2) / len(top2)) + 0.4 * (ptw / ptd), _CAP[role])
+    missed = debut <= 2025 and _pt(rec, 2025, role) == 0 and _pt(rec, 2026, role) == 0
+    if missed: p.append(0.0); p.append(1); continue
+    p.append(round(rate * pt_exp, 2)); p.append(0)
 print("service from transactions:", n_svc, "| contract-expiry FAs:", len(CONTRACT_FA))
 
 # ---- v5.2: the winter as it actually happened (winter_2026.py) ----
@@ -254,7 +302,7 @@ for spid, z in POSTED.items():
            6, 0, 1.0, 0.0, grp, pos, round(max(t.get(str(2026 - k), 0) * (0.88 ** k) for k in range(3)), 2), 0]
     players.append(row)
     club, lg, dl = W.POSTED[pid]
-    STATUS[pid] = ["posted", f"posted by the {club} ({lg}); sign by {dl}"]
+    STATUS[pid] = ["posted", f"announced for posting by the {club} ({lg}); if posted Nov 1 as expected, sign by {dl}"]   # v5.8: the window opens when the posting is official
 # 1b. prospects, Phase II (prospects_peak.py): minor-league translations plus
 # 100 nearest 2012-2019 comparables on age, level, translated rates,
 # position and pedigree. Every prospect carries a peak projection; org
@@ -417,7 +465,37 @@ print("payroll clubs:", len(payroll), "| NYM 2027:", payroll.get("NYM", {}).get(
 deals = json.load(open("/work/deal_archive.json"))
 compact = [[x["yr"], x["ab"], x["ph"][0], x["ck"], x.get("po", "mid")[0], x["recv"], x["paid"], x["who"][:24]] for x in deals]
 
+# ---- v5.8: the 2026 draft class (signed picks in the top 100) ----
+# MLB Stats API draft endpoint; valued on the draft-slot curve until public
+# rankings absorb them (the Big Boards say so)
+DRAFT26 = {}
+try:
+    _d = get("https://statsapi.mlb.com/api/v1/draft/2026")
+    _have = {p[1] for p in players}
+    _n2ab = {}
+    for _r in cfg["regimes"]:
+        for _nm in set(cfg["aliases"].get(str(_r["teamId"]), [])) | {_r["team"]}: _n2ab[_nm] = _r["abbr"]
+    for _rd in _d.get("drafts", {}).get("rounds", []):
+        for _pk in _rd.get("picks", []):
+            _num = _pk.get("pickNumber") or 999
+            _per = _pk.get("person") or {}
+            if _num > 100 or not _per.get("id") or not _pk.get("signingBonus"): continue
+            _pid = int(_per["id"]); _ab = _n2ab.get((_pk.get("team") or {}).get("name", ""), "")
+            if not _ab: continue
+            DRAFT26[_pid] = [_num, int(_pk.get("rank") or 0)]
+            if _pid in _have: continue
+            _pos = ((_per.get("primaryPosition") or {}).get("abbreviation") or "")
+            _pit = 1 if _pos in ("P", "RHP", "LHP") else 0
+            _bd = _per.get("birthDate")
+            _age = (2026 - int(_bd[:4])) if _bd else 21
+            _grp = "SP" if _pit else ("C" if _pos == "C" else "IF" if _pos in ("1B","2B","3B","SS") else "OF")
+            players.append([_per.get("fullName", "?"), _pid, _ab, _pit, _age, 0.0, 0.0, 0.0, 6, 0, 1.0, 0.0,
+                            _grp, ("SP" if _pit else (_pos or "IF")), 0.0, 0, None, 0])
+except Exception as _e:
+    print("2026 draft fetch failed:", _e)
+print("2026 draftees added:", len(DRAFT26))
 out = dict(
+    draft26={str(k): v for k, v in DRAFT26.items()},
     players=players,
     curves=dict(bat=PC["curves"]["bat"], pit=PC["curves"]["pit"], pop=PC["pop_mean"],
                 unrankedEV=PC["unranked_ev"], backtest=PC["backtest"]),

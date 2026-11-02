@@ -24,7 +24,7 @@ Writes hist_results.json.
 from era_names import draft_day
 from asset_rules import control_value, draft_maturity
 MOVE_POP = {"waiver": [], "draft": []}
-from asset_rules import contract_cost
+from asset_rules import contract_cost, trade_window, DRAFT_K, DRAFT_SHAPE
 import json, math, os, sqlite3
 from collections import defaultdict
 from tradegroup import dedupe_rows, group_trades
@@ -83,6 +83,21 @@ REGS = hcfg["regimes"]
 
 # ---- universe ----
 universe = set()
+def mirror_losses(rows, names, start, end="9999-12-31"):
+    """v5.8: before 2009 the feed files a waiver claim or Rule 5 pick only on
+    the claiming club. Add the losing club's side from the claim's from_team
+    so the channel is two-sided in every era."""
+    have = {(r["date"], r["person_id"], r["type_desc"]) for r in rows}
+    q = ("select * from sweep_tx where type_desc in ('Claimed Off Waivers','Rule 5 Selection') "
+         "and date>=? and date<=? and from_team in (%s)" % ",".join("?" * len(names)))
+    add = []
+    for r in con.execute(q, (start, end, *names)):
+        r = dict(r)
+        k = (r["date"], r["person_id"], r["type_desc"])
+        if k in have or (r["to_team"] in names): continue
+        have.add(k); add.append(r)
+    return rows + add
+
 regime_rows = {}
 drafts = {}
 for i, reg in enumerate(REGS):
@@ -91,17 +106,18 @@ for i, reg in enumerate(REGS):
         "select * from sweep_tx where team_id=? and date>=? and date<=? and type_desc in "
         "('Trade','Claimed Off Waivers','Rule 5 Selection','Signed as Free Agent','Declared Free Agency')",
         (tid, start, end))]
-    regime_rows[i] = dedupe_rows(rows, tid, start, end)
+    regime_rows[i] = mirror_losses(dedupe_rows(rows, tid, start, end), ALIAS.get(tid, {reg['team']}), start, end)
     for r in rows:
         if r["person_id"]: universe.add(int(r["person_id"]))
     names = ALIAS.get(tid, {reg["team"]})
     picks = []
     for yr in range(max(int(start[:4]), 1998), int(end[:4]) + 1):
-        marker = f"{yr}-06-01"
+        marker = draft_day(yr)          # v5.8: the real draft date (mid-July since 2021)
         if start <= marker <= end:
             q = "select * from draft_picks where cast(year as int)=? and cast(round as int)<=5 and team in (%s)" % \
                 ",".join("?"*len(names))
             picks += [dict(r) for r in con.execute(q, (yr, *names))]
+    _sp = set(); picks = [p for p in picks if not ((p['person_id'], p['year'], p['pick_overall']) in _sp or _sp.add((p['person_id'], p['year'], p['pick_overall'])))]   # v5.8: one row per pick
     drafts[i] = picks
     for p in picks:
         if p["person_id"]: universe.add(int(p["person_id"]))
@@ -131,6 +147,16 @@ def val(pid, teams, y0, y1, inside=True):
         if y0 <= yr <= y1 and ((tm in teams) == inside):
             tot += v
     return tot
+
+def val_series(pid, teams, y0, y1, inside=True):
+    """per-season version of val() (value-time ledger for validation)"""
+    rec = LVM.get(int(pid)) if pid else None
+    out = defaultdict(float)
+    if not rec: return out
+    for yr, tm, v in rec["rows"]:
+        if y0 <= yr <= y1 and ((tm in teams) == inside):
+            out[yr] += v
+    return out
 
 wl = defaultdict(lambda: [0, 0, 0])
 for yr in range(1998, 2027):
@@ -164,23 +190,13 @@ def lev(team_name_or_names, yr):
     w = rec[0] * 162 / (rec[0] + rec[1])
     return 0.5 + 1.3 * math.exp(-((w - 89) ** 2) / 200.0)
 
-def val_control(pid, teams, y0, cap=6, weight=True):
-    rec = LVM.get(int(pid)) if pid else None
-    if not rec: return 0.0
-    byyear = {}
-    for yr, tm, v in rec["rows"]:
-        byyear.setdefault(yr, []).append((tm, v))
-    tot = 0.0
-    for yr in range(y0, y0 + cap):
-        rows = byyear.get(yr, [])
-        here = [v for (tm, v) in rows if tm in teams]
-        if rows and not here and yr > y0:
-            break
-        if here:
-            wgt = (lev(teams, yr) * (0.9 ** (yr - y0))) if weight else 1.0
-            tot += sum(here) * wgt
-            tot -= contract_cost(pid, yr) * (len(here) / len(rows)) * ((0.9 ** (yr - y0)) if weight else 1.0)
-    return tot
+def val_control(pid, teams, y0, cap=6, weight=True, date=None, series=False, sender=None):
+    """v5.8: asset accounting (asset_rules.trade_window): the control window
+    from the trade wherever the player plays it, net of the salary that moves
+    with him, ending at a new contract, a free-agent filing or a release."""
+    t, s = trade_window(pid, teams, date or f"{y0}-07-01", lev=lev, cap=cap, weight=weight, sender=sender)
+    return (t, s) if series else t
+
 
 def frac_year(ds):
     return int(ds[:4]) + (int(ds[5:7]) - 1) / 12.0
@@ -208,9 +224,11 @@ for i, reg in enumerate(REGS):
             trades["rows"].append(r)
         elif t == "Claimed Off Waivers":
             claim = r["to_team"] in names
-            v = val(r["person_id"], names if claim else club_names(r["to_team"]), yr, yr+3, inside=True)
+            _vs = val_series(r["person_id"], names if claim else club_names(r["to_team"]), yr, yr+3, inside=True)
+            v = sum(_vs.values())
             net = v if claim else -v
-            wv_net += net; n_wv += 1; ynet[yr] += net
+            wv_net += net; n_wv += 1
+            for _y, _x in _vs.items(): ynet[_y] += (_x if claim else -_x)
             MOVE_POP["waiver"].append([0.5, round(net, 2)])
             ALLX["waiver"].append([r["date"], r["person_name"] or "?", "claimed" if claim else "lost on waivers", round(net, 1), r["person_id"]])
             if abs(net) > 0.05:
@@ -222,9 +240,11 @@ for i, reg in enumerate(REGS):
                                  pids=[r["person_id"]]))
         elif t == "Rule 5 Selection":
             pick = r["to_team"] in names
-            v = val(r["person_id"], names if pick else club_names(r["to_team"]), yr, yr+3, inside=True)
+            _vs = val_series(r["person_id"], names if pick else club_names(r["to_team"]), yr, yr+3, inside=True)
+            v = sum(_vs.values())
             r5n = (v if pick else -v)
-            wv_net += r5n; n_r5 += 1; ynet[yr] += r5n
+            wv_net += r5n; n_r5 += 1
+            for _y, _x in _vs.items(): ynet[_y] += (_x if pick else -_x)
             ALLX["waiver"].append([r["date"], r["person_name"] or "?", "Rule 5 pick" if pick else "lost in Rule 5", round(r5n, 1), r["person_id"]])
         elif t == "Declared Free Agency":
             pid = r["person_id"]
@@ -254,11 +274,19 @@ for i, reg in enumerate(REGS):
         pids_in  = {x["person_id"] for x in rs if x["to_team"] in names and x["person_id"]}
         outs = {x["person_id"]: x["to_team"] for x in rs
                 if x["from_team"] in names and x["person_id"] and x["to_team"]}
-        ins_det = [(p, pname.get(p, "?"), val_control(p, names, yr)) for p in pids_in]
-        out_det = [(p, pname.get(p, "?"), dest, val_control(p, club_names(dest), yr)) for p, dest in outs.items()]
+        ins_det, out_det = [], []
+        ins_from = {x["person_id"]: x["from_team"] for x in rs if x["to_team"] in names and x["person_id"]}
+        for p in pids_in:
+            _t, _s = val_control(p, names, yr, date=d, series=True, sender=club_names(ins_from.get(p, "")))
+            ins_det.append((p, pname.get(p, "?"), _t))
+            for _y, _x in _s.items(): ynet[_y] += _x
+        for p, dest in outs.items():
+            _t, _s = val_control(p, club_names(dest), yr, date=d, series=True, sender=names)
+            out_det.append((p, pname.get(p, "?"), dest, _t))
+            for _y, _x in _s.items(): ynet[_y] -= _x
         vin  = sum(v for (_, _, v) in ins_det)
         vout = sum(v for (_, _, _, v) in out_det)
-        net = vin - vout; tr_net += net; ynet[yr] += net
+        net = vin - vout; tr_net += net
         if abs(net) >= 1.2:
             dests = sorted({dest for (_, _, dest, _) in out_det})
             sides = [["Acquired (control-window value, leverage-weighted)",
@@ -268,7 +296,7 @@ for i, reg in enumerate(REGS):
             decs.append(dict(d=d, ch="trade", net=round(net,1), st=round(max(abs(vin), abs(vout)), 2), h=(desc or "trade")[:220],
                              vin=round(vin,1), vout=round(vout,1), sides=sides,
                              pids=[p for (p, _, _) in ins_det] + [p for (p, _, _, _) in out_det]))
-    dr_real = dr_exp = 0.0
+    dr_real = dr_exp = 0.0; n_mat = 0
     for p in drafts[i]:
         yr = int(p["year"]); pk = int(p["pick_overall"])
         later = REDRAFT.get(str(p["person_id"]), ())
@@ -277,11 +305,20 @@ for i, reg in enumerate(REGS):
         # player produced in his six control seasons, wherever he played them;
         # a later trade is graded in the trade channel, never here as well
         _prec = LVM.get(int(p["person_id"])) if p["person_id"] else None
-        realized = 0.0 if unsigned else control_value(_prec)
-        realized_here = 0.0 if unsigned else control_value(_prec, names)
+        _dd = draft_day(yr)
+        _rs = {} if unsigned else control_value(_prec, pid=p["person_id"], after=_dd, series=True)
+        realized = sum(_rs.values())
+        realized_here = 0.0 if unsigned else control_value(_prec, names, pid=p["person_id"], after=_dd)
         exp = slot_expectation(pk) * draft_maturity(yr) * (0.5 if unsigned else 1.0)
-        dr_real += realized; dr_exp += exp
-        net = realized - exp; ynet[yr] += net
+        dr_real += realized; dr_exp += exp; n_mat += (exp >= 0.05)
+        net = realized - exp
+        # value-time: realized value lands in the season it was produced; the
+        # slot expectation is charged as the maturity curve says it accrues
+        for _y, _x in _rs.items(): ynet[_y] += _x
+        _slot = exp / max(draft_maturity(yr), 1e-9)
+        for _y in range(yr, END_YEAR + 1):
+            _inc = DRAFT_K * (DRAFT_SHAPE.get(_y - yr, 1.0) - (DRAFT_SHAPE.get(_y - yr - 1, 1.0) if _y > yr else 0.0))
+            ynet[_y] -= _slot * _inc
         MOVE_POP["draft"].append([round(exp, 2), round(net, 2)])
         ALLX["draft"].append([draft_day(yr), p["person_name"], pk, round(realized, 1), round(realized_here, 1), round(exp, 1), round(net, 1), p["person_id"]])
         if abs(net) >= 1.5:
@@ -303,13 +340,14 @@ for i, reg in enumerate(REGS):
         worst = sorted([d for d in pool if d["net"] < 0], key=lambda x: x["net"])[:n]
         return dict(best=best, worst=worst)
     slug = (reg["abbr"] + "-" + reg["exec"]).lower().replace(" ", "-").replace(".", "")
+    if slug in {x["id"] for x in results}: slug += "-" + reg["start"][:4]     # a second tenure (Alderson, NYM 2020-21)
     results.append(dict(
         id=slug, teamId=tid, exec=reg["exec"], team=reg["team"], abbr=reg["abbr"],
         start=y_start, end=y_end, startDate=reg["start"], endDate=end,
         trueStart=reg.get("trueStart"), seasons=seasons, seatSeasons=seat, flags=reg.get("flags", []),
         chan=dict(
             trade=dict(net=round(tr_net,1), g=grade(tr_net/seasons), n=len(trade_groups)),
-            draft=dict(net=round(dr_net,1), g=grade(dr_net/seasons), n=len(drafts[i])),
+            draft=dict(net=round(dr_net,1), g=(grade(dr_net/seasons) if n_mat >= 3 else None), n=len(drafts[i])),
             waiver=dict(net=round(wv_net,1), g=grade(wv_net/seasons), n=n_wv+n_r5),
             fa=dict(net=round(fa_raw,1), g=None, n=n_fa),
         ),

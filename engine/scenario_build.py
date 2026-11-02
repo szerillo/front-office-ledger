@@ -180,7 +180,7 @@ TRADES = [
     ("2008-07-07", "MIL", "CC Sabathia", "buyer",
      "Early July, wild-card race. Cleveland is selling the reigning Cy Young winner as a pure three-month rental."),
     ("2020-02-10", "LAD", "Mookie Betts", "seller",
-     "Ownership wants the payroll reset and the superstar has one year left before free agency. Los Angeles is offering a young major-league outfielder, a shortstop prospect, and a catching prospect, and will take the rest of an expensive starter's contract."),
+     "Ownership wants the payroll reset and the superstar has one year left before free agency. Los Angeles is offering a young major-league outfielder, a shortstop prospect, and a catching prospect, and will take on about half of an expensive starter's remaining contract (Boston sends cash for the rest)."),
     ("2022-08-02", "SD", "Juan Soto", "buyer",
      "The franchise bat of his generation is somehow available at 23 with two and a half controlled years. Washington wants your entire prospect shelf."),
 ]
@@ -204,7 +204,10 @@ for date, ab, headline, seat, setup in TRADES:
     # context
     deadline = deal["ph"] == "deadline"
     season = yr if (deadline or mo >= 9) else (yr - 1 if mo <= 3 else yr)
-    st = standings(season, date=f"{mo:02d}/{int(date[8:10]):02d}/{yr}" if deadline else None, tid=seat_tid)
+    # v5.8: "on the morning of the deal" = standings through the day before
+    import datetime as _dtm
+    _prev = _dtm.date(yr, mo, int(date[8:10])) - _dtm.timedelta(days=1)
+    st = standings(season, date=f"{_prev.month:02d}/{_prev.day:02d}/{_prev.year}" if deadline else None, tid=seat_tid)
     if not st: print("MISS standings", date, ab); continue
     wproj = round(st["w"] / max(st["w"] + st["l"], 1) * 162)
     nd = needs(seat_tid, season)
@@ -283,6 +286,8 @@ def ext_terms(row):
     dpw = DPWH[str(min(off + 1, 2026))]
     return dict(mktY=yrs, mktTot=round(proj * yrs * dpw * 0.45), ext=1, proj=round(proj, 1))
 
+# v5.8: the real signing dates (revealed after the decision)
+SIGN_DATES = {"Max Scherzer": "2015-01-19", "Albert Pujols": "2011-12-08", "Chris Davis": "2016-01-21", "Jon Lester": "2014-12-10"}
 FA_PICKS = [("Max Scherzer", 2014), ("Albert Pujols", 2011), ("Chris Davis", 2015), ("Jon Lester", 2014)]
 FA_SETUP = {
     "Max Scherzer": "Your window is open and the rotation needs a true one. The best arm on the market wants seven years, half of it deferred.",
@@ -306,7 +311,7 @@ for picks, kindlbl, setups in ((FA_PICKS, "fa", FA_SETUP), (EXT_PICKS, "ext", EX
         scenarios.append(dict(
             id=f"{kindlbl}-{off}-{nm.split()[-1].lower()}", kind=kindlbl, seat="club",
             team=ab, teamName=era_team(TID2TEAM.get(tid, ""), off), opp=None, exec_=exec_at(tid, f"{off}-12-01"),
-            date=f"{off}-12-01" if kindlbl == "fa" else f"{off+1}-03-01", phase="offseason",
+            date=SIGN_DATES.get(nm, f"{off}-12-01") if kindlbl == "fa" else f"{off+1}-03-01", phase="offseason",
             setup=setups[nm],
             ctx=dict(w=st["w"] if st else None, l=st["l"] if st else None, gb=st["gb"] if st else "-",
                      rank=st["rank"] if st else None, season=off,

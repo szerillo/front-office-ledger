@@ -108,43 +108,50 @@ skipped = []
 # club got back per win of class-market cost; pass 2 grades each regime's
 # deals against that typical return, so the expectation scales with the money.
 EVAL = []
-for _e in EXT:
-    sign, player, ab, yrs, tot, cbt = _e[:6]
-    if sign >= "2026-10": continue            # 2027 option rows: payroll coverage only, not extension decisions
+CB = json.load(open("/work/contract_book.json"))
+CB_DPW = {int(k): v for k, v in CB["dpw"].items()}; LMIN = CB.get("league_min", 0.75)
+for c in CB["book"]:
+    if c["kind"] != "ext": continue
+    sign, player, ab, yrs, tot = c["sign"], c["name"], c["club"], c["yrs"], c["tot"]
+    if ab not in ABBR2TID: continue
     tid = ABBR2TID[ab]; reg = REG[tid]
     sign_date = sign + "-15"
-    pid = resolve(player, tid, int(sign[:4]), yrs)
+    pid = str(c["pid"])
     sy = int(sign[:4])
     dy = debut_year(pid) if pid else None
-    if pid is None and dy is None:
-        cls = "pre-debut"           # never played MLB yet, not in LVM
-    elif dy is None or dy > sy:
-        cls = "pre-debut"
+    if dy is None or dy > sy: cls = "pre-debut"
     elif sy - dy <= 2: cls = "early"
     elif sy - dy <= 5: cls = "arb"
     else: cls = "veteran"
-    use_tot = cbt if cbt else tot
-    aav = use_tot / yrs
-    start = _e[6] if len(_e) > 6 else (sy if int(sign[5:7]) <= 3 else sy + 1)   # spring deals replace the current season
-    end_cap = 2023 if player == "Wander Franco" else 2026
-    seasons = [y for y in range(start, min(start + yrs - 1, end_cap) + 1)]
-    names = ALIAS.get(tid, {reg["team"]})
-    rows = lvm_rows(pid) if pid else []
-    realized = sum(v for (y, tm, v) in rows
-                   if any(al in tm for al in names) and y in seasons)
-    implied = sum(aav / (DISC[cls] * DPW[min(y, 2026)]) for y in seasons)
+    # v5.8: the seasons this deal owns (a later contract owns its own), held
+    # by the club until it trades him (the trade carries the rest, salary
+    # included); a release keeps the dead money. Wander Franco's deal stops
+    # at 2023 (restricted list, unpaid).
+    held = [h for h in c.get("held", []) if h[1] <= (2023 if player == "Wander Franco" else 2026)]
+    seasons = [h[1] for h in held]
+    realized = sum(h[2] for h in held)
+    costs = [(h[0], max(0.0, c["aav"] - LMIN) / (DISC[cls] * CB_DPW.get(h[1], 9.7)) * h[3]) for h in held]
+    implied = sum(x for _, x in costs)
     EVAL.append(dict(sign=sign, player=player, tid=tid, reg=reg, sign_date=sign_date, pid=pid, cls=cls,
-                     yrs=yrs, tot=tot, cbt=cbt, use_tot=use_tot, seasons=seasons, realized=realized, implied=implied))
-_pp = [e for e in EVAL if e["seasons"] and e["pid"]]
-TYPICAL = sum(e["realized"] for e in _pp) / sum(e["implied"] for e in _pp)
-print(f"typical extension return: {TYPICAL:.3f} wins per class-market-cost win over {len(_pp)} priced extensions")
+                     yrs=yrs, tot=tot, cbt=None, use_tot=tot, seasons=seasons, realized=realized, implied=implied,
+                     held=held, costs=costs))
+# typical return by contract year, pooled over every priced extension
+_acc = defaultdict(lambda: [0.0, 0.0])
+for e in EVAL:
+    for (k, cst), h in zip(e["costs"], e["held"]):
+        a_ = _acc[min(k, 5)]; a_[0] += h[2]; a_[1] += cst
+TYP_EXT = {k: round(a_[0] / a_[1], 3) for k, a_ in sorted(_acc.items()) if a_[1] > 0}
+TYPICAL = round(sum(a_[0] for a_ in _acc.values()) / max(sum(a_[1] for a_ in _acc.values()), 1e-9), 3)
+for e in EVAL:
+    e["expected"] = sum(cst * TYP_EXT.get(min(k, 5), TYPICAL) for k, cst in e["costs"])
+print(f"typical extension return by contract year {TYP_EXT} (pooled {TYPICAL}) over {len(EVAL)} book extensions")
 
 for e in EVAL:
     sign, player, tid, reg, sign_date, pid, cls = e["sign"], e["player"], e["tid"], e["reg"], e["sign_date"], e["pid"], e["cls"]
     yrs, tot, cbt, use_tot, seasons, realized, implied = e["yrs"], e["tot"], e["cbt"], e["use_tot"], e["seasons"], e["realized"], e["implied"]
     if sign_date < reg["start"]:
         skipped.append((player, reg.get("abbr"), "predates regime")); continue
-    expected = implied * TYPICAL
+    expected = e["expected"]
     n = realized - expected
     if not seasons:                  # freshly signed, nothing elapsed
         per[tid]["decs"].append(dict(d=sign_date, ch="ext", net=0.0,
@@ -157,14 +164,14 @@ for e in EVAL:
     per[tid]["decs"].append(dict(d=sign_date, ch="ext", net=round(n, 1), st=round(implied, 2),
         h=f"Extended {player} · {yrs} yr / ${tot:.1f}M ({cls} market{cbtnote})",
         sides=[["Production (Ledger WAR on club, covered seasons)", [[player, f"{realized:+.1f}"]]],
-               [f"What a typical club gets for this money", [[f"${use_tot:.0f}M over {yrs} yr at {int(DISC[cls]*100)}% of market $/win: {implied:.1f} wins x {TYPICAL:.2f} typical return", f"{-expected:+.1f}"]]]],
+               [f"What a typical club gets for this money", [[f"${use_tot:.0f}M over {yrs} yr at {int(DISC[cls]*100)}% of market $/win: {implied:.1f} wins of class-market cost x the typical return for those contract years", f"{-expected:+.1f}"]]]],
         pids=[pid] if pid else []))
 
 print(f"{'team':<6}{'EXT net':>9}{'n':>4}   deals")
 for r in res:
     tid = r["teamId"]; p = per.get(tid, dict(net=0.0, n=0, decs=[]))
-    covered = p["n"] >= 2
     scored = [d for d in p["decs"] if "OPEN" not in d["h"]]
+    covered = len(scored) >= 2        # v5.8: two PRICED deals with seasons played, not two signatures
     r["chan"]["ext"] = dict(net=round(p["net"], 1) if covered else 0, typical=round(TYPICAL, 3),
                             g=grade(p["net"] / r["seasons"]) if covered and scored else None,
                             n=p["n"])

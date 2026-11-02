@@ -82,26 +82,32 @@ def age_at(bd, when):
 
 # classify + realize
 ifa = []  # (team_id, class_year, person_id, name, realized, sign_date)
+_seen_ifa = set()
 for r in rows:
     pid = r["person_id"]
     if pid not in bio: continue
     bd, bc = bio[pid]
     if not bd or not bc or bc in NA_DRAFT: continue
     if first_seen.get(pid) != r["date"]: continue      # first pro appearance only
+    if (pid, r["date"]) in _seen_ifa: continue        # v5.8: one classification per signing
+    _seen_ifa.add((pid, r["date"]))
     a = age_at(bd, r["date"])
     if a > 23.0: continue
     tid = r["team_id"]; names = ALIAS.get(tid, {REG[tid]["team"]})
     yr = int(r["date"][:4])
     # v5.5 asset accounting (asset_rules.py): six control seasons, any club;
     # a signee later traded is graded once, in the trade
-    realized = control_value(LVM[pid]) if pid in LVM else 0.0
+    realized = control_value(LVM[pid], pid=int(pid), after=r["date"]) if pid in LVM else 0.0   # v5.8: a later contract owns its seasons
     ifa.append((tid, yr, pid, r["person_name"], round(realized, 2), r["date"]))
 print(f"classified IFA signings (all, v5.6): {len(ifa)} | reached MLB value: {sum(1 for x in ifa if abs(x[4]) > 0.05)}", flush=True)
 
 # class means: league value over 30 clubs
-class_tot = defaultdict(float)
+class_tot = defaultdict(float); class_n = defaultdict(int)
 for tid, yr, pid, nm, v, dt in ifa:
-    class_tot[yr] += v
+    class_tot[yr] += v; class_n[yr] += 1
+def per_signing(yr):
+    """v5.8: one signing's expectation, the class's average signee"""
+    return class_tot[yr] / class_n[yr] if class_n[yr] else 0.0
 def class_mean(yr):
     # every club shops every class from (near-)equal pools: the expectation
     # is the league's realized value from that class over 30 clubs
@@ -120,34 +126,42 @@ def grade(nps):
         if nps >= thr: return g
     return 30
 
+FLOOR = "2005-01-01"
 per = defaultdict(lambda: dict(real=0.0, exp=0.0, n=0, tops=[]))
 
 for tid, yr, pid, nm, v, dt in ifa:
     # attribution fix: a signing belongs to the regime only if it happened
     # on this regime's watch (true signing date on/after the start date;
     # the league class baseline stays league-wide)
-    if dt < REG[tid]["start"]: continue
+    if dt < max(REG[tid]["start"], FLOOR): continue
     p = per[tid]; p["real"] += v; p["n"] += 1
     p["tops"].append((v, yr, nm, pid, dt))
+# v5.8: the expectation is the league's value from signings made on this
+# regime's watch (dated on or after its start), over 30 clubs: a regime hired
+# in October is no longer charged for the July class it could not sign
+def league_exp(start):
+    s0 = max(start, FLOOR)
+    return sum(v for (_t, _y, _p, _n, v, dt) in ifa if dt >= s0) / 30.0
+def has_mature_class(start):
+    return int(max(start, FLOOR)[:4]) <= 2021      # at least one class five seasons on
 for tid, p in per.items():
-    y0 = max(int(REG[tid]["start"][:4]), 2005)
-    p["exp"] = sum(class_mean(y) for y in range(y0, 2027))
+    p["exp"] = league_exp(REG[tid]["start"])
 
 print(f"\n{'team':<6}{'IFA net':>9}{'real':>8}{'exp':>7}{'n':>5}   best signing")
 for r in res:
-    tid = r["teamId"]; p = per.get(tid, dict(real=0.0, exp=sum(class_mean(y) for y in range(max(int(REG[tid]['start'][:4]),2005), 2027)), n=0, tops=[]))
+    tid = r["teamId"]; p = per.get(tid, dict(real=0.0, exp=league_exp(REG[tid]["start"]), n=0, tops=[]))
     net = p["real"] - p["exp"]
-    r["chan"]["intl"] = dict(net=round(net, 1), g=grade(net / r["seasons"]), n=p["n"])
+    r["chan"]["intl"] = dict(net=round(net, 1), g=grade(net / r["seasons"]) if has_mature_class(REG[tid]["start"]) else None, n=p["n"])
     if r["teamId"] == 144 and REG[144]["start"] >= "2017-11":
         r["chan"]["intl"]["note"] = ("Context: in November 2017 MLB sanctioned Atlanta for the previous front office's "
                                      "international violations: 13 signees were released, signings were capped at $10,000 "
                                      "for the 2019-20 period, and the 2020-21 bonus pool was cut in half.")
     tops = sorted(p["tops"], key=lambda t: -t[0])[:5]
-    r["allx_intl"] = [[dt, nm, y, round(v, 1), pp] for v, y, nm, pp, dt in sorted(p["tops"], key=lambda t: t[4]) if abs(v) >= 0.05]
-    r["intl_tops"] = [dict(d=dt, ch="intl", net=round(v, 1), st=0.5,
+    r["allx_intl"] = [[dt, nm, y, round(v, 1), pp, round(v - per_signing(y), 2)] for v, y, nm, pp, dt in sorted(p["tops"], key=lambda t: t[4]) if abs(v) >= 0.05]
+    r["intl_tops"] = [dict(d=dt, ch="intl", net=round(v - per_signing(y), 1), st=0.5,
                            h=f"Int'l amateur signing: {nm} ({y} class)",
                            sides=[["Produced in his six control seasons (any club)", [[nm, f"{v:+.1f}"]]],
-                                  ["Class baseline", [["league class value over 30 clubs, near-equal pools", "shared"]]]],
+                                  ["Expectation", [["the class's average signee", f"{-per_signing(y):+.1f}"]]]],
                            pids=[pp])
                       for v, y, nm, pp, dt in tops if v >= 0.5]
     r["total"] = round(r["total"] + net, 1)
@@ -156,5 +170,5 @@ for r in res:
     print(f"{r['abbr']:<6}{net:>+9.1f}{p['real']:>8.1f}{p['exp']:>7.1f}{p['n']:>5}   {best}")
 
 json.dump(res, open("/work/sweep_results.json", "w"), indent=1)
-json.dump({"intl": [[0.5, round(v, 2)] for (_t, _y, _p, _n, v, _d) in ifa if _y <= 2020]}, open("/work/move_pop_intl.json", "w"))
+json.dump({"intl": [[0.5, round(v - per_signing(_y), 2)] for (_t, _y, _p, _n, v, _d) in ifa if _y <= 2020]}, open("/work/move_pop_intl.json", "w"))
 print("\nmerged chan.intl into sweep_results.json")
