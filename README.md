@@ -12,7 +12,7 @@ Three reviewers tried to break the site (facts, page, methodology); every findin
 - **Open trades carry the at-the-time expectation of prospects** not yet in the majors, fading as real seasons replace it (calibrated on 2011-2018 trades), so recent sellers and buyers are not graded on half a ledger.
 - **Control is dated from the MLB debut** (a mid-season debut runs control one season longer); trade windows run to the end of control; the draft is centered by class; draft credit ends at a release.
 - **Archive regimes are graded on free agency and extensions**; interim GMs who traded are listed; the Mozeliak start is fixed; Rule 5 conduits and two missing blockbuster returns (Cliff Lee 2009, Victor Martinez 2009) are repaired.
-- **Retention is age-conditioned and excludes rentals**; the qualifying-offer charge/credit is off until the QO table is complete.
+- **Retention is age-conditioned and excludes rentals**; the qualifying-offer table is complete for 2012-25 (98 QO signings with new clubs), with a 1-win charge to the signing club and a 1-win credit to the club that lost the player.
 - **One grading curve:** rates shrink toward average by two seasons, and every channel's letter is read in units of that channel's spread (A+ is the top ~5% of its channel).
 - **Forward tools:** projections carry age attrition; Desk letters are pricing grades; the assistant GM prices the luxury tax; the Scenario Room's hindsight comes from the trade book.
 
