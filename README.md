@@ -36,7 +36,7 @@ Drafted and internationally signed players are graded as assets: what they produ
 
 ## v5.4 public-launch pass (November 2026)
 
-Live at [szerillo.github.io/front-office-ledger/prototype](https://szerillo.github.io/front-office-ledger/prototype/). An independent fan project, not affiliated with MLB or any club; data from the public MLB Stats API and Retrosheet.
+Live at [szerillo.github.io/front-office-ledger](https://szerillo.github.io/front-office-ledger/). An independent fan project, not affiliated with MLB or any club; data from the public MLB Stats API and Retrosheet.
 
 Seat time in real seasons with partial-season records (`engine/regime_window.py`); an evidence floor on every channel grade and a "new" state for regimes too young to grade; three-team trades and players-to-be-named-later joined to the deals they belong to (`engine/tradegroup.py`); extension start seasons audited; free-agent deals end in free agency on the salary book; the Scenario Room cleaned of hindsight; a league-wide Horizon table; a reorganized nav; Simulator call-ups, filters, saved negotiations and a shareable depth chart; and a plain-language guide to every number. Current headline figures: validation partial r 0.27 (95% CI 0.16 to 0.38) across 575 regime-years from 112 regimes; accounting r 0.864. Details: `docs/methodology-v32-addendum.md` (v5.4); tests: `tests/t_launch.mjs`.
 
@@ -59,7 +59,7 @@ Every computed number on the site was re-derived by independent checks and the f
 - `ingest/assemble_decisions.py` turns raw rows into decisions: trades grouped into deals, FA split major/minor, waiver claims vs losses, Rule 5, passive losses. 1,073 decisions assembled for the Elias regime (BAL), 524 for the Arnold regime (MIL). Person-less rows (picks, PTBNL, cash) route to a review queue.
 - Entity resolution: 99.7% of MLBAM ids joined to the Chadwick Bureau register (`data/crosswalk.csv`), carrying B-Ref / FanGraphs / Retrosheet keys for the valuation pass.
 - `engine/` holds the scoring methodology, proven on two proofs of concept: the Betts trade (three-lens scoring with retention rights) and the full Elias regime (draft slot curve, maturity schedule, all four channels).
-- `prototype/index.html` is the product prototype: leaderboard, regime report cards, transaction trees, lens matrices, dark/light themes. Orioles card is scored end-to-end with real data; most other values are labeled sample data.
+- `index.html` (with `moves.js`, the career move log it loads in parallel) is the product:  leaderboard, regime report cards, transaction trees, lens matrices, dark/light themes. Orioles card is scored end-to-end with real data; most other values are labeled sample data.
 
 **THE 30-REGIME SWEEP (new):** every active MLB front office scored automatically. `ingest/sweep_ingest.py` pulls all 30 clubs' transactions from each regime's start (108k rows, floor 2005), `engine/sweep_score.py` values 13k players with Ledger WAR v0 and grades trades / drafts / waivers per regime (FA pending a contracts feed), and `ingest/integrate_sweep.py` splices the results into the prototype leaderboard. Regime table: `data/regimes.json`; results: `data/sweep_results.json`.
 
@@ -118,7 +118,8 @@ Every computed number on the site was re-derived by independent checks and the f
     docs/       design doc, proofs of concept, methodology addenda, pipeline report
     engine/     scoring methodology (Betts scorer, Elias full-regime ledger, v0.2 leverage+discounting)
     ingest/     MLB Stats API ingestion + decision assembler
-    prototype/  self-contained HTML product prototype
+    index.html  the product (single page; moves.js beside it)
+    prototype/  redirect from the old address
     data/       ingested transactions, draft picks, assembled decisions, Chadwick crosswalk
 
 ## Quickstart
