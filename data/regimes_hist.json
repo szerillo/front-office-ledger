@@ -93,7 +93,7 @@
    "abbr": "ATH",
    "exec": "Billy Beane",
    "start": "1998-01-01",
-   "end": "2015-11-05",
+   "end": "2015-10-04",
    "flags": [
     "truncated"
    ],
@@ -1103,6 +1103,24 @@
    "flags": [
     "approx"
    ]
+  },
+  {
+   "teamId": 133,
+   "team": "Athletics",
+   "abbr": "ATH",
+   "exec": "David Forst",
+   "start": "2015-10-05",
+   "end": "2026-08-07",
+   "flags": []
+  },
+  {
+   "teamId": 117,
+   "team": "Houston Astros",
+   "abbr": "HOU",
+   "exec": "Dana Brown",
+   "start": "2023-01-26",
+   "end": "2026-08-24",
+   "flags": []
   }
  ]
 }

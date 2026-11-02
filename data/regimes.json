@@ -84,8 +84,8 @@
    "teamId": 117,
    "team": "Houston Astros",
    "abbr": "HOU",
-   "exec": "Dana Brown",
-   "start": "2023-01-26"
+   "exec": "Randy Flores",
+   "start": "2026-10-30"
   },
   {
    "teamId": 118,
@@ -130,10 +130,7 @@
    "team": "Minnesota Twins",
    "abbr": "MIN",
    "exec": "Jeremy Zoll",
-   "start": "2026-01-30",
-   "flags": [
-    "interim"
-   ]
+   "start": "2026-01-30"
   },
   {
    "teamId": 121,
@@ -156,8 +153,8 @@
    "teamId": 133,
    "team": "Athletics",
    "abbr": "ATH",
-   "exec": "David Forst",
-   "start": "2015-10-05"
+   "exec": "Taylor Smith",
+   "start": "2026-10-19"
   },
   {
    "teamId": 143,

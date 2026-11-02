@@ -385,50 +385,8 @@
   }
  },
  "HOU": {
-  "bats": {
-   "n": 11,
-   "tags": [
-    "station-to-station bats",
-    "bat-to-ball skills"
-   ],
-   "z": {
-    "sprint_speed": -0.28,
-    "whiff_percent": -0.24
-   },
-   "all": {
-    "barrel_batted_rate": 0.04,
-    "bb_percent": 0.04,
-    "hard_hit_percent": -0.19,
-    "impact": -0.07,
-    "k_percent": -0.29,
-    "oz_swing_percent": -0.2,
-    "pa": -0.16,
-    "sprint_speed": -0.28,
-    "whiff_percent": -0.24,
-    "xwoba": 0.16
-   }
-  },
-  "arms": {
-   "n": 14,
-   "tags": [
-    "velocity",
-    "fly-ball arms"
-   ],
-   "z": {
-    "fastball_avg_speed": 0.43,
-    "groundballs_percent": -0.26
-   },
-   "all": {
-    "bb_percent": 0.36,
-    "fastball_avg_speed": 0.43,
-    "groundballs_percent": -0.26,
-    "k_percent": 0.37,
-    "oz_swing_percent": -0.14,
-    "p_formatted_ip": -0.32,
-    "whiff_percent": 0.22,
-    "xwoba": -0.02
-   }
-  }
+  "bats": null,
+  "arms": null
  },
  "KC": {
   "bats": {
@@ -665,46 +623,8 @@
   }
  },
  "ATH": {
-  "bats": {
-   "n": 32,
-   "tags": [
-    "station-to-station bats"
-   ],
-   "z": {
-    "sprint_speed": -0.48
-   },
-   "all": {
-    "barrel_batted_rate": 0.05,
-    "bb_percent": 0.16,
-    "hard_hit_percent": -0.1,
-    "impact": -0.03,
-    "k_percent": -0.21,
-    "oz_swing_percent": -0.22,
-    "pa": -0.12,
-    "sprint_speed": -0.48,
-    "whiff_percent": -0.12,
-    "xwoba": 0.02
-   }
-  },
-  "arms": {
-   "n": 26,
-   "tags": [
-    "pitchability over velo"
-   ],
-   "z": {
-    "fastball_avg_speed": -0.29
-   },
-   "all": {
-    "bb_percent": 0.38,
-    "fastball_avg_speed": -0.29,
-    "groundballs_percent": 0.09,
-    "k_percent": -0.14,
-    "oz_swing_percent": -0.22,
-    "p_formatted_ip": -0.26,
-    "whiff_percent": -0.02,
-    "xwoba": 0.11
-   }
-  }
+  "bats": null,
+  "arms": null
  },
  "PHI": {
   "bats": {
