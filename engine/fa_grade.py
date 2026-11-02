@@ -74,7 +74,7 @@ for r in res:
     for x in rows:
         k = (x["date"], x["person_id"])
         if k not in seen: seen.add(k); majors.append(x)
-    net = 0.0; matched = 0; decs = []
+    net = 0.0; matched = 0; decs = []; allx = []   # v5.7: every major-league signing, priced or not
     fa_dna = dict(pit=0.0, bat=0.0)
     for x in majors:
         pn = norm(x["person_name"]); ty = int(x["date"][:4])
@@ -83,7 +83,9 @@ for r in res:
             for (tid2, yrs, tot, src) in contracts.get((pn, off), []):
                 if tid2 == tid: hit = (off, yrs, tot, src); break
             if hit: break
-        if not hit: continue
+        if not hit:
+            allx.append([x["date"], x["person_name"], None, None, None, None, None, x["person_id"]])
+            continue
         off, yrs, tot, src = hit
         cbt = FA_CBT.get((pn, off))
         aav = (cbt if cbt else tot) / yrs
@@ -105,10 +107,12 @@ for r in res:
                    ["Contract cost in wins" + (" (QO draft comp included)" if (pn, off) in QO else ""),
                     [[f"${tot:.0f}M over {yrs} yr at market $/win", f"{-(implied + (QO_CHARGE if (pn, off) in QO else 0)):+.1f}"]]]]
         MOVE_POP.append([round(implied, 2), round(n, 2)])
+        allx.append([x["date"], x["person_name"], yrs, round(tot, 1), round(realized, 1), round(implied + (QO_CHARGE if (pn, off) in QO else 0), 1), round(n, 1), x["person_id"]])
         decs.append(dict(d=x["date"], ch="fa", net=round(n, 1), st=round(implied, 2),
                          h=f"Signed {x['person_name']} · {yrs} yr / ${tot:.1f}M ({off}-{str(off+1)[2:]} winter, {src}{note})",
                          sides=fasides, pids=[x["person_id"]]))
-    covered = matched >= 8
+    covered = matched >= 3     # v5.7: the same evidence floor as every other channel (was 8)
+    r["allx_fa"] = allx
     r["chan"]["fa"] = dict(net=round(net, 1) if covered else 0,
                            g=grade(net / r["seasons"]) if covered else None,
                            n=matched, majors=len(majors),

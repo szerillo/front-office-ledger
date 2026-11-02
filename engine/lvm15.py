@@ -38,7 +38,7 @@ def lg_rpa(year):
 def pf(team_id, year):
     return PARKS.get(str(team_id), {}).get(str(year), 1.0)
 
-def lvm_batting_pf(st, year, pos, p):
+def lvm_batting_pf(st, year, pos, p, posadj=None):
     c = constants(year)
     pa = st.get("plateAppearances", 0)
     den = _woba_den(st)
@@ -47,8 +47,31 @@ def lvm_batting_pf(st, year, pos, p):
     wraa = (woba - c["lg_woba"]) / WOBA_SCALE * pa
     if p != 1.0:
         wraa -= (p - 1.0) * lg_rpa(year) * pa
-    adj = (POS_ADJ.get(pos, 0.0) + 20.0) * pa / 600.0
+    adj = ((POS_ADJ.get(pos, 0.0) if posadj is None else posadj) + 20.0) * pa / 600.0
     return (wraa + adj) / c["rpw"]
+
+def season_posadj(fielding_splits):
+    """v1.6: the positional adjustment a season actually earned, weighted by
+    games at each position that season (DH included), instead of the
+    player's CURRENT primary position applied to every season of his career
+    (a second baseman who spent 2025 at first base was credited +2.5 runs
+    per 600 PA instead of -12.5). {year: runs per 600 PA}"""
+    by = {}
+    tot_rows = {}
+    for sp in fielding_splits:
+        y = int(sp["season"]); pos = (sp.get("position") or {}).get("abbreviation")
+        if not pos or pos == "P": continue
+        g = sp["stat"].get("gamesPlayed", 0) or 0
+        key = (y, pos)
+        if not sp.get("team"): tot_rows[key] = g          # combined row for a traded player
+        else: by[key] = by.get(key, 0) + g
+    by.update(tot_rows)
+    out = {}
+    for (y, pos), g in by.items():
+        if g <= 0 or pos not in POS_ADJ: continue
+        a = out.setdefault(y, [0.0, 0])
+        a[0] += POS_ADJ[pos] * g; a[1] += g
+    return {y: v[0] / v[1] for y, v in out.items() if v[1] > 0}
 
 def lvm_pitching_pf(st, year, p):
     c = constants(year)
@@ -78,14 +101,16 @@ def player_team_seasons_v15(ids):
     for i in range(0, len(ids), 40):
         chunk = ",".join(str(x) for x in ids[i:i+40])
         try:
-            d = get(f"{API}/people?personIds={chunk}&hydrate=stats(group=[hitting,pitching],type=[yearByYear])")
+            d = get(f"{API}/people?personIds={chunk}&hydrate=stats(group=[hitting,pitching,fielding],type=[yearByYear])")
         except Exception as e:
             print(f"  batch fail {i}: {e}", flush=True); continue
         for pp in d.get("people", []):
             pos = pp["primaryPosition"]["abbreviation"]
             rows = []
+            PADJ = season_posadj([sp for grp in pp.get("stats", []) if grp["group"]["displayName"] == "fielding" for sp in grp.get("splits", [])])
             for grp in pp.get("stats", []):
                 g = grp["group"]["displayName"]
+                if g == "fielding": continue
                 for sp in grp.get("splits", []):
                     tmo = sp.get("team") or {}
                     tm = tmo.get("name")
@@ -93,7 +118,7 @@ def player_team_seasons_v15(ids):
                     yr = int(sp["season"]); st = sp["stat"]
                     p = pf(tmo.get("id"), yr)
                     if g == "hitting" and st.get("plateAppearances"):
-                        rows.append([yr, tm, lvm_batting_pf(st, yr, pos, p)])
+                        rows.append([yr, tm, lvm_batting_pf(st, yr, pos, p, PADJ.get(yr))])
                     elif g == "pitching" and st.get("inningsPitched"):
                         rows.append([yr, tm, lvm_pitching_pf(st, yr, p)])
             # defense/baserunning join, split across team rows by |off| share

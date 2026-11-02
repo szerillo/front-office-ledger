@@ -1,6 +1,7 @@
 """Per-pair deal lists for the Head-to-Head tab: merges a 'deals' array into
 each sweep_results h2h entry (date, short headline, net from this seat).
 Standalone and idempotent; touches nothing else."""
+from asset_rules import contract_cost
 import json, sqlite3
 from collections import defaultdict
 from tradegroup import dedupe_rows, group_trades
@@ -37,6 +38,7 @@ def val_control(pid, teams, y0, cap=6):
         here = [v for (tm, v) in rows if tm in teams]
         if rows and not here and y > y0: break
         tot += sum(here)
+        if here: tot -= contract_cost(pid, y) * (len(here) / len(rows))   # v5.7: net of salary
     return tot
 
 pair_deals = defaultdict(list)   # (tid, opp) -> [{d, h, net}]

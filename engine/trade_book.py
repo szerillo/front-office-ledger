@@ -11,6 +11,7 @@ Writes trade_book.json:
   {"trades": [[date, [[ab, net, [[pid, v], ...in], [[pid, v], ...out]], ...]], ...],
    "names": {pid: name}, "check": {...}}
 """
+from asset_rules import contract_cost
 import json, math, sqlite3, time, urllib.request
 from collections import defaultdict
 
@@ -67,7 +68,9 @@ def val_control(pid, teams, y0, cap=6):
         rows = byyear.get(yr, [])
         here = [v for (tm, v) in rows if tm in teams]
         if rows and not here and yr > y0: break
-        if here: tot += sum(here) * lev(teams, yr) * (0.9 ** (yr - y0))
+        if here:
+            tot += sum(here) * lev(teams, yr) * (0.9 ** (yr - y0))
+            tot -= contract_cost(pid, yr) * (len(here) / len(rows)) * (0.9 ** (yr - y0))   # v5.7: net of salary
     return tot
 
 con = sqlite3.connect(f"{ROOT}/ledger.sqlite"); con.row_factory = sqlite3.Row

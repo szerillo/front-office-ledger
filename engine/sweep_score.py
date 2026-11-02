@@ -25,6 +25,7 @@ level, not yet in the sweep); LVM gaps as documented in ledger_war.py.
 from era_names import draft_day
 from asset_rules import control_value, draft_maturity
 MOVE_POP = {"waiver": [], "draft": []}
+from asset_rules import contract_cost
 import json, math, sqlite3, sys
 from collections import defaultdict
 from tradegroup import dedupe_rows, group_trades
@@ -243,6 +244,8 @@ def val_control(pid, teams, y0, cap=6, weight=True):
         if here:
             wgt = (lev(teams, yr) * (0.9 ** (yr - y0))) if weight else 1.0
             tot += sum(here) * wgt
+            # v5.7: net of the guaranteed salary that came with him (asset_rules)
+            tot -= contract_cost(pid, yr) * (len(here) / len(rows)) * ((0.9 ** (yr - y0)) if weight else 1.0)
     return tot
 
 results = []
@@ -262,6 +265,7 @@ for reg in cfg["regimes"]:
     dna = dict(draft=dict(pit=0.0, bat=0.0), trade_in=dict(pit=0.0, bat=0.0),
                trade_out=dict(pit=0.0, bat=0.0), waiver=dict(pit=0.0, bat=0.0))
     n_wv = n_r5 = 0; wv_net = 0.0
+    ALLX = dict(draft=[], waiver=[], walk=[])   # v5.7: every decision of each kind, for the card's full lists
     for r in regime_rows[tid]:
         t = r["type_desc"]; yr = int(r["date"][:4])
         if t == "Trade":
@@ -272,6 +276,7 @@ for reg in cfg["regimes"]:
             net = v if claim else -v
             wv_net += net; n_wv += 1; ynet[yr] += net
             MOVE_POP["waiver"].append([0.5, round(net, 2)])
+            ALLX["waiver"].append([r["date"], r["person_name"] or "?", "claimed" if claim else "lost on waivers", round(net, 1), r["person_id"]])
             dna["waiver"][ptype(r["person_id"])] += net
             if abs(net) > 0.05:
                 decs.append(dict(d=r["date"], ch="waiver", net=round(net,1), st=0.5,
@@ -285,12 +290,14 @@ for reg in cfg["regimes"]:
             v = val(r["person_id"], names if pick else club_names(r["to_team"]), yr, yr+3, inside=True)
             r5n = (v if pick else -v)
             wv_net += r5n; n_r5 += 1; ynet[yr] += r5n
+            ALLX["waiver"].append([r["date"], r["person_name"] or "?", "Rule 5 pick" if pick else "lost in Rule 5", round(r5n, 1), r["person_id"]])
         elif t == "Declared Free Agency":
             pid = r["person_id"]
             if pid:
                 played_here = val(pid, names, yr - 2, yr, inside=True)
                 if played_here > 0.5:
                     lost = val(pid, names, yr + 1, yr + 3, inside=False)
+                    ALLX["walk"].append([r["date"], r["person_name"] or "?", round(-lost, 1), round(played_here, 1), pid])
                     if lost > 1.0:
                         walk.append(dict(d=r["date"], ch="walk", net=round(-lost, 1),
                             h=f"Let {r['person_name']} walk as a free agent · {lost:.1f} LVM elsewhere over the next 3 seasons",
@@ -354,6 +361,7 @@ for reg in cfg["regimes"]:
         dr_real += realized; dr_exp += exp
         net = realized - exp; ynet[yr] += net
         MOVE_POP["draft"].append([round(exp, 2), round(net, 2)])
+        ALLX["draft"].append([draft_day(yr), p["person_name"], pk, round(realized, 1), round(realized_here, 1), round(exp, 1), round(net, 1), p["person_id"]])
         dna["draft"][ptype(p["person_id"])] += net
         if abs(net) >= 1.2:
             decs.append(dict(d=draft_day(yr), ch="draft", net=round(net,1), st=round(exp, 2),
@@ -387,6 +395,7 @@ for reg in cfg["regimes"]:
         cum=[round(sum(ynet[y] for y in range(y_start, yy + 1)), 1) for yy in range(y_start, 2027)],
         top=decs[:8],
         led=dict(trade=chbw("trade"), draft=chbw("draft"), waiver=chbw("waiver", 4)),
+        allx=ALLX,
         walk=walk[:5],
         dna={k: {t: round(x, 1) for t, x in v.items()} for k, v in dna.items()},
     ))

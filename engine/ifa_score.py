@@ -65,9 +65,14 @@ need = [c for c in cands if c not in bio]
 print(f"minor-FA signees: {len(cands)} | bios to fetch: {len(need)}", flush=True)
 for i in range(0, len(need), 100):
     chunk = ",".join(need[i:i+100])
-    d = get(f"{API}/people?personIds={chunk}&fields=people,id,birthDate,birthCountry")
+    try:
+        d = get(f"{API}/people?personIds={chunk}&fields=people,id,birthDate,birthCountry")
+    except Exception:
+        d = {"people": []}      # an id the API no longer serves sinks the batch; record and move on
     for p in d.get("people", []):
         bio[str(p["id"])] = (p.get("birthDate"), p.get("birthCountry"))
+for c in need:
+    bio.setdefault(c, (None, None))
 json.dump(bio, open(BIO_P, "w"))
 print(f"bios: {len(bio)}", flush=True)
 
@@ -138,6 +143,7 @@ for r in res:
                                      "international violations: 13 signees were released, signings were capped at $10,000 "
                                      "for the 2019-20 period, and the 2020-21 bonus pool was cut in half.")
     tops = sorted(p["tops"], key=lambda t: -t[0])[:5]
+    r["allx_intl"] = [[dt, nm, y, round(v, 1), pp] for v, y, nm, pp, dt in sorted(p["tops"], key=lambda t: t[4]) if abs(v) >= 0.05]
     r["intl_tops"] = [dict(d=dt, ch="intl", net=round(v, 1), st=0.5,
                            h=f"Int'l amateur signing: {nm} ({y} class)",
                            sides=[["Produced in his six control seasons (any club)", [[nm, f"{v:+.1f}"]]],

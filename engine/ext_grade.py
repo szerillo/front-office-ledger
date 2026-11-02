@@ -158,6 +158,7 @@ for r in res:
         r["forGrade"] = grade_comp(r["total"] / r["seasons"])
     p["decs"].sort(key=lambda d: -abs(d["net"]))
     r["ext_tops"] = p["decs"][:4]
+    r["allx_ext"] = [[d["d"], d["h"], d["net"], d.get("st")] for d in sorted(p["decs"], key=lambda d: d["d"])]
     names = ", ".join(d["h"][9:].split(" ·")[0] for d in p["decs"][:3]) or "-"
     print(f"{r['abbr']:<6}{(p['net'] if covered else 0):>+9.1f}{p['n']:>4}   {names}")
 
