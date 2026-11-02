@@ -121,6 +121,14 @@
   .navlbl{font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); padding-left:10px}
   .navbtns{display:flex; flex-wrap:wrap}
   .navgrp + .navgrp{border-left:1px solid var(--grid); padding-left:8px}
+  /* too narrow for one line: one row per group, label at the left, never an uneven two-line wrap */
+  @media (min-width:761px){
+    nav.stack{flex-direction:column; align-items:stretch; gap:0}
+    nav.stack .navgrp{flex-direction:row; align-items:center; padding-top:0}
+    nav.stack .navgrp + .navgrp{border-left:none; padding-left:0; border-top:1px solid var(--grid)}
+    nav.stack .navlbl{width:150px; flex:none; padding-left:2px}
+    nav.stack .navbtns{flex-wrap:nowrap}
+  }
   nav button{
     background:none; border:none; color:var(--ink-2);
     font-family:var(--f-body); font-size:11px; font-weight:700; letter-spacing:.35px; text-transform:uppercase;
@@ -369,20 +377,28 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
         <button data-view="champs">Champions</button>
         <button data-view="dna">Org DNA</button>
         <button data-view="h2h">Head to Head</button>
-        <button data-view="trees">Transaction Trees</button>
+        <button data-view="trees" title="Transaction Trees">Trees</button>
       </div></div>
       <div class="navgrp"><span class="navlbl">Look ahead</span><div class="navbtns">
         <button data-view="horizon">Horizon</button>
-        <button data-view="boards" data-tab="pros">Top Prospects</button>
-        <button data-view="boards" data-tab="farm">Farm Rankings</button>
-        <button data-view="boards" data-tab="fa">Top Free Agents</button>
+        <button data-view="boards" data-tab="pros" title="Top Prospects">Prospects</button>
+        <button data-view="boards" data-tab="farm" title="Farm Rankings">Farm Systems</button>
+        <button data-view="boards" data-tab="fa" title="Top Free Agents">Free Agents</button>
       </div></div>
       <div class="navgrp"><span class="navlbl">Play GM</span><div class="navbtns">
-        <button data-view="gm" class="navfeat">Offseason Simulator</button>
+        <button data-view="gm" class="navfeat" title="Offseason Simulator">Simulator</button>
         <button data-view="desk">Deal Desk</button>
         <button data-view="scen">Scenario Room</button>
       </div></div>
     </nav>
+    <script>
+    (function(){ var n=document.querySelector('nav');
+      function fit(){ n.classList.remove('stack'); if(innerWidth<=760) return;
+        var t=[].map.call(n.querySelectorAll('button'),function(x){return Math.round(x.getBoundingClientRect().top)});
+        if(Math.max.apply(null,t)-Math.min.apply(null,t)>4) n.classList.add('stack'); }
+      fit(); addEventListener('resize',fit); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+    })();
+    </script>
   </div>
 </header>
 
