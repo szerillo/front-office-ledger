@@ -1255,3 +1255,51 @@ data"; and the validation section opens by asking who watches the Watchmen.
 
 Validation after the change: partial r 0.265 (95% CI 0.16 to 0.38) across 575
 regime-years from 112 regimes; out-of-sample R² 0.177 to 0.230.
+
+## v5.6 (November 2, 2026): the market model, and every international signing
+
+**International volume.** The international channel counted only signees who
+had reached the majors, so a club whose recent classes have not debuted (or,
+like Atlanta 2018-21, signed under MLB sanctions) showed one or two signings
+and no grade. It now counts every international amateur signing in the feed
+(13,502 classified, 497 of whom have produced MLB value); the expectation was
+always the league's class value over 30 clubs, so only the volume and the
+grade's evidence floor change. Anthopoulos now carries a graded channel (199
+signings, D+), with the sanctions noted on the card: in November 2017 MLB
+released 13 Atlanta signees, capped the club's signings at $10,000 for
+2019-20 and halved its 2020-21 pool, for the previous front office's
+violations.
+
+**A second, independent read on every contract** (`engine/contract_model.py`,
+`engine/stats_fetch.py`). A gradient-boosted model is trained on 1,581 real
+free-agent contracts (2006-2025 winters) using the player's last three
+seasons as the market saw them, from the public box score (PA, OBP, SLG, HR,
+SB, strikeouts for hitters; IP, starts, ERA, K-BB%, HR rate, saves for
+pitchers), plus Ledger WAR, age, and position. It predicts AAV in wins and
+years. The Ledger offer is now the geometric mean of the two AAVs (rules and
+market model) and the average of the two terms, moved to today's market:
+contracts in the 2021-25 winters ran 16% above the published $/win curve
+(median over 92 deals the model priced at $25M or more, which keeps the
+estimate free of the bias that comes from looking only at big real deals).
+
+Walk-forward backtest, every winter 2012-2025 predicted only from earlier
+ones (1,029 signings): typical miss 0.66 years / $3.0M AAV / $13.6M total
+(rules alone 0.74 / $3.5M / $15.2M); offers of $50M or more land at a median
+97% of the real contract (rules alone 91%). Two ideas tested and rejected on
+the same backtest: dropping Ledger WAR from the market model (worse: it
+carries information the box score lacks), and anchoring to a player's
+previous one- or two-year deal (no gain on 175 such cases).
+
+A data fix found on the way: the league's year-by-year feed returns a traded
+player's season once per club plus a combined row, and the playing-time
+pull (`engine/pt_fetch.py`) summed all of them, doubling traded players'
+plate appearances and innings (Luis Arraez's 2024 read 1,344 PA). Both pulls
+now use the combined row alone; durability factors were recomputed.
+
+**Where it still disagrees with the public.** Against Baseball America's
+published predictions for this winter's top 42 non-posted free agents the
+median miss is 0.50 in log terms (v5.4: 0.69) and the median ratio 0.91.
+The largest remaining gaps are players Ledger WAR rates far above the public
+consensus, Brandon Lowe (5.7 in 2026) and Luis Arraez (4.4, after the market
+paid him one year and $12M last winter); the open question there is the
+metric's defensive and positional credit, not the pricing.
