@@ -1303,3 +1303,86 @@ The largest remaining gaps are players Ledger WAR rates far above the public
 consensus, Brandon Lowe (5.7 in 2026) and Luis Arraez (4.4, after the market
 paid him one year and $12M last winter); the open question there is the
 metric's defensive and positional credit, not the pricing.
+
+## v5.7 (November 2, 2026): positional credit, salary in trades, full lists, process-only scenarios
+
+**Positional credit by games played.** Ledger WAR v1.6 weights the positional
+adjustment by the games a player actually played at each position each
+season (the league's fielding splits; a traded player's combined row),
+replacing the single listed position applied to every season. Luis Arraez's
+2024 and 2025 move from 3.2 and 3.0 to 1.6 and 1.3 (he played first base and
+DH, not second); Jose Altuve's 2025 from 3.2 to 2.2; designated hitters and
+late-career first basemen (Mauer, Rodriguez, Ohtani's hitting) drop, and
+catchers and center fielders who were listed elsewhere gain. Brandon Lowe's
+2026 holds near 5.5: his Statcast fielding swung from -11 runs in 2025 to +11
+in 2026, and that is real. Rebuilt for 28,403 players (`engine/lvm_v16_rebuild.py`).
+Validation after the rebuild: accounting r 0.865 (R² 0.749, MAE 5.34);
+predictive partial r 0.26 (95% CI 0.15 to 0.38), out-of-sample R² 0.177 to
+0.227 across 575 regime-years. Prospect peak backtest: all comps r 0.45.
+
+**Trades net of salary.** A traded player's value to the acquiring club is
+now his production minus the guaranteed salary that came with him: each
+season with the club is charged the contract's AAV above the league minimum,
+in wins at that season's $/win (`engine/asset_rules.contract_cost`). The
+selling side is relieved of the same amount, so the trade stays zero-sum.
+Where a public report gives the cash sent by season, the acquiring club is
+charged what it actually paid (`NET_PAID`; first entry: Nolan Arenado to
+Arizona, Jan 13 2026, St. Louis sending $22M toward his $27M 2026 salary and
+$9M toward 2027). Arbitration salaries and cash without a published
+per-season figure are not yet charged. Arenado's deal reads about +6 for
+Arizona: 3.9 Ledger WAR in 2026 (30 HR, .331 OBP, .475 SLG) at a $5M cost,
+while the return has no MLB value yet. The prospect side is an open branch.
+
+**Every decision listed.** Report cards now carry full, sortable lists for
+every channel: every draft pick (expected vs produced, wherever he played),
+every major-league free-agent signing (terms, cost in wins, produced here;
+signings whose terms are not in the contract book are listed, not priced),
+every extension, every international signing that reached value, every
+waiver and Rule 5 move in both directions, and every free agent who walked.
+
+**Why so many "partial" badges.** A channel letter needs evidence: 3 priced
+free-agent deals, 2 extensions. The contract book is deep for the 2006-21
+winters (about 90-110 major-league deals each) but holds only about 30 per
+winter for 2022-25, so regimes hired since 2022 often lack a free-agent or
+extension letter; the composite fills those at the league-average rate.
+The free-agent evidence floor drops from 8 deals to 3 (the per-move letters
+already carry the uncertainty). Filling the 2022-25 book from public
+trackers is the next data task.
+
+**Scenario Room: process only.** The archive plays blind (names, club,
+executive and date revealed after the decision), and the grade is process
+alone: the price against that day's market, adjusted for the seat (a
+rebuilding club giving a 31-year-old 4+ years: -20; a club out of the race
+buying a rental: -25; a contender paying a fair price at a need: +10).
+Outcomes are shown as hindsight and never graded. A Winter 2027 pack is
+generated from the live data: the class's top free agents offered to the
+clubs whose depth charts need them most, three extension candidates, and
+three controllable stars on rebuilding clubs, priced by the market model at
+asks above, at and below it.
+
+**Assistant GM fits.** Recommendations must be natural fits for the hole (no
+starter for a bullpen hole), are ranked by the gain to the whole depth chart
+after re-slotting, and charge a fielder used at DH for the glove and
+positional credit he loses (0.4 wins for a first baseman, 0.8-0.9 for a
+corner outfielder, 1.2-1.5 for an infielder, 1.3 for a catcher or center
+fielder). Rebuilding clubs are shown players 29 or younger; fringe clubs 32
+or younger. Contract backtest after the WAR rebuild: typical miss 0.65 years /
+$2.9M AAV / $12.8M total; $50M+ offers at a median 100% of the real deal;
+2021-25 market drift 14% over the published $/win curve.
+
+Tests: `tests/t_consistency.mjs` (v5.7 block).
+
+**Contract offers (same day).** Every offer, ask and comparable now states
+its average annual value. Position still helps pick comparables but no
+longer decides them (the penalty for a different position group drops from
+1.2 to 0.4 in the match score; the walk-forward backtest that sets the rules
+uses no position term at all). The market model underprices regular
+catchers: in its walk-forward backtest, catchers signed for $5M or more
+landed 0.27 log points further above its price than other players (n=39),
+so half of that gap is applied (x1.3) to catchers with a blended platform of
+1.5 wins or more. Against Baseball America's predictions for this winter's
+top 45 free agents the median miss moves from 0.47 to 0.41 in log terms and
+the median ratio from 0.95 to 1.03. Ryan Jeffers prices at 2 years / $29M
+($14.5M AAV); the remaining gap to the public consensus (about four years)
+is term: his 2026 was 92 games (fractured hamate), and catchers his age with
+his blended platform have historically signed for two years.
