@@ -41,3 +41,9 @@ champion names that still resolve to their regimes, a Scenario Room without
 hindsight (Betts), the Ramírez extension priced against extensions, the
 complete Greinke package, offseason comps that see the 2024-25 and 2025-26
 winters, and the curated Burnes cards agreeing with the computed trade book.
+
+`t_consistency.mjs` (v5.5) checks that traded draftees are never draft
+misses for having been traded (Abrams, Gore), every trade in a tenure is
+listed with per-move letters and no channel stamp on the "best" tables, the
+tree finder browses the full list and renders a chain, open branches carry
+projections, "lev-adj" is glossed, and the nav, beta tag, and Watchmen line.
