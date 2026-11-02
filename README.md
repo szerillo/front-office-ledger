@@ -2,6 +2,12 @@
 
 A decision-level accounting system for sports front offices. Every draft pick, trade, signing, and waiver claim, graded against the market expectation for that transaction type and attributed to the executive regime that made it. Inspired by OOTP's Decision History screen; built for real MLB data first, schema designed to extend to other leagues.
 
+## v5.4 public-launch pass (November 2026)
+
+Live at [szerillo.github.io/front-office-ledger/prototype](https://szerillo.github.io/front-office-ledger/prototype/). An independent fan project, not affiliated with MLB or any club; data from the public MLB Stats API and Retrosheet.
+
+Seat time in real seasons with partial-season records (`engine/regime_window.py`); an evidence floor on every channel grade and a "new" state for regimes too young to grade; three-team trades and players-to-be-named-later joined to the deals they belong to (`engine/tradegroup.py`); extension start seasons audited; free-agent deals end in free agency on the salary book; the Scenario Room cleaned of hindsight; a league-wide Horizon table; a reorganized nav; Simulator call-ups, filters, saved negotiations and a shareable depth chart; and a plain-language guide to every number. Current headline figures: validation partial r 0.27 (95% CI 0.16 to 0.37) across 575 regime-years from 112 regimes; accounting r 0.864. Details: `docs/methodology-v32-addendum.md` (v5.4); tests: `tests/t_launch.mjs`.
+
 ## v5.3 prospect peak projections (November 2026)
 
 Every prospect carries a self-built peak projection (`engine/prospects_peak.py`): minor-league lines translated level by level from same-season pairs, current season weighted 5 to the prior 3, then the 100 nearest 2012-2019 comparables on age, age against level, translated rates, position, and pedigree (draft slot, Top 100 rank). Peak is what the comps became (best-two-season Ledger WAR, busts at zero), with 2-win and 4-win odds, upside, and next-season WAR. Leave-one-cohort-out backtest: for prospects outside the Top 100 the comps beat the level/age buckets (r 0.249 vs 0.181) and now price them; Top 100 value stays on the rank curve, which still edges the comps for elite prospects (0.328 vs 0.307). v5.3.1 adds rookie ball, the DSL, and short-season A to the translations and comps (34,825 backtest prospect-seasons), puts six-season value on the same 10%-a-year discount as every surplus figure, and adds each club's 10 highest ceilings to its 25-deep list. Public frameworks, public data, no outside projection numbers.
