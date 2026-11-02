@@ -172,6 +172,7 @@ for r in res:
         ledgers=dict(bestTrades=best_tr[:3], worstTrades=worst_tr[:3],
                      bestAcq=acq[:4], losses=loss[:3]),
         chanLedgers=chan_ledgers(r),
+        allx=dict(r.get("allx", {}), fa=r.get("allx_fa", []), ext=r.get("allx_ext", []), intl=r.get("allx_intl", [])),
         walk=[row(d) for d in r.get("walk", [])],
         dna=r.get("dna", {}),
         dnaTags=STYLES.get(r["teamId"], []),
@@ -191,7 +192,7 @@ def swap(s, anchor, end_marker, payload):
     assert j > i, end_marker
     return s[:i] + anchor + payload + s[j:]
 
-s = swap(s, "const AUTO_REGIMES = ", ";\n\n/* =", json.dumps(auto, indent=0))
+s = swap(s, "const AUTO_REGIMES = ", ";\n\n/* =", json.dumps(auto, separators=(",", ":")))
 
 # ---- ARCHIVE (historical) regimes -> LB_HIST, full report cards ----
 import os
@@ -283,9 +284,10 @@ if os.path.exists("/work/hist_results.json"):
             ledgers=dict(bestTrades=best_tr[:3], worstTrades=worst_tr[:3],
                          bestAcq=acq[:4], losses=loss[:3]),
             chanLedgers=chl,
+            allx=r.get("allx", {}),
             walk=[hrow(d) for d in r.get("walk", [])],
         ))
-    s = swap(s, "const LB_HIST = ", ";\n\n/* =", json.dumps(hist_cards, indent=0))
+    s = swap(s, "const LB_HIST = ", ";\n\n/* =", json.dumps(hist_cards, separators=(",", ":")))
     print(f"archive cards: {len(hist_cards)}")
 
 # ---- Deal Desk data pack ----
@@ -338,6 +340,13 @@ def collect(o):
         for v in o: collect(v)
 collect(auto)
 collect(hist_cards)
+# v5.7: every player in a trade since 2023 gets his move history, so recent
+# chains (the ones people follow) end where the player stands, whichever
+# trades the report cards happen to feature
+for _t in json.load(open("/work/trade_book.json"))["trades"]:
+    if _t[0] >= "2023-01-01":
+        for _seat in _t[1]:
+            for _pc in _seat[2] + _seat[3]: pidset.add(str(_pc[0]))
 for _c in champ_cards_g:
     for _row in _c.get("roster", []):
         if len(_row) > 6 and _row[6] and _row[6] != "None":
@@ -408,7 +417,7 @@ assert i >= 0
 tail_anchor = "const PLAYER_FATE" if "const PLAYER_FATE" in s else "const PLAYER_RANKS"
 j = s.find("\n\n", s.find(tail_anchor, i))
 s = s[:i] + mv_js + s[j+2:]
-_KEEP = ("chan", "chanLedgers", "cum", "decisions", "seasons", "forGrade", "surplus", "walk", "h2h",
+_KEEP = ("chan", "chanLedgers", "allx", "cum", "decisions", "seasons", "forGrade", "surplus", "walk", "h2h",
          "startDate", "dna", "dnaTags", "start", "titles", "success")
 _cx = {k: {f: v[f] for f in _KEEP if f in v} for k, v in CURATED_FULL.items()}
 cx_js = "const CURATED_EXTRA = " + json.dumps(_cx, separators=(",", ":")) + ";\nREGIMES.forEach(r => { const x = CURATED_EXTRA[r.id]; if(x){ Object.assign(r, x); r.realBadge = 'COMPUTED · FULL LEDGER · WITH HAND-WRITTEN SHOWCASE DECISIONS'; } });\n"
