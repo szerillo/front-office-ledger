@@ -30,7 +30,7 @@ for r in cfg["regimes"]:
 RANKS = {}
 ORGS = {}
 for rr in json.load(open("/work/prospect_ranks.json")):
-    if rr["year"] in (2025, 2026):
+    if rr["year"] == 2026:          # v5.5: the current list only (a 2025 rank outlived graduation)
         RANKS[str(rr["pid"])] = rr["rank"]
         ORGS[str(rr["pid"])] = rr.get("name")
 try:
