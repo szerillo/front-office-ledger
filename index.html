@@ -100,6 +100,12 @@
   .lbc-chs{font-size:12px; color:var(--ink-2); margin-top:4px; line-height:1.9}
   .lbc-ch{white-space:nowrap}
   @media (max-width:640px){ #lb-cards{display:block} .lb-tablecard{display:none} }
+  .tboard{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) minmax(0,1fr); gap:12px; align-items:start}
+  @media (max-width:900px){ .tboard{grid-template-columns:minmax(0,1fr)} .tboard .tdeal{order:-1} }
+  .gm-under{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); gap:12px; align-items:start; margin-top:12px}
+  @media (max-width:900px){ .gm-under{grid-template-columns:minmax(0,1fr)} }
+  .tree-persp{font-size:12px; color:var(--ink-2); margin:4px 0 8px; padding:4px 8px; border-left:3px solid var(--rule); background:var(--surface)}
+  .wv-ab{font:700 10px var(--f-mono); color:var(--muted); letter-spacing:.4px}
   .introtext{font-size:13.5px; line-height:1.5; color:var(--ink-2)}
   .introtext ul, .lbkey ul{margin:6px 0 0; padding-left:18px}
   .introtext li, .lbkey li{margin:3px 0}
@@ -367,7 +373,9 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
       </div></div>
       <div class="navgrp"><span class="navlbl">Look ahead</span><div class="navbtns">
         <button data-view="horizon">Horizon</button>
-        <button data-view="boards">Big Boards</button>
+        <button data-view="boards" data-tab="pros">Top Prospects</button>
+        <button data-view="boards" data-tab="farm">Farm Rankings</button>
+        <button data-view="boards" data-tab="fa">Top Free Agents</button>
       </div></div>
       <div class="navgrp"><span class="navlbl">Play GM</span><div class="navbtns">
         <button data-view="gm" class="navfeat">Offseason Simulator</button>
@@ -386,7 +394,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
         <strong style="color:var(--ink)">New here?</strong> A report card for every MLB front office since 1998, and the same math pointed at the moves still to come.
         <ul>
           <li><strong>Looking back:</strong> every trade, draft pick, signing, extension and waiver claim, graded against what a typical club got from the same move.</li>
-          <li><strong>Looking ahead:</strong> fair value for any deal at the <a href="#" onclick="switchView('desk');return false" style="color:var(--s2)">Deal Desk</a>, free agents and prospects on the <a href="#" onclick="switchView('boards');return false" style="color:var(--s2)">Big Boards</a>, every club's next five years on <a href="#" onclick="switchView('horizon');return false" style="color:var(--s2)">Horizon</a>, a whole winter in the <a href="#" onclick="switchView('gm');return false" style="color:var(--s2)">Offseason Simulator</a>.</li>
+          <li><strong>Looking ahead:</strong> fair value for any deal at the <a href="#" onclick="switchView('desk');return false" style="color:var(--s2)">Deal Desk</a>, the <a href="#" onclick="bdState.tab='fa'; switchView('boards');return false" style="color:var(--s2)">top free agents</a> and <a href="#" onclick="bdState.tab='pros'; switchView('boards');return false" style="color:var(--s2)">prospects</a>, every club's next five years on <a href="#" onclick="switchView('horizon');return false" style="color:var(--s2)">Horizon</a>, a whole winter in the <a href="#" onclick="switchView('gm');return false" style="color:var(--s2)">Offseason Simulator</a>.</li>
           <li>Start with the leaderboard below, or see <a href="#" onclick="switchView('champs');return false" style="color:var(--s2)">how championships get built</a>.</li>
         </ul>
       </div>
@@ -516,9 +524,9 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
     </div>
     <div id="treeswrap"></div>
     <div class="tree-legend">
-      <span>■ solid card: value captured by the regime</span>
-      <span>◌ dashed card: outflow (counts against the ledger)</span>
-      <span>WAR figures approximate ±0.5; lens details on each decision's modal in the report cards</span>
+      <span>■ solid card: came to the club named on the tree</span>
+      <span>◌ dashed card: left it (counts against it)</span>
+      <span>every number is wins from that club's side, accurate to about ±0.5</span>
     </div>
   </section>
 
@@ -659,17 +667,9 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
   <!-- ================= METHODOLOGY ================= -->
   <!-- ================= BIG BOARDS (v5.5) ================= -->
   <section id="view-boards" hidden>
-    <h2>Big Boards · Free Agents, Prospects, Farm Systems</h2>
-    <div class="sub lbkey">
-      <ul>
-        <li>The top free agents with projected contracts, the top 100 prospects, and every farm system, ranked by the same models the Simulator and Deal Desk use.</li>
-        <li>Every model is backtested against what really happened; ranges show the honest error bars.</li>
-      </ul>
-    </div>
+    <h2 id="bd-h2">Top Prospects</h2>
+    <div class="sub lbkey"><ul id="bd-key"></ul></div>
     <div class="filters" style="margin-top:10px">
-      <button class="grade g70 bdtab" data-b="fa" style="cursor:pointer; border:none; padding:5px 14px">Top free agents</button>
-      <button class="grade g50 bdtab" data-b="pros" style="cursor:pointer; border:none; padding:5px 14px">Top prospects</button>
-      <button class="grade g50 bdtab" data-b="farm" style="cursor:pointer; border:none; padding:5px 14px">Farm system rankings</button>
       <label for="bd-pos" id="bd-pos-lbl" style="margin-left:10px">Position</label>
       <select id="bd-pos"><option value="">All</option><option value="C">C</option><option value="IF">IF</option><option value="OF">OF</option><option value="SP">SP</option><option value="RP">RP</option></select>
     </div>
@@ -1004,11 +1004,29 @@ function treeProjLabel(names, outflow){
   const part = t.hit < names.length ? ` (the ${t.hit} of ${names.length} on the prospect board)` : '';
   return `<span class="ttype" style="display:block; margin-top:2px">still expected: <strong class="${v >= 0 ? 'pos' : 'neg'}">${fmtW(v)}</strong> ${how}${part}</span>`;
 }
+// every number on a tree is from one club's side; say whose, on the card and on each value
+let TREE_AB = '';
+function treeClubOf(n){
+  if(!n) return '';
+  if(n.net) return n.net[1];
+  if(n.tb) return n.tb[1];
+  if(n.dec){ const r = AUTO_REGIMES.find(x => x.id === n.dec[0]); if(r) return abOf(r); }
+  for(const k of (n.kids || [])){ const a = treeClubOf(k); if(a) return a; }
+  return '';
+}
+function treeCard(t, ab){
+  TREE_AB = ab || '';
+  const persp = ab ? `<div class="tree-persp">Every number is wins from <strong>${ab}</strong>'s side: <span class="pos">+</span> is value ${ab} gained, <span class="neg">−</span> is value it gave up. Solid cards came to ${ab}; dashed cards left.</div>` : '';
+  const h = `<div class="card tree-card"><div class="tree-title">${t.title}</div><div class="tree-sub">${t.sub}</div>${persp}${tnode(t.root)}</div>`;
+  TREE_AB = '';
+  return h;
+}
 function tnode(n){
   let h = '';
   if(n.via) h += `<div class="tvia">${n.via}</div>`;
   const neg = n.wv && (String(n.wv).startsWith('−') || String(n.wv).startsWith('-'));
-  h += `<div class="tnode"><span class="tcard${n.outflow?' outflow':''}"><span class="nm">${n.nm}</span>${n.wv?`<span class="wv ${neg?'neg':'pos'}" ${n.wv==='external'?'style="color:var(--muted)"':''}>${n.wv}</span>`:''}${n.status?`<span class="chip chip-${n.status}">${n.status.toUpperCase()}</span>`:''}${n.proj ? treeProjLabel(n.proj, n.outflow) : ''}</span></div>`;
+  const numeric = n.wv && /^[+\-−]?\d/.test(String(n.wv));
+  h += `<div class="tnode"><span class="tcard${n.outflow?' outflow':''}"><span class="nm">${n.nm}</span>${n.wv?`<span class="wv ${neg?'neg':'pos'}" ${n.wv==='external'?'style="color:var(--muted)"':''}>${numeric && TREE_AB ? `<span class="wv-ab">${TREE_AB}</span> ` : ''}${n.wv}</span>`:''}${n.status?`<span class="chip chip-${n.status}">${n.status.toUpperCase()}</span>`:''}${n.proj ? treeProjLabel(n.proj, n.outflow) : ''}</span></div>`;
   if(n.kids && n.kids.length) h += `<div class="tbranch">${n.kids.map(tnode).join('')}</div>`;
   return h;
 }
@@ -1073,8 +1091,8 @@ function autoChainKids(pid, afterDate, r, depth, seen){
     const ex = execAt(ab, t.d);
     const kids = got.slice(0, 6).map(([p2, v]) => autoChainKids(p2, t.d, r, depth + 1, seen) || pieceLeaf(p2, ab, v));
     return {via: `${t.d} · ${ab}${ex ? ' (' + ex + ')' : ''} traded ${pName(pid)} to ${t.dest || '?'}`,
-            nm: got.length ? `${ab} got ${got.map(([p2, v]) => `${pName(p2)} ${fmtW(v)}`).join(', ')}` : `${ab} got no valued players back`,
-            wv: fmtW(net), status: +t.d.slice(0,4) >= 2021 ? 'open' : 'closed', kids, outflow: net < 0};
+            nm: got.length ? `${ab} got ${got.map(([p2, v]) => `${pName(p2)} ${fmtW(v)}`).join(', ')} for him; the deal's net for ${ab}:` : `${ab} got no valued players back; the deal's net for ${ab}:`,
+            wv: fmtW(net) + ' net', status: +t.d.slice(0,4) >= 2021 ? 'open' : 'closed', kids, outflow: net < 0};
   }
   if(!m) return null;
   const key = pid + '|' + m[0];
@@ -1086,6 +1104,7 @@ function autoChainKids(pid, afterDate, r, depth, seen){
   const other = m[2] === ab ? m[3] : m[2];
   const leaving = m[1] === 'Declared Free Agency' || m[1] === 'Released' || (m[2] === ab && m[3] && m[3] !== ab);
   const verb = (m[1] === 'Declared Free Agency' || m[1] === 'Released') ? `${TY_VERB[m[1]] || m[1]} ${ab}`
+             : m[1] === 'Trade' ? (leaving ? `traded by ${ab} to ${other || '?'}` : `acquired by ${ab}${other && other !== ab ? ' from ' + other : ''}`)
              : (TY_VERB[m[1]] || m[1]) + (other && other !== ab ? ' ' + other : '') + (leaving ? ` (from ${ab})` : '');
   const node = {via: m[0], nm: `${nm} · ${verb}` + (dec ? `<br><span class="ttype">${clip(stripTags(dec.h), 150)}</span>` : ''),
                 wv: dec ? fmtW(dec.war) : null, status: leaving ? 'closed' : 'open', outflow: leaving || (dec && dec.war < 0)};
@@ -1111,7 +1130,7 @@ function bookTreesFor(r){
   return pool.slice(0, 6).map(dec => {
     const seen = new Set();
     const kids = [...dec.seat[2].map(([p2, v]) => autoChainKids(p2, dec.d, r, 0, seen) || pieceLeaf(p2, ab, v)),
-                  ...dec.seat[3].map(([p2, v]) => ({via: `sent: ${pName(p2)}`, nm: `${fmtW(v)} for the other club over the control window`, wv: null, status: 'closed', outflow: true}))];
+                  ...dec.seat[3].map(([p2, v]) => ({via: `sent away: ${pName(p2)}`, nm: `what he produced for his new club over the control window, charged to ${ab}`, wv: fmtW(-v), status: 'closed', outflow: true}))];
     return {title: clip(stripTags(dec.h), 150), sub: `${decDate(dec)} · net ${fmtW(dec.war)} on this ledger · ` + (dec.open ? '<span class="chip chip-open" style="margin-left:0">UNSETTLED</span> values still accruing' : '<span class="chip chip-closed" style="margin-left:0">SETTLED</span> all control windows closed, number is final'),
             root: {nm: dec.d + ' · trade', status: dec.open ? 'open' : 'closed', kids}};
   });
@@ -1139,9 +1158,9 @@ function autoTreesFor(r){
     if(!best) seat = null;
     const kids = seat
       ? [...seat[2].map(([p2, v]) => autoChainKids(p2, dec.d, r, 0, seen) || pieceLeaf(p2, ab0, v)),
-         ...seat[3].map(([p2, v]) => ({via: `sent: ${pName(p2)}`, nm: `${fmtW(v)} for the other club over the control window`, wv: null, status: 'closed', outflow: true}))]
+         ...seat[3].map(([p2, v]) => ({via: `sent away: ${pName(p2)}`, nm: `what he produced for his new club over the control window, charged to ${ab0}`, wv: fmtW(-v), status: 'closed', outflow: true}))]
       : (dec.pids || []).map(p => autoChainKids(p, dec.d, r, 0, seen)).filter(Boolean);
-    roots.push({title: clip(dec.h.replace(/<[^>]*>/g, ''), 140),
+    roots.push({title: clip(dec.h.replace(/<span class="badge-real">[^<]*<\/span>/g, '').replace(/<[^>]*>/g, '').trim(), 140),
                 sub: `${decDate(dec)} · net ${fmtW(dec.war)} on this ledger · ` + (dec.open ? `<span class="chip chip-open" style="margin-left:0">UNSETTLED</span> values still accruing${dec.proj?` · projected final ${fmtW(dec.proj.final)}`:''}` : '<span class="chip chip-closed" style="margin-left:0">SETTLED</span> all control windows closed, number is final'),
                 root: {nm: dec.d + ' · ' + (dec.t || 'trade').split(' ·')[0], status: dec.open ? 'open' : 'closed',
                        kids: kids.length ? kids : (dec.pids || []).slice(0, 4).map(p2 => {
@@ -1177,9 +1196,7 @@ function renderTrees(){
   const v = sel.value;
   if(v === 'curated'){
     treeSync();
-    $('#treeswrap').innerHTML = TREES.map(t=>
-      `<div class="card tree-card"><div class="tree-title">${t.title}</div><div class="tree-sub">${t.sub}</div>${tnode(t.root)}</div>`
-    ).join('');
+    $('#treeswrap').innerHTML = TREES.map(t => treeCard(t, treeClubOf(t.root))).join('');
     return;
   }
   const r = REGIMES.find(x=>x.id===v) || AUTO_REGIMES.find(x=>x.id===v) || LB_HIST.find(x=>x.id===v && x.realCard);
@@ -1190,7 +1207,7 @@ function renderTrees(){
   const trees = r.chanLedgers ? autoTreesFor(r) : bookTreesFor(r);
   if(!trees.length){ $('#treeswrap').innerHTML = `<div class="card" style="padding:16px; color:var(--muted)">${r.isNew ? `${r.exec} took over after the last completed season: no trades yet.` : 'No graded trades in this tenure.'}</div>`; return; }
   $('#treeswrap').innerHTML = `<div class="sub" style="margin-bottom:10px">The regime's six biggest trades by absolute net, with each piece's onward chain generated from the ledger. <span class="chip chip-open" style="margin-left:0">UNSETTLED</span> = control windows still running: the number will move as players produce (a projected final from Ledger Projection is shown where available). <span class="chip chip-closed">SETTLED</span> = every window closed: the number is final. <span class="badge-real">COMPUTED</span></div>` +
-    trees.map(t=>`<div class="card tree-card"><div class="tree-title">${t.title}</div><div class="tree-sub">${t.sub}</div>${tnode(t.root)}</div>`).join('');
+    trees.map(t => treeCard(t, abOf(r))).join('');
 }
 
 /* =========================================================
@@ -6933,7 +6950,7 @@ function dkPickYou(ab){ if(dkState.you !== ab){ dkState.you = ab; dkState.send =
 function dkPickThem(ab){ if(dkState.them !== ab){ dkState.them = ab; dkState.recv = []; } renderDesk(); }
 function dkPickClub(ab){ dkState.you = ab; renderDesk(); }
 /* ===== the trade board: the simulator's filters, any two clubs ===== */
-function dkFilt(){ return dkState.f || (dkState.f = {q: '', pos: '', view: 'all', sort: 'surplus'}); }
+function dkFilt(){ return dkState.f || (dkState.f = {q: '', pos: '', view: 'all', sort: 'proj'}); }
 function dkClubPlayers(club){
   const inDeal = new Set([...(dkState.send||[]), ...(dkState.recv||[])].filter(pc => pc.p).map(pc => pc.p[1]));
   const f = dkFilt(), q = foldTxt(f.q);
@@ -6953,7 +6970,7 @@ function dkBoardCol(club, side){
     ? `<button onclick="dkTake('recv',${p[1]})" class="grade g60" style="cursor:pointer; border:none; padding:1px 9px">ask</button>`
     : `<button onclick="dkTake('send',${p[1]})" style="cursor:pointer; background:none; border:1px solid var(--rule); color:var(--ink-2); border-radius:2px; padding:1px 9px">offer</button>`;
   const none = what => `<div class="ttype" role="status">No ${what}${f.q || f.pos ? ' match the filters' : ''}.</div>`;
-  return `<div class="card" style="padding:12px 14px; flex:1; min-width:280px">
+  return `<div class="card" style="padding:12px 14px; min-width:0">
     <strong>${side === 'recv' ? club + "'s roster" : 'Your assets · ' + club}</strong> <span class="ttype">· system ranks ${gmSystems().rank(club)} of 30</span>
     <div style="max-height:520px; overflow:auto">
       ${f.view !== 'farm' ? (mlb.length ? mlb.map(p => gmAssetRow(`${p[0]}, ${p[4]+1} (${p[13]||p[12]})`, gmPlayerMeta(p, true), btn(p))).join('') : none('players')) : ''}
@@ -6974,45 +6991,62 @@ function dkPieceGive(pc){
   if(pc.kind !== 'player' || !pc.p) return dkProjPiece(pc).total;
   return gmIsProsRow(pc.p) ? gmPV(pc.p) : gmSurplus(pc.p);
 }
-// the assistant GM finishes the deal: asks for the piece that fills your
-// biggest hole if you have not asked for anyone, then balances to their
-// asking price with the cheapest pieces that close the gap, or asks for more
-// when you are paying well over it
+// the assistant GM finishes YOUR deal: it never removes or swaps a piece you
+// put on the table. With nothing asked for, it finds the piece on their roster
+// that your offer pays for (one that fills a hole first); with nothing offered,
+// it asks for the player who fills your weakest spot. Then it balances to their
+// asking price with the cheapest of your pieces that closes the gap, or asks
+// for one more piece when you are paying well over it.
 function dkAgm(){
   const you = dkState.you, them = dkState.them, note = [];
   if(!you || !them) return;
-  const asset = (club, side) => { const {mlb, farm} = (() => { const f0 = dkState.f; dkState.f = {q: '', pos: '', view: 'all', sort: 'surplus'}; const r = dkClubPlayers(club); dkState.f = f0; return r; })();
-    return [...mlb, ...farm].map(p => ({kind: 'player', p, ctrl: gmIsProsRow(p) ? 6 : gmCtrlOf(p)})); };
-  dkState.recv = dkState.recv.filter(pc => { const ok = isFinite(dkPieceAsk(pc, them)); if(!ok) note.push(`${them} will not move ${pc.p[0]} (a cornerstone on a club that is not selling), so I took him off the list.`); return ok; });
-  if(!dkState.recv.length){
-    const weak = clubWeakSlots(you);
-    const pool = asset(them, 'recv').filter(pc => isFinite(dkPieceAsk(pc, them)) && dkPieceAsk(pc, them) > 0.5 && !gmIsProsRow(pc.p));
-    const fit = pool.filter(pc => weak.some(pos => gmNaturalFit(pos, pc.p))).sort((a, b) => gmProj27(b.p) - gmProj27(a.p));
-    const pick = fit[0] || pool.sort((a, b) => dkPieceAsk(b, them) - dkPieceAsk(a, them))[0];
-    if(!pick){ dkAgmNote([`${them} has nothing available that I would ask for.`]); return; }
-    dkState.recv.push(pick);
-    note.push(`Asked for ${pick.p[0]}${fit[0] ? ` (${pick.p[13]||pick.p[12]}: our weakest spot is ${weak.join(', ')})` : ' (their best available surplus)'}.`);
-  }
+  const pool = club => { const f0 = dkState.f; dkState.f = {q: '', pos: '', view: 'all', sort: 'surplus'}; const r = dkClubPlayers(club); dkState.f = f0;
+    return [...r.mlb, ...r.farm].map(p => ({kind: 'player', p, ctrl: gmIsProsRow(p) ? 6 : gmCtrlOf(p)})); };
   const ask = () => dkState.recv.reduce((a, pc) => a + dkPieceAsk(pc, them), 0);
   const give = () => dkState.send.reduce((a, pc) => a + dkPieceGive(pc), 0);
-  const mine = asset(you, 'send').filter(pc => !gmFranchise(pc.p) && dkPieceGive(pc) > 0.05);
+  const lbl = pc => gmIsProsRow(pc.p) ? gmPLabel(pc.p) + ' prospect' : (pc.p[13] || pc.p[12]);
+  const blocked = dkState.recv.filter(pc => !isFinite(dkPieceAsk(pc, them)));
+  if(blocked.length){
+    dkAgmNote([`${them} will not move ${blocked.map(pc => pc.p[0]).join(' or ')}: a cornerstone on a club that is not selling is not available at any price. Take ${blocked.length > 1 ? 'them' : 'him'} off the table, or try a club that is selling.`]);
+    return;
+  }
+  const weak = clubWeakSlots(you);
+  if(!dkState.recv.length){
+    const theirs = pool(them).filter(pc => isFinite(dkPieceAsk(pc, them)) && dkPieceAsk(pc, them) > 0.3);
+    const fits = pc => weak.some(pos => gmNaturalFit(pos, pc.p));
+    let pick;
+    if(dkState.send.length){
+      const cap = give() / 0.95;
+      const ok = theirs.filter(pc => dkPieceAsk(pc, them) <= cap).sort((a, b) => (fits(b) - fits(a)) || dkPieceAsk(b, them) - dkPieceAsk(a, them));
+      pick = ok[0];
+      if(!pick){ dkAgmNote([`Nothing on ${them}'s board prices at or under what you are offering (${fmtW(give())} of surplus to them). Add to your side or pick a cheaper target.`]); return; }
+      note.push(`For what you put on the table, the best ${them} piece is ${pick.p[0]} (${lbl(pick)}${fits(pick) ? `, and he fills our ${weak.find(pos => gmNaturalFit(pos, pick.p))} hole` : ''}).`);
+    } else {
+      const fit = theirs.filter(pc => !gmIsProsRow(pc.p) && fits(pc)).sort((a, b) => gmProj27(b.p) - gmProj27(a.p));
+      pick = fit[0] || theirs.filter(pc => !gmIsProsRow(pc.p)).sort((a, b) => dkPieceAsk(b, them) - dkPieceAsk(a, them))[0];
+      if(!pick){ dkAgmNote([`${them} has nothing available that I would ask for.`]); return; }
+      note.push(`Asked for ${pick.p[0]} (${lbl(pick)}${fit[0] ? `: our weakest spot is ${weak.join(', ')}` : ', their best available surplus'}).`);
+    }
+    dkState.recv.push(pick);
+  }
+  const mine = pool(you).filter(pc => !gmFranchise(pc.p) && dkPieceGive(pc) > 0.05 && !dkState.send.some(s => s.p && s.p[1] === pc.p[1]));
   for(let k = 0; k < 4 && give() < ask() * 0.95; k++){
     const gap = ask() * 0.95 - give();
     const left = mine.filter(pc => !dkState.send.some(s => s.p && s.p[1] === pc.p[1]));
     if(!left.length) break;
-    const closes = left.filter(pc => dkPieceGive(pc) >= gap).sort((a, b) => dkPieceGive(a) - dkPieceGive(b))[0];
-    const pc = closes || left.sort((a, b) => dkPieceGive(b) - dkPieceGive(a))[0];
+    const pc = left.filter(x => dkPieceGive(x) >= gap).sort((a, b) => dkPieceGive(a) - dkPieceGive(b))[0] || left.sort((a, b) => dkPieceGive(b) - dkPieceGive(a))[0];
     dkState.send.push(pc);
-    note.push(`Added ${pc.p[0]} (${gmIsProsRow(pc.p) ? gmPLabel(pc.p) : pc.p[13] || pc.p[12]}, worth ${fmtW(dkPieceGive(pc))} to them).`);
+    note.push(`To meet their price I added ${pc.p[0]} (${lbl(pc)}, worth ${fmtW(dkPieceGive(pc))} to them).`);
   }
   if(ask() > 0 && give() > ask() * 1.35){
     const room = give() / 0.95 - ask();
-    const more = asset(them, 'recv').filter(pc => !dkState.recv.some(r => r.p && r.p[1] === pc.p[1]) && isFinite(dkPieceAsk(pc, them)) && dkPieceAsk(pc, them) > 0.2 && dkPieceAsk(pc, them) <= room)
+    const more = pool(them).filter(pc => !dkState.recv.some(r => r.p && r.p[1] === pc.p[1]) && isFinite(dkPieceAsk(pc, them)) && dkPieceAsk(pc, them) > 0.2 && dkPieceAsk(pc, them) <= room)
       .sort((a, b) => dkPieceAsk(b, them) - dkPieceAsk(a, them))[0];
-    if(more){ dkState.recv.push(more); note.push(`You were paying well over their price, so I also asked for ${more.p[0]} (${gmIsProsRow(more.p) ? gmPLabel(more.p) : more.p[13] || more.p[12]}).`); }
+    if(more){ dkState.recv.push(more); note.push(`You were paying well over their price, so I also asked for ${more.p[0]} (${lbl(more)}).`); }
   }
   const a = ask(), g = give();
-  note.push(g >= a * 0.95 ? `Balanced: they price their side at ${fmtW(a)} of surplus and ours at ${fmtW(g)}.` : `Still short: they price their side at ${fmtW(a)}, ours at ${fmtW(g)}. Nothing else on our board closes it without a cornerstone.`);
+  note.push(g >= a * 0.95 ? `Done: they price their side at ${fmtW(a)} of surplus and ours at ${fmtW(g)}. Everything you put on the table is still there.`
+                          : `Still short: they price their side at ${fmtW(a)}, ours at ${fmtW(g)}, and nothing else on our board closes it without a cornerstone.`);
   renderDesk(); dkEval(); dkAgmNote(note);
 }
 function dkAgmNote(lines){
@@ -7040,23 +7074,23 @@ function renderDesk(){
         <span class="fgrp"><label for="dk-f-q">find a player</label><input id="dk-f-q" value="${(f.q||'').replace(/"/g,'&quot;')}" oninput="dkFilt().q=this.value; clearTimeout(dkFilt()._t); dkFilt()._t=setTimeout(()=>{ renderDesk(); const e=document.getElementById('dk-f-q'); if(e){ e.focus(); e.setSelectionRange(e.value.length, e.value.length); } }, 250)" placeholder="name…" autocomplete="off" style="min-width:140px"></span>
         <span class="fgrp"><label for="dk-f-view">show</label><select id="dk-f-view" onchange="dkFilt().view=this.value; renderDesk()">${[['all','MLB roster + prospects'],['mlb','MLB roster only'],['farm','prospects only']].map(([k,l])=>`<option value="${k}"${k===f.view?' selected':''}>${l}</option>`).join('')}</select></span>
         <span class="fgrp"><label for="dk-f-pos">position</label><select id="dk-f-pos" onchange="dkFilt().pos=this.value; renderDesk()">${GM_POS_OPTS.map(x=>`<option value="${x}"${x===f.pos?' selected':''}>${x||'all'}</option>`).join('')}</select></span>
-        <span class="fgrp"><label for="dk-f-sort">sort by</label><select id="dk-f-sort" onchange="dkFilt().sort=this.value; renderDesk()">${[['surplus','surplus'],['proj','2027 projection'],['age','youngest'],['salary','cheapest']].map(([k,l])=>`<option value="${k}"${k===f.sort?' selected':''}>${l}</option>`).join('')}</select></span>
+        <span class="fgrp"><label for="dk-f-sort">sort by</label><select id="dk-f-sort" onchange="dkFilt().sort=this.value; renderDesk()">${[['proj','2027 projection'],['surplus','surplus'],['age','youngest'],['salary','cheapest']].map(([k,l])=>`<option value="${k}"${k===f.sort?' selected':''}>${l}</option>`).join('')}</select></span>
       </div>
-      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:flex-start">
-        ${dkBoardCol(them, 'recv')}
-        <div class="card" style="padding:12px 14px; flex:1.1; min-width:300px; border-top:3px double var(--ink)">
+      <div class="tboard">
+        ${dkBoardCol(you, 'send')}
+        <div class="card tdeal" style="padding:12px 14px; border-top:3px double var(--ink)">
           <strong>The deal on the table</strong>
-          <div class="ttype" style="margin-top:6px; font-weight:700; letter-spacing:1px; text-transform:uppercase">You receive · ${them}</div>
-          ${pieces('recv')}${pickIn('recv')}
-          <div class="ttype" style="margin-top:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase">You send · ${you}</div>
+          <div class="ttype" style="margin-top:6px; font-weight:700; letter-spacing:1px; text-transform:uppercase">You send · ${you}</div>
           ${pieces('send')}${pickIn('send')}
+          <div class="ttype" style="margin-top:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase">You receive · ${them}</div>
+          ${pieces('recv')}${pickIn('recv')}
           <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px">
             <button onclick="dkEval()" class="grade g70" style="cursor:pointer; border:none; font-size:14px; padding:8px 18px">Evaluate this trade</button>
             <button onclick="dkAgm()" class="grade g55" style="cursor:pointer; border:none; font-size:13px; padding:8px 14px" title="Fill in or balance the deal to the other club's asking price">Assistant GM: complete the deal</button>
           </div>
           <div id="dk-agm-note"></div>
         </div>
-        ${dkBoardCol(you, 'send')}
+        ${dkBoardCol(them, 'recv')}
       </div>` : ''}`;
   } else if(dkState.mode==='fa'){
     body = `<div class="dk-step"><span class="dk-steplbl">Signing club</span>${clubChips(dkState.you, 'dkPickClub', null, 'Signing club')}</div>
@@ -7827,39 +7861,53 @@ function gmMarketHtml(){
     ${un.length ? `<div class="ttype" style="margin-top:6px">No major-league offer at his price: ${un.slice(0, 12).map(x => x.p[0]).join(', ')}${un.length > 12 ? ` and ${un.length - 12} more` : ''} (minor-league deals or a wait into spring).</div>` : ''}
   </div>`;
 }
-/* ===== the assistant GM finishes a simulator trade ===== */
+/* ===== the assistant GM finishes YOUR simulator trade (never removes a piece you chose) ===== */
+function gmAskOf(p, them){
+  const W = DESK.teams[them] || 81, contending = W >= 85, selling = W < 75;
+  if(gmIsProsRow(p)) return gmPV(p) * 1.1;
+  if(gmFranchise(p) && !selling) return Infinity;
+  const sur = gmSurplus(p);
+  return sur < 0 ? sur * 0.5 : sur * (1 + (contending ? 0.5 : 0) + (gmFranchise(p) ? 0.75 : 0));
+}
 function gmAgmComplete(){
   const tr = gmState.tr; if(!tr || !tr.them) return;
-  const notes = [], mine = gmState.club;
-  if(!tr.want.length){
-    const weak = clubWeakSlots(mine);
-    const theirs = (DESK.players||[]).filter(p => p[2] === tr.them && Math.abs(p[5])+Math.abs(p[6])+Math.abs(p[7]) >= 0.6 && gmControlled(p) && !gmIsProsRow(p) && !gmState.ins.some(m => m.pid === p[1]));
-    const sel = (DESK.teams[tr.them] || 81) < 75;
-    const ok = theirs.filter(p => (sel || !gmFranchise(p)) && gmSurplus(p) > 0.5);
-    const fit = ok.filter(p => weak.some(pos => gmNaturalFit(pos, p))).sort((a, b) => gmProj27(b) - gmProj27(a));
-    const pick = fit[0] || ok.sort((a, b) => gmSurplus(b) - gmSurplus(a))[0];
-    if(!pick){ tr.note = `${tr.them} has nothing available I would ask for.`; gmShow(); return; }
-    tr.want.push({kind: 'player', pid: pick[1], rank: 0, name: pick[0]});
-    notes.push(`Asked for ${pick[0]}${fit[0] ? ` (${pick[13]||pick[12]}: our holes are ${weak.join(', ')})` : ''}.`);
-  }
+  const notes = [], mine = gmState.club, them = tr.them;
   const {blocked} = gmAskPieces();
-  if(blocked.length){ tr.want = tr.want.filter(w => !blocked.includes(w.name)); notes.push(`${tr.them} will not move ${blocked.join(', ')}; I took ${blocked.length > 1 ? 'them' : 'him'} off the list.`); }
+  if(blocked.length){ tr.note = `${them} will not move ${blocked.join(' or ')}: a cornerstone on a club that is not selling is not available at any price. Take ${blocked.length > 1 ? 'them' : 'him'} off the table, or try a club that is selling.`; gmShow(); return; }
+  const weak = clubWeakSlots(mine), fits = p => weak.some(pos => gmNaturalFit(pos, p));
   const val = () => { const a = gmAskPieces().ask, g = gmGiveVal(); return {a, g, ok: a > 0 ? g >= a * 0.95 : g >= a}; };
+  if(!tr.want.length){
+    const theirs = [...(DESK.players||[]).filter(p => p[2] === them && Math.abs(p[5])+Math.abs(p[6])+Math.abs(p[7]) >= 0.6 && gmControlled(p) && !gmIsProsRow(p) && !gmState.ins.some(m => m.pid === p[1])),
+                    ...gmFarmOf(them)].filter(p => isFinite(gmAskOf(p, them)) && gmAskOf(p, them) > 0.3);
+    let pick;
+    if(tr.give.length){
+      const cap = gmGiveVal() / 0.95;
+      pick = theirs.filter(p => gmAskOf(p, them) <= cap).sort((a, b) => (fits(b) - fits(a)) || gmAskOf(b, them) - gmAskOf(a, them))[0];
+      if(!pick){ tr.note = `Nothing on ${them}'s board prices at or under what you are offering (${fmtW(gmGiveVal())} of surplus to them). Add to your side or try a cheaper target.`; gmShow(); return; }
+      notes.push(`For what you put on the table, the best ${them} piece is ${pick[0]}${fits(pick) ? ` (he fills our ${weak.find(pos => gmNaturalFit(pos, pick))} hole)` : ''}.`);
+    } else {
+      const mlb = theirs.filter(p => !gmIsProsRow(p));
+      pick = mlb.filter(fits).sort((a, b) => gmProj27(b) - gmProj27(a))[0] || mlb.sort((a, b) => gmAskOf(b, them) - gmAskOf(a, them))[0];
+      if(!pick){ tr.note = `${them} has nothing available I would ask for.`; gmShow(); return; }
+      notes.push(`Asked for ${pick[0]}${fits(pick) ? ` (our holes are ${weak.join(', ')})` : ''}.`);
+    }
+    tr.want.push(gmIsProsRow(pick) ? {kind: 'prospect', pid: pick[1], rank: pick[9], name: `${pick[0]} (${gmPLabel(pick)})`, v: gmPV(pick)} : {kind: 'player', pid: pick[1], rank: 0, name: pick[0]});
+  }
   const cands = [
-    ...gmRosterNow().filter(p => !tr.give.some(g => g.pid === p[1]) && !gmFranchise(p) && gmSurplus(p) > 0.05).map(p => ({kind: 'player', pid: p[1], rank: 0, name: p[0], v: gmSurplus(p)})),
-    ...gmFarmOf(mine).filter(p => !tr.give.some(g => g.pid === p[1]) && !gmState.ins.some(m => m.pid === p[1])).map(p => ({kind: 'prospect', pid: p[1], rank: p[9], name: `${p[0]} (${gmPLabel(p)})`, v: gmPV(p)}))];
+    ...gmRosterNow().filter(p => !gmFranchise(p) && gmSurplus(p) > 0.05).map(p => ({kind: 'player', pid: p[1], rank: 0, name: p[0], v: gmSurplus(p)})),
+    ...gmFarmOf(mine).filter(p => !gmState.ins.some(m => m.pid === p[1])).map(p => ({kind: 'prospect', pid: p[1], rank: p[9], name: `${p[0]} (${gmPLabel(p)})`, v: gmPV(p)}))];
   for(let k = 0; k < 4 && !val().ok; k++){
     const gap = val().a * 0.95 - val().g;
     const left = cands.filter(c => !tr.give.some(g => g.pid === c.pid));
     if(!left.length) break;
     const c = left.filter(x => x.v >= gap).sort((a, b) => a.v - b.v)[0] || left.sort((a, b) => b.v - a.v)[0];
     tr.give.push(c.kind === 'prospect' ? {kind: 'prospect', pid: c.pid, rank: c.rank, name: c.name, v: c.v} : {kind: 'player', pid: c.pid, rank: 0, name: c.name});
-    notes.push(`Added ${c.name} (worth ${fmtW(c.v)} to them).`);
+    notes.push(`To meet their price I added ${c.name} (worth ${fmtW(c.v)} to them).`);
   }
   const r = val();
-  notes.push(r.ok ? `Balanced: their ask ${fmtW(r.a)}, our side ${fmtW(r.g)}. Check the payroll line, then execute.` : `Still short (${fmtW(r.a)} asked, ${fmtW(r.g)} offered): nothing else on our board closes it without a cornerstone.`);
+  notes.push(r.ok ? `Done: their ask ${fmtW(r.a)}, our side ${fmtW(r.g)}. Everything you put on the table is still there; check the payroll line, then execute.` : `Still short (${fmtW(r.a)} asked, ${fmtW(r.g)} offered): nothing else on our board closes it without a cornerstone.`);
   tr.note = notes.join(' ');
-  gmJournal('Assistant GM built a deal with ' + tr.them);
+  gmJournal('Assistant GM worked the deal with ' + them);
   gmShow();
 }
 function gmAsk(p, home){
@@ -8380,7 +8428,7 @@ function seatNetLabel(seat, d){
 }
 function pieceLeaf(p2, ab, v){
   const f = chainFate(p2, ab);
-  return {via: `${pName(p2)} (${fmtW(v)} in the window)`, nm: f.nm, wv: null, status: f.status};
+  return {via: `${pName(p2)}: ${fmtW(v)} for ${ab} over his control window`, nm: f.nm, wv: null, status: f.status};
 }
 function careerTree(pid){
   pid = String(pid);
@@ -8526,18 +8574,19 @@ function gmPlayerMeta(p, noTree){
   const sur = gmSurplus(p);
   return `$${gmSalary27(p).toFixed(1)}M · ${gmCtrlOf(p)}y · surplus <span class="${sur>=0?'pos':'neg'}">${fmtW(sur)}</span>${gmFranchise(p) ? ' <span class="chip chip-reg">CORNERSTONE</span>' : ''}${noTree ? '' : ` <a href="#" onclick="treeOverlay(${p[1]}, '${p[2]}'); return false" title="his full chain on this club's ledger" style="color:var(--muted)">tree</a>`}`;
 }
+function gmPickThem(ab){ const t = gmState.tr || {}; gmState.tr = {them: ab, want: [], give: [], q: t.q, pos: t.pos, view: t.view, sort: t.sort}; gmShow(); }
 function gmTradePanel(){
   if(!gmState.tr) gmState.tr = {them: null, want: [], give: []};
   const mine = gmState.club;
   const clubs = Object.entries(DESK.teams||{}).filter(([ab])=>ab!==mine).sort((a,b)=>a[1]-b[1]);
-  if(!gmState.tr.them) gmState.tr.them = clubs[0][0];
+  if(!gmState.tr.them) return `<div class="dk-step"><span class="dk-steplbl">Trade partner</span>${clubChips(null, 'gmPickThem', mine, 'Trade partner')}</div><div class="ttype" style="margin-top:6px">Pick a club to trade with.</div>`;
   const them = gmState.tr.them;
   const sys = gmSystems();
   const taken = new Set(gmState.ins.map(m=>m.pid));
   const inWant = new Set(gmState.tr.want.map(w=>w.pid));
   const inGive = new Set(gmState.tr.give.map(g=>g.pid));
   const q = foldTxt(gmState.tr.q);
-  const fpos = gmState.tr.pos || '', fview = gmState.tr.view || 'all', fsort = gmState.tr.sort || 'surplus';
+  const fpos = gmState.tr.pos || '', fview = gmState.tr.view || 'all', fsort = gmState.tr.sort || 'proj';
   const okQ = p => (!q || foldTxt(p[0]).includes(q)) && gmPosMatch(p, fpos);
   const noneTxt = what => `<div class="ttype" role="status">${q || fpos ? `No ${what} match${gmState.tr.q ? ` "${String(gmState.tr.q).replace(/[<>&"]/g, '')}"` : ''}${fpos ? ` at ${fpos}` : ''}.` : `no ${what}`}</div>`;
   const theirPlayers = fview === 'farm' ? [] : gmBoardSort((DESK.players||[]).filter(p => p[2] === them && !taken.has(p[1]) && !inWant.has(p[1])
@@ -8550,7 +8599,7 @@ function gmTradePanel(){
   const salD = gmSalDelta();
   const payNow = gmPayroll(), payAfter = payNow + salD, cap = gmCapacity();
   // a salary dump (an ask at or below zero) is accepted once your side covers it
-  const r = ask > 0 ? give / ask : (give >= ask ? 1 : 0);
+  const r = !gmState.tr.want.length ? 0 : ask > 0 ? give / ask : (give >= ask ? 1 : 0);
   const gap = ask - give;
   let verdict, exec = '';
   if(blocked.length) verdict = `<strong class="neg">${them} ends the call.</strong> ${blocked.join(', ')} is a franchise cornerstone on a club that is not selling: cheap elite production under long control is the one asset no front office moves at fair value.`;
@@ -8567,34 +8616,34 @@ function gmTradePanel(){
     : `<strong class="neg">Not close.</strong> The ask prices at ~${fmtW(ask)} of surplus and you are offering ${fmtW(give)}. A big salary is not a trade chip: value here is projection net of money.`;
   const chip = (x, side, i) => `<span style="display:inline-flex; align-items:center; gap:5px; background:var(--surface-2); border:1px solid var(--border); border-radius:2px; padding:2px 8px; margin:2px 3px 2px 0; font-size:12px">${x.name}<button onclick="gmTrDrop('${side}',${i})" aria-label="Remove ${String(x.name).replace(/"/g,'&quot;')}" style="background:none; border:none; color:var(--muted); cursor:pointer; font-size:13px; padding:0">×</button></span>`;
   return `
+  <div class="dk-step"><span class="dk-steplbl">Trade partner</span>${clubChips(them, 'gmPickThem', mine, 'Trade partner')}</div>
+  <div class="ttype" style="margin:-2px 0 8px">${them}: ${pz((DESK.teams||{})[them] || 81, 'win', 'wins')} in 2026${((DESK.teams||{})[them] || 81) < 75 ? ', selling' : ((DESK.teams||{})[them] || 81) >= 88 ? ', contending (they charge more)' : ''}</div>
   <div class="filters" style="margin:0 0 10px">
-    <span class="fgrp"><label for="gm-tr-them">Counterparty</label>
-    <select id="gm-tr-them" onchange="gmState.tr={them:this.value, want:[], give:[], q:gmState.tr.q, pos:gmState.tr.pos, view:gmState.tr.view, sort:gmState.tr.sort}; gmShow()">${clubs.map(([ab,w])=>`<option${ab===them?' selected':''} value="${ab}">${ab} (${pz(w,'win','wins')}${w<75?', selling':w>=88?', contending':''})</option>`).join('')}</select></span>
     <span class="fgrp"><label for="gm-tr-find">find a player</label>
     <input id="gm-tr-find" value="${(gmState.tr.q||'').replace(/"/g,'&quot;')}" oninput="gmState.tr.q=this.value; gmLiveFind(this)" onchange="gmShow()" placeholder="name…" autocomplete="off" style="min-width:150px"></span>
     <span class="fgrp"><label for="gm-tr-view">show</label><select id="gm-tr-view" onchange="gmState.tr.view=this.value; gmShow()">${[['all','MLB roster + prospects'],['mlb','MLB roster only'],['farm','prospects only']].map(([k,l])=>`<option value="${k}"${k===fview?' selected':''}>${l}</option>`).join('')}</select></span>
     <span class="fgrp"><label for="gm-tr-pos">position</label><select id="gm-tr-pos" onchange="gmState.tr.pos=this.value; gmShow()">${GM_POS_OPTS.map(x=>`<option value="${x}"${x===fpos?' selected':''}>${x||'all'}</option>`).join('')}</select></span>
-    <span class="fgrp"><label for="gm-tr-sort">sort roster by</label><select id="gm-tr-sort" onchange="gmState.tr.sort=this.value; gmShow()">${[['surplus','surplus'],['proj','2027 projection'],['age','youngest'],['salary','cheapest']].map(([k,l])=>`<option value="${k}"${k===fsort?' selected':''}>${l}</option>`).join('')}</select></span>
+    <span class="fgrp"><label for="gm-tr-sort">sort roster by</label><select id="gm-tr-sort" onchange="gmState.tr.sort=this.value; gmShow()">${[['proj','2027 projection'],['surplus','surplus'],['age','youngest'],['salary','cheapest']].map(([k,l])=>`<option value="${k}"${k===fsort?' selected':''}>${l}</option>`).join('')}</select></span>
   </div>
-  <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:flex-start">
-    <div class="card" style="padding:12px 14px; flex:1; min-width:300px">
-      <strong>${them}'s roster</strong> <span class="ttype">(${({surplus:'by surplus',proj:'by 2027 projection',age:'youngest first',salary:'cheapest first'})[fsort]})</span>
+  <div class="tboard">
+    <div class="card" style="padding:12px 14px; min-width:0">
+      <strong>Your assets · ${mine}</strong> <span class="ttype">· system ranks ${sys.rank(mine)} of 30</span>
       <div style="max-height:600px; overflow:auto">
-      ${fview !== 'farm' && !theirPlayers.length ? noneTxt('players') : ''}
-      ${theirPlayers.map(p => gmAssetRow(`${p[0]}, ${p[4]+1} (${p[13]||p[12]})`, gmPlayerMeta(p),
-        `<button onclick="gmTrAdd('want','player',${p[1]},0,'${p[0].replace(/'/g,"\\'")}')" class="grade g60" style="cursor:pointer; border:none; padding:1px 9px">ask</button>`)).join('')}
-      <div class="ttype" style="margin-top:8px; font-weight:700; letter-spacing:1px; text-transform:uppercase">Their farm · system ranks ${sys.rank(them)} of 30</div>
-      <div class="ttype" style="margin-bottom:4px">Value = expected WAR over six seasons, discounted 10% a year like every surplus here: Top 100 on the rank curve, everyone else from what his 100 nearest historical comparables actually produced. Peak = his comps' best-two-season average, busts included.</div>
-      ${theirFarm.length ? theirFarm.map(p => gmAssetRow(`${p[0]} (${gmPLabel(p)}, ${p[13]||p[12]})`, `${gmEta(p)} · value ${fmtW(gmPV(p))}${gmPeakOf(p) ? ' · ' + gmPeakTag(p) : ''}`,
-        `<button onclick="gmTrAdd('want','prospect',${p[1]},${p[9]},'${p[0].replace(/'/g,"\\'")} (${gmPLabel(p)})')" class="grade g60" style="cursor:pointer; border:none; padding:1px 9px">ask</button>`)).join('') : noneTxt('prospects')}
+      ${fview !== 'farm' && !myPlayers.length ? noneTxt('players') : ''}
+      ${myPlayers.map(p => gmAssetRow(`${p[0]}, ${p[4]+1} (${p[13]||p[12]})`, gmPlayerMeta(p),
+        `<button onclick="gmTrAdd('give','player',${p[1]},0,'${p[0].replace(/'/g,"\\'")}')" style="cursor:pointer; background:none; border:1px solid var(--rule); color:var(--ink-2); border-radius:2px; padding:1px 9px">offer</button>`)).join('')}
+      <div class="ttype" style="margin-top:8px; font-weight:700; letter-spacing:1px; text-transform:uppercase">Your farm</div>
+      ${myFarm.length ? myFarm.map(p => gmAssetRow(`${p[0]} (${gmPLabel(p)}, ${p[13]||p[12]})`, `${gmEta(p)} · value ${fmtW(gmPV(p))}${gmPeakOf(p) ? ' · ' + gmPeakTag(p) : ''}`,
+        `<button onclick="gmTrAdd('give','prospect',${p[1]},${p[9]},'${p[0].replace(/'/g,"\\'")} (${gmPLabel(p)})')" style="cursor:pointer; background:none; border:1px solid var(--rule); color:var(--ink-2); border-radius:2px; padding:1px 9px">offer</button>`)).join('') : noneTxt('prospects')}
+      ${gmAssetRow('Unranked lottery arm', 'the empirical 0.41', `<button onclick="gmTrAdd('give','lottery',0,0,'unranked lottery arm')" style="cursor:pointer; background:none; border:1px solid var(--rule); color:var(--ink-2); border-radius:2px; padding:1px 9px">offer</button>`)}
       </div>
     </div>
-    <div class="card" style="padding:12px 14px; flex:1.1; min-width:310px; border-top:3px double var(--ink)">
+    <div class="card tdeal" style="padding:12px 14px; border-top:3px double var(--ink)">
       <strong>The deal on the table</strong>
-      <div class="ttype" style="margin-top:6px; font-weight:700; letter-spacing:1px; text-transform:uppercase">You receive</div>
-      <div>${gmState.tr.want.map((x,i)=>chip(x,'want',i)).join('') || '<span class="ttype">nothing yet</span>'}</div>
-      <div class="ttype" style="margin-top:8px; font-weight:700; letter-spacing:1px; text-transform:uppercase">You send</div>
+      <div class="ttype" style="margin-top:6px; font-weight:700; letter-spacing:1px; text-transform:uppercase">You send · ${mine}</div>
       <div>${gmState.tr.give.map((x,i)=>chip(x,'give',i)).join('') || '<span class="ttype">nothing yet</span>'}</div>
+      <div class="ttype" style="margin-top:8px; font-weight:700; letter-spacing:1px; text-transform:uppercase">You receive · ${them}</div>
+      <div>${gmState.tr.want.map((x,i)=>chip(x,'want',i)).join('') || '<span class="ttype">nothing yet</span>'}</div>
       <div style="font-size:13px; margin-top:12px; border-top:1px solid var(--grid); padding-top:10px">
         ask ~<strong>${fmtW(ask)}</strong> surplus${ask < 0 ? ' <span class="ttype">(a salary dump: they pay to move it)</span>' : ''} · offered <strong>${fmtW(give)}</strong>
         <div style="height:8px; background:var(--surface-2); border:1px solid var(--grid); border-radius:2px; margin:7px 0; overflow:hidden">
@@ -8606,16 +8655,16 @@ function gmTradePanel(){
       </div>
       <div class="ttype" style="margin-top:10px">Pieces are valued at SURPLUS: discounted projection over control minus salary at $/win. Cornerstones on non-selling clubs are unavailable; contenders charge 1.5x; franchise prices run 1.75x; negative-surplus contracts trade as salary dumps; a piece that fills one of the counterparty's computed roster holes is worth 10% more in their eyes. No dice, no pop-ups.</div>
     </div>
-    <div class="card" style="padding:12px 14px; flex:1; min-width:300px">
-      <strong>Your assets</strong> <span class="ttype">· system ranks ${sys.rank(mine)} of 30</span>
+    <div class="card" style="padding:12px 14px; min-width:0">
+      <strong>${them}'s roster</strong> <span class="ttype">(${({surplus:'by surplus',proj:'by 2027 projection',age:'youngest first',salary:'cheapest first'})[fsort]})</span>
       <div style="max-height:600px; overflow:auto">
-      ${fview !== 'farm' && !myPlayers.length ? noneTxt('players') : ''}
-      ${myPlayers.map(p => gmAssetRow(`${p[0]}, ${p[4]+1} (${p[13]||p[12]})`, gmPlayerMeta(p),
-        `<button onclick="gmTrAdd('give','player',${p[1]},0,'${p[0].replace(/'/g,"\\'")}')" style="cursor:pointer; background:none; border:1px solid var(--rule); color:var(--ink-2); border-radius:2px; padding:1px 9px">offer</button>`)).join('')}
-      <div class="ttype" style="margin-top:8px; font-weight:700; letter-spacing:1px; text-transform:uppercase">Your farm</div>
-      ${myFarm.length ? myFarm.map(p => gmAssetRow(`${p[0]} (${gmPLabel(p)}, ${p[13]||p[12]})`, `${gmEta(p)} · value ${fmtW(gmPV(p))}${gmPeakOf(p) ? ' · ' + gmPeakTag(p) : ''}`,
-        `<button onclick="gmTrAdd('give','prospect',${p[1]},${p[9]},'${p[0].replace(/'/g,"\\'")} (${gmPLabel(p)})')" style="cursor:pointer; background:none; border:1px solid var(--rule); color:var(--ink-2); border-radius:2px; padding:1px 9px">offer</button>`)).join('') : noneTxt('prospects')}
-      ${gmAssetRow('Unranked lottery arm', 'the empirical 0.41', `<button onclick="gmTrAdd('give','lottery',0,0,'unranked lottery arm')" style="cursor:pointer; background:none; border:1px solid var(--rule); color:var(--ink-2); border-radius:2px; padding:1px 9px">offer</button>`)}
+      ${fview !== 'farm' && !theirPlayers.length ? noneTxt('players') : ''}
+      ${theirPlayers.map(p => gmAssetRow(`${p[0]}, ${p[4]+1} (${p[13]||p[12]})`, gmPlayerMeta(p),
+        `<button onclick="gmTrAdd('want','player',${p[1]},0,'${p[0].replace(/'/g,"\\'")}')" class="grade g60" style="cursor:pointer; border:none; padding:1px 9px">ask</button>`)).join('')}
+      <div class="ttype" style="margin-top:8px; font-weight:700; letter-spacing:1px; text-transform:uppercase">Their farm · system ranks ${sys.rank(them)} of 30</div>
+      <div class="ttype" style="margin-bottom:4px">Value = expected WAR over six seasons, discounted 10% a year like every surplus here: Top 100 on the rank curve, everyone else from what his 100 nearest historical comparables actually produced. Peak = his comps' best-two-season average, busts included.</div>
+      ${theirFarm.length ? theirFarm.map(p => gmAssetRow(`${p[0]} (${gmPLabel(p)}, ${p[13]||p[12]})`, `${gmEta(p)} · value ${fmtW(gmPV(p))}${gmPeakOf(p) ? ' · ' + gmPeakTag(p) : ''}`,
+        `<button onclick="gmTrAdd('want','prospect',${p[1]},${p[9]},'${p[0].replace(/'/g,"\\'")} (${gmPLabel(p)})')" class="grade g60" style="cursor:pointer; border:none; padding:1px 9px">ask</button>`)).join('') : noneTxt('prospects')}
       </div>
     </div>
   </div>`;
@@ -8824,11 +8873,17 @@ function gmDepth(){
     <div style="display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap; align-items:baseline">
       <div><strong style="font-size:16px">${gmState.club} · 2027 depth chart</strong> <span class="ttype">projected ${w}-${162-w} · payroll ~$${Math.round(gmPayroll())}M · ${pz(gmState.moves.filter(m=>m.kind!=='info').length,'move','moves')}</span></div>
       <div class="ttype">Front Office Ledger · Offseason Simulator</div></div>
-    <div class="ttype" style="margin-top:2px">auto-filled by projection and true position fit from everyone in the org after your moves · red boxes are below the everyday bar · numbers are projected 2027 WAR</div>
     ${diamond}
     ${row('ROTATION', rot)}
     ${row('BULLPEN', pen)}
     ${row('BENCH', bench)}
+    ${(() => { const KIND = {trade: 'Trade', fa: 'Free agent', ext: 'Extension', qo: 'Qualifying offer', arb: 'Arbitration', callup: 'Call-up', cut: 'Non-tender'};
+      const big = gmState.moves.filter(m => m.kind !== 'info').slice().sort((x, y) => Math.max(Math.abs(y.st || 0), Math.abs(y.surplus || 0)) - Math.max(Math.abs(x.st || 0), Math.abs(x.surplus || 0))).slice(0, 6);
+      return big.length ? `<div style="margin-top:12px; border-top:1px solid var(--rule); padding-top:8px"><div class="ttype" style="font-size:10px; letter-spacing:.1em; margin-bottom:4px">THE WINTER'S BIGGEST MOVES</div>${big.map(m =>
+        `<div style="font-size:12px; margin:3px 0"><span class="ttype" style="display:inline-block; min-width:92px">${KIND[m.kind] || m.kind}</span> ${m.kind === 'trade' ? String(m.label).replace(/<[^>]*>/g, '') + ': ' + String(m.detail || '').replace(/<[^>]*>/g, '').replace(/ \([^)]*surplus paid[^)]*\)/, '') : m.kind === 'ext' || m.kind === 'fa' ? String(m.label).replace(/<[^>]*>/g, '') + ', ' + String(m.detail || '').replace(/<[^>]*>/g, '').split(' · ')[0].split(':')[0] : String(m.label).replace(/<[^>]*>/g, '')} <span class="${(m.surplus||0) >= 0 ? 'pos' : 'neg'}">${fmtW(m.surplus || 0)}</span></div>`).join('')}</div>` : ''; })()}
+  </div>
+  <div style="margin-top:8px">
+    <div class="ttype" style="margin-top:2px">auto-filled by projection and true position fit from everyone in the org after your moves · red boxes are below the everyday bar · numbers are projected 2027 WAR</div>
     <div class="ttype" style="margin-top:10px">Want a prospect on this chart? Step 4, Call-ups, promotes him.</div>
     ${uw.length ? `<div style="margin-top:12px"><strong>The holes, and who fills them</strong>${hints || '<div class="ttype">nothing obvious on the market; try the trade board</div>'}</div>` : '<div style="margin-top:12px" class="pos"><strong>No everyday holes.</strong></div>'}
   </div>`;
@@ -9231,7 +9286,9 @@ function gmShow(){
     <details style="margin-top:10px"><summary class="ttype" style="cursor:pointer">full journal (${gmState.journal.length})</summary>
       <div style="max-height:260px; overflow:auto; margin-top:6px">${gmState.journal.map(j=>`<div style="font-size:11px; color:var(--muted); border-top:1px solid var(--grid); padding:3px 0">${j}</div>`).join('') || '<div class="ttype">empty</div>'}</div></details></div>`;
   const main = gmInProgress() + [gmStage0, gmStage1, gmStage2, gmStageCallups, gmDepth, gmReport][gmState.stage]();
-  host.innerHTML = stepper + `<div style="display:flex; gap:14px; flex-wrap:wrap; align-items:flex-start"><div style="flex:2.2; min-width:min(340px, 100%)">${main}</div><div style="flex:1; min-width:280px; max-width:360px">${gmState.stage === 4 ? '' : gmDepthStrip()}${gmAdvisor()}${log}</div></div>`;
+  if(gmState.stage === 2 && gmState.open.tab === 'trade')
+    host.innerHTML = stepper + main + `<div class="gm-under">${gmDepthStrip()}<div>${gmAdvisor()}</div><div>${log}</div></div>`;
+  else host.innerHTML = stepper + `<div style="display:flex; gap:14px; flex-wrap:wrap; align-items:flex-start"><div style="flex:2.2; min-width:min(340px, 100%)">${main}</div><div style="flex:1; min-width:280px; max-width:360px">${gmState.stage === 4 ? '' : gmDepthStrip()}${gmAdvisor()}${log}</div></div>`;
   gmRail();
 }
 
@@ -9572,12 +9629,14 @@ function hideTip(){ tip.style.display='none'; }
    view switching
    ========================================================= */
 document.querySelectorAll('nav button').forEach(b=>{
-  b.addEventListener('click', ()=> switchView(b.dataset.view));
+  b.addEventListener('click', ()=> { if(b.dataset.tab) bdState.tab = b.dataset.tab; switchView(b.dataset.view); });
 });
+// the boards are one view with three nav tabs (prospects, farms, free agents)
+function navMark(v){ document.querySelectorAll('nav button').forEach(x => x.classList.toggle('on', x.dataset.view === v && (!x.dataset.tab || x.dataset.tab === (bdState || {}).tab))); }
 function switchView(v, regimeId){
   // v5.9: a dialog belongs to the view that opened it; changing views closes it
   try { if(typeof closeModal === 'function') closeModal(); if(typeof closeTreeOverlay === 'function') closeTreeOverlay(); } catch(e){}
-  document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on', x.dataset.view===v));
+  navMark(v);
   ['leaderboard','report','trees','champs','method','dna','h2h','desk','horizon','scen','gm','boards'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
   if(v==='report'){ if(regimeId) $('#teamsel').value = regimeId; renderReport($('#teamsel').value); }
   if(v==='trees'){ renderTrees(); treeFindInit(); }
@@ -10119,7 +10178,7 @@ function renderChanChart(r){
   });
   g += `<line x1="${mid}" y1="6" x2="${mid}" y2="${H-10}" stroke="var(--baseline)" stroke-width="1"/>`;
   g += `<text x="${mid}" y="${H-0}" text-anchor="middle" font-size="10.5" fill="var(--muted)">0 = met expectation</text>`;
-  $('#chanchart').innerHTML = `<svg viewBox="0 0 ${W} ${H+8}" width="100%" role="img" aria-label="Value versus expectation by channel">${g}</svg>`;
+  $('#chanchart').innerHTML = `<svg viewBox="0 0 (DESK.teams||{}) ${H+8}" width="100%" role="img" aria-label="Value versus expectation by channel">${g}</svg>`;
   $('#chanlegend').innerHTML = CHANNELS.map(c=>`<span class="key"><span class="swatch" style="background:${c.hex}"></span>${c.name}</span>`).join('');
   document.querySelectorAll('.chanbar').forEach(b=>{
     b.addEventListener('mousemove', e=>{
@@ -10156,7 +10215,7 @@ function renderCumChart(r){
       xlab += `<text x="${X(i)}" y="${H-8}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${yr}</text>`;
   });
   const last=data[n-1];
-  const svg = `<svg id="cumsvg" viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Cumulative net WAR by season">
+  const svg = `<svg id="cumsvg" viewBox="0 0 (DESK.teams||{}) ${H}" width="100%" role="img" aria-label="Cumulative net WAR by season">
     ${grid}
     <line x1="${padL}" y1="${Y(0)}" x2="${W-padR}" y2="${Y(0)}" stroke="var(--baseline)" stroke-width="1"/>
     <path d="${area}" fill="var(--s1)" opacity="0.10"/>
@@ -11000,7 +11059,7 @@ function glossify(root){
 /* ---- Big Boards (v5.5): top free agents with projected contracts, top
    prospects, and farm system rankings, from the same models as the
    Simulator and the Desk ---- */
-let bdState = {tab: 'fa'};
+var bdState = {tab: 'pros'};
 function bdPosOK(p){
   const f = (document.getElementById('bd-pos')||{}).value || '';
   if(!f) return true;
@@ -11145,13 +11204,17 @@ async function liveWinter(){
 setTimeout(liveWinter, 0);   // after every declaration above has run
 function renderBoards(){
   const host = document.getElementById('boardsbody'); if(!host) return;
-  document.querySelectorAll('.bdtab').forEach(b => { b.className = 'grade bdtab ' + (b.dataset.b === bdState.tab ? 'g70' : 'g50'); b.onclick = () => { bdState.tab = b.dataset.b; renderBoards(); }; });
   const pos = document.getElementById('bd-pos'); if(pos && !pos._w){ pos._w = 1; pos.onchange = renderBoards; }
   // the farm table has no position split: hide the filter there instead of leaving a dead control
   const posLbl = document.getElementById('bd-pos-lbl');
   if(pos){ pos.disabled = bdState.tab === 'farm'; pos.hidden = bdState.tab === 'farm'; }
   if(posLbl) posLbl.hidden = bdState.tab === 'farm';
-  document.querySelectorAll('.bdtab').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.b === bdState.tab)));
+  const T = {fa: ['Top Free Agents · The 2026-27 Class', ['The best free agents on the market, each with a projected contract and a likely range.', 'Ranked by projected 2027 value. Signings since Nov 1 drop off as they happen.']],
+             pros: ['Top Prospects · The Top 100', ['Every top-100 prospect, valued on what comparable minor leaguers went on to do in the majors.', 'Peak and odds come from each player\'s 100 nearest historical comparables.']],
+             farm: ['Farm Rankings · All 30 Systems', ['Every farm system, ranked by the combined value of its ten best prospects.', 'The same values the Simulator and Deal Desk trade on.']]}[bdState.tab] || ['Top Prospects', []];
+  const h = document.getElementById('bd-h2'); if(h) h.textContent = T[0];
+  const k = document.getElementById('bd-key'); if(k) k.innerHTML = T[1].map(x => `<li>${x}</li>`).join('');
+  if(!document.getElementById('view-boards').hidden) navMark('boards');
   host.innerHTML = bdState.tab === 'fa' ? bdFA() : bdState.tab === 'pros' ? bdProspects() : bdFarm();
 }
 
