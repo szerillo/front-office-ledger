@@ -362,6 +362,11 @@ Object.assign(R, await m.page.evaluate(async () => {
   // v5.9: the move log loads from moves.js beside the page
   o.movesLoaded = window.MOVES_READY === true && Object.keys(PLAYER_MOVES).length > 1000 && typeof Object.values(PLAYER_MOVES)[0][0][1] === 'string';
   o.navPerformanceReview = /Performance review/i.test(document.querySelector('nav').innerText);
+  // v5.9: a new regime's card never keeps another card's hand-written showcase
+  o.noShowcaseLeak = (() => { const ids = [...AUTO_REGIMES.map(x => x.id), ...LB_HIST.filter(x => x.realCard).map(x => x.id)];
+    return ids.every(id => { renderReport('lad'); renderReport(id); const sc = document.getElementById('rc-showcase');
+      return !(sc && sc.innerText.trim()) || REGIMES.some(x => x.id === id); }); })();
+  o.newRegimeNoDevLetter = AUTO_REGIMES.filter(x => (x.seatSeasons != null ? x.seatSeasons : x.seasons) < 0.25).every(x => !x.dev || x.dev.g == null);
   return o;
 }));
 await m.browser.close();
