@@ -99,6 +99,8 @@ def row(d):
     if d.get("comps"): r["comps"] = d["comps"]
     if d.get("proj"): r["proj"] = d["proj"]
     if d["ch"] == "trade": r["note"] = trade_note(d)
+    r["ch"] = d["ch"]
+    if d.get("st") is not None: r["st"] = d["st"]
     return r
 
 def chan_ledgers(r):
@@ -442,6 +444,35 @@ for _r in res:
     _t = _re.compile(r"titles:\d+").search(s, _i)
     s = s[:_t.start()] + "titles:%d" % _su["ws"] + s[_t.end():]
     print("curated success synced:", _r["id"], _lit)
+# v5.5: single-move grades are relative to moves of the same kind and size.
+# For each channel, every decision the engines graded (all clubs, all
+# regimes; trades from both seats of the full trade book) is split into five
+# stake bands (stake = what the move put at risk, in wins: contract cost,
+# slot expectation, the larger side of a trade); within a band the letter is
+# the move's percentile (F bottom 10%, D to 30%, C to 70%, B to 90%, A to
+# 97.5%, A+ above). A $1M signing is compared with other $1M signings.
+import os as _os
+_pop = {}
+for _f in ("sweep", "hist", "fa", "ext", "intl"):
+    _p = f"/work/move_pop_{_f}.json"
+    if _os.path.exists(_p):
+        for _k, _v in json.load(open(_p)).items(): _pop.setdefault(_k, []).extend(_v)
+_tb = json.load(open("/work/trade_book.json"))
+_pop["trade"] = [[round(max(sum(abs(v) for _, v in st[2]), sum(abs(v) for _, v in st[3])), 2), st[1]] for _d, seats in _tb["trades"] for st in seats]
+def _bands(pairs, nb=5):
+    pairs = sorted(pairs)
+    if len({st for st, _ in pairs}) == 1: nb = 1          # one-size channels (waivers, int'l)
+    nb = max(1, min(nb, len(pairs) // 40))
+    out = []
+    for b in range(nb):
+        seg = pairs[b * len(pairs) // nb:(b + 1) * len(pairs) // nb]
+        nets = sorted(n for _, n in seg)
+        q = [round(nets[min(len(nets) - 1, int(k / 40 * (len(nets) - 1) + 0.5))], 2) for k in range(41)]
+        out.append([seg[-1][0] if b < nb - 1 else 9999, q, len(seg)])
+    return out
+MOVE_BANDS = {k: _bands(v) for k, v in _pop.items() if v}
+s = _re.sub(r"const MOVE_BANDS = .*?;\n", lambda m: "const MOVE_BANDS = " + json.dumps(MOVE_BANDS, separators=(",", ":")) + ";\n", s, count=1, flags=_re.S)
+print("move bands:", {k: [b[2] for b in v] for k, v in MOVE_BANDS.items()})
 # v5.4: readers know the metric as Ledger WAR; "LVM" was internal shorthand
 import re
 s = re.sub(r"\bLVM\b", "WAR", s)
