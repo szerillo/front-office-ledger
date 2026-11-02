@@ -15,7 +15,9 @@ const r = await d.page.evaluate(() => {
   switchView('report', sd.id); renderReport(sd.id);
   const all = document.getElementById('rc-alltrades');
   o.everyTradeListed = !!all && regimeTrades(sd).length >= 100 && all.querySelectorAll('tbody tr').length === regimeTrades(sd).length;
-  o.moveGrades = moveGrade(6.1) === 'A+' && moveGrade(-0.4) === 'C' && moveGrade(-25) === 'F' && document.querySelectorAll('#rc-ledgers .ledger .grade').length > 10;
+  const R = {'A+':6,'A':5,'B':4,'C':3,'D':2,'F':1};
+  // the same +1.5 wins is an A on a cheap signing and only middling on a 30-win trade
+  o.moveGradesRelativeToSize = Object.keys(MOVE_BANDS).length >= 6 && R[moveGrade(1.5, 'fa', 0.2)] >= 5 && R[moveGrade(1.5, 'trade', 30)] <= 4 && R[moveGrade(-25, 'trade', 30)] === 1 && document.querySelectorAll('#rc-ledgers .ledger .grade').length > 10;
   o.bestTablesCarryNoChannelStamp = [...document.querySelectorAll('#rc-ledgers .ledger h3')].every(h => !h.querySelector('.grade'));
   o.channelGradeStatedOnce = document.querySelectorAll('#rc-ledgers .chanhead').length >= 4;
   // trees: a browsable finder, and the chain renders
