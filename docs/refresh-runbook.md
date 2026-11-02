@@ -123,7 +123,9 @@ The computed FA class must be reconciled against the real winter:
   lines, signing deadline) and POSTED, then run `posted_build.py` before
   desk_data.py. Remove a player once he signs (he enters the book).
 - Org prospects: `prospects_build.py` (calibration seasons are cached in
-  milb_cache/; the current season is re-pulled) before desk_data.py.
+  milb_cache/; the current season is re-pulled), then `prospects_peak.py`
+  (Phase II comparables; ~5 minutes, run it in the background), before
+  desk_data.py. Delete milb_cache/2026_* to pick up a new season's lines.
 - Audit after rebuild: no player with an exercised option in the FA pool,
   every ranked FA in the public class lists present in ours (NPB postings
   with no MLB record excluded, disclosed).

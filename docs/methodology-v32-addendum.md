@@ -1004,3 +1004,50 @@ Org prospects (`engine/prospects_build.py`, `data/pros.json`)
   the-level Double-A arm is worth under 0.1.
 
 Regression suite: `tests/t_winter.mjs`.
+
+
+## v5.3 (November 2, 2026): prospect peak projections (Phase II)
+
+Every prospect now carries a peak projection from a self-built system that
+follows the frameworks the public projection systems describe (ZiPS-style
+weighted seasons, Davenport/ZiPS-style minor-league translations, and the
+comparables idea behind long-term projections), on MLB Stats API data only.
+No outside projection numbers are used or shown. Code: `engine/prospects_peak.py`.
+
+1. Translations. Each minor-league component is expressed relative to its
+   level-season average (so run environment and ball changes wash out), then
+   carried up the ladder (A, A+, AA, AAA, MLB) by level factors learned from
+   every player who played at two adjacent levels in the same season,
+   weighted by the smaller sample. Hitters: strikeout rate, walk rate,
+   isolated power, BABIP, steals per time on base. Pitchers: strikeout rate,
+   walk rate, home runs per batter faced. Same-season pairs carry promotion
+   bias (players promoted after a hot stretch), so the factors are used only
+   to place players at different levels on one scale for matching; the
+   outcome always comes from real careers.
+2. Weighting. The current season counts 5, the prior season 3.
+3. Comparables. Each prospect is matched to his 100 nearest 2012-2019
+   prospect-seasons (one per player) on age, age against level, level,
+   the translated rates, position group (catcher, premium defensive spot,
+   corner), and pedigree (draft slot and Top 100 rank at the time).
+4. What the comps became. PEAK = the average of a comp's two best MLB
+   seasons of Ledger WAR within eight years, misses counted as zero, so
+   bust risk is inside the number; with it, the odds of a 2-win and a
+   4-win peak, an upside figure (80th percentile), next-season WAR (used
+   for depth-chart call-ups), and six-season WAR (the trade currency).
+5. Backtest, leave one cohort out, 2013-2019 (19,843 prospect-seasons):
+   - Prospects outside the Top 100: comps r = 0.249 against
+     realized six-season WAR, versus 0.181 for the
+     level-and-age buckets. The comps model now prices them.
+   - Top 100 prospects (706): rank curve r = 0.328, comps
+     r = 0.307. Scouting rank still knows more than the stat line
+     for elite prospects, so Top 100 value stays on the rank curve (the same
+     curve the development grade uses); the peak projection is shown beside it.
+   - Peak: r = 0.482. Of the model's top 5% each cohort,
+     28% reached a 2-win peak, against a
+     4% base rate.
+   Read the r values in context: most prospect-seasons end at zero MLB value,
+   which caps any correlation; the hit-rate lift is the clearer signal.
+
+Where it shows: the trade board and Deal Desk farm lists, the depth chart's
+call-ups, and every prospect's Deal Desk projection line (peak, odds, upside,
+and his four nearest comps with what they became).
