@@ -31,6 +31,13 @@ const r = await d.page.evaluate(() => {
   o.betaPublicData = /built entirely from public data/i.test(document.querySelector('.sample-chip').textContent);
   o.navNoRedundantLabel = !/Front offices, graded|Show your work/i.test(document.querySelector('nav').innerText);
   o.watchmen = /Who watches the Watchmen/.test(document.getElementById('view-method').innerText);
+  // forward-looking boards (v5.5): free agents with projected contracts, prospects, farm systems
+  switchView('boards');
+  bdState.tab = 'fa'; renderBoards(); o.faBoard = document.querySelectorAll('#boardsbody tbody tr').length >= 40 && /likely range/.test(document.getElementById('boardsbody').innerText);
+  bdState.tab = 'pros'; renderBoards(); o.prospectBoard = document.querySelectorAll('#boardsbody tbody tr').length === 100;
+  o.noStaleRanks = !DESK.players.some(p => p[0] === 'Kristian Campbell' && p[9] > 0);
+  bdState.tab = 'farm'; renderBoards(); o.farmBoard = document.querySelectorAll('#boardsbody tbody tr').length === 30;
+  o.forwardLookingPitch = /decision-making model/i.test(document.querySelector('.tagline').textContent) && /Looking ahead/.test(document.getElementById('introstrip') ? document.getElementById('introstrip').innerText : 'Looking ahead');
   return o;
 });
 await d.page.waitForTimeout(400);
