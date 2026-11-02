@@ -30,6 +30,7 @@ GET = {
     "Trades": trades,
     "Draft": lambda r: [(x[0], x[6]) for x in ax(r, "draft") if x[6] is not None],
     "Waivers": lambda r: [(x[0], x[3]) for x in ax(r, "waiver") if x[3] is not None],
+    "International": lambda r: [(x[0], x[5]) for x in (r.get("allx_intl") or ax(r, "intl")) if len(x) > 5 and x[5] is not None],
 }
 out = []
 for nm, g in GET.items():
@@ -39,7 +40,7 @@ for nm, g in GET.items():
         if len(xs) < MIN: continue
         a = [v for i, (_, v) in enumerate(xs) if i % 2 == 0]; b = [v for i, (_, v) in enumerate(xs) if i % 2 == 1]
         A.append(sum(a) / len(a)); B.append(sum(b) / len(b))
-    out.append([nm, round(corr(A, B), 2), len(A)])
+    if len(A) >= 20: out.append([nm, round(corr(A, B), 2), len(A)])   # too few regimes to read a correlation otherwise
 out.sort(key=lambda x: -x[1])
 print("split-half reliability:", out)
 json.dump(out, open("/work/reliability.json", "w"))
