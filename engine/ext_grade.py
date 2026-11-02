@@ -103,13 +103,16 @@ per = defaultdict(lambda: dict(net=0.0, n=0, decs=[]))
 MOVE_POP = []   # v5.5: (cost in wins, net) for every graded extension
 skipped = []
 
+# v5.7: graded against expectation AND investment. Pass 1 prices every
+# extension in the book (all clubs, all regimes) and measures what a typical
+# club got back per win of class-market cost; pass 2 grades each regime's
+# deals against that typical return, so the expectation scales with the money.
+EVAL = []
 for _e in EXT:
     sign, player, ab, yrs, tot, cbt = _e[:6]
     if sign >= "2026-10": continue            # 2027 option rows: payroll coverage only, not extension decisions
     tid = ABBR2TID[ab]; reg = REG[tid]
     sign_date = sign + "-15"
-    if sign_date < reg["start"]:
-        skipped.append((player, ab, "predates regime")); continue
     pid = resolve(player, tid, int(sign[:4]), yrs)
     sy = int(sign[:4])
     dy = debut_year(pid) if pid else None
@@ -130,7 +133,19 @@ for _e in EXT:
     realized = sum(v for (y, tm, v) in rows
                    if any(al in tm for al in names) and y in seasons)
     implied = sum(aav / (DISC[cls] * DPW[min(y, 2026)]) for y in seasons)
-    n = realized - implied
+    EVAL.append(dict(sign=sign, player=player, tid=tid, reg=reg, sign_date=sign_date, pid=pid, cls=cls,
+                     yrs=yrs, tot=tot, cbt=cbt, use_tot=use_tot, seasons=seasons, realized=realized, implied=implied))
+_pp = [e for e in EVAL if e["seasons"] and e["pid"]]
+TYPICAL = sum(e["realized"] for e in _pp) / sum(e["implied"] for e in _pp)
+print(f"typical extension return: {TYPICAL:.3f} wins per class-market-cost win over {len(_pp)} priced extensions")
+
+for e in EVAL:
+    sign, player, tid, reg, sign_date, pid, cls = e["sign"], e["player"], e["tid"], e["reg"], e["sign_date"], e["pid"], e["cls"]
+    yrs, tot, cbt, use_tot, seasons, realized, implied = e["yrs"], e["tot"], e["cbt"], e["use_tot"], e["seasons"], e["realized"], e["implied"]
+    if sign_date < reg["start"]:
+        skipped.append((player, reg.get("abbr"), "predates regime")); continue
+    expected = implied * TYPICAL
+    n = realized - expected
     if not seasons:                  # freshly signed, nothing elapsed
         per[tid]["decs"].append(dict(d=sign_date, ch="ext", net=0.0,
             h=f"Extended {player} · {yrs} yr / ${tot:.1f}M ({cls}) · no seasons elapsed, OPEN"))
@@ -141,8 +156,8 @@ for _e in EXT:
     MOVE_POP.append([round(implied, 2), round(n, 2)])
     per[tid]["decs"].append(dict(d=sign_date, ch="ext", net=round(n, 1), st=round(implied, 2),
         h=f"Extended {player} · {yrs} yr / ${tot:.1f}M ({cls} market{cbtnote})",
-        sides=[["Production (LVM on club, covered seasons)", [[player, f"{realized:+.1f}"]]],
-               [f"Cost vs {cls} extension market", [[f"${use_tot:.0f}M over {yrs} yr at {int(DISC[cls]*100)}% of market $/win", f"{-implied:+.1f}"]]]],
+        sides=[["Production (Ledger WAR on club, covered seasons)", [[player, f"{realized:+.1f}"]]],
+               [f"What a typical club gets for this money", [[f"${use_tot:.0f}M over {yrs} yr at {int(DISC[cls]*100)}% of market $/win: {implied:.1f} wins x {TYPICAL:.2f} typical return", f"{-expected:+.1f}"]]]],
         pids=[pid] if pid else []))
 
 print(f"{'team':<6}{'EXT net':>9}{'n':>4}   deals")
@@ -150,7 +165,7 @@ for r in res:
     tid = r["teamId"]; p = per.get(tid, dict(net=0.0, n=0, decs=[]))
     covered = p["n"] >= 2
     scored = [d for d in p["decs"] if "OPEN" not in d["h"]]
-    r["chan"]["ext"] = dict(net=round(p["net"], 1) if covered else 0,
+    r["chan"]["ext"] = dict(net=round(p["net"], 1) if covered else 0, typical=round(TYPICAL, 3),
                             g=grade(p["net"] / r["seasons"]) if covered and scored else None,
                             n=p["n"])
     if covered and scored:
