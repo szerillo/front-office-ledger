@@ -44,16 +44,12 @@ const r = await d.page.evaluate(() => {
     && !!holTb && Math.abs(hol.outcome.net - holTb[1]) < 0.051;
   // simulator comps see recent winters' trades
   o.recentWintersHaveTrades = [2024, 2025].every(y => GMC.winters.filter(w => w.w === y).reduce((a, w) => a + w.trN, 0) > 50);
-  // curated cards agree with the computed trade book on the Burnes deal
+  // every active card is computed: no hand-written showcase cards remain, and the Burnes deal reads the trade book on both cards
   const tb = TRADE_BOOK.trades.find(t => t[0] === '2024-02-01');
   const balNet = tb[1].find(s => s[0] === 'BAL')[1];
-  const balCard = REGIMES.find(x => x.id === 'bal');
-  const milCard = REGIMES.find(x => x.id === 'mil');
-  const find = (card, re) => [].concat(...['bestTrades', 'worstTrades', 'ledger', 'top', 'bottom'].map(k => card[k] || [])).find(x => re.test(x.h || ''));
-  const b1 = JSON.stringify(balCard).match(/RHP Corbin Burnes from MIL[^}]*?war:(-?[0-9.]+)/);
-  // v5.7: the cards carry whatever the book computes (the number moved with the salary and positional fixes)
+  o.noHandCards = REGIMES.length === 0 && CHAMPS.length === 0 && ['lad', 'bal', 'mil'].every(id => AUTO_REGIMES.some(x => x.id === id)) && AUTO_REGIMES.length === 30;
   const bv = Math.abs(balNet).toFixed(1).replace('.', '\\.');
-  o.burnesCuratedMatchesBook = balNet < -3 && new RegExp('war":-' + bv).test(JSON.stringify(balCard)) && new RegExp('"war":' + bv).test(JSON.stringify(milCard));
+  o.burnesCardsMatchBook = balNet < -3 && new RegExp('war":-' + bv).test(JSON.stringify(AUTO_REGIMES.find(x => x.id === 'bal'))) && new RegExp('"war":' + bv).test(JSON.stringify(AUTO_REGIMES.find(x => x.id === 'mil')));
   return o;
 });
 await d.browser.close();

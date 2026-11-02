@@ -23,7 +23,7 @@ const r = await d.page.evaluate(async () => {
     const mix = {}; (c.roster||[]).forEach(x => { const k = x[4]==='inh' ? 'inherited' : x[1]; mix[k] = (mix[k]||0) + x[5]; });
     const big = Object.keys(mix).filter(k=>CHAMP_CH[k]).sort((a,b)=>mix[b]-mix[a])[0]; return !m || !big || m[1].trim() === CHAMP_CH[big].name; });
   const tex = ALL_CHAMPS().find(c => c.id === 'tex23');
-  o.rangersOneLedger = tex && tex.computed === true && !!tex.story;
+  o.rangersOneLedger = !!tex && tex.computed === true;
   // head to head: two seats of one trade mirror each other
   const all = [...REGIMES, ...AUTO_REGIMES].filter(x => x.h2h); const map = {};
   all.forEach(x => (x.h2h||[]).forEach(q => { map[abOf(x) + '|' + q.opp] = q; }));
@@ -44,11 +44,16 @@ const r = await d.page.evaluate(async () => {
   o.tradeLinesClose = TRADE_BOOK.trades.every(([dt, seats]) => seats.every(s => Math.abs(s[2].reduce((a,x)=>a+x[1],0) - s[3].reduce((a,x)=>a+x[1],0) - s[1]) <= 0.25));
   const lindor = TRADE_BOOK.trades.find(([dt, seats]) => dt === '2021-01-07' && seats.some(s => s[0] === 'NYM'));
   o.lindorBothSeats = !!lindor && lindor[1].length === 2;
-  o.curatedCardsHaveTrees = REGIMES.every(x => bookTreesFor(x).length >= 3);
+  // signings, extensions and draft picks carry market comps like trades do
+  o.marketCompsEverywhere = (() => { const lad = AUTO_REGIMES.find(x => x.id === 'lad'); const L = lad.chanLedgers;
+    return ['fa', 'ext', 'draft'].every(ch => { const x = [...((L[ch]||{}).best||[]), ...((L[ch]||{}).worst||[])].find(y => y.comps && y.comps.length);
+      if(!x) return false; openModal(x, lad); const t = document.getElementById('m-lenses').innerText; document.getElementById('mclose').click();
+      return /comps/i.test(t) && x.comps.length === 3; }); })();
+  o.cardsHaveTrees = ['lad', 'bal', 'mil'].every(id => { const x = AUTO_REGIMES.find(y => y.id === id); return x && autoTreesFor(x).length >= 3; });
   const hal = TRADE_BOOK.trades.find(([dt, seats]) => dt === '2009-12-16' && seats.some(st => st[0] === 'TOR'));
   o.halladayReturnRecovered = !!hal && hal[1].find(st => st[0] === 'TOR')[2].length >= 3;          // was "Toronto got nothing"
   o.noPassThroughSeats = TRADE_BOOK.trades.every(([dt, seats]) => seats.every(st => !st[2].some(x => st[3].some(y => y[0] === x[0]))));
-  o.curatedOnEngine = REGIMES.every(x => !!x.chanLedgers && Math.abs(lbRows().find(y => y.id === x.id).net - (CHANNELS.reduce((a,c)=>a+((x.chan[c.key]||{}).net||0),0) + ((x.chan.ret&&x.chan.ret.net2)||0))) < 0.15);
+  o.curatedOnEngine = AUTO_REGIMES.filter(x => ['lad','bal','mil'].includes(x.id)).every(x => !!x.chanLedgers && Math.abs(lbRows().find(y => y.id === x.id).net - (CHANNELS.reduce((a,c)=>a+((x.chan[c.key]||{}).net||0),0) + ((x.chan.ret&&x.chan.ret.net2)||0))) < 0.15);
   // simulator: extend then trade leaves no ghost money; the salary tab agrees with the rail
   switchView('gm'); document.getElementById('gm-club').value = 'SEA'; gmStart();
   const woo = DESK.players.find(q => q[0] === 'Bryan Woo' && q[2] === 'SEA');

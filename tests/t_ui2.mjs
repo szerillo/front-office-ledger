@@ -366,7 +366,7 @@ Object.assign(R, await m.page.evaluate(async () => {
   // v5.9: a new regime's card never keeps another card's hand-written showcase
   o.noShowcaseLeak = (() => { const ids = [...AUTO_REGIMES.map(x => x.id), ...LB_HIST.filter(x => x.realCard).map(x => x.id)];
     return ids.every(id => { renderReport('lad'); renderReport(id); const sc = document.getElementById('rc-showcase');
-      return !(sc && sc.innerText.trim()) || REGIMES.some(x => x.id === id); }); })();
+      return !(sc && sc.innerText.trim()); }); })();
   o.newRegimeNoDevLetter = AUTO_REGIMES.filter(x => (x.seatSeasons != null ? x.seatSeasons : x.seasons) < 0.25).every(x => !x.dev || x.dev.g == null);
   // v5.9: dialogs close when the view changes; new regimes get an explicit empty state in Trees
   o.dialogsCloseOnViewChange = (() => { treeOverlay(605141, 'LAD', 'Mookie Betts'); switchView('champs'); const a = !document.getElementById('tree-ov');
