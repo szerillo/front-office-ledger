@@ -65,7 +65,8 @@ Object.assign(R, await page.evaluate(async () => {
   o.i09_extensionNeverCutsPay = payOK('Kodai Senga', 'NYM', 1, 1) && payOK('Shohei Ohtani', 'LAD', 12, 800);
   // 7, 8: trade tiles share signs; no trades with yourself; a refused deal is not graded
   dkState.mode = 'trade'; dkState.you = 'NYM'; dkState.them = 'NYM'; dkState.recv = []; dkState.send = []; renderDesk();
-  o.i08_noSelfTrade = dkState.them !== 'NYM' && ![...document.getElementById('dk-them').options].some(x => x.value === 'NYM' || x.text === 'NYM');
+  const partner = [...document.querySelectorAll('.clubchips[aria-label="Trade partner"] .clubchip')];
+  o.i08_noSelfTrade = dkState.them !== 'NYM' && partner.length === 29 && !partner.some(b => b.dataset.ab === 'NYM');
   dkState.them = 'CHC'; renderDesk();
   const senga = pl('Kodai Senga'), pca = pl('Pete Crow-Armstrong'), soto = pl('Juan Soto');
   dkState.send = [{kind: 'player', p: senga, ctrl: gmCtrlOf(senga)}]; dkState.recv = [{kind: 'player', p: pca, ctrl: gmCtrlOf(pca)}]; dkEval();
@@ -178,7 +179,7 @@ Object.assign(R, await page.evaluate(async () => {
   o.i15_h2FromData = document.getElementById('lb-h2').textContent.includes(span);
   // 16: archive "partial" tooltip says the archive cannot score those channels
   const tips = [...document.querySelectorAll('#lb .badge-ss')].filter(b => b.textContent === 'partial').map(b => b.title);
-  o.i16_archiveTooltip = tips.length > 0 && tips.every(t => /Not scored for archive regimes/.test(t) && !/Too few graded deals/.test(t));
+  o.i16_archiveTooltip = tips.length > 0 && tips.every(t => /Not scored for this archive regime/.test(t) && !/Too few graded deals/.test(t));
   // 15b: in All eras, ungraded rows sort last and carry no rank number
   setv('erasel', 'all'); setv('sortsel', 'fa'); renderLB();
   const rows = [...document.querySelectorAll('#lb tbody tr')];

@@ -70,20 +70,31 @@ const r = await d.page.evaluate(async () => {
     return !!(DESK.status||{})[pid] || new RegExp('with ' + q[2] + '\\b').test(chainFate(pid, lab).nm); });
   // the Deal Desk reads the same winter and the same farms
   switchView('desk'); dkState.mode = 'trade'; dkState.you = 'LAD'; dkState.them = 'TB'; dkState.send = []; dkState.recv = []; renderDesk();
-  const recvIds = [...document.getElementById('dk-sel-recv').options].map(x => +x.value).filter(Boolean);
-  const sendIds = [...document.getElementById('dk-sel-send').options].map(x => +x.value).filter(Boolean);
+  const ids = side => [...document.querySelectorAll(`button[onclick^="dkTake('${side}',"]`)].map(b => +b.getAttribute('onclick').match(/,(\d+)\)/)[1]);
+  const recvIds = ids('recv'), sendIds = ids('send');
   o.deskPickersScopedToClubs = !document.getElementById('dk-rank-recv') && recvIds.length >= 30 && recvIds.every(id => DESK.players.find(x => x[1] === id)[2] === 'TB') && sendIds.every(id => DESK.players.find(x => x[1] === id)[2] === 'LAD');
   o.deskFreeAgentNotATradePiece = !sendIds.includes(DESK.players.find(x => x[0] === 'Tarik Skubal')[1]);
-  o.deskSendLeftReceiveRight = document.getElementById('dk-sel-send').getBoundingClientRect().left < document.getElementById('dk-sel-recv').getBoundingClientRect().left || document.getElementById('dk-sel-send').getBoundingClientRect().top < document.getElementById('dk-sel-recv').getBoundingClientRect().top;
+  o.deskNoDefaultClub = (() => { const y = dkState.you, t = dkState.them; dkState.you = null; dkState.them = null; renderDesk(); const ok = !document.querySelector('.clubchip.on') && !document.querySelector('[aria-label="Trade partner"]'); dkState.you = y; dkState.them = t; renderDesk(); return ok; })();
   dkEval(); o.deskEmptyTradeNotGraded = /at least one piece on each side/.test(document.getElementById('dk-out').innerText);
-  document.getElementById('dk-sel-send').value = String(sendIds[sendIds.length - 1]); dkAddSel('send');
-  document.getElementById('dk-sel-recv').value = String(recvIds[0]); dkAddSel('recv'); dkEval();
+  dkTake('send', sendIds[sendIds.length - 1]); dkTake('recv', recvIds[0]); dkEval();
   o.deskAcceptanceCheck = /Would TB accept\?/.test(document.getElementById('dk-out').innerText);
+  dkState.send = []; dkState.recv = []; renderDesk(); dkAgm();
+  o.deskAgmCompletes = dkState.recv.length >= 1 && dkState.send.length >= 1 && /Assistant GM/.test(document.getElementById('dk-agm-note').innerText) && /Would TB accept\?/.test(document.getElementById('dk-out').innerText);
   dkState.mode = 'fa'; renderDesk();
   document.getElementById('dk-fa-player').value = 'Teruaki Sato'; document.getElementById('dk-fa-yrs').value = 4; document.getElementById('dk-fa-m').value = 62; dkEval();
   o.deskChargesPostingFee = /posting fee/.test(document.getElementById('dk-out').innerText);
   document.getElementById('dk-fa-player').value = 'Chris Sale'; dkSuggestNow('fa');
   o.deskSaysUnderContract = /under contract with ATL through 2027/.test(document.getElementById('dk-suggest').innerText);
+  // the simulator: stars ask contenders for less, the rest of the market clears near the Ledger offer
+  switchView('gm'); document.getElementById('gm-club').value = 'PIT'; gmStart();
+  const skb = DESK.players.find(x => x[0] === 'Tarik Skubal');
+  const club0 = gmState.club, askPit = gmAsk(skb, false).tot; gmState.club = 'LAD'; const askLad = gmAsk(skb, false).tot; gmState.club = club0;
+  o.simStarsDiscountContenders = askLad < askPit;
+  gmState.stage = 2; gmState.open.tab = 'trade'; gmState.tr = {them: 'MIA', want: [], give: []}; gmShow(); gmAgmComplete();
+  o.simAgmBuildsDeal = gmState.tr.want.length >= 1 && gmState.tr.give.length >= 1 && /Assistant GM/.test(document.getElementById('gmbody').innerText);
+  gmState.stage = 5; gmShow();
+  const M = gmMarketSim(), sg = M.out.filter(x => x.club), vs = sg.map(x => x.vs).sort((a, b) => a - b);
+  o.simMarketClears = sg.length >= 40 && sg.every(x => x.club !== 'PIT') && Math.abs(vs[Math.floor(vs.length / 2)]) <= 0.1 && /rest of the market/.test(document.getElementById('gmbody').innerText);
   return o;
 });
 await d.browser.close();

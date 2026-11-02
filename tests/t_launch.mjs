@@ -9,7 +9,7 @@ const r = await d.page.evaluate(() => {
   // jargon and copy
   o.noLVMJargon = !/\bLVM\b/.test(document.documentElement.innerHTML);
   o.noOverclaim = !/Nothing is an opinion/.test(body);
-  o.aboutDisclaimer = /Not affiliated with, endorsed by, or sponsored by Major League Baseball/.test(document.querySelector('footer').innerText) && !!document.querySelector('footer a[href*="github.com/szerillo/front-office-ledger"]');
+  o.aboutDisclaimer = /Not affiliated with, endorsed by, or sponsored by Major League Baseball/.test(document.querySelector('footer').innerText) && !/github/i.test(document.body.innerHTML.replace(/<script[\s\S]*?<\/script>/g, ''));
   o.themeLabelPlain = /^(Dark|Light) mode$/.test(document.getElementById('themebtn').textContent.trim());
   o.pluralHelper = pz(1, 'pennant', 'pennants') === '1 pennant' && pz(2, 'pennant', 'pennants') === '2 pennants';
   o.noDeadAccountingSelect = !document.getElementById('realsel');

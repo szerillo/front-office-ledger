@@ -26,7 +26,7 @@ const r = await d.page.evaluate(() => {
   o.finderBrowsesFullList = document.querySelectorAll('#tree-sugg .tsug').length >= 300;
   treeSuggestHide(); treeFind();
   o.chainRenders = /Juan Soto/.test(document.getElementById('tree-find-out').innerText) && document.getElementById('tree-find-out').innerText.length > 300;
-  o.sotoShowcase = TREES.some(t => /Soto Chain/.test(t.title));
+  o.sotoShowcase = TREES.some(t => /Soto, part 1/.test(t.title)) && TREES.some(t => /Soto, part 2/.test(t.title)) && /Betts/.test(TREES[0].title);
   o.openBranchesProjected = !!treeProj(['CJ Abrams']) && !!treeProj(['Boston Bateman']);
   // copy
   o.levAdjExplained = (() => { switchView('report', 'bal'); renderReport('bal'); return true; })();
