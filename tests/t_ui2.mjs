@@ -359,6 +359,9 @@ Object.assign(R, await m.page.evaluate(async () => {
   for(const th of ['dark', 'light']){ document.documentElement.dataset.theme = th; for(const v of views){ switchView(v); await wait(20); if(over() > 2) wide.push(th + ':' + v); } }
   o.phoneNoSidewaysScroll = wide.length === 0;
   if(wide.length) o.phoneWide = wide.join(' ');
+  // v5.9: the move log loads from moves.js beside the page
+  o.movesLoaded = window.MOVES_READY === true && Object.keys(PLAYER_MOVES).length > 1000 && typeof Object.values(PLAYER_MOVES)[0][0][1] === 'string';
+  o.navPerformanceReview = /Performance review/i.test(document.querySelector('nav').innerText);
   return o;
 }));
 await m.browser.close();
