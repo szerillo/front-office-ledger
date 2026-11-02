@@ -4,7 +4,7 @@ A decision-level accounting system for sports front offices. Every draft pick, t
 
 ## v5.5 one asset, one entry (November 2026)
 
-Drafted and internationally signed players are graded as assets: what they produced in their six control seasons wherever they played, against a slot expectation re-calibrated so the league's draft net is about zero. A later trade is graded once, in the trade (`engine/asset_rules.py`). Report cards list every trade in a tenure with a letter on every move; Transaction Trees get a browsable finder, the Soto chain, and projections on open branches. Details: `docs/methodology-v32-addendum.md` (v5.5); tests: `tests/t_consistency.mjs`.
+Drafted and internationally signed players are graded as assets: what they produced in their six control seasons wherever they played, against a slot expectation re-calibrated so the league's draft net is about zero. A later trade is graded once, in the trade (`engine/asset_rules.py`). A new Big Boards tab ranks the 2026-27 free agents with projected contracts, the top 100 prospects, and all 30 farm systems. Report cards list every trade in a tenure with a letter on every move; Transaction Trees get a browsable finder, the Soto chain, and projections on open branches. Details: `docs/methodology-v32-addendum.md` (v5.5); tests: `tests/t_consistency.mjs`.
 
 ## v5.4 public-launch pass (November 2026)
 
