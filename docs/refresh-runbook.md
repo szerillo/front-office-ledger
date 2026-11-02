@@ -14,7 +14,7 @@ root (adjust paths or symlink if elsewhere).
     git clone https://github.com/szerillo/front-office-ledger
     cp front-office-ledger/engine/*.py front-office-ledger/ingest/*.py .
     cp front-office-ledger/data/*.json front-office-ledger/data/*.csv .
-    cp front-office-ledger/prototype/index.html front-office-ledger-prototype.html
+    cp front-office-ledger/index.html front-office-ledger-prototype.html && cp front-office-ledger/moves.js moves.js
 
 Rebuild `ledger.sqlite` (not shipped; too big for the web upload flow):
 
@@ -149,7 +149,7 @@ numbers if `validation.json` moved.
 
 ## 5. Ship
 
-Copy back into the repo clone: `prototype/index.html`, changed `engine/` and
+Copy back into the repo clone: `index.html` and `moves.js` (the page and its move log, at the repo root), changed `engine/` and
 `ingest/` scripts, and the full refreshed `data/` set (sweep_results,
 hist_results, validation, parks, postseason, rental_market, h2h_matrix,
 regimes, regimes_hist, lvm_cache, ext_lvm_cache, positions, positions2,
