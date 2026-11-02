@@ -185,7 +185,7 @@ def grade_file(res, archive=False):
         MOVE_POP.append([round(implied, 2), round(n, 2)])
         allx.append([x["date"], x["person_name"], yrs, round(tot, 1), round(realized, 1), round(expected + (QO_CHARGE if qo else 0), 1), round(n, 1), x["person_id"], round(implied, 2)])
         decs.append(dict(d=x["date"], ch="fa", net=round(n, 1), st=round(implied, 2),
-                         h=f"Signed {x['person_name']} · {yrs} yr / ${tot:.1f}M ({off}-{str(off+1)[2:]} winter, {src}{note})",
+                         h=f"Signed {x['person_name']} · {yrs} yr / ${tot:.1f}M ({off}-{str(off+1)[2:]} winter{note})",
                          sides=fasides, pids=[x["person_id"]]))
     covered = matched >= 3     # v5.7: the same evidence floor as every other channel (was 8)
     r["allx_fa"] = allx
