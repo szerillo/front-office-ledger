@@ -221,11 +221,100 @@ def swap(s, anchor, end_marker, payload):
     assert j > i, end_marker
     return s[:i] + anchor + payload + s[j:]
 
+
+# v6.1 (Nov 3): trade headlines read from the club's own side. The league feed
+# writes one line per leg, so a three-team deal can omit the club, repeat a
+# player, list draft picks as "Draft Pick and Draft Pick", or carry a
+# minor-league affiliate swap. Each line is rebuilt from the card's sides when
+# the club is missing or the return is blank.
+import re as _hx
+_CFGX = json.load(open("/work/regimes.json"))
+_ALIASX = {int(k): set(v) for k, v in _CFGX.get("aliases", {}).items()}
+_MLBX = set()
+for _r in _CFGX["regimes"]: _MLBX.add(_r["team"])
+for _v in _ALIASX.values(): _MLBX.update(_v)
+_MLBX.update({"Florida Marlins", "Montreal Expos", "Anaheim Angels", "Tampa Bay Devil Rays", "Los Angeles Angels of Anaheim", "Cleveland Indians", "Oakland Athletics", "Athletics"})
+def _names_for(reg):
+    n = {reg.get("team", ""), reg.get("teamEra", "")}
+    n |= _ALIASX.get(int(reg.get("teamId") or 0), set())
+    return {x for x in n if x}
+def _list_txt(xs):
+    xs = [x for x in xs if x]
+    return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1] if xs else ""
+def _side(e, word):
+    for lbl, rows in (e.get("sides") or []):
+        if lbl.lower().startswith(word):
+            return [r[0] for r in rows if r and r[0] and not str(r[0]).lower().startswith(("nothing", "cash", "pick", "draft pick", "("))]
+    return []
+def _fix_text(h):
+    suf = ""
+    if h.endswith(" \u00a7C"): h, suf = h[:-3], " \u00a7C"
+    h = h.replace(" Traded ", " traded ")
+    parts = h.split("; ")
+    if len(parts) > 1:
+        keep = [c for c in parts if not _hx.match(r"^([A-Z][\w.'\- ]+?) traded ", c) or _hx.match(r"^([A-Z][\w.'\- ]+?) traded ", c).group(1) in _MLBX]
+        if keep: h = "; ".join(keep)
+    return _fix_text2(h) + suf
+def _fix_text2(h):
+    # minor-league legs: "... and Greenville Drive traded CF X to Fort Wayne TinCaps."
+    def _leg(m):
+        return "" if m.group(1) not in _MLBX else m.group(0)
+    h = _hx.sub(r" and ([A-Z][\w.'\- ]+?) traded [^.;]*?(?=\.|;|$)", _leg, h)
+    # repeated pieces in a list ("SS Didi Gregorius, SS Didi Gregorius")
+    def _dedupe(m):
+        parts = _hx.split(r", | and ", m.group(0))
+        seen, out = set(), []
+        for p in parts:
+            k = p.strip().lower()
+            if k and k not in seen: seen.add(k); out.append(p.strip())
+        return _list_txt(out)
+    h = _hx.sub(r"(?:(?:[A-Z0-9]{1,3} )?[A-Z][\w.'\-]+(?: [A-Z][\w.'\-]+)*(?:, | and )){1,}(?:[A-Z0-9]{1,3} )?[A-Z][\w.'\-]+(?: [A-Z][\w.'\-]+)*", _dedupe, h)
+    n_pk = h.count("Draft Pick")
+    if n_pk > 1:
+        h = _hx.sub(r"(?:, )?Draft Pick(?:, Draft Pick)*(?:,? and Draft Pick)", f" and {['', 'one', 'two', 'three', 'four'][min(n_pk, 4)]} draft picks", h)
+    h = h.replace("Draft Pick", "a draft pick").replace("Other Considerations", "other considerations")
+    return h
+def _fix_h(e, names):
+    h = e.get("h") or ""
+    if not h or not str(e.get("t") or "").startswith("Trade"): return
+    h = _fix_text(h)
+    acq, sent = _side(e, "acquired"), _side(e, "surrendered") or _side(e, "sent")
+    import unicodedata as _ud
+    fold = lambda x: "".join(c for c in _ud.normalize("NFD", x) if _ud.category(c) != "Mn").lower()
+    fh = fold(h)
+    _sur = lambda n: next((t for t in reversed(n.replace(",", "").split()) if t.lower().strip(".") not in ("jr", "sr", "ii", "iii", "iv")), n)
+    missing = [n for n in acq + sent if fold(_sur(n)) not in fh]
+    mention = any(n in h for n in names)
+    if (acq or sent) and (missing or not mention):
+        orig = e.get("h") or ""
+        nm2 = [n for n in names if "/" not in n]
+        club = next((n for n in sorted(nm2, key=len, reverse=True) if n in orig), None) or (sorted(nm2, key=len)[-1] if nm2 else "club")
+        _n2t = {}
+        for _r in _CFGX["regimes"]: _n2t[_r["team"]] = _r["teamId"]
+        for _k, _v in _ALIASX.items():
+            for _nm in _v: _n2t[_nm] = _k
+        ids = {_n2t.get(t, t) for t in _MLBX if t in h}
+        ids |= {_n2t.get(n, n) for n in names if n in _n2t}
+        multi = len(ids) >= 3
+        if not acq and not sent: e["h"] = h; return
+        h = ("Three-team trade: the " if multi else "The ") + f"{club} acquired {_list_txt(acq) or 'cash or a player to be named'}" + (f" for {_list_txt(sent)}" if sent else " for cash or a player to be named") + "."
+    elif _hx.search(r" traded .+ to [A-Z][\w.'\- ]+\.$", h) and " for " not in h:
+        subj = next((n for n in names if h.startswith(n)), None)
+        ret = acq if subj else sent
+        if ret: h = h[:-1] + " for " + _list_txt(ret) + "."
+    e["h"] = h
+def _fix_tree(o, names):
+    if isinstance(o, dict):
+        if "h" in o and "sides" in o: _fix_h(o, names)
+        for v in o.values(): _fix_tree(v, names)
+    elif isinstance(o, list):
+        for v in o: _fix_tree(v, names)
 # Nov 2: the heavy per-card detail (every decision list) ships in cards.js,
 # loaded in parallel like moves.js, so the page itself opens fast on phones
 CARD_DETAIL = {}
 _HEAVY = ("chanLedgers", "allx", "walk")
 for _a in auto:
+    _fix_tree(_a, _names_for(_a))
     CARD_DETAIL[_a["id"]] = {k: _a.pop(k) for k in _HEAVY if k in _a}
 s = swap(s, "const AUTO_REGIMES = ", ";\n\n/* =", json.dumps(auto, separators=(",", ":"), ensure_ascii=False))
 
@@ -375,6 +464,7 @@ if os.path.exists("/work/hist_results.json"):
         c["allx"]["fa"] = [x for x in fa_rows if len(x) > 2 and x[2] is not None]
         c["faUnpriced"] = len(fa_rows) - len(c["allx"]["fa"])
     for _c in hist_cards:
+        _fix_tree(_c, _names_for(_c))
         _d = {k: _c.pop(k) for k in _HEAVY if k in _c}
         if _d: CARD_DETAIL[_c["id"]] = _d
     s = swap(s, "const LB_HIST = ", ";\n\n/* =", json.dumps(hist_cards, separators=(",", ":"), ensure_ascii=False))
@@ -476,7 +566,7 @@ if pidset:
         if ty == "Declared Free Agency" and not fa_: fa_ = ab
         if ty in ("Signed as Free Agent", "Claimed Off Waivers", "Rule 5 Selection") and not ta_: ta_ = ab
         NAMES.setdefault(pid, nm)
-        MOVES.setdefault(pid, []).append([d, ty, fa_, ta_, esc(_trim120(_txt))])
+        MOVES.setdefault(pid, []).append([d, ty, fa_, ta_, esc(_trim120(_fix_text(_txt) if ' raded ' in _txt or ' traded ' in _txt or ' Traded ' in _txt else _txt))])
         _MV_AT[k] = MOVES[pid][-1]
     for pid in MOVES:
         mlb_sign = {(m[0], m[3]) for m in MOVES[pid] if m[1] == "Signed as Free Agent"}
@@ -575,6 +665,7 @@ for _r in _CFG["regimes"]: _MLB.add(_r["team"])
 for _v in _CFG.get("aliases", {}).values(): _MLB.update(_v)
 _MLB.update({"Florida Marlins", "Montreal Expos", "Anaheim Angels", "Tampa Bay Devil Rays", "Los Angeles Angels of Anaheim", "Cleveland Indians", "Oakland Athletics", "Athletics"})
 def _clean_h(h):
+    if " traded " in h or " Traded " in h: h = _fix_text(h)
     parts = h.split("; ")
     if len(parts) > 1:
         keep = [c for c in parts if not _rx.match(r"^([A-Z][\w.'\- ]+?) (traded|Traded|sent|Sent) ", c) or _rx.match(r"^([A-Z][\w.'\- ]+?) (traded|Traded|sent|Sent) ", c).group(1) in _MLB]
