@@ -40,8 +40,11 @@ const r = await page.evaluate(() => {
   gmState.stage = 5; gmShow();
   out.reportCharts = body().includes('Where the money sits');
   // horizon salary
-  switchView('horizon'); if(typeof renderHorizon === 'function') renderHorizon();
-  out.horizonSalary = document.getElementById('view-horizon').innerHTML.includes('salary book, season by season');
+  switchView('horizon'); document.getElementById('hz-club').value = ''; renderHorizon();
+  out.horizonLanding = /who is built for when/.test(document.getElementById('horizonbody').innerText) && !document.getElementById('view-horizon').innerHTML.includes('salary book, season by season');
+  hzPick('NYM');
+  out.horizonSalary = document.getElementById('view-horizon').innerHTML.includes('salary book, season by season') && /#\d+ of 30/.test(document.getElementById('horizonbody').innerText);
+  hzPick('');
   // methodology integrity
   switchView('method');
   const mt = document.getElementById('view-method').innerHTML;

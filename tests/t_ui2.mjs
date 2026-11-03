@@ -236,7 +236,7 @@ Object.assign(R, await page.evaluate(async () => {
   // ---------- Scenario Room ----------
   switchView('scen');
   const labels = [...document.querySelectorAll('#sc-sel option')].map(x => x.text.replace(/^\d+\. /, ''));
-  o.i33_blindLabelsDistinct = new Set(labels.filter(t => /blind/.test(t))).size === labels.filter(t => /blind/.test(t)).length;
+  o.i33_blindLabelsDistinct = new Set(labels.filter(t => /names hidden/.test(t))).size === labels.filter(t => /names hidden/.test(t)).length && labels.some(t => /names hidden/.test(t)) && !labels.some(t => /blind/i.test(t));
   scState.idx = 0; scShow();
   o.i33_needsExplained = /thinnest position groups \(the group's Ledger WAR; lower is thinner\)/.test(txt('scenbody'));
   o.i33_ageNotBlank = /age not on file/.test(txt('scenbody'));
@@ -248,10 +248,10 @@ Object.assign(R, await page.evaluate(async () => {
   switchView('boards'); bdState.tab = 'fa'; renderBoards();
   const ranges = [...document.querySelectorAll('#boardsbody tbody tr')].map(r => { const a = r.innerText.match(/\$([\d.]+)M a year · likely range \$([\d.]+)-([\d.]+)M/); return a ? {aav: +a[1], w: +a[3] - +a[2]} : null; }).filter(Boolean);
   const big = ranges.filter(x => x.aav >= 25), small = ranges.filter(x => x.aav < 6);
-  o.i24_rangeScalesWithDeal = big.length && small.length && Math.min(...big.map(x => x.w)) > Math.max(...small.map(x => x.w)) && /middle half of real outcomes/.test(txt('boardsbody'));
+  o.i24_rangeScalesWithDeal = big.length && small.length && Math.min(...big.map(x => x.w)) > Math.max(...small.map(x => x.w)) && /middle half of real outcomes/.test(txt('view-boards'));
   o.i37_noInternalVersion = !/Since v5\.6/.test(txt('boardsbody')) && !/as expected/.test(txt('boardsbody'));
   bdState.tab = 'farm'; renderBoards();
-  o.i34_farmHidesPosition = document.getElementById('bd-pos').hidden && document.getElementById('bd-pos-lbl').hidden;
+  o.i34_farmBesideProspects = !!document.getElementById('bd-left') && !!document.getElementById('bd-right') && !document.getElementById('bd-pos').hidden;
   bdState.tab = 'fa'; renderBoards();
   o.i34_positionBackOnFA = !document.getElementById('bd-pos').hidden;
 
@@ -303,6 +303,21 @@ Object.assign(R, await page.evaluate(async () => {
   o.h_noAnalyticsPlaceholder = !/YOURCODE/i.test(document.documentElement.outerHTML)
     && !!document.querySelector('script[data-goatcounter="https://szeril1.goatcounter.com/count"]')
     && !!document.querySelector('meta[name="google-site-verification"]');
+  // nav: H2H, 5-Year Horizon, Top Prospects (farm beside it), Top Free Agents; beta badge back
+  const navT = [...document.querySelectorAll('nav button')].map(b => b.textContent.trim());
+  o.j1_navLabels = ['H2H', 'Transaction Trees', '5-Year Horizon', 'Top Prospects', 'Top Free Agents', 'Offseason Simulator'].every(x => navT.includes(x)) && !navT.includes('Farm Systems') && !!document.querySelector('.beta-chip');
+  // column key defines the abbreviations
+  o.j2_columnKey = /Dev<\/strong> \(development\)/.test(document.querySelector('#view-leaderboard .lbkey').innerHTML) && /Ret<\/strong> \(retention\)/.test(document.querySelector('#view-leaderboard .lbkey').innerHTML);
+  // long explainers split into bullets
+  o.j3_folBul = /<ul class="fol-bul"><li>One sentence here\.<\/li><li>Another/.test(folBul('One sentence here. Another sentence that keeps going for a while so the paragraph is long enough to split into bullets at all, which needs two hundred characters or so in total length, and this clause makes sure it is comfortably past that bar.'));
+  // the assistant GM speaks in bullets (a long note's later sentences nest under the first)
+  o.j5_agmBullets = /<ul class="agm-list"><li>We are a fringe club\.<ul><li>At this stage/.test(agmList(['We are a fringe club. At this stage I only buy players 32 or younger, and only where the money moves the depth chart most.']));
+  // every tree carries a save-image button
+  switchView('trees'); o.j4_treeSave = [...document.querySelectorAll('#view-trees .tree-card')].length > 0 && [...document.querySelectorAll('#view-trees .tree-card')].every(c => c.querySelector('.savebtn'));
+  // corrections link: footer and How it works both mail the Ledger inbox
+  const fb = [...document.querySelectorAll('a.fbmail')];
+  o.h_feedbackLink = fb.length >= 2 && fb.every(a => a.href.startsWith('mailto:frontofficeledger@gmail.com?subject='))
+    && !!document.querySelector('footer a.fbmail') && !!document.querySelector('#view-method a.fbaddr');
   // the UI pass adds no em dashes to visible text
   o.noEmDash = !/\u2014/.test(document.body.innerText);
   return o;
