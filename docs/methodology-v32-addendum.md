@@ -1674,10 +1674,18 @@ Current clubs and statuses for every Desk player from the MLB Stats API (319 cha
 
 ## Pre-launch run-through (November 3, 2026, late)
 
-- **Leaderboard.** Seats under two seasons are graded but not ranked; they list below the ranked regimes.
+- **Leaderboard.** Every graded seat is ranked, partial samples included; short tenures carry the small-sample tag. (An earlier pass left seats under two seasons unranked.)
 - **Trade lines.** Card headlines are rebuilt from the club's own side when the league's line leaves the club out, repeats a player or carries a minor-league leg (regen_v3.py, `_fix_h`). True three-team deals are labeled.
 - **Simulator.** The Assistant GM's notes sit under the stage bar. The trade tab opens on a trade block (players who could move, best first, with a position filter), and a button returns to it from any club. Agents never open below the Ledger offer.
 - **Pickers.** Report Cards, Transaction Trees, Org DNA and H2H carry the same club buttons as the Horizon.
 - **Scenario Room.** Opens on the 2017 José Ramírez extension. Live free-agent decisions use the Ledger offer as the market price, the same number as the Top Free Agents board. Trade reveals say that extensions signed later are graded on their own.
 - **Phones.** Big Boards show one list at a time; the trade board and free-agent class no longer scroll inside boxes; the winter memo's toolbar wraps.
 - **Call-ups.** 2026 draftees add nothing in 2027.
+
+## Deal sheets, origins and early seats (November 3, 2026, night)
+
+- **Deal sheets.** Deal Desk verdicts (trade, free-agent signing, extension) use the report card's deal layout: a kicker with the club and regime, a headline, a date line, the two sides with values, the net with its status and the desk grade, a market comps table with a descriptor under each comp, a footnote and a note. The printed memo uses the same sheet.
+- **Comps.** Trades: the nearest real trades by value in and out, control, buyer posture and position on each side. Signings and extensions: the nearest contracts by platform production, age and position type, with what each produced and its surplus. The simulator's deal card shows the three nearest trade comps; each free-agent negotiation has the three nearest signings one click away.
+- **Career trees start at the origin.** Drafted players open on their draft slot and signing bonus (MLB draft results, 1985-2026; `origins.py`). International amateurs open on their first signing, with age and country; their bonuses are not in public data. Graded draft and international decisions keep their grade on that node.
+- **Early seats.** Under two seasons in the seat, style descriptors (temperament, taste, development reads, shopping tags, nearest comparable) are not shown: there is not enough record to read a style. Grades and ranks still show.
+
