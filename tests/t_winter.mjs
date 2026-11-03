@@ -108,6 +108,34 @@ const r = await d.page.evaluate(async () => {
   document.getElementById('gm-memo').remove();
   switchView('desk'); dkState.mode = 'fa'; renderDesk();
   o.deskFaClass = document.querySelectorAll('#dk-fa-class tbody tr').length >= 40 && !!document.getElementById('dk-fa-pos');
+  // Nov 3: the memo ends with the league's winter and saves as two images
+  gmMemo(); const mm = document.getElementById('gm-memo-page');
+  o.memoAroundLeague = /Around the league/.test(mm.innerText) && mm.innerText.indexOf('Around the league') > mm.innerText.indexOf('Where the money sits');
+  const parts = gmMemoParts(); o.memoTwoImages = parts.length === 2 && /gm-depth-card/.test(parts[0].inner) && /Winters that looked like yours/.test(parts[1].inner) && !/gm-depth-card/.test(parts[1].inner);
+  o.imageBrand = /@SeanZerillo/.test(mm.querySelector('.ff-head').innerText) && /@SeanZerillo/.test(mm.querySelector('.ff-foot').innerText) && !!mm.querySelector('.ff-head svg');
+  document.getElementById('gm-memo').remove();
+  // trade walk, available players, the two-sided verdict and its memo
+  const P = n => DESK.players.find(x => x[0] === n);
+  dkState.mode = 'walk'; dkState.you = 'SF'; dkState.walk = P('Logan Webb')[1]; renderDesk();
+  const wrows = document.querySelectorAll('#dk-walk-out tbody tr');
+  o.tradeWalk = wrows.length >= 6 && [...wrows].every(r => /Open on the board/.test(r.innerText));
+  dkWalkLoad(dkWalkOffer(P('Logan Webb'), 'SF', 'SD').buyer);
+  o.tradeWalkLoads = dkState.mode === 'trade' && dkState.them === 'SD' && dkState.send.length === 1 && dkState.recv.length >= 1 && /Will it get done\?/.test(document.getElementById('dk-out').innerText);
+  dkState.mode = 'avail'; renderDesk(); const AV = dkAvailList();
+  o.availList = AV.length >= 40 && AV.every(x => !(gmFranchise(x.p) && gmClubPosture(x.ab) !== 'rebuilding')) && document.querySelectorAll('#deskbody tbody tr').length >= 20;
+  dkState.mode = 'trade'; dkState.you = 'BOS'; dkState.them = 'PIT';
+  dkState.recv = [{kind: 'player', p: P('Oneil Cruz'), ctrl: gmCtrlOf(P('Oneil Cruz'))}]; dkState.send = [{kind: 'player', p: P('Jarren Duran'), ctrl: gmCtrlOf(P('Jarren Duran'))}]; renderDesk(); dkEval();
+  const chip = document.querySelector('.tdeal').innerText;
+  o.pieceShowsTerms = /\$\d+\.\dM in 2027/.test(chip) && /years? of control \(through 20\d\d\)/.test(chip) && !document.querySelector('.tdeal button[onclick^="dkCtrl"]');
+  const out = document.getElementById('dk-out').innerText;
+  o.verdictBothSides = /Boston Red Sox/.test(out) && /Pittsburgh Pirates/.test(out) && !/Sandbox verdict/.test(out);
+  const comps = [...document.querySelectorAll('#dk-out .card')].find(c => /Similar real trades/.test(c.textContent));
+  o.compsMatchShape = !!comps && (comps.innerText.match(/\(outfielder\) for [^(]+\(outfielder\)/g) || []).length >= 3;
+  let dm = ''; const ro = window.open; window.open = () => ({document: {write: h => { dm += h; }, close(){}}}); dkMemo(); window.open = ro;
+  o.dealMemoNeutral = !/sandbox verdict|class="foot"|Assistant GM|class="tiles"/i.test(dm) && /Pittsburgh Pirates get/.test(dm) && /@SeanZerillo/.test(dm);
+  // Antonetti is one Cleveland tenure from 2010
+  const cle = [...AUTO_REGIMES, ...(typeof LB_HIST !== 'undefined' ? LB_HIST : [])].filter(r => /Antonetti/.test(r.exec));
+  o.antonettiOneTenure = cle.length === 1 && String(cle[0].startDate || cle[0].start).startsWith('2010');
   return o;
 });
 await d.browser.close();
