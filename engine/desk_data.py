@@ -8,7 +8,7 @@ Writes desk_data.json:
            star-rental rate, unranked prospect EV
   slot:    draft pick slot-expectation anchors
   teams:   {abbr: 2026 win total}
-  deals:   compact 1998-2023 archive [yr, ab, ph, ck, po, recv, paid, who]
+  deals:   compact 1998-2023 archive [yr, ab, ph, ck, po, recv, paid, who, who_pos, gave, gave_pos]
 """
 import json, sqlite3, os
 from collections import defaultdict
@@ -675,7 +675,7 @@ payroll = {ab: {s: [round(v, 1), n] for s, (v, n) in yrsmap.items()} for ab, yrs
 print("payroll clubs:", len(payroll), "| NYM 2027:", payroll.get("NYM", {}).get("2027"))
 
 deals = json.load(open("/work/deal_archive.json"))
-compact = [[x["yr"], x["ab"], x["ph"][0], x["ck"], x.get("po", "mid")[0], x["recv"], x["paid"], x["who"][:24]] for x in deals]
+compact = [[x["yr"], x["ab"], x["ph"][0], x["ck"], x.get("po", "mid")[0], x["recv"], x["paid"], x["who"][:24], x.get("wpos", ""), (x.get("gave") or "")[:24], x.get("gpos", "")] for x in deals]
 
 # ---- v5.8: the 2026 draft class (signed picks in the top 100) ----
 # MLB Stats API draft endpoint; valued on the draft-slot curve until public

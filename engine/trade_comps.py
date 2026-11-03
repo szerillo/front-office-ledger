@@ -74,6 +74,21 @@ def val_control(pid, teams, y0, cap=6):
         tot += sum(here)
     return tot
 
+# v6.1: the headline piece on each side carries a position group, so the
+# Deal Desk can match an outfielder-for-outfielder swap to swaps like it
+_POS = {}
+for _f in ("/work/positions.json", "/work/positions2.json"):   # the second, cleaner table wins
+    try: _POS.update(json.load(open(_f)))
+    except Exception: pass
+def POS_OF(pid):
+    p = _POS.get(str(pid), "")
+    if p in ("C",): return "C"
+    if p in ("1B", "2B", "3B", "SS", "IF"): return "IF"
+    if p in ("LF", "CF", "RF", "OF"): return "OF"
+    if p in ("P", "RHP", "LHP", "SP", "RP", "TWP"): return "P"
+    if p == "DH": return "DH"
+    return ""
+
 # ---- league-wide deal archive, buyer seats ----
 deals = []
 for reg in cfg["regimes"]:
@@ -91,10 +106,13 @@ for reg in cfg["regimes"]:
         received = sum(val_control(int(x["person_id"]), names, yr) for x in acq)
         paid = sum(val_control(int(p), {dest}, yr) for p, dest in outs.items())
         best = max(acq, key=lambda x: val_control(int(x["person_id"]), names, yr))
+        gave = max(outs.items(), key=lambda t: val_control(int(t[0]), {t[1]}, yr))[0] if outs else None
+        gave_nm = next((x["person_name"] for x in rs if x["person_id"] == gave), None) if gave else None
         ctrl = max(control_years(x["person_id"], d) for x in acq)
         deals.append(dict(d=d, yr=yr, tid=tid, ab=ABBR[tid], ph=phase(d), ck=bucket(ctrl),
                           po=posture(tid, yr), recv=round(received, 1), paid=round(paid, 1),
-                          who=(best["person_name"] or "?")))
+                          who=(best["person_name"] or "?"), wpos=POS_OF(best["person_id"]),
+                          gave=(gave_nm or ""), gpos=POS_OF(gave) if gave else ""))
 print(f"deal archive: {len(deals)} buyer-seat deals 1998-2023")
 
 # index by phase
