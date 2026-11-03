@@ -359,6 +359,20 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
 try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'light') document.documentElement.dataset.theme = _t; } catch(e) {}
 </script>
 <!-- build v5.9 · internal: Ledger WAR 1.6 · sweep 3 · projection 1.1 (attrition) · terms model 4.4 rules + comp filter -->
+<script>
+  // privacy-friendly visit counts (GoatCounter, no cookies); one count per view and club, not per filter
+  var FOL_GC = {last: null, pending: null};
+  function folCount(path){
+    if(!path || path === FOL_GC.last) return;
+    FOL_GC.last = path;
+    if(window.goatcounter && window.goatcounter.count) window.goatcounter.count({path: path, title: document.title});
+    else FOL_GC.pending = path;
+  }
+  function folCountReady(){ if(FOL_GC.pending && window.goatcounter && window.goatcounter.count){ window.goatcounter.count({path: FOL_GC.pending, title: document.title}); FOL_GC.pending = null; } }
+</script>
+<meta name="google-site-verification" content="0-F1RuhH8GhNUOl_oVWNLgSoKVcxsgomZnpBRGt5hEI" />
+<script data-goatcounter="https://szeril1.goatcounter.com/count" data-goatcounter-settings='{"no_onload": true}'
+        async src="//gc.zgo.at/count.js" onload="folCountReady()"></script>
 </head>
 <body>
 
@@ -11267,7 +11281,9 @@ function routeWrite(){
   if(h === ROUTE_LAST) return;
   ROUTE_LAST = h;
   try { history.pushState(null, '', '#' + h); } catch(e){ try { location.hash = h; } catch(e2){} }
+  routeCount();
 }
+function routeCount(){ try { const q = routeState(); folCount('/' + q.view + (q.id ? '/' + q.id : '')); } catch(e){} }
 function routeApply(h){
   const q = routeParse(h);
   const v = ROUTE_BACK[q.view] || (ROUTE_NAMES[q.view] ? q.view : 'leaderboard');
@@ -11289,6 +11305,7 @@ function routeApply(h){
   } finally { ROUTE_MUTE--; }
   ROUTE_LAST = routeStr(routeState());
   try { history.replaceState(null, '', '#' + ROUTE_LAST); } catch(e){}
+  routeCount();
 }
 ['switchView', 'renderReport', 'renderChamp', 'scShow', 'renderH2h', 'renderHorizon', 'renderTrees', 'renderBoards', 'renderLB', 'gmShow', 'renderDesk'].forEach(fn => {
   const orig = window[fn]; if(typeof orig !== 'function') return;
@@ -11301,7 +11318,7 @@ window.addEventListener('hashchange', () => { if(location.hash.slice(1) !== ROUT
 (function(){
   ROUTE_MUTE = 0;
   if(/(^#|&)view=/.test(location.hash)) routeApply(location.hash);
-  else ROUTE_LAST = routeStr(routeState());
+  else { ROUTE_LAST = routeStr(routeState()); routeCount(); }
 })();
 
 // every control gets an accessible name: a text label beside it is tied to it,
