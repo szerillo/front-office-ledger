@@ -46,4 +46,4 @@ winters, and the curated Burnes cards agreeing with the computed trade book.
 misses for having been traded (Abrams, Gore), every trade in a tenure is
 listed with per-move letters and no channel stamp on the "best" tables, the
 tree finder browses the full list and renders a chain, open branches carry
-projections, "lev-adj" is glossed, and the nav, beta tag, and Watchmen line.
+projections, "lev-adj" is glossed, and the nav, beta tag, and "Evaluating the evaluators" line.

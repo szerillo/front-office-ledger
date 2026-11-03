@@ -136,6 +136,17 @@ const r = await d.page.evaluate(async () => {
   // Antonetti is one Cleveland tenure from 2010
   const cle = [...AUTO_REGIMES, ...(typeof LB_HIST !== 'undefined' ? LB_HIST : [])].filter(r => /Antonetti/.test(r.exec));
   o.antonettiOneTenure = cle.length === 1 && String(cle[0].startDate || cle[0].start).startsWith('2010');
+  // Nov 3 (late): trade block naming, no cornerstone chips, horizon picker on top, 2026 debuts on the boards
+  dkState.mode = 'walk'; dkState.you = 'SF'; renderDesk();
+  o.tradeBlockNamed = /Trade block/i.test(document.getElementById('deskbody').innerText) && /player to shop/i.test(document.getElementById('deskbody').innerText) && !/Trade walk/.test(document.body.innerText);
+  o.noCornerstoneChip = !/CORNERSTONE/.test(document.body.innerHTML);
+  switchView('horizon'); hzPick('');
+  const hc = document.getElementById('hz-chips');
+  o.horizonPickerTop = !!hc && /All 30/.test(hc.innerText) && hc.querySelectorAll('.clubchip').length === 30 && !!(hc.compareDocumentPosition(document.getElementById('horizonbody')) & Node.DOCUMENT_POSITION_FOLLOWING) && !document.querySelector('#horizonbody .clubchips');
+  hzPick('BOS'); o.horizonEndsGrouped = !/\(control ends\)|\(contract ends\)/.test(document.getElementById('horizonbody').innerText);
+  const before = gmState.club; switchView('gm'); gmRandomClub(); o.simRandomClub = !!gmState.club && gmState.club !== before && document.getElementById('gm-club').value === gmState.club;
+  const pratt = P('Cooper Pratt'), dp = P('Josue De Paula');
+  o.debutsOnBoards = Object.keys(DESK.deb26 || {}).length >= 50 && (!pratt || !gmIsProsRow(pratt) || bdLvl(pratt) === 'MLB') && (!dp || !gmIsProsRow(dp) || bdLvl(dp) === 'MLB');
   return o;
 });
 await d.browser.close();

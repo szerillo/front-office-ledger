@@ -32,7 +32,7 @@ const r = await d.page.evaluate(() => {
   o.levAdjExplained = (() => { switchView('report', 'bal'); renderReport('bal'); return true; })();
   o.betaPublicData = !document.querySelector('header .sample-chip') && /independent fan project, built entirely from public data/i.test(document.querySelector('footer').textContent);
   o.navNoRedundantLabel = !/Front offices, graded|Show your work/i.test(document.querySelector('nav').innerText);
-  o.watchmen = /Who watches the Watchmen/.test(document.getElementById('view-method').innerText);
+  o.watchmen = /Evaluating the evaluators/.test(document.getElementById('view-method').innerText);
   // forward-looking boards (v5.5): free agents with projected contracts, prospects, farm systems
   switchView('boards');
   bdState.tab = 'fa'; renderBoards(); o.faBoard = document.querySelectorAll('#boardsbody tbody tr').length >= 40 && /likely range/.test(document.getElementById('boardsbody').innerText);
