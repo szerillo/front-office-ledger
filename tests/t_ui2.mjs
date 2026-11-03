@@ -50,7 +50,7 @@ Object.assign(R, await page.evaluate(async () => {
   const realOpen = window.open;
   window.open = () => ({document: {write: h => { memo += h; }, close(){}}});
   dkMemo(); window.open = realOpen;
-  o.i12_memoFromSnapshot = /Tarik Skubal/.test(memo) && !/Juan Soto/.test(memo) && /7 yrs \/ \$385M/.test(memo);
+  o.i12_memoFromSnapshot = /Tarik Skubal/.test(memo) && !/Juan Soto/.test(memo) && /7 yrs? \/ \$385M/.test(memo);
   // 9: extensions: retired refused, class override warned, auto class re-runs, pay never cut
   dkState.mode = 'ext'; dkState.you = 'LAD'; renderDesk();
   const extTry = (who, club, y, t, cls) => { setv('dk-ext-player', who); setv('dk-ext-club', club); dkSuggestNow('ext'); if(cls) setv('dk-ext-cls', cls); setv('dk-ext-yrs', y); setv('dk-ext-m', t); dkEval(); return txt('dk-out'); };
@@ -70,14 +70,13 @@ Object.assign(R, await page.evaluate(async () => {
   dkState.them = 'CHC'; renderDesk();
   const senga = pl('Kodai Senga'), pca = pl('Pete Crow-Armstrong'), soto = pl('Juan Soto');
   dkState.send = [{kind: 'player', p: senga, ctrl: gmCtrlOf(senga)}]; dkState.recv = [{kind: 'player', p: pca, ctrl: gmCtrlOf(pca)}]; dkEval();
-  const sendTile = [...document.querySelectorAll('#dk-out .tile')].find(t => /You send/.test(t.textContent));
-  const sv = sendTile.querySelector('.val'), sNum = +sv.innerText.replace(/[^\d.\-+]/g, '');
+  const sv = document.querySelector('#dk-out .dk-tot[data-k="send"] .dk-totv'), sNum = +sv.innerText.replace(/[^\d.\-+]/g, '');
   const paying = (txt('dk-out').match(/You are paying ([+\-]?\d+\.\d)/) || [])[1];
   o.i07_sendSignMatchesMarket = paying != null && Math.abs(+paying - sNum) < 0.05 && sv.classList.contains(sNum >= 0 ? 'pos' : 'neg');
-  const recvTile = [...document.querySelectorAll('#dk-out .tile')].find(t => /You receive/.test(t.textContent)).querySelector('.val');
+  const recvTile = document.querySelector('#dk-out .dk-tot[data-k="recv"] .dk-totv');
   o.i07_recvColorBySign = recvTile.classList.contains(+recvTile.innerText.replace(/[^\d.\-+]/g, '') >= 0 ? 'pos' : 'neg');
   dkState.send = [{kind: 'player', p: soto, ctrl: gmCtrlOf(soto)}]; dkEval();
-  o.i07_blockedNotGraded = !/ends the call/.test(txt('dk-out')) || /n\/a/.test([...document.querySelectorAll('#dk-out .tile')].find(t => /Desk grade/.test(t.textContent)).textContent);
+  o.i07_blockedNotGraded = !/ends the call/.test(txt('dk-out')) || /n\/a/.test(document.querySelector('#dk-out .dk-grade').textContent);
   // 22: draft room and picks
   dkState.mode = 'draft'; dkState.dr = {recv: [], send: []}; renderDesk(); dkEval();
   o.i22_emptyPackageNotGraded = /to each side/.test(txt('dk-out')) && !/Chart verdict/.test(txt('dk-out'));

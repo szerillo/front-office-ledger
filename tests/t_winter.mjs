@@ -129,8 +129,9 @@ const r = await d.page.evaluate(async () => {
   o.pieceShowsTerms = /\$\d+\.\dM in 2027/.test(chip) && /years? of control \(through 20\d\d\)/.test(chip) && !document.querySelector('.tdeal button[onclick^="dkCtrl"]');
   const out = document.getElementById('dk-out').innerText;
   o.verdictBothSides = /Boston Red Sox/.test(out) && /Pittsburgh Pirates/.test(out) && !/Sandbox verdict/.test(out);
-  const comps = [...document.querySelectorAll('#dk-out .card')].find(c => /Similar real trades/.test(c.textContent));
-  o.compsMatchShape = !!comps && (comps.innerText.match(/\(outfielder\) for [^(]+\(outfielder\)/g) || []).length >= 3;
+  const comps = [...document.querySelectorAll('#dk-out .lens-box')].find(c => /Market comps/.test(c.textContent));
+  o.compsMatchShape = !!comps && [...comps.querySelectorAll('.lens-desc')].filter(d => /^outfielder · for [^(]+\(outfielder\)/.test(d.textContent)).length >= 3;
+  o.deskSheetLayout = !!document.querySelector('#dk-out .dk-sheet .m-type') && document.querySelectorAll('#dk-out .dk-sheet .sides .side').length === 2 && /Net to Boston Red Sox/.test(out);
   let dm = ''; const ro = window.open; window.open = () => ({document: {write: h => { dm += h; }, close(){}}}); dkMemo(); window.open = ro;
   o.dealMemoNeutral = !/sandbox verdict|class="foot"|Assistant GM|class="tiles"/i.test(dm) && /Pittsburgh Pirates get/.test(dm) && /@SeanZerillo/.test(dm);
   // Antonetti is one Cleveland tenure from 2010
@@ -154,7 +155,9 @@ const r = await d.page.evaluate(async () => {
   o.simAgmOnTop = gb.indexOf('Assistant GM') > -1 && gb.indexOf('Assistant GM') < gb.indexOf('Free agents');
   gmPickThem('WSH'); o.simBackToBlock = !!document.querySelector('button[onclick="gmTradeBlock()"]') && /negotiate the deal/.test(document.getElementById('gmbody').innerText);
   o.clubPickers = ['report', 'trees', 'dna', 'h2h'].every(v => !!document.getElementById('vc-' + v));
-  o.shortTenuresUnranked = lbRows().filter(r => !r._hist && lbShort(r)).length >= 1;
+  o.allSeatsRanked = (() => { renderLB(); const k = document.getElementById('sortsel').value; return [...document.querySelectorAll('#lb tbody td.rk')].filter(td => td.textContent.trim()).length === lbRows().filter(r => lbSortVal(r, k) != null).length; })();
+  o.treeStartsAtDraft = /drafted by DET/.test(careerTree('669373').kids[0].via) && /pick 255 overall · \$350K/.test(careerTree('669373').kids[0].nm);
+  o.treeStartsAtIntl = /international amateur by WSH/.test(careerTree('665742').kids[0].via) && careerTree('665833').kids.filter(k => /2015-07-02/.test(k.via)).length === 1;
   o.draftee2027Zero = Object.keys(DESK.draft26 || {}).slice(0, 20).every(id => { const p = DESK.players.find(x => String(x[1]) === id); return !p || (DESK.deb26 || {})[id] || gmProsY1(p) === 0; });
   o.scenarioOpensOnRamirez = scAll()[Math.max(0, SCEN.findIndex(x => x.id === 'ext-2016-ramirez'))].id === 'ext-2016-ramirez';
   return o;
