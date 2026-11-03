@@ -750,6 +750,8 @@ out = dict(
     rookie=PROS["rookie"],
     t100lvl=PROS["top100Level"],
     deb26=(json.load(open("/work/debut26.json")) if os.path.exists("/work/debut26.json") else {}),
+    skadj={k: v[0] for k, v in (json.load(open("/work/skill_adj.json"))["adj"].items() if os.path.exists("/work/skill_adj.json") else {}) if abs(v[0]) >= 0.02},   # Nov 3: Statcast skill adjustment to the projection base (skills_fit.py)
+    qo27=(json.load(open("/work/qo_2027.json"))["qo"] if os.path.exists("/work/qo_2027.json") else {}),   # Nov 3: this winter's real qualifying offers {pid: club}
     cons=(json.load(open("/work/market_consensus.json")) if os.path.exists("/work/market_consensus.json") else {}),   # Nov 3: published contract projections, median per player: [years, AAV $M, sources, source keys]   # v6.1: prospects who reached the majors in 2026
     cbt={"2026": 244, "2027": None},  # 2027+ awaits the next CBA
     cachePlayers=len(LVM),            # v5.9: the page's copy reads this count

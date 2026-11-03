@@ -66,6 +66,22 @@ for c in R["comps"]:
                       v=(w[0] + w[1]) / 2 if len(w) > 1 else w[0], f=f))   # first two MLB seasons, averaged
 print("usable comps:", len(comps), "| hitters", sum(1 for c in comps if c["f"]["kind"] == "H"), "pitchers", sum(1 for c in comps if c["f"]["kind"] == "P"))
 
+# Nov 3: a second translation, from the money. Across the same imports, what
+# each was paid (AAV, drifted 5% a winter to today's market) against what he
+# went on to produce: v = a + b x AAV, hitters and pitchers apart. The page
+# blends it with the stat translation for a posted player whose price the
+# published projections give (DESK.cons): the stat comps are thin (10 hitters,
+# 15 pitchers) and the market's price carries scouting the box score lacks.
+import statistics as _st
+def _fit(xs, ys):
+    mx, my = _st.mean(xs), _st.mean(ys)
+    b = sum((x - mx) * (y - my) for x, y in zip(xs, ys)) / sum((x - mx) ** 2 for x in xs)
+    return [round(my - b * mx, 3), round(b, 4)]
+MT = {}
+for _k in ("H", "P"):
+    _pool = [c for c in comps if c["f"]["kind"] == _k]
+    MT[_k] = _fit([c["tot"] / c["yrs"] * (1.05 ** (2026 - int(c["off"][:4]))) for c in _pool], [c["v"] for c in _pool])
+print("money translation (v = a + b x AAV):", MT)
 out = {}
 for pz in R["posted"]:
     if pz.get("status") != "posted" or not pz.get("mlbam_id"): continue
@@ -99,6 +115,7 @@ for pz in R["posted"]:
         name=pz["name"], club=pz["team"], league=pz["league"], pos=pz["primary_position"], pit=1 if pit else 0,
         age=age26, line26=line, awards=pz.get("awards", [])[:3], deadline=pz.get("signing_deadline"),
         translated=per_season,
+        mt=MT["P" if pit else "H"],
         comps=[[c["name"], c["off"], c["yrs"], c["tot"], c["club"], c["y1"], c["y2"], d] for c, d in used],
         public=[[x.get("outlet"), x.get("years"), x.get("total_musd")] for x in (pz.get("projections") or [])
                 if x.get("years") and x.get("total_musd") and "secondary" not in (x.get("outlet") or "")],
