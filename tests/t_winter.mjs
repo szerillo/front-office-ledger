@@ -156,6 +156,11 @@ const r = await d.page.evaluate(async () => {
   gmPickThem('WSH'); o.simBackToBlock = !!document.querySelector('button[onclick="gmTradeBlock()"]') && /negotiate the deal/.test(document.getElementById('gmbody').innerText);
   o.clubPickers = ['report', 'trees', 'dna', 'h2h'].every(v => !!document.getElementById('vc-' + v));
   o.allSeatsRanked = (() => { renderLB(); const k = document.getElementById('sortsel').value; return [...document.querySelectorAll('#lb tbody td.rk')].filter(td => td.textContent.trim()).length === lbRows().filter(r => lbSortVal(r, k) != null).length; })();
+  // Nov 3 (night): Cashman graded from the 2005-06 winter, 1998-2005 is an archive record; a claim and the same club's later loss are one entry
+  { const ny = lbRows().find(r => abOf(r) === 'NYY' && !r._hist), ar = (typeof LB_HIST !== 'undefined' ? LB_HIST : []).find(r => /Cashman/.test(r.exec));
+    o.cashmanSplit = !!ny && String(ny.startDate) === '2005-11-01' && !!ar && (ar.flags || []).includes('ownership era') && +ar.start === 1998; }
+  { const ny = lbRows().find(r => abOf(r) === 'NYY' && !r._hist); const w = (ny.allx || {}).waiver || [];
+    o.waiverClaimLossPaired = !w.some(x => x[1] === 'Dan Otero') || w.filter(x => x[1] === 'Dan Otero').length === 1 && Math.abs(w.find(x => x[1] === 'Dan Otero')[3]) < 0.5; }
   o.treeStartsAtDraft = /drafted by DET/.test(careerTree('669373').kids[0].via) && /pick 255 overall · \$350K/.test(careerTree('669373').kids[0].nm);
   o.treeStartsAtIntl = /international amateur by WSH/.test(careerTree('665742').kids[0].via) && careerTree('665833').kids.filter(k => /2015-07-02/.test(k.via)).length === 1;
   o.draftee2027Zero = Object.keys(DESK.draft26 || {}).slice(0, 20).every(id => { const p = DESK.players.find(x => String(x[1]) === id); return !p || (DESK.deb26 || {})[id] || gmProsY1(p) === 0; });
