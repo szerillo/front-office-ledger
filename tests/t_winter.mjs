@@ -49,10 +49,10 @@ const r = await d.page.evaluate(async () => {
   o.undoReturnsProspects = !gmState.farmIn.has(tb[1]) && !gmState.outs.has(mine[0][1]) && !gmFullRoster().some(x => x[1] === tb[1]);
   // Phase II: peak projections on prospects; org tier valued by its comps
   const made = pl('Jesús Made');
-  o.peakOnTop100 = !!gmPeakOf(made) && /peak/.test(dkProjPlayer(made, 6).how) && Math.abs(dkProjPlayer(made, 6).total - dkInterp(DESK.vrank, made[9])) < 1e-9;
+  o.peakOnTop100 = !!gmPeakOf(made) && /peak/.test(dkProjPlayer(made, 6).how) && Math.abs(dkProjPlayer(made, 6).total - gmVrank(made[9], made[3])) < 1e-9;
   const org = DESK.players.find(p => (DESK.pros||{})[p[1]] && !p[9] && gmPeakOf(p) && Math.abs(p[5])+Math.abs(p[6])+Math.abs(p[7]) === 0);
   o.orgValuedByComps = !!org && Math.abs(gmPV(org) - DESK.pros[org[1]][1]) < 1e-9 && /comparables/.test(dkProjPlayer(org, 6).how);
-  o.peakSane = Object.values(DESK.peak).every(k => k[0] >= 0 && k[0] <= 8 && k[2] <= k[1] + 1e-9 && k[1] <= 1 && k[7].length >= 4);
+  o.peakSane = Object.values(DESK.peak).every(k => k[0] >= 0 && k[0] <= 8 && k[2] <= k[1] + 1e-9 && k[1] <= 1 && (k[7].length >= 4 || !k[7].length));   // Top 100 prospects with no minor-league line carry the rank history alone
   o.backtestBeatsBuckets = DESK.peakBacktest.unranked.comps_r > DESK.peakBacktest.unranked.level_age_bucket_r;
   // trees end where the player stands today (v5.3.2)
   const nm2 = Object.assign({}, TRADE_BOOK.names, PLAYER_NAMES); const pidOf = n => Object.keys(nm2).find(k => nm2[k] === n);
@@ -98,7 +98,16 @@ const r = await d.page.evaluate(async () => {
   o.simAgmBuildsDeal = gmState.tr.want.length >= 1 && gmState.tr.give.length >= 1 && /Assistant GM/.test(document.getElementById('gmbody').innerText);
   gmState.stage = 5; gmShow();
   const M = gmMarketSim(), sg = M.out.filter(x => x.club), vs = sg.map(x => x.vs).sort((a, b) => a - b);
-  o.simMarketClears = sg.length >= 40 && sg.every(x => x.club !== 'PIT') && Math.abs(vs[Math.floor(vs.length / 2)]) <= 0.1 && /rest of the market/.test(document.getElementById('gmbody').innerText);
+  o.simMarketClears = sg.length >= 40 && sg.every(x => x.club !== 'PIT') && Math.abs(vs[Math.floor(vs.length / 2)]) <= 0.1 && !/rest of the market/.test(document.getElementById('gmbody').innerText);   // the league market runs but is no longer shown
+  // Nov 2026: no club bids past its own free-agent history; the memo is one page, depth chart first
+  const SP = gmClubSpend();
+  o.simSpendHistory = sg.every(x => !SP[x.club] || x.tot / x.yrs <= Math.max(SP[x.club].max * 1.2, 12) + 0.01);
+  gmMemo(); const memo = document.getElementById('gm-memo-page');
+  o.memoOnePage = !!memo && !!memo.querySelector('#gm-depth-card') && /The winter, move by move/.test(memo.innerText) && /Winters that looked like yours/.test(memo.innerText) && /Where the money sits/.test(memo.innerText)
+    && memo.innerText.indexOf('depth chart') < memo.innerText.indexOf('Winters that looked like yours');
+  document.getElementById('gm-memo').remove();
+  switchView('desk'); dkState.mode = 'fa'; renderDesk();
+  o.deskFaClass = document.querySelectorAll('#dk-fa-class tbody tr').length >= 40 && !!document.getElementById('dk-fa-pos');
   return o;
 });
 await d.browser.close();

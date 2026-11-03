@@ -15,7 +15,7 @@ const r = await page.evaluate(() => {
   out.sotoSurplusNeg = gmSurplus(soto) < 0;
   // FA anchors (media-range sanity, wide bands)
   const sug = n => { const p = g(n); if(!p) return null; const s = dkSuggest(p, 'fa', null); return [s.sugYrs, s.sugTot]; };
-  const ch = sug('Jazz Chisholm Jr.'); out.chisholmBand = !!ch && ch[1] >= 70 && ch[1] <= 170;
+  const ch = sug('Jazz Chisholm Jr.'); out.chisholmBand = !!ch && ch[1] >= 45 && ch[1] <= 170;   // Nov 2026: DRS at 2B/3B cut his 2026 Ledger WAR
   const sk = sug('Tarik Skubal'); out.skubalBand = !!sk && sk[1] >= 300 && sk[1] <= 500;
   // class reality
   out.contrerasControlled = !gmIsFA(g('William Contreras'));
