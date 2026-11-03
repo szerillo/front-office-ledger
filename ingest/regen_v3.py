@@ -112,7 +112,7 @@ def trade_note(d):
                    else "they fell short of their marks, so the outcome flatters the process" if gap < -2.5
                    else "they did about what their marks said")
         _n = a['n_out']
-        base += (f" PROCESS CHECK: the {_n} ranked {'piece' if _n == 1 else 'pieces'} surrendered carried a Pipeline mark of about "
+        base += (f" PROCESS CHECK: the {_n} ranked {'piece' if _n == 1 else 'pieces'} surrendered carried a prospect-rank mark of about "
                  f"{a['out']:+0.1f} wins at the time; they realized {d.get('vout', 0):+0.1f} for the counterparty, so {verdict}.")
     if a and a.get("n_in"):
         base += f" Acquired ranked pieces were marked {a['inn']:+0.1f} at the time."
@@ -131,6 +131,7 @@ def row(d):
     if d["ch"] == "trade": r["note"] = trade_note(d)
     r["ch"] = d["ch"]
     if d.get("st") is not None: r["st"] = d["st"]
+    if d.get("pre"): r["pre"] = 1     # v5.9: an extension with no bought-out season played yet carries no letter
     return r
 
 def chan_ledgers(r):
@@ -210,12 +211,8 @@ for r in res:
         dnaTags=STYLES.get(r["teamId"], []),
         h2h=r.get("h2h", [])[:10],
     ))
-    if r["id"] in ("lad", "bal", "mil"):
-        # v5.1: the three hand-verified cards are graded by the same engine as
-        # every other card; their hand-written decision pages ride along as a
-        # showcase. Move the computed card aside instead of listing it twice.
-        CURATED_FULL[r["id"]] = auto.pop()
-        CURATED_FULL[r["id"]]["h2h"] = r.get("h2h", [])
+    # Nov 2: the hand-written showcase cards (lad/bal/mil) are retired; every
+    # active card is this computed one
 
 def swap(s, anchor, end_marker, payload):
     i = s.find(anchor)
@@ -224,6 +221,12 @@ def swap(s, anchor, end_marker, payload):
     assert j > i, end_marker
     return s[:i] + anchor + payload + s[j:]
 
+# Nov 2: the heavy per-card detail (every decision list) ships in cards.js,
+# loaded in parallel like moves.js, so the page itself opens fast on phones
+CARD_DETAIL = {}
+_HEAVY = ("chanLedgers", "allx", "walk")
+for _a in auto:
+    CARD_DETAIL[_a["id"]] = {k: _a.pop(k) for k in _HEAVY if k in _a}
 s = swap(s, "const AUTO_REGIMES = ", ";\n\n/* =", json.dumps(auto, separators=(",", ":"), ensure_ascii=False))
 
 # ---- ARCHIVE (historical) regimes -> LB_HIST, full report cards ----
@@ -371,6 +374,9 @@ if os.path.exists("/work/hist_results.json"):
         fa_rows = c["allx"].get("fa") or []
         c["allx"]["fa"] = [x for x in fa_rows if len(x) > 2 and x[2] is not None]
         c["faUnpriced"] = len(fa_rows) - len(c["allx"]["fa"])
+    for _c in hist_cards:
+        _d = {k: _c.pop(k) for k in _HEAVY if k in _c}
+        if _d: CARD_DETAIL[_c["id"]] = _d
     s = swap(s, "const LB_HIST = ", ";\n\n/* =", json.dumps(hist_cards, separators=(",", ":"), ensure_ascii=False))
     print(f"archive cards: {len(hist_cards)}")
 
@@ -424,6 +430,7 @@ def collect(o):
         for v in o: collect(v)
 collect(auto)
 collect(hist_cards)
+collect(CARD_DETAIL)   # the decision lists now ship in cards.js
 # v5.7: every player in a trade since 2023 gets his move history, so recent
 # chains (the ones people follow) end where the player stands, whichever
 # trades the report cards happen to feature
@@ -556,9 +563,47 @@ MOVES = {k: [[m[0], _MTI[m[1]]] + list(m[2:]) for m in ms] for k, ms in MOVES.it
 _mv_body = ("PLAYER_MOVE_TYPES = " + json.dumps(_MT, ensure_ascii=False) + ";\nPLAYER_MOVES = " + json.dumps(MOVES, separators=(",", ":"), ensure_ascii=False)
             + ";\nfor(const _k in PLAYER_MOVES) PLAYER_MOVES[_k].forEach(m => { if(typeof m[1] === 'number') m[1] = PLAYER_MOVE_TYPES[m[1]]; });\n"
             + "window.MOVES_READY = true; window.dispatchEvent(new Event('moves-loaded'));\n")
+
+# ---- Nov 2026: one look for every row. Process notes out of the shipped data
+# (computed badges, archive labels, scoring notes), negative zero out, and
+# league-feed trade text cleaned: affiliate clauses dropped, feed capitals
+# lowered, long headlines cut at a word with an ellipsis.
+import re as _rx
+_CFG = json.load(open("/work/regimes.json"))
+_MLB = set()
+for _r in _CFG["regimes"]: _MLB.add(_r["team"])
+for _v in _CFG.get("aliases", {}).values(): _MLB.update(_v)
+_MLB.update({"Florida Marlins", "Montreal Expos", "Anaheim Angels", "Tampa Bay Devil Rays", "Los Angeles Angels of Anaheim", "Cleveland Indians", "Oakland Athletics", "Athletics"})
+def _clean_h(h):
+    parts = h.split("; ")
+    if len(parts) > 1:
+        keep = [c for c in parts if not _rx.match(r"^([A-Z][\w.'\- ]+?) (traded|Traded|sent|Sent) ", c) or _rx.match(r"^([A-Z][\w.'\- ]+?) (traded|Traded|sent|Sent) ", c).group(1) in _MLB]
+        if keep: h = "; ".join(keep)
+    h = h.replace(" Traded ", " traded ").replace("Future Considerations", "future considerations").replace("Player To Be Named Later", "a player to be named later").replace("Cash Considerations", "cash")
+    if len(h) > 300:
+        cut = h[:300].rsplit(" ", 1)[0].rstrip(",;")
+        h = cut + "…"
+    return h
+def scrub_text(t):
+    t = _rx.sub(r' ?<span class=\\?"badge-real\\?">COMPUTED</span>', "", t)
+    t = t.replace(" §C", "")
+    t = _rx.sub(r" ?\(curated repair:[^\"<§\\]*", "", t)
+    t = t.replace(" (Retrosheet archive)", "").replace("Trade · archive sweep", "Trade").replace(" · archive sweep", "")
+    t = t.replace("Auto-scored: value in", "Value in").replace("Auto-scored: ", "")
+    t = t.replace("nothing (no compensation modeled yet)", "nothing in return").replace("nothing (no compensation modeled)", "nothing in return")
+    t = _rx.sub(r'"-0\.0"', '"0.0"', t)
+    t = _rx.sub(r'("h":")((?:[^"\\]|\\.)*)(")', lambda m: m.group(1) + _clean_h(m.group(2)) + m.group(3), t)
+    return t
+_mv_body = scrub_text(_mv_body)
 import hashlib as _hl
 MOVES_VER = _hl.md5(_mv_body.encode()).hexdigest()[:10]
 open(os.path.join(os.path.dirname(P), "moves.js"), "w").write(_mv_body)
+_cd_body = "window.CARD_DETAIL = " + json.dumps(CARD_DETAIL, separators=(",", ":"), ensure_ascii=False) + ";\nif(typeof cardsMerge === 'function') cardsMerge();\n"
+_cd_body = __import__("re").sub(r"\bLVM\b", "WAR", _cd_body)
+_cd_body = scrub_text(_cd_body)   # readers know the metric as Ledger WAR
+CARDS_VER = _hl.md5(_cd_body.encode()).hexdigest()[:10]
+open(os.path.join(os.path.dirname(P), "cards.js"), "w").write(_cd_body)
+print(f"cards.js: {len(CARD_DETAIL)} cards, {len(_cd_body)/1e6:.2f}MB")
 mv_js = ("let PLAYER_MOVE_TYPES = [], PLAYER_MOVES = {};"
          + "\nconst PLAYER_NAMES = " + json.dumps(NAMES, separators=(",", ":"), ensure_ascii=False)
          + ";\nconst PLAYER_RANKS = " + json.dumps(RANKS, separators=(",", ":"), ensure_ascii=False)
@@ -588,22 +633,7 @@ if TB is not None:
         s = s[:k] + tb_js + s[k:]
     print("trade book spliced:", len(TB["trades"]), "trades,", len(TB["names"]), "extra names")
 
-# curated cards (lad/bal/mil): their decision pages are hand-verified, but the
-# Results block is objective standings + October data, so it syncs from the
-# computed sweep every regen (it had drifted: the 2026 champion read 0 titles)
 import re as _re
-for _r in res:
-    if _r["id"] not in ("lad", "bal", "mil"): continue
-    _su = _r["success"]
-    _lit = ("success:{wpct:'%s', div:%d, po:%d, sw:%d, pen:%d, ws:%d, g:%d}"
-            % (_su["wpct"], _su["div"], _su["po"], _su["sw"], _su["pen"], _su["ws"], _su["g"]))
-    _i = s.find("id:'%s', exec:" % _r["id"])
-    assert _i > 0, _r["id"]
-    _j = s.find("success:{", _i); _k = s.find("}", _j) + 1
-    s = s[:_j] + _lit + s[_k:]
-    _t = _re.compile(r"titles:\d+").search(s, _i)
-    s = s[:_t.start()] + "titles:%d" % _su["ws"] + s[_t.end():]
-    print("curated success synced:", _r["id"], _lit)
 # v5.5: single-move grades are relative to moves of the same kind and size.
 # For each channel, every decision the engines graded (all clubs, all
 # regimes; trades from both seats of the full trade book) is split into five
@@ -630,12 +660,41 @@ def _bands(pairs, nb=5):
         q = [round(nets[min(len(nets) - 1, int(k / 40 * (len(nets) - 1) + 0.5))], 2) for k in range(41)]
         out.append([seg[-1][0] if b < nb - 1 else 9999, q, len(seg)])
     return out
-MOVE_BANDS = {k: _bands(v) for k, v in _pop.items() if v}
+MOVE_BANDS = {k: _bands(v, 10 if k == "trade" else 5) for k, v in _pop.items() if v}
 s = _re.sub(r"const MOVE_BANDS = .*?;\n", lambda m: "const MOVE_BANDS = " + json.dumps(MOVE_BANDS, separators=(",", ":"), ensure_ascii=False) + ";\n", s, count=1, flags=_re.S)
 print("move bands:", {k: [b[2] for b in v] for k, v in MOVE_BANDS.items()})
+# v5.9 (Nov 2): data behind the Methodology charts
+import sys as _sys2
+_sys2.path.insert(0, "/work")
+import asset_rules as _AR
+_V = json.load(open("/work/validation.json"))
+_cv = next((c for c in _AR._book()["book"] if c["kind"] == "ext" and c["name"] == "Corbin Carroll"), None)
+METHOD_VIZ = dict(acct=_V["accounting"].get("pts", []),
+                  rel=json.load(open("/work/reliability.json")) if _os.path.exists("/work/reliability.json") else None,
+                  ext=dict(name="Corbin Carroll", deal="8 yr / $111M", aav=_cv["aav"], ce=_AR.control_end(_cv["pid"]),
+                           sched=[[y, round(_AR.ext_salary(_cv, y), 1)] for y in range(_cv["start"], _cv["start"] + _cv["yrs"])]) if _cv else None)
+_mv = "const METHOD_VIZ = " + json.dumps(METHOD_VIZ, separators=(",", ":"), ensure_ascii=False) + ";\n"
+if "const METHOD_VIZ = " in s: s = _re.sub(r"const METHOD_VIZ = .*?;\n", lambda m: _mv, s, count=1, flags=_re.S)
+# free-agent skill profiles for the simulator's league market (fa_skills.py)
+import os as _os
+if _os.path.exists("/work/fa_skills.json"):
+    _fs = "const FA_SKILL = " + json.dumps(json.load(open("/work/fa_skills.json")), separators=(",", ":")) + ";\n"
+    if "const FA_SKILL = " in s: s = _re.sub(r"const FA_SKILL = .*?;\n", lambda m: _fs, s, count=1, flags=_re.S)
+    else: s = s.replace("const CALIB = ", _fs + "const CALIB = ", 1)
+# the contract backtest behind the likely range and the Methodology scatter: the shipped blend (calib_blend.json)
+if _os.path.exists("/work/calib_blend.json"):
+    _cb = "const CALIB = " + json.dumps(json.load(open("/work/calib_blend.json")), separators=(",", ":"), ensure_ascii=False) + "; // CALIB-END\n"
+    s = _re.sub(r"const CALIB = .*?; // CALIB-END\n", lambda m: _cb, s, count=1, flags=_re.S)
+else: s = s.replace("const MOVE_BANDS = ", _mv + "const MOVE_BANDS = ", 1)
 # v5.4: readers know the metric as Ledger WAR; "LVM" was internal shorthand
 import re
 s = re.sub(r"\bLVM\b", "WAR", s)
+for _k in ("const AUTO_REGIMES = ", "const LB_HIST = ", "const CHAMPS_AUTO = "):
+    _i = s.find(_k)
+    if _i >= 0:
+        _j = s.find(";\n", _i)
+        s = s[:_i] + scrub_text(s[_i:_j]) + s[_j:]
 s = _re.sub(r"moves\.js\?v=[0-9a-f]*", "moves.js?v=" + MOVES_VER, s)
+s = _re.sub(r"cards\.js\?v=[0-9a-f]*", "cards.js?v=" + CARDS_VER, s)
 open(P, "w").write(s)
 print(f"regenerated {len(auto)} auto regimes (v3 data)")
