@@ -1251,7 +1251,7 @@ and prices the moves still to be made.
 
 **Copy.** Every "lev-adj" on the site explains itself on hover or tap; the nav
 drops its redundant labels; the beta tag reads "built entirely from public
-data"; and the validation section opens by asking who watches the Watchmen.
+data"; and the validation section opens with "Evaluating the evaluators."
 
 Validation after the change: partial r 0.265 (95% CI 0.16 to 0.38) across 575
 regime-years from 112 regimes; out-of-sample R² 0.177 to 0.230.
@@ -1669,3 +1669,5 @@ Current clubs and statuses for every Desk player from the MLB Stats API (319 cha
 - **Similar real trades.** Comps now match both sides of the deal (value in and value out), the control bucket, and the position group of the headline piece on each side (catcher, infielder, outfielder, pitcher), from the 1998-2023 buyer-seat archive.
 - **Negotiation.** An offer at the camp's yearly rate but one year short of its term is a counter position, not a lowball.
 - **Regimes.** Chris Antonetti's Cleveland tenure is one regime from October 16, 2010 (GM and then president of baseball operations).
+- **Prospect lists.** The Top 100 is MLB Pipeline's October 2026 list (it was the June list). Ranked prospects are valued 70% on what players ranked there became and 30% on their 25 closest ranked comparables; everyone else is valued on the minor-league model. The boards order by Ledger value, not by Pipeline rank. Prospects who reached the majors in 2026 but are still under rookie limits show MLB as their level and their big-league line (debut26.py); their values are unchanged.
+- **Trade block.** The trade walk is now called the trade block.
