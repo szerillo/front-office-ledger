@@ -40,6 +40,14 @@ if _odc.path.exists("/work/draft_calib.json"):
     DRAFT_K_CLASS = {int(k): v for k, v in _DC["k_class"].items()}
 else:
     DRAFT_K_CLASS = {}
+DRAFT_BAND = {int(k): v for k, v in (_DC.get("band") or {}).items()} if _odc.path.exists("/work/draft_calib.json") else {}
+def draft_band(rnd):
+    """Nov 3: rounds 6+ are graded too; their slot expectation carries the
+    round band's realized-to-curve factor (draft_calib.py)"""
+    try: rd = int(rnd)
+    except Exception: rd = 1
+    b = 1 if rd <= 5 else 6 if rd <= 10 else 11 if rd <= 20 else 21
+    return DRAFT_BAND.get(b, 1.0)
 def draft_k(draft_year):
     return DRAFT_K_CLASS.get(int(draft_year), DRAFT_K)
 def draft_maturity(draft_year, asof=2026):

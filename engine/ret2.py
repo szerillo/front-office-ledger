@@ -72,6 +72,7 @@ def resigned(pid, names, yr):
     return any(y == yr + 1 and tm in names for (y, tm, v) in rec["rows"])
 
 # ---- league expectation curve, all departures 1998-2023 ----
+_F1, _F2, _F3 = [], [], []
 events = [dict(r) for r in con.execute(
     "select * from sweep_tx where type_desc='Declared Free Agency' and date<='2023-12-31'")]
 seen = set(); pairs = []
@@ -89,6 +90,7 @@ for r in events:
     if rental(pid, names, yr): continue
     fut = val(pid, names, yr + 1, yr + 3, inside=False)
     pairs.append((prior, fut, age_band(pid, yr)))
+    _F1.append(val(pid, names, yr + 1, yr + 1, inside=False)); _F2.append(val(pid, names, yr + 1, yr + 2, inside=False)); _F3.append(fut)
 
 EDGES = [0.0, 0.5, 1.0, 2.0, 3.0, 4.5, 6.5, 9.0, 13.0, 99.0]
 bins = defaultdict(list)
@@ -131,6 +133,14 @@ _g = [expect_age(p, a) - f for p, f, a in pairs]
 CENTER = -sum(_g) / len(_g) if _g else 0.0
 print(f"centering shift per departure: {CENTER:+.3f} (n={len(_g)})")
 
+# Nov 3: departures through the 2025-26 winter are graded. The curve is fit
+# on 1998-2023 departures (three full seasons seen); a 2024 departure has two
+# seasons to read and a 2025 departure one, so its expectation is scaled by
+# the share of the three-year total departures of the past delivered in that
+# many seasons. This winter's departures have nothing to read yet.
+SHARE = {3: 1.0, 2: round(sum(_F2) / sum(_F3), 3), 1: round(sum(_F1) / sum(_F3), 3)}
+print("partial-window shares (1, 2, 3 seasons seen):", SHARE)
+LAST_GRADED = 2025
 # ---- per-regime grading ----
 def grade(nps):
     for thr, g in [(2.6,80),(1.8,75),(1.2,70),(0.8,65),(0.5,60),(0.2,55),
@@ -151,7 +161,7 @@ for r in res:
     start = max(REG[tid]["start"], "1998-01-01")
     names = TEAMS[tid]
     rows = [dict(x) for x in con.execute(
-        "select * from sweep_tx where team_id=? and date>=? and type_desc='Declared Free Agency' and date<='2023-12-31'",
+        "select * from sweep_tx where team_id=? and date>=? and type_desc='Declared Free Agency' and date<='2025-12-31'",
         (tid, start))]
     seen2 = set(); net2 = 0.0; n2 = 0; qo_n = 0; worst = []
     for x in rows:
@@ -164,8 +174,10 @@ for r in res:
         if prior <= 0.5: continue
         if resigned(pid, names, yr): continue
         if rental(pid, names, yr): continue
-        fut = val(pid, names, yr + 1, yr + 3, inside=False)
-        exp = expect_age(prior, age_band(pid, yr)) + CENTER
+        _obs = min(3, 2026 - yr)
+        if _obs < 1: continue
+        fut = val(pid, names, yr + 1, yr + _obs, inside=False)
+        exp = (expect_age(prior, age_band(pid, yr)) + CENTER) * SHARE[_obs]
         gap = exp - fut            # positive: departed player did LESS than market expected: good call
         if (_qnorm(x["person_name"]), yr) in QOn:
             gap += QO_CREDIT; qo_n += 1

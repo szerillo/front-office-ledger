@@ -23,7 +23,7 @@ mitigates); no leverage/discounting (v0.2 applies at the decision page
 level, not yet in the sweep); LVM gaps as documented in ledger_war.py.
 """
 from era_names import draft_day
-from asset_rules import control_value, draft_maturity
+from asset_rules import control_value, draft_maturity, draft_band
 MOVE_POP = {"waiver": [], "draft": []}
 from asset_rules import contract_cost, trade_window, waiver_window, waiver_pairs, held_window, DRAFT_K, DRAFT_SHAPE, draft_k
 import json, math, sqlite3, sys
@@ -161,7 +161,7 @@ for reg in cfg["regimes"]:
     tid = reg["teamId"]
     names = ALIAS.get(tid, {reg["team"]})
     y0 = max(int(reg["start"][:4]) + (0 if reg["start"][:10] <= draft_day(int(reg["start"][:4])) else 1), 1998)   # v5.8: the real draft date
-    q = "select * from draft_picks where cast(year as int)>=? and cast(round as int)<=5 and team in (%s)" % \
+    q = "select * from draft_picks where cast(year as int)>=? and team in (%s)" % \
         ",".join("?"*len(names))
     picks = [dict(r) for r in con.execute(q, (y0, *names))]
     _sp = set(); picks = [p for p in picks if not ((p['person_id'], p['year'], p['pick_overall']) in _sp or _sp.add((p['person_id'], p['year'], p['pick_overall'])))]   # v5.8: one row per pick
@@ -400,7 +400,7 @@ for reg in cfg["regimes"]:
         _rs = {} if unsigned else control_value(_prec, pid=p["person_id"], after=_dd, series=True)
         realized = sum(_rs.values())
         realized_here = 0.0 if unsigned else control_value(_prec, names, pid=p["person_id"], after=_dd)
-        exp = slot_expectation(pk) * draft_maturity(yr) * (0.5 if unsigned else 1.0)
+        exp = slot_expectation(pk) * draft_band(p.get("round")) * draft_maturity(yr) * (0.5 if unsigned else 1.0)   # Nov 3: rounds 6+ carry their band factor
         dr_real += realized; dr_exp += exp; n_mat += (exp >= 0.05)
         net = realized - exp
         # value-time: realized value lands in the season it was produced; the
@@ -411,7 +411,8 @@ for reg in cfg["regimes"]:
             _inc = draft_k(yr) * (DRAFT_SHAPE.get(_y - yr, 1.0) - (DRAFT_SHAPE.get(_y - yr - 1, 1.0) if _y > yr else 0.0))
             ynet[_y] -= _slot * _inc
         MOVE_POP["draft"].append([round(exp, 2), round(net, 2)])
-        ALLX["draft"].append([draft_day(yr), p["person_name"], pk, round(realized, 1), round(realized_here, 1), round(exp, 1), round(net, 1), p["person_id"]])
+        _late = draft_band(p.get("round")) != 1.0 or str(p.get("round", "1")).isdigit() and int(p.get("round")) > 5
+        if not _late or realized >= 0.5: ALLX["draft"].append([draft_day(yr), p["person_name"], pk, round(realized, 1), round(realized_here, 1), round(exp, 1), round(net, 1), p["person_id"]])
         dna["draft"][ptype(p["person_id"])] += net
         if abs(net) >= 1.2:
             decs.append(dict(d=draft_day(yr), ch="draft", net=round(net,1), st=round(exp, 2),

@@ -70,7 +70,25 @@ for y, sl, ser in rows:
 kc = {}
 for y, (r, e) in sorted(byc.items()):
     kc[y] = round((r + LAM * K) / (e + LAM), 3)
-out = dict(k_pooled=round(K, 3), shape={str(k): v for k, v in shape.items()}, k_class={str(k): v for k, v in kc.items()},
+# Nov 3: every round is graded. Rounds 6+ use the same slot curve times a
+# band factor: what the band realized per unit of slot curve, relative to
+# rounds 1-5, on the matured 1998-2013 classes (the curve's tail ran low for
+# rounds 6-10 and far high past round 20).
+def _band(rd): return 1 if rd <= 5 else 6 if rd <= 10 else 11 if rd <= 20 else 21
+_bt = defaultdict(lambda: [0.0, 0.0]); _seen2 = set()
+for y, rd, pk, pid in con.execute("select cast(year as int), cast(round as int), cast(pick_overall as int), person_id from draft_picks "
+                                  "where cast(year as int) between 1998 and 2013"):
+    if not pk or (pid, y, pk) in _seen2: continue
+    _seen2.add((pid, y, pk))
+    if any(y2 > y for y2 in RED.get(str(pid), ())): continue
+    rec = L.get(int(pid)) if pid else None
+    v = sum(A.control_value(rec, pid=int(pid), after=draft_day(y), series=True).values()) if rec else 0.0
+    _bt[_band(rd)][0] += v; _bt[_band(rd)][1] += slot_expectation(pk)
+_r1 = _bt[1][0] / _bt[1][1]
+BAND = {str(b): round((r / e) / _r1, 3) for b, (r, e) in sorted(_bt.items()) if e}
+BAND["1"] = 1.0
+print("round-band factors (realized per unit of slot, relative to rounds 1-5):", BAND)
+out = dict(k_pooled=round(K, 3), band=BAND, shape={str(k): v for k, v in shape.items()}, k_class={str(k): v for k, v in kc.items()},
            raw={str(y): [round(r, 1), round(e, 1)] for y, (r, e) in byc.items()}, lam=LAM)
 json.dump(out, open("/work/draft_calib.json", "w"))
 print("pooled K", round(K, 3)); print("shape", shape)
