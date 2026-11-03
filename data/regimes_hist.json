@@ -1225,6 +1225,17 @@
     "smallish",
     "interim"
    ]
+  },
+  {
+   "teamId": 147,
+   "team": "New York Yankees",
+   "abbr": "NYY",
+   "exec": "Brian Cashman",
+   "start": "1998-02-03",
+   "end": "2005-11-01",
+   "flags": [
+    "ownership era"
+   ]
   }
  ]
 }

@@ -1579,7 +1579,7 @@
    "year": 2009,
    "result": "Won World Series",
    "regime": "Brian Cashman",
-   "regimeNote": "title in year 12 of the regime \u00b7 continuity view: 100% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
+   "regimeNote": "title in year 4 of the regime \u00b7 continuity view: 100% of the core was acquired while Cashman was already assistant GM (month approximate) (from 1992-03); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
@@ -1614,7 +1614,7 @@
      "intl",
      "Came up through the club's system (earliest assignment on file: Greensboro Bats, 2002)",
      "2002-04-04",
-     "reg",
+     "inh",
      5.1,
      "429664"
     ],
@@ -1677,7 +1677,7 @@
      "fa",
      "New York Yankees signed free agent Hideki Matsui. (Retrosheet archive)",
      "2002-12-19",
-     "reg",
+     "inh",
      2.4,
      "425686"
     ],
@@ -1686,7 +1686,7 @@
      "draft",
      "Drafted by the club, 2004",
      "2004-06-07",
-     "reg",
+     "inh",
      2.2,
      "461833"
     ],
@@ -1704,7 +1704,7 @@
      "draft",
      "Drafted by the club, 2005",
      "2005-06-07",
-     "reg",
+     "inh",
      1.7,
      "458731"
     ],
@@ -4177,15 +4177,15 @@
  "lines": {
   "n": 29,
   "medianRegShare": 55,
-  "medianTenure": 5,
+  "medianTenure": 4,
   "earlyTitles": 11,
-  "lateTitles": 9,
+  "lateTitles": 8,
   "avgShare": {
-   "fa": 24.3,
+   "fa": 24.1,
    "trade": 21.0,
-   "draft": 12.2,
-   "intl": 6.0,
-   "inherited": 36.5
+   "draft": 11.9,
+   "intl": 5.7,
+   "inherited": 37.2
   },
   "majorityFA": [
    "nyy09"
@@ -4384,16 +4384,15 @@
     "team": "New York Yankees",
     "abbr": "NYY",
     "exec": "Brian Cashman",
-    "tenure": 12,
+    "tenure": 4,
     "total": 53.4,
-    "regShare": 87,
+    "regShare": 66,
     "contShare": 100,
     "mix": {
-     "inherited": 6.7,
-     "fa": 33.4,
-     "intl": 5.1,
+     "inherited": 18.1,
+     "fa": 31.0,
      "trade": 3.1,
-     "draft": 5.1
+     "draft": 1.2
     }
    },
    {

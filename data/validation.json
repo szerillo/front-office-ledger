@@ -2651,22 +2651,22 @@
   ]
  },
  "predictive": {
-  "n": 578,
-  "regimes": 111,
-  "coef_decision_value": 0.0016,
-  "coef_wpct": 0.478,
-  "r2_base": 0.189,
-  "r2_full": 0.199,
-  "r2_gain": 0.01,
-  "partial_r": 0.109,
+  "n": 576,
+  "regimes": 112,
+  "coef_decision_value": 0.00272,
+  "coef_wpct": 0.448,
+  "r2_base": 0.183,
+  "r2_full": 0.202,
+  "r2_gain": 0.019,
+  "partial_r": 0.154,
   "partial_r_ci": [
-   -0.026,
-   0.295
+   0.024,
+   0.278
   ],
   "boot_B": 2000,
-  "oos_r2_base": 0.174,
-  "oos_r2_full": 0.139,
-  "oos_gain": -0.036,
+  "oos_r2_base": 0.175,
+  "oos_r2_full": 0.186,
+  "oos_gain": 0.012,
   "cv": "grouped 5-fold by regime"
  }
 }
