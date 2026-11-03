@@ -749,6 +749,7 @@ out = dict(
     rankTraj=PK.get("rankTraj", {}),
     rookie=PROS["rookie"],
     t100lvl=PROS["top100Level"],
+    deb26=(json.load(open("/work/debut26.json")) if os.path.exists("/work/debut26.json") else {}),   # v6.1: prospects who reached the majors in 2026
     cbt={"2026": 244, "2027": None},  # 2027+ awaits the next CBA
     cachePlayers=len(LVM),            # v5.9: the page's copy reads this count
 )
