@@ -299,8 +299,10 @@ Object.assign(R, await page.evaluate(async () => {
   btn.focus(); treeOverlay(pl('Bobby Witt Jr.')[1], 'KC'); await wait(20);
   document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}));
   o.f_escapeClosesTreeOverlay = !document.getElementById('tree-ov') && document.activeElement === btn;
-  // h: no analytics placeholder
-  o.h_noAnalyticsPlaceholder = !/goatcounter|YOURCODE|gc\.zgo\.at/i.test(document.documentElement.outerHTML);
+  // h: no analytics placeholder; the real counter (and Search Console tag) is wired
+  o.h_noAnalyticsPlaceholder = !/YOURCODE/i.test(document.documentElement.outerHTML)
+    && !!document.querySelector('script[data-goatcounter="https://szeril1.goatcounter.com/count"]')
+    && !!document.querySelector('meta[name="google-site-verification"]');
   // the UI pass adds no em dashes to visible text
   o.noEmDash = !/\u2014/.test(document.body.innerText);
   return o;
