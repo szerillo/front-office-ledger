@@ -773,6 +773,8 @@ import asset_rules as _AR
 _V = json.load(open("/work/validation.json"))
 _cv = next((c for c in _AR._book()["book"] if c["kind"] == "ext" and c["name"] == "Corbin Carroll"), None)
 METHOD_VIZ = dict(acct=_V["accounting"].get("pts", []),
+                  acctStat={k: v for k, v in _V["accounting"].items() if k != "pts"},   # Nov 3: the validation copy reads these, never hand-typed numbers
+                  pred={k: v for k, v in _V["predictive"].items() if k != "pts"},
                   rel=json.load(open("/work/reliability.json")) if _os.path.exists("/work/reliability.json") else None,
                   ext=dict(name="Corbin Carroll", deal="8 yr / $111M", aav=_cv["aav"], ce=_AR.control_end(_cv["pid"]),
                            sched=[[y, round(_AR.ext_salary(_cv, y), 1)] for y in range(_cv["start"], _cv["start"] + _cv["yrs"])]) if _cv else None)
