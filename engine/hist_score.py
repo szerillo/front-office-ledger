@@ -254,7 +254,8 @@ for i, reg in enumerate(REGS):
             if pid and (pid, r["date"]) not in seen_walk:      # v5.9: the feed and the archive can both file one filing
                 seen_walk.add((pid, r["date"]))
                 played_here = val(pid, names, yr - 2, yr, inside=True)
-                if played_here > 0.5:
+                back = any(y == yr + 1 and tm in names for (y, tm, v) in (LVM.get(int(pid)) or {}).get("rows", []))   # re-signed, not a walk (ret2.resigned)
+                if played_here > 0.5 and not back:
                     lost = val(pid, names, yr + 1, yr + 3, inside=False)
                     ALLX["walk"].append([r["date"], r["person_name"] or "?", round(-lost, 1), round(played_here, 1), pid])
                     if lost > 1.0:
@@ -297,7 +298,7 @@ for i, reg in enumerate(REGS):
                       [[nm, f"{v:+.1f}"] for (_, nm, v) in sorted(ins_det, key=lambda t: -t[2])] or [["(no valued players)", "0.0"]]],
                      ["Surrendered · value realized on " + (", ".join(dests) if dests else "counterparty"),
                       [[nm, f"{-v:+.1f}"] for (_, nm, _, v) in sorted(out_det, key=lambda t: -t[3])] or [["(no valued players)", "0.0"]]]]
-            decs.append(dict(d=d, ch="trade", net=round(net,1), st=round(max(abs(vin), abs(vout)), 2), h=(desc or "trade")[:220],
+            decs.append(dict(d=d, ch="trade", net=round(net,1), st=round(max(abs(vin), abs(vout)), 2), h=(desc or "trade"),
                              vin=round(vin,1), vout=round(vout,1), sides=sides,
                              pids=[p for (p, _, _) in ins_det] + [p for (p, _, _, _) in out_det]))
     dr_real = dr_exp = 0.0; n_mat = 0
@@ -350,7 +351,7 @@ for i, reg in enumerate(REGS):
         start=y_start, end=y_end, startDate=reg["start"], endDate=end,
         trueStart=reg.get("trueStart"), seasons=seasons, seatSeasons=seat, flags=reg.get("flags", []),
         chan=dict(
-            trade=dict(net=round(tr_net,1), g=grade(tr_net/seasons), n=len(trade_groups)),
+            trade=dict(net=round(tr_net,1), g=grade(tr_net/seasons), n=sum(1 for (_, _, rs) in trade_groups if any(x["person_id"] and str(x["person_id"]) != "0" and (x["to_team"] in names or (x["from_team"] in names and x["to_team"])) for x in rs))),
             draft=dict(net=round(dr_net,1), g=(grade(dr_net/seasons) if n_mat >= 3 else None), n=len(drafts[i])),
             waiver=dict(net=round(wv_net,1), g=grade(wv_net/seasons), n=n_wv+n_r5),
             fa=dict(net=round(fa_raw,1), g=None, n=n_fa),

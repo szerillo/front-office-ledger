@@ -101,17 +101,23 @@ def mlb_seasons(pid): return sum(1 for v in BY.get(pid, {}).values() if abs(v) >
 
 # prospect remaining value: Pipeline rank curve (same anchors as the marks)
 import math
-_V = [(1,8.0),(3,7.0),(5,6.5),(10,5.5),(15,4.8),(25,4.0),(40,3.2),(50,2.8),(75,2.0),(100,1.5)]
-def vrank(rank):
-    if rank <= _V[0][0]: return _V[0][1]
-    if rank >= _V[-1][0]: return _V[-1][1]
-    for (x0,y0),(x1,y1) in zip(_V,_V[1:]):
+_V = [(1,8.0),(3,7.0),(5,6.5),(10,5.5),(15,4.8),(25,4.0),(40,3.2),(50,2.8),(75,2.0),(100,1.5)]   # legacy combined
+# v5.4: hitters and pitchers apart (same anchors as asset_rules / desk_data vrankH, vrankP)
+_V_H = [(1,12.4),(3,10.0),(5,8.8),(10,7.3),(15,6.4),(25,5.3),(40,4.2),(50,3.7),(75,2.8),(100,2.2)]
+_V_P = [(1,6.7),(3,5.5),(5,4.9),(10,4.2),(15,3.7),(25,3.2),(40,2.6),(50,2.4),(75,2.0),(100,1.6)]
+def vrank(rank, pit=None):
+    _a = _V if pit is None else _V_P if pit else _V_H
+    if rank <= _a[0][0]: return _a[0][1]
+    if rank >= _a[-1][0]: return _a[-1][1]
+    for (x0,y0),(x1,y1) in zip(_a,_a[1:]):
         if x0 <= rank <= x1:
             f = (math.log(rank)-math.log(x0))/(math.log(x1)-math.log(x0))
             return y0 + f*(y1-y0)
 RANKS = defaultdict(dict)
+RANK_PIT = {}   # v5.4: the list's own position (P = pitcher) picks the curve
 for rr in json.load(open("/work/prospect_ranks.json")):
     RANKS[str(rr["pid"])][rr["year"]] = rr["rank"]
+    RANK_PIT[str(rr["pid"])] = (rr.get("pos") == "P")
 def current_rank(pid):
     rk = RANKS.get(str(pid), {})
     return rk.get(2026) or rk.get(2025)
@@ -185,7 +191,7 @@ def remaining_proj(pid, teams, deal_date):
     if last < 2027: return 0.0, "window closed"
     if mlb_seasons(pid) < 2 and career_war(pid) < 1.5:
         rk = current_rank(pid)
-        ev = vrank(rk) if rk else UNRANKED_EV
+        ev = vrank(rk, RANK_PIT.get(str(pid), is_pit(pid))) if rk else UNRANKED_EV
         return round(ev, 1), (f"rank #{rk}" if rk else "unranked prospect EV")
     tot = sum(project(pid, s) for s in range(2027, last + 1))
     return round(tot, 1), f"proj {2027}-{last}"

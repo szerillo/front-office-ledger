@@ -23,6 +23,16 @@ describe, from public MLB Stats API data only:
    six-season Ledger WAR, the trade currency.
 5. Backtest: leave-one-cohort-out over 2013-2019 against the v5.2 level/age/
    production buckets and against Top 100 rank alone.
+6. v5.4 Top 100 anchoring (prospect audit, Nov 2026): for a RANKED prospect
+   the 100-comp average regressed the elite toward the ranked mean (#1-5 shown
+   ~2.8 vs 3.9 realized) and pulled #51-100 toward the unranked pool (0.8 vs
+   1.4). Peak / 2-win / 4-win odds for ranked prospects are now
+   0.7 x a rank prior (fitted on the ranked history, hitters and pitchers
+   apart, x = ln(max(rank, 2)): linear for peak, logistic for the odds)
+   + 0.3 x the 25 nearest RANKED comparables. A ranked prospect with no
+   minor-league line to match on gets the prior alone. Six-season value,
+   next-season WAR and the trajectory still come from the 100 comps (Top 100
+   VALUE is the hitter/pitcher rank curve, VR_H / VR_P below).
 
 Writes pros_peak.json.
 """
@@ -39,8 +49,9 @@ for r in cfg["regimes"]:
     ABBR[r["team"]] = r["abbr"]
     for al in cfg["aliases"].get(str(r["teamId"]), []): ABBR[al] = r["abbr"]
 RANKS = defaultdict(dict)
+RANK_ROWS = {}                         # v5.4: (year, pid) -> list row (pos, birth date) for prior-only entries
 for x in json.load(open(f"{ROOT}/prospect_ranks.json")):
-    if x["pid"]: RANKS[x["year"]][int(x["pid"])] = x["rank"]
+    if x["pid"]: RANKS[x["year"]][int(x["pid"])] = x["rank"]; RANK_ROWS[(x["year"], int(x["pid"]))] = x
 
 SPORT = {1: "MLB", 11: "AAA", 12: "AA", 13: "A+", 14: "A", 15: "A-", 16: "R"}
 # v5.3.1: the low minors (complex leagues, the DSL, and pre-2021 short-season A)
@@ -301,11 +312,12 @@ def _mat(pool_key, pool):
         hs = [h for h in pool if h["kind"] == kind]
         m[kind] = dict(h=hs, F=np.array([h["f"] for h in hs], float), pos=np.array([h["pos"] for h in hs]),
                        pid=np.array([h["pid"] for h in hs]), peak=np.array([h["peak"] for h in hs]),
+                       rank=np.array([h["rank"] for h in hs]),
                        ev6=np.array([h["ev6"] for h in hs]), y1=np.array([h["y1"] for h in hs]),
                        ev6d=np.array([h["ev6d"] for h in hs]), traj=np.array([h["traj"] for h in hs]))
     _MAT[pool_key] = m
     return m
-def project(r, pool, pool_key="all"):
+def project(r, pool, pool_key="all", k=K, ranked_only=False):
     M = _mat(pool_key, pool)[r["kind"]]
     sc = np.array(SC_H if r["kind"] == "H" else SC_P)
     f = np.array(r["f"] if "f" in r else feats(r), float)
@@ -316,15 +328,18 @@ def project(r, pool, pool_key="all"):
         pen = np.where(M["pos"] == r["pos"], 0.0, 0.6)
     d = d + pen
     d[M["pid"] == r["pid"]] = 1e9
+    if ranked_only: d[M["rank"] == 0] = 1e9          # v5.4: Top 100 comps come from ranked history only
     # one comp per player (his closest season), as comparables systems do
-    cand = np.argpartition(d, 6 * K)[:6 * K]
+    nc = min(6 * k, len(d) - 1)
+    cand = np.argpartition(d, nc)[:nc]
     cand = cand[np.argsort(d[cand])]
     seen, keep = set(), []
     for i in cand:
+        if d[i] >= 1e9: break
         p_ = M["pid"][i]
         if p_ in seen: continue
         seen.add(p_); keep.append(i)
-        if len(keep) == K: break
+        if len(keep) == k: break
     idx = np.array(keep)
     w = 1 / (0.5 + d[idx]); W = w.sum()
     pk = M["peak"][idx]
@@ -347,28 +362,84 @@ def spear(a, b):
     return corr([ra[i] for i in range(len(a))], [rb[i] for i in range(len(b))])
 CAL = json.load(open(f"{ROOT}/pros.json"))["calib"]
 TYP = TYPICAL
-VR = [[1, 8.0], [3, 7.0], [5, 6.5], [10, 5.5], [15, 4.8], [25, 4.0], [40, 3.2], [50, 2.8], [75, 2.0], [100, 1.5]]
-def vrank(rk):
-    for (a, va), (b, vb) in zip(VR, VR[1:]):
-        if a <= rk <= b: return va + (vb - va) * (rk - a) / (b - a)
-    return 1.5
+# Top 100 rank curve (six seasons of Ledger WAR, discounted 10% a year).
+# v5.4: hitters and pitchers apart, fitted on the ranked 2012-2019 history
+# (realized ev6d = a + b ln rank; the old combined curve, VR, ran 1.36x low
+# for hitters and 1.16x high for pitchers). Same anchors as desk_data.py
+# (vrankH / vrankP), asset_rules.py, sweep_score.py and proj_v1.py.
+VR = [[1, 8.0], [3, 7.0], [5, 6.5], [10, 5.5], [15, 4.8], [25, 4.0], [40, 3.2], [50, 2.8], [75, 2.0], [100, 1.5]]   # legacy, combined
+VR_H = [[1, 12.4], [3, 10.0], [5, 8.8], [10, 7.3], [15, 6.4], [25, 5.3], [40, 4.2], [50, 3.7], [75, 2.8], [100, 2.2]]
+VR_P = [[1, 6.7], [3, 5.5], [5, 4.9], [10, 4.2], [15, 3.7], [25, 3.2], [40, 2.6], [50, 2.4], [75, 2.0], [100, 1.6]]
+def vrank(rk, kind=None):
+    """log-rank interpolation (the page's dkInterp); kind 'H' / 'P', None = legacy combined curve"""
+    a = VR_H if kind == "H" else VR_P if kind == "P" else VR
+    if rk <= a[0][0]: return a[0][1]
+    if rk >= a[-1][0]: return a[-1][1]
+    for (x0, y0), (x1, y1) in zip(a, a[1:]):
+        if x0 <= rk <= x1: return y0 + (math.log(rk) - math.log(x0)) / (math.log(x1) - math.log(x0)) * (y1 - y0)
+    return a[-1][1]
+
+# ---------- v5.4: Top 100 rank prior for peak and the 2-/4-win odds ----------
+W_PRIOR, K_RANKED = 0.7, 25
+RBUCK = ((1, 5), (6, 10), (11, 25), (26, 50), (51, 100))
+def _logit(X, y, it=60):
+    b = np.zeros(X.shape[1])
+    for _ in range(it):
+        p_ = 1 / (1 + np.exp(-X @ b)); w_ = p_ * (1 - p_) + 1e-9
+        b = b + np.linalg.solve(X.T @ (X * w_[:, None]) + 1e-6 * np.eye(len(b)), X.T @ (y - p_))
+    return b
+def fit_prior(rows):
+    """per kind: peak = a + b x (least squares), P(peak>=2), P(peak>=4) logistic in x = ln(max(rank, 2));
+    upside = 80th percentile of realized peak in the kind x rank bucket"""
+    out = {}
+    for kind in ("H", "P"):
+        xs = [h for h in rows if h["kind"] == kind and h["rank"]]
+        X = np.c_[np.ones(len(xs)), [math.log(max(h["rank"], 2)) for h in xs]]
+        pk = np.array([h["peak"] for h in xs])
+        up = {}
+        for lo, hi in RBUCK:
+            v = sorted(h["peak"] for h in xs if lo <= h["rank"] <= hi)
+            up[lo] = v[min(len(v) - 1, int(0.8 * len(v)))] if v else 0.0
+        out[kind] = dict(peak=np.linalg.lstsq(X, pk, rcond=None)[0], p2=_logit(X, (pk >= 2).astype(float)),
+                         p4=_logit(X, (pk >= 4).astype(float)), up=up)
+    return out
+def prior(pr, kind, rank):
+    c = pr[kind]; x = np.array([1.0, math.log(max(rank, 2))])
+    lo = next(a for a, b in RBUCK if rank <= b) if rank <= 100 else 51
+    return dict(peak=max(0.0, float(x @ c["peak"])), p2=float(1 / (1 + np.exp(-x @ c["p2"]))),
+                p4=float(1 / (1 + np.exp(-x @ c["p4"]))), up=float(c["up"][lo]))
+def anchored(pr, kind, rank, comps=None):
+    """0.7 x rank prior + 0.3 x ranked comps; the prior alone with no comps"""
+    p_ = prior(pr, kind, rank)
+    if comps is None: return p_
+    return {k_: W_PRIOR * p_[k_] + (1 - W_PRIOR) * comps[k_] for k_ in ("peak", "p2", "p4", "up")}
+PRIOR = fit_prior(HIST)
+print("rank prior (intercept, slope on ln max(rank,2)):",
+      {k_: {m_: [round(float(v), 3) for v in PRIOR[k_][m_]] for m_ in ("peak", "p2", "p4")} for k_ in PRIOR},
+      "upside by bucket:", {k_: {b: round(v, 2) for b, v in PRIOR[k_]["up"].items()} for k_ in PRIOR})
 import numpy as _np
-P, R, RK, PK, RPK, BK = [], [], [], [], [], []
+P, R, RK, PK, RPK, BK, KD = [], [], [], [], [], [], []
+RB = []     # v5.4: ranked rows: (old 100-comp, new anchored) peak/odds against realized
 for yr in range(2013, 2020):
     pool = [h for h in HIST if h["yr"] != yr]
     test = [h for h in HIST if h["yr"] == yr]
+    pr_loco = fit_prior(pool)
     for h in test:
         pr = project(h, pool, yr)
-        P.append(pr["ev6"]); R.append(h["ev6"]); RK.append(h["rank"]); PK.append(pr["peak"]); RPK.append(h["peak"])
+        P.append(pr["ev6"]); R.append(h["ev6"]); RK.append(h["rank"]); PK.append(pr["peak"]); RPK.append(h["peak"]); KD.append(h["kind"])
         same = [x["ev6"] for x in pool if x["kind"] == h["kind"] and x["lvl"] == h["lvl"] and abs(x["age"] - h["age"]) <= 0.5]
         BK.append(sum(same) / len(same) if same else 0.4)
+        if h["rank"]:
+            new = anchored(pr_loco, h["kind"], h["rank"], project(h, pool, yr, k=K_RANKED, ranked_only=True))
+            RB.append((h["rank"], h["kind"], pr["peak"], pr["p2"], pr["p4"], new["peak"], new["p2"], new["p4"], h["peak"]))
 P, R, RK, PK, RPK, BK = map(_np.array, (P, R, RK, PK, RPK, BK))
 ranked = RK > 0
-RO = _np.array([vrank(x) if x else 0.41 for x in RK])
+RO = _np.array([vrank(x, k_) if x else 0.41 for x, k_ in zip(RK, KD)])
+RO_OLD = _np.array([vrank(x) if x else 0.41 for x in RK])
 c = lambda a, b: round(float(_np.corrcoef(a, b)[0, 1]), 3)
 BT = dict(n=int(len(R)), n_ranked=int(ranked.sum()),
           unranked=dict(comps_r=c(P[~ranked], R[~ranked]), level_age_bucket_r=c(BK[~ranked], R[~ranked])),
-          ranked=dict(comps_r=c(P[ranked], R[ranked]), rank_curve_r=c(RO[ranked], R[ranked])),
+          ranked=dict(comps_r=c(P[ranked], R[ranked]), rank_curve_r=c(RO[ranked], R[ranked]), rank_curve_combined_r=c(RO_OLD[ranked], R[ranked])),
           all=dict(comps_r=c(P, R), bias=round(float(P.mean() - R.mean()), 3)),
           peak=dict(comps_r=c(PK, RPK)))
 # Top 100 by level: the rank curve prices a #40 in rookie ball and a #40 in
@@ -391,6 +462,26 @@ BT["ranked"]["level_factor"] = LEVEL_FACTOR
 order = _np.argsort(-P)[:max(1, len(P) // 20)]
 BT["top5pct_regular_rate"] = round(float((RPK[order] >= 2).mean()), 3)
 BT["base_regular_rate"] = round(float((RPK >= 2).mean()), 3)
+# v5.4: ranked peak/odds, old (100 comps) vs anchored (0.7 rank prior + 0.3 x 25 ranked comps), LOCO
+RBa = _np.array([x[2:] for x in RB], float); RBr = _np.array([x[0] for x in RB]); RBk = _np.array([x[1] for x in RB])
+def _cal(m):
+    o = {}
+    for lo, hi in RBUCK:
+        s_ = m & (RBr >= lo) & (RBr <= hi)
+        if s_.any():
+            o[f"{lo}-{hi}"] = dict(n=int(s_.sum()), real_peak=round(float(RBa[s_, 6].mean()), 2),
+                                   real_p2=round(float((RBa[s_, 6] >= 2).mean()), 3), real_p4=round(float((RBa[s_, 6] >= 4).mean()), 3),
+                                   old_peak=round(float(RBa[s_, 0].mean()), 2), old_p2=round(float(RBa[s_, 1].mean()), 3), old_p4=round(float(RBa[s_, 2].mean()), 3),
+                                   new_peak=round(float(RBa[s_, 3].mean()), 2), new_p2=round(float(RBa[s_, 4].mean()), 3), new_p4=round(float(RBa[s_, 5].mean()), 3))
+    return o
+_y4 = (RBa[:, 6] >= 4).astype(float); _y2 = (RBa[:, 6] >= 2).astype(float)
+_br = lambda p_, y_: round(float(((p_ - y_) ** 2).mean()), 4)
+BT["ranked_peak"] = dict(
+    method=f"{W_PRIOR} x rank prior (hitter/pitcher, ln max(rank,2)) + {1 - W_PRIOR:.1f} x {K_RANKED} ranked comps",
+    n=len(RB), old_r=c(RBa[:, 0], RBa[:, 6]), new_r=c(RBa[:, 3], RBa[:, 6]),
+    old_rmse=round(float(_np.sqrt(((RBa[:, 0] - RBa[:, 6]) ** 2).mean())), 3), new_rmse=round(float(_np.sqrt(((RBa[:, 3] - RBa[:, 6]) ** 2).mean())), 3),
+    old_brier_p2=_br(RBa[:, 1], _y2), new_brier_p2=_br(RBa[:, 4], _y2), old_brier_p4=_br(RBa[:, 2], _y4), new_brier_p4=_br(RBa[:, 5], _y4),
+    by_bucket=_cal(_np.ones(len(RB), bool)), hitters=_cal(RBk == "H"), pitchers=_cal(RBk == "P"))
 print("BACKTEST", json.dumps(BT))
 
 # Top 100 season-by-season shape by rank band (for ranked prospects with no
@@ -407,11 +498,40 @@ out = {}
 for r in cur:
     r["f"] = feats(r)
     pr = project(r, HIST)
+    src = "comps100"
+    if r["rank"]:
+        # v5.4: a Top 100 prospect's peak and odds are anchored on his rank;
+        # value / next season / trajectory stay on the 100 comps
+        rc = project(r, HIST, k=K_RANKED, ranked_only=True)
+        pr.update(anchored(PRIOR, r["kind"], r["rank"], rc)); pr["comps"] = rc["comps"]
+        src = "rank prior 0.7 + ranked comps 0.3"
     out[str(r["pid"])] = dict(name=r["name"], kind=r["kind"], org=r["org"], lvl=r["lvl"], age=r["age"], rank=r["rank"],
                               pick=r["pick"], peak=round(pr["peak"], 2), ev6=round(pr["ev6"], 2), ev6d=round(pr["ev6d"], 2), y1=round(pr["y1"], 2), traj=pr["traj"],
                               p2=round(pr["p2"], 3), p4=round(pr["p4"], 3), up=round(pr["up"], 2), comps=pr["comps"],
-                              line=r["line"], pos=r["ppos"],
+                              line=r["line"], pos=r["ppos"], src=src,
                               tr={c: round(v, 2) for c, v in r["rel"].items()})
+# v5.4: ranked prospects with no minor-league line to match on (injured,
+# not yet playing, or a 2026 MLB look past 130 PA / 50 IP that the page still
+# counts a prospect by service time, e.g. Max Clark) get the rank prior alone.
+# Everyone on the current list is covered; the page decides who is a prospect.
+_ROOK = json.load(open(f"{ROOT}/pros.json"))
+n_prior = 0
+for pid, rk in RANKS.get(2026, {}).items():
+    if str(pid) in out: continue
+    rr = RANK_ROWS[(2026, pid)]
+    kind = "P" if rr.get("pos") == "P" else "H"
+    band = "1-25" if rk <= 25 else "26-50" if rk <= 50 else "51-100"
+    lvl = (_ROOK.get("top100Level") or {}).get(str(pid)) or ""
+    y1 = ((_ROOK.get("rookie") or {}).get(band) or {}).get(lvl or "AA", [0.2])[0]
+    traj = RANK_TRAJ.get(band, [0.0] * 7)[:6]
+    pp = prior(PRIOR, kind, rk)
+    age = 2026 - int(rr["bd"][:4]) if rr.get("bd") else 0
+    out[str(pid)] = dict(name=rr["name"], kind=kind, org=None, lvl=lvl, age=age, rank=rk, pick=DRAFT.get(pid) or 0,
+                         peak=round(pp["peak"], 2), ev6=round(sum(traj), 2), ev6d=round(sum(t * 0.9 ** i for i, t in enumerate(traj)), 2),
+                         y1=round(y1, 2), traj=traj, p2=round(pp["p2"], 3), p4=round(pp["p4"], 3), up=round(pp["up"], 2), comps=[],
+                         line="", pos=None, src="rank prior only", tr={})
+    n_prior += 1
+print("ranked prospects on the rank prior alone (no minor-league line):", n_prior)
 json.dump(dict(players=out, backtest=BT, rankTraj=RANK_TRAJ, factors={f"{k[0]}|{k[1]}": {c: round(v, 3) for c, v in f.items()} for k, f in FACT.items()}),
           open(f"{ROOT}/pros_peak.json", "w"), ensure_ascii=False)
 print("current prospects projected:", len(out))

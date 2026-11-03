@@ -327,6 +327,28 @@ for p in players:
     # season is partly a one-off; repeated ones are not)
     top2 = sorted(pts, reverse=True)[:2]
     pt_exp = min(0.6 * (sum(top2) / len(top2)) + 0.4 * (ptw / ptd), _CAP[role])
+    # v6.0 (audit, Nov 3): young players only (27 or under in 2027). Walk-forward
+    # PT backtest 2012-25 (age <= 27): the formula above ran short for a
+    # partial debut season followed by a full one (SP -13.7 IP, hitters -91 PA)
+    # and for a healthy season after missed time (SP -20.5 IP, hitters -88 PA).
+    # Two fixes, both reduce PT and WAR error there and leave other players
+    # unchanged; at 28+ the floor made WAR error worse, hence the age guard.
+    #  (a) a partial debut season (under half a full season) before 2026 is not
+    #      missed time when a later season reached half a full season: drop it
+    #      from the playing-time average (the rate above still uses it)
+    #  (b) floor: a 2026 season of at least 60% of a full one sets expected
+    #      playing time to at least 85% of it
+    if p[4] <= 26:
+        _ys = [y for y in (2024, 2025, 2026) if y >= debut]
+        _full_later = any(_pt(rec, y, role) >= 0.5 * _CAP[role] for y in _ys if y > debut)
+        if debut in _ys and debut < 2026 and _full_later and _pt(rec, debut, role) < 0.5 * _CAP[role]:
+            _k = [y for y in _ys if y != debut]
+            _pk = [_pt(rec, y, role) for y in _k]
+            _t2 = sorted(_pk, reverse=True)[:2]
+            pt_exp = min(0.6 * (sum(_t2) / len(_t2)) + 0.4 * sum(_W[y] * _pt(rec, y, role) for y in _k) / sum(_W[y] for y in _k), _CAP[role])
+        _last = _pt(rec, 2026, role)
+        if _last >= 0.6 * _CAP[role]:
+            pt_exp = min(max(pt_exp, 0.85 * _last), _CAP[role])
     missed = debut <= 2025 and _pt(rec, 2025, role) == 0 and _pt(rec, 2026, role) == 0
     if missed: p.append(0.0); p.append(1); continue
     p.append(round(rate * pt_exp, 2)); p.append(0)
@@ -396,6 +418,20 @@ for ab, xs in byorg.items():
             players.append(row); have[pid] = row; n_new += 1
         elif not have[pid][2]: have[pid][2] = ab
         PROS_OUT[spid] = [z["lvl"], z["ev6d"], z["y1"], z["line"], k + 1, None]
+# Nov 2026: a Top 100 prospect with no row yet (no Ledger record at all) still
+# belongs on the board, valued on the rank curve like every ranked prospect
+for _spid, _rk in RANKS.items():
+    _pid = int(_spid)
+    if _pid in have: continue
+    _z = PK["players"].get(_spid)
+    if not _z or not _z.get("org"): continue
+    _pos = _z["pos"]
+    _grp = "SP" if _pos == "SP" else "RP" if _pos == "RP" else "C" if _pos == "C" else \
+        "IF" if _pos in ("1B", "2B", "3B", "SS") else "OF"
+    _dpos = _pos if _pos in ("C", "1B", "2B", "3B", "SS", "LF", "CF", "RF", "SP", "RP") else ("SP" if _z["kind"] == "P" else "OF")
+    _row = [_z["name"], _pid, _z["org"], 1 if _z["kind"] == "P" else 0, _z["age"], 0, 0, 0, 6, _rk, 1.0, 0.0, _grp, _dpos, 0, 0]
+    players.append(_row); have[_pid] = _row
+    print("  Top 100 row added:", _z["name"], _rk, _z["org"])
 # ---- v5.9 currency pass: every desk row's club comes from the Stats API ----
 # The value cache knows the last club a player APPEARED for, so a player
 # traded, claimed or released without playing for his new club stayed with
@@ -693,7 +729,12 @@ out = dict(
     slot=[[1, 9.9], [2, 7.5], [3, 6.7], [5, 5.5], [8, 4.6], [12, 3.6], [17, 3.0], [22, 2.6],
           [30, 2.1], [45, 1.5], [65, 1.1], [90, 0.85], [120, 0.6], [200, 0.35], [400, 0.18], [620, 0.10]],
     drift=1.08,   # v5.7: 2021-25 winters' contracts ran 8% above the $/win curve (median of 106 deals the ensemble priced at $25M+, full 2022-25 book; contract_model.py)
-    vrank=[[1, 8.0], [3, 7.0], [5, 6.5], [10, 5.5], [15, 4.8], [25, 4.0], [40, 3.2], [50, 2.8], [75, 2.0], [100, 1.5]],
+    vrank=[[1, 8.0], [3, 7.0], [5, 6.5], [10, 5.5], [15, 4.8], [25, 4.0], [40, 3.2], [50, 2.8], [75, 2.0], [100, 1.5]],   # legacy combined curve (a bare rank with no hitter/pitcher known)
+    # v5.4 Top 100 rank curve, hitters and pitchers apart: six seasons of Ledger
+    # WAR discounted 10% a year, fitted on the ranked 2012-2019 history
+    # (prospects_peak.py VR_H / VR_P; same anchors in asset_rules, sweep_score, proj_v1)
+    vrankH=[[1, 12.4], [3, 10.0], [5, 8.8], [10, 7.3], [15, 6.4], [25, 5.3], [40, 4.2], [50, 3.7], [75, 2.8], [100, 2.2]],
+    vrankP=[[1, 6.7], [3, 5.5], [5, 4.9], [10, 4.2], [15, 3.7], [25, 3.2], [40, 2.6], [50, 2.4], [75, 2.0], [100, 1.6]],
     teams=teams,
     deals=compact,
     book=book,

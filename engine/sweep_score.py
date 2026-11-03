@@ -208,9 +208,14 @@ def ptype(pid):
 # at-the-time prospect marks (Pipeline archive, for process-vs-outcome verdicts)
 import math as _math
 _V_ANCHOR = [(1,8.0),(3,7.0),(5,6.5),(10,5.5),(15,4.8),(25,4.0),(40,3.2),
-             (50,2.8),(75,2.0),(100,1.5)]
-def _vrank(rank):
-    a = _V_ANCHOR
+             (50,2.8),(75,2.0),(100,1.5)]   # legacy combined
+# v5.4: hitters and pitchers apart (same anchors as asset_rules / desk_data vrankH, vrankP)
+_V_ANCHOR_H = [(1,12.4),(3,10.0),(5,8.8),(10,7.3),(15,6.4),(25,5.3),(40,4.2),
+               (50,3.7),(75,2.8),(100,2.2)]
+_V_ANCHOR_P = [(1,6.7),(3,5.5),(5,4.9),(10,4.2),(15,3.7),(25,3.2),(40,2.6),
+               (50,2.4),(75,2.0),(100,1.6)]
+def _vrank(rank, pit=None):
+    a = _V_ANCHOR if pit is None else _V_ANCHOR_P if pit else _V_ANCHOR_H
     if rank <= a[0][0]: return a[0][1]
     if rank >= a[-1][0]: return a[-1][1]
     for (x0,y0),(x1,y1) in zip(a, a[1:]):
@@ -220,10 +225,12 @@ def _vrank(rank):
 try:
     _ranks_raw = json.load(open("/work/prospect_ranks.json"))
     PRANK = {}
+    PRANK_PIT = {}   # v5.4: the list's own position (P = pitcher) picks the curve
     for _rr in _ranks_raw:
         PRANK.setdefault(str(_rr["pid"]), {})[_rr["year"]] = _rr["rank"]
+        PRANK_PIT[str(_rr["pid"])] = (_rr.get("pos") == "P")
 except Exception:
-    PRANK = {}
+    PRANK = {}; PRANK_PIT = {}
 def att_mark(pid, deal_date):
     """prospect mark at the time of the deal: the nearest preseason list at
     or before the deal (offseason deals read the next list)."""
@@ -232,7 +239,7 @@ def att_mark(pid, deal_date):
     y, m = int(deal_date[:4]), int(deal_date[5:7])
     list_y = y + 1 if m >= 10 else y
     for cand in (list_y, list_y - 1):
-        if cand in rk: return _vrank(rk[cand])
+        if cand in rk: return _vrank(rk[cand], PRANK_PIT.get(str(pid), ptype(pid) == "pit"))
     return None
 
 NAME2TID = {}
@@ -315,7 +322,8 @@ for reg in cfg["regimes"]:
             if pid and (pid, r["date"]) not in seen_walk:      # v5.9: the feed and the archive can both file one filing
                 seen_walk.add((pid, r["date"]))
                 played_here = val(pid, names, yr - 2, yr, inside=True)
-                if played_here > 0.5:
+                back = any(y == yr + 1 and tm in names for (y, tm, v) in (LVM.get(int(pid)) or {}).get("rows", []))   # re-signed, not a walk (ret2.resigned)
+                if played_here > 0.5 and not back:
                     lost = val(pid, names, yr + 1, yr + 3, inside=False)
                     ALLX["walk"].append([r["date"], r["person_name"] or "?", round(-lost, 1), round(played_here, 1), pid])
                     if lost > 1.0:
@@ -366,7 +374,7 @@ for reg in cfg["regimes"]:
                       [[nm, f"{v:+.1f}"] for (_, nm, v) in sorted(ins_det, key=lambda t: -t[2])] or [["(no valued players)", "0.0"]]],
                      ["Surrendered · value realized on " + (", ".join(dests) if dests else "counterparty"),
                       [[nm, f"{-v:+.1f}"] for (_, nm, _, v) in sorted(out_det, key=lambda t: -t[3])] or [["(no valued players)", "0.0"]]]]
-            decs.append(dict(d=d, ch="trade", net=round(net,1), st=round(max(abs(vin), abs(vout)), 2), h=(desc or "trade")[:220],
+            decs.append(dict(d=d, ch="trade", net=round(net,1), st=round(max(abs(vin), abs(vout)), 2), h=(desc or "trade"),
                              vin=round(vin,1), vout=round(vout,1), sides=sides, att=att,
                              pids=[p for (p, _, _) in ins_det] + [p for (p, _, _, _) in out_det]))
     # draft
@@ -422,7 +430,7 @@ for reg in cfg["regimes"]:
         id=reg["abbr"].lower(), teamId=tid, exec=reg["exec"], team=reg["team"], abbr=reg["abbr"],
         start=y_start, seasons=round(seasons, 1), seatSeasons=seat, startDate=reg["start"], flags=reg.get("flags", []),
         chan=dict(
-            trade=dict(net=round(tr_net,1), g=grade(tr_net/seasons), n=len(trade_groups)),
+            trade=dict(net=round(tr_net,1), g=grade(tr_net/seasons), n=sum(1 for (_, _, rs) in trade_groups if any(x["person_id"] and str(x["person_id"]) != "0" and (x["to_team"] in names or (x["from_team"] in names and x["to_team"])) for x in rs))),
             draft=dict(net=round(dr_net,1), g=(grade(dr_net/seasons) if n_mat >= 3 else None), n=len(drafts[tid])),
             waiver=dict(net=round(wv_net,1), g=grade(wv_net/seasons), n=n_wv+n_r5),
             fa=dict(net=round(fa_raw,1), g=None, n=n_fa),

@@ -113,7 +113,7 @@ def priced(tid, start, end="9999-12-31"):
         if k in seen: continue
         seen.add(k)
         ty, tm = int(x["date"][:4]), int(x["date"][5:7])
-        offs = (ty, ty - 1) if tm >= 10 else (ty - 1, ty)     # v5.8: Nov/Dec re-signings belong to that winter
+        offs = (ty, ty - 1) if tm >= 10 else (ty - 1,) if tm >= 4 else (ty - 1, ty)     # in-season signings never take next winter's contract
         c = None
         for off in offs:
             for cc in FA_BOOK.get((int(x["person_id"]), TID2AB[tid]), []):

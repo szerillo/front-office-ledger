@@ -303,7 +303,7 @@ def _events():
     _EVENTS = _dd(list)
     con = _sq.connect("/work/ledger.sqlite")
     for pid, d, ty, ft in con.execute("select person_id, date, type_desc, from_team from sweep_tx where person_id is not null "
-                                      "and type_desc in ('Declared Free Agency','Released')"):
+                                      "and type_desc in ('Declared Free Agency','Released','Signed as Free Agent')"):
         _EVENTS[int(pid)].append((d, ty, ft))
     return _EVENTS
 
@@ -326,6 +326,7 @@ def asset_end(pid, after):
         yy = int(d[:4])
         if ty == "Declared Free Agency": end = min(end, yy if int(d[5:7]) >= 9 else yy - 1)
         elif ty == "Released": end = min(end, yy)
+        elif ty == "Signed as Free Agent": end = min(end, yy - 1 if int(d[5:7]) <= 3 else yy)   # a free-agent signing anywhere means control ended (minor-league free agency files no 'Declared' row)
     return end
 
 # ---- v5.9: an open trade carries the expected value of the prospects in it ----
@@ -346,10 +347,29 @@ def _trade_calib():
         _TC = _json.load(open(p)) if _os.path.exists(p) else dict(k_ranked=0.6, unranked=0.15,
               m={"0": 0, "1": .06, "2": .18, "3": .34, "4": .52, "5": .68, "6": .80, "7": .89, "8": .95, "9": .98})
     return _TC
-_V_ANCHOR = [(1, 8.0), (3, 7.0), (5, 6.5), (10, 5.5), (15, 4.8), (25, 4.0), (40, 3.2), (50, 2.8), (75, 2.0), (100, 1.5)]
-def vrank(rank):
+_V_ANCHOR = [(1, 8.0), (3, 7.0), (5, 6.5), (10, 5.5), (15, 4.8), (25, 4.0), (40, 3.2), (50, 2.8), (75, 2.0), (100, 1.5)]   # legacy combined
+# v5.4: hitters and pitchers apart (ranked 2012-2019 history, realized six-season
+# Ledger WAR discounted 10%/yr; the combined curve ran 1.36x low for hitters,
+# 1.16x high for pitchers). Same anchors as desk_data vrankH / vrankP.
+_V_ANCHOR_H = [(1, 12.4), (3, 10.0), (5, 8.8), (10, 7.3), (15, 6.4), (25, 5.3), (40, 4.2), (50, 3.7), (75, 2.8), (100, 2.2)]
+_V_ANCHOR_P = [(1, 6.7), (3, 5.5), (5, 4.9), (10, 4.2), (15, 3.7), (25, 3.2), (40, 2.6), (50, 2.4), (75, 2.0), (100, 1.6)]
+_RPIT = None
+def rank_is_pitcher(pid):
+    """a ranked prospect is a pitcher if the Top 100 list carried him as P"""
+    global _RPIT
+    if _RPIT is None:
+        _RPIT = {}
+        p = "/work/prospect_ranks.json"
+        if _os.path.exists(p):
+            for r in _json.load(open(p)):
+                if r.get("pid"): _RPIT[int(r["pid"])] = (r.get("pos") == "P")
+    return _RPIT.get(int(pid)) if pid else None
+def vrank(rank, pid=None, pit=None):
+    """rank-curve value; pass pid (or pit=True/False) for the hitter/pitcher
+    curve. With neither, the legacy combined curve."""
     import math
-    a = _V_ANCHOR
+    if pit is None and pid is not None: pit = rank_is_pitcher(pid)
+    a = _V_ANCHOR if pit is None else _V_ANCHOR_P if pit else _V_ANCHOR_H
     if rank <= a[0][0]: return a[0][1]
     if rank >= a[-1][0]: return a[-1][1]
     for (x0, y0), (x1, y1) in zip(a, a[1:]):
@@ -383,7 +403,7 @@ def open_expectation(pid, date, asof=2026):
     if not pid or not is_prospect(pid, date): return 0.0
     tc = _trade_calib()
     rk = rank_at(pid, date)
-    ev = tc["k_ranked"] * vrank(rk) if rk else tc["unranked"]
+    ev = tc["k_ranked"] * vrank(rk, pid) if rk else tc["unranked"]
     y, m = int(str(date)[:4]), int(str(date)[5:7])
     t = asof - (y + 1 if m >= 10 else y)
     mt = tc["m"].get(str(max(t, 0)), 1.0)

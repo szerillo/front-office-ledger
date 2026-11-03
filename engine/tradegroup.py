@@ -34,8 +34,7 @@ _REPAIRS = _json.load(open("/work/trade_repairs.json")) if _os.path.exists("/wor
 REPAIRS = [
     dict(date="2021-01-07",
          desc=("Cleveland Indians traded SS Francisco Lindor and RHP Carlos Carrasco to New York Mets "
-               "for SS Amed Rosario, SS Andres Gimenez, RHP Josh Wolf and OF Isaiah Greene. "
-               "(curated repair: the league feed files only a garbled Lindor row)"),
+               "for SS Amed Rosario, SS Andres Gimenez, RHP Josh Wolf and OF Isaiah Greene."),
          teams={114: "Cleveland Indians", 121: "New York Mets"},
          moves=[("596019", "Francisco Lindor", "Cleveland Indians", "New York Mets"),
                 ("471911", "Carlos Carrasco", "Cleveland Indians", "New York Mets"),

@@ -24,7 +24,7 @@ for d, seats in TB["trades"]:
             t, ser = A.trade_window(pid, AB2N[ab], d, open_exp=False)
             y0 = int(d[:4]) + (1 if int(d[5:7]) >= 10 else 0)
             rk = A.rank_at(pid, d)
-            if rk: rk_v += A.vrank(rk); rk_r += t; n_r += 1
+            if rk: rk_v += A.vrank(rk, pid); rk_r += t; n_r += 1
             else: un_r += t; n_u += 1
             for y, v in ser.items(): cum[y - y0] += v
             tot += t

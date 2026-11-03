@@ -2,12 +2,12 @@
 // plus the site-wide og.png, from the built page itself. Run after regen.
 import { chromium } from 'playwright';
 import fs from 'fs';
-const OUT = process.argv[2] || '/home/claude/share';
+const OUT = process.argv[2] || '/work/share';
 fs.mkdirSync(OUT + '/c', {recursive: true}); fs.mkdirSync(OUT + '/og', {recursive: true});
 const b = await chromium.launch({executablePath: '/opt/pw-browsers/chromium', proxy: process.env.HTTPS_PROXY ? {server: process.env.HTTPS_PROXY} : undefined});
 const p = await b.newPage();
 await p.route('**/statsapi.mlb.com/**', r => r.abort());
-await p.goto('file:///home/claude/front-office-ledger-prototype.html');
+await p.goto('file:///work/front-office-ledger-prototype.html');
 await p.waitForFunction(() => window.CARDS_READY === true, null, {timeout: 60000});
 const data = await p.evaluate(() => {
   normalizeCurated();
@@ -22,7 +22,7 @@ const data = await p.evaluate(() => {
       overall: L(r.forGrade), og: r.forGrade, net: fmtW(net), success: L((r.success||{}).g), sg: (r.success||{}).g, best: ch.slice(0, 3).map(([n, g]) => [n, L(g), g]), rank: rank[r.id] || null,
       titles: r.titles || 0};
   });
-  return {rows, n: AUTO_REGIMES.length + LB_HIST.length};
+  return {rows, n: AUTO_REGIMES.length + LB_HIST.length, nAct: act.length};
 });
 const col = g => g == null ? ['#f4efe2', '#6b6457', '#bdb4a2'] : g >= 65 ? ['#e3ecdf', '#1e6b47', '#1e6b47'] : g >= 55 ? ['#eef0dc', '#55621d', '#55621d'] : g >= 45 ? ['#f7f3e8', '#1d1a14', '#3a352b'] : g >= 38 ? ['#f6e5d3', '#8a5d00', '#8a5d00'] : ['#f5dcd8', '#a32c20', '#a32c20'];
 const chip = (txt, g, big) => { const [bg, fg, bd] = col(g); return `<span style="display:inline-block; background:${bg}; color:${fg}; border:${big ? 3 : 2}px solid ${bd}; border-radius:6px; font:600 ${big ? 92 : 26}px/1 'IBM Plex Mono', monospace; padding:${big ? '14px 26px' : '9px 14px'}">${txt}</span>`; };
@@ -49,7 +49,7 @@ await q.setContent(frame(`<div style="display:flex; justify-content:space-betwee
 await q.screenshot({path: OUT + '/og.png'});
 for(const r of data.rows){
   const sub = `${r.team} · ${r.span}${r.titles ? ` · ${r.titles} World Series title${r.titles > 1 ? 's' : ''}` : ''}`;
-  const rk = r.rank ? `#${r.rank} of 30 active front offices` : r.hist ? 'archive regime' : '';
+  const rk = r.rank ? `#${r.rank} of ${data.nAct} graded active front offices` : r.hist ? 'archive regime' : '';
   const html = frame(`<div style="display:flex; justify-content:space-between; align-items:flex-start; gap:30px">
     <div style="min-width:0"><div style="font:600 22px 'IBM Plex Mono', monospace; color:#9d3025; letter-spacing:2px">FRONT OFFICE LEDGER · REPORT CARD</div>
       <div style="font:900 ${r.exec.length > 18 ? 70 : 84}px/1.05 'Playfair Display', serif; margin-top:14px">${esc(r.exec)}</div>
@@ -60,7 +60,7 @@ for(const r of data.rows){
     <div style="margin-top:26px; font:500 25px 'IBM Plex Mono', monospace; color:#3a352b">${r.isNew ? 'too new to grade' : `${r.net} wins vs expectation`}${rk ? ` · ${rk}` : ''}</div>`);
   await q.setContent(html, {waitUntil: 'networkidle'});
   await q.screenshot({path: `${OUT}/og/${slug(r.id)}.png`});
-  const title = `${r.exec}, ${r.team}: ${r.overall} · Front Office Ledger`;
+  const title = `${r.exec}, ${r.team}: ${r.isNew ? 'new, not yet graded' : r.overall} · Front Office Ledger`;
   const desc = r.isNew ? `${r.exec} (${r.team}) is too new to grade.` : `Overall ${r.overall}, ${r.net} wins vs expectation${rk ? ', ' + rk : ''}. Best: ${r.best.map(([n, l]) => `${n} ${l}`).join(', ')}. Every decision graded against what a typical club got from the same move.`;
   const url = `https://frontofficeledger.com/c/${slug(r.id)}`, dest = `/#view=cards&id=${encodeURIComponent(r.id)}`;
   fs.writeFileSync(`${OUT}/c/${slug(r.id)}.html`, `<!doctype html>
