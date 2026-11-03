@@ -650,7 +650,19 @@ MOVES = {k: [[m[0], _MTI[m[1]]] + list(m[2:]) for m in ms] for k, ms in MOVES.it
 # v5.9: the career move log (about a third of the page) ships as moves.js
 # beside the page and loads in parallel; the page declares empty bindings and
 # anything drawn before it lands is redrawn on the "moves-loaded" event
-_mv_body = ("PLAYER_MOVE_TYPES = " + json.dumps(_MT, ensure_ascii=False) + ";\nPLAYER_MOVES = " + json.dumps(MOVES, separators=(",", ":"), ensure_ascii=False)
+# Nov 3: where each career started. Draft slot and bonus from MLB's draft
+# results; for international amateurs, birth date and country (bonuses for
+# July 2 signings are not in public data). Only players the site shows.
+_ORG = {"d": {}, "b": {}}
+try:
+    _o = json.load(open("/work/origins.json"))
+    _known = set(map(str, MOVES)) | set(map(str, NAMES)) | (set(map(str, TB["names"])) if TB else set())
+    _ORG["d"] = {k: v for k, v in _o["d"].items() if k in _known}
+    _ORG["b"] = {k: v for k, v in _o["b"].items() if k in _known and k not in _ORG["d"]}
+except Exception as _e: print("origins skipped:", _e)
+print(f"origins: {len(_ORG['d'])} draft, {len(_ORG['b'])} international")
+_mv_body = ("PLAYER_ORIGIN = " + json.dumps(_ORG, separators=(",", ":"), ensure_ascii=False) + ";\n"
+            + "PLAYER_MOVE_TYPES = " + json.dumps(_MT, ensure_ascii=False) + ";\nPLAYER_MOVES = " + json.dumps(MOVES, separators=(",", ":"), ensure_ascii=False)
             + ";\nfor(const _k in PLAYER_MOVES) PLAYER_MOVES[_k].forEach(m => { if(typeof m[1] === 'number') m[1] = PLAYER_MOVE_TYPES[m[1]]; });\n"
             + "window.MOVES_READY = true; window.dispatchEvent(new Event('moves-loaded'));\n")
 
@@ -695,11 +707,11 @@ _cd_body = scrub_text(_cd_body)   # readers know the metric as Ledger WAR
 CARDS_VER = _hl.md5(_cd_body.encode()).hexdigest()[:10]
 open(os.path.join(os.path.dirname(P), "cards.js"), "w").write(_cd_body)
 print(f"cards.js: {len(CARD_DETAIL)} cards, {len(_cd_body)/1e6:.2f}MB")
-mv_js = ("let PLAYER_MOVE_TYPES = [], PLAYER_MOVES = {};"
+mv_js = ("let PLAYER_ORIGIN = {d: {}, b: {}}, PLAYER_MOVE_TYPES = [], PLAYER_MOVES = {};"
          + "\nconst PLAYER_NAMES = " + json.dumps(NAMES, separators=(",", ":"), ensure_ascii=False)
          + ";\nconst PLAYER_RANKS = " + json.dumps(RANKS, separators=(",", ":"), ensure_ascii=False)
          + ";\nconst PLAYER_FATE = " + json.dumps(FATE, separators=(",", ":"), ensure_ascii=False) + ";\n\n")
-i = min(x for x in (s.find("let PLAYER_MOVE_TYPES = "), s.find("const PLAYER_MOVE_TYPES = "), s.find("const PLAYER_MOVES = ")) if x >= 0)
+i = min(x for x in (s.find("let PLAYER_ORIGIN = "), s.find("let PLAYER_MOVE_TYPES = "), s.find("const PLAYER_MOVE_TYPES = "), s.find("const PLAYER_MOVES = ")) if x >= 0)
 assert i >= 0
 tail_anchor = "const PLAYER_FATE" if "const PLAYER_FATE" in s else "const PLAYER_RANKS"
 j = s.find("\n\n", s.find(tail_anchor, i))
