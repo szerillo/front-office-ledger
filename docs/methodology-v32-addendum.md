@@ -1671,3 +1671,13 @@ Current clubs and statuses for every Desk player from the MLB Stats API (319 cha
 - **Regimes.** Chris Antonetti's Cleveland tenure is one regime from October 16, 2010 (GM and then president of baseball operations).
 - **Prospect lists.** The Top 100 is MLB Pipeline's October 2026 list (it was the June list). Ranked prospects are valued 70% on what players ranked there became and 30% on their 25 closest ranked comparables; everyone else is valued on the minor-league model. The boards order by Ledger value, not by Pipeline rank. Prospects who reached the majors in 2026 but are still under rookie limits show MLB as their level and their big-league line (debut26.py); their values are unchanged.
 - **Trade block.** The trade walk is now called the trade block.
+
+## Pre-launch run-through (November 3, 2026, late)
+
+- **Leaderboard.** Seats under two seasons are graded but not ranked; they list below the ranked regimes.
+- **Trade lines.** Card headlines are rebuilt from the club's own side when the league's line leaves the club out, repeats a player or carries a minor-league leg (regen_v3.py, `_fix_h`). True three-team deals are labeled.
+- **Simulator.** The Assistant GM's notes sit under the stage bar. The trade tab opens on a trade block (players who could move, best first, with a position filter), and a button returns to it from any club. Agents never open below the Ledger offer.
+- **Pickers.** Report Cards, Transaction Trees, Org DNA and H2H carry the same club buttons as the Horizon.
+- **Scenario Room.** Opens on the 2017 José Ramírez extension. Live free-agent decisions use the Ledger offer as the market price, the same number as the Top Free Agents board. Trade reveals say that extensions signed later are graded on their own.
+- **Phones.** Big Boards show one list at a time; the trade board and free-agent class no longer scroll inside boxes; the winter memo's toolbar wraps.
+- **Call-ups.** 2026 draftees add nothing in 2027.
