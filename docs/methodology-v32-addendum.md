@@ -1637,3 +1637,16 @@ Current clubs and statuses for every Desk player from the MLB Stats API (319 cha
 **Nav (same day).** Shorter nav labels (Trees, Prospects, Farm Systems, Free Agents, Simulator; full names kept as tooltips) so the three groups fit on one line at the 1240px header width. When they do not fit, a small script stacks the nav into three rows, one per group with its label at the left, instead of an uneven two-line wrap. Phones keep the single scrolling row.
 
 **Launch wiring (November 3, 2026).** GoatCounter visit counts (no cookies, no banner needed) on the main page, loaded with `no_onload` so the page counts one hit per view and club (`/cards/ari`, `/boards/fa`, `/desk/trade`) through `folCount`, never per filter change; share pages redirect into the main page and are counted there. The test harness blocks the counter so test runs never show up in the stats. Google Search Console verification tag added to the head.
+
+**Corrections inbox (November 3, 2026).** A "Corrections and feedback" link in the footer and a matching section on How it works mail frontofficeledger@gmail.com (subject prefilled). The address is assembled at runtime so it never appears in the page source; the personal contact address was removed from the About paragraph. Search Console verified (sitemap: 153 URLs) and the site imported into Bing Webmaster Tools.
+
+### Nav, boards, Horizon landing, share images (November 3, 2026)
+
+- Nav: Beta badge back; Head to Head shortens to H2H, Horizon becomes 5-Year Horizon, Top Prospects and Top Free Agents; full names elsewhere. Fits one line at the 1240px header; the three-row fallback is unchanged.
+- Top Prospects now shows the Top 100 beside all 30 farm systems, each pane scrolling on its own (sticky, independent overflow). Clicking a farm swaps that club's own prospects in on the left. Old `#view=boards&id=farm` links land here.
+- 5-Year Horizon opens on a league landing (three "at a glance" cards, the who-is-built-for-when table, club chips); picking a club shows its five-year detail with a league rank per season and a way back.
+- Long explainers split into bullets (`folBul`: sentence ends outside tags and open inline elements); the Free Agents header became four bullets with the backtest detail collapsed; the leaderboard key defines Waiver / Minor, Int'l, Ext, Ret (retention), Dev (development) and Success.
+- Scenario Room wording: "names hidden" replaces "blind" everywhere a reader sees it.
+- Share images: `folSave` builds a branded frame (title, subtitle, frontofficeledger.com footer) and html2canvas (loaded on demand) downloads it. Buttons on every tree (featured, regime, champions chains, player chains, the pop-out), the leaderboard, Top Free Agents (by position too), Top Prospects (or one club's), farm rankings, the league Horizon and each club's Horizon. Frames lay tree cards out inline and drop inset shadows, both of which html2canvas misdraws.
+- The assistant GM speaks in bullets everywhere (simulator notes, trade notes, the Desk, the Scenario Room): `agmList` gives each note a bullet and nests a long note's later sentences under its first (`folSplit`).
+- Trade verdict copy: "a big salary is not a trade chip" only appears when the offer sends real salary back ($8M+ of 2027 money); a "Close" gap never reads +0.0.
