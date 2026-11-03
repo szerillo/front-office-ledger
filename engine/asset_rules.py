@@ -489,3 +489,50 @@ def waiver_window(pid, teams, date):
     (a claim moves the contract: Alex Rios to the White Sox, 2009).
     Returns (total, {season: value})."""
     return trade_window(pid, teams, date, cap=4, weight=False, open_exp=False, to_control=False)
+
+# ---- Nov 3: a claim and the same club's later loss of that player are one
+# roster decision. Before, the claim was credited the player's next four
+# seasons wherever he played (minus the claim season elsewhere) and the loss
+# charged the club his next four seasons with the new club: Dan Otero, claimed
+# by the Yankees on March 26, 2013 and claimed away by Oakland three days
+# later, read +3.9 and -5.1 for a pitcher who never threw a pitch in New York.
+# Now the pair is one entry worth what he produced for the club while he was
+# there, net of the salary it paid; the loss is not charged again.
+_WV_ACQ = ("Claimed Off Waivers", "Rule 5 Selection")
+def waiver_pairs(rows, names):
+    """{(pid, claim date): loss date} for each claim by this club followed by
+    the same club losing him on waivers or in the Rule 5 draft inside the
+    claim's four-season window with no trade between; plus the set of
+    (pid, loss date) rows the pairs consume"""
+    open_, pairs, used = {}, {}, set()
+    for r in sorted(rows, key=lambda r: (r["date"], 0 if r["to_team"] in names else 1)):
+        pid = r.get("person_id"); t = r.get("type_desc")
+        if not pid: continue
+        if t in _WV_ACQ and r["to_team"] in names:
+            open_[pid] = r["date"]
+        elif t == "Trade":
+            open_.pop(pid, None)
+        elif t in _WV_ACQ and r.get("from_team") in names and pid in open_:
+            d0 = open_.pop(pid)
+            if int(r["date"][:4]) <= int(d0[:4]) + 3:
+                pairs[(pid, d0)] = r["date"]; used.add((pid, r["date"]))
+    return pairs, used
+
+def held_window(pid, names, d0, d1):
+    """what a player produced for this club between two dates (by season),
+    net of the salary the club carried for him: the value of a claim the club
+    later lost on waivers. Returns (total, {season: value})."""
+    rec = _lvm().get(int(pid)) if pid else None
+    if not rec: return 0.0, {}
+    y0, y1 = int(str(d0)[:4]), int(str(d1)[:4])
+    byyear = _dd(list)
+    for yr, tm, v in rec["rows"]:
+        byyear[yr].append((tm, v))
+    series = {}
+    for yr in range(y0, y1 + 1):
+        rows = byyear.get(yr, [])
+        here = [v for tm, v in rows if tm in names]
+        if not here: continue
+        share = len(here) / len(rows)
+        series[yr] = sum(here) - contract_cost(pid, yr, after=d0, acq=names, played=True) * share
+    return sum(series.values()), series

@@ -25,7 +25,7 @@ level, not yet in the sweep); LVM gaps as documented in ledger_war.py.
 from era_names import draft_day
 from asset_rules import control_value, draft_maturity
 MOVE_POP = {"waiver": [], "draft": []}
-from asset_rules import contract_cost, trade_window, waiver_window, DRAFT_K, DRAFT_SHAPE, draft_k
+from asset_rules import contract_cost, trade_window, waiver_window, waiver_pairs, held_window, DRAFT_K, DRAFT_SHAPE, draft_k
 import json, math, sqlite3, sys
 from collections import defaultdict
 from tradegroup import dedupe_rows, group_trades
@@ -288,30 +288,35 @@ for reg in cfg["regimes"]:
                trade_out=dict(pit=0.0, bat=0.0), waiver=dict(pit=0.0, bat=0.0))
     n_wv = n_r5 = 0; wv_net = 0.0
     ALLX = dict(draft=[], waiver=[], walk=[])   # v5.7: every decision of each kind, for the card's full lists
+    _WP, _WUSED = waiver_pairs(regime_rows[tid], names)   # Nov 3: claimed, then lost again = one decision
     for r in regime_rows[tid]:
         t = r["type_desc"]; yr = int(r["date"][:4])
         if t == "Trade":
             trades["rows"].append(r)
         elif t == "Claimed Off Waivers":
             claim = r["to_team"] in names
-            _vs = waiver_window(r["person_id"], names if claim else club_names(r["to_team"]), r["date"])[1]
+            if not claim and (r["person_id"], r["date"]) in _WUSED: continue   # graded inside the claim it undid
+            _d1 = _WP.get((r["person_id"], r["date"])) if claim else None
+            _vs = held_window(r["person_id"], names, r["date"], _d1)[1] if _d1 else waiver_window(r["person_id"], names if claim else club_names(r["to_team"]), r["date"])[1]
             v = sum(_vs.values())
             net = v if claim else -v
             wv_net += net; n_wv += 1
             for _y, _x in _vs.items(): ynet[_y] += (_x if claim else -_x)
             MOVE_POP["waiver"].append([0.5, round(net, 2)])
-            ALLX["waiver"].append([r["date"], r["person_name"] or "?", "claimed" if claim else "lost on waivers", round(net, 1), r["person_id"]])
+            ALLX["waiver"].append([r["date"], r["person_name"] or "?", (f"claimed, lost again {_d1}" if _d1 else "claimed") if claim else "lost on waivers", round(net, 1), r["person_id"]])
             dna["waiver"][ptype(r["person_id"])] += net
             if abs(net) > 0.05:
                 decs.append(dict(d=r["date"], ch="waiver", net=round(net,1), st=0.5,
-                                 h=(r["description"] or "waiver claim")[:110],
-                                 sides=[[("Claimed · next 4 seasons, net of salary" if claim else "Lost on waivers · his next 4 seasons, net of salary"),
+                                 h=((r["description"] or "waiver claim")[:80] + (f" Lost him again on {_d1}." if _d1 else ""))[:140],
+                                 sides=[[(f"Claimed, then lost again ({_d1}) · what he produced here, net of salary" if _d1 else "Claimed · next 4 seasons, net of salary" if claim else "Lost on waivers · his next 4 seasons, net of salary"),
                                          [[r["person_name"] or "?", f"{net:+.1f}"]]],
                                         ["Baseline", [["waiver channel expectation", "0.0"]]]],
                                  pids=[r["person_id"]]))
         elif t == "Rule 5 Selection":
             pick = r["to_team"] in names
-            _vs = waiver_window(r["person_id"], names if pick else club_names(r["to_team"]), r["date"])[1]
+            if not pick and (r["person_id"], r["date"]) in _WUSED: continue
+            _d1 = _WP.get((r["person_id"], r["date"])) if pick else None
+            _vs = held_window(r["person_id"], names, r["date"], _d1)[1] if _d1 else waiver_window(r["person_id"], names if pick else club_names(r["to_team"]), r["date"])[1]
             v = sum(_vs.values())
             r5n = (v if pick else -v)
             wv_net += r5n; n_r5 += 1
