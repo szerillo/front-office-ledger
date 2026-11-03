@@ -115,12 +115,77 @@
   @media (max-width:640px){ .introtext, .lbkey{font-size:12.5px} .introtext ul, .lbkey ul{padding-left:16px} }
   .sample-chip{font-size:10.5px; font-weight:700; color:var(--muted); border:1px solid var(--baseline);
     border-radius:2px; padding:2px 10px; letter-spacing:1px; text-transform:uppercase; font-family:var(--f-body)}
+  /* boards: prospects and farm side by side, each pane scrolls on its own */
+  .bd-split{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:12px; align-items:start; margin-top:10px}
+  .bd-pane{position:sticky; top:8px; max-height:calc(100vh - 16px); overflow:auto; border-radius:2px; overscroll-behavior:contain}
+  .bd-panecard{padding:10px 14px; margin:0}
+  .bd-pane thead th{position:sticky; top:0; background:var(--surface); z-index:1; box-shadow:0 1px 0 var(--grid)}
+  .bd-tbl{width:100%; font-size:12.5px}
+  .bd-cardhead{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+  .bd-cardhead .savebtn{margin-left:auto}
+  .bd-mini{margin:6px 0 8px; padding-left:18px; font-size:11.5px; color:var(--ink-2); line-height:1.45}
+  .bd-mini li{margin:2px 0}
+  .bd-more{margin:6px 0 8px; font-size:12px; color:var(--ink-2)}
+  .bd-more summary{cursor:pointer; font-weight:600}
+  .bd-more ul{margin:4px 0 0; padding-left:18px}
+  .bd-club{cursor:pointer}
+  .bd-club:hover td, .bd-club:focus td{background:var(--surface-2)}
+  .bd-club.on td{background:var(--surface-2); box-shadow:inset 0 0 0 0 var(--margin)}
+  .bd-club.on td:first-child{box-shadow:inset 3px 0 0 var(--margin)}
+  .bd-bar{height:5px; background:var(--surface-2); border-radius:2px; margin-top:3px; min-width:50px}
+  .bd-bar div{height:100%; background:var(--s2); border-radius:2px}
+  .bd-clear{font-family:var(--f-body); background:none; border:1px solid var(--rule); color:var(--ink-2); border-radius:3px; padding:2px 9px; font-size:11.5px; cursor:pointer}
+  @media (max-width:1000px){ .bd-split{grid-template-columns:minmax(0,1fr)} .bd-pane{position:static; max-height:75vh} }
+  .savebtn{background:none; border:1px solid var(--rule); color:var(--ink-2); border-radius:3px; padding:3px 10px; font:700 10.5px var(--f-body);
+    letter-spacing:.5px; text-transform:uppercase; cursor:pointer; white-space:nowrap}
+  .savebtn:hover{color:var(--ink); border-color:var(--ink-2)}
+  #fol-toast{position:fixed; bottom:18px; left:50%; transform:translateX(-50%); background:var(--ink); color:var(--page); padding:8px 16px; border-radius:4px; font-size:13px; z-index:9999}
+  /* the share frame: what a saved image looks like */
+  .fol-frame{position:absolute; left:-20000px; top:0; background:var(--page); color:var(--ink); padding:34px 44px 22px; box-sizing:border-box; font-family:var(--f-body)}
+  .ff-head{border-bottom:3px double var(--ink); padding-bottom:12px; margin-bottom:16px}
+  .ff-brand{font:700 15px var(--f-display); letter-spacing:2px}
+  .ff-brand span{color:var(--margin)}
+  .ff-title{font:700 32px var(--f-display); margin-top:6px; line-height:1.15}
+  .ff-sub{font-size:15px; color:var(--ink-2); margin-top:5px}
+  .ff-foot{display:flex; justify-content:space-between; border-top:1px solid var(--ink); margin-top:16px; padding-top:9px; font:600 13px var(--f-body); color:var(--muted); letter-spacing:.5px}
+  .ff-tbl{width:100%; border-collapse:collapse; font-size:17px}
+  .ff-tbl th{font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); text-align:left; border-bottom:1px solid var(--ink); padding:4px 8px}
+  .ff-tbl th.num, .ff-tbl td.num{text-align:right}
+  .ff-tbl td{padding:7px 8px; border-bottom:1px solid var(--grid)}
+  .ff-rk{color:var(--muted); width:34px}
+  .ff-m{font-size:13px; color:var(--muted); margin-left:4px}
+  .ff-2col{display:grid; grid-template-columns:1fr 1fr; gap:28px}
+  .ff-bar{height:6px; background:var(--surface-2); border-radius:2px; margin-top:4px; width:150px}
+  .ff-bar div{height:100%; background:var(--s2); border-radius:2px}
+  .fol-frame .card, .fol-frame .tree-card{box-shadow:none !important}   /* html2canvas fills inset shadows */
+  .ff-clone .lb-tablecard{display:block !important; border:none; background:transparent; padding:0}
+  .ff-clone .tree-card{border:none; box-shadow:none; background:transparent; padding:0; margin:0}
+  /* html2canvas paints a flex box's background over its items' text: frames lay tree cards out inline */
+  .ff-clone .tcard{display:inline-block}
+  .ff-clone .tcard > span{display:inline; margin-right:8px}
+  .ff-clone .tcard > span:last-child{margin-right:0}
+  .hz-glance{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; margin:8px 0 4px}
+  .hz-glance .card{padding:10px 14px; margin:0}
+  .hz-k{font-weight:700; letter-spacing:1px; text-transform:uppercase}
+  .hz-v{font:700 18px var(--f-display); margin:3px 0}
+  .hz-rk{font-size:12px; font-weight:700; padding:2px 7px; border-radius:3px; border:1px solid var(--grid)}
+  @media (max-width:760px){ .hz-glance{grid-template-columns:minmax(0,1fr)} }
+  .fol-bul{margin:4px 0; padding-left:17px; font-size:inherit; line-height:1.45}
+  .fol-bul li{margin:2px 0}
+  .tree-savebar{justify-content:flex-end; margin-bottom:2px}
+  .agm-list{margin:6px 0 0; padding-left:18px; font-size:12.5px; line-height:1.45}
+  .agm-list > li{margin:5px 0; padding-left:2px}
+  .agm-list > li::marker{color:var(--margin)}
+  .agm-list ul{margin:3px 0 0; padding-left:16px; color:var(--ink-2)}
+  .agm-list ul li{margin:2px 0}
+  .beta-chip{align-self:center; margin-left:10px; font:700 10px var(--f-body); letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--margin); border:1.5px solid var(--margin); border-radius:3px; padding:2px 7px 1px; line-height:1.3}
   .tagline{color:var(--ink-2); font-size:13px; margin-top:4px; font-style:italic}
   nav{display:flex; gap:6px; margin-top:8px; border-top:1px solid var(--ink); flex-wrap:wrap; align-items:flex-end}
   .navgrp{display:flex; flex-direction:column; padding-top:5px}
   .navlbl{font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); padding-left:10px}
   .navbtns{display:flex; flex-wrap:wrap}
-  .navgrp + .navgrp{border-left:1px solid var(--grid); padding-left:8px}
+  .navgrp + .navgrp{border-left:1px solid var(--grid); padding-left:6px}
   /* too narrow for one line: one row per group, label at the left, never an uneven two-line wrap */
   @media (min-width:761px){
     nav.stack{flex-direction:column; align-items:stretch; gap:0}
@@ -131,8 +196,8 @@
   }
   nav button{
     background:none; border:none; color:var(--ink-2);
-    font-family:var(--f-body); font-size:11px; font-weight:700; letter-spacing:.35px; text-transform:uppercase;
-    padding:7px 8px 8px; cursor:pointer; border-bottom:3px solid transparent;
+    font-family:var(--f-body); font-size:10.75px; font-weight:700; letter-spacing:.2px; text-transform:uppercase;
+    padding:7px 6px 8px; cursor:pointer; border-bottom:3px solid transparent;
   }
   nav button.navfeat{color:var(--ink); background:var(--surface-2); border-radius:3px 3px 0 0}
   nav button:hover{color:var(--ink)}
@@ -379,7 +444,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
 <header>
   <div class="hd">
     <div class="brandrow">
-      <h1 class="brand"><svg class="logo" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"> <defs> <clipPath id="ball"><circle cx="32" cy="32" r="26"/></clipPath> </defs> <circle cx="32" cy="32" r="26" fill="#faf6ec"/> <g clip-path="url(#ball)" stroke="#9db6cc" stroke-width="1.4"> <line x1="4" y1="18" x2="60" y2="18"/> <line x1="4" y1="25" x2="60" y2="25"/> <line x1="4" y1="32" x2="60" y2="32"/> <line x1="4" y1="39" x2="60" y2="39"/> <line x1="4" y1="46" x2="60" y2="46"/> </g> <g clip-path="url(#ball)" fill="none" stroke="#9d3025" stroke-width="2.6" stroke-linecap="round"> <path d="M 13 7 C 24 20, 24 44, 13 57"/> <path d="M 51 7 C 40 20, 40 44, 51 57"/> </g> <g clip-path="url(#ball)" stroke="#9d3025" stroke-width="1.7" stroke-linecap="round"> <line x1="17.1" y1="15.5" x2="22.1" y2="13.1"/> <line x1="19.6" y1="23.5" x2="25.0" y2="22.1"/> <line x1="20.4" y1="32.0" x2="25.9" y2="32.0"/> <line x1="19.6" y1="40.5" x2="25.0" y2="41.9"/> <line x1="17.1" y1="48.5" x2="22.1" y2="50.9"/> <line x1="46.9" y1="15.5" x2="41.9" y2="13.1"/> <line x1="44.4" y1="23.5" x2="39.0" y2="22.1"/> <line x1="43.6" y1="32.0" x2="38.1" y2="32.0"/> <line x1="44.4" y1="40.5" x2="39.0" y2="41.9"/> <line x1="46.9" y1="48.5" x2="41.9" y2="50.9"/> </g> <circle cx="32" cy="32" r="26" fill="none" stroke="#1d1a14" stroke-width="2.6"/> </svg><span>FRONT OFFICE <span class="ledger">LEDGER</span></span></h1>
+      <h1 class="brand"><svg class="logo" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"> <defs> <clipPath id="ball"><circle cx="32" cy="32" r="26"/></clipPath> </defs> <circle cx="32" cy="32" r="26" fill="#faf6ec"/> <g clip-path="url(#ball)" stroke="#9db6cc" stroke-width="1.4"> <line x1="4" y1="18" x2="60" y2="18"/> <line x1="4" y1="25" x2="60" y2="25"/> <line x1="4" y1="32" x2="60" y2="32"/> <line x1="4" y1="39" x2="60" y2="39"/> <line x1="4" y1="46" x2="60" y2="46"/> </g> <g clip-path="url(#ball)" fill="none" stroke="#9d3025" stroke-width="2.6" stroke-linecap="round"> <path d="M 13 7 C 24 20, 24 44, 13 57"/> <path d="M 51 7 C 40 20, 40 44, 51 57"/> </g> <g clip-path="url(#ball)" stroke="#9d3025" stroke-width="1.7" stroke-linecap="round"> <line x1="17.1" y1="15.5" x2="22.1" y2="13.1"/> <line x1="19.6" y1="23.5" x2="25.0" y2="22.1"/> <line x1="20.4" y1="32.0" x2="25.9" y2="32.0"/> <line x1="19.6" y1="40.5" x2="25.0" y2="41.9"/> <line x1="17.1" y1="48.5" x2="22.1" y2="50.9"/> <line x1="46.9" y1="15.5" x2="41.9" y2="13.1"/> <line x1="44.4" y1="23.5" x2="39.0" y2="22.1"/> <line x1="43.6" y1="32.0" x2="38.1" y2="32.0"/> <line x1="44.4" y1="40.5" x2="39.0" y2="41.9"/> <line x1="46.9" y1="48.5" x2="41.9" y2="50.9"/> </g> <circle cx="32" cy="32" r="26" fill="none" stroke="#1d1a14" stroke-width="2.6"/> </svg><span>FRONT OFFICE <span class="ledger">LEDGER</span></span></h1><span class="beta-chip" title="New and still being refined: corrections welcome">Beta</span>
       <span style="margin-left:auto; display:flex; gap:8px; align-items:center"><button id="methbtn" onclick="switchView('method')" style="background:none; border:1px solid var(--rule); color:var(--ink-2); font-family:var(--f-body); font-size:11px; font-weight:700; letter-spacing:.4px; text-transform:uppercase; padding:6px 12px; border-radius:3px; cursor:pointer">How it works</button>
       <button id="themebtn" aria-label="Toggle theme">Dark mode</button></span>
     </div>
@@ -390,17 +455,16 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
         <button data-view="report">Report Cards</button>
         <button data-view="champs">Champions</button>
         <button data-view="dna">Org DNA</button>
-        <button data-view="h2h">Head to Head</button>
-        <button data-view="trees" title="Transaction Trees">Trees</button>
+        <button data-view="h2h" title="Head to Head">H2H</button>
+        <button data-view="trees">Transaction Trees</button>
       </div></div>
       <div class="navgrp"><span class="navlbl">Look ahead</span><div class="navbtns">
-        <button data-view="horizon">Horizon</button>
-        <button data-view="boards" data-tab="pros" title="Top Prospects">Prospects</button>
-        <button data-view="boards" data-tab="farm" title="Farm Rankings">Farm Systems</button>
-        <button data-view="boards" data-tab="fa" title="Top Free Agents">Free Agents</button>
+        <button data-view="horizon">5-Year Horizon</button>
+        <button data-view="boards" data-tab="pros" title="Top 100 prospects and all 30 farm systems">Top Prospects</button>
+        <button data-view="boards" data-tab="fa">Top Free Agents</button>
       </div></div>
       <div class="navgrp"><span class="navlbl">Play GM</span><div class="navbtns">
-        <button data-view="gm" class="navfeat" title="Offseason Simulator">Simulator</button>
+        <button data-view="gm" class="navfeat">Offseason Simulator</button>
         <button data-view="desk">Deal Desk</button>
         <button data-view="scen">Scenario Room</button>
       </div></div>
@@ -440,7 +504,14 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
       <ul>
         <li><strong>Channel grades</strong> (Draft through Ret): wins above (+) or below (−) what a typical front office got from the same kind of move, per season in the chair. 50 is average on the 20-80 scale; A is about 70+, F under 35. Hover a grade for its number.</li>
         <li><strong>Overall</strong> is the ranking: every channel rolled into one grade of decision quality, leaning on the channels where results repeat (free agency most, trades least). <strong>Net wins</strong> is the same thing in wins. <strong>Success</strong> grades results on the field; the gap between Overall and Success is a story in itself.</li>
-        <li><strong>Dev</strong> is prospect value created in the org; <strong>Ret</strong> is whether the players a club let walk did more or less than departures of that caliber usually do.</li>
+        <li><strong>Column key</strong>
+          <ul>
+            <li><strong>Waiver / Minor</strong>: waiver claims and minor-league signings.</li>
+            <li><strong>Int'l</strong>: international amateur signings. <strong>Ext</strong>: contract extensions.</li>
+            <li><strong>Ret</strong> (retention): did the players a club let walk do more or less than departures of that caliber usually do?</li>
+            <li><strong>Dev</strong> (development): prospect value created while the player was in the org.</li>
+            <li><strong>Success</strong>: results on the field (win%, division titles, playoff series, pennants, rings).</li>
+          </ul></li>
         <li><span class="badge-ss">SS</span> small sample (under 3 seasons) · <strong>·</strong> too few moves to grade (counts as average) · <strong>new</strong> too new to grade.</li>
       </ul>
       <details><summary>Where the numbers come from</summary>
@@ -471,6 +542,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
         <option value="ext">Extensions grade</option>
       </select>
       <span class="ttype" style="align-self:center">Accounting: realized results only (what has already happened on the field)</span>
+      <button type="button" class="savebtn" style="margin-left:auto; align-self:center" onclick="lbSave()" title="Download a PNG to share">Save image</button>
     </div>
     <div id="lb-cards" role="list" aria-label="Front offices"></div>
     <div class="card lb-tablecard" style="padding:6px 8px">
@@ -594,7 +666,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
 
   <!-- ================= ROSTER HORIZON ================= -->
   <section id="view-horizon" hidden>
-    <h2>Roster Horizon · Where the Contention Window Actually Sits</h2>
+    <h2>5-Year Horizon · Where Every Club's Window Sits</h2>
     <div class="sub lbkey">
       <ul>
         <li>Every club's current roster, walked forward season by season through 2031.</li>
@@ -603,7 +675,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
       </ul>
     </div>
     <div class="filters" style="margin:12px 0">
-      <label for="hz-club">Club</label>
+      <label for="hz-club">View</label>
       <select id="hz-club" onchange="renderHorizon()"></select>
     </div>
     <div id="horizonbody"></div>
@@ -614,7 +686,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
     <h2>Scenario Room · Sit in the Seat</h2>
     <div class="sub lbkey">
       <ul>
-        <li><strong>The archive:</strong> real decision points replayed blind, with only what was knowable at the time; names are revealed after you choose.</li>
+        <li><strong>The archive:</strong> real decision points replayed with the names hidden and only what was knowable at the time; names are revealed after you choose.</li>
         <li><strong>Winter 2027:</strong> live decisions from this winter's real market, where nobody knows the answer yet.</li>
         <li>Accept, reject or counter. You are graded on process (the price against that day's market, from your seat), never on how it turned out.</li>
       </ul>
@@ -622,7 +694,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
     <div class="filters" style="margin:12px 0">
       <label for="sc-sel">Scenario</label>
       <select id="sc-sel" onchange="scJump()"></select>
-      <label style="margin-left:12px; font-size:12.5px"><input type="checkbox" id="sc-blind" checked onchange="scToggleBlind(this.checked)"> Blind archive (hide names until you decide)</label>
+      <label style="margin-left:12px; font-size:12.5px"><input type="checkbox" id="sc-blind" checked onchange="scToggleBlind(this.checked)"> Hide names in the archive until you decide</label>
       <span id="sc-score" class="ttype" style="margin-left:14px"></span>
     </div>
     <div id="scenbody"></div>
@@ -791,13 +863,16 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
       <h3>Championship provenance</h3>
       <p>Every World Series winner 1998-2026 carries a computed roster ledger: core contributors (&ge; 1.0 Ledger WAR in the title season) traced to how the club acquired them, split into the sitting regime's moves and what it inherited. Across all 29 titles the median champion was 56% built by its sitting regime, in year 5 of the tenure. Free agency has been the majority channel exactly once (the 2009 Yankees). The median title core was 46% self-built in 1998-2009 and 72% in 2010-2026, yet seven of the seventeen titles since 2010 were won on majority-inherited cores.</p>
 
+      <h3>Corrections and feedback</h3>
+      <p>Spot a wrong number, a missing or misattributed move, or a front office credited with the wrong decision? Email <a class="fbmail fbaddr" href="#">the Ledger</a>. Include the club, the player or move, and what looks off; confirmed fixes go into the next data refresh.</p>
+
       <h3>About this project</h3>
-      <p>Built by <strong>Sean Zerillo</strong>: a complete decision-level accounting of front-office performance, from raw transactions to graded, clickable cards, with every number computed from free public data. Every active and archive card and every championship ledger is generated end to end by the same engine; the featured trades on the Trees page read every value from the same trade book. Contact: sean.zerillo@gmail.com.</p>
+      <p>Built by <strong>Sean Zerillo</strong>: a complete decision-level accounting of front-office performance, from raw transactions to graded, clickable cards, with every number computed from free public data. Every active and archive card and every championship ledger is generated end to end by the same engine; the featured trades on the Trees page read every value from the same trade book. Questions and corrections go to the address above.</p>
     </div>
   </section>
 
   <footer>
-    <div style="font-size:13px"><strong>Front Office Ledger</strong> · an independent fan project, built entirely from public data · by Sean Zerillo · data through November 1, 2026 · <a href="#" onclick="switchView('method'); window.scrollTo(0,0); return false" style="color:inherit">How it works</a></div>
+    <div style="font-size:13px"><strong>Front Office Ledger</strong> · an independent fan project, built entirely from public data · by Sean Zerillo · data through November 1, 2026 · <a href="#" onclick="switchView('method'); window.scrollTo(0,0); return false" style="color:inherit">How it works</a> · <a class="fbmail" href="#" style="color:inherit">Corrections and feedback</a></div>
     <div style="margin-top:8px; font-size:11.5px; color:var(--muted); line-height:1.5">Not affiliated with, endorsed by, or sponsored by Major League Baseball, the MLB Players Association, or any club. Team names are used only to identify the clubs being studied. Grades are one model's read of public information, not a judgment of anyone's work or character. Player and transaction data &copy; MLB Advanced Media, L.P., used for non-commercial analysis. The information used here was obtained free of charge from and is copyrighted by Retrosheet. Interested parties may contact Retrosheet at www.retrosheet.org.</div>
   </footer>
 </div>
@@ -817,8 +892,55 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
 </div>
 
 <div id="tip"></div>
+<script>
+// feedback address assembled at runtime so scrapers do not harvest it from the page source
+(function(){ var u = ['frontoffice', 'ledger'].join(''), d = ['gmail', 'com'].join('.'), a = u + '@' + d;
+  document.querySelectorAll('a.fbmail').forEach(function(el){
+    el.href = 'mailto:' + a + '?subject=' + encodeURIComponent('Front Office Ledger feedback');
+    if(el.classList.contains('fbaddr')) el.textContent = a;
+  });
+})();
+</script>
 
 <script>
+/* long explainers read as short bullets: split a paragraph at sentence ends
+   (never inside a tag or an open <strong>/<a>), one bullet per sentence */
+function folSplit(h){
+  h = String(h == null ? '' : h).trim();
+  const ABBR = /(?:^|[\s(])(Jr|Sr|St|vs|No|Mr|Dr|e\.g|i\.e|approx|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|[A-Z])$/;
+  const parts = []; let cur = '', open = 0;
+  for(let i = 0; i < h.length; i++){
+    const c = h[i];
+    if(c === '<'){
+      const j = h.indexOf('>', i); if(j < 0){ cur += h.slice(i); break; }
+      const tag = h.slice(i, j + 1);
+      if(/^<(strong|em|b|i|a|span|abbr)\b/i.test(tag)) open++;
+      else if(/^<\/(strong|em|b|i|a|span|abbr)>/i.test(tag)) open = Math.max(0, open - 1);
+      cur += tag; i = j; continue;
+    }
+    cur += c;
+    if(c === '.' && h[i + 1] === ' ' && !open && /[a-z0-9%)\]'’"]$/.test(cur.slice(0, -1)) && !ABBR.test(cur.slice(0, -1))){
+      const rest = h.slice(i + 2).replace(/^(<[^>]+>)+/, '');
+      if(/^[A-Z0-9(“"$]/.test(rest)){ parts.push(cur.trim()); cur = ''; }
+    }
+  }
+  if(cur.trim()) parts.push(cur.trim());
+  return parts;
+}
+/* long explainers read as short bullets: one bullet per sentence, never split
+   inside a tag or an open <strong>/<a>; short text is left alone */
+function folBul(h, min){
+  h = String(h == null ? '' : h).trim();
+  if(h.length < (min || 200)) return h;
+  const parts = folSplit(h);
+  return parts.length > 1 ? `<ul class="fol-bul">${parts.map(p => `<li>${p}</li>`).join('')}</ul>` : h;
+}
+// the assistant GM speaks in bullets: one per note, a long note's later sentences nest under its first
+function agmList(tips){
+  const li = t => { const p = String(t).length > 110 ? folSplit(t) : [String(t)];
+    return `<li>${p[0]}${p.length > 1 ? `<ul>${p.slice(1).map(x => `<li>${x}</li>`).join('')}</ul>` : ''}</li>`; };
+  return `<ul class="agm-list">${tips.filter(Boolean).map(li).join('')}</ul>`;
+}
 /* =========================================================
    CURATED CARDS: hand-authored decision pages (LAD/BAL/MIL); illustrative values only where labeled
    ========================================================= */
@@ -1047,7 +1169,7 @@ function treeClubOf(n){
 function treeCard(t, ab){
   TREE_AB = ab || '';
   const persp = ab ? `<div class="tree-persp">Every number is wins from <strong>${ab}</strong>'s side: <span class="pos">+</span> is value ${ab} gained, <span class="neg">−</span> is value it gave up. Solid cards came to ${ab}; dashed cards left.</div>` : '';
-  const h = `<div class="card tree-card"><div class="tree-title">${t.title}</div><div class="tree-sub">${t.sub}</div>${persp}${tnode(t.root)}</div>`;
+  const h = `<div class="card tree-card"><div class="bd-cardhead"><div class="tree-title">${t.title}</div>${folSaveBtn('folSaveTree(this)')}</div><div class="tree-sub">${folBul(t.sub)}</div>${persp}${tnode(t.root)}</div>`;
   TREE_AB = '';
   return h;
 }
@@ -5980,10 +6102,10 @@ function renderChampLines(){
   host.innerHTML = `
     <div class="card" style="padding:14px 16px; margin-bottom:14px">
       <div style="font-weight:700; font-size:14.5px; margin-bottom:2px">How titles actually get built · all ${L.n} champions, ${Math.min(...L.rows.map(a=>a.yr))}-${Math.max(...L.rows.map(a=>a.yr))} <span class="badge-real">COMPUTED</span></div>
-      <div class="sub" style="margin:4px 0 10px">Each bar is a championship core's WAR by acquisition channel. Through lines from the data: the median champion was <strong>${L.medianRegShare}% built by its sitting regime</strong> in <strong>year ${L.medianTenure}</strong> of the tenure (${L.earlyTitles} of ${pz(L.n,'title','titles')} came in a regime's first three years, ${L.lateTitles} in year ten or later). ${(()=>{const md=a=>{a=[...a].sort((x,y)=>x-y);const n=a.length;return n?Math.round(n%2?a[(n-1)/2]:(a[n/2-1]+a[n/2])/2):0;};const E=L.rows.filter(r=>r.yr<=2009),M=L.rows.filter(r=>r.yr>=2010),inh=M.filter(r=>r.regShare!=null&&r.regShare<50).sort((a,b)=>b.yr-a.yr),mx=Math.max(...L.rows.map(a=>a.yr));return `The sharpest trend is generational: <strong>the median title core was ${md(E.map(r=>r.regShare))}% self-built in 1998-2009 and ${md(M.map(r=>r.regShare))}% in 2010-${mx}</strong>, though the inherited core has not gone away: ${inh.length} of the ${pz(M.length,'title','titles')} since 2010 were won on majority-inherited rosters${inh.length?`, most recently the ${nameOf(inh[0].id)}`:''}. `;})()}${L.majorityFA.length===0?'<strong>No champion was majority-built by its own front office’s free-agent signings</strong>':`<strong>Exactly ${L.majorityFA.length===1?'one champion':L.majorityFA.length+' champions'} ${L.majorityFA.length===1?'was':'were'} majority-built by its own front office’s free-agent signings</strong> (${L.majorityFA.map(nameOf).join(', ')})`}, with the market averaging ${L.avgShare.fa}% of core WAR; only ${pz(L.majorityHomegrown.length,'title','titles')} (${L.majorityHomegrown.map(nameOf).join(', ')}) were majority homegrown. Most-bought core: ${nameOf(L.mostBought)}. Counting each title regime's own moves, most trade-built: ${nameOf(L.mostTraded)}. Most homegrown: ${nameOf(L.mostHomegrown)}. Most inherited: ${nameOf(L.mostInherited)}. Click any bar for the full roster ledger; click any player on it for his onward chain.</div>
+      <div class="sub" style="margin:4px 0 10px">${folBul(`Each bar is a championship core's WAR by acquisition channel. Through lines from the data: the median champion was <strong>${L.medianRegShare}% built by its sitting regime</strong> in <strong>year ${L.medianTenure}</strong> of the tenure (${L.earlyTitles} of ${pz(L.n,'title','titles')} came in a regime's first three years, ${L.lateTitles} in year ten or later). ${(()=>{const md=a=>{a=[...a].sort((x,y)=>x-y);const n=a.length;return n?Math.round(n%2?a[(n-1)/2]:(a[n/2-1]+a[n/2])/2):0;};const E=L.rows.filter(r=>r.yr<=2009),M=L.rows.filter(r=>r.yr>=2010),inh=M.filter(r=>r.regShare!=null&&r.regShare<50).sort((a,b)=>b.yr-a.yr),mx=Math.max(...L.rows.map(a=>a.yr));return `The sharpest trend is generational: <strong>the median title core was ${md(E.map(r=>r.regShare))}% self-built in 1998-2009 and ${md(M.map(r=>r.regShare))}% in 2010-${mx}</strong>, though the inherited core has not gone away: ${inh.length} of the ${pz(M.length,'title','titles')} since 2010 were won on majority-inherited rosters${inh.length?`, most recently the ${nameOf(inh[0].id)}`:''}. `;})()}${L.majorityFA.length===0?'<strong>No champion was majority-built by its own front office’s free-agent signings</strong>':`<strong>Exactly ${L.majorityFA.length===1?'one champion':L.majorityFA.length+' champions'} ${L.majorityFA.length===1?'was':'were'} majority-built by its own front office’s free-agent signings</strong> (${L.majorityFA.map(nameOf).join(', ')})`}, with the market averaging ${L.avgShare.fa}% of core WAR; only ${pz(L.majorityHomegrown.length,'title','titles')} (${L.majorityHomegrown.map(nameOf).join(', ')}) were majority homegrown. Most-bought core: ${nameOf(L.mostBought)}. Counting each title regime's own moves, most trade-built: ${nameOf(L.mostTraded)}. Most homegrown: ${nameOf(L.mostHomegrown)}. Most inherited: ${nameOf(L.mostInherited)}. Click any bar for the full roster ledger; click any player on it for his onward chain.`)}</div>
       <div style="display:grid; grid-template-columns:repeat(${L.rows.length}, minmax(14px, 1fr)); gap:5px; overflow-x:auto; max-width:100%">${strip}</div>
       <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; font-size:12px">${['draft','trade','fa','intl','inherited'].map(k => `<span style="display:inline-flex; align-items:center; gap:5px"><span style="width:12px; height:12px; border-radius:2px; background:${CHAMP_CH[k].hex}; border:1px solid var(--rule)"></span>${({draft:'Drafted by the title regime', trade:'Acquired by trade (incl. waivers, Rule 5)', fa:'Signed as a free agent', intl:"International amateur / minor-league find", inherited:'Inherited: acquired by an earlier front office'})[k]}</span>`).join('')}</div>
-      <div class="ttype" style="margin-top:6px">How to read it: each bar is one champion, full height = 100% of its core's WAR that season; colors show how that WAR arrived. A tall gray section means the title was largely built before the winning front office took over. Click any bar or table row for that roster's full ledger.</div>
+      <div class="ttype" style="margin-top:6px">${folBul(`How to read it: each bar is one champion, full height = 100% of its core's WAR that season; colors show how that WAR arrived. A tall gray section means the title was largely built before the winning front office took over. Click any bar or table row for that roster's full ledger.`)}</div>
     </div>`;
   host.querySelectorAll('.champbar').forEach(el=>{
     el.addEventListener('click', ()=>{ $('#champsel').value = el.dataset.cid; renderChamp(el.dataset.cid); });
@@ -6036,7 +6158,7 @@ function renderChampCompare(host){
   const cmp = document.getElementById('champcompare') || (()=>{ const d=document.createElement('div'); d.id='champcompare'; host.appendChild(d); return d; })();
   cmp.innerHTML = `<div class="card" style="padding:12px 16px; margin-top:12px">
     <strong>Every championship core, side by side</strong> <span class="ttype">· click any column to sort; click a row for the full roster ledger</span>
-    <div class="ttype" style="margin-top:3px">Channel columns count how each core piece first arrived, whichever regime made the move (an inherited draftee counts as draft). Built-by-regime counts only the sitting regime's own moves, which is what the summary's "majority" and "most" lines use; the columns here can read higher for a channel because they include inherited pieces.</div>
+    <div class="ttype" style="margin-top:3px">${folBul(`Channel columns count how each core piece first arrived, whichever regime made the move (an inherited draftee counts as draft). Built-by-regime counts only the sitting regime's own moves, which is what the summary's "majority" and "most" lines use; the columns here can read higher for a channel because they include inherited pieces.`)}</div>
     <div style="overflow:auto; margin-top:6px"><table style="width:100%"><thead><tr>
       ${th('yr','Year')}<th style="cursor:pointer" onclick="champCmpSort('team')">Club${champCmpKey==='team'?(champCmpAsc?' &#9650;':' &#9660;'):''}</th>
       ${th('war','Core WAR','sum of Ledger WAR from every core contributor that season')}
@@ -6079,7 +6201,7 @@ function wireChampChains(c){
         const fate = chainFate(pid, (r.abbr || (abOf ? abOf(r) : '')));
         const node = {nm: `${nm} · on the roster from ${tr.dataset.d}`, status: kid ? 'closed' : fate.status,
                       kids: kid ? [kid] : [{nm: fate.nm, wv: null, status: fate.status}]};
-        chainTr.cells[0].innerHTML = `<div class="tree-card" style="margin:0">${tnode(node)}</div>
+        chainTr.cells[0].innerHTML = `<div class="tree-card" style="margin:0"><div class="bd-cardhead tree-savebar">${folSaveBtn(`folSaveTree(this, ${JSON.stringify(nm).replace(/"/g, '&quot;')})`)}</div>${tnode(node)}</div>
           <div style="font-size:11px; color:var(--muted); margin-top:4px">The piece's onward chain on ${r.team}'s ledger, generated from the transaction archive. Deals it lands on open their own node.</div>`;
         chainTr.dataset.built = '1';
       }
@@ -6263,7 +6385,7 @@ function agmCard(lines){
   if(!lines.length) return '';
   return `<div class="card" style="padding:12px 14px; margin-top:10px; border-left:3px solid var(--margin, #9d3025)">
     <strong>Assistant GM</strong> <span class="ttype">· notes from the other desk</span>
-    ${lines.map(t=>`<div style="font-size:12.5px; margin-top:7px; border-top:1px solid var(--grid); padding-top:6px">&raquo; ${t}</div>`).join('')}</div>`;
+    ${agmList(lines)}</div>`;
 }
 function dkCounterpartyCheck(){
   // the simulator's market rules from THEIR seat: what they surrender at their
@@ -6482,7 +6604,7 @@ function dkPostedRows(sg){
   const pub = (pz.public||[]).length ? `<div style="font-size:12.5px; margin-top:6px; color:var(--muted)">Published predictions: ${pz.public.map(x=>`${x[0]} ${x[1]} yr / $${x[2]}M${fmtAAV(x[2], x[1])}`).join(' · ')}</div>` : '';
   return `<div style="font-size:12.5px; margin-top:8px">Posted by the ${pz.club} (${pz.league}). 2026: ${pz.line26}. ${pz.awards.length?pz.awards.join('; ')+'.':''}</div>
     <div style="font-size:12.5px; margin-top:4px">Posting fee on the Ledger offer: <strong>$${dkPostingFee(sg.sugTot).toFixed(1)}M</strong> to the ${pz.club} (20% of the first $25M, 17.5% of the next $25M, 15% beyond; outside payroll, counted in the simulator's surplus).</div>
-    <div style="font-size:12.5px; margin-top:4px; color:var(--muted)">No MLB line yet: his row is a translation. Each of his last three seasons is matched to the five nearest imports since 2017-18 (role, age, production, league), and the row carries what those players actually produced per season over their first two MLB seasons (translated 2024-26: ${['2024','2025','2026'].map(y=>pz.translated[y]===undefined?'n/a':fmtW(pz.translated[y])).join(' / ')} WAR).</div>${pub}
+    <div style="font-size:12.5px; margin-top:4px; color:var(--muted)">${folBul(`No MLB line yet: his row is a translation. Each of his last three seasons is matched to the five nearest imports since 2017-18 (role, age, production, league), and the row carries what those players actually produced per season over their first two MLB seasons (translated 2024-26: ${['2024','2025','2026'].map(y=>pz.translated[y]===undefined?'n/a':fmtW(pz.translated[y])).join(' / ')} WAR).`)}</div>${pub}
     <div style="font-weight:600; margin-top:10px">Nearest posted-market comps (his 2025-26 lines vs. their final pre-MLB season)</div>${rows}`;
 }
 function dkStatusNote(p){
@@ -6579,7 +6701,7 @@ function dkPayrollLine(ab, yrs, aav, replaced){
   return `<div class="card" style="padding:10px 14px; margin-top:10px; font-size:12.5px">
     <strong>${ab} estimated payroll, before&rarr;after this deal</strong><br>${horizon}<br>
     Year one lands ${flag} (book $${Math.round(y1.book)}M + est arb/pre-arb $${Math.round(y1.arb)}M for the ${y1.arbN} controlled players not on guaranteed deals).
-    <div style="font-size:11px; color:var(--muted); margin-top:4px">Book money is guaranteed FA and extension dollars from the 2,365-contract ledger, AAV-spread, following each player to his current club (a newer contract supersedes the one it replaced; cash sent in trades is not modeled). Arb and pre-arb are estimated (league minimum pre-arb; arbitration from the award model calibrated on 48 real 2026 salaries, about $1.6M typical out-of-sample miss). Options, deferral timing, and in-season trades still sit outside the book. The CBT line is the 2026 threshold; 2027+ awaits the next CBA.</div></div>`;
+    <div style="font-size:11px; color:var(--muted); margin-top:4px">${folBul(`Book money is guaranteed FA and extension dollars from the 2,365-contract ledger, AAV-spread, following each player to his current club (a newer contract supersedes the one it replaced; cash sent in trades is not modeled). Arb and pre-arb are estimated (league minimum pre-arb; arbitration from the award model calibrated on 48 real 2026 salaries, about $1.6M typical out-of-sample miss). Options, deferral timing, and in-season trades still sit outside the book. The CBT line is the 2026 threshold; 2027+ awaits the next CBA.`)}</div></div>`;
 }
 function dkFaVerdict(){
   const p = dkFindPlayer(document.getElementById('dk-fa-player').value);
@@ -6633,7 +6755,7 @@ function dkFaVerdict(){
       <div class="card tile"><div class="lbl">Vs a typical signing</div><div class="val ${relFA>=0?'pos':'neg'}">${fmtW(relFA)}</div><div class="dlt">vs full market value: ${fmtW(surplus)} · ${ppw} per projected win (market ~$10M)</div></div>
       <div class="card tile"><div class="lbl">Desk grade</div><div class="val"><span class="grade ${letterClass(g)}" style="font-size:26px; padding:4px 14px">${g}</span></div><div class="dlt">${fmtW(relFA)} vs a typical club's return on this money (${typFA.toFixed(2)} wins per win paid for this length and size of deal); the letter reads that edge as a share of the cost</div></div>
     </div>
-    <div style="font-size:11px; color:var(--muted); margin-top:8px">Same accounting the FA channel grades with: realized (here projected) value against what a typical club got back for the same money in the same contract years and at the same deal size. A QO signing is charged a flat 1.0 win for the forfeited pick, as in the realized channel. The letter is a pricing grade: the projected edge over a typical deal as a share of the cost (A+ 30% or more better, A 18%, B 6%, C within 6%, D up to 18% worse, F beyond). Projections fade with age (attrition), so long deals for older players carry their decline years.</div>
+    <div style="font-size:11px; color:var(--muted); margin-top:8px">${folBul(`Same accounting the FA channel grades with: realized (here projected) value against what a typical club got back for the same money in the same contract years and at the same deal size. A QO signing is charged a flat 1.0 win for the forfeited pick, as in the realized channel. The letter is a pricing grade: the projected edge over a typical deal as a share of the cost (A+ 30% or more better, A 18%, B 6%, C within 6%, D up to 18% worse, F beyond). Projections fade with age (attrition), so long deals for older players carry their decline years.`)}</div>
     ${dkPayrollLine((document.getElementById('dk-fa-club')||{}).value || dkState.you, yrs, aav)}\n    ${agmCard(agm)}`;
 }
 function dkExtVerdict(){
@@ -6706,7 +6828,7 @@ function dkExtVerdict(){
       <div class="card tile"><div class="lbl">Vs the path it replaces</div><div class="val ${raw>=0?'pos':'neg'}">${fmtW(raw)}</div><div class="dlt">${nCtrl ? `${pz(nCtrl,'controlled season','controlled seasons')}: arbitration path minus this salary ${fmtW(ctrlSave)}` : ''}${nCtrl && nFA ? ' · ' : ''}${nFA ? `${pz(nFA,'free-agent season','free-agent seasons')}: ${fmtW(faProd)} projected vs ${fmtW(faExp)} typical` : ''}</div></div>
       <div class="card tile"><div class="lbl">Desk grade</div><div class="val"><span class="grade ${letterClass(g)}" style="font-size:26px; padding:4px 14px">${g}</span></div><div class="dlt">${fmtW(relX)} vs a typical ${DK_CLS_NAME[cls] || cls} extension of this size (${rate >= 0 ? '+' : ''}${rate.toFixed(2)} per win of cost); the letter reads that edge as a share of the cost</div></div>
     </div>
-    <div style="font-size:11px; color:var(--muted); margin-top:8px">Extension rules: the seasons he is already controlled for belong to whoever acquired him, so the extension is judged on what it changes there (salary vs the arbitration path) and on the free-agent seasons it buys (production vs a typical free-agent return on that money); each class (${DK_CLS_NAME[cls] || cls} here) is then centered on its league average, so the skill graded is whom you lock up and at what price.</div>
+    <div style="font-size:11px; color:var(--muted); margin-top:8px">${folBul(`Extension rules: the seasons he is already controlled for belong to whoever acquired him, so the extension is judged on what it changes there (salary vs the arbitration path) and on the free-agent seasons it buys (production vs a typical free-agent return on that money); each class (${DK_CLS_NAME[cls] || cls} here) is then centered on its league average, so the skill graded is whom you lock up and at what price.`)}</div>
     ${dkPayrollLine((document.getElementById('dk-ext-club')||{}).value || dkState.you, yrs, aav, p)}`;
 }
 /* ===== draft room ===== */
@@ -6762,7 +6884,7 @@ function dkDraftVerdict(){
       <div class="card tile"><div class="lbl">Chart verdict</div><div class="val"><span class="grade ${letterClass(g)}" style="font-size:26px; padding:4px 14px">${g}</span></div><div class="dlt">net value, ranked among real trades this size</div></div>
     </div>
     <div class="card" style="padding:10px 14px; margin-top:10px; font-size:12px"><strong>Slot curve</strong> (mature expected wins by pick, in 2026 terms, before the 10%/yr discount that the 2027 figures above carry) &middot; ${anchors}</div>
-    <div style="font-size:11px; color:var(--muted); margin-top:8px">Same curve the draft channel grades against (pick slot expectation x 0.82 maturity, future drafts discounted 10%/yr). Players use Ledger Projection over their control years. The variance warning matters more here than anywhere: a pick is a lottery ticket priced at its mean, and packages of several mid picks carry far more bust risk than one high pick of equal expected value.</div>`;
+    <div style="font-size:11px; color:var(--muted); margin-top:8px">${folBul(`Same curve the draft channel grades against (pick slot expectation x 0.82 maturity, future drafts discounted 10%/yr). Players use Ledger Projection over their control years. The variance warning matters more here than anywhere: a pick is a lottery ticket priced at its mean, and packages of several mid picks carry far more bust risk than one high pick of equal expected value.`)}</div>`;
 }
 function dkEval(){
   const host = document.getElementById('dk-out');
@@ -6886,17 +7008,66 @@ function hzLeague(){
   rows.forEach(r => { r.rk = seasons.map((s, i) => ranks[i].indexOf(r.ab) + 1); });
   return hzLeague._m = {rows, seasons};
 }
+const CLUB_NAME = {ARI:'Arizona Diamondbacks', ATH:'Athletics', ATL:'Atlanta Braves', BAL:'Baltimore Orioles', BOS:'Boston Red Sox', CHC:'Chicago Cubs',
+  CIN:'Cincinnati Reds', CLE:'Cleveland Guardians', COL:'Colorado Rockies', CWS:'Chicago White Sox', DET:'Detroit Tigers', HOU:'Houston Astros',
+  KC:'Kansas City Royals', LAA:'Los Angeles Angels', LAD:'Los Angeles Dodgers', MIA:'Miami Marlins', MIL:'Milwaukee Brewers', MIN:'Minnesota Twins',
+  NYM:'New York Mets', NYY:'New York Yankees', PHI:'Philadelphia Phillies', PIT:'Pittsburgh Pirates', SD:'San Diego Padres', SEA:'Seattle Mariners',
+  SF:'San Francisco Giants', STL:'St. Louis Cardinals', TB:'Tampa Bay Rays', TEX:'Texas Rangers', TOR:'Toronto Blue Jays', WSH:'Washington Nationals'};
+function hzPick(ab){
+  const sel = document.getElementById('hz-club'); if(sel) sel.value = ab || '';
+  renderHorizon();
+  const v = document.getElementById('view-horizon'); if(v) v.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+function hzHeat(rk){ return rk <= 6 ? 'background:rgba(46,125,50,.18)' : rk <= 12 ? 'background:rgba(46,125,50,.08)' : rk >= 25 ? 'background:rgba(183,28,28,.12)' : ''; }
 function renderHzLeague(){
   const {rows, seasons} = hzLeague();
   const key = renderHzLeague._k || 0;
   const sorted = rows.slice().sort((a, b) => b.v[key] - a.v[key]);
-  const heat = rk => rk <= 6 ? 'background:rgba(46,125,50,.18)' : rk <= 12 ? 'background:rgba(46,125,50,.08)' : rk >= 25 ? 'background:rgba(183,28,28,.12)' : '';
-  return `<div class="card" style="padding:12px 16px; margin:8px 0 14px">
-    <strong>League horizon · who is built for when</strong> <span class="ttype">· projected WAR already under control (signed or club-controlled MLB players plus the farm), ranked each season; click a year to sort, a club for its detail</span>
-    <div style="overflow-x:auto; margin-top:8px"><table style="width:100%; font-size:12.5px"><thead><tr><th>Club</th>${seasons.map((s, i) => `<th class="num" style="cursor:pointer" tabindex="0" role="button" aria-label="Sort by ${s}" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); this.click();}" onclick="renderHzLeague._k=${i}; renderHorizon()">${s}${i === key ? ' &#9660;' : ''}</th>`).join('')}<th class="num" title="share of 2029-31 controlled value coming from prospects">farm share, 29-31</th></tr></thead><tbody>
-    ${sorted.map(r => `<tr style="cursor:pointer" tabindex="0" aria-label="${r.ab} detail" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); this.click();}" onclick="document.getElementById('hz-club').value='${r.ab}'; renderHorizon(); document.getElementById('horizonbody').scrollIntoView({behavior:'smooth'})"><td><strong>${r.ab}</strong></td>${r.v.map((x, i) => `<td class="num" style="${heat(r.rk[i])}">${fmtW(x)} <span class="ttype">#${r.rk[i]}</span></td>`).join('')}<td class="num">${Math.round(100 * (r.fm[2] + r.fm[3] + r.fm[4]) / Math.max(0.1, r.v[2] + r.v[3] + r.v[4]))}%</td></tr>`).join('')}
-    </tbody></table></div>
-    <div class="ttype" style="margin-top:6px">Green: top six (darker) or top twelve that season; red: bottom six. Totals fall in later years for every club because contracts and control run out and nobody has been signed yet; the ranking, not the level, is the read. Free agents a club will sign later are not in it.</div></div>`;
+  const late = r => r.v[2] + r.v[3] + r.v[4];
+  const now3 = rows.slice().sort((a, b) => b.v[0] - a.v[0]).slice(0, 3).map(r => r.ab);
+  const late3 = rows.slice().sort((a, b) => late(b) - late(a)).slice(0, 3).map(r => r.ab);
+  const farm3 = rows.slice().sort((a, b) => (b.fm[2]+b.fm[3]+b.fm[4]) / Math.max(0.1, late(b)) - (a.fm[2]+a.fm[3]+a.fm[4]) / Math.max(0.1, late(a))).slice(0, 3).map(r => r.ab);
+  const nm = a => `<a href="#" onclick="hzPick('${a}'); return false" style="color:inherit">${a}</a>`;
+  return `<div class="hz-glance">
+      <div class="card"><div class="ttype hz-k">Built for 2027</div><div class="hz-v">${now3.map(nm).join(' · ')}</div><div class="ttype">most projected WAR already under control next season</div></div>
+      <div class="card"><div class="ttype hz-k">Built for 2029-31</div><div class="hz-v">${late3.map(nm).join(' · ')}</div><div class="ttype">most controlled value three to five years out</div></div>
+      <div class="card"><div class="ttype hz-k">Leaning on the farm</div><div class="hz-v">${farm3.map(nm).join(' · ')}</div><div class="ttype">largest prospect share of 2029-31 value</div></div>
+    </div>
+    <div class="card" style="padding:12px 16px; margin:8px 0 14px">
+    <div class="bd-cardhead"><strong>League horizon · who is built for when</strong>${folSaveBtn('hzSaveLeague()')}</div>
+    <ul class="bd-mini">
+      <li>Projected WAR already under control (signed or club-controlled players plus the farm), ranked each season.</li>
+      <li>Green: top six (darker) or top twelve that season. Red: bottom six.</li>
+      <li>Every total falls in later years because contracts run out and nobody has been signed yet: <strong>read the rank, not the level</strong>.</li>
+      <li>Click a year to sort; click a club for its five-year detail.</li>
+    </ul>
+    <div style="overflow-x:auto; margin-top:4px"><table style="width:100%; font-size:12.5px"><thead><tr><th>Club</th>${seasons.map((s, i) => `<th class="num" style="cursor:pointer" tabindex="0" role="button" aria-label="Sort by ${s}" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); this.click();}" onclick="renderHzLeague._k=${i}; renderHorizon()">${s}${i === key ? ' &#9660;' : ''}</th>`).join('')}<th class="num" title="share of 2029-31 controlled value coming from prospects">farm share, 29-31</th></tr></thead><tbody>
+    ${sorted.map(r => `<tr style="cursor:pointer" tabindex="0" aria-label="${r.ab} detail" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); this.click();}" onclick="hzPick('${r.ab}')"><td><strong>${r.ab}</strong></td>${r.v.map((x, i) => `<td class="num" style="${hzHeat(r.rk[i])}">${fmtW(x)} <span class="ttype">#${r.rk[i]}</span></td>`).join('')}<td class="num">${Math.round(100 * (r.fm[2] + r.fm[3] + r.fm[4]) / Math.max(0.1, late(r)))}%</td></tr>`).join('')}
+    </tbody></table></div></div>
+    <div class="card" style="padding:12px 16px"><strong>Pick a club</strong> <span class="ttype">· its five-year detail: who is under control, when contracts end, and what the farm adds</span>${clubChips('', 'hzPick', '', 'Pick a club for its Horizon')}</div>`;
+}
+function hzSaveLeague(){
+  const {rows, seasons} = hzLeague(), key = renderHzLeague._k || 0;
+  const sorted = rows.slice().sort((a, b) => b.v[key] - a.v[key]);
+  const tr = r => `<tr><td><strong>${r.ab}</strong></td>${r.rk.map((k, i) => `<td class="num" style="${hzHeat(k)}">#${k} <span class="ff-m">${fmtW(r.v[i])}</span></td>`).join('')}</tr>`;
+  const t = a => `<table class="ff-tbl" style="font-size:14px"><thead><tr><th>Club</th>${seasons.map(s => `<th class="num">${s}</th>`).join('')}</tr></thead><tbody>${a.map(tr).join('')}</tbody></table>`;
+  folSave('Who is built for when: every club\'s next five years', `League rank of projected WAR already under control, each season (sorted by ${seasons[key]}). Green = top 12, red = bottom 6.`,
+    `<div class="ff-2col">${t(sorted.slice(0, 15))}${t(sorted.slice(15))}</div>`, 'horizon-league', {w: 1500});
+}
+function hzClubData(ab){
+  const {live, farm} = hzRows(ab);
+  const seasons = [2027, 2028, 2029, 2030, 2031];
+  const tot = {}, contrib = {}, fallers = {}, farmTot = {};
+  seasons.forEach(s => { tot[s] = 0; contrib[s] = []; fallers[s] = []; });
+  live.forEach(r => {
+    r.per.forEach((v, i) => { const s = 2027 + i; if(s > 2031) return; tot[s] += v; contrib[s].push([r.p[0], v]); });
+    if(r.rawEnd <= 2031) fallers[r.rawEnd].push(r.p[0] + (r.fromBook ? ' (contract ends)' : ' (control ends)'));
+  });
+  seasons.forEach((s, i) => { farmTot[s] = farm.reduce((a, f) => a + (f.per[i] || 0), 0); tot[s] += farmTot[s]; });
+  seasons.forEach(s => contrib[s].sort((a, b) => b[1] - a[1]));
+  const farmTop = farm.slice().sort((a, b) => b.per.reduce((x, y) => x + y, 0) - a.per.reduce((x, y) => x + y, 0));
+  const lg = hzLeague().rows.find(r => r.ab === ab);
+  return {live, farm, farmTop, seasons, tot, contrib, fallers, farmTot, rk: lg ? lg.rk : []};
 }
 function renderHorizon(){
   const host = document.getElementById('horizonbody');
@@ -6904,48 +7075,54 @@ function renderHorizon(){
   const sel = document.getElementById('hz-club');
   if(!sel.options.length){
     const abbrs = Object.keys(DESK.teams||{}).sort();
-    sel.innerHTML = abbrs.map(a=>`<option${a==='NYM'?' selected':''}>${a}</option>`).join('');
+    sel.innerHTML = `<option value="">All 30 clubs</option>` + abbrs.map(a => `<option value="${a}">${a} · ${CLUB_NAME[a] || a}</option>`).join('');
+    sel.value = '';
   }
   const ab = sel.value;
-  const {live, farm} = hzRows(ab);
-  const seasons = [2027, 2028, 2029, 2030, 2031];
-  const tot = {}, contrib = {}, fallers = {};
-  seasons.forEach(s=>{ tot[s]=0; contrib[s]=[]; fallers[s]=[]; });
-  live.forEach(r=>{
-    r.per.forEach((v, i)=>{
-      const s = 2027 + i;
-      if(s > 2031) return;
-      tot[s] += v; contrib[s].push([r.p[0], v]);
-    });
-    if(r.rawEnd <= 2031) fallers[r.rawEnd].push(r.p[0] + (r.fromBook ? ' (contract ends)' : ' (control ends)'));   // control past 2031 is not an ending
-  });
-  const farmTot = {};
-  seasons.forEach((s, i) => { farmTot[s] = farm.reduce((a, f) => a + (f.per[i] || 0), 0); tot[s] += farmTot[s]; });
+  if(!ab){ host.innerHTML = renderHzLeague(); return; }
+  const d = hzClubData(ab), seasons = d.seasons;
   const payroll = (DESK.payroll||{})[ab] || {};
-  const maxTot = Math.max(1, ...seasons.map(s=>tot[s]));
-  const rows = seasons.map(s=>{
-    const top = contrib[s].sort((a,b)=>b[1]-a[1]).slice(0,4).map(([n,v])=>`${n} ${fmtW(v)}`).join(', ');
+  const maxTot = Math.max(1, ...seasons.map(s => d.tot[s]));
+  const rows = seasons.map((s, i) => {
+    const top = d.contrib[s].slice(0, 4).map(([n, v]) => `${n} ${fmtW(v)}`).join(', ');
     const pr = payroll[String(s)];
-    const fall = fallers[s].length ? `<div class="ttype" style="margin-top:3px">last controlled season for: ${fallers[s].join(', ')}</div>` : '';
+    const fall = d.fallers[s].length ? `<div class="ttype" style="margin-top:3px">last controlled season for: ${d.fallers[s].join(', ')}</div>` : '';
     return `<div class="card" style="padding:12px 16px; margin:8px 0">
       <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap">
         <strong style="min-width:48px">${s}</strong>
         <div style="flex:1; min-width:200px; background:var(--surface-2); border-radius:6px; height:18px; overflow:hidden">
-          <div style="width:${Math.round(tot[s]/maxTot*100)}%; height:100%; background:var(--s2); opacity:.75"></div></div>
-        <strong style="min-width:110px">${fmtW(tot[s])} proj WAR</strong><span class="ttype">${fmtW(farmTot[s])} of it from the farm</span>
-        <span class="ttype" style="min-width:130px">${contrib[s].length} controlled players · ~$${Math.round(hzPayTotals(ab)[s] || 0)}M est payroll (book $${Math.round(pr?pr[0]:0)}M + arbitration and pre-arb estimates, as in the salary book below)</span>
+          <div style="width:${Math.round(d.tot[s]/maxTot*100)}%; height:100%; background:var(--s2); opacity:.75"></div></div>
+        <strong style="min-width:110px">${fmtW(d.tot[s])} proj WAR</strong>${d.rk[i] ? `<span class="hz-rk" style="${hzHeat(d.rk[i])}">#${d.rk[i]} of 30</span>` : ''}
+        <span class="ttype">${fmtW(d.farmTot[s])} from the farm · ${d.contrib[s].length} controlled players · ~$${Math.round(hzPayTotals(ab)[s] || 0)}M payroll</span>
       </div>
       <div class="ttype" style="margin-top:5px">top contributors: ${top || 'none under control'}</div>${fall}</div>`;
   }).join('');
-  const farmLine = farm.length
-    ? `<div class="card" style="padding:12px 16px; margin:8px 0"><strong>On the farm</strong> <span class="ttype">(the twelve most valuable; the season totals above include the whole system) (each prospect's expected WAR by season, 2027 to 2031, from what comparable prospects actually produced, busts included; it is in the season totals above)</span>
-      <div style="margin-top:6px; font-size:12.5px">${farm.sort((a,b) => b.per.reduce((x,y)=>x+y,0) - a.per.reduce((x,y)=>x+y,0)).slice(0, 12).map(f => `<div>${f.p[0]} <span class="ttype">(${gmPLabel(f.p)}, ${gmEta(f.p)})</span> · ${f.per.map(v => fmtW(v)).join(' / ')}</div>`).join('')}</div></div>`
+  const farmLine = d.farm.length
+    ? `<div class="card" style="padding:12px 16px; margin:8px 0"><strong>On the farm</strong> <span class="ttype">· the twelve most valuable; each prospect's expected WAR by season, 2027 to 2031, from what comparable prospects produced (busts included)</span>
+      <div style="margin-top:6px; font-size:12.5px">${d.farmTop.slice(0, 12).map(f => `<div>${f.p[0]} <span class="ttype">(${gmPLabel(f.p)}, ${gmEta(f.p)})</span> · ${f.per.map(v => fmtW(v)).join(' / ')}</div>`).join('')}</div></div>`
     : '';
-  const now2026 = live.reduce((a,r)=>a + Math.max(0, r.p[7]), 0);
-  host.innerHTML = renderHzLeague() + `<h3 style="margin:16px 0 4px">${ab} in detail</h3><div class="sub" style="margin-bottom:6px">${ab} produced ~${fmtW(now2026)} WAR from this group in 2026. The decay you see below is the aging curve plus expiring control, before any move the club makes.</div>`
+  const now2026 = d.live.reduce((a, r) => a + Math.max(0, r.p[7]), 0);
+  host.innerHTML = `<div class="bd-cardhead" style="margin:6px 0 2px"><button type="button" class="bd-clear" onclick="hzPick('')">&larr; All 30 clubs</button>
+      <h3 style="margin:0">${CLUB_NAME[ab] || ab} · the next five years</h3>${folSaveBtn(`hzSaveClub('${ab}')`)}</div>
+    <ul class="bd-mini" style="font-size:12.5px">
+      <li>This group produced ~${fmtW(now2026)} WAR for ${ab} in 2026. Each season below counts only players under club control today, plus the farm.</li>
+      <li>The decline is the aging curve plus expiring control, <strong>before any move the club makes</strong>. The rank against the other 29 clubs is the read.</li>
+      <li>Payroll is guaranteed money plus arbitration and pre-arb estimates; the club's own 2026-27 free agents drop out.</li>
+    </ul>`
     + rows + farmLine
-    + `<div style="font-size:11px; color:var(--muted); margin-top:8px">Control end = later of feed-derived service default and guaranteed contract years in the book. Payroll per row is book money (guaranteed contracts, following each player to his current club) plus the arbitration and pre-arb estimates; the club's own 2026-27 free agents are not under control and drop out. Players projected below replacement still show at zero floor. Propose a move at the Deal Desk to see what it does to this curve.</div>`
+    + `<ul class="bd-mini" style="color:var(--muted)"><li>Control ends at the later of service time and guaranteed contract years. Players projected below replacement show at zero.</li><li>Propose a move at the Deal Desk to see what it does to this curve.</li></ul>`
     + `<h3 style="margin-top:18px">The salary book, season by season</h3>` + moneyTable(ab);
+}
+function hzSaveClub(ab){
+  const d = hzClubData(ab), seasons = d.seasons, maxTot = Math.max(1, ...seasons.map(s => d.tot[s]));
+  const rows = seasons.map((s, i) => `<tr><td><strong style="font-size:20px">${s}</strong></td>
+    <td style="width:300px"><div class="ff-bar" style="width:280px; height:14px"><div style="width:${Math.round(d.tot[s]/maxTot*100)}%"></div></div></td>
+    <td class="num"><strong>${fmtW(d.tot[s])}</strong></td><td class="num" style="${hzHeat(d.rk[i])}"><strong>#${d.rk[i]}</strong> <span class="ff-m">of 30</span></td>
+    <td style="font-size:14px">${d.contrib[s].slice(0, 3).map(([n, v]) => `${n} ${fmtW(v)}`).join(' · ') || '·'}</td></tr>`).join('');
+  const farm = d.farmTop.slice(0, 5).map(f => `${f.p[0]} <span class="ff-m">${gmEta(f.p)}</span>`).join(' · ');
+  folSave(`${CLUB_NAME[ab] || ab}: the next five years`, 'Projected WAR already under control (roster plus farm), and where it ranks among the 30 clubs, before any new move',
+    `<table class="ff-tbl"><thead><tr><th>Season</th><th></th><th class="num">Proj. WAR</th><th class="num">League rank</th><th>Top contributors</th></tr></thead><tbody>${rows}</tbody></table>
+     ${farm ? `<div style="margin-top:14px; font-size:15px"><strong>Best of the farm:</strong> ${farm}</div>` : ''}`, `${folSlug(ab)}-horizon`);
 }
 function dkHorizonDeltaLine(){
   const seasons = [2027, 2028, 2029, 2030, 2031];
@@ -7081,7 +7258,7 @@ function dkAgm(){
 }
 function dkAgmNote(lines){
   const host = document.getElementById('dk-agm-note'); if(!host) return;
-  host.innerHTML = `<div class="card" role="status" style="padding:10px 14px; margin-top:10px; border-left:3px solid var(--s1); font-size:13px"><strong>Assistant GM.</strong> ${lines.join(' ')}</div>`;
+  host.innerHTML = `<div class="card" role="status" style="padding:10px 14px; margin-top:10px; border-left:3px solid var(--s1); font-size:13px"><strong>Assistant GM</strong>${agmList(lines.flatMap(folSplit))}</div>`;
 }
 function renderDesk(){
   if(!DESK){ document.getElementById('deskbody').innerHTML = '<div class="sub">Desk data not loaded in this build.</div>'; return; }
@@ -7145,7 +7322,7 @@ function renderDesk(){
         <input id="dk-drpl-${side}" list="dk-players" placeholder="or a player…" aria-label="Or add a player" style="flex:1; min-width:140px; background:var(--surface-2); color:var(--ink); border:1px solid var(--rule); border-radius:6px; padding:5px 8px">
         <button onclick="dkDrAddPlayer('${side}')" class="grade g60 dkbtn">+ player</button></div>
     </div>`;
-    body = `<div class="sub" style="margin-bottom:10px">Build a pick package on each side: trade up, trade down, or price a pick-for-player swap. Values come from the same maturity-adjusted slot-expectation curve the draft channel grades with (future years discounted 10%/yr); each package translates to its nearest single-pick equivalent. MLB only permits trading Competitive Balance round picks, so read this as the valuation chart a draft room argues from, not a transaction builder.</div>
+    body = `<div class="sub" style="margin-bottom:10px">${folBul(`Build a pick package on each side: trade up, trade down, or price a pick-for-player swap. Values come from the same maturity-adjusted slot-expectation curve the draft channel grades with (future years discounted 10%/yr); each package translates to its nearest single-pick equivalent. MLB only permits trading Competitive Balance round picks, so read this as the valuation chart a draft room argues from, not a transaction builder.`)}</div>
       <div style="display:flex; gap:12px; flex-wrap:wrap">${drBox('recv','You receive')}${drBox('send','You send')}</div>
       <button onclick="dkEval()" class="grade g70" style="margin-top:12px; cursor:pointer; border:none; font-size:14px; padding:8px 18px">Evaluate this package</button>`;
   } else {
@@ -7415,7 +7592,7 @@ function scLabel(s, i){
   if(scState.blind && s.outcome && s.outcome.settled && !s.fictional && !scState.played[s.id]){
     const k = s.kind === 'trade' ? (s.seat === 'buyer' ? 'trade, buying' : 'trade, selling') : s.kind === 'fa' ? 'free agent' : 'extension';
     // the record and season phase tell blind scenarios apart without giving the answer away
-    return `Archive · blind · ${k} · ${s.phase} · ${s.ctx && s.ctx.w != null ? `${s.ctx.w}-${s.ctx.l} club` : `#${i + 1}`}`;
+    return `Archive · names hidden · ${k} · ${s.phase} · ${s.ctx && s.ctx.w != null ? `${s.ctx.w}-${s.ctx.l} club` : `#${i + 1}`}`;
   }
   const yr = s.date.slice(0,4);
   if(s.kind === 'trade'){
@@ -7457,7 +7634,7 @@ function scShow(){
       ? `thinnest spots (projected 2027 WAR of the club's best option there): ${s.ctx.needs.map(([g,v])=>`${g} ${fmtW(v)}`).join(', ')}`
       : `thinnest position groups (the group's Ledger WAR; lower is thinner): ${s.ctx.needs.map(([g,v])=>`${g} ${fmtW(v)}`).join(', ')}`) : '';
   const ctx = `<div class="card" style="padding:12px 16px; margin-top:10px">
-    ${blind ? `<strong>You are running a club</strong> · ${s.phase} · <span class="chip chip-open">BLIND</span> <span class="ttype">names, club and date revealed after you decide</span>`
+    ${blind ? `<strong>You are running a club</strong> · ${s.phase} · <span class="chip chip-open">NAMES HIDDEN</span> <span class="ttype">names, club and date revealed after you decide</span>`
       : `<strong>You are ${s.exec_ && s.exec_ !== 'you' ? s.exec_ + ', ' : ''}running ${s.teamName || s.team}</strong> · ${s.date} · ${s.phase}`}
     ${s.fictional ? ' <span class="chip chip-open">FICTIONAL</span>' : ''}${s.live27 ? ' <span class="chip chip-open">WINTER 2027 · PROCESS ONLY · SETTLES NEXT FALL</span>' : ''}${s.outcome && !s.outcome.settled && !s.fictional && !s.live27 ? ' <span class="chip chip-open">UNSETTLED · RETURN STILL OPEN</span>' : ''}
     <div class="ttype" style="margin-top:5px">${s.ctx.w}-${s.ctx.l}${s.fictional?' last season':s.phase==='deadline'?' on the morning of the deal':' the season just played'} · ${gbTxt}${s.ctx.rank?` · ${s.ctx.rank}${['','st','nd','rd'][+s.ctx.rank]||'th'} in the division`:''} · playoff leverage ${s.ctx.lev}x · market $/win ~$${s.ctx.dpw}M${needsTxt?` · ${needsTxt}`:''}</div>
@@ -8570,7 +8747,8 @@ function treeFind(){
     if(p) pid = String(p[1]);
   }
   if(!pid){ out.innerHTML = '<span class="ttype">no player by that name on the graded ledger</span>'; return; }
-  out.innerHTML = `<div class="tree-card" style="margin:0">${tnode(careerTree(pid))}</div>
+  const tnm = JSON.stringify(String((typeof PLAYER_NAMES !== 'undefined' && PLAYER_NAMES[pid]) || ((DESK.players||[]).find(x => String(x[1]) === String(pid)) || [])[0] || 'player')).replace(/"/g, '&quot;');
+  out.innerHTML = `<div class="tree-card" style="margin:0"><div class="bd-cardhead tree-savebar">${folSaveBtn(`folSaveTree(this, ${tnm})`)}</div>${tnode(careerTree(pid))}</div>
     <div class="ttype" style="margin-top:6px">origin, every trade (both clubs' grades and every other piece's onward chain), signings with terms, extensions from the contract book, and where it stands now</div>`;
   try { out.scrollIntoView({behavior: 'smooth', block: 'start'}); } catch(e){}
 }
@@ -8596,8 +8774,8 @@ function treeOverlay(pid, ab, label){
   ov.innerHTML = `<div style="background:var(--page); color:var(--ink); border:1.5px solid var(--ink); border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,.35); max-width:860px; width:100%; max-height:84vh; overflow:auto; padding:14px 18px">
     <div style="display:flex; justify-content:space-between; align-items:center; gap:10px"><strong>${nm}</strong>
       <button id="tree-ov-close" onclick="closeTreeOverlay()" aria-label="Close" style="cursor:pointer; background:none; border:1px solid var(--rule); color:var(--muted); border-radius:6px; padding:2px 10px">close</button></div>
-    <div class="tree-card" style="margin-top:8px">${tnode(node)}</div>
-    <div class="ttype" style="margin-top:6px">every move on the ledger: both clubs' grades on each trade, every other piece's onward chain, contract terms and realized value, and where it stands now</div></div>`;
+    <div class="tree-card" style="margin-top:8px"><div class="bd-cardhead tree-savebar">${folSaveBtn(`folSaveTree(this, ${JSON.stringify(nm).replace(/"/g, '&quot;')})`)}</div>${tnode(node)}</div>
+    <div style="margin-top:6px"><span class="ttype">every move on the ledger: both clubs' grades on each trade, every other piece's onward chain, contract terms and realized value, and where it stands now</span></div></div>`;
   setTimeout(() => { const c = document.getElementById('tree-ov-close'); if(c) c.focus({preventScroll: true}); }, 0);
 }
 function gmPlayerMeta(p, noTree){
@@ -8639,11 +8817,11 @@ function gmTradePanel(){
     exec = `<button onclick="gmTrExec()" class="grade g70" style="cursor:pointer; border:none; padding:7px 16px; font-size:13px; margin-top:8px">Execute the trade</button>`; }
   else if(r >= 0.7){
     const sugg = myFarm.filter(p => gmPV(p) >= gap * 0.9).sort((a,b)=>gmPV(a)-gmPV(b))[0];
-    verdict = `<strong>Close.</strong> ${them} wants about ${fmtW(gap)} more surplus${sugg ? `; ${sugg[0]} (${gmPLabel(sugg)}) would get it done` : ''}.`;
+    verdict = `<strong>Close.</strong> ${them} wants about ${fmtW(Math.max(gap, 0.1))} more surplus${sugg ? `; ${sugg[0]} (${gmPLabel(sugg)}) would get it done` : ''}.`;
   }
   else verdict = ask <= 0
     ? `<strong class="neg">Not close.</strong> They would move the contract for nothing (the ask is ~${fmtW(ask)}), but what you are sending back is worth ${fmtW(give)} to them. Send less salary back.`
-    : `<strong class="neg">Not close.</strong> The ask prices at ~${fmtW(ask)} of surplus and you are offering ${fmtW(give)}. A big salary is not a trade chip: value here is projection net of money.`;
+    : `<strong class="neg">Not close.</strong> The ask prices at ~${fmtW(ask)} of surplus and you are offering ${fmtW(give)}.${salD <= -8 ? ' A big salary is not a trade chip: value here is projection net of money.' : ''}`;
   const chip = (x, side, i) => `<span style="display:inline-flex; align-items:center; gap:5px; background:var(--surface-2); border:1px solid var(--border); border-radius:2px; padding:2px 8px; margin:2px 3px 2px 0; font-size:12px">${x.name}<button onclick="gmTrDrop('${side}',${i})" aria-label="Remove ${String(x.name).replace(/"/g,'&quot;')}" style="background:none; border:none; color:var(--muted); cursor:pointer; font-size:13px; padding:0">×</button></span>`;
   return `
   <div class="dk-step"><span class="dk-steplbl">Trade partner</span>${clubChips(them, 'gmPickThem', mine, 'Trade partner')}</div>
@@ -8681,9 +8859,9 @@ function gmTradePanel(){
         <div style="font-size:12.5px; margin-bottom:6px">2027 salary ${salD>=0?'added':'shed'}: <strong>$${Math.abs(salD).toFixed(1)}M</strong> → payroll $${payNow.toFixed(0)}M &rarr; <span class="${payAfter>cap?'neg':''}">$${payAfter.toFixed(0)}M</span> <span class="ttype">(capacity ~$${cap.toFixed(0)}M · CBT $244M)</span></div>
         <div style="font-size:13px">${verdict}</div>${exec}
         <div style="margin-top:8px"><button onclick="gmAgmComplete()" class="grade g55" style="cursor:pointer; border:none; padding:6px 14px; font-size:12.5px" title="Fill in or balance the deal to their asking price">Assistant GM: complete the deal</button></div>
-        ${gmState.tr.note ? `<div class="card" role="status" style="padding:8px 12px; margin-top:8px; border-left:3px solid var(--s1); font-size:12.5px"><strong>Assistant GM.</strong> ${gmState.tr.note}</div>` : ''}
+        ${gmState.tr.note ? `<div class="card" role="status" style="padding:8px 12px; margin-top:8px; border-left:3px solid var(--s1); font-size:12.5px"><strong>Assistant GM</strong>${agmList(folSplit(gmState.tr.note))}</div>` : ''}
       </div>
-      <div class="ttype" style="margin-top:10px">Pieces are valued at SURPLUS: discounted projection over control minus salary at $/win. Cornerstones on non-selling clubs are unavailable; contenders charge 1.5x; franchise prices run 1.75x; negative-surplus contracts trade as salary dumps; a piece that fills one of the counterparty's computed roster holes is worth 10% more in their eyes. No dice, no pop-ups.</div>
+      <div class="ttype" style="margin-top:10px">${folBul(`Pieces are valued at SURPLUS: discounted projection over control minus salary at $/win. Cornerstones on non-selling clubs are unavailable; contenders charge 1.5x; franchise prices run 1.75x; negative-surplus contracts trade as salary dumps; a piece that fills one of the counterparty's computed roster holes is worth 10% more in their eyes. No dice, no pop-ups.`)}</div>
     </div>
     <div class="card" style="padding:12px 14px; min-width:0">
       <strong>${them}'s roster</strong> <span class="ttype">(${({surplus:'by surplus',proj:'by 2027 projection',age:'youngest first',salary:'cheapest first'})[fsort]})</span>
@@ -8797,7 +8975,7 @@ function moneyTable(ab, sim){
       <tr><td></td><td class="ttype">vs the $244M CBT reference</td><td></td>${totals.map(t=>`<td class="num ${t>244?'neg':''}">${t>244?'+':''}${fmtM(t-244)}</td>`).join('')}</tr>
     </tbody></table>
     </div>
-    <div class="ttype" style="margin-top:6px">Everything here is computed, not reported: guaranteed money from the 2,365-contract book at CBT values, arbitration from the award model calibrated on real 2026 salaries, service time rebuilt from the transaction feed, pre-arb near the minimum. Real books also carry options, bonuses, and retained money this ledger does not see; treat the totals as the guaranteed-plus-estimated core.</div>
+    <div class="ttype" style="margin-top:6px">${folBul(`Everything here is computed, not reported: guaranteed money from the 2,365-contract book at CBT values, arbitration from the award model calibrated on real 2026 salaries, service time rebuilt from the transaction feed, pre-arb near the minimum. Real books also carry options, bonuses, and retained money this ledger does not see; treat the totals as the guaranteed-plus-estimated core.`)}</div>
   </div>`;
 }
 
@@ -8954,7 +9132,7 @@ function gmReport(){
       <div style="margin-top:8px">${gmPayChart()}</div>
     </div>
     <div style="margin-top:12px"><button onclick="gmMemo()" class="grade g55" style="cursor:pointer; border:none; padding:7px 16px; font-size:13px">Winter memo (print / save as PDF)</button></div>
-    <div style="font-size:11px; color:var(--muted); margin-top:8px">Sandbox on public data; nothing recorded. Ledger Projection (durability-adjusted, backtest r &asymp; 0.62-0.67); league calibrated to .500 with the accounting metric's ~5-win MAE as the error bar; arb salaries estimated; negotiation camps are deterministic per player; trade asks use the archive's control-bucket rates.</div>`;
+    <div style="font-size:11px; color:var(--muted); margin-top:8px">${folBul(`Sandbox on public data; nothing recorded. Ledger Projection (durability-adjusted, backtest r &asymp; 0.62-0.67); league calibrated to .500 with the accounting metric's ~5-win MAE as the error bar; arb salaries estimated; negotiation camps are deterministic per player; trade asks use the archive's control-bucket rates.`)}</div>`;
 }
 function gmMemo(){
   const w = gmWins(), base = gmBaselineWins(), pay = gmPayroll();
@@ -9284,7 +9462,7 @@ function gmAdvisor(){
   else if(pay > 244 - 15) tips.push(`About $${Math.round(244-pay)}M of room under the CBT line (2026 threshold). Every move from here is a tax conversation.`);
   return `<div class="card" style="padding:12px 14px; margin-bottom:12px; border-left:3px solid var(--margin, #9d3025)">
     <strong>Assistant GM</strong> <span class="ttype">· notes from the other desk</span>
-    ${tips.map(t=>`<div style="font-size:12.5px; margin-top:7px; border-top:1px solid var(--grid); padding-top:6px">&raquo; ${t}</div>`).join('')}</div>`;
+    ${agmList(tips)}</div>`;
 }
 // v5.8: the tax counts deferred deals at present (CBT) value
 const CBT_DISC = {660271: 70.0 - 46.08};      // Ohtani: $70M nominal, about $46.1M for the CBT
@@ -9392,7 +9570,7 @@ function renderChamp(id, scroll){
       <div class="champtbl"><table><thead><tr><th>Player</th><th>How acquired</th><th>Attribution</th><th class="num">WAR</th></tr></thead>
       <tbody>${rows}</tbody></table></div>
     </div>
-    ${(treeSync(), c.trees||[]).map(t=>`<div class="card tree-card"><div class="tree-title">${t.title}</div><div class="tree-sub">${t.sub}</div>${tnode(t.root)}</div>`).join('')}`;
+    ${(treeSync(), c.trees||[]).map(t=>`<div class="card tree-card"><div class="bd-cardhead"><div class="tree-title">${t.title}</div>${folSaveBtn('folSaveTree(this)')}</div><div class="tree-sub">${folBul(t.sub)}</div>${tnode(t.root)}</div>`).join('')}`;
   wireChampChains(c);
 }
 
@@ -9892,7 +10070,7 @@ function renderLB(){
 }
 // phones: one card per front office instead of a 13-column table
 function lbCard(r, rk, maxPos, maxNeg){
-  const chans = [...CHANNELS.map(c => [c.name.replace("Int'l Amateur", "Int'l").replace('Waiver / Minor', 'Waivers'), (r.chan[c.key]||{}).g]), ['Retention', (r.chan.ret||{}).g2 != null ? r.chan.ret.g2 : (r.chan.ret||{}).g], ['Dev', (devOf(r)||{}).g]]
+  const chans = [...CHANNELS.map(c => [c.name.replace("Int'l Amateur", "Int'l").replace('Waiver / Minor', 'Waivers'), (r.chan[c.key]||{}).g]), ['Retention', (r.chan.ret||{}).g2 != null ? r.chan.ret.g2 : (r.chan.ret||{}).g], ['Development', (devOf(r)||{}).g]]
     .filter(([, g]) => g != null).sort((a, b) => b[1] - a[1]);
   const best = chans.slice(0, 2), worst = chans.length > 2 ? chans.slice(-1) : [];
   const tag = ([n, g]) => `<span class="lbc-ch">${n} ${gradeChip(g)}</span>`;
@@ -11086,10 +11264,75 @@ function glossify(root){
   }, true);
 })();
 
-/* ---- Big Boards (v5.5): top free agents with projected contracts, top
-   prospects, and farm system rankings, from the same models as the
-   Simulator and the Desk ---- */
-var bdState = {tab: 'pros'};
+/* ---- share images (Nov 2026): any board, tree or club snapshot as a branded PNG.
+   html2canvas loads only when someone asks for an image ---- */
+function folLoadH2C(){
+  if(window.html2canvas) return Promise.resolve();
+  return folLoadH2C._p || (folLoadH2C._p = new Promise((res, rej) => {
+    const sc = document.createElement('script');
+    sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+    sc.onload = res; sc.onerror = rej; document.head.appendChild(sc);
+  }));
+}
+function folFrame(title, sub, inner, opts){
+  opts = opts || {};
+  const old = document.getElementById('fol-share-frame'); if(old) old.remove();
+  const el = document.createElement('div');
+  el.id = 'fol-share-frame'; el.className = 'fol-frame';
+  el.style.width = (opts.w || 1200) + 'px';
+  el.innerHTML = `<div class="ff-head"><div class="ff-brand">FRONT OFFICE <span>LEDGER</span></div>${title ? `<div class="ff-title">${title}</div>` : ''}${sub ? `<div class="ff-sub">${sub}</div>` : ''}</div>
+    <div class="ff-body">${inner}</div>
+    <div class="ff-foot"><span>frontofficeledger.com</span><span>${opts.foot || 'Data through Nov 1, 2026'}</span></div>`;
+  document.body.appendChild(el);
+  return el;
+}
+function folSave(title, sub, inner, file, opts){
+  const el = folFrame(title, sub, inner, opts);
+  if(window.FOL_SHARE_KEEP) return el;   // scripted captures read the frame directly
+  const bg = getComputedStyle(document.body).backgroundColor || '#f2ecdd';
+  folToast('Making the image…');
+  folLoadH2C().then(() => window.html2canvas(el, {backgroundColor: bg, scale: 2, windowWidth: Math.max(el.offsetWidth + 40, 1280)}))
+    .then(cv => { const a = document.createElement('a'); a.download = file + '.png'; a.href = cv.toDataURL('image/png'); a.click(); folToast('Image saved'); })
+    .catch(() => folToast('Could not make the image (offline?)'))
+    .finally(() => el.remove());
+  return el;
+}
+// any element already on the page (a tree, a card): cloned into the frame, buttons stripped
+function folSaveEl(src, file, title, sub){
+  if(!src) return;
+  const c = src.cloneNode(true);
+  c.querySelectorAll('.savebtn, button').forEach(b => b.remove());
+  // links become plain text: html2canvas drops text drawn with dotted underlines
+  c.querySelectorAll('a').forEach(x => { const sp = document.createElement('span'); sp.innerHTML = x.innerHTML; sp.style.fontWeight = 'inherit'; x.replaceWith(sp); });
+  const w = Math.max(1200, Math.min(2400, src.scrollWidth + 96));
+  return folSave(title || '', sub || '', `<div class="ff-clone">${c.outerHTML}</div>`, file, {w});
+}
+// a tree (button inside the card, or the card itself) as an image; the overlay and player chains pass a title
+function folSaveTree(x, title){
+  const card = x && x.classList && x.classList.contains('tree-card') ? x : x && x.closest ? x.closest('.tree-card') : null;
+  if(!card) return;
+  const t = title || ((card.querySelector('.tree-title') || {}).textContent || 'transaction tree');
+  return folSaveEl(card, 'tree-' + folSlug(t).slice(0, 60), title ? `${title}: every move` : '', title ? 'Wins from each club\'s side; solid cards arrived, dashed cards left' : '');
+}
+function lbSave(){
+  const t = (document.getElementById('lb-h2') || {}).textContent || 'Front Office Leaderboard';
+  const srt = document.getElementById('sortsel'), by = srt ? srt.selectedOptions[0].textContent : '';
+  return folSaveEl(document.querySelector('.lb-tablecard'), 'leaderboard-' + folSlug(by || 'overall'), t.replace('Front Office Leaderboard · ', 'Front office leaderboard: '),
+    `Sorted by ${by.toLowerCase()} · every decision graded against what a typical club got from the same move · Dev = development, Ret = retention`);
+}
+function folToast(msg){
+  let t = document.getElementById('fol-toast');
+  if(!t){ t = document.createElement('div'); t.id = 'fol-toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+  t.textContent = msg; t.hidden = false;
+  clearTimeout(folToast._t); folToast._t = setTimeout(() => { t.hidden = true; }, 2600);
+}
+function folSaveBtn(onclick, label){
+  return `<button type="button" class="savebtn" onclick="${onclick}" title="Download a PNG to share">${label || 'Save image'}</button>`;
+}
+function folSlug(s){ return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+
+/* ---- Boards: Top Free Agents, and Top Prospects with the 30 farm systems beside it ---- */
+var bdState = {tab: 'pros', org: ''};
 function bdPosOK(p){
   const f = (document.getElementById('bd-pos')||{}).value || '';
   if(!f) return true;
@@ -11098,7 +11341,8 @@ function bdPosOK(p){
   if(f === 'RP') return d === 'RP' || (g === 'P' && d !== 'SP');
   return g === f;
 }
-// v5.8 UI: the likely range scales with the deal. From the backtest scatter on
+function bdPosTxt(){ const f = (document.getElementById('bd-pos')||{}).value || ''; return f ? ({C: 'catchers', IF: 'infielders', OF: 'outfielders', SP: 'starting pitchers', RP: 'relievers'})[f] || f : ''; }
+// the likely range scales with the deal. From the backtest scatter on
 // Methodology (CALIB: each past signing's real AAV against the Ledger AAV), the
 // middle half (25th to 75th percentile) of real/offered AAV for offers of a
 // similar size; plus or minus 12% with a $1M floor if that data is missing
@@ -11118,52 +11362,124 @@ function bdRange(aav){
   const f = v => v < 10 ? v.toFixed(1) : v.toFixed(0);
   return `$${f(Math.max(0.5, lo))}-${f(hi)}M`;
 }
+function bdFAList(){
+  return (DESK.players||[]).filter(p => gmIsFA(p) && bdPosOK(p)).map(p => ({p, proj: gmProj27(p), sg: dkSuggest(p, 'fa', null)})).sort((a, b) => b.proj - a.proj).slice(0, 60);
+}
 function bdFA(){
-  const fas = (DESK.players||[]).filter(p => gmIsFA(p) && bdPosOK(p)).map(p => ({p, proj: gmProj27(p)})).sort((a, b) => b.proj - a.proj).slice(0, 60);
-  const rows = fas.map(({p, proj}, i) => {
-    const sg = dkSuggest(p, 'fa', null), st = gmStatus(p), pz = (DESK.posted||{})[p[1]];
+  const fas = bdFAList();
+  const rows = fas.map(({p, proj, sg}, i) => {
+    const st = gmStatus(p), pz = (DESK.posted||{})[p[1]];
     const how = st ? stShow(st[1]) : 'free agent';
     const fee = pz ? ` <span class="ttype">+ $${dkPostingFee(sg.sugTot).toFixed(1)}M posting fee</span>` : '';
     return `<tr><td class="num">${i+1}</td><td><strong>${playerLink(p[1], p[0])}</strong> <span class="ttype">${p[13]||p[12]}, ${p[4]+1} in 2027</span><div class="ttype">${p[2] ? p[2] + ' · ' : ''}${how}</div></td>
       <td class="num" style="white-space:nowrap">${pz ? '<span class="ttype">translated</span>' : [p[5], p[6], p[7]].map(v => v.toFixed(1)).join(' / ')}</td><td class="num">${fmtW(proj)}</td><td class="num" style="white-space:nowrap"><strong>${sg.sugYrs} yr / $${sg.sugTot}M</strong>${fee}<div class="ttype">$${(sg.sugTot/Math.max(sg.sugYrs,1)).toFixed(1)}M a year · likely range ${bdRange(sg.sugTot/Math.max(sg.sugYrs,1))}</div></td></tr>`;
   }).join('');
-  return `<div class="card" style="padding:10px 14px; margin-top:10px"><strong>The 2026-27 free-agent class, by projected 2027 WAR</strong>
-    <div class="ttype" style="margin:3px 0 8px">Projected contract = the Ledger offer (open the Deal Desk for any player to see its parts: the nearest real contracts, the model-fair price, and the market model). Includes declined options and opt-outs; open decisions are marked until they post. Posted players carry the posting fee the signing club also pays. The likely range scales with the size of the deal: it is the middle half of real outcomes for offers of a similar size in the backtest scatter on Methodology (${bdRangeBands().filter(x => x.n).map(x => `${x.b < 1e9 ? `$${x.a}-${x.b}M` : `$${x.a}M+`} a year: ${Math.round(x.lo*100)}% to ${Math.round(x.hi*100)}% of the offer, ${x.n} signings`).join('; ')}), so a $50M offer carries a wider dollar band than a $5M one. It is what the comparables and the projection say he is worth, not a forecast of what one club will pay. The board ranks on Ledger WAR, this site's own measure, shown for the last three seasons: where it rates a player well above or below the public consensus (a career year, a defense-first profile), his price follows the measure, and that is where to apply your own judgment. Every projected contract blends two independent reads, the comps-and-projection rules and a market model trained on 1,991 real free-agent deals and the box-score lines the market saw, moved to today's market. Predicting each past winter only from earlier ones, it missed by 0.54 years and $2.8M a year on average, and when it offered $50M or more the real contract landed at a median 97% of the offer.</div>
+  const bands = bdRangeBands().filter(x => x.n).map(x => `<li>${x.b < 1e9 ? `$${x.a}-${x.b}M` : `$${x.a}M+`} a year: ${Math.round(x.lo*100)}% to ${Math.round(x.hi*100)}% of the offer (${x.n} signings)</li>`).join('');
+  return `<div class="card" style="padding:10px 14px; margin-top:10px">
+    <div class="bd-cardhead"><strong>The 2026-27 free-agent class, by projected 2027 WAR</strong>${folSaveBtn('bdSaveFA()')}</div>
+    <details class="bd-more"><summary>How the contracts are projected</summary><ul>
+      <li>Every contract blends two reads: the nearest real comparables plus the projection, and a market model trained on 1,991 real free-agent deals.</li>
+      <li>Backtested on past winters it missed by 0.54 years and $2.8M a year on average; on $50M+ offers the real deal landed at a median 97% of the offer.</li>
+      <li>The likely range is the middle half of real outcomes for offers of that size:<ul>${bands}</ul></li>
+      <li>The board ranks on Ledger WAR. Where it rates a player well above or below the consensus (a career year, a glove-first profile), his price follows it: that is where to apply your own judgment.</li>
+    </ul></details>
     <div style="overflow:auto"><table style="width:100%"><thead><tr><th class="num">#</th><th>Player</th><th class="num" title="Ledger WAR in 2024 / 2025 / 2026">WAR 24 / 25 / 26</th><th class="num">2027 proj.</th><th class="num">Projected contract</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
 }
+function bdSaveFA(){
+  const fas = bdFAList().slice(0, 15), pos = bdPosTxt();
+  const rows = fas.map(({p, proj, sg}, i) => `<tr><td class="num ff-rk">${i+1}</td><td><strong>${p[0]}</strong> <span class="ff-m">${p[13]||p[12]} · ${p[4]+1} in 2027 · ${p[2] || 'FA'}</span></td>
+    <td class="num">${fmtW(proj)}</td><td class="num"><strong>${sg.sugYrs} yr / $${sg.sugTot}M</strong> <span class="ff-m">$${(sg.sugTot/Math.max(sg.sugYrs,1)).toFixed(1)}M AAV</span></td></tr>`).join('');
+  folSave(`Top ${fas.length} free agent${pos ? ' ' + pos : 's'}, 2026-27`, 'Ranked by projected 2027 WAR, with the Ledger\'s projected contract',
+    `<table class="ff-tbl"><thead><tr><th class="num">#</th><th>Player</th><th class="num">2027 WAR</th><th class="num">Projected contract</th></tr></thead><tbody>${rows}</tbody></table>`, 'top-free-agents' + (pos ? '-' + folSlug(pos) : ''));
+}
+function bdProsList(){
+  const org = bdState.org;
+  return (DESK.players||[]).filter(p => gmIsProsRow(p) && bdPosOK(p) && (!org || p[2] === org)).map(p => ({p, v: gmPV(p)})).sort((a, b) => b.v - a.v).slice(0, org ? 40 : 100);
+}
+function bdLvl(p){ const k = gmPeakOf(p), z = (DESK.pros||{})[p[1]]; return (z && z[0]) || (k && k[5]) || (DESK.t100lvl||{})[p[1]] || ((DESK.draft26||{})[p[1]] ? '2026 draft' : ''); }
 function bdProspects(){
-  const ps = (DESK.players||[]).filter(p => gmIsProsRow(p) && bdPosOK(p)).map(p => ({p, v: gmPV(p)})).sort((a, b) => b.v - a.v).slice(0, 100);
+  const ps = bdProsList(), org = bdState.org;
   const rows = ps.map(({p, v}, i) => {
     const k = gmPeakOf(p), z = (DESK.pros||{})[p[1]];
-    const lvl = (z && z[0]) || (k && k[5]) || (DESK.t100lvl||{})[p[1]] || '';
     const line = (z && z[3]) || (k && k[6]) || '';
     return `<tr><td class="num">${i+1}</td><td><strong>${playerLink(p[1], p[0])}</strong> <span class="ttype">${p[13]||p[12]}, ${p[4]+1} in 2027</span><div class="ttype">${line}</div></td>
-      <td>${p[2]}</td><td>${lvl || ((DESK.draft26||{})[p[1]] ? '2026 draft' : '')}</td><td class="num">${p[9] > 0 ? '#' + p[9] : (DESK.draft26||{})[p[1]] ? `<span class="ttype">pick ${(DESK.draft26||{})[p[1]][0]}</span>` : '<span class="ttype">·</span>'}</td>
+      <td>${p[2]}</td><td>${bdLvl(p)}</td><td class="num">${p[9] > 0 ? '#' + p[9] : (DESK.draft26||{})[p[1]] ? `<span class="ttype">pick ${(DESK.draft26||{})[p[1]][0]}</span>` : '<span class="ttype">·</span>'}</td>
       <td class="num"><strong>${fmtW(v)}</strong></td><td class="num">${k ? fmtW(k[0]) : '<span class="ttype">·</span>'}</td><td class="num">${k ? Math.round(k[2]*100) + '%' : '<span class="ttype">·</span>'}</td></tr>`;
   }).join('');
-  return `<div class="card" style="padding:10px 14px; margin-top:10px"><strong>Top 100 prospects by Ledger value</strong>
-    <div class="ttype" style="margin:3px 0 4px; color:var(--bad)">The 2026 draft class (signed top-100 picks) is valued on the draft-slot curve until it is ranked: the August prospect update places several of them in its top 20, higher than slot value alone. The rank column is the June 29, 2026 list, renumbered for graduations.</div>
-    <div class="ttype" style="margin:3px 0 8px"><strong>Value</strong> = expected WAR over his first six seasons, discounted 10% a year (the currency trades are priced in). Ranked prospects are valued on the rank curve, which the backtest still favors for them; everyone else is valued by the 100 most similar minor leaguers since 2012 (age against level, translated production, position, draft pedigree) and what they became. <strong>Peak</strong> = the comparables' average best two seasons; <strong>4-win odds</strong> = how many reached a 4-WAR peak. Club lists cover each system's Top 100 players plus its 25 most valuable and 10 highest-ceiling others.</div>
-    <div style="overflow:auto"><table style="width:100%"><thead><tr><th class="num">#</th><th>Prospect</th><th>Org</th><th>Level</th><th class="num">Rank</th><th class="num">Value</th><th class="num">Peak</th><th class="num">4-win odds</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
+  const title = org ? `${org}'s top prospects` : 'The Top 100, by Ledger value';
+  return `<div class="card bd-panecard">
+    <div class="bd-cardhead"><strong>${title}</strong>${org ? ` <button type="button" class="bd-clear" onclick="bdOrg('')">show the full Top 100</button>` : ''}${folSaveBtn('bdSavePros()')}</div>
+    <ul class="bd-mini">
+      <li><strong>Value</strong>: expected WAR over his first six big-league seasons, discounted 10% a year (what trades are priced in).</li>
+      <li><strong>Peak</strong>: the average best two seasons of his 100 closest historical comparables; <strong>4-win odds</strong>: how many of them reached a 4-WAR peak.</li>
+      <li>Ranked prospects are valued on the rank curve; everyone else from what his comparables became. Rank is the June 29 list, renumbered for graduations; 2026 draftees carry slot value until ranked.</li>
+    </ul>
+    <table class="bd-tbl"><thead><tr><th class="num">#</th><th>Prospect</th><th>Org</th><th>Level</th><th class="num">Rank</th><th class="num">Value</th><th class="num">Peak</th><th class="num" title="Share of his comparables who reached a 4-WAR peak">4-win odds</th></tr></thead><tbody>${rows || `<tr><td colspan="8" class="ttype">No prospects match the filter.</td></tr>`}</tbody></table></div>`;
 }
-function bdFarm(){
-  const clubs = Object.keys(DESK.teams||{}).map(ab => {
+function bdSavePros(){
+  const org = bdState.org, pos = bdPosTxt(), ps = bdProsList().slice(0, org ? 15 : 25);
+  const rows = ps.map(({p, v}, i) => { const k = gmPeakOf(p);
+    return `<tr><td class="num ff-rk">${i+1}</td><td><strong>${p[0]}</strong> <span class="ff-m">${p[13]||p[12]} · ${p[4]+1} in 2027</span></td><td>${p[2]}</td><td>${bdLvl(p)}</td><td class="num"><strong>${fmtW(v)}</strong></td><td class="num">${k ? fmtW(k[0]) : '·'}</td></tr>`; }).join('');
+  const t = org ? `${org}'s top ${ps.length} prospects` : `The top ${ps.length} prospects${pos ? ': ' + pos : ''}`;
+  folSave(t, 'Value = expected WAR over his first six seasons, discounted 10% a year · Peak = his comparables\' best two seasons',
+    `<table class="ff-tbl"><thead><tr><th class="num">#</th><th>Prospect</th><th>Org</th><th>Level</th><th class="num">Value</th><th class="num">Peak</th></tr></thead><tbody>${rows}</tbody></table>`, org ? folSlug(org) + '-top-prospects' : 'top-prospects' + (pos ? '-' + folSlug(pos) : ''));
+}
+function bdFarmList(){
+  return Object.keys(DESK.teams||{}).map(ab => {
     const ps = (DESK.players||[]).filter(p => p[2] === ab && gmIsProsRow(p)).map(p => ({p, v: gmPV(p)})).sort((a, b) => b.v - a.v);
     const tot = ps.reduce((a, x) => a + x.v, 0), top10 = ps.slice(0, 10).reduce((a, x) => a + x.v, 0);
     const t100 = ps.filter(x => x.p[9] > 0).length;
-    const near = ps.filter(x => { const z = (DESK.pros||{})[x.p[1]], k = gmPeakOf(x.p); const l = (z && z[0]) || (k && k[5]) || (DESK.t100lvl||{})[x.p[1]]; return l === 'AAA' || l === 'AA'; }).reduce((a, x) => a + x.v, 0);
+    const near = ps.filter(x => { const l = bdLvl(x.p); return l === 'AAA' || l === 'AA'; }).reduce((a, x) => a + x.v, 0);
     return {ab, tot, top10, t100, near, best: ps.slice(0, 3)};
   }).sort((a, b) => b.top10 - a.top10);
-  const mx = Math.max(...clubs.map(c => c.top10), 1);
-  const rows = clubs.map((c, i) => `<tr><td class="num">${i+1}</td><td><strong>${c.ab}</strong></td>
-    <td style="min-width:160px"><div style="height:10px; width:${(100*c.top10/mx).toFixed(0)}%; background:var(--s2); border-radius:2px"></div></td>
+}
+function bdFarm(){
+  const clubs = bdFarmList(), mx = Math.max(...clubs.map(c => c.top10), 1);
+  const rows = clubs.map((c, i) => `<tr class="bd-club${c.ab === bdState.org ? ' on' : ''}" tabindex="0" role="button" aria-label="Show ${c.ab}'s prospects" onclick="bdOrg('${c.ab}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); bdOrg('${c.ab}');}">
+    <td class="num">${i+1}</td><td><strong>${c.ab}</strong><div class="bd-bar"><div style="width:${(100*c.top10/mx).toFixed(0)}%"></div></div></td>
     <td class="num"><strong>${fmtW(c.top10)}</strong></td><td class="num">${fmtW(c.tot)}</td><td class="num">${c.t100}</td><td class="num">${fmtW(c.near)}</td>
     <td class="ttype">${c.best.map(x => `${x.p[0]} (${fmtW(x.v)})`).join(', ')}</td></tr>`).join('');
-  return `<div class="card" style="padding:10px 14px; margin-top:10px"><strong>Farm systems, ranked by the value of their ten best prospects</strong>
-    <div class="ttype" style="margin:3px 0 4px; color:var(--bad)">2026 draftees count at their draft-slot value, which runs below where post-draft lists rank the best of them; clubs with strong 2026 drafts may rank lower here than on lists published after August.</div>
-    <div class="ttype" style="margin:3px 0 8px">Ranked on the top ten, the part of a system that becomes big leaguers and trade currency; the full total and the upper-minors share (Double-A and Triple-A, the help that arrives soonest) are shown beside it. Same values as the prospect board. Horizon shows when each system's value is expected to reach the majors.</div>
-    <div style="overflow:auto"><table style="width:100%"><thead><tr><th class="num">#</th><th>Club</th><th></th><th class="num">Top 10 value</th><th class="num">Full system</th><th class="num">Top 100</th><th class="num">AA/AAA value</th><th>Best three</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
+  return `<div class="card bd-panecard">
+    <div class="bd-cardhead"><strong>Farm systems, all 30</strong>${folSaveBtn('bdSaveFarm()')}</div>
+    <ul class="bd-mini">
+      <li>Ranked by the value of each system's <strong>ten best</strong> prospects, the part that becomes big leaguers and trade currency.</li>
+      <li><strong>Full</strong>: every prospect in the org. <strong>T100</strong>: Top 100 prospects. <strong>AA/AAA</strong>: value in the upper minors, the help that arrives soonest.</li>
+      <li><strong>Click a club</strong> to see its prospects beside this table. 2026 draftees count at slot value.</li>
+    </ul>
+    <table class="bd-tbl"><thead><tr><th class="num">#</th><th>Club</th><th class="num">Top 10</th><th class="num">Full</th><th class="num" title="Top 100 prospects">T100</th><th class="num" title="Value at Double-A and Triple-A">AA/AAA</th><th>Best three</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
+function bdSaveFarm(){
+  const clubs = bdFarmList(), mx = Math.max(...clubs.map(c => c.top10), 1);
+  const half = (a, o) => `<table class="ff-tbl ff-farm"><thead><tr><th class="num">#</th><th>Club</th><th class="num">Top 10 value</th><th>Best prospect</th></tr></thead><tbody>${a.map((c, i) => `<tr><td class="num ff-rk">${i+1+o}</td><td><strong>${c.ab}</strong><div class="ff-bar"><div style="width:${(100*c.top10/mx).toFixed(0)}%"></div></div></td><td class="num"><strong>${fmtW(c.top10)}</strong></td><td>${c.best[0] ? c.best[0].p[0] : ''}</td></tr>`).join('')}</tbody></table>`;
+  folSave('Farm system rankings, all 30 clubs', 'Ranked by the value of each system\'s ten best prospects (expected WAR over six seasons, discounted)',
+    `<div class="ff-2col">${half(clubs.slice(0, 15), 0)}${half(clubs.slice(15), 15)}</div>`, 'farm-system-rankings');
+}
+function bdOrg(ab){
+  bdState.org = ab || '';
+  const host = document.getElementById('bd-left'); if(host) host.innerHTML = bdProspects();
+  document.querySelectorAll('#bd-right .bd-club').forEach(r => r.classList.toggle('on', r.getAttribute('onclick').includes(`'${bdState.org}'`) && !!bdState.org));
+  if(host) host.scrollTop = 0;
+}
+function renderBoards(){
+  const host = document.getElementById('boardsbody'); if(!host) return;
+  if(bdState.tab === 'farm') bdState.tab = 'pros';   // old links: farm rankings now sit beside the prospects
+  const pos = document.getElementById('bd-pos'); if(pos && !pos._w){ pos._w = 1; pos.onchange = renderBoards; }
+  const T = {fa: ['Top Free Agents · The 2026-27 Class', [
+                'The best free agents on the market, ranked by projected 2027 WAR, each with a projected contract.',
+                '<strong>Projected contract</strong>: the Ledger\'s offer, built from the nearest real contracts and a market model. Open any player at the Deal Desk to see the parts.',
+                '<strong>Likely range</strong>: the middle half of real outcomes for offers that size, so bigger deals carry wider bands.',
+                'Includes declined options and opt-outs; posted players show the posting fee. Signings since Nov 1 drop off as they happen.']],
+             pros: ['Top Prospects · The Top 100 and All 30 Farm Systems', [
+                'Left: every Top 100 prospect, valued on what comparable minor leaguers became in the majors.',
+                'Right: all 30 farm systems. Click a club to swap its own prospects in on the left.',
+                'Each side scrolls on its own. The same values the Simulator and Deal Desk trade on.']]}[bdState.tab];
+  const h = document.getElementById('bd-h2'); if(h) h.textContent = T[0];
+  const k = document.getElementById('bd-key'); if(k) k.innerHTML = T[1].map(x => `<li>${x}</li>`).join('');
+  if(!document.getElementById('view-boards').hidden) navMark('boards');
+  host.innerHTML = bdState.tab === 'fa' ? bdFA()
+    : `<div class="bd-split"><div class="bd-pane" id="bd-left">${bdProspects()}</div><div class="bd-pane" id="bd-right">${bdFarm()}</div></div>`;
+}
+
 /* ===== the live winter (Nov 2) =====
    The graded data is cut on Nov 1. The winter moves after that, so on every
    load the page reads the league's public transaction feed from the day after
@@ -11232,22 +11548,6 @@ async function liveWinter(){
   } catch(e){ /* offline or blocked: the Nov 1 winter stands */ }
 }
 setTimeout(liveWinter, 0);   // after every declaration above has run
-function renderBoards(){
-  const host = document.getElementById('boardsbody'); if(!host) return;
-  const pos = document.getElementById('bd-pos'); if(pos && !pos._w){ pos._w = 1; pos.onchange = renderBoards; }
-  // the farm table has no position split: hide the filter there instead of leaving a dead control
-  const posLbl = document.getElementById('bd-pos-lbl');
-  if(pos){ pos.disabled = bdState.tab === 'farm'; pos.hidden = bdState.tab === 'farm'; }
-  if(posLbl) posLbl.hidden = bdState.tab === 'farm';
-  const T = {fa: ['Top Free Agents · The 2026-27 Class', ['The best free agents on the market, each with a projected contract and a likely range.', 'Ranked by projected 2027 value. Signings since Nov 1 drop off as they happen.']],
-             pros: ['Top Prospects · The Top 100', ['Every top-100 prospect, valued on what comparable minor leaguers went on to do in the majors.', 'Peak and odds come from each player\'s 100 nearest historical comparables.']],
-             farm: ['Farm Rankings · All 30 Systems', ['Every farm system, ranked by the combined value of its ten best prospects.', 'The same values the Simulator and Deal Desk trade on.']]}[bdState.tab] || ['Top Prospects', []];
-  const h = document.getElementById('bd-h2'); if(h) h.textContent = T[0];
-  const k = document.getElementById('bd-key'); if(k) k.innerHTML = T[1].map(x => `<li>${x}</li>`).join('');
-  if(!document.getElementById('view-boards').hidden) navMark('boards');
-  host.innerHTML = bdState.tab === 'fa' ? bdFA() : bdState.tab === 'pros' ? bdProspects() : bdFarm();
-}
-
 /* ---- UI pass (Nov 2026): shareable URLs, accessible names, stale Desk verdicts ---- */
 // every view and its selection is in the hash (#view=cards&id=nyy); back and forward work
 const ROUTE_NAMES = {leaderboard:'leaderboard', report:'cards', trees:'trees', champs:'champions', dna:'dna', h2h:'h2h', horizon:'horizon', boards:'boards', gm:'simulator', desk:'desk', scen:'scenarios', method:'method'};
@@ -11295,9 +11595,9 @@ function routeApply(h){
     else if(v === 'champs'){ switchView('champs'); renderChamp(ALL_CHAMPS().some(c => c.id === id) ? id : '', false); }
     else if(v === 'scen'){ const i = scAll().findIndex(s => s.id === id); if(i >= 0) scState.idx = i; else if(/^\d+$/.test(id)) scState.idx = Math.min(scAll().length - 1, Math.max(0, +id - 1)); switchView('scen'); }
     else if(v === 'h2h'){ switchView('h2h'); if(setSel('h2hsel', id)) renderH2h(); }
-    else if(v === 'horizon'){ switchView('horizon'); if(setSel('hz-club', id.toUpperCase())) renderHorizon(); }
+    else if(v === 'horizon'){ switchView('horizon'); const hs = document.getElementById('hz-club'); if(hs && !setSel('hz-club', id.toUpperCase())) hs.value = ''; renderHorizon(); }
     else if(v === 'trees'){ switchView('trees'); if(setSel('treesel', id || 'curated')) renderTrees(); }
-    else if(v === 'boards'){ if(['fa', 'pros', 'farm'].includes(id)) bdState.tab = id; switchView('boards'); }
+    else if(v === 'boards'){ if(['fa', 'pros', 'farm'].includes(id)) bdState.tab = id === 'farm' ? 'pros' : id; switchView('boards'); }
     else if(v === 'gm'){ switchView('gm'); if(id && gmState.club !== id.toUpperCase() && setSel('gm-club', id.toUpperCase())) gmClubChange(); }
     else if(v === 'desk'){ if(['trade', 'fa', 'ext', 'draft'].includes(id)) dkState.mode = id; switchView('desk'); }
     else if(v === 'leaderboard'){ setSel('erasel', q.era || 'active'); setSel('sortsel', q.sort || 'for'); switchView('leaderboard'); renderLB(); }
