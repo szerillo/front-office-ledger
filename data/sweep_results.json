@@ -56,7 +56,7 @@
     "g": 60,
     "n": 19,
     "lost": 38.3,
-    "rel": 0.72,
+    "rel": 0.64,
     "display_only": true,
     "net2": 14.9,
     "n2": 20,
@@ -268,8 +268,8 @@
      "n_in": 1
     },
     "pids": [
-     "666971",
      "672515",
+     "666971",
      "662139"
     ],
     "comps": [
@@ -381,11 +381,11 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Tyler Jones",
+        "Julio Frias",
         "+0.0"
        ],
        [
-        "Julio Frias",
+        "Tyler Jones",
         "+0.0"
        ],
        [
@@ -419,10 +419,10 @@
      "n_in": 0
     },
     "pids": [
-     "650668",
-     "592761",
-     "682056",
      "660789",
+     "650668",
+     "682056",
+     "592761",
      "516782",
      "647315"
     ],
@@ -715,8 +715,8 @@
        "n_in": 1
       },
       "pids": [
-       "666971",
        "672515",
+       "666971",
        "662139"
       ],
       "comps": [
@@ -957,9 +957,9 @@
       },
       "pids": [
        "666179",
+       "668942",
        "656266",
        "656686",
-       "668942",
        "425844"
       ],
       "comps": [
@@ -1035,8 +1035,8 @@
        "n_in": 1
       },
       "pids": [
-       "596133",
        "608348",
+       "596133",
        "670370",
        "502671"
       ],
@@ -1085,11 +1085,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Tyler Jones",
+          "Julio Frias",
           "+0.0"
          ],
          [
-          "Julio Frias",
+          "Tyler Jones",
           "+0.0"
          ],
          [
@@ -1123,10 +1123,10 @@
        "n_in": 0
       },
       "pids": [
-       "650668",
-       "592761",
-       "682056",
        "660789",
+       "650668",
+       "682056",
+       "592761",
        "516782",
        "647315"
       ],
@@ -6232,7 +6232,7 @@
    "n": 31,
    "seasons": 10.2,
    "rate": 1.33,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 3.5,
    "farmN": 2,
    "flows": {
@@ -6361,7 +6361,7 @@
     "deals": [
      {
       "d": "2025-07-31",
-      "h": "Got Juan Burgos, Tyler Locklear, Hunter Cranton for Eugenio Su\u00e1rez",
+      "h": "Got Hunter Cranton, Tyler Locklear, Juan Burgos for Eugenio Su\u00e1rez",
       "net": -1.0
      },
      {
@@ -6460,7 +6460,7 @@
     "deals": [
      {
       "d": "2026-02-05",
-      "h": "Got Jos\u00e9 Mej\u00eda, Kade Strowd, Wellington Aracena for Blaze Alexander",
+      "h": "Got Kade Strowd, Jos\u00e9 Mej\u00eda, Wellington Aracena for Blaze Alexander",
       "net": -1.3
      },
      {
@@ -6732,7 +6732,7 @@
     "g": 30,
     "n": 28,
     "lost": 82.5,
-    "rel": -4.62,
+    "rel": -4.7,
     "display_only": true,
     "net2": -11.5,
     "n2": 24,
@@ -12993,7 +12993,7 @@
    "n": 31,
    "seasons": 9.2,
    "rate": 1.83,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 6.8,
    "farmN": 3,
    "flows": {
@@ -13255,7 +13255,7 @@
      },
      {
       "d": "2017-12-16",
-      "h": "Got Adri\u00e1n Gonz\u00e1lez, Charlie Culberson, Brandon McCarthy, Scott Kazmir for Matt Kemp",
+      "h": "Got Scott Kazmir, Adri\u00e1n Gonz\u00e1lez, Brandon McCarthy, Charlie Culberson for Matt Kemp",
       "net": -0.8
      },
      {
@@ -13463,7 +13463,7 @@
      },
      {
       "d": "2023-12-03",
-      "h": "Got Evan White, Marco Gonzales, Jarred Kelenic for Jackson Kowar, Cole Phillips",
+      "h": "Got Marco Gonzales, Jarred Kelenic, Evan White for Jackson Kowar, Cole Phillips",
       "net": -0.9
      },
      {
@@ -13538,7 +13538,7 @@
     "g": 80,
     "n": 9,
     "lost": 6.3,
-    "rel": 3.76,
+    "rel": 3.68,
     "display_only": true,
     "net2": 4.1,
     "n2": 7,
@@ -13898,10 +13898,10 @@
      "n_in": 0
     },
     "pids": [
-     "666974",
      "700357",
-     "700249",
+     "666974",
      "693725",
+     "700249",
      "605347"
     ],
     "comps": [
@@ -14102,10 +14102,10 @@
        "n_in": 0
       },
       "pids": [
-       "666974",
        "700357",
-       "700249",
+       "666974",
        "693725",
+       "700249",
        "605347"
       ],
       "comps": [
@@ -14267,9 +14267,9 @@
       },
       "pids": [
        "676755",
+       "680694",
        "686599",
        "686745",
-       "680694",
        "605164"
       ],
       "comps": [
@@ -14416,8 +14416,8 @@
        "n_in": 0
       },
       "pids": [
-       "608344",
        "680223",
+       "608344",
        "687231"
       ],
       "comps": [
@@ -14620,11 +14620,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Antonio Velez",
+          "Kevin Guerrero",
           "+0.2"
          ],
          [
-          "Kevin Guerrero",
+          "Antonio Velez",
           "+0.2"
          ]
         ]
@@ -14650,8 +14650,8 @@
        "n_in": 0
       },
       "pids": [
-       "669163",
        "698931",
+       "669163",
        "642121",
        "656945"
       ],
@@ -19360,7 +19360,7 @@
    "n": 35,
    "seasons": 8.2,
    "rate": 3.82,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 7.7,
    "farmN": 4,
    "flows": {
@@ -19695,7 +19695,7 @@
      },
      {
       "d": "2024-07-26",
-      "h": "Got Cristian Pache, Seranthony Dom\u00ednguez for Austin Hays",
+      "h": "Got Seranthony Dom\u00ednguez, Cristian Pache for Austin Hays",
       "net": 0.8
      },
      {
@@ -19759,7 +19759,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Alex Hoppe, Harrison Kreiling, Brock Moore for Taylor Ward",
+      "h": "Got Harrison Kreiling, Brock Moore, Alex Hoppe for Taylor Ward",
       "net": 2.3
      },
      {
@@ -19937,7 +19937,7 @@
      },
      {
       "d": "2020-08-30",
-      "h": "Got Greg Cullen, AJ Graffanino for Tommy Milone",
+      "h": "Got AJ Graffanino, Greg Cullen for Tommy Milone",
       "net": 0.2
      }
     ]
@@ -20020,7 +20020,7 @@
     "g": 50,
     "n": 6,
     "lost": 13.3,
-    "rel": 0.1,
+    "rel": 0.02,
     "display_only": true,
     "net2": 1.7,
     "n2": 2,
@@ -20317,8 +20317,8 @@
     },
     "pids": [
      "700113",
-     "669711",
      "690916",
+     "669711",
      "657077"
     ],
     "comps": [
@@ -20731,8 +20731,8 @@
       },
       "pids": [
        "700113",
-       "669711",
        "690916",
+       "669711",
        "657077"
       ],
       "comps": [
@@ -21395,8 +21395,8 @@
        "n_in": 0
       },
       "pids": [
-       "655316",
        "678011",
+       "655316",
        "702332",
        "666152",
        "690986",
@@ -23810,7 +23810,7 @@
    "n": 12,
    "seasons": 3.2,
    "rate": 5.41,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 10.7,
    "farmN": 3,
    "flows": {
@@ -23934,7 +23934,7 @@
      },
      {
       "d": "2023-12-05",
-      "h": "Got Nicholas Judice, Greg Weissert, Richard Fitts for Alex Verdugo",
+      "h": "Got Richard Fitts, Greg Weissert, Nicholas Judice for Alex Verdugo",
       "net": 3.3
      }
     ]
@@ -23985,12 +23985,12 @@
     "deals": [
      {
       "d": "2026-02-09",
-      "h": "Got Anthony Seigler, Caleb Durbin, Andruw Monasterio for David Hamilton, Kyle Harrison, Shane Drohan",
+      "h": "Got Caleb Durbin, Andruw Monasterio, Anthony Seigler for David Hamilton, Kyle Harrison, Shane Drohan",
       "net": -2.3
      },
      {
       "d": "2025-04-07",
-      "h": "Got John Holobetz, Yophery Rodriguez for Quinn Priester",
+      "h": "Got Yophery Rodriguez, John Holobetz for Quinn Priester",
       "net": -1.1
      },
      {
@@ -24013,7 +24013,7 @@
      },
      {
       "d": "2025-12-04",
-      "h": "Got Johan Oviedo, Tyler Samaniego, Adonys Guzman for Jesus Travieso, Jhostynxon Garcia",
+      "h": "Got Tyler Samaniego, Adonys Guzman, Johan Oviedo for Jesus Travieso, Jhostynxon Garcia",
       "net": 1.1
      },
      {
@@ -24072,12 +24072,12 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Carlos Gutierrez, Erik Miller for Marcelo Mayer",
+      "h": "Got Erik Miller, Carlos Gutierrez for Marcelo Mayer",
       "net": 1.1
      },
      {
       "d": "2025-06-15",
-      "h": "Got Jordan Hicks, Kyle Harrison, James Tibbs III, Jose Bello for Rafael Devers",
+      "h": "Got Kyle Harrison, Jordan Hicks, James Tibbs III, Jose Bello for Rafael Devers",
       "net": 0.5
      }
     ]
@@ -24246,10 +24246,10 @@
    },
    "ret": {
     "net": 0,
-    "g": 50,
+    "g": 45,
     "n": 12,
     "lost": 28.2,
-    "rel": -0.16,
+    "rel": -0.24,
     "display_only": true,
     "net2": 5.7,
     "n2": 9,
@@ -24637,11 +24637,11 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Reginald Preciado",
+        "Yeison Santana",
         "+0.1"
        ],
        [
-        "Yeison Santana",
+        "Reginald Preciado",
         "+0.1"
        ],
        [
@@ -24679,11 +24679,11 @@
      "n_in": 0
     },
     "pids": [
-     "691262",
      "678220",
+     "691262",
+     "683357",
      "605200",
      "691190",
-     "683357",
      "506433",
      "605170"
     ],
@@ -25394,11 +25394,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Reginald Preciado",
+          "Yeison Santana",
           "+0.1"
          ],
          [
-          "Yeison Santana",
+          "Reginald Preciado",
           "+0.1"
          ],
          [
@@ -25436,11 +25436,11 @@
        "n_in": 0
       },
       "pids": [
-       "691262",
        "678220",
+       "691262",
+       "683357",
        "605200",
        "691190",
-       "683357",
        "506433",
        "605170"
       ],
@@ -29178,7 +29178,7 @@
    "n": 27,
    "seasons": 6.2,
    "rate": 2.11,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 6.5,
    "farmN": 3,
    "flows": {
@@ -29246,7 +29246,7 @@
      },
      {
       "d": "2024-01-11",
-      "h": "Got Yency Almonte, Michael Busch for Zyhir Hope, Jackson Ferris",
+      "h": "Got Michael Busch, Yency Almonte for Zyhir Hope, Jackson Ferris",
       "net": 7.0
      },
      {
@@ -29279,7 +29279,7 @@
      },
      {
       "d": "2020-12-29",
-      "h": "Got Zach Davies, Reginald Preciado, Yeison Santana, Ismael Mena, Owen Caissie for Yu Darvish, Victor Caratini",
+      "h": "Got Yeison Santana, Ismael Mena, Reginald Preciado, Zach Davies, Owen Caissie for Yu Darvish, Victor Caratini",
       "net": -4.3
      }
     ]
@@ -29434,7 +29434,7 @@
      },
      {
       "d": "2021-07-29",
-      "h": "Got Alexander Vizca\u00edno, Kevin Alc\u00e1ntara for Anthony Rizzo",
+      "h": "Got Kevin Alc\u00e1ntara, Alexander Vizca\u00edno for Anthony Rizzo",
       "net": 0.1
      }
     ]
@@ -29721,7 +29721,7 @@
     "g": 80,
     "n": 5,
     "lost": 4.9,
-    "rel": 3.0,
+    "rel": 2.92,
     "display_only": true,
     "net2": 6.1,
     "n2": 4,
@@ -29797,10 +29797,10 @@
      "n_in": 2
     },
     "pids": [
-     "805367",
      "691019",
-     "682790",
      "695731",
+     "682790",
+     "805367",
      "676979"
     ],
     "comps": [
@@ -29857,11 +29857,11 @@
         "+4.6"
        ],
        [
-        "Alexander Albertus",
+        "Jeral Perez",
         "+0.3"
        ],
        [
-        "Jeral Perez",
+        "Alexander Albertus",
         "+0.3"
        ]
       ]
@@ -29891,9 +29891,9 @@
      "n_in": 1
     },
     "pids": [
+     "800419",
      "678246",
      "800316",
-     "800419",
      "502054",
      "656629",
      "607200"
@@ -29982,9 +29982,9 @@
      "n_in": 1
     },
     "pids": [
-     "621051",
      "683568",
      "694214",
+     "621051",
      "689672",
      "656302"
     ],
@@ -30389,10 +30389,10 @@
        "n_in": 2
       },
       "pids": [
-       "805367",
        "691019",
-       "682790",
        "695731",
+       "682790",
+       "805367",
        "676979"
       ],
       "comps": [
@@ -30449,11 +30449,11 @@
           "+4.6"
          ],
          [
-          "Alexander Albertus",
+          "Jeral Perez",
           "+0.3"
          ],
          [
-          "Jeral Perez",
+          "Alexander Albertus",
           "+0.3"
          ]
         ]
@@ -30483,9 +30483,9 @@
        "n_in": 1
       },
       "pids": [
+       "800419",
        "678246",
        "800316",
-       "800419",
        "502054",
        "656629",
        "607200"
@@ -30719,8 +30719,8 @@
        "n_in": 1
       },
       "pids": [
-       "687239",
        "678554",
+       "687239",
        "701474",
        "605288"
       ],
@@ -30810,9 +30810,9 @@
        "n_in": 1
       },
       "pids": [
-       "621051",
        "683568",
        "694214",
+       "621051",
        "689672",
        "656302"
       ],
@@ -31054,11 +31054,11 @@
        "n_in": 0
       },
       "pids": [
-       "670032",
        "803035",
-       "694363",
-       "669699",
        "647336",
+       "694363",
+       "670032",
+       "669699",
        "607481"
       ],
       "comps": [
@@ -33439,7 +33439,7 @@
    "n": 10,
    "seasons": 3.4,
    "rate": 2.4,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 10.0,
    "farmN": 3,
    "flows": {
@@ -33496,7 +33496,7 @@
     "deals": [
      {
       "d": "2026-02-01",
-      "h": "Got Jordan Hicks, David Sandlin for Gage Ziehl",
+      "h": "Got David Sandlin, Jordan Hicks for Gage Ziehl",
       "net": 0.4
      },
      {
@@ -33516,7 +33516,7 @@
      },
      {
       "d": "2024-12-11",
-      "h": "Got Wikelman Gonz\u00e1lez, Kyle Teel, Chase Meidroth, Braden Montgomery for Garrett Crochet",
+      "h": "Got Chase Meidroth, Braden Montgomery, Wikelman Gonz\u00e1lez, Kyle Teel for Garrett Crochet",
       "net": 11.9
      },
      {
@@ -33549,12 +33549,12 @@
      },
      {
       "d": "2025-11-18",
-      "h": "Got Tanner Murray, Everson Pereira for Yoendrys G\u00f3mez, Steven Wilson",
+      "h": "Got Everson Pereira, Tanner Murray for Yoendrys G\u00f3mez, Steven Wilson",
       "net": 0.2
      },
      {
       "d": "2025-07-31",
-      "h": "Got Curtis Mead, Duncan Davitt, Ben Peoples for Adrian Houser",
+      "h": "Got Duncan Davitt, Curtis Mead, Ben Peoples for Adrian Houser",
       "net": 1.3
      },
      {
@@ -33587,7 +33587,7 @@
      },
      {
       "d": "2024-03-13",
-      "h": "Got Samuel Zavala, Steven Wilson, Drew Thorpe, Jairo Iriarte for Dylan Cease",
+      "h": "Got Steven Wilson, Jairo Iriarte, Drew Thorpe, Samuel Zavala for Dylan Cease",
       "net": -4.2
      }
     ]
@@ -33605,7 +33605,7 @@
      },
      {
       "d": "2023-11-16",
-      "h": "Got Nicky Lopez, Braden Shewmake, Michael Soroka, Jared Shuster, Riley Gowens for Aaron Bummer",
+      "h": "Got Braden Shewmake, Michael Soroka, Jared Shuster, Riley Gowens, Nicky Lopez for Aaron Bummer",
       "net": -1.4
      }
     ]
@@ -33687,7 +33687,7 @@
      },
      {
       "d": "2026-06-11",
-      "h": "Got Jose Colmenares, Dylan Campbell for Derek Hill",
+      "h": "Got Dylan Campbell, Jose Colmenares for Derek Hill",
       "net": 0.1
      },
      {
@@ -33890,7 +33890,7 @@
     "g": 45,
     "n": 15,
     "lost": 28.5,
-    "rel": -0.21,
+    "rel": -0.3,
     "display_only": true,
     "net2": -2.6,
     "n2": 12,
@@ -34067,8 +34067,8 @@
      "n_in": 0
     },
     "pids": [
-     "687952",
      "668715",
+     "687952",
      "680727",
      "641816"
     ],
@@ -34165,9 +34165,9 @@
     },
     "pids": [
      "641584",
+     "682227",
      "683175",
      "643290",
-     "682227",
      "682728",
      "608385",
      "553993"
@@ -34554,8 +34554,8 @@
        "n_in": 0
       },
       "pids": [
-       "687952",
        "668715",
+       "687952",
        "680727",
        "641816"
       ],
@@ -34703,8 +34703,8 @@
        "n_in": 1
       },
       "pids": [
-       "596001",
        "686894",
+       "596001",
        "593423"
       ],
       "comps": [
@@ -35037,9 +35037,9 @@
       },
       "pids": [
        "641584",
+       "682227",
        "683175",
        "643290",
-       "682227",
        "682728",
        "608385",
        "553993"
@@ -38488,7 +38488,7 @@
    "n": 24,
    "seasons": 6.2,
    "rate": 1.04,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 7.0,
    "farmN": 2,
    "flows": {
@@ -38566,7 +38566,7 @@
      },
      {
       "d": "2022-07-30",
-      "h": "Got Levi Stoudt, Edwin Arroyo, Noelvi Marte, Andrew Moore for Luis Castillo",
+      "h": "Got Noelvi Marte, Andrew Moore, Levi Stoudt, Edwin Arroyo for Luis Castillo",
       "net": -1.3
      },
      {
@@ -38576,7 +38576,7 @@
      },
      {
       "d": "2022-03-14",
-      "h": "Got Justin Dunn, Luis Chevalier, Jake Fraley, Brandon Williamson, Connor Phillips for Jesse Winker, Eugenio Su\u00e1rez",
+      "h": "Got Luis Chevalier, Connor Phillips, Brandon Williamson, Justin Dunn, Jake Fraley for Jesse Winker, Eugenio Su\u00e1rez",
       "net": -6.9
      }
     ]
@@ -38889,39 +38889,39 @@
   "exec": "Chris Antonetti",
   "team": "Cleveland Guardians",
   "abbr": "CLE",
-  "start": 2015,
-  "seasons": 11.0,
-  "seatSeasons": 11.0,
-  "startDate": "2015-10-06",
+  "start": 2010,
+  "seasons": 16.0,
+  "seatSeasons": 16.0,
+  "startDate": "2010-10-16",
   "flags": [
    "handoff: Shapiro tree"
   ],
   "chan": {
    "trade": {
-    "net": 22.9,
+    "net": 35.8,
     "g": 75,
-    "n": 130
+    "n": 184
    },
    "draft": {
-    "net": 42.5,
-    "g": 80,
-    "n": 65
+    "net": 35.0,
+    "g": 75,
+    "n": 92
    },
    "waiver": {
-    "net": -8.2,
+    "net": -12.5,
     "g": 40,
-    "n": 75
+    "n": 108
    },
    "fa": {
-    "net": -3.4,
-    "g": 45,
-    "n": 25,
-    "majors": 42,
+    "net": -17.7,
+    "g": 35,
+    "n": 35,
+    "majors": 66,
     "typical": 0.84,
-    "raw": 25.5
+    "raw": 28.1
    },
    "ext": {
-    "net": 24.1,
+    "net": 36.6,
     "typical": {
      "veteran": 0.37,
      "arb": 0.167,
@@ -38929,24 +38929,24 @@
      "pre-debut": -0.84
     },
     "g": 75,
-    "n": 12,
-    "scored": 12
+    "n": 21,
+    "scored": 21
    },
    "intl": {
-    "net": 11.2,
-    "g": 65,
-    "n": 316
+    "net": 7.3,
+    "g": 55,
+    "n": 427
    },
    "ret": {
     "net": 0,
-    "g": 65,
-    "n": 20,
-    "lost": 39.5,
-    "rel": 0.95,
+    "g": 70,
+    "n": 24,
+    "lost": 47.0,
+    "rel": 1.53,
     "display_only": true,
-    "net2": 16.5,
-    "n2": 26,
-    "qo": 1,
+    "net2": 23.6,
+    "n2": 35,
+    "qo": 2,
     "g2": 70,
     "worst2": [
      {
@@ -38955,38 +38955,113 @@
       "prior": 5.6,
       "fut": 7.5,
       "exp": 2.5
+     },
+     {
+      "nm": "Ubaldo Jim\u00e9nez",
+      "y": 2013,
+      "prior": 2.8,
+      "fut": 3.9,
+      "exp": 1.7
      }
     ]
    }
   },
-  "total": 105.5,
-  "forGrade": 80,
+  "total": 108.1,
+  "forGrade": 75,
   "success": {
-   "wpct": ".553",
+   "wpct": ".536",
    "div": 7,
-   "g": 70,
-   "w": 928,
-   "l": 750,
-   "po": 8,
+   "g": 65,
+   "w": 1334,
+   "l": 1153,
+   "po": 9,
    "sw": 5,
    "pen": 1,
    "ws": 0
   },
   "cum": [
    0.0,
-   -0.1,
-   6.4,
-   7.4,
-   19.7,
-   16.8,
-   27.9,
-   40.1,
-   52.1,
-   65.9,
-   68.7,
-   75.1
+   2.2,
+   -5.6,
+   -5.4,
+   -10.6,
+   -10.0,
+   -6.4,
+   12.6,
+   23.4,
+   34.5,
+   27.6,
+   33.9,
+   45.0,
+   56.4,
+   68.2,
+   70.1,
+   76.5
   ],
   "top": [
+   {
+    "d": "2011-06-06",
+    "ch": "draft",
+    "net": 23.8,
+    "st": 9.11,
+    "h": "Drafted Francisco Lindor (#8 overall, 2011)",
+    "sides": [
+     [
+      "Produced in his control seasons",
+      [
+       [
+        "Francisco Lindor \u00b7 with this club",
+        "+29.6"
+       ],
+       [
+        "\u00b7 for other clubs after a trade or move (graded in that decision)",
+        "+3.3"
+       ]
+      ]
+     ],
+     [
+      "Slot expectation",
+      [
+       [
+        "pick #8, maturity-adjusted",
+        "-9.1"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "596019"
+    ],
+    "comps": [
+     {
+      "k": "draft",
+      "yr": 2010,
+      "ab": "HOU",
+      "who": "Delino DeShields",
+      "what": "#8 overall",
+      "a": 1.2,
+      "b": -6.5
+     },
+     {
+      "k": "draft",
+      "yr": 2012,
+      "ab": "PIT",
+      "who": "Mark Appel",
+      "what": "#8 overall",
+      "a": 0,
+      "b": -3.5
+     },
+     {
+      "k": "draft",
+      "yr": 2013,
+      "ab": "KC",
+      "who": "Hunter Dozier",
+      "what": "#8 overall",
+      "a": -2.2,
+      "b": -7.7
+     }
+    ]
+   },
    {
     "d": "2016-06-09",
     "ch": "draft",
@@ -39126,11 +39201,11 @@
         "+4.7"
        ],
        [
-        "Josh Wolf",
+        "Isaiah Greene",
         "+0.1"
        ],
        [
-        "Isaiah Greene",
+        "Josh Wolf",
         "+0.1"
        ]
       ]
@@ -39156,10 +39231,10 @@
      "n_in": 0
     },
     "pids": [
-     "683181",
      "665926",
-     "693309",
      "642708",
+     "693309",
+     "683181",
      "596019",
      "471911"
     ],
@@ -39190,6 +39265,162 @@
       "po": "mid",
       "recv": 17.2,
       "paid": 0.1
+     }
+    ]
+   },
+   {
+    "d": "2012-12-11",
+    "ch": "trade",
+    "net": 15.1,
+    "st": 15.16,
+    "h": "Cleveland Indians traded 1B Lars Anderson, SS Didi Gregorius, SS Didi Gregorius and LHP Tony Sipp to Arizona Diamondbacks for RHP Matt Albers, RHP Trevor Bauer and RHP Bryan Shaw.",
+    "vin": 15.2,
+    "vout": 0.1,
+    "sides": [
+     [
+      "Acquired (control-window value, net of salary)",
+      [
+       [
+        "Trevor Bauer",
+        "+9.0"
+       ],
+       [
+        "Bryan Shaw",
+        "+5.2"
+       ],
+       [
+        "Matt Albers",
+        "+0.9"
+       ]
+      ]
+     ],
+     [
+      "Surrendered \u00b7 value realized on Arizona Diamondbacks",
+      [
+       [
+        "Tony Sipp",
+        "-0.1"
+       ],
+       [
+        "Lars Anderson",
+        "-0.0"
+       ]
+      ]
+     ]
+    ],
+    "att": {
+     "out": 0,
+     "n_out": 0,
+     "inn": 3.6,
+     "n_in": 1
+    },
+    "pids": [
+     "543766",
+     "545333",
+     "458006",
+     "448609",
+     "502249"
+    ],
+    "comps": [
+     {
+      "yr": 2012,
+      "ab": "KC",
+      "who": "Wade Davis",
+      "ck": "3+",
+      "po": "rebuild",
+      "recv": 15.1,
+      "paid": 6.5
+     },
+     {
+      "yr": 2013,
+      "ab": "CWS",
+      "who": "Adam Eaton",
+      "ck": "3+",
+      "po": "rebuild",
+      "recv": 15.0,
+      "paid": 0.0
+     },
+     {
+      "yr": 2010,
+      "ab": "BAL",
+      "who": "J.J. Hardy",
+      "ck": "3+",
+      "po": "rebuild",
+      "recv": 15.4,
+      "paid": -0.2
+     }
+    ]
+   },
+   {
+    "d": "2012-11-03",
+    "ch": "trade",
+    "net": 11.3,
+    "st": 11.4,
+    "h": "Cleveland Indians traded RHP Esmil Rogers to Toronto Blue Jays for LF Mike Aviles and C Yan Gomes.",
+    "vin": 11.4,
+    "vout": 0.1,
+    "sides": [
+     [
+      "Acquired (control-window value, net of salary)",
+      [
+       [
+        "Yan Gomes",
+        "+12.4"
+       ],
+       [
+        "Mike Aviles",
+        "-1.0"
+       ]
+      ]
+     ],
+     [
+      "Surrendered \u00b7 value realized on Toronto Blue Jays",
+      [
+       [
+        "Esmil Rogers",
+        "-0.1"
+       ]
+      ]
+     ]
+    ],
+    "att": {
+     "out": 0,
+     "n_out": 0,
+     "inn": 0,
+     "n_in": 0
+    },
+    "pids": [
+     "543228",
+     "449107",
+     "469134"
+    ],
+    "comps": [
+     {
+      "yr": 2012,
+      "ab": "MIA",
+      "who": "Adeiny Hechavarr\u00eda",
+      "ck": "3+",
+      "po": "rebuild",
+      "recv": 11.8,
+      "paid": 12.1
+     },
+     {
+      "yr": 2013,
+      "ab": "HOU",
+      "who": "Chris Carter",
+      "ck": "3+",
+      "po": "rebuild",
+      "recv": 11.0,
+      "paid": 0.0
+     },
+     {
+      "yr": 2012,
+      "ab": "TOR",
+      "who": "Mark Buehrle",
+      "ck": "3+",
+      "po": "rebuild",
+      "recv": 12.1,
+      "paid": 11.8
      }
     ]
    },
@@ -39315,12 +39546,12 @@
      "n_in": 0
     },
     "pids": [
-     "676282",
      "680911",
      "615698",
+     "676282",
+     "595978",
      "672356",
      "647304",
-     "595978",
      "605182",
      "656185",
      "663362"
@@ -39354,230 +39585,6 @@
       "paid": -1.0
      }
     ]
-   },
-   {
-    "d": "2021-11-19",
-    "ch": "trade",
-    "net": -8.0,
-    "st": 8.15,
-    "h": "Tampa Bay Rays traded RHP Tobias Myers to Cleveland Indians for SS Junior Caminero.",
-    "vin": 0.2,
-    "vout": 8.2,
-    "sides": [
-     [
-      "Acquired (control-window value, net of salary)",
-      [
-       [
-        "Tobias Myers",
-        "+0.2"
-       ]
-      ]
-     ],
-     [
-      "Surrendered \u00b7 value realized on Tampa Bay Rays",
-      [
-       [
-        "Junior Caminero",
-        "-8.2"
-       ]
-      ]
-     ]
-    ],
-    "att": {
-     "out": 0,
-     "n_out": 0,
-     "inn": 0,
-     "n_in": 0
-    },
-    "pids": [
-     "668964",
-     "691406"
-    ],
-    "comps": [
-     {
-      "yr": 2021,
-      "ab": "LAA",
-      "who": "James Hoyt",
-      "ck": "3+",
-      "po": "mid",
-      "recv": 0.2,
-      "paid": 0
-     },
-     {
-      "yr": 2021,
-      "ab": "NYM",
-      "who": "Jordan Yamamoto",
-      "ck": "3+",
-      "po": "mid",
-      "recv": 0.1,
-      "paid": 0.0
-     },
-     {
-      "yr": 2021,
-      "ab": "SD",
-      "who": "Ray Kerr",
-      "ck": "3+",
-      "po": "mid",
-      "recv": 0.1,
-      "paid": 0.7
-     }
-    ]
-   },
-   {
-    "d": "2019-12-15",
-    "ch": "trade",
-    "net": 7.5,
-    "st": 6.89,
-    "h": "Cleveland Indians traded RHP Corey Kluber and cash to Texas Rangers for RHP Emmanuel Clase and CF Delino DeShields.",
-    "vin": 6.9,
-    "vout": -0.6,
-    "sides": [
-     [
-      "Acquired (control-window value, net of salary)",
-      [
-       [
-        "Emmanuel Clase",
-        "+7.3"
-       ],
-       [
-        "Delino DeShields",
-        "-0.4"
-       ]
-      ]
-     ],
-     [
-      "Surrendered \u00b7 value realized on Texas Rangers",
-      [
-       [
-        "Corey Kluber",
-        "+0.6"
-       ]
-      ]
-     ]
-    ],
-    "att": {
-     "out": 0,
-     "n_out": 0,
-     "inn": 0,
-     "n_in": 0
-    },
-    "pids": [
-     "661403",
-     "592261",
-     "446372"
-    ],
-    "comps": [
-     {
-      "yr": 2021,
-      "ab": "LAD",
-      "who": "Alex Vesia",
-      "ck": "3+",
-      "po": "contend",
-      "recv": 6.7,
-      "paid": 0
-     },
-     {
-      "yr": 2023,
-      "ab": "LAD",
-      "who": "Tyler Glasnow",
-      "ck": "3+",
-      "po": "contend",
-      "recv": 7.0,
-      "paid": 6.7
-     },
-     {
-      "yr": 2023,
-      "ab": "TB",
-      "who": "Ryan Pepiot",
-      "ck": "3+",
-      "po": "contend",
-      "recv": 6.7,
-      "paid": 7.0
-     }
-    ]
-   },
-   {
-    "d": "2018-12-13",
-    "ch": "trade",
-    "net": -7.4,
-    "st": 7.73,
-    "h": "Cleveland Indians Traded 1B Edwin Encarnacion and Future Considerations to Seattle Mariners; Tampa Bay Rays Traded LF Jake Bauers to Cleveland Indians; Seattle Mariners Traded 1B Carlos Santana to Cleveland Indians; Cleveland Indians Traded 3B Yandy Diaz and RHP Cole Sulser to Tampa Bay Rays and Tampa Bay Rays Traded cash to Seattle Mariners.",
-    "vin": 0.3,
-    "vout": 7.7,
-    "sides": [
-     [
-      "Acquired (control-window value, net of salary)",
-      [
-       [
-        "Carlos Santana",
-        "+1.9"
-       ],
-       [
-        "Jake Bauers",
-        "-1.6"
-       ]
-      ]
-     ],
-     [
-      "Surrendered \u00b7 value realized on Seattle Mariners, Tampa Bay Rays",
-      [
-       [
-        "Yandy D\u00edaz",
-        "-5.0"
-       ],
-       [
-        "Cole Sulser",
-        "-1.8"
-       ],
-       [
-        "Edwin Encarnaci\u00f3n",
-        "-0.9"
-       ]
-      ]
-     ]
-    ],
-    "att": {
-     "out": 0,
-     "n_out": 0,
-     "inn": 3.2,
-     "n_in": 1
-    },
-    "pids": [
-     "467793",
-     "641343",
-     "650490",
-     "642121",
-     "429665"
-    ],
-    "comps": [
-     {
-      "yr": 2018,
-      "ab": "CLE",
-      "who": "Jefry Rodriguez",
-      "ck": "3+",
-      "po": "contend",
-      "recv": 0.3,
-      "paid": 3.7
-     },
-     {
-      "yr": 2018,
-      "ab": "TB",
-      "who": "Anthony Banda",
-      "ck": "3+",
-      "po": "contend",
-      "recv": 0.3,
-      "paid": -0.1
-     },
-     {
-      "yr": 2018,
-      "ab": "NYY",
-      "who": "Luis Gil",
-      "ck": "3+",
-      "po": "contend",
-      "recv": 0.4,
-      "paid": 2.5
-     }
-    ]
    }
   ],
   "led": {
@@ -39604,11 +39611,11 @@
           "+4.7"
          ],
          [
-          "Josh Wolf",
+          "Isaiah Greene",
           "+0.1"
          ],
          [
-          "Isaiah Greene",
+          "Josh Wolf",
           "+0.1"
          ]
         ]
@@ -39634,10 +39641,10 @@
        "n_in": 0
       },
       "pids": [
-       "683181",
        "665926",
-       "693309",
        "642708",
+       "693309",
+       "683181",
        "596019",
        "471911"
       ],
@@ -39668,6 +39675,162 @@
         "po": "mid",
         "recv": 17.2,
         "paid": 0.1
+       }
+      ]
+     },
+     {
+      "d": "2012-12-11",
+      "ch": "trade",
+      "net": 15.1,
+      "st": 15.16,
+      "h": "Cleveland Indians traded 1B Lars Anderson, SS Didi Gregorius, SS Didi Gregorius and LHP Tony Sipp to Arizona Diamondbacks for RHP Matt Albers, RHP Trevor Bauer and RHP Bryan Shaw.",
+      "vin": 15.2,
+      "vout": 0.1,
+      "sides": [
+       [
+        "Acquired (control-window value, net of salary)",
+        [
+         [
+          "Trevor Bauer",
+          "+9.0"
+         ],
+         [
+          "Bryan Shaw",
+          "+5.2"
+         ],
+         [
+          "Matt Albers",
+          "+0.9"
+         ]
+        ]
+       ],
+       [
+        "Surrendered \u00b7 value realized on Arizona Diamondbacks",
+        [
+         [
+          "Tony Sipp",
+          "-0.1"
+         ],
+         [
+          "Lars Anderson",
+          "-0.0"
+         ]
+        ]
+       ]
+      ],
+      "att": {
+       "out": 0,
+       "n_out": 0,
+       "inn": 3.6,
+       "n_in": 1
+      },
+      "pids": [
+       "543766",
+       "545333",
+       "458006",
+       "448609",
+       "502249"
+      ],
+      "comps": [
+       {
+        "yr": 2012,
+        "ab": "KC",
+        "who": "Wade Davis",
+        "ck": "3+",
+        "po": "rebuild",
+        "recv": 15.1,
+        "paid": 6.5
+       },
+       {
+        "yr": 2013,
+        "ab": "CWS",
+        "who": "Adam Eaton",
+        "ck": "3+",
+        "po": "rebuild",
+        "recv": 15.0,
+        "paid": 0.0
+       },
+       {
+        "yr": 2010,
+        "ab": "BAL",
+        "who": "J.J. Hardy",
+        "ck": "3+",
+        "po": "rebuild",
+        "recv": 15.4,
+        "paid": -0.2
+       }
+      ]
+     },
+     {
+      "d": "2012-11-03",
+      "ch": "trade",
+      "net": 11.3,
+      "st": 11.4,
+      "h": "Cleveland Indians traded RHP Esmil Rogers to Toronto Blue Jays for LF Mike Aviles and C Yan Gomes.",
+      "vin": 11.4,
+      "vout": 0.1,
+      "sides": [
+       [
+        "Acquired (control-window value, net of salary)",
+        [
+         [
+          "Yan Gomes",
+          "+12.4"
+         ],
+         [
+          "Mike Aviles",
+          "-1.0"
+         ]
+        ]
+       ],
+       [
+        "Surrendered \u00b7 value realized on Toronto Blue Jays",
+        [
+         [
+          "Esmil Rogers",
+          "-0.1"
+         ]
+        ]
+       ]
+      ],
+      "att": {
+       "out": 0,
+       "n_out": 0,
+       "inn": 0,
+       "n_in": 0
+      },
+      "pids": [
+       "543228",
+       "449107",
+       "469134"
+      ],
+      "comps": [
+       {
+        "yr": 2012,
+        "ab": "MIA",
+        "who": "Adeiny Hechavarr\u00eda",
+        "ck": "3+",
+        "po": "rebuild",
+        "recv": 11.8,
+        "paid": 12.1
+       },
+       {
+        "yr": 2013,
+        "ab": "HOU",
+        "who": "Chris Carter",
+        "ck": "3+",
+        "po": "rebuild",
+        "recv": 11.0,
+        "paid": 0.0
+       },
+       {
+        "yr": 2012,
+        "ab": "TOR",
+        "who": "Mark Buehrle",
+        "ck": "3+",
+        "po": "rebuild",
+        "recv": 12.1,
+        "paid": 11.8
        }
       ]
      },
@@ -39734,12 +39897,12 @@
        "n_in": 0
       },
       "pids": [
-       "676282",
        "680911",
        "615698",
+       "676282",
+       "595978",
        "672356",
        "647304",
-       "595978",
        "605182",
        "656185",
        "663362"
@@ -39813,8 +39976,8 @@
        "n_in": 0
       },
       "pids": [
-       "661403",
        "592261",
+       "661403",
        "446372"
       ],
       "comps": [
@@ -39844,153 +40007,6 @@
         "po": "contend",
         "recv": 6.7,
         "paid": 7.0
-       }
-      ]
-     },
-     {
-      "d": "2023-08-01",
-      "ch": "trade",
-      "net": 4.6,
-      "st": 2.59,
-      "h": "Cleveland Guardians traded 1B Josh Bell to Miami Marlins for SS Jean Segura and SS Kahlil Watson.",
-      "vin": 2.0,
-      "vout": -2.6,
-      "sides": [
-       [
-        "Acquired (control-window value, net of salary)",
-        [
-         [
-          "Kahlil Watson",
-          "+2.6"
-         ],
-         [
-          "Jean Segura",
-          "-0.6"
-         ]
-        ]
-       ],
-       [
-        "Surrendered \u00b7 value realized on Miami Marlins",
-        [
-         [
-          "Josh Bell",
-          "+2.6"
-         ]
-        ]
-       ]
-      ],
-      "att": {
-       "out": 0,
-       "n_out": 0,
-       "inn": 5.3,
-       "n_in": 1
-      },
-      "pids": [
-       "516416",
-       "696135",
-       "605137"
-      ],
-      "comps": [
-       {
-        "yr": 2023,
-        "ab": "CIN",
-        "who": "Sam Moll",
-        "ck": "3+",
-        "po": "mid",
-        "recv": 1.9,
-        "paid": 0.0
-       },
-       {
-        "yr": 2023,
-        "ab": "PIT",
-        "who": "Bailey Falter",
-        "ck": "3+",
-        "po": "mid",
-        "recv": 1.9,
-        "paid": -0.7
-       },
-       {
-        "yr": 2023,
-        "ab": "MIA",
-        "who": "Jake Burger",
-        "ck": "3+",
-        "po": "mid",
-        "recv": 2.3,
-        "paid": -0.0
-       }
-      ],
-      "unsettled": true,
-      "proj": {
-       "inn": 0.4,
-       "out": 0.0,
-       "net": 0.4,
-       "final": 5.0
-      }
-     },
-     {
-      "d": "2015-11-25",
-      "ch": "trade",
-      "net": 4.1,
-      "st": 4.06,
-      "h": "Tampa Bay Rays traded RHP Kirby Yates to Cleveland Indians for cash.",
-      "vin": 4.1,
-      "vout": 0,
-      "sides": [
-       [
-        "Acquired (control-window value, net of salary)",
-        [
-         [
-          "Kirby Yates",
-          "+4.1"
-         ]
-        ]
-       ],
-       [
-        "Surrendered \u00b7 value realized on counterparty",
-        [
-         [
-          "(no valued players)",
-          "0.0"
-         ]
-        ]
-       ]
-      ],
-      "att": {
-       "out": 0,
-       "n_out": 0,
-       "inn": 0,
-       "n_in": 0
-      },
-      "pids": [
-       "489446"
-      ],
-      "comps": [
-       {
-        "yr": 2015,
-        "ab": "CLE",
-        "who": "Dan Otero",
-        "ck": "3+",
-        "po": "mid",
-        "recv": 4.3,
-        "paid": 0
-       },
-       {
-        "yr": 2015,
-        "ab": "TB",
-        "who": "Logan Morrison",
-        "ck": "3+",
-        "po": "mid",
-        "recv": 4.3,
-        "paid": 0.9
-       },
-       {
-        "yr": 2014,
-        "ab": "SD",
-        "who": "Derek Norris",
-        "ck": "3+",
-        "po": "mid",
-        "recv": 4.2,
-        "paid": 0.0
        }
       ]
      }
@@ -40061,6 +40077,74 @@
         "po": "mid",
         "recv": 0.1,
         "paid": 0.7
+       }
+      ]
+     },
+     {
+      "d": "2011-11-26",
+      "ch": "trade",
+      "net": -7.9,
+      "st": 7.88,
+      "h": "Cleveland Indians traded 2B Luis Valbuena to Toronto Blue Jays for cash.",
+      "vin": 0.0,
+      "vout": 7.9,
+      "sides": [
+       [
+        "Acquired (control-window value, net of salary)",
+        [
+         [
+          null,
+          "+0.0"
+         ]
+        ]
+       ],
+       [
+        "Surrendered \u00b7 value realized on Toronto Blue Jays",
+        [
+         [
+          "Luis Valbuena",
+          "-7.9"
+         ]
+        ]
+       ]
+      ],
+      "att": {
+       "out": 0,
+       "n_out": 0,
+       "inn": 0,
+       "n_in": 0
+      },
+      "pids": [
+       "0",
+       "472528"
+      ],
+      "comps": [
+       {
+        "yr": 2011,
+        "ab": "CWS",
+        "who": "Nestor Molina",
+        "ck": "3+",
+        "po": "mid",
+        "recv": 0.0,
+        "paid": 0.5
+       },
+       {
+        "yr": 2011,
+        "ab": "CLE",
+        "who": "Joe Martinez",
+        "ck": "3+",
+        "po": "mid",
+        "recv": 0.0,
+        "paid": 0
+       },
+       {
+        "yr": 2011,
+        "ab": "TOR",
+        "who": "Trystan Magnuson",
+        "ck": "3+",
+        "po": "mid",
+        "recv": 0.0,
+        "paid": 0
        }
       ]
      },
@@ -40215,33 +40299,29 @@
       ]
      },
      {
-      "d": "2021-07-30",
+      "d": "2014-12-08",
       "ch": "trade",
-      "net": -5.2,
+      "net": -5.9,
       "st": 7.21,
-      "h": "Cleveland Indians traded RHP Phil Maton and C Yainer Diaz to Houston Astros for RF Myles Straw.",
-      "vin": 2.0,
+      "h": "Oakland Athletics traded RF Brandon Moss to Cleveland Indians for 2B Joey Wendle.",
+      "vin": 1.3,
       "vout": 7.2,
       "sides": [
        [
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Myles Straw",
-          "+2.0"
+          "Brandon Moss",
+          "+1.3"
          ]
         ]
        ],
        [
-        "Surrendered \u00b7 value realized on Houston Astros",
+        "Surrendered \u00b7 value realized on Athletics",
         [
          [
-          "Yainer Diaz",
-          "-6.3"
-         ],
-         [
-          "Phil Maton",
-          "-0.9"
+          "Joey Wendle",
+          "-7.2"
          ]
         ]
        ]
@@ -40253,104 +40333,36 @@
        "n_in": 0
       },
       "pids": [
-       "664702",
-       "664208",
-       "673237"
+       "461235",
+       "621563"
       ],
       "comps": [
        {
-        "yr": 2021,
-        "ab": "CIN",
-        "who": "Luis Cessa",
-        "ck": "3+",
-        "po": "mid",
-        "recv": 2.0,
-        "paid": 0
+        "yr": 2013,
+        "ab": "BAL",
+        "who": "David Lough",
+        "ck": "+2",
+        "po": "contend",
+        "recv": 1.4,
+        "paid": 0.5
        },
        {
-        "yr": 2020,
-        "ab": "TB",
-        "who": "Brett Phillips",
-        "ck": "3+",
-        "po": "mid",
-        "recv": 2.0,
+        "yr": 2013,
+        "ab": "WSH",
+        "who": "Jerry Blevins",
+        "ck": "+2",
+        "po": "contend",
+        "recv": 1.4,
         "paid": 0.0
        },
        {
-        "yr": 2020,
-        "ab": "SD",
-        "who": "Austin Nola",
-        "ck": "3+",
-        "po": "mid",
-        "recv": 1.8,
-        "paid": 12.8
-       }
-      ]
-     },
-     {
-      "d": "2016-01-08",
-      "ch": "trade",
-      "net": -4.1,
-      "st": 4.06,
-      "h": "Cleveland Indians traded RHP Kirby Yates to New York Yankees for cash.",
-      "vin": 0,
-      "vout": 4.1,
-      "sides": [
-       [
-        "Acquired (control-window value, net of salary)",
-        [
-         [
-          "(no valued players)",
-          "0.0"
-         ]
-        ]
-       ],
-       [
-        "Surrendered \u00b7 value realized on New York Yankees",
-        [
-         [
-          "Kirby Yates",
-          "-4.1"
-         ]
-        ]
-       ]
-      ],
-      "att": {
-       "out": 0,
-       "n_out": 0,
-       "inn": 0,
-       "n_in": 0
-      },
-      "pids": [
-       "489446"
-      ],
-      "comps": [
-       {
-        "yr": 2016,
-        "ab": "BAL",
-        "who": "Efren Navarro",
-        "ck": "3+",
+        "yr": 2014,
+        "ab": "PIT",
+        "who": "Vance Worley",
+        "ck": "+2",
         "po": "contend",
-        "recv": 0.0,
+        "recv": 1.6,
         "paid": 0
-       },
-       {
-        "yr": 2016,
-        "ab": "BAL",
-        "who": "Edgar Olmos",
-        "ck": "3+",
-        "po": "contend",
-        "recv": 0.0,
-        "paid": 0
-       },
-       {
-        "yr": 2016,
-        "ab": "BAL",
-        "who": "Natanael Delgado",
-        "ck": "3+",
-        "po": "contend",
-        "recv": 0.0,
-        "paid": 0.0
        }
       ]
      }
@@ -40358,6 +40370,69 @@
    },
    "draft": {
     "best": [
+     {
+      "d": "2011-06-06",
+      "ch": "draft",
+      "net": 23.8,
+      "st": 9.11,
+      "h": "Drafted Francisco Lindor (#8 overall, 2011)",
+      "sides": [
+       [
+        "Produced in his control seasons",
+        [
+         [
+          "Francisco Lindor \u00b7 with this club",
+          "+29.6"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+3.3"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #8, maturity-adjusted",
+          "-9.1"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "596019"
+      ],
+      "comps": [
+       {
+        "k": "draft",
+        "yr": 2010,
+        "ab": "HOU",
+        "who": "Delino DeShields",
+        "what": "#8 overall",
+        "a": 1.2,
+        "b": -6.5
+       },
+       {
+        "k": "draft",
+        "yr": 2012,
+        "ab": "PIT",
+        "who": "Mark Appel",
+        "what": "#8 overall",
+        "a": 0,
+        "b": -3.5
+       },
+       {
+        "k": "draft",
+        "yr": 2013,
+        "ab": "KC",
+        "who": "Hunter Dozier",
+        "what": "#8 overall",
+        "a": -2.2,
+        "b": -7.7
+       }
+      ]
+     },
      {
       "d": "2016-06-09",
       "ch": "draft",
@@ -40597,20 +40672,26 @@
         "b": -1.3
        }
       ]
-     },
+     }
+    ],
+    "worst": [
      {
-      "d": "2021-07-11",
+      "d": "2013-06-06",
       "ch": "draft",
-      "net": 6.5,
-      "st": 1.42,
-      "h": "Drafted Gavin Williams (#23 overall, 2021)",
+      "net": -6.0,
+      "st": 6.57,
+      "h": "Drafted Clint Frazier (#5 overall, 2013)",
       "sides": [
        [
         "Produced in his control seasons",
         [
          [
-          "Gavin Williams \u00b7 with this club",
-          "+8.0"
+          "Clint Frazier \u00b7 with this club",
+          "+0.0"
+         ],
+         [
+          "\u00b7 for other clubs after a trade or move (graded in that decision)",
+          "+0.6"
          ]
         ]
        ],
@@ -40618,47 +40699,104 @@
         "Slot expectation",
         [
          [
-          "pick #23, maturity-adjusted",
-          "-1.4"
+          "pick #5, maturity-adjusted",
+          "-6.6"
          ]
         ]
        ]
       ],
       "pids": [
-       "668909"
+       "640449"
       ],
       "comps": [
        {
         "k": "draft",
-        "yr": 2019,
-        "ab": "COL",
-        "who": "Michael Toglia",
-        "what": "#23 overall",
-        "a": -1.9,
-        "b": -5.0
+        "yr": 2014,
+        "ab": "MIN",
+        "who": "Nick Gordon",
+        "what": "#5 overall",
+        "a": -0.3,
+        "b": -7.2
        },
        {
         "k": "draft",
-        "yr": 2018,
-        "ab": "NYY",
-        "who": "Anthony Seigler",
-        "what": "#23 overall",
+        "yr": 2012,
+        "ab": "KC",
+        "who": "Kyle Zimmer",
+        "what": "#5 overall",
         "a": 0,
-        "b": -3.3
+        "b": -8.3
+       },
+       {
+        "k": "draft",
+        "yr": 2015,
+        "ab": "HOU",
+        "who": "Kyle Tucker",
+        "what": "#5 overall",
+        "a": 21.8,
+        "b": 14.8
+       }
+      ]
+     },
+     {
+      "d": "2015-06-08",
+      "ch": "draft",
+      "net": -3.8,
+      "st": 3.8,
+      "h": "Drafted Brady Aiken (#17 overall, 2015)",
+      "sides": [
+       [
+        "Produced in his control seasons",
+        [
+         [
+          "Brady Aiken \u00b7 with this club",
+          "+0.0"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #17, maturity-adjusted",
+          "-3.8"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "656184"
+      ],
+      "comps": [
+       {
+        "k": "draft",
+        "yr": 2016,
+        "ab": "HOU",
+        "who": "Forrest Whitley",
+        "what": "#17 overall",
+        "a": -0.2,
+        "b": -4.3
+       },
+       {
+        "k": "draft",
+        "yr": 2014,
+        "ab": "KC",
+        "who": "Brandon Finnegan",
+        "what": "#17 overall",
+        "a": -0.8,
+        "b": -4.6
        },
        {
         "k": "draft",
         "yr": 2017,
-        "ab": "LAD",
-        "who": "Jeren Kendall",
-        "what": "#23 overall",
-        "a": 0,
-        "b": -1.6
+        "ab": "SEA",
+        "who": "Evan White",
+        "what": "#17 overall",
+        "a": -0.7,
+        "b": -2.6
        }
       ]
-     }
-    ],
-    "worst": [
+     },
      {
       "d": "2016-06-09",
       "ch": "draft",
@@ -40723,6 +40861,65 @@
       ]
      },
      {
+      "d": "2012-06-04",
+      "ch": "draft",
+      "net": -3.3,
+      "st": 4.83,
+      "h": "Drafted Tyler Naquin (#15 overall, 2012)",
+      "sides": [
+       [
+        "Produced in his control seasons",
+        [
+         [
+          "Tyler Naquin \u00b7 with this club",
+          "+1.5"
+         ]
+        ]
+       ],
+       [
+        "Slot expectation",
+        [
+         [
+          "pick #15, maturity-adjusted",
+          "-4.8"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "571980"
+      ],
+      "comps": [
+       {
+        "k": "draft",
+        "yr": 2011,
+        "ab": "MIL",
+        "who": "Jed Bradley",
+        "what": "#15 overall",
+        "a": 0.0,
+        "b": -6.3
+       },
+       {
+        "k": "draft",
+        "yr": 2013,
+        "ab": "ARI",
+        "who": "Braden Shipley",
+        "what": "#15 overall",
+        "a": -0.7,
+        "b": -4.5
+       },
+       {
+        "k": "draft",
+        "yr": 2010,
+        "ab": "TEX",
+        "who": "Jake Skole",
+        "what": "#15 overall",
+        "a": 0,
+        "b": -5.4
+       }
+      ]
+     },
+     {
       "d": "2017-06-12",
       "ch": "draft",
       "net": -3.3,
@@ -40782,183 +40979,6 @@
         "what": "#71 overall",
         "a": 5.3,
         "b": 4.1
-       }
-      ]
-     },
-     {
-      "d": "2019-06-03",
-      "ch": "draft",
-      "net": -2.7,
-      "st": 2.97,
-      "h": "Drafted Daniel Espino (#24 overall, 2019)",
-      "sides": [
-       [
-        "Produced in his control seasons",
-        [
-         [
-          "Daniel Espino \u00b7 with this club",
-          "+0.3"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #24, maturity-adjusted",
-          "-3.0"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "682982"
-      ],
-      "comps": [
-       {
-        "k": "draft",
-        "yr": 2018,
-        "ab": "CHC",
-        "who": "Nico Hoerner",
-        "what": "#24 overall",
-        "a": 21.3,
-        "b": 18.1
-       },
-       {
-        "k": "draft",
-        "yr": 2017,
-        "ab": "BOS",
-        "who": "Tanner Houck",
-        "what": "#24 overall",
-        "a": 8.8,
-        "b": 7.3
-       },
-       {
-        "k": "draft",
-        "yr": 2016,
-        "ab": "SD",
-        "who": "Hudson Potts",
-        "what": "#24 overall",
-        "a": 0,
-        "b": -3.4
-       }
-      ]
-     },
-     {
-      "d": "2018-06-04",
-      "ch": "draft",
-      "net": -2.5,
-      "st": 2.47,
-      "h": "Drafted Ethan Hankins (#35 overall, 2018)",
-      "sides": [
-       [
-        "Produced in his control seasons",
-        [
-         [
-          "Ethan Hankins \u00b7 with this club",
-          "+0.0"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #35, maturity-adjusted",
-          "-2.5"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "677945"
-      ],
-      "comps": [
-       {
-        "k": "draft",
-        "yr": 2019,
-        "ab": "MIA",
-        "who": "Kameron Misner",
-        "what": "#35 overall",
-        "a": -0.6,
-        "b": -2.8
-       },
-       {
-        "k": "draft",
-        "yr": 2017,
-        "ab": "MIN",
-        "who": "Brent Rooker",
-        "what": "#35 overall",
-        "a": 7.6,
-        "b": 6.4
-       },
-       {
-        "k": "draft",
-        "yr": 2016,
-        "ab": "CIN",
-        "who": "Taylor Trammell",
-        "what": "#35 overall",
-        "a": -0.1,
-        "b": -2.7
-       }
-      ]
-     },
-     {
-      "d": "2018-06-04",
-      "ch": "draft",
-      "net": -2.2,
-      "st": 2.17,
-      "h": "Drafted Lenny Torres Jr. (#41 overall, 2018)",
-      "sides": [
-       [
-        "Produced in his control seasons",
-        [
-         [
-          "Lenny Torres Jr. \u00b7 with this club",
-          "+0.0"
-         ]
-        ]
-       ],
-       [
-        "Slot expectation",
-        [
-         [
-          "pick #41, maturity-adjusted",
-          "-2.2"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "678013"
-      ],
-      "comps": [
-       {
-        "k": "draft",
-        "yr": 2019,
-        "ab": "TEX",
-        "who": "Davis Wendzel",
-        "what": "#41 overall",
-        "a": -0.1,
-        "b": -2.1
-       },
-       {
-        "k": "draft",
-        "yr": 2017,
-        "ab": "ATL",
-        "who": "Drew Waters",
-        "what": "#41 overall",
-        "a": 0.3,
-        "b": -0.7
-       },
-       {
-        "k": "draft",
-        "yr": 2016,
-        "ab": "PIT",
-        "who": "Nick Lodolo",
-        "what": "#41 overall",
-        "a": 0,
-        "b": -1.1
        }
       ]
      }
@@ -41057,17 +41077,17 @@
       ]
      },
      {
-      "d": "2021-02-24",
+      "d": "2014-11-03",
       "ch": "waiver",
       "net": 0.9,
       "st": 0.5,
-      "h": "Cleveland Indians claimed CF Harold Ramirez off waivers from Miami Marlins.",
+      "h": "Chicago White Sox claimed RF J.B. Shuck off waivers from Cleveland Indians.",
       "sides": [
        [
-        "Claimed \u00b7 next 4 seasons, net of salary",
+        "Lost on waivers \u00b7 his next 4 seasons, net of salary",
         [
          [
-          "Harold Ram\u00edrez",
+          "JB Shuck",
           "+0.9"
          ]
         ]
@@ -41083,11 +41103,41 @@
        ]
       ],
       "pids": [
-       "623912"
+       "543776"
       ]
      }
     ],
     "worst": [
+     {
+      "d": "2012-12-06",
+      "ch": "waiver",
+      "net": -4.9,
+      "st": 0.5,
+      "h": "Chicago Cubs claimed RHP Hector Rondon off waivers from Cleveland Indians.",
+      "sides": [
+       [
+        "Lost on waivers \u00b7 his next 4 seasons, net of salary",
+        [
+         [
+          "H\u00e9ctor Rond\u00f3n",
+          "-4.9"
+         ]
+        ]
+       ],
+       [
+        "Baseline",
+        [
+         [
+          "waiver channel expectation",
+          "0.0"
+         ]
+        ]
+       ]
+      ],
+      "pids": [
+       "444468"
+      ]
+     },
      {
       "d": "2017-02-02",
       "ch": "waiver",
@@ -41176,36 +41226,6 @@
       ],
       "pids": [
        "624414"
-      ]
-     },
-     {
-      "d": "2016-12-08",
-      "ch": "waiver",
-      "net": -1.7,
-      "st": 0.5,
-      "h": "Baltimore Orioles claimed OF Anthony Santander off waivers from Cleveland Indians.",
-      "sides": [
-       [
-        "Lost on waivers \u00b7 his next 4 seasons, net of salary",
-        [
-         [
-          "Anthony Santander",
-          "-1.7"
-         ]
-        ]
-       ],
-       [
-        "Baseline",
-        [
-         [
-          "waiver channel expectation",
-          "0.0"
-         ]
-        ]
-       ]
-      ],
-      "pids": [
-       "623993"
       ]
      }
     ]
@@ -41634,6 +41654,276 @@
      "826043"
     ],
     [
+     "2011-06-06",
+     "Francisco Lindor",
+     8,
+     33.0,
+     29.6,
+     9.1,
+     23.8,
+     "596019"
+    ],
+    [
+     "2011-06-06",
+     "Dillon Howard",
+     67,
+     0,
+     0,
+     2.1,
+     -2.1,
+     "595992"
+    ],
+    [
+     "2011-06-06",
+     "Jake Sisco",
+     97,
+     0,
+     0,
+     1.6,
+     -1.6,
+     "595416"
+    ],
+    [
+     "2011-06-06",
+     "Jake Lowery",
+     128,
+     0,
+     0,
+     1.1,
+     -1.1,
+     "607021"
+    ],
+    [
+     "2011-06-06",
+     "Will Roberts",
+     158,
+     0,
+     0,
+     0.9,
+     -0.9,
+     "543704"
+    ],
+    [
+     "2012-06-04",
+     "Tyler Naquin",
+     15,
+     1.5,
+     1.5,
+     4.8,
+     -3.3,
+     "571980"
+    ],
+    [
+     "2012-06-04",
+     "Mitch Brown",
+     79,
+     0,
+     0,
+     1.4,
+     -1.4,
+     "621066"
+    ],
+    [
+     "2012-06-04",
+     "Kieran Lovegrove",
+     110,
+     0,
+     0,
+     1.0,
+     -1.0,
+     "621132"
+    ],
+    [
+     "2012-06-04",
+     "D'vone McClure",
+     143,
+     0,
+     0,
+     0.8,
+     -0.8,
+     "621452"
+    ],
+    [
+     "2012-06-04",
+     "Dylan Baker",
+     173,
+     0,
+     0,
+     0.6,
+     -0.6,
+     "621173"
+    ],
+    [
+     "2013-06-06",
+     "Clint Frazier",
+     5,
+     0.6,
+     0,
+     6.6,
+     -6.0,
+     "640449"
+    ],
+    [
+     "2013-06-06",
+     "Dace Kime",
+     79,
+     0,
+     0,
+     1.1,
+     -1.1,
+     "592467"
+    ],
+    [
+     "2013-06-06",
+     "Kyle Crockett",
+     111,
+     1.5,
+     1.5,
+     0.8,
+     0.7,
+     "641490"
+    ],
+    [
+     "2013-06-06",
+     "Sean Brady",
+     141,
+     0,
+     0,
+     0.6,
+     -0.6,
+     "608323"
+    ],
+    [
+     "2014-06-05",
+     "Bradley Zimmer",
+     21,
+     1.7,
+     2.2,
+     3.3,
+     -1.6,
+     "605548"
+    ],
+    [
+     "2014-06-05",
+     "Justus Sheffield",
+     31,
+     0.5,
+     0,
+     2.6,
+     -2.0,
+     "656954"
+    ],
+    [
+     "2014-06-05",
+     "Mike Papi",
+     38,
+     0,
+     0,
+     2.2,
+     -2.2,
+     "596068"
+    ],
+    [
+     "2014-06-05",
+     "Grant Hockin",
+     61,
+     0,
+     0,
+     1.5,
+     -1.5,
+     "656545"
+    ],
+    [
+     "2014-06-05",
+     "Bobby Bradley",
+     97,
+     -0.6,
+     -0.6,
+     1.0,
+     -1.5,
+     "656252"
+    ],
+    [
+     "2014-06-05",
+     "Sam Hentges",
+     128,
+     4.4,
+     4.4,
+     0.7,
+     3.7,
+     "656529"
+    ],
+    [
+     "2014-06-05",
+     "Julian Merryweather",
+     158,
+     2.1,
+     0,
+     0.6,
+     1.6,
+     "657240"
+    ],
+    [
+     "2015-06-08",
+     "Brady Aiken",
+     17,
+     0,
+     0,
+     3.8,
+     -3.8,
+     "656184"
+    ],
+    [
+     "2015-06-08",
+     "Triston McKenzie",
+     42,
+     2.9,
+     2.9,
+     2.0,
+     0.9,
+     "663474"
+    ],
+    [
+     "2015-06-08",
+     "Juan Hillman",
+     59,
+     0,
+     0,
+     1.5,
+     -1.5,
+     "663535"
+    ],
+    [
+     "2015-06-08",
+     "Mark Mathias",
+     93,
+     0.1,
+     0,
+     1.0,
+     -0.9,
+     "664029"
+    ],
+    [
+     "2015-06-08",
+     "Tyler Krieger",
+     124,
+     0,
+     0,
+     0.7,
+     -0.7,
+     "623513"
+    ],
+    [
+     "2015-06-08",
+     "Ka'ai Tom",
+     154,
+     -1.1,
+     0,
+     0.6,
+     -1.7,
+     "664789"
+    ],
+    [
      "2016-06-09",
      "Will Benson",
      14,
@@ -41865,6 +42155,237 @@
     ]
    ],
    "waiver": [
+    [
+     "2010-11-03",
+     "Carlos Rivero",
+     "lost on waivers",
+     0,
+     "491640"
+    ],
+    [
+     "2011-05-06",
+     "Jess Todd",
+     "lost on waivers",
+     0,
+     "519357"
+    ],
+    [
+     "2011-09-06",
+     "Jason Rice",
+     "claimed",
+     0,
+     "489244"
+    ],
+    [
+     "2011-12-23",
+     "Josh Judy",
+     "lost on waivers",
+     0,
+     "518865"
+    ],
+    [
+     "2012-03-21",
+     "Rick Van Den Hurk",
+     "claimed",
+     0,
+     "462995"
+    ],
+    [
+     "2012-03-23",
+     "Kelvin De La Cruz",
+     "lost on waivers",
+     0,
+     "456061"
+    ],
+    [
+     "2012-06-01",
+     "Jairo Asencio",
+     "lost on waivers",
+     0.0,
+     "446003"
+    ],
+    [
+     "2012-06-06",
+     "Chris Schwinden",
+     "claimed",
+     0,
+     "452737"
+    ],
+    [
+     "2012-06-27",
+     "Vinny Rottino",
+     "claimed",
+     -0.4,
+     "457130"
+    ],
+    [
+     "2012-06-29",
+     "Chris Schwinden",
+     "lost on waivers",
+     0,
+     "452737"
+    ],
+    [
+     "2012-08-06",
+     "Fabio Martinez",
+     "claimed",
+     0,
+     "516421"
+    ],
+    [
+     "2012-08-29",
+     "Scott Maine",
+     "claimed",
+     -0.0,
+     "453186"
+    ],
+    [
+     "2012-10-31",
+     "Scott Maine",
+     "lost on waivers",
+     0,
+     "453186"
+    ],
+    [
+     "2012-11-02",
+     "Blake Wood",
+     "claimed",
+     -0.1,
+     "502028"
+    ],
+    [
+     "2012-11-30",
+     "Mike McDade",
+     "claimed",
+     0,
+     "519005"
+    ],
+    [
+     "2012-12-06",
+     "Chris McGuiness",
+     "claimed",
+     -0.3,
+     "573027"
+    ],
+    [
+     "2012-12-06",
+     "H\u00e9ctor Rond\u00f3n",
+     "lost on waivers",
+     -4.9,
+     "444468"
+    ],
+    [
+     "2012-12-21",
+     "Russ Canzler",
+     "lost on waivers",
+     0,
+     "444453"
+    ],
+    [
+     "2013-01-02",
+     "Russ Canzler",
+     "claimed",
+     0,
+     "444453"
+    ],
+    [
+     "2013-01-04",
+     "Russ Canzler",
+     "lost on waivers",
+     0,
+     "444453"
+    ],
+    [
+     "2013-04-02",
+     "Ezequiel Carrera",
+     "lost on waivers",
+     0.2,
+     "485567"
+    ],
+    [
+     "2013-04-03",
+     "Robert Whitenack",
+     "claimed",
+     0,
+     "572257"
+    ],
+    [
+     "2013-05-02",
+     "Ezequiel Carrera",
+     "claimed",
+     0.0,
+     "485567"
+    ],
+    [
+     "2013-05-07",
+     "Mike McDade",
+     "lost on waivers",
+     0,
+     "519005"
+    ],
+    [
+     "2013-05-25",
+     "David Huff",
+     "lost on waivers",
+     -0.3,
+     "453307"
+    ],
+    [
+     "2013-10-02",
+     "Tyler Cloyd",
+     "claimed",
+     0,
+     "543031"
+    ],
+    [
+     "2013-11-25",
+     "Cord Phelps",
+     "lost on waivers",
+     0.1,
+     "543647"
+    ],
+    [
+     "2014-03-22",
+     "David Adams",
+     "lost on waivers",
+     0,
+     "458691"
+    ],
+    [
+     "2014-06-02",
+     "Blake Wood",
+     "lost on waivers",
+     0,
+     "502028"
+    ],
+    [
+     "2014-07-11",
+     "George Kottaras",
+     "lost on waivers",
+     0.1,
+     "435459"
+    ],
+    [
+     "2014-08-14",
+     "John Axford",
+     "lost on waivers",
+     0.0,
+     "446099"
+    ],
+    [
+     "2014-11-03",
+     "JB Shuck",
+     "lost on waivers",
+     0.9,
+     "543776"
+    ],
+    [
+     "2015-09-27",
+     "Tyler Holt",
+     "lost on waivers",
+     0.3,
+     "534627"
+    ],
     [
      "2015-12-07",
      "Joey Butler",
@@ -42393,6 +42914,69 @@
    ],
    "walk": [
     [
+     "2011-10-30",
+     "Jim Thome",
+     -0.6,
+     0.6,
+     "123272"
+    ],
+    [
+     "2011-10-31",
+     "Grady Sizemore",
+     -0.3,
+     2.0,
+     "429713"
+    ],
+    [
+     "2012-11-03",
+     "Roberto Hernandez",
+     1.3,
+     1.7,
+     "433584"
+    ],
+    [
+     "2012-11-03",
+     "Travis Hafner",
+     0.2,
+     4.5,
+     "400098"
+    ],
+    [
+     "2012-11-30",
+     "Rafael Perez",
+     -0.0,
+     1.9,
+     "460370"
+    ],
+    [
+     "2012-11-30",
+     "Jack Hannahan",
+     0.5,
+     3.2,
+     "435219"
+    ],
+    [
+     "2013-11-01",
+     "Ubaldo Jim\u00e9nez",
+     -3.9,
+     2.8,
+     "434622"
+    ],
+    [
+     "2013-11-04",
+     "Joe Smith",
+     -2.8,
+     3.4,
+     "501925"
+    ],
+    [
+     "2013-12-02",
+     "Matt Carson",
+     -0.0,
+     0.6,
+     "454998"
+    ],
+    [
      "2015-11-02",
      "Ryan Webb",
      -0.2,
@@ -42721,17 +43305,17 @@
     ]
    },
    {
-    "d": "2017-11-02",
+    "d": "2013-11-01",
     "ch": "walk",
-    "net": -2.5,
-    "h": "Let Carlos Santana walk as a free agent \u00b7 2.5 LVM elsewhere over the next 3 seasons",
+    "net": -3.9,
+    "h": "Let Ubaldo Jim\u00e9nez walk as a free agent \u00b7 3.9 LVM elsewhere over the next 3 seasons",
     "sides": [
      [
       "Production lost (next 3 seasons, other clubs)",
       [
        [
-        "Carlos Santana",
-        "-2.5"
+        "Ubaldo Jim\u00e9nez",
+        "-3.9"
        ]
       ]
      ],
@@ -42746,21 +43330,21 @@
      ]
     ],
     "pids": [
-     "467793"
+     "434622"
     ]
    },
    {
-    "d": "2018-10-29",
+    "d": "2013-11-04",
     "ch": "walk",
-    "net": -2.1,
-    "h": "Let Josh Tomlin walk as a free agent \u00b7 2.1 LVM elsewhere over the next 3 seasons",
+    "net": -2.8,
+    "h": "Let Joe Smith walk as a free agent \u00b7 2.8 LVM elsewhere over the next 3 seasons",
     "sides": [
      [
       "Production lost (next 3 seasons, other clubs)",
       [
        [
-        "Josh Tomlin",
-        "-2.1"
+        "Joe Smith",
+        "-2.8"
        ]
       ]
      ],
@@ -42775,30 +43359,30 @@
      ]
     ],
     "pids": [
-     "458708"
+     "501925"
     ]
    }
   ],
   "dna": {
    "draft": {
-    "pit": 39.3,
-    "bat": 3.2
+    "pit": 33.0,
+    "bat": 2.0
    },
    "trade_in": {
-    "pit": 48.2,
-    "bat": 33.5
+    "pit": 70.2,
+    "bat": 46.9
    },
    "trade_out": {
-    "pit": 19.5,
-    "bat": 39.3
+    "pit": 18.7,
+    "bat": 62.6
    },
    "waiver": {
-    "pit": -0.1,
-    "bat": -8.1
+    "pit": -0.4,
+    "bat": -12.1
    },
    "fa": {
-    "pit": 1.0,
-    "bat": -4.4
+    "pit": 0.1,
+    "bat": -17.8
    },
    "devDef": {
     "v": 2.44,
@@ -42813,8 +43397,8 @@
     "n": 112
    },
    "inj": {
-    "pit": 9.7,
-    "bat": 8.5
+    "pit": 8.1,
+    "bat": 8.8
    },
    "draftRoom": {
     "n": 31,
@@ -42823,8 +43407,8 @@
     "prep": 0.19
    },
    "buyLow": {
-    "vets": 15,
-    "rate": 0.33
+    "vets": 23,
+    "rate": 0.35
    },
    "shop": {
     "bats": {
@@ -42874,6 +43458,256 @@
    }
   },
   "allx_fa": [
+   [
+    "2010-12-20",
+    "Austin Kearns",
+    1,
+    1.3,
+    -0.5,
+    0.2,
+    -0.7,
+    "400290",
+    0.11
+   ],
+   [
+    "2011-02-16",
+    "Orlando Cabrera",
+    null,
+    null,
+    null,
+    null,
+    null,
+    "111851"
+   ],
+   [
+    "2011-03-01",
+    "Chad Durbin",
+    null,
+    null,
+    null,
+    null,
+    null,
+    "239795"
+   ],
+   [
+    "2011-11-23",
+    "Grady Sizemore",
+    1,
+    5.0,
+    0,
+    0.8,
+    -0.8,
+    "429713",
+    0.77
+   ],
+   [
+    "2012-01-09",
+    "Chris Seddon",
+    null,
+    null,
+    null,
+    null,
+    null,
+    "434629"
+   ],
+   [
+    "2012-01-13",
+    "Willy Lebron",
+    null,
+    null,
+    null,
+    null,
+    null,
+    "455929"
+   ],
+   [
+    "2012-02-03",
+    "Casey Kotchman",
+    1,
+    3.0,
+    -1.3,
+    0.8,
+    -2.1,
+    "425773",
+    0.41
+   ],
+   [
+    "2012-05-31",
+    "Anderson Placido",
+    null,
+    null,
+    null,
+    null,
+    null,
+    "622412"
+   ],
+   [
+    "2012-05-31",
+    "Francisco Miguel",
+    null,
+    null,
+    null,
+    null,
+    null,
+    "609268"
+   ],
+   [
+    "2012-06-01",
+    "Andri Santana",
+    null,
+    null,
+    null,
+    null,
+    null,
+    "622674"
+   ],
+   [
+    "2012-06-01",
+    "Ivan Castillo",
+    null,
+    null,
+    null,
+    null,
+    null,
+    "622668"
+   ],
+   [
+    "2012-07-11",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    "640217"
+   ],
+   [
+    "2012-11-08",
+    "H\u00e9ctor Rond\u00f3n",
+    null,
+    null,
+    null,
+    null,
+    null,
+    "444468"
+   ],
+   [
+    "2012-12-18",
+    "Mark Reynolds",
+    1,
+    6.0,
+    0.1,
+    0.9,
+    -0.7,
+    "448602",
+    0.88
+   ],
+   [
+    "2012-12-19",
+    "Brian Jeroloman",
+    null,
+    null,
+    null,
+    null,
+    null,
+    "502089"
+   ],
+   [
+    "2013-01-03",
+    "Nick Swisher",
+    4,
+    56.0,
+    0.1,
+    4.8,
+    -4.7,
+    "430897",
+    5.19
+   ],
+   [
+    "2013-01-04",
+    "Brett Myers",
+    1,
+    7.0,
+    -1.1,
+    1.0,
+    -2.1,
+    "408206",
+    1.04
+   ],
+   [
+    "2013-02-15",
+    "Michael Bourn",
+    4,
+    48.0,
+    3.3,
+    4.3,
+    -1.0,
+    "456422",
+    4.41
+   ],
+   [
+    "2013-11-25",
+    "David Murphy",
+    2,
+    12.0,
+    -0.3,
+    1.2,
+    -1.4,
+    "461815",
+    1.31
+   ],
+   [
+    "2013-12-09",
+    "David Cooper",
+    null,
+    null,
+    null,
+    null,
+    null,
+    "476036"
+   ],
+   [
+    "2013-12-13",
+    "David Adams",
+    null,
+    null,
+    null,
+    null,
+    null,
+    "458691"
+   ],
+   [
+    "2013-12-19",
+    "John Axford",
+    1,
+    4.5,
+    0.1,
+    0.3,
+    -0.2,
+    "446099",
+    0.29
+   ],
+   [
+    "2014-12-16",
+    "Gavin Floyd",
+    1,
+    4.0,
+    0.3,
+    0.9,
+    -0.6,
+    "425856",
+    0.46
+   ],
+   [
+    "2015-03-20",
+    "Jhonleider Salinas",
+    null,
+    null,
+    null,
+    null,
+    null,
+    "662959"
+   ],
    [
     "2015-11-27",
     "Anthony Recker",
@@ -43322,6 +44156,183 @@
   ],
   "fa_tops": [
    {
+    "d": "2013-01-03",
+    "ch": "fa",
+    "net": -4.7,
+    "st": 5.19,
+    "h": "Signed Nick Swisher \u00b7 4 yr / $56.0M (2012-13 winter, QO signing, draft comp charged)",
+    "sides": [
+     [
+      "Production (Ledger WAR on club, elapsed seasons)",
+      [
+       [
+        "Nick Swisher",
+        "+0.1"
+       ]
+      ]
+     ],
+     [
+      "What a typical club gets for this money (QO draft comp included)",
+      [
+       [
+        "$56M over 4 yr: 5.2 wins of cost at market $/win x the typical return for those contract years",
+        "-4.8"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "430897"
+    ],
+    "comps": [
+     {
+      "k": "fa",
+      "yr": 2009,
+      "ab": "MIL",
+      "who": "Randy Wolf",
+      "what": "3 yr / $30M, age 33",
+      "a": 1.7,
+      "b": -2.0
+     },
+     {
+      "k": "fa",
+      "yr": 2011,
+      "ab": "COL",
+      "who": "Michael Cuddyer",
+      "what": "3 yr / $32M, age 33",
+      "a": 4.0,
+      "b": 0.5
+     },
+     {
+      "k": "fa",
+      "yr": 2012,
+      "ab": "BOS",
+      "who": "Shane Victorino",
+      "what": "3 yr / $39M, age 32",
+      "a": 5.5,
+      "b": 2.0
+     }
+    ]
+   },
+   {
+    "d": "2012-02-03",
+    "ch": "fa",
+    "net": -2.1,
+    "st": 0.41,
+    "h": "Signed Casey Kotchman \u00b7 1 yr / $3.0M (2011-12 winter)",
+    "sides": [
+     [
+      "Production (Ledger WAR on club, elapsed seasons)",
+      [
+       [
+        "Casey Kotchman",
+        "-1.3"
+       ]
+      ]
+     ],
+     [
+      "What a typical club gets for this money",
+      [
+       [
+        "$3M over 1 yr: 0.4 wins of cost at market $/win x the typical return for those contract years",
+        "-0.8"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "425773"
+    ],
+    "comps": [
+     {
+      "k": "fa",
+      "yr": 2019,
+      "ab": "TOR",
+      "who": "Travis Shaw",
+      "what": "1 yr / $4M, age 30",
+      "a": -0.1,
+      "b": -0.9
+     },
+     {
+      "k": "fa",
+      "yr": 2016,
+      "ab": "LAA",
+      "who": "Ben Revere",
+      "what": "1 yr / $4M, age 29",
+      "a": 0.1,
+      "b": -0.7
+     },
+     {
+      "k": "fa",
+      "yr": 2014,
+      "ab": "CHC",
+      "who": "Jason Hammel",
+      "what": "1 yr / $6M, age 32",
+      "a": 1.6,
+      "b": 1.2
+     }
+    ]
+   },
+   {
+    "d": "2013-01-04",
+    "ch": "fa",
+    "net": -2.1,
+    "st": 1.04,
+    "h": "Signed Brett Myers \u00b7 1 yr / $7.0M (2012-13 winter)",
+    "sides": [
+     [
+      "Production (Ledger WAR on club, elapsed seasons)",
+      [
+       [
+        "Brett Myers",
+        "-1.1"
+       ]
+      ]
+     ],
+     [
+      "What a typical club gets for this money",
+      [
+       [
+        "$7M over 1 yr: 1.0 wins of cost at market $/win x the typical return for those contract years",
+        "-1.0"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "408206"
+    ],
+    "comps": [
+     {
+      "k": "fa",
+      "yr": 2012,
+      "ab": "BOS",
+      "who": "Jonny Gomes",
+      "what": "2 yr / $10M, age 32",
+      "a": 1.7,
+      "b": 0.8
+     },
+     {
+      "k": "fa",
+      "yr": 2019,
+      "ab": "WSH",
+      "who": "Brian Dozier",
+      "what": "1 yr / $9M, age 33",
+      "a": 2.1,
+      "b": 1.1
+     },
+     {
+      "k": "fa",
+      "yr": 2015,
+      "ab": "COL",
+      "who": "Jason Motte",
+      "what": "2 yr / $10M, age 34",
+      "a": 0.1,
+      "b": -0.8
+     }
+    ]
+   },
+   {
     "d": "2016-02-28",
     "ch": "fa",
     "net": -1.5,
@@ -43377,183 +44388,6 @@
       "what": "1 yr / $4M, age 35",
       "a": -0.6,
       "b": -1.5
-     }
-    ]
-   },
-   {
-    "d": "2025-12-11",
-    "ch": "fa",
-    "net": 1.1,
-    "st": 0.08,
-    "h": "Signed Colin Holderman \u00b7 1 yr / $1.5M (2025-26 winter)",
-    "sides": [
-     [
-      "Production (Ledger WAR on club, elapsed seasons)",
-      [
-       [
-        "Colin Holderman",
-        "+1.2"
-       ]
-      ]
-     ],
-     [
-      "What a typical club gets for this money",
-      [
-       [
-        "$2M over 1 yr: 0.1 wins of cost at market $/win x the typical return for those contract years",
-        "-0.2"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "670059"
-    ],
-    "comps": [
-     {
-      "k": "fa",
-      "yr": 2025,
-      "ab": "KC",
-      "who": "Alex Lange",
-      "what": "1 yr / $1M, age 30",
-      "a": -0.4,
-      "b": -0.4
-     },
-     {
-      "k": "fa",
-      "yr": 2025,
-      "ab": "SF",
-      "who": "Jason Foley",
-      "what": "1 yr / $2M, age 30",
-      "a": 0.3,
-      "b": -0.0
-     },
-     {
-      "k": "fa",
-      "yr": 2024,
-      "ab": "CLE",
-      "who": "Shane Bieber",
-      "what": "2 yr / $26M, age 30",
-      "a": 0,
-      "b": 0.0
-     }
-    ]
-   },
-   {
-    "d": "2019-12-29",
-    "ch": "fa",
-    "net": 1.0,
-    "st": 0.69,
-    "h": "Signed C\u00e9sar Hern\u00e1ndez \u00b7 1 yr / $6.2M (2019-20 winter)",
-    "sides": [
-     [
-      "Production (Ledger WAR on club, elapsed seasons)",
-      [
-       [
-        "C\u00e9sar Hern\u00e1ndez",
-        "+1.7"
-       ]
-      ]
-     ],
-     [
-      "What a typical club gets for this money",
-      [
-       [
-        "$6M over 1 yr: 0.7 wins of cost at market $/win x the typical return for those contract years",
-        "-0.7"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "514917"
-    ],
-    "comps": [
-     {
-      "k": "fa",
-      "yr": 2019,
-      "ab": "DET",
-      "who": "C.J. Cron",
-      "what": "1 yr / $6M, age 30",
-      "a": 0.4,
-      "b": -0.3
-     },
-     {
-      "k": "fa",
-      "yr": 2018,
-      "ab": "MIN",
-      "who": "Logan Morrison",
-      "what": "1 yr / $6M, age 31",
-      "a": -0.5,
-      "b": -1.2
-     },
-     {
-      "k": "fa",
-      "yr": 2016,
-      "ab": "BAL",
-      "who": "Welington Castillo",
-      "what": "1 yr / $6M, age 30",
-      "a": 2.3,
-      "b": 1.7
-     }
-    ]
-   },
-   {
-    "d": "2022-12-15",
-    "ch": "fa",
-    "net": -1.0,
-    "st": 0.58,
-    "h": "Signed Mike Zunino \u00b7 1 yr / $6.0M (2022-23 winter)",
-    "sides": [
-     [
-      "Production (Ledger WAR on club, elapsed seasons)",
-      [
-       [
-        "Mike Zunino",
-        "-0.4"
-       ]
-      ]
-     ],
-     [
-      "What a typical club gets for this money",
-      [
-       [
-        "$6M over 1 yr: 0.6 wins of cost at market $/win x the typical return for those contract years",
-        "-0.6"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "572287"
-    ],
-    "comps": [
-     {
-      "k": "fa",
-      "yr": 2022,
-      "ab": "CHC",
-      "who": "Tucker Barnhart",
-      "what": "2 yr / $6M, age 32",
-      "a": 0.5,
-      "b": -0.5
-     },
-     {
-      "k": "fa",
-      "yr": 2022,
-      "ab": "CHC",
-      "who": "Jonathan Villar",
-      "what": "1 yr / $6M, age 32",
-      "a": -0.3,
-      "b": -0.9
-     },
-     {
-      "k": "fa",
-      "yr": 2018,
-      "ab": "DET",
-      "who": "Jordy Mercer",
-      "what": "1 yr / $5M, age 32",
-      "a": 0.1,
-      "b": -0.5
      }
     ]
    }
@@ -43858,6 +44692,183 @@
    ],
    "worst": [
     {
+     "d": "2013-01-03",
+     "ch": "fa",
+     "net": -4.7,
+     "st": 5.19,
+     "h": "Signed Nick Swisher \u00b7 4 yr / $56.0M (2012-13 winter, QO signing, draft comp charged)",
+     "sides": [
+      [
+       "Production (Ledger WAR on club, elapsed seasons)",
+       [
+        [
+         "Nick Swisher",
+         "+0.1"
+        ]
+       ]
+      ],
+      [
+       "What a typical club gets for this money (QO draft comp included)",
+       [
+        [
+         "$56M over 4 yr: 5.2 wins of cost at market $/win x the typical return for those contract years",
+         "-4.8"
+        ]
+       ]
+      ]
+     ],
+     "pids": [
+      "430897"
+     ],
+     "comps": [
+      {
+       "k": "fa",
+       "yr": 2009,
+       "ab": "MIL",
+       "who": "Randy Wolf",
+       "what": "3 yr / $30M, age 33",
+       "a": 1.7,
+       "b": -2.0
+      },
+      {
+       "k": "fa",
+       "yr": 2011,
+       "ab": "COL",
+       "who": "Michael Cuddyer",
+       "what": "3 yr / $32M, age 33",
+       "a": 4.0,
+       "b": 0.5
+      },
+      {
+       "k": "fa",
+       "yr": 2012,
+       "ab": "BOS",
+       "who": "Shane Victorino",
+       "what": "3 yr / $39M, age 32",
+       "a": 5.5,
+       "b": 2.0
+      }
+     ]
+    },
+    {
+     "d": "2012-02-03",
+     "ch": "fa",
+     "net": -2.1,
+     "st": 0.41,
+     "h": "Signed Casey Kotchman \u00b7 1 yr / $3.0M (2011-12 winter)",
+     "sides": [
+      [
+       "Production (Ledger WAR on club, elapsed seasons)",
+       [
+        [
+         "Casey Kotchman",
+         "-1.3"
+        ]
+       ]
+      ],
+      [
+       "What a typical club gets for this money",
+       [
+        [
+         "$3M over 1 yr: 0.4 wins of cost at market $/win x the typical return for those contract years",
+         "-0.8"
+        ]
+       ]
+      ]
+     ],
+     "pids": [
+      "425773"
+     ],
+     "comps": [
+      {
+       "k": "fa",
+       "yr": 2019,
+       "ab": "TOR",
+       "who": "Travis Shaw",
+       "what": "1 yr / $4M, age 30",
+       "a": -0.1,
+       "b": -0.9
+      },
+      {
+       "k": "fa",
+       "yr": 2016,
+       "ab": "LAA",
+       "who": "Ben Revere",
+       "what": "1 yr / $4M, age 29",
+       "a": 0.1,
+       "b": -0.7
+      },
+      {
+       "k": "fa",
+       "yr": 2014,
+       "ab": "CHC",
+       "who": "Jason Hammel",
+       "what": "1 yr / $6M, age 32",
+       "a": 1.6,
+       "b": 1.2
+      }
+     ]
+    },
+    {
+     "d": "2013-01-04",
+     "ch": "fa",
+     "net": -2.1,
+     "st": 1.04,
+     "h": "Signed Brett Myers \u00b7 1 yr / $7.0M (2012-13 winter)",
+     "sides": [
+      [
+       "Production (Ledger WAR on club, elapsed seasons)",
+       [
+        [
+         "Brett Myers",
+         "-1.1"
+        ]
+       ]
+      ],
+      [
+       "What a typical club gets for this money",
+       [
+        [
+         "$7M over 1 yr: 1.0 wins of cost at market $/win x the typical return for those contract years",
+         "-1.0"
+        ]
+       ]
+      ]
+     ],
+     "pids": [
+      "408206"
+     ],
+     "comps": [
+      {
+       "k": "fa",
+       "yr": 2012,
+       "ab": "BOS",
+       "who": "Jonny Gomes",
+       "what": "2 yr / $10M, age 32",
+       "a": 1.7,
+       "b": 0.8
+      },
+      {
+       "k": "fa",
+       "yr": 2019,
+       "ab": "WSH",
+       "who": "Brian Dozier",
+       "what": "1 yr / $9M, age 33",
+       "a": 2.1,
+       "b": 1.1
+      },
+      {
+       "k": "fa",
+       "yr": 2015,
+       "ab": "COL",
+       "who": "Jason Motte",
+       "what": "2 yr / $10M, age 34",
+       "a": 0.1,
+       "b": -0.8
+      }
+     ]
+    },
+    {
      "d": "2016-02-28",
      "ch": "fa",
      "net": -1.5,
@@ -43917,18 +44928,18 @@
      ]
     },
     {
-     "d": "2022-12-15",
+     "d": "2013-11-25",
      "ch": "fa",
-     "net": -1.0,
-     "st": 0.58,
-     "h": "Signed Mike Zunino \u00b7 1 yr / $6.0M (2022-23 winter)",
+     "net": -1.4,
+     "st": 1.31,
+     "h": "Signed David Murphy \u00b7 2 yr / $12.0M (2013-14 winter)",
      "sides": [
       [
        "Production (Ledger WAR on club, elapsed seasons)",
        [
         [
-         "Mike Zunino",
-         "-0.4"
+         "David Murphy",
+         "-0.3"
         ]
        ]
       ],
@@ -43936,219 +44947,42 @@
        "What a typical club gets for this money",
        [
         [
-         "$6M over 1 yr: 0.6 wins of cost at market $/win x the typical return for those contract years",
-         "-0.6"
-        ]
-       ]
-      ]
-     ],
-     "pids": [
-      "572287"
-     ],
-     "comps": [
-      {
-       "k": "fa",
-       "yr": 2022,
-       "ab": "CHC",
-       "who": "Tucker Barnhart",
-       "what": "2 yr / $6M, age 32",
-       "a": 0.5,
-       "b": -0.5
-      },
-      {
-       "k": "fa",
-       "yr": 2022,
-       "ab": "CHC",
-       "who": "Jonathan Villar",
-       "what": "1 yr / $6M, age 32",
-       "a": -0.3,
-       "b": -0.9
-      },
-      {
-       "k": "fa",
-       "yr": 2018,
-       "ab": "DET",
-       "who": "Jordy Mercer",
-       "what": "1 yr / $5M, age 32",
-       "a": 0.1,
-       "b": -0.5
-      }
-     ]
-    },
-    {
-     "d": "2024-12-23",
-     "ch": "fa",
-     "net": -1.0,
-     "st": 1.18,
-     "h": "Signed Carlos Santana \u00b7 1 yr / $12.0M (2024-25 winter)",
-     "sides": [
-      [
-       "Production (Ledger WAR on club, elapsed seasons)",
-       [
-        [
-         "Carlos Santana",
-         "+0.2"
-        ]
-       ]
-      ],
-      [
-       "What a typical club gets for this money",
-       [
-        [
-         "$12M over 1 yr: 1.2 wins of cost at market $/win x the typical return for those contract years",
+         "$12M over 2 yr: 1.3 wins of cost at market $/win x the typical return for those contract years",
          "-1.2"
         ]
        ]
       ]
      ],
      "pids": [
-      "467793"
-     ],
-     "comps": [
-      {
-       "k": "fa",
-       "yr": 2023,
-       "ab": "BOS",
-       "who": "Justin Turner",
-       "what": "2 yr / $22M, age 39",
-       "a": 1.4,
-       "b": 0.3
-      },
-      {
-       "k": "fa",
-       "yr": 2024,
-       "ab": "NYM",
-       "who": "J.D. Martinez",
-       "what": "1 yr / $12M, age 37",
-       "a": 0.5,
-       "b": -0.7
-      },
-      {
-       "k": "fa",
-       "yr": 2024,
-       "ab": "NYY",
-       "who": "Paul Goldschmidt",
-       "what": "1 yr / $12M, age 37",
-       "a": 0.5,
-       "b": -0.8
-      }
-     ]
-    },
-    {
-     "d": "2022-12-12",
-     "ch": "fa",
-     "net": -0.9,
-     "st": 0.88,
-     "h": "Signed Josh Bell \u00b7 2 yr / $33.0M (2022-23 winter)",
-     "sides": [
-      [
-       "Production (Ledger WAR on club, elapsed seasons)",
-       [
-        [
-         "Josh Bell",
-         "-0.1"
-        ]
-       ]
-      ],
-      [
-       "What a typical club gets for this money",
-       [
-        [
-         "$33M over 2 yr: 0.9 wins of cost at market $/win x the typical return for those contract years",
-         "-0.8"
-        ]
-       ]
-      ]
-     ],
-     "pids": [
-      "605137"
-     ],
-     "comps": [
-      {
-       "k": "fa",
-       "yr": 2017,
-       "ab": "HOU",
-       "who": "H\u00e9ctor Rond\u00f3n",
-       "what": "2 yr / $8M, age 30",
-       "a": 1.9,
-       "b": 0.3
-      },
-      {
-       "k": "fa",
-       "yr": 2022,
-       "ab": "BAL",
-       "who": "Adam Frazier",
-       "what": "1 yr / $8M, age 31",
-       "a": 1.0,
-       "b": 0.2
-      },
-      {
-       "k": "fa",
-       "yr": 2017,
-       "ab": "CLE",
-       "who": "Yonder Alonso",
-       "what": "2 yr / $16M, age 31",
-       "a": 1.0,
-       "b": 0.1
-      }
-     ]
-    },
-    {
-     "d": "2017-01-05",
-     "ch": "fa",
-     "net": -0.7,
-     "st": 4.75,
-     "h": "Signed Edwin Encarnaci\u00f3n \u00b7 3 yr / $60.0M (2016-17 winter, QO signing, draft comp charged)",
-     "sides": [
-      [
-       "Production (Ledger WAR on club, elapsed seasons)",
-       [
-        [
-         "Edwin Encarnaci\u00f3n",
-         "+4.0"
-        ]
-       ]
-      ],
-      [
-       "What a typical club gets for this money (QO draft comp included)",
-       [
-        [
-         "$60M over 3 yr: 4.8 wins of cost at market $/win x the typical return for those contract years",
-         "-4.6"
-        ]
-       ]
-      ]
-     ],
-     "pids": [
-      "429665"
+      "461815"
      ],
      "comps": [
       {
        "k": "fa",
        "yr": 2013,
-       "ab": "MIL",
-       "who": "Kyle Lohse",
-       "what": "3 yr / $33M, age 35",
-       "a": 2.0,
-       "b": -2.4
+       "ab": "WSH",
+       "who": "Nate McLouth",
+       "what": "2 yr / $11M, age 32",
+       "a": -0.8,
+       "b": -1.9
       },
       {
        "k": "fa",
-       "yr": 2020,
-       "ab": "MIN",
-       "who": "Josh Donaldson",
-       "what": "4 yr / $92M, age 35",
-       "a": 4.2,
-       "b": -1.0
+       "yr": 2013,
+       "ab": "DET",
+       "who": "Rajai Davis",
+       "what": "2 yr / $10M, age 33",
+       "a": 2.3,
+       "b": 1.2
       },
       {
        "k": "fa",
-       "yr": 2011,
-       "ab": "STL",
-       "who": "Carlos Beltr\u00e1n",
-       "what": "2 yr / $26M, age 35",
-       "a": 7.7,
-       "b": 4.4
+       "yr": 2012,
+       "ab": "CHC",
+       "who": "Kyuji Fujikawa",
+       "what": "2 yr / $9M, age 32",
+       "a": 0.4,
+       "b": -0.7
       }
      ]
     }
@@ -44230,6 +45064,80 @@
     ]
    },
    {
+    "d": "2015-04-15",
+    "ch": "ext",
+    "net": 11.3,
+    "st": 1.79,
+    "projFinal": null,
+    "pre": false,
+    "h": "Extended Carlos Carrasco \u00b7 4 yr / $22.0M (veteran)",
+    "sides": [
+     [
+      "Bought-out free-agent seasons: production vs a typical free-agent return on the money",
+      [
+       [
+        "Carlos Carrasco",
+        "+13.4"
+       ],
+       [
+        "typical return on that money",
+        "-1.4"
+       ]
+      ]
+     ],
+     [
+      "Typical veteran extension",
+      [
+       [
+        "1.8 wins of cost x +0.37 (the league's veteran extensions, per win of cost)",
+        "-0.7"
+       ]
+      ]
+     ],
+     [
+      "Still to come",
+      [
+       [
+        "1 of 4 seasons not yet played: the arbitration and free-agent years, where an extension's savings land",
+        "open"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "471911"
+    ],
+    "comps": [
+     {
+      "k": "ext",
+      "yr": 2018,
+      "ab": "ARI",
+      "who": "Eduardo Escobar",
+      "what": "3 yr / $21M (veteran)",
+      "a": "3 of 3",
+      "b": 3.1
+     },
+     {
+      "k": "ext",
+      "yr": 2009,
+      "ab": "PHI",
+      "who": "Ryan Madson",
+      "what": "3 yr / $12M (veteran)",
+      "a": "3 of 3",
+      "b": 1.5
+     },
+     {
+      "k": "ext",
+      "yr": 2012,
+      "ab": "LAA",
+      "who": "Chris Iannetta",
+      "what": "3 yr / $16M (veteran)",
+      "a": "3 of 3",
+      "b": 1.3
+     }
+    ]
+   },
+   {
     "d": "2017-04-15",
     "ch": "ext",
     "net": 10.3,
@@ -44304,85 +45212,20 @@
     ]
    },
    {
-    "d": "2018-12-15",
+    "d": "2015-04-15",
     "ch": "ext",
-    "net": -2.0,
-    "st": 5.34,
+    "net": 4.6,
+    "st": 3.35,
     "projFinal": null,
     "pre": false,
-    "h": "Extended Carlos Carrasco \u00b7 4 yr / $47.0M (veteran)",
-    "sides": [
-     [
-      "Bought-out free-agent seasons: production vs a typical free-agent return on the money",
-      [
-       [
-        "Carlos Carrasco",
-        "+2.6"
-       ],
-       [
-        "typical return on that money",
-        "-2.7"
-       ]
-      ]
-     ],
-     [
-      "Typical veteran extension",
-      [
-       [
-        "5.3 wins of cost x +0.37 (the league's veteran extensions, per win of cost)",
-        "-2.0"
-       ]
-      ]
-     ]
-    ],
-    "pids": [
-     "471911"
-    ],
-    "comps": [
-     {
-      "k": "ext",
-      "yr": 2019,
-      "ab": "NYY",
-      "who": "Aroldis Chapman",
-      "what": "3 yr / $48M (veteran)",
-      "a": "3 of 3",
-      "b": -3.3
-     },
-     {
-      "k": "ext",
-      "yr": 2014,
-      "ab": "BAL",
-      "who": "J.J. Hardy",
-      "what": "3 yr / $40M (veteran)",
-      "a": "3 of 3",
-      "b": -2.7
-     },
-     {
-      "k": "ext",
-      "yr": 2019,
-      "ab": "NYY",
-      "who": "Aaron Hicks",
-      "what": "7 yr / $70M (veteran)",
-      "a": "5 of 7",
-      "b": -4.1
-     }
-    ]
-   },
-   {
-    "d": "2016-01-15",
-    "ch": "ext",
-    "net": 1.6,
-    "st": 0.51,
-    "projFinal": null,
-    "pre": false,
-    "h": "Extended Josh Tomlin \u00b7 2 yr / $5.5M (veteran)",
+    "h": "Extended Corey Kluber \u00b7 5 yr / $38.5M (arb)",
     "sides": [
      [
       "Controlled seasons: arbitration path minus extension salary",
       [
        [
-        "1 season(s)",
-        "+0.1"
+        "2 season(s)",
+        "+1.2"
        ]
       ]
      ],
@@ -44390,60 +45233,141 @@
       "Bought-out free-agent seasons: production vs a typical free-agent return on the money",
       [
        [
-        "Josh Tomlin",
-        "+2.3"
+        "Corey Kluber",
+        "+5.6"
        ],
        [
         "typical return on that money",
-        "-0.5"
+        "-1.7"
        ]
       ]
      ],
      [
-      "Typical veteran extension",
+      "Typical arb extension",
       [
        [
-        "0.5 wins of cost x +0.37 (the league's veteran extensions, per win of cost)",
-        "-0.2"
+        "3.4 wins of cost x +0.17 (the league's arb extensions, per win of cost)",
+        "-0.6"
+       ]
+      ]
+     ],
+     [
+      "Still to come",
+      [
+       [
+        "1 of 5 seasons not yet played: the arbitration and free-agent years, where an extension's savings land",
+        "open"
        ]
       ]
      ]
     ],
     "pids": [
-     "458708"
+     "446372"
     ],
     "comps": [
      {
       "k": "ext",
-      "yr": 2013,
-      "ab": "CLE",
-      "who": "Ryan Raburn",
-      "what": "2 yr / $5M (veteran)",
-      "a": "2 of 2",
-      "b": -0.7
-     },
-     {
-      "k": "ext",
-      "yr": 2021,
-      "ab": "MIA",
-      "who": "Miguel Rojas",
-      "what": "2 yr / $10M (veteran)",
-      "a": "2 of 2",
-      "b": 1.4
-     },
-     {
-      "k": "ext",
       "yr": 2017,
-      "ab": "CLE",
-      "who": "Brandon Guyer",
-      "what": "2 yr / $5M (veteran)",
-      "a": "2 of 2",
-      "b": 0.2
+      "ab": "LAA",
+      "who": "Kole Calhoun",
+      "what": "3 yr / $26M (arb)",
+      "a": "3 of 3",
+      "b": -0.2
+     },
+     {
+      "k": "ext",
+      "yr": 2008,
+      "ab": "COL",
+      "who": "Brad Hawpe",
+      "what": "3 yr / $17M (arb)",
+      "a": "3 of 3",
+      "b": -2.3
+     },
+     {
+      "k": "ext",
+      "yr": 2020,
+      "ab": "MIN",
+      "who": "Miguel San\u00f3",
+      "what": "3 yr / $30M (arb)",
+      "a": "3 of 3",
+      "b": -3.6
      }
     ]
    }
   ],
   "allx_ext": [
+   [
+    "2012-04-15",
+    "Extended Carlos Santana \u00b7 5 yr / $21.0M (early)",
+    -0.6,
+    2.42,
+    null,
+    0
+   ],
+   [
+    "2012-04-15",
+    "Extended Asdrubal Cabrera \u00b7 2 yr / $16.5M (arb)",
+    0.5,
+    1.83,
+    null,
+    0
+   ],
+   [
+    "2013-02-15",
+    "Extended Mike Aviles \u00b7 2 yr / $6.0M (arb)",
+    -0.0,
+    0.71,
+    null,
+    0
+   ],
+   [
+    "2013-08-15",
+    "Extended Ryan Raburn \u00b7 2 yr / $4.8M (veteran)",
+    -0.7,
+    0.5,
+    null,
+    0
+   ],
+   [
+    "2014-02-15",
+    "Extended Michael Brantley \u00b7 4 yr / $25.0M (arb)",
+    1.0,
+    2.97,
+    null,
+    0
+   ],
+   [
+    "2014-03-15",
+    "Extended Yan Gomes \u00b7 6 yr / $23.0M (early)",
+    -0.4,
+    1.43,
+    null,
+    0
+   ],
+   [
+    "2014-04-15",
+    "Extended Jason Kipnis \u00b7 6 yr / $52.5M (arb)",
+    -3.1,
+    6.06,
+    null,
+    0
+   ],
+   [
+    "2015-04-15",
+    "Extended Carlos Carrasco \u00b7 4 yr / $22.0M (veteran)",
+    11.3,
+    1.79,
+    null,
+    0
+   ],
+   [
+    "2015-04-15",
+    "Extended Corey Kluber \u00b7 5 yr / $38.5M (arb)",
+    4.6,
+    3.35,
+    null,
+    0
+   ],
    [
     "2016-01-15",
     "Extended Josh Tomlin \u00b7 2 yr / $5.5M (veteran)",
@@ -44542,6 +45466,70 @@
    ]
   ],
   "allx_intl": [
+   [
+    "2011-07-02",
+    "Anthony Santander",
+    2011,
+    6.3,
+    "623993",
+    6.14
+   ],
+   [
+    "2012-07-02",
+    "Francisco Mej\u00eda",
+    2012,
+    1.9,
+    "642336",
+    1.71
+   ],
+   [
+    "2013-06-03",
+    "Yu Chang",
+    2013,
+    0.4,
+    "644374",
+    0.19
+   ],
+   [
+    "2013-09-20",
+    "Yandy D\u00edaz",
+    2013,
+    7.1,
+    "650490",
+    6.94
+   ],
+   [
+    "2013-11-29",
+    "J.C. Mej\u00eda",
+    2013,
+    -0.5,
+    "650496",
+    -0.73
+   ],
+   [
+    "2014-12-12",
+    "Francisco P\u00e9rez",
+    2014,
+    -0.1,
+    "660906",
+    -0.15
+   ],
+   [
+    "2015-07-02",
+    "Jos\u00e9 Ferm\u00edn",
+    2015,
+    0.4,
+    "665877",
+    0.12
+   ],
+   [
+    "2015-07-02",
+    "Luis Oviedo",
+    2015,
+    -0.1,
+    "665854",
+    -0.41
+   ],
    [
     "2016-07-02",
     "Carlos Vargas",
@@ -44661,6 +45649,66 @@
     ]
    },
    {
+    "d": "2013-09-20",
+    "ch": "intl",
+    "net": 6.9,
+    "st": 0.5,
+    "h": "Int'l amateur signing: Yandy D\u00edaz (2013 class)",
+    "sides": [
+     [
+      "Produced in his six control seasons (any club)",
+      [
+       [
+        "Yandy D\u00edaz",
+        "+7.1"
+       ]
+      ]
+     ],
+     [
+      "Expectation",
+      [
+       [
+        "the class's average signee",
+        "-0.2"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "650490"
+    ]
+   },
+   {
+    "d": "2011-07-02",
+    "ch": "intl",
+    "net": 6.1,
+    "st": 0.5,
+    "h": "Int'l amateur signing: Anthony Santander (2011 class)",
+    "sides": [
+     [
+      "Produced in his six control seasons (any club)",
+      [
+       [
+        "Anthony Santander",
+        "+6.3"
+       ]
+      ]
+     ],
+     [
+      "Expectation",
+      [
+       [
+        "the class's average signee",
+        "-0.2"
+       ]
+      ]
+     ]
+    ],
+    "pids": [
+     "623993"
+    ]
+   },
+   {
     "d": "2017-07-02",
     "ch": "intl",
     "net": 2.9,
@@ -44692,12 +45740,12 @@
    }
   ],
   "dev": {
-   "net": 26.5,
-   "g": 50,
-   "n": 40,
-   "seasons": 11.2,
-   "rate": 2.36,
-   "lgRate": 2.51,
+   "net": 34.5,
+   "g": 45,
+   "n": 52,
+   "seasons": 15.9,
+   "rate": 2.17,
+   "lgRate": 2.49,
    "farmNow": 14.0,
    "farmN": 6,
    "flows": {
@@ -44708,6 +45756,18 @@
    }
   },
   "dev_tops": [
+   {
+    "d": "2017-02-01",
+    "ch": "dev",
+    "net": 2.7,
+    "h": "Francisco Mej\u00eda enters top 100 at #40 (own international signing)"
+   },
+   {
+    "d": "2014-02-01",
+    "ch": "dev",
+    "net": -2.6,
+    "h": "Trevor Bauer #17 -> #73"
+   },
    {
     "d": "2022-02-01",
     "ch": "dev",
@@ -44727,22 +45787,10 @@
     "h": "Daniel Espino #53 -> #16"
    },
    {
-    "d": "2025-02-01",
+    "d": "2016-02-01",
     "ch": "dev",
-    "net": 1.9,
-    "h": "Jaison Chourio enters top 100 at #60 (own international signing)"
-   },
-   {
-    "d": "2025-02-01",
-    "ch": "dev",
-    "net": 1.9,
-    "h": "Angel Genao enters top 100 at #62 (own international signing)"
-   },
-   {
-    "d": "2026-02-01",
-    "ch": "dev",
-    "net": 1.9,
-    "h": "Cooper Ingle enters top 100 at #59 (own draft pick #125 (2023))"
+    "net": 2.0,
+    "h": "Bradley Zimmer enters top 100 at #26 (own draft pick #21 (2014))"
    }
   ],
   "titles": 0,
@@ -44750,8 +45798,8 @@
    {
     "opp": "SD",
     "exec": "A.J. Preller",
-    "n": 8,
-    "net": 16.7,
+    "n": 9,
+    "net": 16.9,
     "deals": [
      {
       "d": "2024-04-17",
@@ -44770,12 +45818,12 @@
      },
      {
       "d": "2020-08-31",
-      "h": "Got Owen Miller, Josh Naylor, Joey Cantillo, Gabriel Arias, Cal Quantrill, Austin Hedges for Mike Clevinger, Greg Allen, Matt Waldron",
+      "h": "Got Gabriel Arias, Joey Cantillo, Owen Miller, Cal Quantrill, Austin Hedges, Josh Naylor for Mike Clevinger, Greg Allen, Matt Waldron",
       "net": 8.7
      },
      {
       "d": "2019-07-31",
-      "h": "Got Victor Nova, Logan Allen, Franmil Reyes for cash/PTBNL",
+      "h": "Got Victor Nova, Franmil Reyes, Logan Allen for cash/PTBNL",
       "net": 0.8
      },
      {
@@ -44792,6 +45840,11 @@
       "d": "2018-07-19",
       "h": "Got Adam Cimber, Brad Hand for Francisco Mej\u00eda",
       "net": 2.7
+     },
+     {
+      "d": "2015-07-31",
+      "h": "Got Abraham Almonte for Marc Rzepczynski",
+      "net": 0.2
      }
     ]
    },
@@ -44914,8 +45967,8 @@
    {
     "opp": "NYY",
     "exec": "Brian Cashman",
-    "n": 7,
-    "net": -3.3,
+    "n": 8,
+    "net": -3.2,
     "deals": [
      {
       "d": "2023-12-26",
@@ -44951,6 +46004,11 @@
       "d": "2016-01-08",
       "h": "Got cash/PTBNL for Kirby Yates",
       "net": -4.1
+     },
+     {
+      "d": "2014-08-28",
+      "h": "Got cash/PTBNL for Josh Outman",
+      "net": 0.1
      }
     ]
    },
@@ -45079,7 +46137,7 @@
      },
      {
       "d": "2021-06-10",
-      "h": "Got Yohan Ram\u00edrez, Damon Casetta-Stubbs for Jake Bauers",
+      "h": "Got Damon Casetta-Stubbs, Yohan Ram\u00edrez for Jake Bauers",
       "net": 0.9
      },
      {
@@ -45120,7 +46178,7 @@
     "deals": [
      {
       "d": "2024-12-10",
-      "h": "Got Michael Kennedy, Josh Hartle, Luis Ortiz for cash/PTBNL",
+      "h": "Got Josh Hartle, Luis Ortiz, Michael Kennedy for cash/PTBNL",
       "net": 1.9
      },
      {
@@ -45194,7 +46252,7 @@
     "deals": [
      {
       "d": "2026-08-01",
-      "h": "Got Blake Perkins, Craig Yoho for Bo Naylor, Codi Heuer",
+      "h": "Got Craig Yoho, Blake Perkins for Bo Naylor, Codi Heuer",
       "net": 0.1
      },
      {
@@ -45228,7 +46286,7 @@
     ]
    }
   ],
-  "ret_applied": 16.5
+  "ret_applied": 23.6
  },
  {
   "id": "col",
@@ -45289,7 +46347,7 @@
     "g": 80,
     "n": 0,
     "lost": 0.0,
-    "rel": 4.54,
+    "rel": 4.46,
     "display_only": true,
     "net2": 0.0,
     "n2": 0,
@@ -45665,8 +46723,8 @@
      "n_in": 0
     },
     "pids": [
-     "821197",
      "815081",
+     "821197",
      "622608"
     ],
     "comps": [
@@ -45820,8 +46878,8 @@
      "n_in": 0
     },
     "pids": [
-     "690279",
      "837886",
+     "690279",
      "686668"
     ],
     "comps": [
@@ -46208,8 +47266,8 @@
        "n_in": 0
       },
       "pids": [
-       "821197",
        "815081",
+       "821197",
        "622608"
       ],
       "comps": [
@@ -47414,7 +48472,7 @@
    "n": 2,
    "seasons": 1.2,
    "rate": -0.61,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 9.1,
    "farmN": 3,
    "flows": {
@@ -47448,7 +48506,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Connor Norby, Aiden May for Victor Vodnik",
+      "h": "Got Aiden May, Connor Norby for Victor Vodnik",
       "net": 0.7
      },
      {
@@ -47515,10 +48573,10 @@
    },
    "ret": {
     "net": 0,
-    "g": 55,
+    "g": 50,
     "n": 7,
     "lost": 17.5,
-    "rel": 0.27,
+    "rel": 0.19,
     "display_only": true,
     "net2": -4.6,
     "n2": 9,
@@ -47706,9 +48764,9 @@
      "n_in": 0
     },
     "pids": [
+     "665155",
      "664848",
      "663837",
-     "665155",
      "665019",
      "642397"
     ],
@@ -47788,8 +48846,8 @@
      "n_in": 0
     },
     "pids": [
-     "689414",
      "687074",
+     "689414",
      "608348"
     ],
     "comps": [
@@ -47872,8 +48930,8 @@
      "n_in": 2
     },
     "pids": [
-     "806224",
      "689981",
+     "806224",
      "814307",
      "669373"
     ],
@@ -47983,8 +49041,8 @@
      "n_in": 0
     },
     "pids": [
-     "663977",
      "669234",
+     "663977",
      "641729"
     ],
     "comps": [
@@ -48142,8 +49200,8 @@
        "n_in": 0
       },
       "pids": [
-       "689414",
        "687074",
+       "689414",
        "608348"
       ],
       "comps": [
@@ -48226,8 +49284,8 @@
        "n_in": 2
       },
       "pids": [
-       "806224",
        "689981",
+       "806224",
        "814307",
        "669373"
       ],
@@ -48386,8 +49444,8 @@
        "n_in": 0
       },
       "pids": [
-       "680232",
        "824026",
+       "680232",
        "669398",
        "663554"
       ],
@@ -48552,9 +49610,9 @@
        "n_in": 0
       },
       "pids": [
+       "665155",
        "664848",
        "663837",
-       "665155",
        "665019",
        "642397"
       ],
@@ -48634,8 +49692,8 @@
        "n_in": 0
       },
       "pids": [
-       "663977",
        "669234",
+       "663977",
        "641729"
       ],
       "comps": [
@@ -48788,8 +49846,8 @@
        "n_in": 0
       },
       "pids": [
-       "677976",
        "663978",
+       "677976",
        "806992"
       ],
       "comps": [
@@ -51501,7 +52559,7 @@
    "n": 16,
    "seasons": 4.3,
    "rate": 1.9,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 11.1,
    "farmN": 3,
    "flows": {
@@ -51568,7 +52626,7 @@
      },
      {
       "d": "2024-07-28",
-      "h": "Got Tyler Owens, Liam Hicks for Carson Kelly",
+      "h": "Got Liam Hicks, Tyler Owens for Carson Kelly",
       "net": 4.2
      }
     ]
@@ -51581,7 +52639,7 @@
     "deals": [
      {
       "d": "2026-08-02",
-      "h": "Got River Ryan, Brady Smith, Zyhir Hope for Tarik Skubal",
+      "h": "Got Zyhir Hope, River Ryan, Brady Smith for Tarik Skubal",
       "net": 4.0
      },
      {
@@ -51624,7 +52682,7 @@
      },
      {
       "d": "2022-12-07",
-      "h": "Got Justyn-Henry Malloy, Jake Higginbotham for Joe Jim\u00e9nez",
+      "h": "Got Jake Higginbotham, Justyn-Henry Malloy for Joe Jim\u00e9nez",
       "net": -3.1
      }
     ]
@@ -51675,7 +52733,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Kash Mayfield, Jackson Wolf for Gage Workman, Casey Mize",
+      "h": "Got Jackson Wolf, Kash Mayfield for Gage Workman, Casey Mize",
       "net": 2.0
      },
      {
@@ -51890,7 +52948,7 @@
     "g": 80,
     "n": 0,
     "lost": 0.0,
-    "rel": 4.54,
+    "rel": 4.46,
     "display_only": true,
     "net2": 0.0,
     "n2": 0,
@@ -52004,7 +53062,7 @@
    "n": 0,
    "seasons": 1.0,
    "rate": 0.0,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 4.0,
    "farmN": 2,
    "flows": {
@@ -52076,7 +53134,7 @@
     "g": 80,
     "n": 5,
     "lost": 4.7,
-    "rel": 3.38,
+    "rel": 3.3,
     "display_only": true,
     "net2": 3.7,
     "n2": 5,
@@ -55761,7 +56819,7 @@
    "n": 11,
    "seasons": 4.3,
    "rate": -0.24,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 7.2,
    "farmN": 4,
    "flows": {
@@ -55994,7 +57052,7 @@
     "deals": [
      {
       "d": "2025-07-31",
-      "h": "Got Ryan Bergert, Stephen Kolek for Freddy Fermin",
+      "h": "Got Stephen Kolek, Ryan Bergert for Freddy Fermin",
       "net": 1.2
      },
      {
@@ -56091,7 +57149,7 @@
      },
      {
       "d": "2023-08-01",
-      "h": "Got Devin Mann, Derlin Figueroa for Ryan Yarbrough",
+      "h": "Got Derlin Figueroa, Devin Mann for Ryan Yarbrough",
       "net": 0.0
      }
     ]
@@ -56158,7 +57216,7 @@
     "g": 80,
     "n": 0,
     "lost": 0.0,
-    "rel": 4.54,
+    "rel": 4.46,
     "display_only": true,
     "net2": 0.0,
     "n2": 0,
@@ -56388,8 +57446,8 @@
      "n_in": 1
     },
     "pids": [
-     "702576",
      "694208",
+     "702576",
      "666171"
     ],
     "comps": [
@@ -56699,8 +57757,8 @@
        "n_in": 1
       },
       "pids": [
-       "702576",
        "694208",
+       "702576",
        "666171"
       ],
       "comps": [
@@ -56960,7 +58018,7 @@
    "n": 0,
    "seasons": 1.0,
    "rate": 0.0,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 3.1,
    "farmN": 1,
    "flows": {
@@ -57032,7 +58090,7 @@
     "g": 30,
     "n": 35,
     "lost": 146.1,
-    "rel": -7.64,
+    "rel": -7.72,
     "display_only": true,
     "net2": -11.7,
     "n2": 36,
@@ -57194,8 +58252,8 @@
      "n_in": 0
     },
     "pids": [
-     "543921",
      "518735",
+     "543921",
      "543148",
      "461314"
     ],
@@ -57416,8 +58474,8 @@
      "n_in": 0
     },
     "pids": [
-     "607208",
      "453286",
+     "607208",
      "660688",
      "661541",
      "672629",
@@ -57571,11 +58629,11 @@
      "n_in": 1
     },
     "pids": [
-     "606299",
      "276520",
      "462382",
-     "501593",
+     "606299",
      "622072",
+     "501593",
      "621064",
      "493343",
      "572089"
@@ -57742,8 +58800,8 @@
        "n_in": 0
       },
       "pids": [
-       "543921",
        "518735",
+       "543921",
        "543148",
        "461314"
       ],
@@ -57896,8 +58954,8 @@
        "n_in": 0
       },
       "pids": [
-       "607208",
        "453286",
+       "607208",
        "660688",
        "661541",
        "672629",
@@ -57992,11 +59050,11 @@
        "n_in": 1
       },
       "pids": [
-       "606299",
        "276520",
        "462382",
-       "501593",
+       "606299",
        "622072",
+       "501593",
        "621064",
        "493343",
        "572089"
@@ -58387,8 +59445,8 @@
        "n_in": 0
       },
       "pids": [
-       "622534",
        "607192",
+       "622534",
        "676356",
        "686752"
       ],
@@ -63941,7 +64999,7 @@
    "n": 60,
    "seasons": 12.2,
    "rate": 5.81,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 30.8,
    "farmN": 8,
    "flows": {
@@ -64067,7 +65125,7 @@
      },
      {
       "d": "2017-03-01",
-      "h": "Got Aneurys Zabala, Drew Jackson for Chase De Jong",
+      "h": "Got Drew Jackson, Aneurys Zabala for Chase De Jong",
       "net": 0.5
      },
      {
@@ -64100,7 +65158,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Jacob Kmatz, Hunter Feduccia for Jack Suwinski",
+      "h": "Got Hunter Feduccia, Jacob Kmatz for Jack Suwinski",
       "net": 0.6
      },
      {
@@ -64115,7 +65173,7 @@
      },
      {
       "d": "2023-12-16",
-      "h": "Got Tyler Glasnow, Manuel Margot for Jonny DeLuca, Ryan Pepiot",
+      "h": "Got Manuel Margot, Tyler Glasnow for Jonny DeLuca, Ryan Pepiot",
       "net": -5.0
      },
      {
@@ -64259,7 +65317,7 @@
      },
      {
       "d": "2024-02-05",
-      "h": "Got Matt Gage, Christian Zazueta for Caleb Ferguson",
+      "h": "Got Christian Zazueta, Matt Gage for Caleb Ferguson",
       "net": 0.2
      },
      {
@@ -64385,7 +65443,7 @@
      },
      {
       "d": "2016-04-10",
-      "h": "Got James Ramsey, Zach Walters for cash/PTBNL",
+      "h": "Got Zach Walters, James Ramsey for cash/PTBNL",
       "net": -0.2
      }
     ]
@@ -64700,7 +65758,7 @@
     "g": 80,
     "n": 0,
     "lost": 0.0,
-    "rel": 4.54,
+    "rel": 4.46,
     "display_only": true,
     "net2": 1.0,
     "n2": 1,
@@ -64776,11 +65834,11 @@
         "+4.8"
        ],
        [
-        "Dillon Head",
+        "Nathan Martorella",
         "+0.3"
        ],
        [
-        "Nathan Martorella",
+        "Dillon Head",
         "+0.3"
        ],
        [
@@ -64806,10 +65864,10 @@
      "n_in": 0
     },
     "pids": [
-     "702977",
      "687210",
-     "808970",
      "805300",
+     "808970",
+     "702977",
      "650333"
     ],
     "comps": [
@@ -64892,9 +65950,9 @@
      "n_in": 0
     },
     "pids": [
-     "800254",
      "691858",
      "682663",
+     "800254",
      "665862"
     ],
     "comps": [
@@ -65315,11 +66373,11 @@
           "+4.8"
          ],
          [
-          "Dillon Head",
+          "Nathan Martorella",
           "+0.3"
          ],
          [
-          "Nathan Martorella",
+          "Dillon Head",
           "+0.3"
          ],
          [
@@ -65345,10 +66403,10 @@
        "n_in": 0
       },
       "pids": [
-       "702977",
        "687210",
-       "808970",
        "805300",
+       "808970",
+       "702977",
        "650333"
       ],
       "comps": [
@@ -65571,11 +66629,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Garret Forrester",
+          "Jun-Seok Shim",
           "+0.3"
          ],
          [
-          "Jun-Seok Shim",
+          "Garret Forrester",
           "+0.3"
          ]
         ]
@@ -65597,8 +66655,8 @@
        "n_in": 0
       },
       "pids": [
-       "807720",
        "807149",
+       "807720",
        "650559"
       ],
       "comps": [
@@ -65689,10 +66747,10 @@
        "n_in": 1
       },
       "pids": [
-       "810891",
-       "800049",
-       "688363",
        "702281",
+       "810891",
+       "688363",
+       "800049",
        "663773",
        "656945"
       ],
@@ -65778,9 +66836,9 @@
        "n_in": 0
       },
       "pids": [
-       "800254",
        "691858",
        "682663",
+       "800254",
        "665862"
       ],
       "comps": [
@@ -67770,7 +68828,7 @@
    "n": 9,
    "seasons": 3.2,
    "rate": -0.5,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 13.2,
    "farmN": 4,
    "flows": {
@@ -67827,12 +68885,12 @@
     "deals": [
      {
       "d": "2024-07-30",
-      "h": "Got Adam Mazur, Robby Snelling, Graham Pauley, Jay Beshears for Bryan Hoeing, Tanner Scott",
+      "h": "Got Graham Pauley, Robby Snelling, Jay Beshears, Adam Mazur for Bryan Hoeing, Tanner Scott",
       "net": 1.9
      },
      {
       "d": "2024-05-04",
-      "h": "Got Jakob Marsee, Dillon Head, Nathan Martorella, Woo-Suk Go for Luis Arraez",
+      "h": "Got Woo-Suk Go, Dillon Head, Nathan Martorella, Jakob Marsee for Luis Arraez",
       "net": 4.4
      }
     ]
@@ -67845,12 +68903,12 @@
     "deals": [
      {
       "d": "2026-01-13",
-      "h": "Got Brendan Jones, Dillon Lewis, Juan Matheus, Dylan Jasso for Ryan Weathers",
+      "h": "Got Dylan Jasso, Brendan Jones, Juan Matheus, Dillon Lewis for Ryan Weathers",
       "net": -0.7
      },
      {
       "d": "2024-07-27",
-      "h": "Got Abrahan Ramirez, Agust\u00edn Ram\u00edrez, Jared Serna for Jazz Chisholm Jr.",
+      "h": "Got Jared Serna, Agust\u00edn Ram\u00edrez, Abrahan Ramirez for Jazz Chisholm Jr.",
       "net": -4.1
      },
      {
@@ -67891,7 +68949,7 @@
      },
      {
       "d": "2024-07-30",
-      "h": "Got Connor Norby, Kyle Stowers for Trevor Rogers",
+      "h": "Got Kyle Stowers, Connor Norby for Trevor Rogers",
       "net": 1.4
      },
      {
@@ -67955,7 +69013,7 @@
      },
      {
       "d": "2024-12-22",
-      "h": "Got Starlyn Caba, Emaarion Boyd for Paul McIntosh, Jes\u00fas Luzardo",
+      "h": "Got Emaarion Boyd, Starlyn Caba for Paul McIntosh, Jes\u00fas Luzardo",
       "net": -2.3
      }
     ]
@@ -68016,7 +69074,7 @@
      },
      {
       "d": "2023-11-17",
-      "h": "Got Calvin Faucher, Vidal Bruj\u00e1n for Andrew Lindsey, Erick Lara, Jake Mangum",
+      "h": "Got Vidal Bruj\u00e1n, Calvin Faucher for Andrew Lindsey, Erick Lara, Jake Mangum",
       "net": 0.3
      }
     ]
@@ -68034,7 +69092,7 @@
      },
      {
       "d": "2026-01-07",
-      "h": "Got Owen Caissie, Cristian Hern\u00e1ndez, Edgardo De Leon for Edward Cabrera",
+      "h": "Got Edgardo De Leon, Owen Caissie, Cristian Hern\u00e1ndez for Edward Cabrera",
       "net": 1.1
      },
      {
@@ -68085,7 +69143,7 @@
      },
      {
       "d": "2024-07-25",
-      "h": "Got Andrew Pintar, Deyvison De Los Santos for A.J. Puk",
+      "h": "Got Deyvison De Los Santos, Andrew Pintar for A.J. Puk",
       "net": -0.3
      },
      {
@@ -68126,7 +69184,7 @@
     "deals": [
      {
       "d": "2024-12-11",
-      "h": "Got Maximo Acosta, Brayan Mendoza, Echedry Vargas for Jake Burger",
+      "h": "Got Maximo Acosta, Echedry Vargas, Brayan Mendoza for Jake Burger",
       "net": -0.2
      },
      {
@@ -68214,7 +69272,7 @@
     "g": 65,
     "n": 6,
     "lost": 14.4,
-    "rel": 0.94,
+    "rel": 0.86,
     "display_only": true,
     "net2": 12.7,
     "n2": 6,
@@ -68296,8 +69354,8 @@
     },
     "pids": [
      "661388",
-     "687866",
      "606303",
+     "687866",
      "665923"
     ],
     "comps": [
@@ -68376,8 +69434,8 @@
      "n_in": 2
     },
     "pids": [
-     "669084",
      "687401",
+     "669084",
      "669203"
     ],
     "comps": [
@@ -68919,8 +69977,8 @@
       },
       "pids": [
        "661388",
-       "687866",
        "606303",
+       "687866",
        "665923"
       ],
       "comps": [
@@ -68999,8 +70057,8 @@
        "n_in": 2
       },
       "pids": [
-       "669084",
        "687401",
+       "669084",
        "669203"
       ],
       "comps": [
@@ -72045,7 +73103,7 @@
    "n": 13,
    "seasons": 4.2,
    "rate": 4.77,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 19.2,
    "farmN": 5,
    "flows": {
@@ -72108,7 +73166,7 @@
      },
      {
       "d": "2024-12-13",
-      "h": "Got Nestor Cortes, Caleb Durbin for Devin Williams",
+      "h": "Got Caleb Durbin, Nestor Cortes for Devin Williams",
       "net": 3.9
      },
      {
@@ -72131,7 +73189,7 @@
     "deals": [
      {
       "d": "2026-02-09",
-      "h": "Got Shane Drohan, David Hamilton, Kyle Harrison for Andruw Monasterio, Caleb Durbin, Anthony Seigler",
+      "h": "Got Kyle Harrison, David Hamilton, Shane Drohan for Andruw Monasterio, Caleb Durbin, Anthony Seigler",
       "net": 2.3
      },
      {
@@ -72169,7 +73227,7 @@
      },
      {
       "d": "2024-02-01",
-      "h": "Got Joey Ortiz, DL Hall for Corbin Burnes",
+      "h": "Got DL Hall, Joey Ortiz for Corbin Burnes",
       "net": 5.6
      }
     ]
@@ -72192,7 +73250,7 @@
      },
      {
       "d": "2022-12-02",
-      "h": "Got Jesse Winker, Abraham Toro for Kolten Wong",
+      "h": "Got Abraham Toro, Jesse Winker for Kolten Wong",
       "net": -0.2
      }
     ]
@@ -72358,7 +73416,7 @@
     "deals": [
      {
       "d": "2026-01-21",
-      "h": "Got Brandon Sproat, Jett Williams for Freddy Peralta, Tobias Myers",
+      "h": "Got Jett Williams, Brandon Sproat for Freddy Peralta, Tobias Myers",
       "net": 1.2
      },
      {
@@ -72414,7 +73472,7 @@
      },
      {
       "d": "2025-07-31",
-      "h": "Got Shelby Miller, Jordan Montgomery for cash/PTBNL",
+      "h": "Got Jordan Montgomery, Shelby Miller for cash/PTBNL",
       "net": 0.1
      },
      {
@@ -72530,7 +73588,7 @@
     "g": 80,
     "n": 0,
     "lost": 0.0,
-    "rel": 4.54,
+    "rel": 4.46,
     "display_only": true,
     "net2": 0.0,
     "n2": 0,
@@ -73589,7 +74647,7 @@
    "n": 3,
    "seasons": 1.0,
    "rate": -1.71,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 14.0,
    "farmN": 4,
    "flows": {
@@ -73721,7 +74779,7 @@
     "g": 30,
     "n": 10,
     "lost": 19.7,
-    "rel": -2.04,
+    "rel": -2.12,
     "display_only": true,
     "net2": 3.5,
     "n2": 3,
@@ -77643,7 +78701,7 @@
    "n": 10,
    "seasons": 3.2,
    "rate": 0.27,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 3.9,
    "farmN": 2,
    "flows": {
@@ -77780,7 +78838,7 @@
     "deals": [
      {
       "d": "2026-08-02",
-      "h": "Got \u00c9milien Pitre, Aidan Smith, Gary Gill Hill for Freddy Peralta",
+      "h": "Got Gary Gill Hill, Aidan Smith, \u00c9milien Pitre for Freddy Peralta",
       "net": 0.4
      },
      {
@@ -77823,7 +78881,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Zach Franklin, Gabe Davis for Huascar Brazob\u00e1n",
+      "h": "Got Gabe Davis, Zach Franklin for Huascar Brazob\u00e1n",
       "net": 0.9
      },
      {
@@ -78053,7 +79111,7 @@
     "g": 50,
     "n": 49,
     "lost": 130.1,
-    "rel": 0.06,
+    "rel": -0.02,
     "display_only": true,
     "net2": 11.4,
     "n2": 82,
@@ -78442,8 +79500,8 @@
      "n_in": 0
     },
     "pids": [
-     "150097",
      "276342",
+     "150097",
      "136780"
     ],
     "comps": [
@@ -78519,8 +79577,8 @@
      "n_in": 0
     },
     "pids": [
-     "150414",
      "150409",
+     "150414",
      "150404",
      "116400"
     ],
@@ -78767,8 +79825,8 @@
        "n_in": 0
       },
       "pids": [
-       "150414",
        "150409",
+       "150414",
        "150404",
        "116400"
       ],
@@ -78932,10 +79990,10 @@
        "n_in": 2
       },
       "pids": [
-       "650402",
        "476589",
        "641856",
        "622197",
+       "650402",
        "547973"
       ],
       "comps": [
@@ -79011,8 +80069,8 @@
        "n_in": 1
       },
       "pids": [
-       "501381",
        "553883",
+       "501381",
        "456051",
        "524968"
       ],
@@ -79311,8 +80369,8 @@
        "n_in": 0
       },
       "pids": [
-       "150097",
        "276342",
+       "150097",
        "136780"
       ],
       "comps": [
@@ -89839,7 +90897,7 @@
    "n": 63,
    "seasons": 15.9,
    "rate": 2.72,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 10.8,
    "farmN": 4,
    "flows": {
@@ -90103,8 +91161,8 @@
    {
     "opp": "CLE",
     "exec": "Chris Antonetti",
-    "n": 7,
-    "net": 3.3,
+    "n": 8,
+    "net": 3.2,
     "deals": [
      {
       "d": "2023-12-26",
@@ -90133,13 +91191,18 @@
      },
      {
       "d": "2016-07-31",
-      "h": "Got Justus Sheffield, J.P. Feyereisen, Clint Frazier, Ben Heller for Andrew Miller",
+      "h": "Got Justus Sheffield, Ben Heller, J.P. Feyereisen, Clint Frazier for Andrew Miller",
       "net": -1.2
      },
      {
       "d": "2016-01-08",
       "h": "Got Kirby Yates for cash/PTBNL",
       "net": 4.1
+     },
+     {
+      "d": "2014-08-28",
+      "h": "Got Josh Outman for cash/PTBNL",
+      "net": -0.1
      }
     ]
    },
@@ -90250,7 +91313,7 @@
     "deals": [
      {
       "d": "2024-07-30",
-      "h": "Got Enyel De Los Santos, Thomas Balboni Jr. for Brandon Lockridge",
+      "h": "Got Thomas Balboni Jr., Enyel De Los Santos for Brandon Lockridge",
       "net": -1.2
      },
      {
@@ -90493,7 +91556,7 @@
     "g": 80,
     "n": 0,
     "lost": 0.0,
-    "rel": 4.54,
+    "rel": 4.46,
     "display_only": true,
     "net2": 0.0,
     "n2": 0,
@@ -90607,7 +91670,7 @@
    "n": 0,
    "seasons": 1.0,
    "rate": 0.0,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 3.9,
    "farmN": 1,
    "flows": {
@@ -90679,7 +91742,7 @@
     "g": 55,
     "n": 12,
     "lost": 24.8,
-    "rel": 0.4,
+    "rel": 0.32,
     "display_only": true,
     "net2": 1.6,
     "n2": 11,
@@ -91671,8 +92734,8 @@
        "n_in": 0
       },
       "pids": [
-       "666200",
        "682192",
+       "666200",
        "806965",
        "702708"
       ],
@@ -95209,7 +96272,7 @@
    "n": 18,
    "seasons": 6.1,
    "rate": 2.01,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 7.4,
    "farmN": 3,
    "flows": {
@@ -95414,7 +96477,7 @@
      },
      {
       "d": "2024-07-30",
-      "h": "Got Seth Johnson, Mois\u00e9s Chace for Gregory Soto",
+      "h": "Got Mois\u00e9s Chace, Seth Johnson for Gregory Soto",
       "net": -0.1
      },
      {
@@ -95612,7 +96675,7 @@
      },
      {
       "d": "2023-11-14",
-      "h": "Got Hendry Mendez, Robert Moore for Oliver Dunn",
+      "h": "Got Robert Moore, Hendry Mendez for Oliver Dunn",
       "net": 0.2
      }
     ]
@@ -95797,7 +96860,7 @@
     "g": 80,
     "n": 9,
     "lost": 8.2,
-    "rel": 3.38,
+    "rel": 3.29,
     "display_only": true,
     "net2": 4.2,
     "n2": 8,
@@ -95932,8 +96995,8 @@
      "n_in": 0
     },
     "pids": [
-     "664040",
      "663968",
+     "664040",
      "682254",
      "681347"
     ],
@@ -96072,8 +97135,8 @@
      "n_in": 0
     },
     "pids": [
-     "683005",
      "678894",
+     "683005",
      "516782"
     ],
     "comps": [
@@ -96131,11 +97194,11 @@
         "+0.1"
        ],
        [
-        "Drake Fellows",
+        "Hudson Head",
         "+0.1"
        ],
        [
-        "Hudson Head",
+        "Drake Fellows",
         "+0.1"
        ]
       ]
@@ -96157,11 +97220,11 @@
      "n_in": 0
     },
     "pids": [
+     "687431",
      "666148",
+     "682848",
      "670280",
      "678316",
-     "682848",
-     "687431",
      "605397"
     ],
     "comps": [
@@ -96292,8 +97355,8 @@
      "n_in": 0
     },
     "pids": [
-     "660636",
      "660829",
+     "660636",
      "605280"
     ],
     "comps": [
@@ -96446,8 +97509,8 @@
        "n_in": 0
       },
       "pids": [
-       "664040",
        "663968",
+       "664040",
        "682254",
        "681347"
       ],
@@ -96513,11 +97576,11 @@
           "+0.1"
          ],
          [
-          "Drake Fellows",
+          "Hudson Head",
           "+0.1"
          ],
          [
-          "Hudson Head",
+          "Drake Fellows",
           "+0.1"
          ]
         ]
@@ -96539,11 +97602,11 @@
        "n_in": 0
       },
       "pids": [
+       "687431",
        "666148",
+       "682848",
        "670280",
        "678316",
-       "682848",
-       "687431",
        "605397"
       ],
       "comps": [
@@ -96619,8 +97682,8 @@
        "n_in": 0
       },
       "pids": [
-       "605507",
        "669002",
+       "605507",
        "693312",
        "607732"
       ],
@@ -96850,8 +97913,8 @@
        "n_in": 0
       },
       "pids": [
-       "683005",
        "678894",
+       "683005",
        "516782"
       ],
       "comps": [
@@ -96923,8 +97986,8 @@
        "n_in": 0
       },
       "pids": [
-       "660636",
        "660829",
+       "660636",
        "605280"
       ],
       "comps": [
@@ -97078,9 +98141,9 @@
       },
       "pids": [
        "683500",
-       "672710",
        "664337",
        "675986",
+       "672710",
        "592791"
       ],
       "comps": [
@@ -101196,7 +102259,7 @@
    "n": 32,
    "seasons": 7.2,
    "rate": 2.28,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 11.6,
    "farmN": 3,
    "flows": {
@@ -101317,17 +102380,17 @@
      },
      {
       "d": "2023-08-01",
-      "h": "Got Estuar Suero, Alfonso Rivas III, Jackson Wolf for Rich Hill, Ji Man Choi",
+      "h": "Got Jackson Wolf, Alfonso Rivas III, Estuar Suero for Rich Hill, Ji Man Choi",
       "net": 1.9
      },
      {
       "d": "2021-07-26",
-      "h": "Got Michell Miliano, Jack Suwinski, Tucupita Marcano for Adam Frazier",
+      "h": "Got Michell Miliano, Tucupita Marcano, Jack Suwinski for Adam Frazier",
       "net": 1.1
      },
      {
       "d": "2021-01-19",
-      "h": "Got David Bednar, Drake Fellows, Hudson Head, Omar Cruz for Joe Musgrove",
+      "h": "Got Drake Fellows, Omar Cruz, Hudson Head, David Bednar for Joe Musgrove",
       "net": 4.3
      }
     ]
@@ -101340,7 +102403,7 @@
     "deals": [
      {
       "d": "2025-12-19",
-      "h": "Got Mason Montgomery, Jake Mangum, Brandon Lowe for cash/PTBNL",
+      "h": "Got Mason Montgomery, Brandon Lowe, Jake Mangum for cash/PTBNL",
       "net": 8.7
      },
      {
@@ -101403,7 +102466,7 @@
      },
      {
       "d": "2021-01-24",
-      "h": "Got Maikol Escotto, Miguel Yajure, Roansy Contreras, Canaan Smith-Njigba for Jameson Taillon",
+      "h": "Got Maikol Escotto, Canaan Smith-Njigba, Roansy Contreras, Miguel Yajure for Jameson Taillon",
       "net": -2.7
      }
     ]
@@ -101444,7 +102507,7 @@
      },
      {
       "d": "2025-12-04",
-      "h": "Got Jhostynxon Garcia, Jesus Travieso for Tyler Samaniego, Adonys Guzman, Johan Oviedo",
+      "h": "Got Jesus Travieso, Jhostynxon Garcia for Tyler Samaniego, Adonys Guzman, Johan Oviedo",
       "net": -1.1
      },
      {
@@ -101841,7 +102904,7 @@
      },
      {
       "d": "2026-07-11",
-      "h": "Got Brandon Eisert, Jacob Gonzalez for Jaden Woods",
+      "h": "Got Jacob Gonzalez, Brandon Eisert for Jaden Woods",
       "net": 0.4
      }
     ]
@@ -101906,7 +102969,7 @@
     "g": 30,
     "n": 33,
     "lost": 89.0,
-    "rel": -2.69,
+    "rel": -2.77,
     "display_only": true,
     "net2": -20.8,
     "n2": 31,
@@ -102013,8 +103076,8 @@
      "n_in": 0
     },
     "pids": [
-     "543148",
      "461314",
+     "543148",
      "518735",
      "621107",
      "543921"
@@ -102193,8 +103256,8 @@
      "n_in": 0
     },
     "pids": [
-     "665487",
      "605304",
+     "665487",
      "448306"
     ],
     "comps": [
@@ -102282,10 +103345,10 @@
      "n_in": 0
     },
     "pids": [
-     "647304",
-     "605169",
      "622491",
+     "605169",
      "543054",
+     "647304",
      "488768",
      "594027",
      "607067"
@@ -102380,8 +103443,8 @@
     },
     "pids": [
      "622103",
-     "571976",
      "620454",
+     "571976",
      "641343",
      "425784",
      "572143",
@@ -102528,8 +103591,8 @@
      "n_in": 0
     },
     "pids": [
-     "457708",
      "573062",
+     "457708",
      "605480",
      "608331",
      "640460",
@@ -102676,8 +103739,8 @@
        "n_in": 0
       },
       "pids": [
-       "665487",
        "605304",
+       "665487",
        "448306"
       ],
       "comps": [
@@ -102765,10 +103828,10 @@
        "n_in": 0
       },
       "pids": [
-       "647304",
-       "605169",
        "622491",
+       "605169",
        "543054",
+       "647304",
        "488768",
        "594027",
        "607067"
@@ -102933,10 +103996,10 @@
        "n_in": 2
       },
       "pids": [
+       "663531",
        "642770",
        "622534",
        "641319",
-       "663531",
        "518886"
       ],
       "comps": [
@@ -103101,8 +104164,8 @@
        "n_in": 0
       },
       "pids": [
-       "543148",
        "461314",
+       "543148",
        "518735",
        "621107",
        "543921"
@@ -103302,8 +104365,8 @@
       },
       "pids": [
        "622103",
-       "571976",
        "620454",
+       "571976",
        "641343",
        "425784",
        "572143",
@@ -103391,8 +104454,8 @@
        "n_in": 0
       },
       "pids": [
-       "457708",
        "573062",
+       "457708",
        "605480",
        "608331",
        "640460",
@@ -108664,7 +109727,7 @@
    "n": 51,
    "seasons": 12.4,
    "rate": 3.0,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 11.1,
    "farmN": 2,
    "flows": {
@@ -108732,7 +109795,7 @@
      },
      {
       "d": "2014-12-18",
-      "h": "Got Tim Federowicz, Matt Kemp for Yasmani Grandal, Joe Wieland",
+      "h": "Got Matt Kemp, Tim Federowicz for Yasmani Grandal, Joe Wieland",
       "net": -19.9
      }
     ]
@@ -108740,8 +109803,8 @@
    {
     "opp": "CLE",
     "exec": "Chris Antonetti",
-    "n": 8,
-    "net": -16.7,
+    "n": 9,
+    "net": -16.9,
     "deals": [
      {
       "d": "2024-04-17",
@@ -108760,7 +109823,7 @@
      },
      {
       "d": "2020-08-31",
-      "h": "Got Matt Waldron, Mike Clevinger, Greg Allen for Cal Quantrill, Josh Naylor, Joey Cantillo, Gabriel Arias, Austin Hedges, Owen Miller",
+      "h": "Got Matt Waldron, Greg Allen, Mike Clevinger for Cal Quantrill, Josh Naylor, Joey Cantillo, Gabriel Arias, Austin Hedges, Owen Miller",
       "net": -8.7
      },
      {
@@ -108782,6 +109845,11 @@
       "d": "2018-07-19",
       "h": "Got Francisco Mej\u00eda for Brad Hand, Adam Cimber",
       "net": -2.7
+     },
+     {
+      "d": "2015-07-31",
+      "h": "Got Marc Rzepczynski for Abraham Almonte",
+      "net": -0.2
      }
     ]
    },
@@ -108793,7 +109861,7 @@
     "deals": [
      {
       "d": "2021-11-27",
-      "h": "Got Ray Kerr, Corey Rosier for Adam Frazier",
+      "h": "Got Corey Rosier, Ray Kerr for Adam Frazier",
       "net": 1.2
      },
      {
@@ -108803,7 +109871,7 @@
      },
      {
       "d": "2020-08-31",
-      "h": "Got Dan Altavilla, Austin Adams, Austin Nola for Luis Torrens, Andr\u00e9s Mu\u00f1oz, Ty France, Taylor Trammell",
+      "h": "Got Austin Adams, Austin Nola, Dan Altavilla for Luis Torrens, Andr\u00e9s Mu\u00f1oz, Ty France, Taylor Trammell",
       "net": -7.4
      },
      {
@@ -108894,7 +109962,7 @@
     "deals": [
      {
       "d": "2024-07-30",
-      "h": "Got Bryan Hoeing, Tanner Scott for Adam Mazur, Jay Beshears, Robby Snelling, Graham Pauley",
+      "h": "Got Tanner Scott, Bryan Hoeing for Adam Mazur, Jay Beshears, Robby Snelling, Graham Pauley",
       "net": -1.9
      },
      {
@@ -108937,7 +110005,7 @@
      },
      {
       "d": "2019-12-06",
-      "h": "Got Tommy Pham, Jake Cronenworth for Xavier Edwards, Hunter Renfroe, Esteban Quiroz",
+      "h": "Got Jake Cronenworth, Tommy Pham for Xavier Edwards, Hunter Renfroe, Esteban Quiroz",
       "net": 6.1
      },
      {
@@ -109052,7 +110120,7 @@
      },
      {
       "d": "2023-12-07",
-      "h": "Got Drew Thorpe, Jhony Brito, Michael King, Kyle Higashioka, Randy V\u00e1squez for Juan Soto, Trent Grisham",
+      "h": "Got Randy V\u00e1squez, Drew Thorpe, Michael King, Jhony Brito, Kyle Higashioka for Juan Soto, Trent Grisham",
       "net": -2.7
      },
      {
@@ -109216,7 +110284,7 @@
     "g": 80,
     "n": 2,
     "lost": 3.6,
-    "rel": 2.74,
+    "rel": 2.66,
     "display_only": true,
     "net2": 0.0,
     "n2": 0,
@@ -109288,8 +110356,8 @@
     },
     "pids": [
      "694918",
-     "687551",
      "676130",
+     "687551",
      "643511"
     ],
     "comps": [
@@ -109372,11 +110440,11 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Miguel Mendez",
+        "Joniel Hernandez",
         "+0.4"
        ],
        [
-        "Joniel Hernandez",
+        "Miguel Mendez",
         "+0.4"
        ]
       ]
@@ -109398,8 +110466,8 @@
      "n_in": 0
     },
     "pids": [
-     "700280",
      "836592",
+     "700280",
      "592662"
     ],
     "comps": [
@@ -109452,11 +110520,11 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Ramon Marquez",
+        "Marty Gair",
         "+0.4"
        ],
        [
-        "Marty Gair",
+        "Ramon Marquez",
         "+0.4"
        ]
       ]
@@ -109482,8 +110550,8 @@
      "n_in": 0
     },
     "pids": [
-     "827408",
      "700248",
+     "827408",
      "668873",
      "650333"
     ],
@@ -109766,11 +110834,11 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Kaeden Kent",
+        "Henry Lalane",
         "+0.4"
        ],
        [
-        "Henry Lalane",
+        "Kaeden Kent",
         "+0.4"
        ]
       ]
@@ -109792,8 +110860,8 @@
      "n_in": 0
     },
     "pids": [
-     "809763",
      "700649",
+     "809763",
      "671218"
     ],
     "comps": [
@@ -109881,8 +110949,8 @@
       },
       "pids": [
        "694918",
-       "687551",
        "676130",
+       "687551",
        "643511"
       ],
       "comps": [
@@ -109935,11 +111003,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Miguel Mendez",
+          "Joniel Hernandez",
           "+0.4"
          ],
          [
-          "Joniel Hernandez",
+          "Miguel Mendez",
           "+0.4"
          ]
         ]
@@ -109961,8 +111029,8 @@
        "n_in": 0
       },
       "pids": [
-       "700280",
        "836592",
+       "700280",
        "592662"
       ],
       "comps": [
@@ -110015,11 +111083,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Ramon Marquez",
+          "Marty Gair",
           "+0.4"
          ],
          [
-          "Marty Gair",
+          "Ramon Marquez",
           "+0.4"
          ]
         ]
@@ -110045,8 +111113,8 @@
        "n_in": 0
       },
       "pids": [
-       "827408",
        "700248",
+       "827408",
        "668873",
        "650333"
       ],
@@ -110174,11 +111242,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Kaeden Kent",
+          "Henry Lalane",
           "+0.4"
          ],
          [
-          "Henry Lalane",
+          "Kaeden Kent",
           "+0.4"
          ]
         ]
@@ -110200,8 +111268,8 @@
        "n_in": 0
       },
       "pids": [
-       "809763",
        "700649",
+       "809763",
        "671218"
       ],
       "comps": [
@@ -111833,7 +112901,7 @@
    "n": 5,
    "seasons": 2.3,
    "rate": 4.96,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 13.1,
    "farmN": 4,
    "flows": {
@@ -111907,7 +112975,7 @@
      },
      {
       "d": "2025-07-31",
-      "h": "Got Carlos De La Rosa, Jesus Rodriguez, Trystan Vrieling, Parks Harber for Camilo Doval",
+      "h": "Got Trystan Vrieling, Parks Harber, Jesus Rodriguez, Carlos De La Rosa for Camilo Doval",
       "net": 0.8
      }
     ]
@@ -112031,7 +113099,7 @@
     "g": 75,
     "n": 8,
     "lost": 22.1,
-    "rel": 2.54,
+    "rel": 2.46,
     "display_only": true,
     "net2": 6.2,
     "n2": 15,
@@ -112467,9 +113535,9 @@
     },
     "pids": [
      "666211",
-     "620443",
      "664034",
      "662253",
+     "620443",
      "656186",
      "613534",
      "543592"
@@ -112551,8 +113619,8 @@
      "n_in": 1
     },
     "pids": [
-     "467793",
      "641487",
+     "467793",
      "504379",
      "572021",
      "516416"
@@ -112642,8 +113710,8 @@
      "n_in": 0
     },
     "pids": [
-     "553993",
      "608385",
+     "553993",
      "641584",
      "643290",
      "682227",
@@ -112747,9 +113815,9 @@
       },
       "pids": [
        "666211",
-       "620443",
        "664034",
        "662253",
+       "620443",
        "656186",
        "613534",
        "543592"
@@ -112831,8 +113899,8 @@
        "n_in": 1
       },
       "pids": [
-       "467793",
        "641487",
+       "467793",
        "504379",
        "572021",
        "516416"
@@ -112922,8 +113990,8 @@
        "n_in": 0
       },
       "pids": [
-       "553993",
        "608385",
+       "553993",
        "641584",
        "643290",
        "682227",
@@ -113486,11 +114554,11 @@
        "n_in": 2
       },
       "pids": [
-       "457803",
        "672284",
+       "639373",
+       "457803",
        "461872",
        "643290",
-       "639373",
        "429664",
        "621242"
       ],
@@ -113997,12 +115065,12 @@
        },
        {
         "k": "draft",
-        "yr": 2019,
-        "ab": "WSH",
-        "who": "Jackson Rutledge",
+        "yr": 2015,
+        "ab": "CLE",
+        "who": "Brady Aiken",
         "what": "#17 overall",
-        "a": -0.1,
-        "b": -3.7
+        "a": 0,
+        "b": -3.8
        }
       ]
      },
@@ -118682,7 +119750,7 @@
    "n": 41,
    "seasons": 11.3,
    "rate": 2.91,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 24.6,
    "farmN": 6,
    "flows": {
@@ -118750,7 +119818,7 @@
      },
      {
       "d": "2020-08-31",
-      "h": "Got Ty France, Luis Torrens, Taylor Trammell, Andr\u00e9s Mu\u00f1oz for Dan Altavilla, Austin Adams, Austin Nola",
+      "h": "Got Luis Torrens, Taylor Trammell, Andr\u00e9s Mu\u00f1oz, Ty France for Dan Altavilla, Austin Adams, Austin Nola",
       "net": 7.4
      },
      {
@@ -118896,7 +119964,7 @@
      },
      {
       "d": "2022-03-14",
-      "h": "Got Jesse Winker, Eugenio Su\u00e1rez for Jake Fraley, Justin Dunn, Brandon Williamson, Connor Phillips, Luis Chevalier",
+      "h": "Got Eugenio Su\u00e1rez, Jesse Winker for Jake Fraley, Justin Dunn, Brandon Williamson, Connor Phillips, Luis Chevalier",
       "net": 6.9
      }
     ]
@@ -118924,7 +119992,7 @@
      },
      {
       "d": "2023-07-31",
-      "h": "Got Dominic Canzone, Josh Rojas, Ryan Bliss for Paul Sewald",
+      "h": "Got Dominic Canzone, Ryan Bliss, Josh Rojas for Paul Sewald",
       "net": 5.4
      },
      {
@@ -118954,7 +120022,7 @@
      },
      {
       "d": "2016-11-23",
-      "h": "Got Mitch Haniger, Zac Curtis, Jean Segura for Ketel Marte, Taijuan Walker",
+      "h": "Got Jean Segura, Zac Curtis, Mitch Haniger for Ketel Marte, Taijuan Walker",
       "net": 1.0
      }
     ]
@@ -119157,7 +120225,7 @@
      },
      {
       "d": "2017-08-06",
-      "h": "Got Mike Marjama, Ryan Garton for Anthony Misiewicz, Luis Rengifo, Osmy Gregorio",
+      "h": "Got Ryan Garton, Mike Marjama for Anthony Misiewicz, Luis Rengifo, Osmy Gregorio",
       "net": -3.2
      },
      {
@@ -119301,7 +120369,7 @@
      },
      {
       "d": "2016-06-22",
-      "h": "Got Wade LeBlanc, Pat Venditte for Tim Lopes",
+      "h": "Got Pat Venditte, Wade LeBlanc for Tim Lopes",
       "net": -0.1
      }
     ]
@@ -119329,7 +120397,7 @@
      },
      {
       "d": "2024-05-22",
-      "h": "Got Michael P\u00e9rez, Mike Baumann for Blake Hunt",
+      "h": "Got Mike Baumann, Michael P\u00e9rez for Blake Hunt",
       "net": -0.4
      },
      {
@@ -119390,7 +120458,7 @@
     "deals": [
      {
       "d": "2026-08-02",
-      "h": "Got Seranthony Dom\u00ednguez, Nolan Jones, Boston Smith for Luis Castillo",
+      "h": "Got Seranthony Dom\u00ednguez, Boston Smith, Nolan Jones for Luis Castillo",
       "net": 1.2
      },
      {
@@ -119536,7 +120604,7 @@
     "g": 80,
     "n": 0,
     "lost": 0.0,
-    "rel": 4.54,
+    "rel": 4.46,
     "display_only": true,
     "net2": 0.0,
     "n2": 0,
@@ -119651,11 +120719,11 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Yhoiker Fajardo",
+        "Blake Aita",
         "+0.4"
        ],
        [
-        "Blake Aita",
+        "Yhoiker Fajardo",
         "+0.4"
        ],
        [
@@ -119681,9 +120749,9 @@
      "n_in": 0
     },
     "pids": [
-     "690928",
-     "823369",
      "820832",
+     "823369",
+     "690928",
      "575929"
     ],
     "comps": [
@@ -119736,11 +120804,11 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Alexander Frias",
+        "Josiah Ragsdale",
         "+0.4"
        ],
        [
-        "Josiah Ragsdale",
+        "Alexander Frias",
         "+0.4"
        ]
       ]
@@ -119766,8 +120834,8 @@
      "n_in": 0
     },
     "pids": [
-     "825484",
      "828824",
+     "825484",
      "669160",
      "668941"
     ],
@@ -119821,11 +120889,11 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Patrick Galle",
+        "Brandon Clarke",
         "+0.4"
        ],
        [
-        "Brandon Clarke",
+        "Patrick Galle",
         "+0.4"
        ],
        [
@@ -119851,9 +120919,9 @@
      "n_in": 0
     },
     "pids": [
-     "702642",
      "700251",
      "690916",
+     "702642",
      "543243"
     ],
     "comps": [
@@ -119980,15 +121048,15 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Colton Ledbetter",
-        "+0.4"
-       ],
-       [
         "Tai Peete",
         "+0.4"
        ],
        [
         "Jurrangelo Cijntje",
+        "+0.4"
+       ],
+       [
+        "Colton Ledbetter",
         "+0.4"
        ]
       ]
@@ -120010,9 +121078,9 @@
      "n_in": 0
     },
     "pids": [
-     "807742",
      "806191",
      "701388",
+     "807742",
      "680977"
     ],
     "comps": [
@@ -120129,11 +121197,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Alexander Frias",
+          "Josiah Ragsdale",
           "+0.4"
          ],
          [
-          "Josiah Ragsdale",
+          "Alexander Frias",
           "+0.4"
          ]
         ]
@@ -120159,8 +121227,8 @@
        "n_in": 0
       },
       "pids": [
-       "825484",
        "828824",
+       "825484",
        "669160",
        "668941"
       ],
@@ -120288,15 +121356,15 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Colton Ledbetter",
-          "+0.4"
-         ],
-         [
           "Tai Peete",
           "+0.4"
          ],
          [
           "Jurrangelo Cijntje",
+          "+0.4"
+         ],
+         [
+          "Colton Ledbetter",
           "+0.4"
          ]
         ]
@@ -120318,9 +121386,9 @@
        "n_in": 0
       },
       "pids": [
-       "807742",
        "806191",
        "701388",
+       "807742",
        "680977"
       ],
       "comps": [
@@ -120450,11 +121518,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Yhoiker Fajardo",
+          "Blake Aita",
           "+0.4"
          ],
          [
-          "Blake Aita",
+          "Yhoiker Fajardo",
           "+0.4"
          ],
          [
@@ -120480,9 +121548,9 @@
        "n_in": 0
       },
       "pids": [
-       "690928",
-       "823369",
        "820832",
+       "823369",
+       "690928",
        "575929"
       ],
       "comps": [
@@ -120535,11 +121603,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Patrick Galle",
+          "Brandon Clarke",
           "+0.4"
          ],
          [
-          "Brandon Clarke",
+          "Patrick Galle",
           "+0.4"
          ],
          [
@@ -120565,9 +121633,9 @@
        "n_in": 0
       },
       "pids": [
-       "702642",
        "700251",
        "690916",
+       "702642",
        "543243"
       ],
       "comps": [
@@ -121468,7 +122536,7 @@
    "n": 3,
    "seasons": 1.2,
    "rate": -1.81,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 12.4,
    "farmN": 3,
    "flows": {
@@ -121507,12 +122575,12 @@
     "deals": [
      {
       "d": "2025-12-22",
-      "h": "Got Blake Aita, Hunter Dobbins, Yhoiker Fajardo for Willson Contreras",
+      "h": "Got Yhoiker Fajardo, Blake Aita, Hunter Dobbins for Willson Contreras",
       "net": -1.7
      },
      {
       "d": "2025-11-25",
-      "h": "Got Patrick Galle, Brandon Clarke, Richard Fitts for Sonny Gray",
+      "h": "Got Richard Fitts, Patrick Galle, Brandon Clarke for Sonny Gray",
       "net": -1.1
      }
     ]
@@ -121525,7 +122593,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Daniel Eagen, Sandro Santana for Lars Nootbaar",
+      "h": "Got Sandro Santana, Daniel Eagen for Lars Nootbaar",
       "net": 0.1
      },
      {
@@ -121618,7 +122686,7 @@
     "g": 60,
     "n": 16,
     "lost": 39.5,
-    "rel": 0.59,
+    "rel": 0.51,
     "display_only": true,
     "net2": -5.2,
     "n2": 16,
@@ -121798,10 +122866,10 @@
      "n_in": 3
     },
     "pids": [
-     "640457",
+     "607192",
      "669358",
      "642083",
-     "607192",
+     "640457",
      "502042"
     ],
     "comps": [
@@ -122004,8 +123072,8 @@
      "n_in": 0
     },
     "pids": [
-     "668227",
      "500874",
+     "668227",
      "678614",
      "669461"
     ],
@@ -122396,10 +123464,10 @@
        "n_in": 3
       },
       "pids": [
-       "640457",
+       "607192",
        "669358",
        "642083",
-       "607192",
+       "640457",
        "502042"
       ],
       "comps": [
@@ -122475,8 +123543,8 @@
        "n_in": 0
       },
       "pids": [
-       "668227",
        "500874",
+       "668227",
        "678614",
        "669461"
       ],
@@ -122824,11 +123892,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Marcus Johnson",
+          "Santiago Suarez",
           "+0.2"
          ],
          [
-          "Santiago Suarez",
+          "Marcus Johnson",
           "+0.2"
          ]
         ]
@@ -122854,8 +123922,8 @@
        "n_in": 0
       },
       "pids": [
-       "687189",
        "800571",
+       "687189",
        "669364",
        "608638"
       ],
@@ -122987,11 +124055,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Aidan Smith",
+          "Ty Cummings",
           "+0.3"
          ],
          [
-          "Ty Cummings",
+          "Aidan Smith",
           "+0.3"
          ],
          [
@@ -123017,9 +124085,9 @@
        "n_in": 0
       },
       "pids": [
-       "806223",
-       "811315",
        "807744",
+       "811315",
+       "806223",
        "668227"
       ],
       "comps": [
@@ -127430,7 +128498,7 @@
    "n": 47,
    "seasons": 10.2,
    "rate": 2.8,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 7.8,
    "farmN": 2,
    "flows": {
@@ -127513,7 +128581,7 @@
      },
      {
       "d": "2018-12-13",
-      "h": "Got Yandy D\u00edaz, Cole Sulser for Jake Bauers",
+      "h": "Got Cole Sulser, Yandy D\u00edaz for Jake Bauers",
       "net": 8.4
      },
      {
@@ -127672,7 +128740,7 @@
      },
      {
       "d": "2025-11-18",
-      "h": "Got Yoendrys G\u00f3mez, Steven Wilson for Everson Pereira, Tanner Murray",
+      "h": "Got Steven Wilson, Yoendrys G\u00f3mez for Everson Pereira, Tanner Murray",
       "net": -0.2
      },
      {
@@ -127705,7 +128773,7 @@
     "deals": [
      {
       "d": "2024-07-28",
-      "h": "Got J.D. Gonzalez, Homer Bush Jr., Dylan Lesko for Jason Adam",
+      "h": "Got Homer Bush Jr., J.D. Gonzalez, Dylan Lesko for Jason Adam",
       "net": 0.2
      },
      {
@@ -127720,17 +128788,17 @@
      },
      {
       "d": "2020-12-29",
-      "h": "Got Francisco Mej\u00eda, Blake Hunt, Luis Pati\u00f1o, Cole Wilcox for Blake Snell",
+      "h": "Got Cole Wilcox, Blake Hunt, Francisco Mej\u00eda, Luis Pati\u00f1o for Blake Snell",
       "net": -1.8
      },
      {
       "d": "2020-02-08",
-      "h": "Got Logan Driscoll, Manuel Margot for Emilio Pag\u00e1n",
+      "h": "Got Manuel Margot, Logan Driscoll for Emilio Pag\u00e1n",
       "net": 1.8
      },
      {
       "d": "2019-12-06",
-      "h": "Got Xavier Edwards, Hunter Renfroe, Esteban Quiroz for Jake Cronenworth, Tommy Pham",
+      "h": "Got Esteban Quiroz, Xavier Edwards, Hunter Renfroe for Jake Cronenworth, Tommy Pham",
       "net": -6.1
      },
      {
@@ -127796,7 +128864,7 @@
      },
      {
       "d": "2025-12-19",
-      "h": "Got Austin Overn, Slater de Brun, Michael Forret, Caden Bodine for Shane Baz",
+      "h": "Got Austin Overn, Michael Forret, Slater de Brun, Caden Bodine for Shane Baz",
       "net": 0.5
      },
      {
@@ -127806,7 +128874,7 @@
      },
      {
       "d": "2024-07-26",
-      "h": "Got Jackson Baumeister, Matthew Etzel, Mac Horvath for Zach Eflin",
+      "h": "Got Jackson Baumeister, Mac Horvath, Matthew Etzel for Zach Eflin",
       "net": 1.9
      },
      {
@@ -127834,7 +128902,7 @@
     "deals": [
      {
       "d": "2024-07-28",
-      "h": "Got Ty Johnson, Hunter Bigge, Christopher Morel for Isaac Paredes",
+      "h": "Got Hunter Bigge, Christopher Morel, Ty Johnson for Isaac Paredes",
       "net": -4.7
      },
      {
@@ -127844,7 +128912,7 @@
      },
      {
       "d": "2023-08-01",
-      "h": "Got Adrian Sampson, Manuel Rodr\u00edguez for Josh Roberson",
+      "h": "Got Manuel Rodr\u00edguez, Adrian Sampson for Josh Roberson",
       "net": 0.8
      },
      {
@@ -128034,7 +129102,7 @@
      },
      {
       "d": "2024-07-26",
-      "h": "Got Aidan Smith, Ty Cummings, Brody Hopkins for Randy Arozarena",
+      "h": "Got Ty Cummings, Aidan Smith, Brody Hopkins for Randy Arozarena",
       "net": -6.6
      },
      {
@@ -128049,7 +129117,7 @@
      },
      {
       "d": "2021-07-29",
-      "h": "Got Austin Shenton, JT Chargois for Diego Castillo",
+      "h": "Got JT Chargois, Austin Shenton for Diego Castillo",
       "net": 0.5
      },
      {
@@ -128064,7 +129132,7 @@
      },
      {
       "d": "2018-11-08",
-      "h": "Got Michael Plassmeyer, Guillermo Heredia, Mike Zunino for Jake Fraley, Mallex Smith",
+      "h": "Got Guillermo Heredia, Mike Zunino, Michael Plassmeyer for Jake Fraley, Mallex Smith",
       "net": -2.5
      },
      {
@@ -128079,7 +129147,7 @@
      },
      {
       "d": "2017-08-06",
-      "h": "Got Luis Rengifo, Anthony Misiewicz, Osmy Gregorio for Ryan Garton, Mike Marjama",
+      "h": "Got Osmy Gregorio, Luis Rengifo, Anthony Misiewicz for Ryan Garton, Mike Marjama",
       "net": 3.2
      },
      {
@@ -128104,7 +129172,7 @@
      },
      {
       "d": "2016-11-18",
-      "h": "Got Dylan Thompson, Andrew Kittredge, Dalton Kelly for Taylor Motter, Richie Shaffer",
+      "h": "Got Dalton Kelly, Dylan Thompson, Andrew Kittredge for Taylor Motter, Richie Shaffer",
       "net": 2.0
      }
     ]
@@ -128236,7 +129304,7 @@
      },
      {
       "d": "2023-11-17",
-      "h": "Got Jake Mangum, Erick Lara, Andrew Lindsey for Calvin Faucher, Vidal Bruj\u00e1n",
+      "h": "Got Erick Lara, Andrew Lindsey, Jake Mangum for Calvin Faucher, Vidal Bruj\u00e1n",
       "net": -0.3
      }
     ]
@@ -128282,12 +129350,12 @@
      },
      {
       "d": "2018-07-25",
-      "h": "Got Brian Shaffer, Michael P\u00e9rez for Matt Andriese",
+      "h": "Got Michael P\u00e9rez, Brian Shaffer for Matt Andriese",
       "net": -1.4
      },
      {
       "d": "2018-05-01",
-      "h": "Got Colin Poche, Sam McWilliams for cash/PTBNL",
+      "h": "Got Sam McWilliams, Colin Poche for cash/PTBNL",
       "net": 1.4
      },
      {
@@ -128320,7 +129388,7 @@
      },
      {
       "d": "2026-01-12",
-      "h": "Got Ken Waldichuk, Brett Wisely for cash/PTBNL",
+      "h": "Got Brett Wisely, Ken Waldichuk for cash/PTBNL",
       "net": 0.0
      },
      {
@@ -128422,7 +129490,7 @@
     "g": 65,
     "n": 13,
     "lost": 14.7,
-    "rel": 1.03,
+    "rel": 0.95,
     "display_only": true,
     "net2": 6.3,
     "n2": 7,
@@ -131966,7 +133034,7 @@
    "n": 17,
    "seasons": 4.4,
    "rate": 1.79,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 9.6,
    "farmN": 3,
    "flows": {
@@ -132303,7 +133371,7 @@
     "g": 40,
     "n": 25,
     "lost": 57.4,
-    "rel": -0.68,
+    "rel": -0.76,
     "display_only": true,
     "net2": 3.1,
     "n2": 28,
@@ -138477,7 +139545,7 @@
    "n": 30,
    "seasons": 11.1,
    "rate": 2.36,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 8.6,
    "farmN": 3,
    "flows": {
@@ -138550,7 +139618,7 @@
      },
      {
       "d": "2018-07-26",
-      "h": "Got Brandon Drury, Billy McKinney for J.A. Happ",
+      "h": "Got Billy McKinney, Brandon Drury for J.A. Happ",
       "net": -2.3
      },
      {
@@ -138684,7 +139752,7 @@
      },
      {
       "d": "2024-07-27",
-      "h": "Got Yohendrick Pi\u00f1ango, Josh Rivera for Nate Pearson",
+      "h": "Got Josh Rivera, Yohendrick Pi\u00f1ango for Nate Pearson",
       "net": 0.4
      },
      {
@@ -138943,7 +140011,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Dasan Hill, Dameury Pena, John Klein for Jeff Hoffman",
+      "h": "Got John Klein, Dasan Hill, Dameury Pena for Jeff Hoffman",
       "net": 1.2
      },
      {
@@ -139017,7 +140085,7 @@
      },
      {
       "d": "2024-07-26",
-      "h": "Got Jacob Sharp, Jonatan Clase for Yimi Garc\u00eda",
+      "h": "Got Jonatan Clase, Jacob Sharp for Yimi Garc\u00eda",
       "net": 1.1
      },
      {
@@ -139027,7 +140095,7 @@
      },
      {
       "d": "2022-11-16",
-      "h": "Got Erik Swanson, Adam Macko for Teoscar Hern\u00e1ndez",
+      "h": "Got Adam Macko, Erik Swanson for Teoscar Hern\u00e1ndez",
       "net": -1.4
      },
      {
@@ -139198,7 +140266,7 @@
     "g": 80,
     "n": 1,
     "lost": 0.2,
-    "rel": 4.32,
+    "rel": 4.24,
     "display_only": true,
     "net2": 0.0,
     "n2": 0,
@@ -139246,11 +140314,11 @@
         "+2.2"
        ],
        [
-        "Yeremy Cabrera",
+        "Gavin Fien",
         "+0.4"
        ],
        [
-        "Gavin Fien",
+        "Yeremy Cabrera",
         "+0.4"
        ],
        [
@@ -139276,10 +140344,10 @@
      "n_in": 2
     },
     "pids": [
-     "691730",
-     "800393",
      "815818",
+     "691730",
      "694673",
+     "800393",
      "803849",
      "669022"
     ],
@@ -139412,7 +140480,7 @@
         "+0.8"
        ],
        [
-        "Josh Hartle",
+        "Kendeglys Virguez",
         "+0.4"
        ],
        [
@@ -139420,7 +140488,7 @@
         "+0.4"
        ],
        [
-        "Kendeglys Virguez",
+        "Josh Hartle",
         "+0.4"
        ]
       ]
@@ -139442,10 +140510,10 @@
      "n_in": 0
     },
     "pids": [
-     "691776",
+     "802068",
      "814455",
      "702021",
-     "802068",
+     "691776",
      "656492"
     ],
     "comps": [
@@ -139573,11 +140641,11 @@
       "Acquired (control-window value, net of salary)",
       [
        [
-        "Jack Cebert",
+        "Ben Grable",
         "+0.4"
        ],
        [
-        "Ben Grable",
+        "Jack Cebert",
         "+0.4"
        ],
        [
@@ -139608,8 +140676,8 @@
     },
     "pids": [
      "672442",
-     "701411",
      "695066",
+     "701411",
      "656234",
      "671277"
     ],
@@ -139765,11 +140833,11 @@
           "+2.2"
          ],
          [
-          "Yeremy Cabrera",
+          "Gavin Fien",
           "+0.4"
          ],
          [
-          "Gavin Fien",
+          "Yeremy Cabrera",
           "+0.4"
          ],
          [
@@ -139795,10 +140863,10 @@
        "n_in": 2
       },
       "pids": [
-       "691730",
-       "800393",
        "815818",
+       "691730",
        "694673",
+       "800393",
        "803849",
        "669022"
       ],
@@ -139856,7 +140924,7 @@
           "+0.8"
          ],
          [
-          "Josh Hartle",
+          "Kendeglys Virguez",
           "+0.4"
          ],
          [
@@ -139864,7 +140932,7 @@
           "+0.4"
          ],
          [
-          "Kendeglys Virguez",
+          "Josh Hartle",
           "+0.4"
          ]
         ]
@@ -139886,10 +140954,10 @@
        "n_in": 0
       },
       "pids": [
-       "691776",
+       "802068",
        "814455",
        "702021",
-       "802068",
+       "691776",
        "656492"
       ],
       "comps": [
@@ -140017,11 +141085,11 @@
         "Acquired (control-window value, net of salary)",
         [
          [
-          "Jack Cebert",
+          "Ben Grable",
           "+0.4"
          ],
          [
-          "Ben Grable",
+          "Jack Cebert",
           "+0.4"
          ],
          [
@@ -140052,8 +141120,8 @@
       },
       "pids": [
        "672442",
-       "701411",
        "695066",
+       "701411",
        "656234",
        "671277"
       ],
@@ -141192,7 +142260,7 @@
    "n": 3,
    "seasons": 1.3,
    "rate": 3.39,
-   "lgRate": 2.51,
+   "lgRate": 2.49,
    "farmNow": 15.6,
    "farmN": 4,
    "flows": {
@@ -141250,7 +142318,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Jake Bird, Yovanny Cruz, Ben Grable, Jack Cebert for Luis Garc\u00eda Jr.",
+      "h": "Got Ben Grable, Jack Cebert, Yovanny Cruz, Jake Bird for Luis Garc\u00eda Jr.",
       "net": 1.0
      },
      {
