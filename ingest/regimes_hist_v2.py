@@ -108,7 +108,7 @@ print(f"regimes_hist: {len(h['regimes'])} records")
 cfg = json.load(open("/work/regimes.json"))
 for r in cfg["regimes"]:
     if r["abbr"] == "NYY" and "Cashman" in r["exec"]:
-        r["start"] = "1998-02-03"
+        r["start"] = "2005-11-01"   # Nov 3, 2026: graded from his post-2005 contract; 1998-2005 is an archive record (ownership era)
         r["flags"] = [f for f in r.get("flags", []) if f != "truncated"]
 cfg["aliases"].setdefault("120", ["Washington Nationals"])
 if "Montreal Expos" not in cfg["aliases"]["120"]:
