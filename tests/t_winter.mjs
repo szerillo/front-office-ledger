@@ -161,6 +161,11 @@ const r = await d.page.evaluate(async () => {
     o.cashmanSplit = !!ny && String(ny.startDate) === '2005-11-01' && !!ar && (ar.flags || []).includes('ownership era') && +ar.start === 1998; }
   { const ny = lbRows().find(r => abOf(r) === 'NYY' && !r._hist); const w = (ny.allx || {}).waiver || [];
     o.waiverClaimLossPaired = !w.some(x => x[1] === 'Dan Otero') || w.filter(x => x[1] === 'Dan Otero').length === 1 && Math.abs(w.find(x => x[1] === 'Dan Otero')[3]) < 0.5; }
+  // Nov 3 (night): market price leans on the published projections; the board says where we disagree
+  { const P = n => DESK.players.find(x => x[0] === n); const k = dkSuggest(P('Michael King'), 'fa', null), sk = dkSuggest(P('Tarik Skubal'), 'fa', null);
+    o.marketConsensusLoaded = Object.keys(DESK.cons || {}).length >= 45 && !!k.cons && k.sugTot >= 75 && sk.sugTot >= 330;
+    switchView('boards'); const b = [...document.querySelectorAll('button')].find(b => b.dataset && b.dataset.tab === 'fa'); if(b) b.click();
+    o.faBoardLedgerView = /Ledger view/.test(document.getElementById('view-boards').innerText) && /Value buy|About right|Paid above value/.test(document.getElementById('view-boards').innerText); }
   o.treeStartsAtDraft = /drafted by DET/.test(careerTree('669373').kids[0].via) && /pick 255 overall · \$350K/.test(careerTree('669373').kids[0].nm);
   o.treeStartsAtIntl = /international amateur by WSH/.test(careerTree('665742').kids[0].via) && careerTree('665833').kids.filter(k => /2015-07-02/.test(k.via)).length === 1;
   o.draftee2027Zero = Object.keys(DESK.draft26 || {}).slice(0, 20).every(id => { const p = DESK.players.find(x => String(x[1]) === id); return !p || (DESK.deb26 || {})[id] || gmProsY1(p) === 0; });
