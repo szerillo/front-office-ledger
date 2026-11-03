@@ -165,7 +165,16 @@ const r = await d.page.evaluate(async () => {
   { const P = n => DESK.players.find(x => x[0] === n); const k = dkSuggest(P('Michael King'), 'fa', null), sk = dkSuggest(P('Tarik Skubal'), 'fa', null);
     o.marketConsensusLoaded = Object.keys(DESK.cons || {}).length >= 45 && !!k.cons && k.sugTot >= 75 && sk.sugTot >= 330;
     switchView('boards'); const b = [...document.querySelectorAll('button')].find(b => b.dataset && b.dataset.tab === 'fa'); if(b) b.click();
-    o.faBoardLedgerView = /Ledger view/.test(document.getElementById('view-boards').innerText) && /Value buy|About right|Paid above value/.test(document.getElementById('view-boards').innerText); }
+    o.faBoardFairOffer = /Fair Ledger offer/.test(document.getElementById('view-boards').innerText) && /market pays|under our value|about even/.test(document.getElementById('view-boards').innerText); }
+  // Nov 3 (late): org ranks count the Top 100 above them; real QOs; the simulator's trades read on the Deal Desk sheet; FA list on the right
+  { const sea = DESK.players.filter(p => p[2] === 'SEA' && !p[9] && (DESK.pros||{})[p[1]] && !(DESK.deb26||{})[p[1]]).sort((a, b) => DESK.pros[a[1]][4] - DESK.pros[b[1]][4])[0];
+    const nT = DESK.players.filter(p => p[2] === 'SEA' && p[9] > 0 && !(DESK.deb26||{})[p[1]]).length;
+    o.orgRankCountsTop100 = !sea || gmOrgRank(sea) === nT + 1; }
+  o.realQOs = Object.keys(DESK.qo27 || {}).length === 8 && !document.getElementById('dk-fa-qo');
+  switchView('gm'); { const sel = document.getElementById('gm-club'); sel.value = 'BOS'; gmStart(); gmState.stage = 2; gmState.open.tab = 'trade'; gmShow(); gmPickThem('PIT');
+    const P = n => DESK.players.find(x => x[0] === n); gmTrAdd('want','player',P('Oneil Cruz')[1],0,'Oneil Cruz'); gmTrAdd('give','player',P('Jarren Duran')[1],0,'Jarren Duran');
+    o.simDealSheet = !!document.querySelector('#gmbody .dk-sheet .m-type') && /Market comps/i.test(document.getElementById('gmbody').textContent);
+    gmState.open.tab = 'fa'; gmShow(); o.simFaListRight = !!document.querySelector('.gm-fa-grid .gm-fa-list .gm-fa-row') && !!document.querySelector('#gm-fa-main [id^="gm-ny-"]'); }
   o.treeStartsAtDraft = /drafted by DET/.test(careerTree('669373').kids[0].via) && /pick 255 overall · \$350K/.test(careerTree('669373').kids[0].nm);
   o.treeStartsAtIntl = /international amateur by WSH/.test(careerTree('665742').kids[0].via) && careerTree('665833').kids.filter(k => /2015-07-02/.test(k.via)).length === 1;
   o.draftee2027Zero = Object.keys(DESK.draft26 || {}).slice(0, 20).every(id => { const p = DESK.players.find(x => String(x[1]) === id); return !p || (DESK.deb26 || {})[id] || gmProsY1(p) === 0; });

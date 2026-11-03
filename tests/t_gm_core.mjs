@@ -29,6 +29,7 @@ const r = await page.evaluate(() => {
   gmShow();
   const one = asks.filter(o => o.n.ask.yrs === 1).sort((a, b) => b.n.ask.tot - a.n.ask.tot)[0];
   if(one){
+    gmState.open.sel = one.x[1]; gmShow();
     document.getElementById('gm-ny-' + one.x[1]).value = 2;
     document.getElementById('gm-nt-' + one.x[1]).value = one.n.ask.tot + 1;
     gmOffer(one.x[1], 0);
