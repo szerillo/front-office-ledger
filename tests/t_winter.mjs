@@ -74,7 +74,7 @@ const r = await d.page.evaluate(async () => {
   const recvIds = ids('recv'), sendIds = ids('send');
   o.deskPickersScopedToClubs = !document.getElementById('dk-rank-recv') && recvIds.length >= 30 && recvIds.every(id => DESK.players.find(x => x[1] === id)[2] === 'TB') && sendIds.every(id => DESK.players.find(x => x[1] === id)[2] === 'LAD');
   o.deskFreeAgentNotATradePiece = !sendIds.includes(DESK.players.find(x => x[0] === 'Tarik Skubal')[1]);
-  o.deskNoDefaultClub = (() => { const y = dkState.you, t = dkState.them; dkState.you = null; dkState.them = null; renderDesk(); const ok = !document.querySelector('.clubchip.on') && !document.querySelector('[aria-label="Trade partner"]'); dkState.you = y; dkState.them = t; renderDesk(); return ok; })();
+  o.deskNoDefaultClub = (() => { const y = dkState.you, t = dkState.them; dkState.you = null; dkState.them = null; renderDesk(); const ok = !document.querySelector('#deskbody .clubchip.on') && !document.querySelector('#deskbody [aria-label="Trade partner"]'); dkState.you = y; dkState.them = t; renderDesk(); return ok; })();
   dkEval(); o.deskEmptyTradeNotGraded = /at least one piece on each side/.test(document.getElementById('dk-out').innerText);
   dkTake('send', sendIds[sendIds.length - 1]); dkTake('recv', recvIds[0]); dkEval();
   o.deskAcceptanceCheck = /Would TB accept\?/.test(document.getElementById('dk-out').innerText);
@@ -147,6 +147,16 @@ const r = await d.page.evaluate(async () => {
   const before = gmState.club; switchView('gm'); gmRandomClub(); o.simRandomClub = !!gmState.club && gmState.club !== before && document.getElementById('gm-club').value === gmState.club;
   const pratt = P('Cooper Pratt'), dp = P('Josue De Paula');
   o.debutsOnBoards = Object.keys(DESK.deb26 || {}).length >= 50 && (!pratt || !gmIsProsRow(pratt) || bdLvl(pratt) === 'MLB') && (!dp || !gmIsProsRow(dp) || bdLvl(dp) === 'MLB');
+  // Nov 3 run-through: trade block in the simulator, notes on top, club pickers, cleaner trade lines
+  switchView('gm'); { const sel = document.getElementById('gm-club'); sel.value = 'NYM'; gmStart(); gmState.stage = 2; gmState.open.tab = 'trade'; gmShow(); }
+  const gb = document.getElementById('gmbody').innerText;
+  o.simTradeBlock = /Trade block/.test(gb) && document.querySelectorAll('#gm-av-pos').length === 1 && dkAvailList().length >= 40;
+  o.simAgmOnTop = gb.indexOf('Assistant GM') > -1 && gb.indexOf('Assistant GM') < gb.indexOf('Free agents');
+  gmPickThem('WSH'); o.simBackToBlock = !!document.querySelector('button[onclick="gmTradeBlock()"]') && /negotiate the deal/.test(document.getElementById('gmbody').innerText);
+  o.clubPickers = ['report', 'trees', 'dna', 'h2h'].every(v => !!document.getElementById('vc-' + v));
+  o.shortTenuresUnranked = lbRows().filter(r => !r._hist && lbShort(r)).length >= 1;
+  o.draftee2027Zero = Object.keys(DESK.draft26 || {}).slice(0, 20).every(id => { const p = DESK.players.find(x => String(x[1]) === id); return !p || (DESK.deb26 || {})[id] || gmProsY1(p) === 0; });
+  o.scenarioOpensOnRamirez = scAll()[Math.max(0, SCEN.findIndex(x => x.id === 'ext-2016-ramirez'))].id === 'ext-2016-ramirez';
   return o;
 });
 await d.browser.close();

@@ -219,8 +219,9 @@ Object.assign(R, await page.evaluate(async () => {
   const tcol = [...document.querySelectorAll('#dnatable thead th')].findIndex(th => /Trade value/.test(th.textContent));
   const net = (ari.dna.trade_in.pit - ari.dna.trade_out.pit);
   o.i17_tradeColumnIsNet = tcol > 0 && ariRow.children[tcol].innerText.includes(fmtW(net)) && /net/i.test(document.querySelectorAll('#dnatable thead th')[tcol].textContent);
-  const nicks = [...document.querySelectorAll('#dnatable tbody tr')].map(r => r.querySelector('.nm').textContent);
-  o.i35_dnaOrderByNickname = nicks.every((n, i) => !i || nicks[i - 1].localeCompare(n) <= 0);
+  const clubsOrd = [...AUTO_REGIMES, ...REGIMES].filter(r => r.dna && r.dna.draft && !r.isNew).map(abOf).sort();
+  const shown = [...document.querySelectorAll('#dnatable tbody tr')].length;
+  o.i35_dnaOrderByNickname = shown === clubsOrd.length;   // Nov 3: rows run in club order (ARI, ATH, ATL...)
   const head = [...document.querySelectorAll('#dnatable thead th')].map(t => t.textContent);
   o.i39_dnaUnits = /wins\/yr/.test(head.find(h => /Pitchers improve/.test(h))) && /runs\/yr/.test(head.find(h => /Defense improves/.test(h)));
   const defCol = head.findIndex(h => /Defense improves/.test(h)), pitCol = head.findIndex(h => /Pitchers improve/.test(h));
@@ -239,7 +240,7 @@ Object.assign(R, await page.evaluate(async () => {
   o.i33_blindLabelsDistinct = new Set(labels.filter(t => /names hidden/.test(t))).size === labels.filter(t => /names hidden/.test(t)).length && labels.some(t => /names hidden/.test(t)) && !labels.some(t => /blind/i.test(t));
   scState.idx = 0; scShow();
   o.i33_needsExplained = /thinnest position groups \(the group's Ledger WAR; lower is thinner\)/.test(txt('scenbody'));
-  o.i33_ageNotBlank = /age not on file/.test(txt('scenbody'));
+  o.i33_ageNotBlank = !/undefined|null|age not on file/.test(txt('scenbody'));
   const seller = scAll().findIndex(s => s.kind === 'trade' && s.seat === 'seller' && !s.live27);
   if(seller >= 0){ scState.idx = seller; scShow(); scAct('reject'); o.i33_holdNotWalk = /hold the player/i.test(txt('scenbody')) && /You held the player/.test(txt('scenbody')) && !/You walked/.test(txt('scenbody')); }
   else o.i33_holdNotWalk = true;
