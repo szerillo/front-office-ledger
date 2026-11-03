@@ -724,26 +724,8 @@
      "Florida Marlins signed free agent Iv\u00e1n Rodr\u00edguez. (Retrosheet archive)",
      "2003-01-28",
      "reg",
-     5.2,
+     5.7,
      "121358"
-    ],
-    [
-     "Mike Lowell",
-     "trade",
-     "New York Yankees traded Mike Lowell to Florida Marlins; Florida Marlins traded Mark Johnson, Todd Noel, Ed Yarnall to New York Yankees\u2026",
-     "1999-02-01",
-     "inh",
-     4.6,
-     "136780"
-    ],
-    [
-     "Derrek Lee",
-     "trade",
-     "Florida Marlins traded Kevin Brown to San Diego Padres; San Diego Padres traded Steve Hoff, Derrek Lee, Rafael Medina to Florida Marlins\u2026",
-     "1997-12-15",
-     "inh",
-     4.1,
-     "117601"
     ],
     [
      "Luis Castillo",
@@ -751,8 +733,35 @@
      "Came up through the club's system (earliest assignment on file: Kane County Cougars, 1995)",
      "1995-04-08",
      "inh",
-     4.0,
+     4.8,
      "112116"
+    ],
+    [
+     "Mike Lowell",
+     "trade",
+     "New York Yankees traded Mike Lowell to Florida Marlins; Florida Marlins traded Mark Johnson, Todd Noel, Ed Yarnall to New York Yankees\u2026",
+     "1999-02-01",
+     "inh",
+     4.1,
+     "136780"
+    ],
+    [
+     "Juan Pierre",
+     "trade",
+     "Colorado Rockies traded player, Juan Pierre, Mike Hampton to Florida Marlins; Florida Marlins traded Charles Johnson, Preston Wilson, Vic\u2026",
+     "2002-11-16",
+     "reg",
+     3.8,
+     "334393"
+    ],
+    [
+     "Derrek Lee",
+     "trade",
+     "Florida Marlins traded Kevin Brown to San Diego Padres; San Diego Padres traded Steve Hoff, Derrek Lee, Rafael Medina to Florida Marlins\u2026",
+     "1997-12-15",
+     "inh",
+     3.4,
+     "117601"
     ],
     [
      "Josh Beckett",
@@ -773,24 +782,6 @@
      "425883"
     ],
     [
-     "Juan Pierre",
-     "trade",
-     "Colorado Rockies traded player, Juan Pierre, Mike Hampton to Florida Marlins; Florida Marlins traded Charles Johnson, Preston Wilson, Vic\u2026",
-     "2002-11-16",
-     "reg",
-     3.1,
-     "334393"
-    ],
-    [
-     "\u00c1lex Gonz\u00e1lez",
-     "intl",
-     "Came up through the club's system (earliest assignment on file: Kane County Cougars, 1996)",
-     "1996-08-17",
-     "inh",
-     2.5,
-     "136460"
-    ],
-    [
      "Carl Pavano",
      "trade",
      "Florida Marlins traded player, Cliff Floyd, Wilton Guerrero, Claudio Vargas to Montreal Expos; Montreal Expos traded Graeme Lloyd, Mike\u2026",
@@ -798,6 +789,15 @@
      "reg",
      2.4,
      "134321"
+    ],
+    [
+     "\u00c1lex Gonz\u00e1lez",
+     "intl",
+     "Came up through the club's system (earliest assignment on file: Kane County Cougars, 1996)",
+     "1996-08-17",
+     "inh",
+     2.3,
+     "136460"
     ],
     [
      "Brad Penny",
@@ -827,21 +827,12 @@
      "131702"
     ],
     [
-     "Juan Encarnacion",
-     "trade",
-     "Florida Marlins traded Ryan Dempster to Cincinnati Reds; Cincinnati Reds traded Juan Encarnaci\u00f3n, Wilton Guerrero, Ryan Snare to Florida\u2026",
-     "2002-07-11",
-     "reg",
-     1.7,
-     "113845"
-    ],
-    [
      "Miguel Cabrera",
      "intl",
      "Came up through the club's system (earliest assignment on file: GCL Marlins, 2000)",
      "2000-06-19",
      "inh",
-     1.5,
+     1.3,
      "408234"
     ],
     [
@@ -861,6 +852,15 @@
      "reg",
      1.1,
      "123584"
+    ],
+    [
+     "Tommy Phelps",
+     "fa",
+     "Florida Marlins signed free agent Tommy Phelps. (Retrosheet archive)",
+     "2002-12-19",
+     "reg",
+     1.1,
+     "425882"
     ]
    ]
   },
@@ -884,15 +884,6 @@
      "121811"
     ],
     [
-     "Manny Ramirez",
-     "fa",
-     "Boston Red Sox signed free agent Manny Ramirez. (Retrosheet archive)",
-     "2000-12-19",
-     "inh",
-     6.0,
-     "120903"
-    ],
-    [
      "Pedro Mart\u00ednez",
      "trade",
      "Boston Red Sox traded Carl Pavano, Tony Armas to Montreal Expos; Montreal Expos traded Pedro Mart\u00ednez to Boston Red Sox (Retrosheet archive)",
@@ -902,22 +893,13 @@
      "118377"
     ],
     [
-     "Johnny Damon",
+     "Manny Ramirez",
      "fa",
-     "Boston Red Sox signed free agent Johnny Damon. (Retrosheet archive)",
-     "2001-12-21",
+     "Boston Red Sox signed free agent Manny Ramirez. (Retrosheet archive)",
+     "2000-12-19",
      "inh",
-     4.7,
-     "113028"
-    ],
-    [
-     "David Ortiz",
-     "fa",
-     "Boston Red Sox signed free agent David Ortiz. (Retrosheet archive)",
-     "2003-01-22",
-     "reg",
-     4.7,
-     "120074"
+     4.8,
+     "120903"
     ],
     [
      "Jason Varitek",
@@ -925,8 +907,35 @@
      "Boston Red Sox traded Heathcliff Slocumb to Seattle Mariners; Seattle Mariners traded Derek Lowe, Jason Varitek to Boston Red Sox\u2026",
      "1997-07-31",
      "inh",
-     4.6,
+     4.7,
      "123660"
+    ],
+    [
+     "David Ortiz",
+     "fa",
+     "Boston Red Sox signed free agent David Ortiz. (Retrosheet archive)",
+     "2003-01-22",
+     "reg",
+     4.6,
+     "120074"
+    ],
+    [
+     "Johnny Damon",
+     "fa",
+     "Boston Red Sox signed free agent Johnny Damon. (Retrosheet archive)",
+     "2001-12-21",
+     "inh",
+     3.6,
+     "113028"
+    ],
+    [
+     "Mark Bellhorn",
+     "trade",
+     "Acquired from the Colorado Rockies in a trade, Dec 2003",
+     "2003-12",
+     "reg",
+     3.6,
+     "110840"
     ],
     [
      "Bronson Arroyo",
@@ -936,15 +945,6 @@
      "reg",
      3.5,
      "276520"
-    ],
-    [
-     "Mark Bellhorn",
-     "trade",
-     "Acquired from the Colorado Rockies in a trade, Dec 2003",
-     "2003-12",
-     "reg",
-     3.4,
-     "110840"
     ],
     [
      "Derek Lowe",
@@ -961,17 +961,8 @@
      "Purchased from the Florida Marlins, Feb 2003",
      "2003-02",
      "reg",
-     2.8,
+     2.9,
      "132788"
-    ],
-    [
-     "Bill Mueller",
-     "fa",
-     "Boston Red Sox signed free agent Bill Mueller. (Retrosheet archive)",
-     "2003-01-10",
-     "reg",
-     2.3,
-     "119482"
     ],
     [
      "Keith Foulke",
@@ -983,13 +974,31 @@
      "114342"
     ],
     [
-     "Doug Mirabelli",
+     "Orlando Cabrera",
      "trade",
-     "Texas Rangers traded Doug Mirabelli to Boston Red Sox; Boston Red Sox traded Justin Duchscherer to Texas Rangers (Retrosheet archive)",
-     "2001-06-12",
-     "inh",
+     "Boston Red Sox traded Nomar Garciaparra, Matt Murton to Chicago Cubs; Chicago Cubs traded Brendan Harris, Alex Gonzalez, Francis Beltr\u00e1n to\u2026",
+     "2004-07-31",
+     "reg",
+     1.8,
+     "111851"
+    ],
+    [
+     "Bill Mueller",
+     "fa",
+     "Boston Red Sox signed free agent Bill Mueller. (Retrosheet archive)",
+     "2003-01-10",
+     "reg",
      1.7,
-     "119182"
+     "119482"
+    ],
+    [
+     "Kevin Youkilis",
+     "draft",
+     "Drafted by the club, 2001",
+     "2001-06-05",
+     "inh",
+     1.6,
+     "425903"
     ],
     [
      "Mike Timlin",
@@ -1008,15 +1017,6 @@
      "inh",
      1.3,
      "123801"
-    ],
-    [
-     "Nomar Garciaparra",
-     "draft",
-     "Drafted by the club, 1994 (round 1, pick 12)",
-     "1994-06-15",
-     "inh",
-     1.2,
-     "114596"
     ]
    ]
   },
@@ -1045,7 +1045,7 @@
      "Chicago White Sox traded Mike Cameron to Cincinnati Reds; Cincinnati Reds traded Paul Konerko to Chicago White Sox (Retrosheet archive)",
      "1998-11-11",
      "inh",
-     4.1,
+     4.2,
      "117244"
     ],
     [
@@ -1056,6 +1056,15 @@
      "reg",
      3.5,
      "150119"
+    ],
+    [
+     "Aaron Rowand",
+     "draft",
+     "Drafted by the club, 1998",
+     "1998-06-02",
+     "inh",
+     3.3,
+     "400023"
     ],
     [
      "Jon Garland",
@@ -1081,7 +1090,7 @@
      "Chicago White Sox signed free agent Jermaine Dye. (Retrosheet archive)",
      "2004-12-09",
      "reg",
-     2.8,
+     2.7,
      "113679"
     ],
     [
@@ -1090,8 +1099,26 @@
      "Chicago White Sox signed free agent Tadahito Iguchi. (Retrosheet archive)",
      "2005-01-27",
      "reg",
-     2.6,
+     2.7,
      "435338"
+    ],
+    [
+     "Juan Uribe",
+     "trade",
+     "Colorado Rockies traded Juan Uribe to Chicago White Sox; Chicago White Sox traded Aaron Miles to Colorado Rockies (Retrosheet archive)",
+     "2003-12-02",
+     "reg",
+     2.0,
+     "346874"
+    ],
+    [
+     "Joe Crede",
+     "draft",
+     "Drafted by the club, 1996 (round 5, pick 137)",
+     "1996-06-15",
+     "inh",
+     1.8,
+     "150317"
     ],
     [
      "A.J. Pierzynski",
@@ -1099,17 +1126,8 @@
      "Chicago White Sox signed free agent A. J. Pierzynski. (Retrosheet archive)",
      "2005-01-06",
      "reg",
-     2.0,
+     1.7,
      "150229"
-    ],
-    [
-     "Aaron Rowand",
-     "draft",
-     "Drafted by the club, 1998",
-     "1998-06-02",
-     "inh",
-     1.9,
-     "400023"
     ],
     [
      "Neal Cotts",
@@ -1121,24 +1139,6 @@
      "425840"
     ],
     [
-     "Joe Crede",
-     "draft",
-     "Drafted by the club, 1996 (round 5, pick 137)",
-     "1996-06-15",
-     "inh",
-     1.5,
-     "150317"
-    ],
-    [
-     "Juan Uribe",
-     "trade",
-     "Colorado Rockies traded Juan Uribe to Chicago White Sox; Chicago White Sox traded Aaron Miles to Colorado Rockies (Retrosheet archive)",
-     "2003-12-02",
-     "reg",
-     1.4,
-     "346874"
-    ],
-    [
      "Cliff Politte",
      "fa",
      "Chicago White Sox signed free agent Cliff Politte. (Retrosheet archive)",
@@ -1146,6 +1146,15 @@
      "reg",
      1.4,
      "131700"
+    ],
+    [
+     "Scott Podsednik",
+     "trade",
+     "Milwaukee Brewers traded Scott Podsednik, Luis Vizca\u00edno, Travis Hinton to Chicago White Sox; Chicago White Sox traded Carlos Lee to\u2026",
+     "2004-12-13",
+     "reg",
+     1.3,
+     "325392"
     ],
     [
      "Bobby Jenks",
@@ -1183,7 +1192,7 @@
      "Drafted by the club, 1999",
      "1999-06-02",
      "reg",
-     7.4,
+     9.1,
      "405395"
     ],
     [
@@ -1192,7 +1201,7 @@
      "Philadelphia Phillies traded player, Scott Rolen, Doug Nickle to St. Louis Cardinals; St. Louis Cardinals traded Pl\u00e1cido Polanco, Mike\u2026",
      "2002-07-29",
      "reg",
-     4.5,
+     6.1,
      "121409"
     ],
     [
@@ -1210,17 +1219,8 @@
      "Drafted by the club, 1999",
      "1999-06-02",
      "reg",
-     2.6,
+     2.3,
      "408219"
-    ],
-    [
-     "Jim Edmonds",
-     "trade",
-     "St. Louis Cardinals traded Kent Bottenfield, Adam Kennedy to Anaheim Angels; Anaheim Angels traded Jim Edmonds to St. Louis Cardinals\u2026",
-     "2000-03-23",
-     "reg",
-     2.1,
-     "113744"
     ],
     [
      "Adam Wainwright",
@@ -1232,6 +1232,15 @@
      "425794"
     ],
     [
+     "David Eckstein",
+     "fa",
+     "St. Louis Cardinals signed free agent David Eckstein. (Retrosheet archive)",
+     "2004-12-23",
+     "reg",
+     1.9,
+     "275930"
+    ],
+    [
      "Scott Spiezio",
      "fa",
      "St. Louis Cardinals signed free agent Scott Spiezio. (Retrosheet archive)",
@@ -1241,6 +1250,15 @@
      "122596"
     ],
     [
+     "Jim Edmonds",
+     "trade",
+     "St. Louis Cardinals traded Kent Bottenfield, Adam Kennedy to Anaheim Angels; Anaheim Angels traded Jim Edmonds to St. Louis Cardinals\u2026",
+     "2000-03-23",
+     "reg",
+     1.8,
+     "113744"
+    ],
+    [
      "Braden Looper",
      "fa",
      "St. Louis Cardinals signed free agent Braden Looper. (Retrosheet archive)",
@@ -1248,15 +1266,6 @@
      "reg",
      1.7,
      "131702"
-    ],
-    [
-     "David Eckstein",
-     "fa",
-     "St. Louis Cardinals signed free agent David Eckstein. (Retrosheet archive)",
-     "2004-12-23",
-     "reg",
-     1.5,
-     "275930"
     ],
     [
      "Jeff Suppan",
@@ -1273,7 +1282,7 @@
      "St. Louis Cardinals signed free agent Juan Encarnaci\u00f3n. (Retrosheet archive)",
      "2006-01-10",
      "reg",
-     1.1,
+     1.4,
      "113845"
     ]
    ]
@@ -1294,7 +1303,7 @@
      "Boston Red Sox signed free agent David Ortiz. (Retrosheet archive)",
      "2003-01-22",
      "reg",
-     6.7,
+     6.6,
      "120074"
     ],
     [
@@ -1312,8 +1321,17 @@
      "Florida Marlins traded Josh Beckett, Mike Lowell, Guillermo Mota to Boston Red Sox; Boston Red Sox traded Hanley Ram\u00edrez, An\u00edbal S\u00e1nchez\u2026",
      "2005-11-24",
      "reg",
-     4.7,
+     5.2,
      "136780"
+    ],
+    [
+     "Kevin Youkilis",
+     "draft",
+     "Drafted by the club, 2001",
+     "2001-06-05",
+     "inh",
+     3.8,
+     "425903"
     ],
     [
      "Dustin Pedroia",
@@ -1321,8 +1339,17 @@
      "Drafted by the club, 2004",
      "2004-06-07",
      "reg",
-     3.3,
+     3.5,
      "456030"
+    ],
+    [
+     "Jason Varitek",
+     "fa",
+     "Boston Red Sox signed free agent Jason Varitek. (Retrosheet archive)",
+     "2004-12-24",
+     "reg",
+     3.3,
+     "123660"
     ],
     [
      "Daisuke Matsuzaka",
@@ -1334,33 +1361,6 @@
      "493137"
     ],
     [
-     "Jason Varitek",
-     "fa",
-     "Boston Red Sox signed free agent Jason Varitek. (Retrosheet archive)",
-     "2004-12-24",
-     "reg",
-     3.0,
-     "123660"
-    ],
-    [
-     "Manny Ramirez",
-     "fa",
-     "Boston Red Sox signed free agent Manny Ramirez. (Retrosheet archive)",
-     "2000-12-19",
-     "inh",
-     3.0,
-     "120903"
-    ],
-    [
-     "Kevin Youkilis",
-     "draft",
-     "Drafted by the club, 2001",
-     "2001-06-05",
-     "inh",
-     2.7,
-     "425903"
-    ],
-    [
      "Curt Schilling",
      "trade",
      "Boston Red Sox traded Casey Fossum, Brandon Lyon, Jorge De La Rosa, Mike Goss to Arizona Diamondbacks; Arizona Diamondbacks traded Curt\u2026",
@@ -1368,6 +1368,15 @@
      "reg",
      2.6,
      "121811"
+    ],
+    [
+     "Coco Crisp",
+     "trade",
+     "Boston Red Sox traded player, Guillermo Mota, Andy Marte, Kelly Shoppach, Randy Newsom to Cleveland Indians; Cleveland Indians traded Coco\u2026",
+     "2006-01-27",
+     "reg",
+     2.5,
+     "424825"
     ],
     [
      "Tim Wakefield",
@@ -1397,13 +1406,13 @@
      "506606"
     ],
     [
-     "J.D. Drew",
+     "Manny Ramirez",
      "fa",
-     "Boston Red Sox signed free agent J. D. Drew. (Retrosheet archive)",
-     "2007-02-14",
-     "reg",
-     1.5,
-     "136770"
+     "Boston Red Sox signed free agent Manny Ramirez. (Retrosheet archive)",
+     "2000-12-19",
+     "inh",
+     1.7,
+     "120903"
     ],
     [
      "Julian Tavarez",
@@ -1413,6 +1422,15 @@
      "reg",
      1.5,
      "123118"
+    ],
+    [
+     "J.D. Drew",
+     "fa",
+     "Boston Red Sox signed free agent J. D. Drew. (Retrosheet archive)",
+     "2007-02-14",
+     "reg",
+     1.2,
+     "136770"
     ]
    ]
   },
@@ -1432,17 +1450,26 @@
      "Drafted by the club, 2000",
      "2000-06-05",
      "inh",
-     6.3,
+     9.4,
      "400284"
     ],
     [
-     "Pat Burrell",
+     "Jimmy Rollins",
      "draft",
-     "Drafted by the club, 1998",
-     "1998-06-02",
+     "Drafted by the club, 1996 (round 2, pick 46)",
+     "1996-06-15",
      "inh",
-     3.9,
-     "150100"
+     5.3,
+     "276519"
+    ],
+    [
+     "Shane Victorino",
+     "trade",
+     "Philadelphia Phillies selected Shane Victorino in the Rule 5 draft. (Retrosheet archive)",
+     "2004-12-13",
+     "inh",
+     4.3,
+     "425664"
     ],
     [
      "Cole Hamels",
@@ -1454,22 +1481,22 @@
      "430935"
     ],
     [
-     "Jimmy Rollins",
-     "draft",
-     "Drafted by the club, 1996 (round 2, pick 46)",
-     "1996-06-15",
-     "inh",
-     3.5,
-     "276519"
+     "Jayson Werth",
+     "fa",
+     "Philadelphia Phillies signed free agent Jayson Werth. (Retrosheet archive)",
+     "2006-12-19",
+     "reg",
+     3.7,
+     "150029"
     ],
     [
-     "Shane Victorino",
-     "trade",
-     "Philadelphia Phillies selected Shane Victorino in the Rule 5 draft. (Retrosheet archive)",
-     "2004-12-13",
+     "Pat Burrell",
+     "draft",
+     "Drafted by the club, 1998",
+     "1998-06-02",
      "inh",
-     3.4,
-     "425664"
+     3.6,
+     "150100"
     ],
     [
      "Ryan Howard",
@@ -1477,17 +1504,8 @@
      "Drafted by the club, 2001",
      "2001-06-05",
      "inh",
-     3.3,
-     "429667"
-    ],
-    [
-     "Jayson Werth",
-     "fa",
-     "Philadelphia Phillies signed free agent Jayson Werth. (Retrosheet archive)",
-     "2006-12-19",
-     "reg",
      3.0,
-     "150029"
+     "429667"
     ],
     [
      "Brad Lidge",
@@ -1508,15 +1526,6 @@
      "425492"
     ],
     [
-     "Chris Coste",
-     "fa",
-     "Philadelphia Phillies signed free agent Chris Coste. (Retrosheet archive)",
-     "2005-11-15",
-     "reg",
-     1.6,
-     "400120"
-    ],
-    [
      "Jamie Moyer",
      "trade",
      "Seattle Mariners traded Jamie Moyer to Philadelphia Phillies; Philadelphia Phillies traded Andrew Baldwin, Andy Barb to Seattle Mariners\u2026",
@@ -1524,6 +1533,15 @@
      "reg",
      1.6,
      "119469"
+    ],
+    [
+     "Chris Coste",
+     "fa",
+     "Philadelphia Phillies signed free agent Chris Coste. (Retrosheet archive)",
+     "2005-11-15",
+     "reg",
+     1.5,
+     "400120"
     ],
     [
      "Chad Durbin",
@@ -1535,12 +1553,21 @@
      "239795"
     ],
     [
+     "Pedro Feliz",
+     "fa",
+     "Philadelphia Phillies signed free agent Pedro Feliz. (Retrosheet archive)",
+     "2008-01-28",
+     "reg",
+     1.2,
+     "150268"
+    ],
+    [
      "Greg Dobbs",
      "trade",
      "Philadelphia Phillies claimed Greg Dobbs off waivers. (Retrosheet archive)",
      "2007-01-15",
      "reg",
-     1.3,
+     1.2,
      "425785"
     ]
    ]
@@ -1561,8 +1588,17 @@
      "Drafted by the club, 1992 (round 1, pick 6)",
      "1992-06-15",
      "inh",
-     6.4,
+     6.7,
      "116539"
+    ],
+    [
+     "Mark Teixeira",
+     "fa",
+     "Signed as a free agent, 8 yr / $180M (contract book, signed 2008-12)",
+     "2008-12",
+     "reg",
+     5.5,
+     "407893"
     ],
     [
      "CC Sabathia",
@@ -1574,24 +1610,6 @@
      "282332"
     ],
     [
-     "Mark Teixeira",
-     "fa",
-     "Signed as a free agent, 8 yr / $180M (contract book, signed 2008-12)",
-     "2008-12",
-     "reg",
-     5.3,
-     "407893"
-    ],
-    [
-     "Alex Rodriguez",
-     "fa",
-     "New York Yankees signed free agent Alex Rodriguez. (Retrosheet archive)",
-     "2007-12-13",
-     "reg",
-     5.1,
-     "121347"
-    ],
-    [
      "Robinson Can\u00f3",
      "intl",
      "Came up through the club's system (earliest assignment on file: Greensboro Bats, 2002)",
@@ -1601,22 +1619,13 @@
      "429664"
     ],
     [
-     "Jorge Posada",
+     "Alex Rodriguez",
      "fa",
-     "New York Yankees signed free agent Jorge Posada. (Retrosheet archive)",
-     "2007-11-13",
+     "New York Yankees signed free agent Alex Rodriguez. (Retrosheet archive)",
+     "2007-12-13",
      "reg",
-     4.0,
-     "120691"
-    ],
-    [
-     "Nick Swisher",
-     "trade",
-     "New York Yankees traded Wilson Betemit, Jeff Marquez, Jhonny N\u00fa\u00f1ez to Chicago White Sox; Chicago White Sox traded Nick Swisher, Kanekoa\u2026",
-     "2008-11-13",
-     "reg",
-     3.6,
-     "430897"
+     4.7,
+     "121347"
     ],
     [
      "Johnny Damon",
@@ -1624,8 +1633,17 @@
      "New York Yankees signed free agent Johnny Damon. (Retrosheet archive)",
      "2006-01-03",
      "reg",
-     3.5,
+     3.9,
      "113028"
+    ],
+    [
+     "Nick Swisher",
+     "trade",
+     "New York Yankees traded Wilson Betemit, Jeff Marquez, Jhonny N\u00fa\u00f1ez to Chicago White Sox; Chicago White Sox traded Nick Swisher, Kanekoa\u2026",
+     "2008-11-13",
+     "reg",
+     3.1,
+     "430897"
     ],
     [
      "Andy Pettitte",
@@ -1644,6 +1662,15 @@
      "reg",
      2.7,
      "150359"
+    ],
+    [
+     "Jorge Posada",
+     "fa",
+     "New York Yankees signed free agent Jorge Posada. (Retrosheet archive)",
+     "2007-11-13",
+     "reg",
+     2.5,
+     "120691"
     ],
     [
      "Hideki Matsui",
@@ -1673,6 +1700,15 @@
      "121250"
     ],
     [
+     "Brett Gardner",
+     "draft",
+     "Drafted by the club, 2005",
+     "2005-06-07",
+     "reg",
+     1.7,
+     "458731"
+    ],
+    [
      "Alfredo Aceves",
      "fa",
      "New York Yankees signed free agent Alfredo Aceves. (Retrosheet archive)",
@@ -1680,15 +1716,6 @@
      "reg",
      1.6,
      "469686"
-    ],
-    [
-     "Melky Cabrera",
-     "intl",
-     "Came up through the club's system (earliest assignment on file: Staten Island Yankees, 2003)",
-     "2003-06-17",
-     "reg",
-     1.4,
-     "466320"
     ],
     [
      "David Robertson",
@@ -1717,17 +1744,8 @@
      "San Francisco Giants signed free agent 1B Aubrey Huff.",
      "2010-01-13",
      "reg",
-     5.5,
+     6.3,
      "333492"
-    ],
-    [
-     "Buster Posey",
-     "draft",
-     "Drafted by the club, 2008",
-     "2008-06-05",
-     "reg",
-     4.2,
-     "457763"
     ],
     [
      "Andres Torres",
@@ -1735,8 +1753,17 @@
      "Signed as a minor-league free agent, Dec 2008 (originally a 1998 Tigers draft pick)",
      "2008-12",
      "reg",
-     4.0,
+     5.4,
      "400083"
+    ],
+    [
+     "Buster Posey",
+     "draft",
+     "Drafted by the club, 2008",
+     "2008-06-05",
+     "reg",
+     4.9,
+     "457763"
     ],
     [
      "Tim Lincecum",
@@ -1753,7 +1780,7 @@
      "San Francisco Giants signed free agent SS Juan Uribe.",
      "2010-01-05",
      "reg",
-     3.1,
+     2.7,
      "346874"
     ],
     [
@@ -1762,17 +1789,17 @@
      "San Francisco Giants signed free agent LF Pat Burrell to a minor league contract.",
      "2010-05-29",
      "reg",
-     2.5,
+     2.4,
      "150100"
     ],
     [
-     "Freddy Sanchez",
-     "trade",
-     "Pittsburgh Pirates traded 2B Freddy Sanchez to San Francisco Giants.",
-     "2009-07-30",
+     "Brian Wilson",
+     "draft",
+     "Drafted by the club, 2003",
+     "2003-06-03",
      "reg",
-     2.4,
-     "408108"
+     2.3,
+     "451216"
     ],
     [
      "Pablo Sandoval",
@@ -1784,13 +1811,13 @@
      "467055"
     ],
     [
-     "Brian Wilson",
-     "draft",
-     "Drafted by the club, 2003",
-     "2003-06-03",
+     "Freddy Sanchez",
+     "trade",
+     "Pittsburgh Pirates traded 2B Freddy Sanchez to San Francisco Giants.",
+     "2009-07-30",
      "reg",
-     2.3,
-     "451216"
+     2.1,
+     "408108"
     ],
     [
      "Matt Cain",
@@ -1829,15 +1856,6 @@
      "456043"
     ],
     [
-     "Edgar Renteria",
-     "fa",
-     "San Francisco Giants signed free agent \u00c9dgar Renter\u00eda. (Retrosheet archive)",
-     "2008-12-04",
-     "reg",
-     1.2,
-     "121074"
-    ],
-    [
      "Santiago Casilla",
      "intl",
      "San Francisco Giants signed free agent RHP Santiago Casilla to a minor league contract and invited him to spring training.",
@@ -1859,31 +1877,13 @@
    "computed": true,
    "roster": [
     [
-     "Lance Berkman",
-     "fa",
-     "St. Louis Cardinals signed free agent 1B Lance Berkman.",
-     "2010-12-04",
-     "reg",
-     6.4,
-     "204020"
-    ],
-    [
      "Albert Pujols",
      "draft",
      "Drafted by the club, 1999",
      "1999-06-02",
      "inh",
-     5.3,
+     6.3,
      "405395"
-    ],
-    [
-     "Matt Holliday",
-     "fa",
-     "St. Louis Cardinals signed free agent LF Matt Holliday.",
-     "2010-01-08",
-     "reg",
-     5.1,
-     "407812"
     ],
     [
      "Yadier Molina",
@@ -1891,8 +1891,26 @@
      "Drafted by the club, 2000",
      "2000-06-05",
      "inh",
-     4.9,
+     5.4,
      "425877"
+    ],
+    [
+     "Lance Berkman",
+     "fa",
+     "St. Louis Cardinals signed free agent 1B Lance Berkman.",
+     "2010-12-04",
+     "reg",
+     4.9,
+     "204020"
+    ],
+    [
+     "Matt Holliday",
+     "fa",
+     "St. Louis Cardinals signed free agent LF Matt Holliday.",
+     "2010-01-08",
+     "reg",
+     4.8,
+     "407812"
     ],
     [
      "Chris Carpenter",
@@ -1909,7 +1927,7 @@
      "Drafted by the club, 2006",
      "2006-06-06",
      "inh",
-     2.8,
+     3.7,
      "445055"
     ],
     [
@@ -1936,17 +1954,8 @@
      "Drafted by the club, 2006",
      "2006-06-06",
      "inh",
-     2.3,
+     2.6,
      "501800"
-    ],
-    [
-     "Colby Rasmus",
-     "draft",
-     "Drafted by the club, 2005",
-     "2005-06-07",
-     "inh",
-     2.2,
-     "458675"
     ],
     [
      "Kyle Lohse",
@@ -1967,13 +1976,22 @@
      "435400"
     ],
     [
-     "Ryan Theriot",
-     "trade",
-     "Los Angeles Dodgers traded 2B Ryan Theriot to St. Louis Cardinals for RHP Blake Hawksworth.",
-     "2010-11-30",
+     "Colby Rasmus",
+     "draft",
+     "Drafted by the club, 2005",
+     "2005-06-07",
+     "inh",
+     1.9,
+     "458675"
+    ],
+    [
+     "Nick Punto",
+     "fa",
+     "St. Louis Cardinals signed free agent 3B Nick Punto.",
+     "2011-01-21",
      "reg",
-     1.5,
-     "444135"
+     1.7,
+     "346857"
     ],
     [
      "Fernando Salas",
@@ -1985,22 +2003,22 @@
      "477569"
     ],
     [
-     "Nick Punto",
-     "fa",
-     "St. Louis Cardinals signed free agent 3B Nick Punto.",
-     "2011-01-21",
+     "Ryan Theriot",
+     "trade",
+     "Los Angeles Dodgers traded 2B Ryan Theriot to St. Louis Cardinals for RHP Blake Hawksworth.",
+     "2010-11-30",
      "reg",
-     1.3,
-     "346857"
+     1.1,
+     "444135"
     ],
     [
-     "Rafael Furcal",
-     "trade",
-     "Los Angeles Dodgers traded cash and SS Rafael Furcal to St. Louis Cardinals.",
-     "2011-07-31",
-     "reg",
-     1.3,
-     "279577"
+     "Skip Schumaker",
+     "draft",
+     "Drafted by the club, 2001",
+     "2001-06-05",
+     "inh",
+     1.1,
+     "435401"
     ]
    ]
   },
@@ -2020,7 +2038,7 @@
      "Drafted by the club, 2008",
      "2008-06-05",
      "reg",
-     8.8,
+     10.4,
      "457763"
     ],
     [
@@ -2029,7 +2047,7 @@
      "Kansas City Royals traded LF Melky Cabrera to San Francisco Giants.",
      "2011-11-07",
      "reg",
-     5.1,
+     5.2,
      "466320"
     ],
     [
@@ -2038,8 +2056,17 @@
      "San Francisco Giants traded RHP Ramon Ramirez and CF Andres Torres to New York Mets for CF Angel Pagan.",
      "2011-12-07",
      "reg",
-     4.6,
+     4.1,
      "434636"
+    ],
+    [
+     "Brandon Crawford",
+     "draft",
+     "Drafted by the club, 2008",
+     "2008-06-05",
+     "reg",
+     2.8,
+     "543063"
     ],
     [
      "Pablo Sandoval",
@@ -2047,17 +2074,17 @@
      "Came up through the club's system (earliest assignment on file: AZL Giants, 2004)",
      "2004-06-22",
      "reg",
-     3.2,
+     2.8,
      "467055"
     ],
     [
-     "Marco Scutaro",
-     "trade",
-     "Colorado Rockies traded 2B Marco Scutaro to San Francisco Giants for 2B Charlie Culberson.",
-     "2012-07-28",
+     "Brandon Belt",
+     "draft",
+     "Drafted by the club, 2009 (round 5, pick 147); signed 2009-08-17",
+     "2009-06-09",
      "reg",
-     2.8,
-     "340192"
+     2.7,
+     "474832"
     ],
     [
      "Matt Cain",
@@ -2069,15 +2096,6 @@
      "430912"
     ],
     [
-     "Brandon Belt",
-     "draft",
-     "Drafted by the club, 2009 (round 5, pick 147); signed 2009-08-17",
-     "2009-06-09",
-     "reg",
-     2.3,
-     "474832"
-    ],
-    [
      "Madison Bumgarner",
      "draft",
      "Drafted by the club, 2007",
@@ -2087,13 +2105,22 @@
      "518516"
     ],
     [
-     "Brandon Crawford",
-     "draft",
-     "Drafted by the club, 2008",
-     "2008-06-05",
+     "Gr\u00e9gor Blanco",
+     "intl",
+     "San Francisco Giants signed free agent LF Gregor Blanco to a minor league contract and invited him to spring training.",
+     "2012-01-18",
      "reg",
-     1.5,
-     "543063"
+     1.9,
+     "453923"
+    ],
+    [
+     "Marco Scutaro",
+     "trade",
+     "Colorado Rockies traded 2B Marco Scutaro to San Francisco Giants for 2B Charlie Culberson.",
+     "2012-07-28",
+     "reg",
+     1.8,
+     "340192"
     ],
     [
      "Jeremy Affeldt",
@@ -2105,15 +2132,6 @@
      "346793"
     ],
     [
-     "Joaquin Arias",
-     "intl",
-     "San Francisco Giants signed free agent 2B Joaquin Arias to a minor league contract and invited him to spring training.",
-     "2011-12-11",
-     "reg",
-     1.3,
-     "435078"
-    ],
-    [
      "Sergio Romo",
      "draft",
      "Drafted by the club, 2005",
@@ -2121,24 +2139,6 @@
      "reg",
      1.3,
      "489265"
-    ],
-    [
-     "Gr\u00e9gor Blanco",
-     "intl",
-     "San Francisco Giants signed free agent LF Gregor Blanco to a minor league contract and invited him to spring training.",
-     "2012-01-18",
-     "reg",
-     1.2,
-     "453923"
-    ],
-    [
-     "H\u00e9ctor S\u00e1nchez",
-     "intl",
-     "Came up through the club's system (earliest assignment on file: DSL Giants, 2007)",
-     "2007-06-02",
-     "reg",
-     1.2,
-     "516949"
     ]
    ]
   },
@@ -2153,31 +2153,13 @@
    "computed": true,
    "roster": [
     [
-     "David Ortiz",
-     "fa",
-     "Boston Red Sox signed free agent DH David Ortiz.",
-     "2012-11-05",
-     "reg",
-     4.9,
-     "120074"
-    ],
-    [
      "Dustin Pedroia",
      "draft",
      "Drafted by the club, 2004",
      "2004-06-07",
      "inh",
-     4.8,
+     6.6,
      "456030"
-    ],
-    [
-     "Jarrod Saltalamacchia",
-     "trade",
-     "Texas Rangers traded C Jarrod Saltalamacchia to Boston Red Sox.",
-     "2010-07-31",
-     "inh",
-     4.1,
-     "457454"
     ],
     [
      "Jacoby Ellsbury",
@@ -2185,17 +2167,44 @@
      "Drafted by the club, 2005",
      "2005-06-07",
      "inh",
-     4.0,
+     5.4,
      "453056"
     ],
     [
-     "Daniel Nava",
+     "Shane Victorino",
      "fa",
-     "Boston Red Sox signed free agent Daniel Nava. (Retrosheet archive)",
-     "2008-01-17",
+     "Boston Red Sox signed free agent RF Shane Victorino.",
+     "2012-12-13",
+     "reg",
+     5.4,
+     "425664"
+    ],
+    [
+     "David Ortiz",
+     "fa",
+     "Boston Red Sox signed free agent DH David Ortiz.",
+     "2012-11-05",
+     "reg",
+     4.7,
+     "120074"
+    ],
+    [
+     "Mike Napoli",
+     "fa",
+     "Boston Red Sox signed free agent 1B Mike Napoli.",
+     "2013-01-22",
+     "reg",
+     4.1,
+     "435063"
+    ],
+    [
+     "Jarrod Saltalamacchia",
+     "trade",
+     "Texas Rangers traded C Jarrod Saltalamacchia to Boston Red Sox.",
+     "2010-07-31",
      "inh",
-     3.5,
-     "537953"
+     3.6,
+     "457454"
     ],
     [
      "Jon Lester",
@@ -2207,31 +2216,13 @@
      "452657"
     ],
     [
-     "Mike Napoli",
-     "fa",
-     "Boston Red Sox signed free agent 1B Mike Napoli.",
-     "2013-01-22",
-     "reg",
-     3.4,
-     "435063"
-    ],
-    [
      "Stephen Drew",
      "fa",
      "Boston Red Sox signed free agent SS Stephen Drew.",
      "2012-12-26",
      "reg",
-     3.4,
-     "452220"
-    ],
-    [
-     "Shane Victorino",
-     "fa",
-     "Boston Red Sox signed free agent RF Shane Victorino.",
-     "2012-12-13",
-     "reg",
      3.0,
-     "425664"
+     "452220"
     ],
     [
      "Koji Uehara",
@@ -2241,6 +2232,15 @@
      "reg",
      2.9,
      "493157"
+    ],
+    [
+     "Daniel Nava",
+     "fa",
+     "Boston Red Sox signed free agent Daniel Nava. (Retrosheet archive)",
+     "2008-01-17",
+     "inh",
+     2.8,
+     "537953"
     ],
     [
      "Clay Buchholz",
@@ -2270,31 +2270,31 @@
      "467094"
     ],
     [
-     "Mike Carp",
-     "trade",
-     "Seattle Mariners traded 1B Mike Carp to Boston Red Sox.",
-     "2013-02-20",
-     "reg",
-     1.9,
-     "455077"
-    ],
-    [
      "Jose Iglesias",
      "fa",
      "Boston Red Sox signed free agent SS Jose Iglesias.",
      "2009-09-08",
      "inh",
-     1.7,
+     2.2,
      "578428"
     ],
     [
-     "Junichi Tazawa",
+     "Jonny Gomes",
      "fa",
-     "Boston Red Sox signed free agent Junichi Tazawa. (Retrosheet archive)",
-     "2008-12-04",
-     "inh",
-     1.4,
-     "547749"
+     "Boston Red Sox signed free agent LF Jonny Gomes.",
+     "2012-12-01",
+     "reg",
+     1.8,
+     "430404"
+    ],
+    [
+     "Mike Carp",
+     "trade",
+     "Seattle Mariners traded 1B Mike Carp to Boston Red Sox.",
+     "2013-02-20",
+     "reg",
+     1.7,
+     "455077"
     ]
    ]
   },
@@ -2314,8 +2314,26 @@
      "Drafted by the club, 2008",
      "2008-06-05",
      "reg",
-     6.8,
+     7.8,
      "457763"
+    ],
+    [
+     "Brandon Crawford",
+     "draft",
+     "Drafted by the club, 2008",
+     "2008-06-05",
+     "reg",
+     4.3,
+     "543063"
+    ],
+    [
+     "Hunter Pence",
+     "trade",
+     "Philadelphia Phillies traded RF Hunter Pence to San Francisco Giants for RF Nate Schierholtz, C Tommy Joseph and RHP Seth Rosin.",
+     "2012-07-31",
+     "reg",
+     4.3,
+     "452254"
     ],
     [
      "Madison Bumgarner",
@@ -2327,49 +2345,13 @@
      "518516"
     ],
     [
-     "Hunter Pence",
-     "trade",
-     "Philadelphia Phillies traded RF Hunter Pence to San Francisco Giants for RF Nate Schierholtz, C Tommy Joseph and RHP Seth Rosin.",
-     "2012-07-31",
-     "reg",
-     4.2,
-     "452254"
-    ],
-    [
      "Pablo Sandoval",
      "intl",
      "Came up through the club's system (earliest assignment on file: AZL Giants, 2004)",
      "2004-06-22",
      "reg",
-     3.8,
+     4.2,
      "467055"
-    ],
-    [
-     "Michael Morse",
-     "fa",
-     "San Francisco Giants signed free agent LF Michael Morse.",
-     "2013-12-17",
-     "reg",
-     3.3,
-     "434604"
-    ],
-    [
-     "Brandon Crawford",
-     "draft",
-     "Drafted by the club, 2008",
-     "2008-06-05",
-     "reg",
-     3.2,
-     "543063"
-    ],
-    [
-     "\u00c1ngel Pag\u00e1n",
-     "fa",
-     "San Francisco Giants signed free agent CF Angel Pagan.",
-     "2012-12-07",
-     "reg",
-     2.6,
-     "434636"
     ],
     [
      "Gr\u00e9gor Blanco",
@@ -2377,8 +2359,26 @@
      "San Francisco Giants signed free agent LF Gregor Blanco to a minor league contract and invited him to spring training.",
      "2012-01-18",
      "reg",
-     2.1,
+     2.3,
      "453923"
+    ],
+    [
+     "Michael Morse",
+     "fa",
+     "San Francisco Giants signed free agent LF Michael Morse.",
+     "2013-12-17",
+     "reg",
+     2.1,
+     "434604"
+    ],
+    [
+     "Joe Panik",
+     "draft",
+     "Drafted by the club, 2011",
+     "2011-06-06",
+     "reg",
+     2.0,
+     "605412"
     ],
     [
      "Yusmeiro Petit",
@@ -2390,13 +2390,13 @@
      "433589"
     ],
     [
-     "Joe Panik",
-     "draft",
-     "Drafted by the club, 2011",
-     "2011-06-06",
+     "\u00c1ngel Pag\u00e1n",
+     "fa",
+     "San Francisco Giants signed free agent CF Angel Pagan.",
+     "2012-12-07",
      "reg",
-     1.6,
-     "605412"
+     1.9,
+     "434636"
     ],
     [
      "Jeremy Affeldt",
@@ -2406,6 +2406,15 @@
      "reg",
      1.1,
      "346793"
+    ],
+    [
+     "Brandon Belt",
+     "draft",
+     "Drafted by the club, 2009 (round 5, pick 147); signed 2009-08-17",
+     "2009-06-09",
+     "reg",
+     1.0,
+     "474832"
     ]
    ]
   },
@@ -2425,7 +2434,7 @@
      "Milwaukee Brewers traded SS Alcides Escobar, RHP Jeremy Jeffress and CF Lorenzo Cain to Kansas City Royals.",
      "2010-12-19",
      "reg",
-     4.7,
+     6.4,
      "456715"
     ],
     [
@@ -2443,7 +2452,7 @@
      "Drafted by the club, 2008",
      "2008-06-05",
      "reg",
-     3.2,
+     3.9,
      "543333"
     ],
     [
@@ -2479,7 +2488,7 @@
      "Came up through the club's system (earliest assignment on file: AZL Royals, 2007)",
      "2007-06-22",
      "reg",
-     2.3,
+     2.7,
      "521692"
     ],
     [
@@ -2488,7 +2497,7 @@
      "Drafted by the club, 2005",
      "2005-06-07",
      "inh",
-     2.2,
+     2.6,
      "460086"
     ],
     [
@@ -2501,15 +2510,6 @@
      "451584"
     ],
     [
-     "Ben Zobrist",
-     "trade",
-     "Oakland Athletics traded Ben Zobrist and cash to Kansas City Royals for RHP Aaron Brooks and LHP Sean Manaea.",
-     "2015-07-28",
-     "reg",
-     1.7,
-     "450314"
-    ],
-    [
      "Ryan Madson",
      "intl",
      "Kansas City Royals signed free agent RHP Ryan Madson to a minor league contract and invited him to spring training.",
@@ -2519,6 +2519,15 @@
      "425492"
     ],
     [
+     "Jarrod Dyson",
+     "draft",
+     "Drafted by the club, 2006",
+     "2006-06-06",
+     "inh",
+     1.5,
+     "502481"
+    ],
+    [
      "Kelvin Herrera",
      "intl",
      "Came up through the club's system (earliest assignment on file: DSL Royals, 2007)",
@@ -2526,6 +2535,15 @@
      "reg",
      1.3,
      "516969"
+    ],
+    [
+     "Ben Zobrist",
+     "trade",
+     "Oakland Athletics traded Ben Zobrist and cash to Kansas City Royals for RHP Aaron Brooks and LHP Sean Manaea.",
+     "2015-07-28",
+     "reg",
+     1.3,
+     "450314"
     ],
     [
      "Franklin Morales",
@@ -2563,7 +2581,7 @@
      "Drafted by the club, 2013",
      "2013-06-06",
      "reg",
-     8.1,
+     8.5,
      "592178"
     ],
     [
@@ -2572,7 +2590,7 @@
      "Chicago Cubs traded RHP Andrew Cashner and LF Kyung-Min Na to San Diego Padres for 1B Anthony Rizzo and RHP Zach Cates.",
      "2012-01-06",
      "reg",
-     6.2,
+     6.7,
      "519203"
     ],
     [
@@ -2581,7 +2599,7 @@
      "Chicago Cubs signed free agent CF Dexter Fowler.",
      "2016-02-25",
      "reg",
-     5.1,
+     5.0,
      "451594"
     ],
     [
@@ -2590,7 +2608,7 @@
      "Chicago Cubs traded RHP Jason Hammel and RHP Jeff Samardzija to Oakland Athletics for SS Addison Russell, CF Billy McKinney, RHP Dan\u2026",
      "2014-07-05",
      "reg",
-     4.4,
+     4.6,
      "608365"
     ],
     [
@@ -2635,7 +2653,7 @@
      "Drafted by the club, 2011",
      "2011-06-06",
      "inh",
-     2.4,
+     2.9,
      "595879"
     ],
     [
@@ -2644,8 +2662,17 @@
      "Came up through the club's system (earliest assignment on file: DSL Cubs 2, 2010)",
      "2010-07-31",
      "inh",
-     2.3,
+     2.5,
      "575929"
+    ],
+    [
+     "David Ross",
+     "fa",
+     "Chicago Cubs signed free agent C David Ross.",
+     "2014-12-23",
+     "reg",
+     2.1,
+     "424325"
     ],
     [
      "John Lackey",
@@ -2657,6 +2684,15 @@
      "407793"
     ],
     [
+     "Miguel Montero",
+     "trade",
+     "Arizona Diamondbacks traded C Miguel Montero to Chicago Cubs for RHP Jeferson Mejia and RHP Zack Godley.",
+     "2014-12-09",
+     "reg",
+     1.3,
+     "471083"
+    ],
+    [
      "Aroldis Chapman",
      "trade",
      "New York Yankees traded LHP Aroldis Chapman to Chicago Cubs for RHP Adam Warren, SS Gleyber Torres, RF Billy McKinney and OF Rashad\u2026",
@@ -2664,15 +2700,6 @@
      "reg",
      1.3,
      "547973"
-    ],
-    [
-     "David Ross",
-     "fa",
-     "Chicago Cubs signed free agent C David Ross.",
-     "2014-12-23",
-     "reg",
-     1.2,
-     "424325"
     ],
     [
      "Pedro Strop",
@@ -2691,15 +2718,6 @@
      "reg",
      1.1,
      "518748"
-    ],
-    [
-     "Jason Heyward",
-     "fa",
-     "Chicago Cubs signed free agent RF Jason Heyward.",
-     "2015-12-15",
-     "reg",
-     1.1,
-     "518792"
     ]
    ]
   },
@@ -2719,7 +2737,7 @@
      "Came up through the club's system (earliest assignment on file: VSL Astros, 2007)",
      "2007-05-13",
      "inh",
-     8.2,
+     8.6,
      "514888"
     ],
     [
@@ -2728,17 +2746,8 @@
      "Drafted by the club, 2012",
      "2012-06-04",
      "reg",
-     5.5,
+     6.8,
      "621043"
-    ],
-    [
-     "Alex Bregman",
-     "draft",
-     "Drafted by the club, 2015",
-     "2015-06-08",
-     "reg",
-     5.2,
-     "608324"
     ],
     [
      "George Springer",
@@ -2746,8 +2755,17 @@
      "Drafted by the club, 2011",
      "2011-06-06",
      "inh",
-     4.9,
+     5.0,
      "543807"
+    ],
+    [
+     "Alex Bregman",
+     "draft",
+     "Drafted by the club, 2015",
+     "2015-06-08",
+     "reg",
+     4.8,
+     "608324"
     ],
     [
      "Marwin Gonzalez",
@@ -2755,7 +2773,7 @@
      "Boston Red Sox traded SS Marwin Gonzalez to Houston Astros.",
      "2011-12-08",
      "reg",
-     4.6,
+     4.1,
      "503556"
     ],
     [
@@ -2764,7 +2782,7 @@
      "Signed as a free agent, 4 yr / $52M (contract book, signed 2016-12)",
      "2016-12",
      "reg",
-     3.9,
+     4.1,
      "502210"
     ],
     [
@@ -2854,7 +2872,7 @@
      "Atlanta Braves traded C Evan Gattis and RHP James Hoyt to Houston Astros for RHP Mike Foltynewicz, 3B Rio Ruiz and RHP Andrew Thurman.",
      "2015-01-14",
      "reg",
-     1.4,
+     1.3,
      "594828"
     ]
    ]
@@ -2884,7 +2902,7 @@
      "Boston Red Sox signed free agent LF J.D. Martinez.",
      "2018-02-26",
      "reg",
-     6.4,
+     6.5,
      "502110"
     ],
     [
@@ -2902,7 +2920,7 @@
      "Came up through the club's system (earliest assignment on file: DSL Red Sox, 2010)",
      "2010-05-28",
      "inh",
-     5.5,
+     4.9,
      "593428"
     ],
     [
@@ -2911,7 +2929,7 @@
      "Drafted by the club, 2015",
      "2015-06-08",
      "inh",
-     4.4,
+     4.7,
      "643217"
     ],
     [
@@ -2920,7 +2938,7 @@
      "Drafted by the club, 2011",
      "2011-06-06",
      "inh",
-     3.2,
+     3.0,
      "598265"
     ],
     [
@@ -2951,15 +2969,6 @@
      "593958"
     ],
     [
-     "Brock Holt",
-     "trade",
-     "Pittsburgh Pirates traded RHP Joel Hanrahan and 2B Brock Holt to Boston Red Sox for 2B Ivan De Jesus Jr., RHP Mark Melancon, RHP Stolmy\u2026",
-     "2012-12-26",
-     "inh",
-     2.1,
-     "571788"
-    ],
-    [
      "Matt Barnes",
      "draft",
      "Drafted by the club, 2011",
@@ -2967,6 +2976,15 @@
      "inh",
      1.8,
      "598264"
+    ],
+    [
+     "Mitch Moreland",
+     "fa",
+     "Boston Red Sox signed free agent 1B Mitch Moreland.",
+     "2017-12-18",
+     "reg",
+     1.6,
+     "519048"
     ],
     [
      "Craig Kimbrel",
@@ -2978,6 +2996,15 @@
      "518886"
     ],
     [
+     "Brock Holt",
+     "trade",
+     "Pittsburgh Pirates traded RHP Joel Hanrahan and 2B Brock Holt to Boston Red Sox for 2B Ivan De Jesus Jr., RHP Mark Melancon, RHP Stolmy\u2026",
+     "2012-12-26",
+     "inh",
+     1.5,
+     "571788"
+    ],
+    [
      "Nathan Eovaldi",
      "trade",
      "Tampa Bay Rays traded RHP Nathan Eovaldi to Boston Red Sox for LHP Jalen Beeks.",
@@ -2985,15 +3012,6 @@
      "reg",
      1.5,
      "543135"
-    ],
-    [
-     "Rafael Devers",
-     "intl",
-     "Boston Red Sox signed free agent 3B Rafael Devers to a minor league contract.",
-     "2013-08-09",
-     "inh",
-     1.4,
-     "646240"
     ],
     [
      "Joe Kelly",
@@ -3005,13 +3023,13 @@
      "523260"
     ],
     [
-     "Steve Pearce",
-     "trade",
-     "Toronto Blue Jays traded LF Steve Pearce and cash to Boston Red Sox for SS Santiago Espinal.",
-     "2018-06-28",
-     "reg",
-     1.2,
-     "456665"
+     "Hector Vel\u00e1zquez",
+     "unk",
+     "Acquisition not on file",
+     "None",
+     "unk",
+     1.1,
+     "584171"
     ]
    ]
   },
@@ -3031,7 +3049,7 @@
      "Drafted by the club, 2011",
      "2011-06-06",
      "reg",
-     7.6,
+     8.3,
      "543685"
     ],
     [
@@ -3040,7 +3058,7 @@
      "Washington Nationals signed free agent OF Juan Soto to a minor league contract.",
      "2015-07-02",
      "reg",
-     6.0,
+     6.1,
      "665742"
     ],
     [
@@ -3049,7 +3067,7 @@
      "San Diego Padres traded SS Trea Turner to Washington Nationals.",
      "2015-06-14",
      "reg",
-     5.2,
+     5.3,
      "607208"
     ],
     [
@@ -3071,6 +3089,15 @@
      "544931"
     ],
     [
+     "Victor Robles",
+     "intl",
+     "Came up through the club's system (earliest assignment on file: DSL Nationals, 2014)",
+     "2014-03-10",
+     "reg",
+     3.9,
+     "645302"
+    ],
+    [
      "Patrick Corbin",
      "fa",
      "Washington Nationals signed free agent LHP Patrick Corbin.",
@@ -3080,21 +3107,12 @@
      "571578"
     ],
     [
-     "Victor Robles",
-     "intl",
-     "Came up through the club's system (earliest assignment on file: DSL Nationals, 2014)",
-     "2014-03-10",
-     "reg",
-     3.3,
-     "645302"
-    ],
-    [
      "Howie Kendrick",
      "fa",
      "Washington Nationals signed free agent 2B Howie Kendrick.",
      "2018-01-18",
      "reg",
-     2.9,
+     3.0,
      "435062"
     ],
     [
@@ -3103,8 +3121,17 @@
      "Chicago White Sox traded CF Adam Eaton to Washington Nationals for RHP Lucas Giolito, RHP Reynaldo Lopez and RHP Dane Dunning.",
      "2016-12-07",
      "reg",
-     2.7,
+     2.3,
      "594809"
+    ],
+    [
+     "Brian Dozier",
+     "fa",
+     "Washington Nationals signed free agent 2B Brian Dozier.",
+     "2019-01-13",
+     "reg",
+     2.1,
+     "572821"
     ],
     [
      "Wander Suero",
@@ -3114,33 +3141,6 @@
      "reg",
      1.9,
      "593833"
-    ],
-    [
-     "Brian Dozier",
-     "fa",
-     "Washington Nationals signed free agent 2B Brian Dozier.",
-     "2019-01-13",
-     "reg",
-     1.9,
-     "572821"
-    ],
-    [
-     "Asdr\u00fabal Cabrera",
-     "fa",
-     "Washington Nationals signed free agent 3B Asdrubal Cabrera.",
-     "2019-08-06",
-     "reg",
-     1.7,
-     "452678"
-    ],
-    [
-     "Kurt Suzuki",
-     "fa",
-     "Washington Nationals signed free agent C Kurt Suzuki.",
-     "2018-11-20",
-     "reg",
-     1.5,
-     "435559"
     ],
     [
      "An\u00edbal S\u00e1nchez",
@@ -3169,7 +3169,7 @@
      "Los Angeles Dodgers traded CF Alex Verdugo, C Connor Wong and SS Jeter Downs to Boston Red Sox for RF Mookie Betts, LHP David Price and\u2026",
      "2020-02-10",
      "reg",
-     3.1,
+     3.0,
      "605141"
     ],
     [
@@ -3178,7 +3178,7 @@
      "Drafted by the club, 2012",
      "2012-06-04",
      "inh",
-     2.7,
+     2.3,
      "608369"
     ],
     [
@@ -3187,7 +3187,7 @@
      "Seattle Mariners traded SS Chris Taylor to Los Angeles Dodgers for RHP Zach Lee.",
      "2016-06-19",
      "reg",
-     1.7,
+     1.9,
      "621035"
     ],
     [
@@ -3200,33 +3200,6 @@
      "664062"
     ],
     [
-     "Cody Bellinger",
-     "draft",
-     "Drafted by the club, 2013",
-     "2013-06-06",
-     "inh",
-     1.5,
-     "641355"
-    ],
-    [
-     "Justin Turner",
-     "fa",
-     "Los Angeles Dodgers signed free agent 3B Justin Turner.",
-     "2016-12-23",
-     "reg",
-     1.5,
-     "457759"
-    ],
-    [
-     "Will Smith",
-     "draft",
-     "Drafted by the club, 2016",
-     "2016-06-09",
-     "reg",
-     1.4,
-     "669257"
-    ],
-    [
      "Clayton Kershaw",
      "draft",
      "Drafted by the club, 2006",
@@ -3236,12 +3209,39 @@
      "477132"
     ],
     [
+     "Justin Turner",
+     "fa",
+     "Los Angeles Dodgers signed free agent 3B Justin Turner.",
+     "2016-12-23",
+     "reg",
+     1.3,
+     "457759"
+    ],
+    [
+     "Will Smith",
+     "draft",
+     "Drafted by the club, 2016",
+     "2016-06-09",
+     "reg",
+     1.2,
+     "669257"
+    ],
+    [
+     "Cody Bellinger",
+     "draft",
+     "Drafted by the club, 2013",
+     "2013-06-06",
+     "inh",
+     1.2,
+     "641355"
+    ],
+    [
      "AJ Pollock",
      "fa",
      "Los Angeles Dodgers signed free agent CF A.J. Pollock.",
      "2019-01-26",
      "reg",
-     1.1,
+     1.2,
      "572041"
     ],
     [
@@ -3271,7 +3271,7 @@
      "Drafted by the club, 2015",
      "2015-06-08",
      "inh",
-     5.9,
+     7.5,
      "663586"
     ],
     [
@@ -3280,8 +3280,17 @@
      "Drafted by the club, 2007",
      "2007-06-07",
      "inh",
-     5.2,
+     5.0,
      "518692"
+    ],
+    [
+     "Ronald Acu\u00f1a Jr.",
+     "intl",
+     "Came up through the club's system (earliest assignment on file: Danville Braves, 2015)",
+     "2015-08-11",
+     "inh",
+     4.8,
+     "660670"
     ],
     [
      "Ozzie Albies",
@@ -3289,7 +3298,7 @@
      "Came up through the club's system (earliest assignment on file: DSL Braves, 2014)",
      "2014-02-20",
      "inh",
-     4.9,
+     4.6,
      "645277"
     ],
     [
@@ -3302,24 +3311,6 @@
      "608331"
     ],
     [
-     "Ronald Acu\u00f1a Jr.",
-     "intl",
-     "Came up through the club's system (earliest assignment on file: Danville Braves, 2015)",
-     "2015-08-11",
-     "inh",
-     4.3,
-     "660670"
-    ],
-    [
-     "Dansby Swanson",
-     "trade",
-     "Atlanta Braves traded RHP Shelby Miller and LHP Gabe Speier to Arizona Diamondbacks for RF Ender Inciarte, RHP Aaron Blair and SS Dansby\u2026",
-     "2015-12-09",
-     "inh",
-     3.7,
-     "621020"
-    ],
-    [
      "Charlie Morton",
      "fa",
      "Atlanta Braves signed free agent RHP Charlie Morton.",
@@ -3327,6 +3318,15 @@
      "reg",
      3.7,
      "450203"
+    ],
+    [
+     "Dansby Swanson",
+     "trade",
+     "Atlanta Braves traded RHP Shelby Miller and LHP Gabe Speier to Arizona Diamondbacks for RF Ender Inciarte, RHP Aaron Blair and SS Dansby\u2026",
+     "2015-12-09",
+     "inh",
+     3.1,
+     "621020"
     ],
     [
      "A.J. Minter",
@@ -3356,6 +3356,15 @@
      "660623"
     ],
     [
+     "Adam Duvall",
+     "trade",
+     "Miami Marlins traded LF Adam Duvall to Atlanta Braves for C Alex Jackson.",
+     "2021-07-30",
+     "reg",
+     1.3,
+     "594807"
+    ],
+    [
      "Luke Jackson",
      "fa",
      "Atlanta Braves signed free agent RHP Luke Jackson.",
@@ -3363,15 +3372,6 @@
      "reg",
      1.2,
      "592426"
-    ],
-    [
-     "Adam Duvall",
-     "trade",
-     "Miami Marlins traded LF Adam Duvall to Atlanta Braves for C Alex Jackson.",
-     "2021-07-30",
-     "reg",
-     1.2,
-     "594807"
     ],
     [
      "Jesse Chavez",
@@ -3390,15 +3390,6 @@
      "inh",
      1.1,
      "666120"
-    ],
-    [
-     "Guillermo Heredia",
-     "trade",
-     "Atlanta Braves claimed CF Guillermo Heredia off waivers from New York Mets.",
-     "2021-02-24",
-     "reg",
-     1.0,
-     "628338"
     ]
    ]
   },
@@ -3413,31 +3404,31 @@
    "computed": true,
    "roster": [
     [
-     "Jose Altuve",
-     "intl",
-     "Came up through the club's system (earliest assignment on file: VSL Astros, 2007)",
-     "2007-05-13",
-     "inh",
-     7.5,
-     "514888"
-    ],
-    [
      "Yordan Alvarez",
      "trade",
      "Houston Astros traded RHP Josh Fields to Los Angeles Dodgers for 1B Yordan Alvarez.",
      "2016-08-01",
      "inh",
-     6.2,
+     6.9,
      "670541"
     ],
     [
-     "Alex Bregman",
+     "Jose Altuve",
+     "intl",
+     "Came up through the club's system (earliest assignment on file: VSL Astros, 2007)",
+     "2007-05-13",
+     "inh",
+     5.8,
+     "514888"
+    ],
+    [
+     "Kyle Tucker",
      "draft",
      "Drafted by the club, 2015",
      "2015-06-08",
      "inh",
-     6.1,
-     "608324"
+     5.2,
+     "663656"
     ],
     [
      "Justin Verlander",
@@ -3449,13 +3440,22 @@
      "434378"
     ],
     [
-     "Kyle Tucker",
+     "Alex Bregman",
      "draft",
      "Drafted by the club, 2015",
      "2015-06-08",
      "inh",
+     4.9,
+     "608324"
+    ],
+    [
+     "Jeremy Pe\u00f1a",
+     "draft",
+     "Drafted by the club, 2018",
+     "2018-06-04",
+     "inh",
      4.7,
-     "663656"
+     "665161"
     ],
     [
      "Framber Valdez",
@@ -3465,15 +3465,6 @@
      "inh",
      4.4,
      "664285"
-    ],
-    [
-     "Jeremy Pe\u00f1a",
-     "draft",
-     "Drafted by the club, 2018",
-     "2018-06-04",
-     "inh",
-     3.5,
-     "665161"
     ],
     [
      "Cristian Javier",
@@ -3490,7 +3481,7 @@
      "Drafted by the club, 2017",
      "2017-06-12",
      "inh",
-     2.6,
+     2.4,
      "676801"
     ],
     [
@@ -3553,7 +3544,7 @@
      "Houston Astros signed free agent LF Michael Brantley.",
      "2021-01-25",
      "reg",
-     1.0,
+     1.1,
      "488726"
     ]
    ]
@@ -3565,7 +3556,7 @@
    "year": 2023,
    "result": "Won World Series",
    "regime": "Chris Young",
-   "regimeNote": "title in year 1 of the regime \u00b7 continuity view: 75% of the core was acquired while Young was already GM under Daniels' presidency (from 2020-12); the primary accounting credits final authority",
+   "regimeNote": "title in year 1 of the regime \u00b7 continuity view: 77% of the core was acquired while Young was already GM under Daniels' presidency (from 2020-12); the primary accounting credits final authority",
    "computed": true,
    "roster": [
     [
@@ -3574,7 +3565,7 @@
      "Texas Rangers signed free agent SS Corey Seager.",
      "2021-12-01",
      "inh",
-     7.1,
+     7.4,
      "608369"
     ],
     [
@@ -3583,7 +3574,7 @@
      "Texas Rangers signed free agent SS Marcus Semien.",
      "2021-12-01",
      "inh",
-     6.2,
+     6.9,
      "543760"
     ],
     [
@@ -3592,7 +3583,7 @@
      "St. Louis Cardinals traded RF Adolis Garcia to Texas Rangers for cash.",
      "2019-12-21",
      "inh",
-     4.4,
+     4.5,
      "666969"
     ],
     [
@@ -3601,17 +3592,8 @@
      "Oakland Athletics traded LF Khris Davis, C Jonah Heim and RHP Dane Acker to Texas Rangers for SS Elvis Andrus, C Aramis Garcia and cash.",
      "2021-02-06",
      "inh",
-     3.5,
+     4.3,
      "641680"
-    ],
-    [
-     "Josh Jung",
-     "draft",
-     "Drafted by the club, 2019",
-     "2019-06-03",
-     "inh",
-     2.9,
-     "673962"
     ],
     [
      "Nathan Eovaldi",
@@ -3623,13 +3605,22 @@
      "543135"
     ],
     [
-     "Leody Taveras",
-     "intl",
-     "Texas Rangers signed free agent OF Leody Taveras to a minor league contract.",
-     "2015-07-02",
+     "Josh Jung",
+     "draft",
+     "Drafted by the club, 2019",
+     "2019-06-03",
      "inh",
      2.4,
-     "665750"
+     "673962"
+    ],
+    [
+     "Mitch Garver",
+     "trade",
+     "Minnesota Twins traded C Mitch Garver to Texas Rangers for 3B Isiah Kiner-Falefa and RHP Ronny Henriquez.",
+     "2022-03-12",
+     "inh",
+     2.3,
+     "641598"
     ],
     [
      "Dane Dunning",
@@ -3641,13 +3632,13 @@
      "641540"
     ],
     [
-     "Mitch Garver",
-     "trade",
-     "Minnesota Twins traded C Mitch Garver to Texas Rangers for 3B Isiah Kiner-Falefa and RHP Ronny Henriquez.",
-     "2022-03-12",
+     "Leody Taveras",
+     "intl",
+     "Texas Rangers signed free agent OF Leody Taveras to a minor league contract.",
+     "2015-07-02",
      "inh",
      2.2,
-     "641598"
+     "665750"
     ],
     [
      "Nathaniel Lowe",
@@ -3655,7 +3646,7 @@
      "Tampa Bay Rays traded 1B Nate Lowe, 1B Jake Guenther and Player To Be Named Later to Texas Rangers for C Heriberto Hernandez, SS Osleivis\u2026",
      "2020-12-10",
      "inh",
-     2.0,
+     2.1,
      "663993"
     ],
     [
@@ -3668,15 +3659,6 @@
      "592351"
     ],
     [
-     "Ezequiel Duran",
-     "trade",
-     "New York Yankees traded RHP Glenn Otto, 2B Josh H. Smith, SS Ezequiel Duran and 2B Trevor Hauver to Texas Rangers for LHP Joely Rodriguez\u2026",
-     "2021-07-29",
-     "inh",
-     1.6,
-     "677649"
-    ],
-    [
      "Jordan Montgomery",
      "trade",
      "St. Louis Cardinals traded LHP Jordan Montgomery and RHP Chris Stratton to Texas Rangers for LHP John King, RHP Tekoah Roby and SS Thomas\u2026",
@@ -3684,15 +3666,6 @@
      "reg",
      1.5,
      "656756"
-    ],
-    [
-     "Evan Carter",
-     "draft",
-     "Drafted by the club, 2020",
-     "2020-06-10",
-     "inh",
-     1.4,
-     "694497"
     ],
     [
      "Will Smith",
@@ -3711,6 +3684,24 @@
      "reg",
      1.3,
      "594798"
+    ],
+    [
+     "Evan Carter",
+     "draft",
+     "Drafted by the club, 2020",
+     "2020-06-10",
+     "inh",
+     1.3,
+     "694497"
+    ],
+    [
+     "Andrew Heaney",
+     "fa",
+     "Texas Rangers signed free agent LHP Andrew Heaney.",
+     "2022-12-09",
+     "reg",
+     1.3,
+     "571760"
     ]
    ]
   },
@@ -3739,7 +3730,7 @@
      "Los Angeles Dodgers traded CF Alex Verdugo, C Connor Wong and SS Jeter Downs to Boston Red Sox for RF Mookie Betts, LHP David Price and\u2026",
      "2020-02-10",
      "reg",
-     5.0,
+     5.4,
      "605141"
     ],
     [
@@ -3748,7 +3739,7 @@
      "Los Angeles Dodgers signed free agent 1B Freddie Freeman.",
      "2022-03-18",
      "reg",
-     4.0,
+     4.2,
      "518692"
     ],
     [
@@ -3766,7 +3757,7 @@
      "Drafted by the club, 2016",
      "2016-06-09",
      "reg",
-     3.7,
+     3.4,
      "669257"
     ],
     [
@@ -3784,7 +3775,7 @@
      "Miami Marlins traded SS Miguel Rojas to Los Angeles Dodgers for SS Jacob Amaya.",
      "2023-01-11",
      "reg",
-     3.0,
+     3.2,
      "500743"
     ],
     [
@@ -3793,7 +3784,7 @@
      "Los Angeles Dodgers signed free agent 2B Max Muncy to a minor league contract.",
      "2017-04-28",
      "reg",
-     2.7,
+     3.1,
      "571970"
     ],
     [
@@ -3811,7 +3802,7 @@
      "Drafted by the club, 2016",
      "2016-06-09",
      "reg",
-     1.9,
+     1.8,
      "666158"
     ],
     [
@@ -3851,6 +3842,15 @@
      "623465"
     ],
     [
+     "Enrique Hern\u00e1ndez",
+     "fa",
+     "Los Angeles Dodgers signed free agent CF Enrique Hern\u00e1ndez.",
+     "2024-02-26",
+     "reg",
+     1.1,
+     "571771"
+    ],
+    [
      "Blake Treinen",
      "fa",
      "Los Angeles Dodgers signed free agent RHP Blake Treinen.",
@@ -3881,6 +3881,15 @@
      "660271"
     ],
     [
+     "Mookie Betts",
+     "trade",
+     "Los Angeles Dodgers traded CF Alex Verdugo, C Connor Wong and SS Jeter Downs to Boston Red Sox for RF Mookie Betts, LHP David Price and\u2026",
+     "2020-02-10",
+     "reg",
+     5.1,
+     "605141"
+    ],
+    [
      "Yoshinobu Yamamoto",
      "fa",
      "Los Angeles Dodgers signed free agent RHP Yoshinobu Yamamoto.",
@@ -3895,26 +3904,8 @@
      "Drafted by the club, 2016",
      "2016-06-09",
      "reg",
-     4.7,
+     4.4,
      "669257"
-    ],
-    [
-     "Mookie Betts",
-     "trade",
-     "Los Angeles Dodgers traded CF Alex Verdugo, C Connor Wong and SS Jeter Downs to Boston Red Sox for RF Mookie Betts, LHP David Price and\u2026",
-     "2020-02-10",
-     "reg",
-     4.1,
-     "605141"
-    ],
-    [
-     "Freddie Freeman",
-     "fa",
-     "Los Angeles Dodgers signed free agent 1B Freddie Freeman.",
-     "2022-03-18",
-     "reg",
-     3.3,
-     "518692"
     ],
     [
      "Andy Pages",
@@ -3922,7 +3913,7 @@
      "Los Angeles Dodgers signed free agent OF Andy Pages to a minor league contract.",
      "2018-03-01",
      "reg",
-     3.2,
+     4.0,
      "681624"
     ],
     [
@@ -3931,8 +3922,17 @@
      "Los Angeles Dodgers signed free agent 2B Max Muncy to a minor league contract.",
      "2017-04-28",
      "reg",
-     3.0,
+     3.8,
      "571970"
+    ],
+    [
+     "Freddie Freeman",
+     "fa",
+     "Los Angeles Dodgers signed free agent 1B Freddie Freeman.",
+     "2022-03-18",
+     "reg",
+     3.2,
+     "518692"
     ],
     [
      "Clayton Kershaw",
@@ -3980,6 +3980,15 @@
      "680736"
     ],
     [
+     "Miguel Rojas",
+     "trade",
+     "Miami Marlins traded SS Miguel Rojas to Los Angeles Dodgers for SS Jacob Amaya.",
+     "2023-01-11",
+     "reg",
+     1.6,
+     "500743"
+    ],
+    [
      "Tyler Glasnow",
      "trade",
      "Los Angeles Dodgers traded RHP Ryan Pepiot and OF Jonny DeLuca to Tampa Bay Rays for RHP Tyler Glasnow, CF Manuel Margot and cash.",
@@ -3989,6 +3998,15 @@
      "607192"
     ],
     [
+     "Hyeseong Kim",
+     "fa",
+     "Los Angeles Dodgers signed free agent 2B Hyeseong Kim.",
+     "2025-01-03",
+     "reg",
+     1.5,
+     "808975"
+    ],
+    [
      "Ben Casparius",
      "draft",
      "Drafted by the club, 2021",
@@ -3996,24 +4014,6 @@
      "reg",
      1.4,
      "676508"
-    ],
-    [
-     "Tommy Edman",
-     "trade",
-     "Los Angeles Dodgers traded 3B Miguel Vargas, SS Alexander Albertus, SS Jeral Perez and a player to be named later or cash considerations to\u2026",
-     "2024-07-29",
-     "reg",
-     1.3,
-     "669242"
-    ],
-    [
-     "Miguel Rojas",
-     "trade",
-     "Miami Marlins traded SS Miguel Rojas to Los Angeles Dodgers for SS Jacob Amaya.",
-     "2023-01-11",
-     "reg",
-     1.3,
-     "500743"
     ]
    ]
   },
@@ -4033,7 +4033,7 @@
      "Drafted by the club, 2018",
      "2018-06-04",
      "inh",
-     6.6,
+     7.7,
      "668930"
     ],
     [
@@ -4051,17 +4051,8 @@
      "Milwaukee Brewers signed free agent CF Jackson Chourio to a minor league contract.",
      "2021-01-15",
      "inh",
-     4.5,
+     5.0,
      "694192"
-    ],
-    [
-     "Garrett Mitchell",
-     "draft",
-     "Drafted by the club, 2020",
-     "2020-06-10",
-     "inh",
-     4.3,
-     "669003"
     ],
     [
      "Jake Bauers",
@@ -4069,17 +4060,17 @@
      "Milwaukee Brewers signed free agent 1B Jake Bauers to a minor league contract and invited him to spring training.",
      "2025-01-06",
      "reg",
-     3.8,
+     3.9,
      "641343"
     ],
     [
-     "Joey Ortiz",
-     "trade",
-     "Milwaukee Brewers traded RHP Corbin Burnes to Baltimore Orioles for SS Joey Ortiz, LHP DL Hall and Future Considerations.",
-     "2024-02-01",
-     "reg",
-     3.1,
-     "687401"
+     "Garrett Mitchell",
+     "draft",
+     "Drafted by the club, 2020",
+     "2020-06-10",
+     "inh",
+     3.5,
+     "669003"
     ],
     [
      "William Contreras",
@@ -4087,8 +4078,17 @@
      "Atlanta Braves traded RHP Freddy Tarnok, C Manny Pi\u00f1a, RHP Royber Salinas, 2B Esteury Ruiz and LHP Kyle Muller to Oakland Athletics for C\u2026",
      "2022-12-12",
      "reg",
-     3.1,
+     3.4,
      "661388"
+    ],
+    [
+     "Joey Ortiz",
+     "trade",
+     "Milwaukee Brewers traded RHP Corbin Burnes to Baltimore Orioles for SS Joey Ortiz, LHP DL Hall and Future Considerations.",
+     "2024-02-01",
+     "reg",
+     2.7,
+     "687401"
     ],
     [
      "Trevor Megill",
@@ -4098,6 +4098,15 @@
      "reg",
      2.3,
      "656730"
+    ],
+    [
+     "David Hamilton",
+     "trade",
+     "Boston Red Sox traded LHP Kyle Harrison, LHP Shane Drohan and 2B David Hamilton to Milwaukee Brewers for 3B Caleb Durbin, SS Andruw\u2026",
+     "2026-02-09",
+     "reg",
+     2.1,
+     "666152"
     ],
     [
      "Aaron Ashby",
@@ -4127,6 +4136,15 @@
      "675660"
     ],
     [
+     "Cooper Pratt",
+     "draft",
+     "Drafted by the club, 2023",
+     "2023-07-09",
+     "reg",
+     1.8,
+     "806198"
+    ],
+    [
      "Abner Uribe",
      "intl",
      "Milwaukee Brewers signed free agent RHP Abner Uribe to a minor league contract.",
@@ -4134,15 +4152,6 @@
      "inh",
      1.7,
      "682842"
-    ],
-    [
-     "Cooper Pratt",
-     "draft",
-     "Drafted by the club, 2023",
-     "2023-07-09",
-     "reg",
-     1.6,
-     "806198"
     ],
     [
      "Kyle Harrison",
@@ -4159,33 +4168,24 @@
      "Milwaukee Brewers signed free agent C Gary S\u00e1nchez.",
      "2026-02-14",
      "reg",
-     1.2,
-     "596142"
-    ],
-    [
-     "Chad Patrick",
-     "trade",
-     "Milwaukee Brewers traded 3B Abraham Toro to Oakland Athletics for RHP Chad Patrick.",
-     "2023-11-15",
-     "reg",
      1.1,
-     "694477"
+     "596142"
     ]
    ]
   }
  ],
  "lines": {
   "n": 29,
-  "medianRegShare": 56,
+  "medianRegShare": 55,
   "medianTenure": 5,
   "earlyTitles": 11,
   "lateTitles": 9,
   "avgShare": {
-   "fa": 24.7,
-   "trade": 21.1,
-   "draft": 11.5,
-   "intl": 6.1,
-   "inherited": 36.6
+   "fa": 24.3,
+   "trade": 21.0,
+   "draft": 12.2,
+   "intl": 6.0,
+   "inherited": 36.5
   },
   "majorityFA": [
    "nyy09"
@@ -4194,7 +4194,7 @@
    "sf10",
    "sf12",
    "sf14",
-   "kc15"
+   "wsh19"
   ],
   "mostInherited": "nyy98",
   "mostBought": "nyy09",
@@ -4288,13 +4288,13 @@
     "abbr": "MIA",
     "exec": "Larry Beinfest",
     "tenure": 2,
-    "total": 43.3,
-    "regShare": 45,
+    "total": 43.1,
+    "regShare": 47,
     "contShare": null,
     "mix": {
-     "fa": 5.2,
-     "inherited": 23.6,
-     "trade": 14.5
+     "fa": 6.8,
+     "inherited": 22.8,
+     "trade": 13.5
     }
    },
    {
@@ -4304,13 +4304,13 @@
     "abbr": "BOS",
     "exec": "Theo Epstein",
     "tenure": 2,
-    "total": 54.0,
-    "regShare": 49,
+    "total": 51.9,
+    "regShare": 54,
     "contShare": null,
     "mix": {
-     "trade": 15.9,
-     "inherited": 27.3,
-     "fa": 10.8
+     "trade": 18.0,
+     "inherited": 23.8,
+     "fa": 10.1
     }
    },
    {
@@ -4320,13 +4320,13 @@
     "abbr": "CWS",
     "exec": "Ken Williams",
     "tenure": 5,
-    "total": 36.7,
-    "regShare": 56,
+    "total": 40.1,
+    "regShare": 55,
     "contShare": null,
     "mix": {
-     "inherited": 16.1,
-     "trade": 10.7,
-     "fa": 9.9
+     "inherited": 17.9,
+     "trade": 12.6,
+     "fa": 9.6
     }
    },
    {
@@ -4336,13 +4336,13 @@
     "abbr": "STL",
     "exec": "Walt Jocketty",
     "tenure": 12,
-    "total": 30.0,
+    "total": 33.4,
     "regShare": 100,
     "contShare": null,
     "mix": {
-     "draft": 10.0,
-     "trade": 8.6,
-     "fa": 11.4
+     "draft": 11.4,
+     "trade": 9.9,
+     "fa": 12.1
     }
    },
    {
@@ -4352,14 +4352,14 @@
     "abbr": "BOS",
     "exec": "Theo Epstein",
     "tenure": 5,
-    "total": 43.9,
-    "regShare": 82,
+    "total": 46.8,
+    "regShare": 84,
     "contShare": null,
     "mix": {
-     "fa": 17.8,
-     "trade": 12.9,
-     "draft": 5.3,
-     "inherited": 7.9
+     "fa": 17.7,
+     "trade": 15.9,
+     "inherited": 7.7,
+     "draft": 5.5
     }
    },
    {
@@ -4369,13 +4369,13 @@
     "abbr": "PHI",
     "exec": "Pat Gillick",
     "tenure": 3,
-    "total": 37.4,
-    "regShare": 30,
+    "total": 44.3,
+    "regShare": 29,
     "contShare": null,
     "mix": {
-     "inherited": 26.1,
-     "fa": 6.1,
-     "trade": 5.2
+     "inherited": 31.3,
+     "fa": 7.9,
+     "trade": 5.1
     }
    },
    {
@@ -4385,15 +4385,15 @@
     "abbr": "NYY",
     "exec": "Brian Cashman",
     "tenure": 12,
-    "total": 54.6,
-    "regShare": 88,
+    "total": 53.4,
+    "regShare": 87,
     "contShare": 100,
     "mix": {
-     "inherited": 6.4,
-     "fa": 34.7,
-     "intl": 6.5,
-     "trade": 3.6,
-     "draft": 3.4
+     "inherited": 6.7,
+     "fa": 33.4,
+     "intl": 5.1,
+     "trade": 3.1,
+     "draft": 5.1
     }
    },
    {
@@ -4403,14 +4403,14 @@
     "abbr": "SF",
     "exec": "Brian Sabean",
     "tenure": 14,
-    "total": 37.8,
+    "total": 38.7,
     "regShare": 100,
     "contShare": null,
     "mix": {
-     "fa": 9.8,
-     "draft": 15.7,
-     "intl": 9.9,
-     "trade": 2.4
+     "fa": 9.0,
+     "intl": 11.2,
+     "draft": 16.4,
+     "trade": 2.1
     }
    },
    {
@@ -4420,13 +4420,13 @@
     "abbr": "STL",
     "exec": "John Mozeliak",
     "tenure": 4,
-    "total": 47.7,
-    "regShare": 42,
+    "total": 48.1,
+    "regShare": 35,
     "contShare": null,
     "mix": {
-     "fa": 14.7,
-     "inherited": 27.6,
-     "trade": 5.4
+     "inherited": 31.1,
+     "fa": 13.3,
+     "trade": 3.7
     }
    },
    {
@@ -4436,13 +4436,13 @@
     "abbr": "SF",
     "exec": "Brian Sabean",
     "tenure": 16,
-    "total": 39.1,
+    "total": 38.8,
     "regShare": 100,
     "contShare": null,
     "mix": {
-     "draft": 18.3,
-     "trade": 12.5,
-     "intl": 6.9,
+     "draft": 21.6,
+     "trade": 11.1,
+     "intl": 4.7,
      "fa": 1.4
     }
    },
@@ -4453,13 +4453,13 @@
     "abbr": "BOS",
     "exec": "Ben Cherington",
     "tenure": 2,
-    "total": 49.9,
-    "regShare": 39,
+    "total": 55.1,
+    "regShare": 43,
     "contShare": null,
     "mix": {
-     "fa": 17.6,
-     "inherited": 30.4,
-     "trade": 1.9
+     "inherited": 31.5,
+     "fa": 21.9,
+     "trade": 1.7
     }
    },
    {
@@ -4469,14 +4469,14 @@
     "abbr": "SF",
     "exec": "Brian Sabean",
     "tenure": 18,
-    "total": 34.9,
+    "total": 37.2,
     "regShare": 100,
     "contShare": null,
     "mix": {
-     "draft": 15.9,
-     "trade": 4.2,
-     "intl": 7.8,
-     "fa": 7.0
+     "draft": 19.4,
+     "trade": 4.3,
+     "intl": 8.4,
+     "fa": 5.1
     }
    },
    {
@@ -4486,15 +4486,15 @@
     "abbr": "KC",
     "exec": "Dayton Moore",
     "tenure": 10,
-    "total": 34.5,
-    "regShare": 94,
+    "total": 38.8,
+    "regShare": 89,
     "contShare": null,
     "mix": {
-     "trade": 8.6,
-     "draft": 8.8,
+     "trade": 9.9,
+     "draft": 9.5,
      "fa": 5.9,
-     "intl": 9.0,
-     "inherited": 2.2
+     "intl": 9.4,
+     "inherited": 4.1
     }
    },
    {
@@ -4504,14 +4504,14 @@
     "abbr": "CHC",
     "exec": "Theo Epstein",
     "tenure": 5,
-    "total": 50.8,
-    "regShare": 91,
+    "total": 53.6,
+    "regShare": 90,
     "contShare": null,
     "mix": {
-     "draft": 8.1,
-     "trade": 21.3,
-     "fa": 16.7,
-     "inherited": 4.7
+     "draft": 8.5,
+     "trade": 23.3,
+     "fa": 16.4,
+     "inherited": 5.4
     }
    },
    {
@@ -4521,14 +4521,14 @@
     "abbr": "HOU",
     "exec": "Jeff Luhnow",
     "tenure": 6,
-    "total": 54.7,
+    "total": 55.7,
     "regShare": 72,
     "contShare": null,
     "mix": {
-     "inherited": 15.2,
-     "draft": 13.4,
-     "trade": 17.2,
-     "fa": 8.9
+     "inherited": 15.7,
+     "draft": 14.3,
+     "trade": 16.6,
+     "fa": 9.1
     }
    },
    {
@@ -4538,13 +4538,14 @@
     "abbr": "BOS",
     "exec": "Dave Dombrowski",
     "tenure": 3,
-    "total": 54.9,
-    "regShare": 35,
+    "total": 54.0,
+    "regShare": 36,
     "contShare": null,
     "mix": {
-     "inherited": 35.9,
-     "fa": 9.0,
-     "trade": 10.0
+     "inherited": 33.4,
+     "fa": 10.7,
+     "trade": 8.8,
+     "unk": 1.1
     }
    },
    {
@@ -4554,14 +4555,14 @@
     "abbr": "WSH",
     "exec": "Mike Rizzo",
     "tenure": 11,
-    "total": 49.2,
+    "total": 47.4,
     "regShare": 100,
     "contShare": null,
     "mix": {
-     "draft": 12.2,
-     "intl": 11.2,
-     "trade": 7.9,
-     "fa": 17.9
+     "draft": 12.9,
+     "intl": 11.9,
+     "trade": 7.6,
+     "fa": 15.0
     }
    },
    {
@@ -4571,14 +4572,14 @@
     "abbr": "LAD",
     "exec": "Andrew Friedman",
     "tenure": 6,
-    "total": 16.9,
-    "regShare": 62,
+    "total": 16.0,
+    "regShare": 64,
     "contShare": null,
     "mix": {
-     "trade": 4.8,
-     "inherited": 6.5,
-     "draft": 3.0,
-     "fa": 2.6
+     "trade": 4.9,
+     "inherited": 5.8,
+     "draft": 2.8,
+     "fa": 2.5
     }
    },
    {
@@ -4588,14 +4589,14 @@
     "abbr": "ATL",
     "exec": "Alex Anthopoulos",
     "tenure": 4,
-    "total": 42.2,
-    "regShare": 23,
+    "total": 42.3,
+    "regShare": 21,
     "contShare": null,
     "mix": {
-     "inherited": 32.4,
+     "inherited": 33.4,
      "fa": 4.9,
      "intl": 2.7,
-     "trade": 2.2
+     "trade": 1.3
     }
    },
    {
@@ -4605,12 +4606,12 @@
     "abbr": "HOU",
     "exec": "James Click",
     "tenure": 3,
-    "total": 54.4,
-    "regShare": 20,
+    "total": 53.8,
+    "regShare": 21,
     "contShare": null,
     "mix": {
-     "inherited": 43.4,
-     "fa": 9.2,
+     "inherited": 42.7,
+     "fa": 9.3,
      "trade": 1.8
     }
    },
@@ -4621,12 +4622,12 @@
     "abbr": "TEX",
     "exec": "Chris Young",
     "tenure": 1,
-    "total": 44.1,
-    "regShare": 15,
-    "contShare": 75,
+    "total": 45.1,
+    "regShare": 18,
+    "contShare": 77,
     "mix": {
-     "inherited": 37.5,
-     "fa": 5.1,
+     "inherited": 37.2,
+     "fa": 6.4,
      "trade": 1.5
     }
    },
@@ -4637,14 +4638,14 @@
     "abbr": "LAD",
     "exec": "Andrew Friedman",
     "tenure": 10,
-    "total": 45.6,
+    "total": 47.5,
     "regShare": 100,
     "contShare": null,
     "mix": {
-     "fa": 20.8,
-     "trade": 13.6,
-     "draft": 7.2,
-     "intl": 4.0
+     "fa": 22.1,
+     "trade": 14.2,
+     "draft": 6.8,
+     "intl": 4.4
     }
    },
    {
@@ -4654,14 +4655,14 @@
     "abbr": "LAD",
     "exec": "Andrew Friedman",
     "tenure": 11,
-    "total": 47.6,
+    "total": 50.3,
     "regShare": 100,
     "contShare": null,
     "mix": {
-     "fa": 21.4,
-     "draft": 9.7,
+     "fa": 22.8,
      "trade": 8.2,
-     "intl": 8.3
+     "draft": 9.4,
+     "intl": 9.9
     }
    },
    {
@@ -4671,15 +4672,15 @@
     "abbr": "MIL",
     "exec": "Matt Arnold",
     "tenure": 4,
-    "total": 46.7,
-    "regShare": 42,
+    "total": 48.6,
+    "regShare": 43,
     "contShare": 69,
     "mix": {
-     "inherited": 27.1,
-     "intl": 3.8,
-     "trade": 13.0,
-     "draft": 1.6,
-     "fa": 1.2
+     "inherited": 27.9,
+     "intl": 3.9,
+     "trade": 13.9,
+     "draft": 1.8,
+     "fa": 1.1
     }
    }
   ]
