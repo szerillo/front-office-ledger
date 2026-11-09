@@ -343,11 +343,12 @@ R.a_hashOpensScenario = await page.evaluate(() => !document.getElementById('view
 // b, c: the theme choice and the intro dismissal survive a reload
 await page.evaluate(() => { try { localStorage.clear(); } catch(e) {} });
 await page.goto(base, {waitUntil: 'load'}); await page.waitForTimeout(1500);
-R.c_introOnFirstVisit = await page.evaluate(() => !!document.getElementById('introstrip'));
-await page.evaluate(() => document.getElementById('themebtn').click());
+// Nov 2026: the front door is the team picker on a first visit; a picked team is remembered
+R.c_introOnFirstVisit = await page.evaluate(() => !document.getElementById('view-home').hidden && !!document.querySelector('#homebody .team-grid'));
+await page.evaluate(() => { document.getElementById('themebtn').click(); folTeamSet('BOS'); });
 await page.reload({waitUntil: 'load'}); await page.waitForTimeout(1500);
 R.b_themePersisted = await page.evaluate(() => document.documentElement.dataset.theme === 'dark' && /Light mode/.test(document.getElementById('themebtn').textContent));
-R.c_introHiddenOnReturn = await page.evaluate(() => !document.getElementById('introstrip'));
+R.c_introHiddenOnReturn = await page.evaluate(() => !!document.querySelector('#homebody .team-band') && /Boston Red Sox/.test(document.getElementById('homebody').textContent));
 await d.browser.close();
 
 // phones: 19 champion pages, 27 chart text, 28 trade-board filters

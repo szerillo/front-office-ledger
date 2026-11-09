@@ -1,0 +1,81 @@
+// Nov 2026: the front door (team picker and team page), heists, the trade quiz,
+// the Deal Desk popup with not-interested and make-it-fair, the simulator
+// scoreboard and next-decision card, and the phone bottom bar.
+import { open, report } from './_common.mjs';
+const d = await open();
+const R = await d.page.evaluate(async () => {
+  const o = {}, wait = ms => new Promise(z => setTimeout(z, ms));
+  try { localStorage.removeItem('fol-team'); } catch(e){}
+  switchView('home'); await wait(50);
+  o.homeIsDefault = typeof routeView === 'function';
+  o.pickerHas30 = document.querySelectorAll('#homebody .team-tile').length === 30;
+  o.heistOfDay = !!document.querySelector('#homebody .heist');
+  folPickTeam('BOS'); await wait(50);
+  const hb = document.getElementById('homebody').textContent;
+  o.teamPage = !!document.querySelector('#homebody .team-band') && /Craig Breslow/.test(hb) && /Your GM vs\. the league/.test(hb);
+  o.teamRemembered = folTeam() === 'BOS';
+  o.teamBestWorst = /Best move/.test(hb) && /Worst move/.test(hb);
+  o.teamTimelinePins = document.querySelectorAll('#homebody svg circle').length >= 3;
+  // heists: biggest first, and a club filter shows that club's side
+  switchView('heists'); await wait(50);
+  const gaps = folTrades().map(t => t.gap).sort((a, b) => b - a);
+  o.heistsSorted = document.querySelectorAll('#heistbody .heist').length === 20 && /Luis Gonzalez/.test(document.querySelector('#heistbody .heist').textContent) && Math.abs(folTrades().slice().sort((a, b) => b.gap - a.gap)[0].gap - gaps[0]) < 1e-9;
+  heistState.club = 'BOS'; heistState.dir = 'worst'; renderHeists(); await wait(30);
+  o.heistsClubWorst = [...document.querySelectorAll('#heistbody .heist')].every(c => /Boston Red Sox got/.test(c.textContent));
+  heistState.kind = 'fa'; renderHeists(); await wait(30);
+  o.heistsSignings = document.querySelectorAll('#heistbody .heist').length > 0;
+  heistState.kind = 'trades'; heistState.club = ''; heistState.dir = 'best';
+  // quiz: today's five are the same five for everyone; the right side wins
+  quizState = null; switchView('quiz'); await wait(30);
+  const a = quizState.qs.map(t => t.d).join(); quizState = null; renderQuiz(); const b = quizState.qs.map(t => t.d).join();
+  o.quizDailyStable = a === b && quizState.qs.length === 5;
+  try { localStorage.removeItem('fol-quiz-streak'); localStorage.removeItem('fol-quiz-day-' + quizState.day); } catch(e){}
+  quizState.done = false; quizState.ans = []; quizState.i = 0; renderQuiz();
+  const t0 = quizState.qs[0], sides = quizState.flip[0] ? [t0.S[1], t0.S[0]] : t0.S, k = sides[0].net >= t0.win.net - 1e-9 ? 0 : 1;
+  folQuizPick(k); await wait(20);
+  o.quizRightAnswer = quizState.ans[0] === true && (folQuizStore('streak') || 0) >= 1 && /Right\./.test(document.getElementById('quizbody').textContent);
+  o.quizPoolRealized = folQuizPool().every(t => t.d.slice(0, 4) <= '2023' && t.S.length === 2);
+  // Deal Desk: a suggested trade, the popup, not interested, make it fair
+  dkState.you = null; dkState.them = null; dkState.send = []; dkState.recv = []; dkState.excl = new Set(); dkState.mode = 'trade';
+  folTeamDefaults._done = {}; switchView('desk'); await wait(400);
+  o.deskSuggested = dkState.you === 'BOS' && !!dkState.them && dkState.recv.length >= 1 && dkState.send.length >= 1;
+  o.suggestNoCornerstone = dkState.recv.every(pc => !gmFranchise(pc.p));
+  dkEval(); await wait(30);
+  const out = document.getElementById('dk-out');
+  o.verdictPopsUp = out.classList.contains('dk-pop') && !!out.querySelector('.dk-pop-x') && !!out.querySelector('.dk-meter') && /Would [A-Z]{2,3} accept\?/.test(out.innerText);
+  dkPopClose(); o.popupCloses = !out.classList.contains('dk-pop') && document.body.classList.contains('dk-lock') === false;
+  const nixed = dkState.send[0].p[1];
+  dkNix('send', 0); await wait(30);
+  o.notInterestedRenegotiates = dkExcl().has(nixed) && !dkState.send.some(pc => pc.p && pc.p[1] === nixed) && dkState.send.length >= 1 && document.getElementById('dk-out').classList.contains('dk-pop');
+  o.notInterestedOffBoard = ![...document.querySelectorAll('#deskbody .tboard button')].some(x => x.getAttribute('onclick') && x.getAttribute('onclick').includes(String(nixed)));
+  dkPopClose();
+  o.memoSkipsPopupChrome = !/Make it fair/.test(dkMemoBody(document.getElementById('dk-out')));
+  // simulator: scoreboard and the next decision
+  switchView('gm'); await wait(200);
+  if(gmState.club !== 'BOS'){ document.getElementById('gm-club').value = 'BOS'; gmClubChange(); }
+  gmState.stage = 0; gmShow(); await wait(30);
+  o.simScoreboard = /\d{2,3}-\d{2,3}/.test(document.getElementById('gm-score').textContent) && /Payroll/.test(document.getElementById('gm-score').textContent);
+  o.simNextCard = !!document.querySelector('#gmbody .gm-next');
+  // leaderboard key folds away
+  o.lbKeyFolded = document.querySelectorAll('#view-leaderboard .lbkey details').length === 2 && /How to read a row/.test(document.querySelector('#view-leaderboard .lbkey summary').textContent);
+  o.sparklines = (() => { bdState.tab = 'fa'; switchView('boards'); return document.querySelectorAll('#boardsbody svg.spark').length > 5; })();
+  try { localStorage.removeItem('fol-team'); } catch(e){}
+  return o;
+});
+await d.browser.close();
+// phones: the bottom bar and no sideways scroll on the new views
+const m = await open({width: 390, height: 844});
+Object.assign(R, await m.page.evaluate(async () => {
+  const o = {}, wait = ms => new Promise(z => setTimeout(z, ms));
+  const over = () => document.documentElement.scrollWidth - document.documentElement.clientWidth;
+  o.phoneBottomBar = getComputedStyle(document.getElementById('mobar')).display === 'flex';
+  const wide = [];
+  folTeamSet('NYY');
+  for(const v of ['home', 'heists', 'quiz', 'desk', 'gm']){ switchView(v); await wait(250); if(over() > 2) wide.push(v + ':' + over()); }
+  dkEval(); await wait(30); if(over() > 2) wide.push('popup:' + over());
+  o.phoneNewViewsFit = wide.length === 0; if(wide.length) o.phoneWide = wide.join(' ');
+  try { localStorage.removeItem('fol-team'); } catch(e){}
+  return o;
+}));
+await m.browser.close();
+report('t_fun', R, [...d.errors, ...m.errors]);
