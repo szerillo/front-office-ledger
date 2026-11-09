@@ -79,6 +79,8 @@ const r = await d.page.evaluate(async () => {
   dkTake('send', sendIds[sendIds.length - 1]); dkTake('recv', recvIds[0]); dkEval();
   o.deskAcceptanceCheck = /Would TB accept\?/.test(document.getElementById('dk-out').innerText);
   dkState.send = []; dkState.recv = []; renderDesk(); dkAgm();
+  o.deskAgmNoAutoVerdict = !document.getElementById('dk-out').classList.contains('dk-pop');   // Nov 9: the verdict opens from Evaluate only
+  dkEval();
   o.deskAgmCompletes = dkState.recv.length >= 1 && dkState.send.length >= 1 && /Assistant GM/.test(document.getElementById('dk-agm-note').innerText) && /Would TB accept\?/.test(document.getElementById('dk-out').innerText);
   dkState.mode = 'fa'; renderDesk();
   document.getElementById('dk-fa-player').value = 'Teruaki Sato'; document.getElementById('dk-fa-yrs').value = 4; document.getElementById('dk-fa-m').value = 62; dkEval();
