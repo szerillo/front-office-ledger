@@ -81,6 +81,22 @@ const R = await d.page.evaluate(async (fx) => {
   wireQoCall(bau[1], 'decline'); await wait(30);
   o.qoCallScored = /You called it/.test(document.querySelector('.wire-qo').textContent) && /You are 1 for 1/.test(document.querySelector('.wire-qo').textContent);
   try { localStorage.removeItem('fol-qo-call-' + other); localStorage.removeItem('fol-qo-call-' + bau[1]); } catch(e){}
+  // free agent pick'em: over/under on the Ledger's number, then the exact deal, then your record
+  const pk = pkPool(); o.pickemPool = pk.length >= 10 && pk.every(x => x.sg.sugTot >= 10);
+  const pp = pk.find(x => !wireActual(x.p[1])).p[1];
+  try { localStorage.removeItem('fol-pk-' + pp); } catch(e){}
+  pkOU(pp, 'over'); await wait(150);
+  pkOU(pp, 'under'); o.pickemLocked = pkMine(pp).ou === 'over';
+  o.pickemCrowdBar = /% over/.test(document.querySelector('.wire-pk').textContent);
+  pkOpen(pp); await wait(150);
+  document.getElementById('pky-' + pp).value = 4; document.getElementById('pkt-' + pp).value = 100; pkPredict(pp); await wait(150);
+  o.pickemPredicted = pkMine(pp).yrs === 4 && Math.abs(pkMine(pp).aav - 25) < 0.01 && /Your call/.test(document.querySelector('.wire-pk').textContent);
+  o.pickemCrowdMedian = (() => { const c = pkCrowd(pp); return c && c.yrs >= 1 && c.aav > 0; })();
+  o.myCalls = /Over\/unders/.test((document.querySelector('.wire-my') || {}).textContent || '');
+  // every projection on a signing card: Ledger, published, model, fair, comps
+  o.projTable = (document.querySelector('#wi-990005 .wp-tab') || {}).textContent && /Ledger offer/.test(document.querySelector('#wi-990005 .wp-tab').textContent) && /Model-fair/.test(document.querySelector('#wi-990005 .wp-tab').textContent);
+  o.projVsActual = /Off by/.test((document.querySelector('#wi-990002 .wp-tab') || {}).textContent || '');
+  try { localStorage.removeItem('fol-pk-' + pp); } catch(e){}
   // new since your last visit, then marked seen
   o.newCount = wireNewCount() > 0;
   wireMarkSeen(); o.markSeen = wireNewCount() === 0;
