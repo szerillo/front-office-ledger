@@ -28,7 +28,11 @@ const R = await d.page.evaluate(async () => {
   const rb = document.getElementById('view-report').textContent;
   o.teamPage = !document.getElementById('view-report').hidden && /Craig Breslow/.test(rb) && /#view=cards&id=bos/.test(location.hash);
   o.teamStanding = !!document.querySelector('#rc-standing .rc-standing') && /active front offices/.test(document.getElementById('rc-standing').textContent) && /Run the Red Sox winter/.test(document.getElementById('rc-standing').textContent);
-  o.teamRemembered = folTeam() === 'BOS';
+  o.teamNotRemembered = folTeam() === '' && (() => { try { return !localStorage.getItem('fol-team'); } catch(e){ return true; } })();
+  [...document.querySelectorAll('#rc-standing button')].find(b => /Run the Red Sox winter/.test(b.textContent)).click(); await wait(300);
+  o.teamRunWinterOpensClub = !document.getElementById('view-gm').hidden && gmState.club === 'BOS';
+  dkState.you = null; switchView('desk'); await wait(100);
+  o.noDefaultClubAfter = !dkState.you;
   o.teamTimelinePins = document.querySelectorAll('#view-report svg circle').length >= 3;
   o.teamStandingOnlyCurrent = (() => { const h = LB_HIST.find(x => x.realCard); if(!h) return true; switchView('report', h.id); return !(document.getElementById('rc-standing') || {}).textContent; })();
   o.navOrder = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).slice(0, 8).join() === 'home,leaderboard,report,champs,dna,h2h,heists,trees' || [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).join();
@@ -61,7 +65,7 @@ const R = await d.page.evaluate(async () => {
   o.quizPoolRealized = folQuizPool().every(t => t.d.slice(0, 4) <= '2023' && t.S.length === 2);
   // Deal Desk: a suggested trade, the popup, not interested, make it fair
   dkState.you = null; dkState.them = null; dkState.send = []; dkState.recv = []; dkState.excl = new Set(); dkState.mode = 'trade';
-  folTeamDefaults._done = {}; switchView('desk'); await wait(400);
+  folOpenAs('BOS', 'desk'); await wait(400);
   o.deskSuggested = dkState.you === 'BOS' && !!dkState.them && dkState.recv.length >= 1 && dkState.send.length >= 1;
   o.suggestNoAutoVerdict = !document.getElementById('dk-out').classList.contains('dk-pop');
   o.suggestNoCornerstone = dkState.recv.every(pc => !gmFranchise(pc.p));

@@ -343,12 +343,12 @@ R.a_hashOpensScenario = await page.evaluate(() => !document.getElementById('view
 // b, c: the theme choice and the intro dismissal survive a reload
 await page.evaluate(() => { try { localStorage.clear(); } catch(e) {} });
 await page.goto(base, {waitUntil: 'load'}); await page.waitForTimeout(1500);
-// Nov 2026: the front door is the hub (heist, quiz, leaders, games) with a compact team picker; a picked team is remembered
+// Nov 2026: the front door is the hub (heist, quiz, leaders, games) with a compact team picker; no club is remembered (an old saved pick is cleared)
 R.c_introOnFirstVisit = await page.evaluate(() => !document.getElementById('view-home').hidden && !!document.querySelector('#homebody .hub-grid:not(.hub-skel)') && document.querySelectorAll('#hub-team option').length === 31);
-await page.evaluate(() => { document.getElementById('themebtn').click(); folTeamSet('BOS'); });
+await page.evaluate(() => { document.getElementById('themebtn').click(); localStorage.setItem('fol-team', 'BOS'); });
 await page.reload({waitUntil: 'load'}); await page.waitForTimeout(1500);
 R.b_themePersisted = await page.evaluate(() => document.documentElement.dataset.theme === 'dark' && /Light mode/.test(document.getElementById('themebtn').textContent));
-R.c_introHiddenOnReturn = await page.evaluate(() => /Boston Red Sox/.test(document.querySelector('#hub-team option').textContent) && /Open the Red Sox report card/.test(document.getElementById('homebody').textContent));
+R.c_noRememberedClub = await page.evaluate(() => /Pick a club/.test(document.querySelector('#hub-team option').textContent) && !localStorage.getItem('fol-team') && folTeam() === '');
 await d.browser.close();
 
 // phones: 19 champion pages, 27 chart text, 28 trade-board filters
