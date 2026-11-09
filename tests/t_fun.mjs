@@ -8,11 +8,11 @@ const R = await d.page.evaluate(async () => {
   try { localStorage.removeItem('fol-team'); } catch(e){}
   switchView('home'); await wait(50);
   o.homeIsDefault = typeof routeView === 'function';
-  o.pickerHas30 = document.querySelectorAll('#homebody .tchip').length === 30;
+  o.pickerHas30 = document.querySelectorAll('#hub-team option').length === 31 && !document.querySelector('#homebody .tchips');
   o.heistOfDay = !!document.querySelector('#homebody .heist') || /Heist of the day/.test(document.getElementById('homebody').textContent);
-  o.hubTeasers = ['Who won', 'Best front offices', 'Offseason simulator', 'Scenario room'].every(x => document.getElementById('homebody').textContent.includes(x));
-  o.hubOrder = (() => { const ks = [...document.querySelectorAll('#homebody .hub-grid .home-kick')].map(k => k.textContent.trim().toLowerCase()); return ks[0] === 'heist of the day' && ks[1] === 'leaderboard' && ks[2] === 'daily game' && ks[3] === 'offseason simulator' && ks[4] === 'scenario room' && ks.length >= 10; })();
-  o.hubSections = document.querySelectorAll('#homebody .hub-sec').length === 3 && /Signing of the day/.test(document.getElementById('homebody').textContent) && /Draft steal of the day/.test(document.getElementById('homebody').textContent);
+  o.hubTeasers = ['Trade Grade', 'Best front offices', 'Offseason simulator', 'Scenario room', 'Signing of the day'].every(x => document.getElementById('homebody').textContent.includes(x));
+  o.hubOrder = (() => { const ks = [...document.querySelectorAll('#homebody .hub-grid .home-kick')].map(k => k.textContent.trim().toLowerCase()); const once = new Set(ks.map(k => k.split(' · ')[0])).size === ks.length; return /^trade of the day · (on this date|this week in history)$/.test(ks[0]) && ks.some(k => k.startsWith('signing of the day')) && ks.includes('trade grade') && ks.includes('leaderboard') && ks.length >= 12 && once; })();
+  o.hubSections = [...document.querySelectorAll('#homebody .hub-sec h3')].map(h => h.textContent).join('|') === 'Today|The rankings and this winter|Play GM|Explore' && /regimes graded/.test(document.getElementById('homebody').textContent) && /free-agent signings/.test(document.getElementById('homebody').textContent);
   document.getElementById('hub-find').value = 'Friedman'; folHubFind();
   o.hubSearch = /Andrew Friedman/.test(document.getElementById('hub-find-out').textContent) && /report card/.test(document.getElementById('hub-find-out').textContent);
   document.getElementById('hub-find').value = 'Mookie'; folHubFind();
@@ -93,7 +93,8 @@ const R = await d.page.evaluate(async () => {
   switchView('scen'); await wait(300);
   o.scenListNoNames = (() => { const ls = [...document.getElementById('sc-sel').options].map(o => o.textContent); return !ls.some(t => /Skubal|De La Cruz|Holmes|Neto/.test(t)); })();
   // Org DNA: leaders, one card per club, the full table folded; the report card carries the profile
-  switchView('dna'); await wait(300); DNA_CLUB = ''; renderDnaTab(); await wait(30);
+  switchView('dna'); await wait(300);
+  o.dnaNoClubChips = !document.querySelector('#view-dna .clubchips, #vc-dna');
   o.dnaLeaders = document.querySelectorAll('#dna-leaders .dna-lead').length === 6;
   o.dnaCards = document.querySelectorAll('#dna-cards .dna-card').length === document.querySelectorAll('#dnatable tbody tr').length && document.querySelectorAll('#dna-cards .dna-card').length >= 25;
   o.dnaTableFolded = !document.querySelector('#view-dna details.dna-tablewrap').open;

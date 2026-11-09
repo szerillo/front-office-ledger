@@ -344,11 +344,11 @@ R.a_hashOpensScenario = await page.evaluate(() => !document.getElementById('view
 await page.evaluate(() => { try { localStorage.clear(); } catch(e) {} });
 await page.goto(base, {waitUntil: 'load'}); await page.waitForTimeout(1500);
 // Nov 2026: the front door is the hub (heist, quiz, leaders, games) with a compact team picker; a picked team is remembered
-R.c_introOnFirstVisit = await page.evaluate(() => !document.getElementById('view-home').hidden && !!document.querySelector('#homebody .hub-grid') && document.querySelectorAll('#homebody .tchip').length === 30);
+R.c_introOnFirstVisit = await page.evaluate(() => !document.getElementById('view-home').hidden && !!document.querySelector('#homebody .hub-grid:not(.hub-skel)') && document.querySelectorAll('#hub-team option').length === 31);
 await page.evaluate(() => { document.getElementById('themebtn').click(); folTeamSet('BOS'); });
 await page.reload({waitUntil: 'load'}); await page.waitForTimeout(1500);
 R.b_themePersisted = await page.evaluate(() => document.documentElement.dataset.theme === 'dark' && /Light mode/.test(document.getElementById('themebtn').textContent));
-R.c_introHiddenOnReturn = await page.evaluate(() => !!document.querySelector('#homebody .tchip.on') && /Boston Red Sox: open the front office page/.test(document.getElementById('homebody').textContent));
+R.c_introHiddenOnReturn = await page.evaluate(() => /Boston Red Sox/.test(document.querySelector('#hub-team option').textContent) && /Open the Red Sox page/.test(document.getElementById('homebody').textContent));
 await d.browser.close();
 
 // phones: 19 champion pages, 27 chart text, 28 trade-board filters
