@@ -31,10 +31,23 @@ def season_wars(pid):
         by[y] = by.get(y, 0) + v
     return [round(by[y], 1) for y in sorted(by)]
 
-def feat_hit(line, age, lg):
+# Nov 9: hitters are matched on lines relative to their own league's season, not raw.
+# The KBO plays a much higher-offense game than NPB (2024: .352 OBP / .420 SLG against
+# .305 / .346), so raw matching paired a good KBO line with NPB stars and their MLB
+# results (Si Hwan Roh had come out within 0.3 WAR of Teruaki Sato, an NPB Triple
+# Crown winner). League averages (both NPB leagues combined; KBO), season by season;
+# 2026 uses 2025.
+LG = {"NPB": {2016: (.318, .375, .021), 2017: (.317, .375, .021), 2018: (.323, .390, .024), 2019: (.320, .383, .023), 2020: (.321, .381, .023),
+              2021: (.316, .369, .021), 2022: (.309, .354, .019), 2023: (.310, .356, .019), 2024: (.305, .346, .017), 2025: (.307, .352, .018)},
+      "KBO": {2016: (.365, .437, .023), 2017: (.358, .437, .025), 2018: (.356, .450, .029), 2019: (.337, .385, .016), 2020: (.348, .409, .021),
+              2021: (.342, .383, .018), 2022: (.330, .369, .016), 2023: (.335, .372, .015), 2024: (.352, .420, .022), 2025: (.339, .391, .019)}}
+def lgavg(lg, yr):
+    t = LG.get(lg) or LG["NPB"]; yr = min(max(int(yr), 2016), 2025); return t[yr]
+def feat_hit(line, age, lg, yr=2025):
     if not line or line.get("PA", 0) < 150: return None
     iso = line["SLG"] - line["AVG"]
-    return dict(kind="H", obp=line["OBP"], slg=line["SLG"], iso=iso, hrpa=line["HR"] / line["PA"], age=age, lg=lg)
+    lo, ls, lh = lgavg(lg, yr)
+    return dict(kind="H", obp=line["OBP"] - lo, slg=line["SLG"] - ls, iso=iso, hrpa=line["HR"] / line["PA"] - lh, age=age, lg=lg)
 
 def feat_pit(line, age, lg):
     if not line or ipf(line.get("IP", 0)) < 30: return None
@@ -59,7 +72,7 @@ for c in R["comps"]:
     if not w: continue
     fl = c["final_season_line"]
     h, p = fl.get("hitting"), fl.get("pitching")
-    f = feat_pit(p, c["age_at_signing"], c["prior_league"]) if "P" in c["role"].split("/")[0][:2] or (p and not h) else feat_hit(h, c["age_at_signing"], c["prior_league"])
+    f = feat_pit(p, c["age_at_signing"], c["prior_league"]) if "P" in c["role"].split("/")[0][:2] or (p and not h) else feat_hit(h, c["age_at_signing"], c["prior_league"], c.get("final_pre_mlb_season") or int(str(c["offseason"])[:4]))
     if not f: continue
     comps.append(dict(name=c["name"], off=c["offseason"], yrs=c["years"], tot=c["guaranteed_musd"], club=c["signing_club"],
                       lg=c["prior_league"], age=c["age_at_signing"], y1=w[0], y2=(w[1] if len(w) > 1 else None),
@@ -82,6 +95,16 @@ for _k in ("H", "P"):
     _pool = [c for c in comps if c["f"]["kind"] == _k]
     MT[_k] = _fit([c["tot"] / c["yrs"] * (1.05 ** (2026 - int(c["off"][:4]))) for c in _pool], [c["v"] for c in _pool])
 print("money translation (v = a + b x AAV):", MT)
+# Nov 9: a comps average cannot reach past its best comp, and with ten hitter comps one
+# glove-first outlier (Ha-Seong Kim) carried any line near his. Hitters' seasons are now
+# half the comps average and half a line fit on the same comps: MLB value against the
+# league-relative line (2 x OBP over league + SLG over league), which extends to lines
+# better than any comp's and does not hand a bat a shortstop's defense.
+import numpy as _np
+_H = [c for c in comps if c["f"]["kind"] == "H"]
+_X = _np.array([[2 * c["f"]["obp"] + c["f"]["slg"], 1.0] for c in _H]); _Y = _np.array([c["v"] for c in _H])
+HFIT = [float(x) for x in _np.linalg.lstsq(_X, _Y, rcond=None)[0]]
+print("hitter line fit (v = a x (2 OBP+ + SLG+) + b):", [round(x, 2) for x in HFIT], "on", len(_H), "comps")
 out = {}
 for pz in R["posted"]:
     if pz.get("status") != "posted" or not pz.get("mlbam_id"): continue
@@ -91,12 +114,14 @@ for pz in R["posted"]:
     feats = {}
     for yr in ("2024", "2025", "2026"):
         line = pz["stats"].get(yr)
-        f = (feat_pit if pit else feat_hit)(line, age26 + 1 - (2026 - int(yr)), pz["league"])
+        f = feat_pit(line, age26 + 1 - (2026 - int(yr)), pz["league"]) if pit else feat_hit(line, age26 + 1 - (2026 - int(yr)), pz["league"], int(yr))
         if not f: continue
         pool = [c for c in comps if c["f"]["kind"] == f["kind"]]
         ranked = sorted(pool, key=lambda c: dist(f, c["f"]))[:5]
         wts = [1 / (1 + dist(f, c["f"])) for c in ranked]
-        per_season[yr] = round(sum(c["v"] * w for c, w in zip(ranked, wts)) / sum(wts), 2)
+        cv = sum(c["v"] * w for c, w in zip(ranked, wts)) / sum(wts)
+        if not pit: cv = 0.5 * cv + 0.5 * (HFIT[0] * (2 * f["obp"] + f["slg"]) + HFIT[1])
+        per_season[yr] = round(cv, 2)
         feats[yr] = f
     # market comps: the two-season platform, as the contract book reads it
     # (a 2025 match counts with a half-point penalty)
