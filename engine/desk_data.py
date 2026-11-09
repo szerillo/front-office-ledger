@@ -305,6 +305,7 @@ def _role(p):
 def _pt(rec, y, role):
     r = (rec or {}).get(str(y)) or [0, 0, 0]
     return float(r[0] if role == "bat" else r[1])
+PTX = {}
 _acc = {"bat": [0.0, 0.0], "SP": [0.0, 0.0], "RP": [0.0, 0.0]}
 for p in players:
     rec = PT_RAW.get(str(p[1])); role = _role(p)
@@ -394,6 +395,7 @@ for p in players:
     missed = debut <= 2025 and _pt(rec, 2025, role) == 0 and _pt(rec, 2026, role) == 0
     if missed: p.append(0.0); p.append(1); continue
     p.append(round(rate * pt_exp, 2)); p.append(0)
+    PTX[p[1]] = round(pt_exp) if role == "bat" else round(pt_exp, 1)   # Nov 9: expected 2027 PA / IP, shown beside the projection
 print("service from transactions:", n_svc, "| contract-expiry FAs:", len(CONTRACT_FA))
 
 # ---- v5.2: the winter as it actually happened (winter_2026.py) ----
@@ -792,6 +794,7 @@ out = dict(
     rookie=PROS["rookie"],
     t100lvl=PROS["top100Level"],
     deb26=(json.load(open("/work/debut26.json")) if os.path.exists("/work/debut26.json") else {}),
+    ptx={str(k): v for k, v in PTX.items()},   # Nov 9: expected 2027 playing time (PA for hitters, IP for pitchers)
     skadj={k: v[0] for k, v in (json.load(open("/work/skill_adj.json"))["adj"].items() if os.path.exists("/work/skill_adj.json") else {}) if abs(v[0]) >= 0.02},   # Nov 3: Statcast skill adjustment to the projection base (skills_fit.py)
     qo27=(json.load(open("/work/qo_2027.json"))["qo"] if os.path.exists("/work/qo_2027.json") else {}),   # Nov 3: this winter's real qualifying offers {pid: club}
     cons=(json.load(open("/work/market_consensus.json")) if os.path.exists("/work/market_consensus.json") else {}),   # Nov 3: published contract projections, median per player: [years, AAV $M, sources, source keys]   # v6.1: prospects who reached the majors in 2026
