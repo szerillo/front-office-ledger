@@ -54,15 +54,15 @@
   {
    "year": 2023,
    "n": 1113,
-   "r": 0.596,
-   "mae": 0.86
+   "r": 0.609,
+   "mae": 0.85
   },
   {
    "year": 2025,
    "n": 1126,
-   "r": 0.657,
+   "r": 0.67,
    "mae": 0.82
   }
  ],
- "method": "Marcel-style 5/4/3, 20% regression, delta-method aging, 10%/yr haircut, zero floor"
+ "method": "Marcel-style 5/3/2, 20% regression, delta-method aging, 10%/yr haircut, zero floor"
 }

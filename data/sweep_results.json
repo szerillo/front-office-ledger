@@ -303,10 +303,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 3.6,
-     "out": 1.6,
-     "net": 2.0,
-     "final": 10.4
+     "inn": 3.2,
+     "out": 1.3,
+     "net": 1.9,
+     "final": 10.3
     }
    },
    {
@@ -750,10 +750,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 3.6,
-       "out": 1.6,
-       "net": 2.0,
-       "final": 10.4
+       "inn": 3.2,
+       "out": 1.3,
+       "net": 1.9,
+       "final": 10.3
       }
      },
      {
@@ -1308,9 +1308,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 2.7,
-       "net": -2.7,
-       "final": -8.1
+       "out": 2.4,
+       "net": -2.4,
+       "final": -7.8
       }
      },
      {
@@ -1383,9 +1383,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 2.7,
-       "net": -2.7,
-       "final": -7.7
+       "out": 2.4,
+       "net": -2.4,
+       "final": -7.4
       }
      },
      {
@@ -6275,7 +6275,7 @@
      },
      {
       "d": "2022-12-23",
-      "h": "Got Lourdes Gurriel Jr., Gabriel Moreno for Daulton Varsho",
+      "h": "Got Gabriel Moreno, Lourdes Gurriel Jr. for Daulton Varsho",
       "net": 8.5
      },
      {
@@ -6346,7 +6346,7 @@
      },
      {
       "d": "2025-07-24",
-      "h": "Got Brandyn Garcia, Ashton Izzi for Josh Naylor",
+      "h": "Got Ashton Izzi, Brandyn Garcia for Josh Naylor",
       "net": 1.5
      },
      {
@@ -6386,7 +6386,7 @@
      },
      {
       "d": "2016-11-23",
-      "h": "Got Ketel Marte, Taijuan Walker for Zac Curtis, Jean Segura, Mitch Haniger",
+      "h": "Got Taijuan Walker, Ketel Marte for Zac Curtis, Jean Segura, Mitch Haniger",
       "net": -1.0
      }
     ]
@@ -6440,7 +6440,7 @@
     "deals": [
      {
       "d": "2026-02-05",
-      "h": "Got Kade Strowd, Jos\u00e9 Mej\u00eda, Wellington Aracena for Blaze Alexander",
+      "h": "Got Kade Strowd, Wellington Aracena, Jos\u00e9 Mej\u00eda for Blaze Alexander",
       "net": -1.3
      },
      {
@@ -6956,10 +6956,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 6.6,
+     "inn": 5.4,
      "out": 0.0,
-     "net": 6.6,
-     "final": 15.4
+     "net": 5.4,
+     "final": 14.2
     }
    },
    {
@@ -7056,10 +7056,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 0.5,
-     "out": 4.1,
-     "net": -3.6,
-     "final": -12.2
+     "inn": 0.3,
+     "out": 3.4,
+     "net": -3.1,
+     "final": -11.7
     }
    },
    {
@@ -7396,10 +7396,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 6.6,
+       "inn": 5.4,
        "out": 0.0,
-       "net": 6.6,
-       "final": 15.4
+       "net": 5.4,
+       "final": 14.2
       }
      },
      {
@@ -7556,10 +7556,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 0.4,
+       "inn": 0.3,
        "out": 0.8,
-       "net": -0.4,
-       "final": 2.7
+       "net": -0.5,
+       "final": 2.6
       }
      },
      {
@@ -7801,10 +7801,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 0.5,
-       "out": 4.1,
-       "net": -3.6,
-       "final": -12.2
+       "inn": 0.3,
+       "out": 3.4,
+       "net": -3.1,
+       "final": -11.7
       }
      },
      {
@@ -7971,10 +7971,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 3.5,
-       "out": 2.7,
-       "net": 0.8,
-       "final": -3.4
+       "inn": 2.9,
+       "out": 2.3,
+       "net": 0.6,
+       "final": -3.6
       }
      },
      {
@@ -8052,9 +8052,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 2.9,
-       "net": -2.9,
-       "final": -6.0
+       "out": 2.5,
+       "net": -2.5,
+       "final": -5.6
       }
      },
      {
@@ -13073,7 +13073,7 @@
     "deals": [
      {
       "d": "2026-08-02",
-      "h": "Got Lane Thomas, Bailey Falter for Lucas Braun, Carter Holton",
+      "h": "Got Bailey Falter, Lane Thomas for Lucas Braun, Carter Holton",
       "net": -1.4
      },
      {
@@ -13154,7 +13154,7 @@
      },
      {
       "d": "2017-12-16",
-      "h": "Got Brandon McCarthy, Adri\u00e1n Gonz\u00e1lez, Scott Kazmir, Charlie Culberson for Matt Kemp",
+      "h": "Got Charlie Culberson, Brandon McCarthy, Scott Kazmir, Adri\u00e1n Gonz\u00e1lez for Matt Kemp",
       "net": -0.8
      },
      {
@@ -13362,7 +13362,7 @@
      },
      {
       "d": "2023-12-03",
-      "h": "Got Evan White, Jarred Kelenic, Marco Gonzales for Jackson Kowar, Cole Phillips",
+      "h": "Got Evan White, Marco Gonzales, Jarred Kelenic for Jackson Kowar, Cole Phillips",
       "net": -0.9
      },
      {
@@ -13834,10 +13834,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 2.1,
+     "inn": 2.0,
      "out": 0.0,
-     "net": 2.1,
-     "final": 7.8
+     "net": 2.0,
+     "final": 7.7
     }
    },
    {
@@ -13915,9 +13915,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.0,
-     "out": 5.3,
-     "net": -5.3,
-     "final": -10.8
+     "out": 4.6,
+     "net": -4.6,
+     "final": -10.1
     }
    },
    {
@@ -14038,10 +14038,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 2.1,
+       "inn": 2.0,
        "out": 0.0,
-       "net": 2.1,
-       "final": 7.8
+       "net": 2.0,
+       "final": 7.7
       }
      },
      {
@@ -14138,10 +14138,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 9.0,
-       "out": 11.0,
-       "net": -2.0,
-       "final": 2.3
+       "inn": 8.2,
+       "out": 8.3,
+       "net": -0.1,
+       "final": 4.2
       }
      },
      {
@@ -14370,10 +14370,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 0.8,
+       "inn": 0.7,
        "out": 0.0,
-       "net": 0.8,
-       "final": 3.5
+       "net": 0.7,
+       "final": 3.4
       }
      }
     ],
@@ -14521,9 +14521,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 5.3,
-       "net": -5.3,
-       "final": -10.8
+       "out": 4.6,
+       "net": -4.6,
+       "final": -10.1
       }
      },
      {
@@ -19233,7 +19233,7 @@
      },
      {
       "d": "2024-05-25",
-      "h": "Got Aneuris Rodriguez, Thyago Vieira for Garrett Stallings",
+      "h": "Got Thyago Vieira, Aneuris Rodriguez for Garrett Stallings",
       "net": -0.4
      },
      {
@@ -19251,7 +19251,7 @@
     "deals": [
      {
       "d": "2025-07-31",
-      "h": "Got Anthony Nunez, Raimon Gomez, Chandler Marsh for Cedric Mullins",
+      "h": "Got Anthony Nunez, Chandler Marsh, Raimon Gomez for Cedric Mullins",
       "net": 2.4
      },
      {
@@ -19391,7 +19391,7 @@
      },
      {
       "d": "2024-07-30",
-      "h": "Got Austin Slater, Livan Soto for cash/PTBNL",
+      "h": "Got Livan Soto, Austin Slater for cash/PTBNL",
       "net": 0.2
      }
     ]
@@ -19404,7 +19404,7 @@
     "deals": [
      {
       "d": "2026-05-08",
-      "h": "Got Maicol Lauriano, Enyel Garcia for cash/PTBNL",
+      "h": "Got Enyel Garcia, Maicol Lauriano for cash/PTBNL",
       "net": 0.8
      },
      {
@@ -19414,7 +19414,7 @@
      },
      {
       "d": "2024-07-26",
-      "h": "Got Seranthony Dom\u00ednguez, Cristian Pache for Austin Hays",
+      "h": "Got Cristian Pache, Seranthony Dom\u00ednguez for Austin Hays",
       "net": 0.8
      },
      {
@@ -19478,7 +19478,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Brock Moore, Harrison Kreiling, Alex Hoppe for Taylor Ward",
+      "h": "Got Harrison Kreiling, Alex Hoppe, Brock Moore for Taylor Ward",
       "net": 2.3
      },
      {
@@ -19656,7 +19656,7 @@
      },
      {
       "d": "2020-08-30",
-      "h": "Got AJ Graffanino, Greg Cullen for Tommy Milone",
+      "h": "Got Greg Cullen, AJ Graffanino for Tommy Milone",
       "net": 0.2
      }
     ]
@@ -19867,10 +19867,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 8.0,
-     "out": 12.7,
-     "net": -4.7,
-     "final": -16.6
+     "inn": 5.7,
+     "out": 12.1,
+     "net": -6.4,
+     "final": -18.3
     }
    },
    {
@@ -19943,9 +19943,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.0,
-     "out": 6.6,
-     "net": -6.6,
-     "final": -15.4
+     "out": 5.4,
+     "net": -5.4,
+     "final": -14.2
     }
    },
    {
@@ -20042,10 +20042,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 8.8,
-     "out": 8.5,
-     "net": 0.3,
-     "final": -4.0
+     "inn": 7.1,
+     "out": 7.7,
+     "net": -0.6,
+     "final": -4.9
     }
    },
    {
@@ -20186,10 +20186,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.5,
+     "inn": 1.3,
      "out": 0.0,
-     "net": 1.5,
-     "final": 4.8
+     "net": 1.3,
+     "final": 4.6
     }
    },
    {
@@ -20261,10 +20261,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.3,
+     "inn": 1.1,
      "out": 0.4,
-     "net": 0.9,
-     "final": 3.7
+     "net": 0.7,
+     "final": 3.5
     }
    },
    {
@@ -20411,10 +20411,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 8.0,
-     "out": 12.7,
-     "net": -4.7,
-     "final": -2.1
+     "inn": 5.7,
+     "out": 12.1,
+     "net": -6.4,
+     "final": -3.8
     }
    }
   ],
@@ -20500,10 +20500,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.5,
+       "inn": 1.3,
        "out": 0.0,
-       "net": 1.5,
-       "final": 4.8
+       "net": 1.3,
+       "final": 4.6
       }
      },
      {
@@ -20575,10 +20575,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.3,
+       "inn": 1.1,
        "out": 0.4,
-       "net": 0.9,
-       "final": 3.7
+       "net": 0.7,
+       "final": 3.5
       }
      },
      {
@@ -20725,10 +20725,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 8.0,
-       "out": 12.7,
-       "net": -4.7,
-       "final": -2.1
+       "inn": 5.7,
+       "out": 12.1,
+       "net": -6.4,
+       "final": -3.8
       }
      },
      {
@@ -20897,10 +20897,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 8.0,
-       "out": 12.7,
-       "net": -4.7,
-       "final": -16.6
+       "inn": 5.7,
+       "out": 12.1,
+       "net": -6.4,
+       "final": -18.3
       }
      },
      {
@@ -20973,9 +20973,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 6.6,
-       "net": -6.6,
-       "final": -15.4
+       "out": 5.4,
+       "net": -5.4,
+       "final": -14.2
       }
      },
      {
@@ -21072,10 +21072,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 8.8,
-       "out": 8.5,
-       "net": 0.3,
-       "final": -4.0
+       "inn": 7.1,
+       "out": 7.7,
+       "net": -0.6,
+       "final": -4.9
       }
      },
      {
@@ -21167,10 +21167,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 7.8,
-       "out": 10.3,
-       "net": -2.5,
-       "final": -4.8
+       "inn": 6.9,
+       "out": 9.1,
+       "net": -2.2,
+       "final": -4.5
       }
      },
      {
@@ -21258,9 +21258,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 1.6,
-       "net": -1.6,
-       "final": -3.4
+       "out": 1.5,
+       "net": -1.5,
+       "final": -3.3
       }
      }
     ]
@@ -23654,7 +23654,7 @@
      },
      {
       "d": "2023-12-05",
-      "h": "Got Nicholas Judice, Greg Weissert, Richard Fitts for Alex Verdugo",
+      "h": "Got Nicholas Judice, Richard Fitts, Greg Weissert for Alex Verdugo",
       "net": 3.3
      }
     ]
@@ -23705,12 +23705,12 @@
     "deals": [
      {
       "d": "2026-02-09",
-      "h": "Got Anthony Seigler, Caleb Durbin, Andruw Monasterio for David Hamilton, Kyle Harrison, Shane Drohan",
+      "h": "Got Andruw Monasterio, Anthony Seigler, Caleb Durbin for David Hamilton, Kyle Harrison, Shane Drohan",
       "net": -2.3
      },
      {
       "d": "2025-04-07",
-      "h": "Got John Holobetz, Yophery Rodriguez for Quinn Priester",
+      "h": "Got Yophery Rodriguez, John Holobetz for Quinn Priester",
       "net": -1.1
      },
      {
@@ -23733,7 +23733,7 @@
      },
      {
       "d": "2025-12-04",
-      "h": "Got Johan Oviedo, Adonys Guzman, Tyler Samaniego for Jesus Travieso, Jhostynxon Garcia",
+      "h": "Got Tyler Samaniego, Johan Oviedo, Adonys Guzman for Jesus Travieso, Jhostynxon Garcia",
       "net": 1.1
      },
      {
@@ -23797,7 +23797,7 @@
      },
      {
       "d": "2025-06-15",
-      "h": "Got Jose Bello, James Tibbs III, Jordan Hicks, Kyle Harrison for Rafael Devers",
+      "h": "Got Jose Bello, Kyle Harrison, Jordan Hicks, James Tibbs III for Rafael Devers",
       "net": 0.5
      }
     ]
@@ -24168,10 +24168,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 5.1,
+     "inn": 3.9,
      "out": 7.3,
-     "net": -2.2,
-     "final": 4.8
+     "net": -3.4,
+     "final": 3.6
     }
    },
    {
@@ -24254,9 +24254,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.0,
-     "out": 10.7,
-     "net": -10.7,
-     "final": -16.4
+     "out": 9.6,
+     "net": -9.6,
+     "final": -15.3
     }
    },
    {
@@ -24536,10 +24536,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.8,
+     "inn": 1.7,
      "out": 0.0,
-     "net": 1.8,
-     "final": 5.0
+     "net": 1.7,
+     "final": 4.9
     }
    },
    {
@@ -24611,10 +24611,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 0.1,
+     "inn": 0.0,
      "out": 0.0,
-     "net": 0.1,
-     "final": -2.8
+     "net": 0.0,
+     "final": -2.9
     }
    }
   ],
@@ -24773,10 +24773,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 5.1,
+       "inn": 3.9,
        "out": 7.3,
-       "net": -2.2,
-       "final": 4.8
+       "net": -3.4,
+       "final": 3.6
       }
      },
      {
@@ -24933,10 +24933,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.8,
+       "inn": 1.7,
        "out": 0.0,
-       "net": 1.8,
-       "final": 5.0
+       "net": 1.7,
+       "final": 4.9
       }
      },
      {
@@ -25096,9 +25096,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 10.7,
-       "net": -10.7,
-       "final": -16.4
+       "out": 9.6,
+       "net": -9.6,
+       "final": -15.3
       }
      },
      {
@@ -25263,10 +25263,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 0.1,
+       "inn": 0.0,
        "out": 0.0,
-       "net": 0.1,
-       "final": -2.8
+       "net": 0.0,
+       "final": -2.9
       }
      },
      {
@@ -25343,10 +25343,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 7.6,
+       "inn": 5.8,
        "out": 4.1,
-       "net": 3.5,
-       "final": 0.8
+       "net": 1.7,
+       "final": -1.0
       }
      },
      {
@@ -25419,9 +25419,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.4,
-       "out": 1.5,
-       "net": -1.1,
-       "final": -3.2
+       "out": 1.0,
+       "net": -0.6,
+       "final": -2.7
       }
      }
     ]
@@ -29023,7 +29023,7 @@
      },
      {
       "d": "2020-12-29",
-      "h": "Got Reginald Preciado, Zach Davies, Ismael Mena, Yeison Santana, Owen Caissie for Yu Darvish, Victor Caratini",
+      "h": "Got Reginald Preciado, Yeison Santana, Ismael Mena, Owen Caissie, Zach Davies for Yu Darvish, Victor Caratini",
       "net": -4.3
      }
     ]
@@ -29237,7 +29237,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Clay Holmes, Tyrone Taylor for Jefferson Rojas",
+      "h": "Got Tyrone Taylor, Clay Holmes for Jefferson Rojas",
       "net": -1.7
      },
      {
@@ -29578,10 +29578,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 12.3,
-     "out": 6.2,
-     "net": 6.1,
-     "final": 18.0
+     "inn": 11.7,
+     "out": 4.6,
+     "net": 7.1,
+     "final": 19.0
     }
    },
    {
@@ -29673,10 +29673,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 6.6,
+     "inn": 6.5,
      "out": 0.0,
-     "net": 6.6,
-     "final": 12.1
+     "net": 6.5,
+     "final": 12.0
     }
    },
    {
@@ -29837,10 +29837,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 3.4,
+     "inn": 3.5,
      "out": 0,
-     "net": 3.4,
-     "final": 6.9
+     "net": 3.5,
+     "final": 7.0
     }
    },
    {
@@ -30047,9 +30047,9 @@
     "unsettled": true,
     "proj": {
      "inn": 1.2,
-     "out": 0.9,
-     "net": 0.3,
-     "final": 2.0
+     "out": 0.5,
+     "net": 0.7,
+     "final": 2.4
     }
    },
    {
@@ -30170,10 +30170,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 12.3,
-       "out": 6.2,
-       "net": 6.1,
-       "final": 18.0
+       "inn": 11.7,
+       "out": 4.6,
+       "net": 7.1,
+       "final": 19.0
       }
      },
      {
@@ -30265,10 +30265,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 6.6,
+       "inn": 6.5,
        "out": 0.0,
-       "net": 6.6,
-       "final": 12.1
+       "net": 6.5,
+       "final": 12.0
       }
      },
      {
@@ -30339,10 +30339,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 3.4,
+       "inn": 3.5,
        "out": 0,
-       "net": 3.4,
-       "final": 6.9
+       "net": 3.5,
+       "final": 7.0
       }
      },
      {
@@ -30415,9 +30415,9 @@
       "unsettled": true,
       "proj": {
        "inn": 1.2,
-       "out": 0.9,
-       "net": 0.3,
-       "final": 2.0
+       "out": 0.5,
+       "net": 0.7,
+       "final": 2.4
       }
      },
      {
@@ -30742,9 +30742,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.4,
-       "out": 2.8,
-       "net": -2.4,
-       "final": -3.9
+       "out": 3.0,
+       "net": -2.6,
+       "final": -4.1
       }
      },
      {
@@ -30837,9 +30837,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.4,
-       "out": 0.5,
-       "net": -0.1,
-       "final": -1.5
+       "out": 0.2,
+       "net": 0.2,
+       "final": -1.2
       }
      },
      {
@@ -30912,9 +30912,9 @@
       "unsettled": true,
       "proj": {
        "inn": 1.2,
-       "out": 0.9,
-       "net": 0.3,
-       "final": -1.0
+       "out": 0.5,
+       "net": 0.7,
+       "final": -0.6
       }
      }
     ]
@@ -33204,7 +33204,7 @@
      },
      {
       "d": "2024-12-11",
-      "h": "Got Wikelman Gonz\u00e1lez, Chase Meidroth, Braden Montgomery, Kyle Teel for Garrett Crochet",
+      "h": "Got Braden Montgomery, Wikelman Gonz\u00e1lez, Chase Meidroth, Kyle Teel for Garrett Crochet",
       "net": 11.9
      },
      {
@@ -33237,12 +33237,12 @@
      },
      {
       "d": "2025-11-18",
-      "h": "Got Tanner Murray, Everson Pereira for Yoendrys G\u00f3mez, Steven Wilson",
+      "h": "Got Everson Pereira, Tanner Murray for Yoendrys G\u00f3mez, Steven Wilson",
       "net": 0.2
      },
      {
       "d": "2025-07-31",
-      "h": "Got Ben Peoples, Curtis Mead, Duncan Davitt for Adrian Houser",
+      "h": "Got Curtis Mead, Ben Peoples, Duncan Davitt for Adrian Houser",
       "net": 1.3
      },
      {
@@ -33275,7 +33275,7 @@
      },
      {
       "d": "2024-03-13",
-      "h": "Got Steven Wilson, Drew Thorpe, Samuel Zavala, Jairo Iriarte for Dylan Cease",
+      "h": "Got Samuel Zavala, Drew Thorpe, Jairo Iriarte, Steven Wilson for Dylan Cease",
       "net": -4.2
      }
     ]
@@ -33293,7 +33293,7 @@
      },
      {
       "d": "2023-11-16",
-      "h": "Got Braden Shewmake, Nicky Lopez, Michael Soroka, Jared Shuster, Riley Gowens for Aaron Bummer",
+      "h": "Got Jared Shuster, Nicky Lopez, Braden Shewmake, Riley Gowens, Michael Soroka for Aaron Bummer",
       "net": -1.4
      }
     ]
@@ -33431,7 +33431,7 @@
      },
      {
       "d": "2024-02-03",
-      "h": "Got Prelander Berroa, Zach DeLoach for Gregory Santos",
+      "h": "Got Zach DeLoach, Prelander Berroa for Gregory Santos",
       "net": 0.5
      }
     ]
@@ -33791,10 +33791,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.9,
+     "inn": 1.6,
      "out": 0.0,
-     "net": 1.9,
-     "final": 8.9
+     "net": 1.6,
+     "final": 8.6
     }
    },
    {
@@ -34278,10 +34278,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.9,
+       "inn": 1.6,
        "out": 0.0,
-       "net": 1.9,
-       "final": 8.9
+       "net": 1.6,
+       "final": 8.6
       }
      },
      {
@@ -34507,9 +34507,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.8,
-       "out": 1.3,
-       "net": -0.5,
-       "final": 1.3
+       "out": 0.8,
+       "net": 0.0,
+       "final": 1.8
       }
      },
      {
@@ -38222,7 +38222,7 @@
      },
      {
       "d": "2022-07-30",
-      "h": "Got Andrew Moore, Edwin Arroyo, Levi Stoudt, Noelvi Marte for Luis Castillo",
+      "h": "Got Edwin Arroyo, Andrew Moore, Levi Stoudt, Noelvi Marte for Luis Castillo",
       "net": -1.3
      },
      {
@@ -38232,7 +38232,7 @@
      },
      {
       "d": "2022-03-14",
-      "h": "Got Connor Phillips, Brandon Williamson, Jake Fraley, Justin Dunn, Luis Chevalier for Jesse Winker, Eugenio Su\u00e1rez",
+      "h": "Got Jake Fraley, Brandon Williamson, Luis Chevalier, Justin Dunn, Connor Phillips for Jesse Winker, Eugenio Su\u00e1rez",
       "net": -6.9
      }
     ]
@@ -38268,7 +38268,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Alejandro Rivera, Juan Brito for Nathaniel Lowe",
+      "h": "Got Juan Brito, Alejandro Rivera for Nathaniel Lowe",
       "net": 1.8
      },
      {
@@ -38378,7 +38378,7 @@
     "deals": [
      {
       "d": "2024-07-30",
-      "h": "Got Jakob Junis, Joey Wiemer for Frankie Montas",
+      "h": "Got Joey Wiemer, Jakob Junis for Frankie Montas",
       "net": 1.8
      },
      {
@@ -45568,12 +45568,12 @@
      },
      {
       "d": "2020-08-31",
-      "h": "Got Cal Quantrill, Austin Hedges, Owen Miller, Josh Naylor, Gabriel Arias, Joey Cantillo for Mike Clevinger, Greg Allen, Matt Waldron",
+      "h": "Got Gabriel Arias, Owen Miller, Austin Hedges, Joey Cantillo, Josh Naylor, Cal Quantrill for Mike Clevinger, Greg Allen, Matt Waldron",
       "net": 8.7
      },
      {
       "d": "2019-07-31",
-      "h": "Got Franmil Reyes, Victor Nova, Logan Allen for cash/PTBNL",
+      "h": "Got Logan Allen, Franmil Reyes, Victor Nova for cash/PTBNL",
       "net": 0.8
      },
      {
@@ -45928,7 +45928,7 @@
     "deals": [
      {
       "d": "2024-12-10",
-      "h": "Got Michael Kennedy, Luis Ortiz, Josh Hartle for cash/PTBNL",
+      "h": "Got Michael Kennedy, Josh Hartle, Luis Ortiz for cash/PTBNL",
       "net": 1.9
      },
      {
@@ -46268,10 +46268,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 3.9,
+     "inn": 3.1,
      "out": 0.4,
-     "net": 3.5,
-     "final": 5.6
+     "net": 2.7,
+     "final": 4.8
     }
    },
    {
@@ -46429,9 +46429,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.8,
-     "out": 0.5,
-     "net": 0.3,
-     "final": 1.7
+     "out": 0.4,
+     "net": 0.4,
+     "final": 1.8
     }
    },
    {
@@ -46508,10 +46508,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 3.1,
-     "out": 6.0,
-     "net": -2.9,
-     "final": -1.5
+     "inn": 3.0,
+     "out": 4.6,
+     "net": -1.6,
+     "final": -0.2
     }
    },
    {
@@ -46583,10 +46583,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.5,
+     "inn": 1.2,
      "out": 0.4,
-     "net": 1.1,
-     "final": 2.2
+     "net": 0.8,
+     "final": 1.9
     }
    },
    {
@@ -46663,10 +46663,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 3.1,
-     "out": 6.0,
-     "net": -2.9,
-     "final": -1.9
+     "inn": 3.0,
+     "out": 4.6,
+     "net": -1.6,
+     "final": -0.6
     }
    },
    {
@@ -46891,10 +46891,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 3.9,
+       "inn": 3.1,
        "out": 0.4,
-       "net": 3.5,
-       "final": 5.6
+       "net": 2.7,
+       "final": 4.8
       }
      },
      {
@@ -46972,9 +46972,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.8,
-       "out": 0.5,
-       "net": 0.3,
-       "final": 1.7
+       "out": 0.4,
+       "net": 0.4,
+       "final": 1.8
       }
      },
      {
@@ -47051,10 +47051,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 3.1,
-       "out": 6.0,
-       "net": -2.9,
-       "final": -1.5
+       "inn": 3.0,
+       "out": 4.6,
+       "net": -1.6,
+       "final": -0.2
       }
      },
      {
@@ -47126,10 +47126,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.5,
+       "inn": 1.2,
        "out": 0.4,
-       "net": 1.1,
-       "final": 2.2
+       "net": 0.8,
+       "final": 1.9
       }
      }
     ],
@@ -48514,10 +48514,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 0.5,
+     "inn": 0.4,
      "out": 0.0,
-     "net": 0.5,
-     "final": -4.3
+     "net": 0.4,
+     "final": -4.4
     }
    },
    {
@@ -48680,9 +48680,9 @@
     "unsettled": true,
     "proj": {
      "inn": 7.8,
-     "out": 17.7,
-     "net": -9.9,
-     "final": -5.9
+     "out": 14.2,
+     "net": -6.4,
+     "final": -2.4
     }
    },
    {
@@ -48790,9 +48790,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.8,
-     "out": 0.4,
-     "net": 0.4,
-     "final": -2.7
+     "out": 0.3,
+     "net": 0.5,
+     "final": -2.6
     }
    },
    {
@@ -48864,10 +48864,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.5,
+     "inn": 1.0,
      "out": 0.4,
-     "net": 1.1,
-     "final": 3.2
+     "net": 0.6,
+     "final": 2.7
     }
    }
   ],
@@ -49034,9 +49034,9 @@
       "unsettled": true,
       "proj": {
        "inn": 7.8,
-       "out": 17.7,
-       "net": -9.9,
-       "final": -5.9
+       "out": 14.2,
+       "net": -6.4,
+       "final": -2.4
       }
      },
      {
@@ -49108,10 +49108,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.5,
+       "inn": 1.0,
        "out": 0.4,
-       "net": 1.1,
-       "final": 3.2
+       "net": 0.6,
+       "final": 2.7
       }
      },
      {
@@ -49194,9 +49194,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.8,
-       "out": 4.3,
-       "net": -3.5,
-       "final": -1.5
+       "out": 3.3,
+       "net": -2.5,
+       "final": -0.5
       }
      },
      {
@@ -49360,10 +49360,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 0.5,
+       "inn": 0.4,
        "out": 0.0,
-       "net": 0.5,
-       "final": -4.3
+       "net": 0.4,
+       "final": -4.4
       }
      },
      {
@@ -49441,9 +49441,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.8,
-       "out": 0.4,
-       "net": 0.4,
-       "final": -2.7
+       "out": 0.3,
+       "net": 0.5,
+       "final": -2.6
       }
      },
      {
@@ -49670,9 +49670,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.4,
-       "out": 1.9,
-       "net": -1.5,
-       "final": -2.4
+       "out": 1.8,
+       "net": -1.4,
+       "final": -2.3
       }
      }
     ]
@@ -52282,7 +52282,7 @@
     "deals": [
      {
       "d": "2026-08-02",
-      "h": "Got Brady Smith, River Ryan, Zyhir Hope for Tarik Skubal",
+      "h": "Got River Ryan, Zyhir Hope, Brady Smith for Tarik Skubal",
       "net": 3.9
      },
      {
@@ -52325,7 +52325,7 @@
      },
      {
       "d": "2022-12-07",
-      "h": "Got Jake Higginbotham, Justyn-Henry Malloy for Joe Jim\u00e9nez",
+      "h": "Got Justyn-Henry Malloy, Jake Higginbotham for Joe Jim\u00e9nez",
       "net": -3.1
      }
     ]
@@ -52363,7 +52363,7 @@
      },
      {
       "d": "2023-01-07",
-      "h": "Got Donny Sands, Nick Maton, Matt Vierling for Kody Clemens, Gregory Soto",
+      "h": "Got Nick Maton, Donny Sands, Matt Vierling for Kody Clemens, Gregory Soto",
       "net": -4.7
      }
     ]
@@ -53015,8 +53015,8 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.9,
-     "out": 2.9,
+     "inn": 1.3,
+     "out": 2.3,
      "net": -1.0,
      "final": -3.2
     }
@@ -53090,10 +53090,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 0.7,
-     "out": 1.2,
-     "net": -0.5,
-     "final": -2.6
+     "inn": 0.2,
+     "out": 1.1,
+     "net": -0.9,
+     "final": -3.0
     }
    },
    {
@@ -53176,9 +53176,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.8,
-     "out": 0.6,
-     "net": 0.2,
-     "final": 1.6
+     "out": 0.3,
+     "net": 0.5,
+     "final": 1.9
     }
    },
    {
@@ -53325,10 +53325,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.0,
+     "inn": 0.7,
      "out": 0.0,
-     "net": 1.0,
-     "final": 2.3
+     "net": 0.7,
+     "final": 2.0
     }
    }
   ],
@@ -53415,9 +53415,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.8,
-       "out": 0.6,
-       "net": 0.2,
-       "final": 1.6
+       "out": 0.3,
+       "net": 0.5,
+       "final": 1.9
       }
      },
      {
@@ -53564,10 +53564,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.0,
+       "inn": 0.7,
        "out": 0.0,
-       "net": 1.0,
-       "final": 2.3
+       "net": 0.7,
+       "final": 2.0
       }
      },
      {
@@ -53719,8 +53719,8 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.9,
-       "out": 2.9,
+       "inn": 1.3,
+       "out": 2.3,
        "net": -1.0,
        "final": 0.2
       }
@@ -53875,8 +53875,8 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.9,
-       "out": 2.9,
+       "inn": 1.3,
+       "out": 2.3,
        "net": -1.0,
        "final": -3.2
       }
@@ -53950,10 +53950,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 0.7,
-       "out": 1.2,
-       "net": -0.5,
-       "final": -2.6
+       "inn": 0.2,
+       "out": 1.1,
+       "net": -0.9,
+       "final": -3.0
       }
      },
      {
@@ -56572,7 +56572,7 @@
     "deals": [
      {
       "d": "2026-08-02",
-      "h": "Got Carter Holton, Lucas Braun for Bailey Falter, Lane Thomas",
+      "h": "Got Lucas Braun, Carter Holton for Bailey Falter, Lane Thomas",
       "net": 1.4
      },
      {
@@ -56615,7 +56615,7 @@
      },
      {
       "d": "2025-12-14",
-      "h": "Got Isaac Collins, Nick Mears for Angel Zerpa",
+      "h": "Got Nick Mears, Isaac Collins for Angel Zerpa",
       "net": -0.3
      },
      {
@@ -56630,7 +56630,7 @@
      },
      {
       "d": "2023-12-14",
-      "h": "Got Ryan Brady, Cam Devanney for Taylor Clarke",
+      "h": "Got Cam Devanney, Ryan Brady for Taylor Clarke",
       "net": 0.3
      }
     ]
@@ -56778,7 +56778,7 @@
      },
      {
       "d": "2023-08-01",
-      "h": "Got Derlin Figueroa, Devin Mann for Ryan Yarbrough",
+      "h": "Got Devin Mann, Derlin Figueroa for Ryan Yarbrough",
       "net": 0.0
      }
     ]
@@ -56950,10 +56950,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 10.9,
-     "out": 10.4,
-     "net": 0.5,
-     "final": 4.9
+     "inn": 10.8,
+     "out": 8.4,
+     "net": 2.4,
+     "final": 6.8
     }
    },
    {
@@ -57110,10 +57110,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 10.9,
-     "out": 10.4,
-     "net": 0.5,
-     "final": -0.4
+     "inn": 10.8,
+     "out": 8.4,
+     "net": 2.4,
+     "final": 1.5
     }
    },
    {
@@ -57259,10 +57259,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 10.9,
-       "out": 10.4,
-       "net": 0.5,
-       "final": 4.9
+       "inn": 10.8,
+       "out": 8.4,
+       "net": 2.4,
+       "final": 6.8
       }
      },
      {
@@ -57421,10 +57421,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 10.9,
-       "out": 10.4,
-       "net": 0.5,
-       "final": -0.4
+       "inn": 10.8,
+       "out": 8.4,
+       "net": 2.4,
+       "final": 1.5
       }
      }
     ]
@@ -58377,9 +58377,9 @@
     "unsettled": true,
     "proj": {
      "inn": 7.3,
-     "out": 5.1,
-     "net": 2.2,
-     "final": -4.8
+     "out": 3.9,
+     "net": 3.4,
+     "final": -3.6
     }
    }
   ],
@@ -58943,9 +58943,9 @@
       "unsettled": true,
       "proj": {
        "inn": 7.3,
-       "out": 5.1,
-       "net": 2.2,
-       "final": -4.8
+       "out": 3.9,
+       "net": 3.4,
+       "final": -3.6
       }
      },
      {
@@ -59110,8 +59110,8 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 3.1,
-       "out": 3.3,
+       "inn": 2.5,
+       "out": 2.7,
        "net": -0.2,
        "final": -5.2
       }
@@ -64722,7 +64722,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Hunter Feduccia, Jacob Kmatz for Jack Suwinski",
+      "h": "Got Jacob Kmatz, Hunter Feduccia for Jack Suwinski",
       "net": 0.6
      },
      {
@@ -64737,7 +64737,7 @@
      },
      {
       "d": "2023-12-16",
-      "h": "Got Tyler Glasnow, Manuel Margot for Jonny DeLuca, Ryan Pepiot",
+      "h": "Got Manuel Margot, Tyler Glasnow for Jonny DeLuca, Ryan Pepiot",
       "net": -5.0
      },
      {
@@ -64820,7 +64820,7 @@
      },
      {
       "d": "2024-01-11",
-      "h": "Got Jackson Ferris, Zyhir Hope for Yency Almonte, Michael Busch",
+      "h": "Got Zyhir Hope, Jackson Ferris for Yency Almonte, Michael Busch",
       "net": -7.0
      },
      {
@@ -64881,7 +64881,7 @@
      },
      {
       "d": "2024-02-05",
-      "h": "Got Christian Zazueta, Matt Gage for Caleb Ferguson",
+      "h": "Got Matt Gage, Christian Zazueta for Caleb Ferguson",
       "net": 0.2
      },
      {
@@ -65007,7 +65007,7 @@
      },
      {
       "d": "2016-04-10",
-      "h": "Got Zach Walters, James Ramsey for cash/PTBNL",
+      "h": "Got James Ramsey, Zach Walters for cash/PTBNL",
       "net": -0.2
      }
     ]
@@ -65048,7 +65048,7 @@
     "deals": [
      {
       "d": "2025-07-31",
-      "h": "Got James Tibbs III, Zach Ehrhard for Dustin May",
+      "h": "Got Zach Ehrhard, James Tibbs III for Dustin May",
       "net": 1.0
      },
      {
@@ -65465,10 +65465,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 5.7,
+     "inn": 5.3,
      "out": 0.0,
-     "net": 5.7,
-     "final": 10.0
+     "net": 5.3,
+     "final": 9.6
     }
    },
    {
@@ -65551,9 +65551,9 @@
     "unsettled": true,
     "proj": {
      "inn": 1.2,
-     "out": 5.5,
-     "net": -4.3,
-     "final": -8.5
+     "out": 4.2,
+     "net": -3.0,
+     "final": -7.2
     }
    },
    {
@@ -65635,8 +65635,8 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 9.0,
-     "out": 7.4,
+     "inn": 8.4,
+     "out": 6.8,
      "net": 1.6,
      "final": 4.3
     }
@@ -65720,10 +65720,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.9,
+     "inn": 1.8,
      "out": 0.0,
-     "net": 1.9,
-     "final": 4.5
+     "net": 1.8,
+     "final": 4.4
     }
    },
    {
@@ -65806,9 +65806,9 @@
     "unsettled": true,
     "proj": {
      "inn": 3.0,
-     "out": 9.2,
-     "net": -6.2,
-     "final": -8.5
+     "out": 8.1,
+     "net": -5.1,
+     "final": -7.4
     }
    },
    {
@@ -66004,10 +66004,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 5.7,
+       "inn": 5.3,
        "out": 0.0,
-       "net": 5.7,
-       "final": 10.0
+       "net": 5.3,
+       "final": 9.6
       }
      },
      {
@@ -66089,8 +66089,8 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 9.0,
-       "out": 7.4,
+       "inn": 8.4,
+       "out": 6.8,
        "net": 1.6,
        "final": 4.3
       }
@@ -66174,10 +66174,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.9,
+       "inn": 1.8,
        "out": 0.0,
-       "net": 1.9,
-       "final": 4.5
+       "net": 1.8,
+       "final": 4.4
       }
      },
      {
@@ -66254,10 +66254,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 10.6,
-       "out": 6.5,
-       "net": 4.1,
-       "final": 6.2
+       "inn": 10.0,
+       "out": 5.4,
+       "net": 4.6,
+       "final": 6.7
       }
      },
      {
@@ -66349,10 +66349,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 10.6,
-       "out": 6.5,
-       "net": 4.1,
-       "final": 6.0
+       "inn": 10.0,
+       "out": 5.4,
+       "net": 4.6,
+       "final": 6.5
       }
      }
     ],
@@ -66437,9 +66437,9 @@
       "unsettled": true,
       "proj": {
        "inn": 1.2,
-       "out": 5.5,
-       "net": -4.3,
-       "final": -8.5
+       "out": 4.2,
+       "net": -3.0,
+       "final": -7.2
       }
      },
      {
@@ -66522,9 +66522,9 @@
       "unsettled": true,
       "proj": {
        "inn": 3.0,
-       "out": 9.2,
-       "net": -6.2,
-       "final": -8.5
+       "out": 8.1,
+       "net": -5.1,
+       "final": -7.4
       }
      },
      {
@@ -66745,10 +66745,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 10.6,
-       "out": 6.5,
-       "net": 4.1,
-       "final": 2.7
+       "inn": 10.0,
+       "out": 5.4,
+       "net": 4.6,
+       "final": 3.2
       }
      }
     ]
@@ -68351,12 +68351,12 @@
     "deals": [
      {
       "d": "2024-07-30",
-      "h": "Got Graham Pauley, Adam Mazur, Robby Snelling, Jay Beshears for Bryan Hoeing, Tanner Scott",
+      "h": "Got Robby Snelling, Graham Pauley, Jay Beshears, Adam Mazur for Bryan Hoeing, Tanner Scott",
       "net": 1.9
      },
      {
       "d": "2024-05-04",
-      "h": "Got Nathan Martorella, Dillon Head, Jakob Marsee, Woo-Suk Go for Luis Arraez",
+      "h": "Got Woo-Suk Go, Jakob Marsee, Nathan Martorella, Dillon Head for Luis Arraez",
       "net": 4.4
      }
     ]
@@ -68369,12 +68369,12 @@
     "deals": [
      {
       "d": "2026-01-13",
-      "h": "Got Dillon Lewis, Juan Matheus, Brendan Jones, Dylan Jasso for Ryan Weathers",
+      "h": "Got Dylan Jasso, Brendan Jones, Dillon Lewis, Juan Matheus for Ryan Weathers",
       "net": -0.7
      },
      {
       "d": "2024-07-27",
-      "h": "Got Agust\u00edn Ram\u00edrez, Abrahan Ramirez, Jared Serna for Jazz Chisholm Jr.",
+      "h": "Got Abrahan Ramirez, Jared Serna, Agust\u00edn Ram\u00edrez for Jazz Chisholm Jr.",
       "net": -4.1
      },
      {
@@ -68456,7 +68456,7 @@
      },
      {
       "d": "2024-07-30",
-      "h": "Got Jun-Seok Shim, Garret Forrester for Bryan De La Cruz",
+      "h": "Got Garret Forrester, Jun-Seok Shim for Bryan De La Cruz",
       "net": 2.1
      },
      {
@@ -68515,7 +68515,7 @@
      },
      {
       "d": "2026-08-03",
-      "h": "Got Adrian Santana, Brayden Taylor, Jacob Kisting for Liam Hicks",
+      "h": "Got Jacob Kisting, Brayden Taylor, Adrian Santana for Liam Hicks",
       "net": 2.6
      },
      {
@@ -68609,7 +68609,7 @@
      },
      {
       "d": "2024-07-25",
-      "h": "Got Andrew Pintar, Deyvison De Los Santos for A.J. Puk",
+      "h": "Got Deyvison De Los Santos, Andrew Pintar for A.J. Puk",
       "net": -0.3
      },
      {
@@ -68650,7 +68650,7 @@
     "deals": [
      {
       "d": "2024-12-11",
-      "h": "Got Maximo Acosta, Brayan Mendoza, Echedry Vargas for Jake Burger",
+      "h": "Got Echedry Vargas, Maximo Acosta, Brayan Mendoza for Jake Burger",
       "net": -0.2
      },
      {
@@ -68862,10 +68862,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 4.0,
+     "inn": 3.3,
      "out": 0.0,
-     "net": 4.0,
-     "final": 20.1
+     "net": 3.3,
+     "final": 19.4
     }
    },
    {
@@ -68942,10 +68942,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 5.3,
+     "inn": 4.6,
      "out": 0.0,
-     "net": 5.3,
-     "final": 10.8
+     "net": 4.6,
+     "final": 10.1
     }
    },
    {
@@ -69017,10 +69017,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 2.3,
+     "inn": 2.0,
      "out": 0,
-     "net": 2.3,
-     "final": 6.9
+     "net": 2.0,
+     "final": 6.6
     }
    },
    {
@@ -69246,10 +69246,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.9,
+     "inn": 1.6,
      "out": 0.0,
-     "net": 1.9,
-     "final": 5.0
+     "net": 1.6,
+     "final": 4.7
     }
    },
    {
@@ -69321,10 +69321,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 2.7,
-     "out": 1.2,
-     "net": 1.5,
-     "final": -1.2
+     "inn": 2.2,
+     "out": 1.1,
+     "net": 1.1,
+     "final": -1.6
     }
    },
    {
@@ -69485,10 +69485,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 4.0,
+       "inn": 3.3,
        "out": 0.0,
-       "net": 4.0,
-       "final": 20.1
+       "net": 3.3,
+       "final": 19.4
       }
      },
      {
@@ -69565,10 +69565,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 5.3,
+       "inn": 4.6,
        "out": 0.0,
-       "net": 5.3,
-       "final": 10.8
+       "net": 4.6,
+       "final": 10.1
       }
      },
      {
@@ -69640,10 +69640,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 2.3,
+       "inn": 2.0,
        "out": 0,
-       "net": 2.3,
-       "final": 6.9
+       "net": 2.0,
+       "final": 6.6
       }
      },
      {
@@ -69795,10 +69795,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.9,
+       "inn": 1.6,
        "out": 0.0,
-       "net": 1.9,
-       "final": 5.0
+       "net": 1.6,
+       "final": 4.7
       }
      }
     ],
@@ -69946,10 +69946,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 2.7,
-       "out": 1.2,
-       "net": 1.5,
-       "final": -1.2
+       "inn": 2.2,
+       "out": 1.1,
+       "net": 1.1,
+       "final": -1.6
       }
      },
      {
@@ -70102,9 +70102,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.4,
-       "out": 1.1,
-       "net": -0.7,
-       "final": -2.8
+       "out": 0.9,
+       "net": -0.5,
+       "final": -2.6
       }
      },
      {
@@ -72688,7 +72688,7 @@
      },
      {
       "d": "2024-12-13",
-      "h": "Got Nestor Cortes, Caleb Durbin for Devin Williams",
+      "h": "Got Caleb Durbin, Nestor Cortes for Devin Williams",
       "net": 3.9
      },
      {
@@ -72711,7 +72711,7 @@
     "deals": [
      {
       "d": "2026-02-09",
-      "h": "Got David Hamilton, Shane Drohan, Kyle Harrison for Andruw Monasterio, Caleb Durbin, Anthony Seigler",
+      "h": "Got Shane Drohan, David Hamilton, Kyle Harrison for Andruw Monasterio, Caleb Durbin, Anthony Seigler",
       "net": 2.3
      },
      {
@@ -72749,7 +72749,7 @@
      },
      {
       "d": "2024-02-01",
-      "h": "Got DL Hall, Joey Ortiz for Corbin Burnes",
+      "h": "Got Joey Ortiz, DL Hall for Corbin Burnes",
       "net": 5.6
      }
     ]
@@ -72772,7 +72772,7 @@
      },
      {
       "d": "2022-12-02",
-      "h": "Got Abraham Toro, Jesse Winker for Kolten Wong",
+      "h": "Got Jesse Winker, Abraham Toro for Kolten Wong",
       "net": -0.2
      }
     ]
@@ -72971,7 +72971,7 @@
      },
      {
       "d": "2025-07-31",
-      "h": "Got Jordan Montgomery, Shelby Miller for cash/PTBNL",
+      "h": "Got Shelby Miller, Jordan Montgomery for cash/PTBNL",
       "net": 0.1
      },
      {
@@ -73012,7 +73012,7 @@
     "deals": [
      {
       "d": "2026-08-01",
-      "h": "Got Codi Heuer, Bo Naylor for Blake Perkins, Craig Yoho",
+      "h": "Got Bo Naylor, Codi Heuer for Blake Perkins, Craig Yoho",
       "net": -0.1
      },
      {
@@ -73035,7 +73035,7 @@
     "deals": [
      {
       "d": "2026-01-21",
-      "h": "Got Jett Williams, Brandon Sproat for Freddy Peralta, Tobias Myers",
+      "h": "Got Brandon Sproat, Jett Williams for Freddy Peralta, Tobias Myers",
       "net": 1.8
      },
      {
@@ -73215,10 +73215,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 2.5,
+     "inn": 1.9,
      "out": 1.2,
-     "net": 1.3,
-     "final": 0.0
+     "net": 0.7,
+     "final": -0.6
     }
    },
    {
@@ -73295,10 +73295,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 0.3,
+     "inn": 0.2,
      "out": 0.8,
-     "net": -0.5,
-     "final": -1.7
+     "net": -0.6,
+     "final": -1.8
     }
    },
    {
@@ -73684,10 +73684,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 2.5,
+       "inn": 1.9,
        "out": 1.2,
-       "net": 1.3,
-       "final": 0.0
+       "net": 0.7,
+       "final": -0.6
       }
      },
      {
@@ -73764,10 +73764,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 0.3,
+       "inn": 0.2,
        "out": 0.8,
-       "net": -0.5,
-       "final": -1.7
+       "net": -0.6,
+       "final": -1.8
       }
      }
     ]
@@ -74388,9 +74388,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.0,
-     "out": 5.5,
-     "net": -5.5,
-     "final": -10.0
+     "out": 5.2,
+     "net": -5.2,
+     "final": -9.7
     }
    },
    {
@@ -74520,10 +74520,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.9,
+     "inn": 1.5,
      "out": 0,
-     "net": 1.9,
-     "final": 5.5
+     "net": 1.5,
+     "final": 5.1
     }
    },
    {
@@ -74596,9 +74596,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.4,
-     "out": 1.3,
-     "net": -0.9,
-     "final": -3.7
+     "out": 1.1,
+     "net": -0.7,
+     "final": -3.5
     }
    },
    {
@@ -74760,10 +74760,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.1,
+     "inn": 0.9,
      "out": 0.4,
-     "net": 0.7,
-     "final": 2.8
+     "net": 0.5,
+     "final": 2.6
     }
    },
    {
@@ -74943,10 +74943,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.9,
+       "inn": 1.5,
        "out": 0,
-       "net": 1.9,
-       "final": 5.5
+       "net": 1.5,
+       "final": 5.1
       }
      },
      {
@@ -75023,10 +75023,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.1,
+       "inn": 0.9,
        "out": 0.4,
-       "net": 0.7,
-       "final": 2.8
+       "net": 0.5,
+       "final": 2.6
       }
      },
      {
@@ -75099,9 +75099,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.4,
-       "out": 0.5,
-       "net": -0.1,
-       "final": 1.7
+       "out": 0.3,
+       "net": 0.1,
+       "final": 1.9
       }
      },
      {
@@ -75179,9 +75179,9 @@
       "unsettled": true,
       "proj": {
        "inn": 5.0,
-       "out": 8.4,
-       "net": -3.4,
-       "final": -1.6
+       "out": 6.5,
+       "net": -1.5,
+       "final": 0.3
       }
      },
      {
@@ -75253,10 +75253,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.2,
+       "inn": 1.0,
        "out": 0.8,
-       "net": 0.4,
-       "final": 1.8
+       "net": 0.2,
+       "final": 1.6
       }
      }
     ],
@@ -75341,9 +75341,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 5.5,
-       "net": -5.5,
-       "final": -10.0
+       "out": 5.2,
+       "net": -5.2,
+       "final": -9.7
       }
      },
      {
@@ -75416,9 +75416,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.4,
-       "out": 1.3,
-       "net": -0.9,
-       "final": -3.7
+       "out": 1.1,
+       "net": -0.7,
+       "final": -3.5
       }
      },
      {
@@ -75660,10 +75660,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 7.7,
-       "out": 4.6,
-       "net": 3.1,
-       "final": 1.4
+       "inn": 5.7,
+       "out": 4.4,
+       "net": 1.3,
+       "final": -0.4
       }
      }
     ]
@@ -78417,7 +78417,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got John Spikerman, Luke Gabrysh for Brooks Raley",
+      "h": "Got Luke Gabrysh, John Spikerman for Brooks Raley",
       "net": 1.0
      },
      {
@@ -87945,7 +87945,7 @@
      },
      {
       "d": "2016-07-31",
-      "h": "Got Clint Frazier, J.P. Feyereisen, Ben Heller, Justus Sheffield for Andrew Miller",
+      "h": "Got Justus Sheffield, Ben Heller, J.P. Feyereisen, Clint Frazier for Andrew Miller",
       "net": -1.2
      },
      {
@@ -88067,12 +88067,12 @@
     "deals": [
      {
       "d": "2024-07-30",
-      "h": "Got Enyel De Los Santos, Thomas Balboni Jr. for Brandon Lockridge",
+      "h": "Got Thomas Balboni Jr., Enyel De Los Santos for Brandon Lockridge",
       "net": -1.2
      },
      {
       "d": "2023-12-07",
-      "h": "Got Juan Soto, Trent Grisham for Michael King, Jhony Brito, Kyle Higashioka, Randy V\u00e1squez, Drew Thorpe",
+      "h": "Got Trent Grisham, Juan Soto for Michael King, Jhony Brito, Kyle Higashioka, Randy V\u00e1squez, Drew Thorpe",
       "net": 2.7
      },
      {
@@ -88186,7 +88186,7 @@
      },
      {
       "d": "2016-08-31",
-      "h": "Got Jio Orozco, Juan De Paula for Ben Gamel",
+      "h": "Got Juan De Paula, Jio Orozco for Ben Gamel",
       "net": -2.0
      }
     ]
@@ -88619,10 +88619,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.1,
-     "out": 1.8,
-     "net": -0.7,
-     "final": 6.2
+     "inn": 0.8,
+     "out": 1.7,
+     "net": -0.9,
+     "final": 6.0
     }
    },
    {
@@ -88710,9 +88710,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.0,
-     "out": 0.5,
-     "net": -0.5,
-     "final": 4.3
+     "out": 0.4,
+     "net": -0.4,
+     "final": 4.4
     }
    },
    {
@@ -88843,9 +88843,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0,
-     "out": 2.0,
-     "net": -2.0,
-     "final": -5.4
+     "out": 1.8,
+     "net": -1.8,
+     "final": -5.2
     }
    },
    {
@@ -88917,10 +88917,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.1,
-     "out": 1.8,
-     "net": -0.7,
-     "final": -3.9
+     "inn": 0.8,
+     "out": 1.7,
+     "net": -0.9,
+     "final": -4.1
     }
    },
    {
@@ -89194,10 +89194,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.1,
-       "out": 1.8,
-       "net": -0.7,
-       "final": 6.2
+       "inn": 0.8,
+       "out": 1.7,
+       "net": -0.9,
+       "final": 6.0
       }
      },
      {
@@ -89285,9 +89285,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 0.5,
-       "net": -0.5,
-       "final": 4.3
+       "out": 0.4,
+       "net": -0.4,
+       "final": 4.4
       }
      },
      {
@@ -89427,10 +89427,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.0,
-       "out": 0.6,
-       "net": 0.4,
-       "final": 2.8
+       "inn": 0.7,
+       "out": 0.5,
+       "net": 0.2,
+       "final": 2.6
       }
      },
      {
@@ -89512,10 +89512,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 9.2,
+       "inn": 8.1,
        "out": 3.0,
-       "net": 6.2,
-       "final": 8.5
+       "net": 5.1,
+       "final": 7.4
       }
      }
     ],
@@ -89589,9 +89589,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0,
-       "out": 2.0,
-       "net": -2.0,
-       "final": -5.4
+       "out": 1.8,
+       "net": -1.8,
+       "final": -5.2
       }
      },
      {
@@ -89663,10 +89663,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.1,
-       "out": 1.8,
-       "net": -0.7,
-       "final": -3.9
+       "inn": 0.8,
+       "out": 1.7,
+       "net": -0.9,
+       "final": -4.1
       }
      },
      {
@@ -89815,10 +89815,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 4.6,
+       "inn": 4.0,
        "out": 3.6,
-       "net": 1.0,
-       "final": -1.4
+       "net": 0.4,
+       "final": -2.0
       }
      },
      {
@@ -89891,9 +89891,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 1.2,
-       "net": -1.2,
-       "final": -3.2
+       "out": 1.0,
+       "net": -1.0,
+       "final": -3.0
       }
      }
     ]
@@ -93234,7 +93234,7 @@
      },
      {
       "d": "2024-07-30",
-      "h": "Got Mois\u00e9s Chace, Seth Johnson for Gregory Soto",
+      "h": "Got Seth Johnson, Mois\u00e9s Chace for Gregory Soto",
       "net": -0.1
      },
      {
@@ -93432,7 +93432,7 @@
      },
      {
       "d": "2023-11-14",
-      "h": "Got Hendry Mendez, Robert Moore for Oliver Dunn",
+      "h": "Got Robert Moore, Hendry Mendez for Oliver Dunn",
       "net": 0.2
      }
     ]
@@ -93796,10 +93796,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 11.6,
-     "out": 0.7,
-     "net": 10.9,
-     "final": 20.3
+     "inn": 10.2,
+     "out": 0.5,
+     "net": 9.7,
+     "final": 19.1
     }
    },
    {
@@ -94310,10 +94310,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 11.6,
-       "out": 0.7,
-       "net": 10.9,
-       "final": 20.3
+       "inn": 10.2,
+       "out": 0.5,
+       "net": 9.7,
+       "final": 19.1
       }
      },
      {
@@ -94631,10 +94631,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 4.0,
-       "out": 4.1,
-       "net": -0.1,
-       "final": 2.1
+       "inn": 3.9,
+       "out": 3.2,
+       "net": 0.7,
+       "final": 2.9
       }
      }
     ],
@@ -95011,9 +95011,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 0.2,
-       "net": -0.2,
-       "final": -3.0
+       "out": 0.1,
+       "net": -0.1,
+       "final": -2.9
       }
      }
     ]
@@ -99019,12 +99019,12 @@
      },
      {
       "d": "2023-08-01",
-      "h": "Got Estuar Suero, Jackson Wolf, Alfonso Rivas III for Rich Hill, Ji Man Choi",
+      "h": "Got Estuar Suero, Alfonso Rivas III, Jackson Wolf for Rich Hill, Ji Man Choi",
       "net": 1.9
      },
      {
       "d": "2021-07-26",
-      "h": "Got Michell Miliano, Jack Suwinski, Tucupita Marcano for Adam Frazier",
+      "h": "Got Jack Suwinski, Tucupita Marcano, Michell Miliano for Adam Frazier",
       "net": 1.1
      },
      {
@@ -99042,7 +99042,7 @@
     "deals": [
      {
       "d": "2025-12-19",
-      "h": "Got Brandon Lowe, Mason Montgomery, Jake Mangum for cash/PTBNL",
+      "h": "Got Jake Mangum, Mason Montgomery, Brandon Lowe for cash/PTBNL",
       "net": 8.7
      },
      {
@@ -99100,12 +99100,12 @@
      },
      {
       "d": "2021-07-26",
-      "h": "Got Hoy Park, Diego Castillo for Clay Holmes",
+      "h": "Got Diego Castillo, Hoy Park for Clay Holmes",
       "net": -4.3
      },
      {
       "d": "2021-01-24",
-      "h": "Got Roansy Contreras, Miguel Yajure, Canaan Smith-Njigba, Maikol Escotto for Jameson Taillon",
+      "h": "Got Canaan Smith-Njigba, Miguel Yajure, Roansy Contreras, Maikol Escotto for Jameson Taillon",
       "net": -2.7
      }
     ]
@@ -99146,7 +99146,7 @@
      },
      {
       "d": "2025-12-04",
-      "h": "Got Jesus Travieso, Jhostynxon Garcia for Tyler Samaniego, Adonys Guzman, Johan Oviedo",
+      "h": "Got Jhostynxon Garcia, Jesus Travieso for Tyler Samaniego, Adonys Guzman, Johan Oviedo",
       "net": -1.1
      },
      {
@@ -99352,7 +99352,7 @@
      },
      {
       "d": "2021-07-28",
-      "h": "Got Carter Bins, Joaquin Tejada for Tyler Anderson",
+      "h": "Got Joaquin Tejada, Carter Bins for Tyler Anderson",
       "net": 0.3
      }
     ]
@@ -99446,7 +99446,7 @@
      },
      {
       "d": "2021-07-30",
-      "h": "Got Bryse Wilson, Ricky DeVito for Richard Rodr\u00edguez",
+      "h": "Got Ricky DeVito, Bryse Wilson for Richard Rodr\u00edguez",
       "net": 0.4
      },
      {
@@ -99464,7 +99464,7 @@
     "deals": [
      {
       "d": "2025-07-31",
-      "h": "Got Callan Moss, Evan Sisk for Bailey Falter",
+      "h": "Got Evan Sisk, Callan Moss for Bailey Falter",
       "net": 2.1
      },
      {
@@ -99851,9 +99851,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.0,
-     "out": 10.3,
-     "net": -10.3,
-     "final": -27.3
+     "out": 9.5,
+     "net": -9.5,
+     "final": -26.5
     }
    },
    {
@@ -100939,9 +100939,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 10.3,
-       "net": -10.3,
-       "final": -27.3
+       "out": 9.5,
+       "net": -9.5,
+       "final": -26.5
       }
      },
      {
@@ -106478,7 +106478,7 @@
      },
      {
       "d": "2014-12-18",
-      "h": "Got Tim Federowicz, Matt Kemp for Yasmani Grandal, Joe Wieland",
+      "h": "Got Matt Kemp, Tim Federowicz for Yasmani Grandal, Joe Wieland",
       "net": -19.9
      }
     ]
@@ -106506,7 +106506,7 @@
      },
      {
       "d": "2020-08-31",
-      "h": "Got Greg Allen, Mike Clevinger, Matt Waldron for Cal Quantrill, Josh Naylor, Joey Cantillo, Gabriel Arias, Austin Hedges, Owen Miller",
+      "h": "Got Mike Clevinger, Greg Allen, Matt Waldron for Cal Quantrill, Josh Naylor, Joey Cantillo, Gabriel Arias, Austin Hedges, Owen Miller",
       "net": -8.7
      },
      {
@@ -106554,7 +106554,7 @@
      },
      {
       "d": "2020-08-31",
-      "h": "Got Austin Adams, Dan Altavilla, Austin Nola for Luis Torrens, Andr\u00e9s Mu\u00f1oz, Ty France, Taylor Trammell",
+      "h": "Got Dan Altavilla, Austin Adams, Austin Nola for Luis Torrens, Andr\u00e9s Mu\u00f1oz, Ty France, Taylor Trammell",
       "net": -7.4
      },
      {
@@ -106579,7 +106579,7 @@
      },
      {
       "d": "2015-11-12",
-      "h": "Got Enyel De Los Santos, Nelson Ward for Joaqu\u00edn Benoit",
+      "h": "Got Nelson Ward, Enyel De Los Santos for Joaqu\u00edn Benoit",
       "net": -0.7
      }
     ]
@@ -106622,7 +106622,7 @@
      },
      {
       "d": "2023-08-01",
-      "h": "Got Ji Man Choi, Rich Hill for Alfonso Rivas III, Estuar Suero, Jackson Wolf",
+      "h": "Got Rich Hill, Ji Man Choi for Alfonso Rivas III, Estuar Suero, Jackson Wolf",
       "net": -1.9
      },
      {
@@ -106645,7 +106645,7 @@
     "deals": [
      {
       "d": "2024-07-30",
-      "h": "Got Bryan Hoeing, Tanner Scott for Adam Mazur, Jay Beshears, Robby Snelling, Graham Pauley",
+      "h": "Got Tanner Scott, Bryan Hoeing for Adam Mazur, Jay Beshears, Robby Snelling, Graham Pauley",
       "net": -1.9
      },
      {
@@ -106721,7 +106721,7 @@
      },
      {
       "d": "2020-12-29",
-      "h": "Got Yu Darvish, Victor Caratini for Zach Davies, Yeison Santana, Owen Caissie, Ismael Mena, Reginald Preciado",
+      "h": "Got Victor Caratini, Yu Darvish for Zach Davies, Yeison Santana, Owen Caissie, Ismael Mena, Reginald Preciado",
       "net": 4.3
      }
     ]
@@ -106752,7 +106752,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Casey Mize, Gage Workman for Jackson Wolf, Kash Mayfield",
+      "h": "Got Gage Workman, Casey Mize for Jackson Wolf, Kash Mayfield",
       "net": -2.0
      },
      {
@@ -106803,7 +106803,7 @@
      },
      {
       "d": "2023-12-07",
-      "h": "Got Michael King, Drew Thorpe, Randy V\u00e1squez, Kyle Higashioka, Jhony Brito for Juan Soto, Trent Grisham",
+      "h": "Got Michael King, Kyle Higashioka, Drew Thorpe, Jhony Brito, Randy V\u00e1squez for Juan Soto, Trent Grisham",
       "net": -2.7
      },
      {
@@ -106861,7 +106861,7 @@
      },
      {
       "d": "2018-01-06",
-      "h": "Got Jared Carkuff, Edward Olivares for Yangervis Solarte",
+      "h": "Got Edward Olivares, Jared Carkuff for Yangervis Solarte",
       "net": 0.5
      },
      {
@@ -107082,10 +107082,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 4.3,
+     "inn": 4.0,
      "out": 0.0,
-     "net": 4.3,
-     "final": 8.8
+     "net": 4.0,
+     "final": 8.5
     }
    },
    {
@@ -107168,9 +107168,9 @@
     "unsettled": true,
     "proj": {
      "inn": 5.2,
-     "out": 10.3,
-     "net": -5.1,
-     "final": -2.7
+     "out": 8.0,
+     "net": -2.8,
+     "final": -0.4
     }
    },
    {
@@ -107278,9 +107278,9 @@
     "unsettled": true,
     "proj": {
      "inn": 5.2,
-     "out": 10.3,
-     "net": -5.1,
-     "final": -3.4
+     "out": 8.0,
+     "net": -2.8,
+     "final": -1.1
     }
    },
    {
@@ -107358,9 +107358,9 @@
     "unsettled": true,
     "proj": {
      "inn": 5.2,
-     "out": 10.3,
-     "net": -5.1,
-     "final": -6.3
+     "out": 8.0,
+     "net": -2.8,
+     "final": -4.0
     }
    },
    {
@@ -107507,9 +107507,9 @@
     "unsettled": true,
     "proj": {
      "inn": 2.0,
-     "out": 1.9,
-     "net": 0.1,
-     "final": -1.0
+     "out": 1.5,
+     "net": 0.5,
+     "final": -0.6
     }
    },
    {
@@ -107587,9 +107587,9 @@
     "unsettled": true,
     "proj": {
      "inn": 5.2,
-     "out": 10.3,
-     "net": -5.1,
-     "final": -4.1
+     "out": 8.0,
+     "net": -2.8,
+     "final": -1.8
     }
    }
   ],
@@ -107675,10 +107675,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 4.3,
+       "inn": 4.0,
        "out": 0.0,
-       "net": 4.3,
-       "final": 8.8
+       "net": 4.0,
+       "final": 8.5
       }
      },
      {
@@ -107761,9 +107761,9 @@
       "unsettled": true,
       "proj": {
        "inn": 5.2,
-       "out": 10.3,
-       "net": -5.1,
-       "final": -2.7
+       "out": 8.0,
+       "net": -2.8,
+       "final": -0.4
       }
      },
      {
@@ -107841,9 +107841,9 @@
       "unsettled": true,
       "proj": {
        "inn": 5.2,
-       "out": 10.3,
-       "net": -5.1,
-       "final": -3.4
+       "out": 8.0,
+       "net": -2.8,
+       "final": -1.1
       }
      },
      {
@@ -107995,9 +107995,9 @@
       "unsettled": true,
       "proj": {
        "inn": 5.2,
-       "out": 10.3,
-       "net": -5.1,
-       "final": -4.1
+       "out": 8.0,
+       "net": -2.8,
+       "final": -1.8
       }
      }
     ],
@@ -108077,9 +108077,9 @@
       "unsettled": true,
       "proj": {
        "inn": 5.2,
-       "out": 10.3,
-       "net": -5.1,
-       "final": -6.3
+       "out": 8.0,
+       "net": -2.8,
+       "final": -4.0
       }
      },
      {
@@ -108152,9 +108152,9 @@
       "unsettled": true,
       "proj": {
        "inn": 2.0,
-       "out": 1.9,
-       "net": 0.1,
-       "final": -1.0
+       "out": 1.5,
+       "net": 0.5,
+       "final": -0.6
       }
      }
     ]
@@ -109593,7 +109593,7 @@
     "deals": [
      {
       "d": "2025-07-30",
-      "h": "Got Blade Tidwell, Jos\u00e9 Butt\u00f3, Drew Gilbert for Tyler Rogers",
+      "h": "Got Drew Gilbert, Jos\u00e9 Butt\u00f3, Blade Tidwell for Tyler Rogers",
       "net": 4.5
      },
      {
@@ -109616,7 +109616,7 @@
      },
      {
       "d": "2025-07-31",
-      "h": "Got Trystan Vrieling, Jesus Rodriguez, Parks Harber, Carlos De La Rosa for Camilo Doval",
+      "h": "Got Parks Harber, Trystan Vrieling, Carlos De La Rosa, Jesus Rodriguez for Camilo Doval",
       "net": 0.8
      }
     ]
@@ -110714,10 +110714,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 7.3,
+       "inn": 6.4,
        "out": 2.2,
-       "net": 5.1,
-       "final": 11.7
+       "net": 4.2,
+       "final": 10.8
       }
      },
      {
@@ -116268,7 +116268,7 @@
      },
      {
       "d": "2020-08-31",
-      "h": "Got Ty France, Luis Torrens, Andr\u00e9s Mu\u00f1oz, Taylor Trammell for Dan Altavilla, Austin Adams, Austin Nola",
+      "h": "Got Taylor Trammell, Luis Torrens, Ty France, Andr\u00e9s Mu\u00f1oz for Dan Altavilla, Austin Adams, Austin Nola",
       "net": 7.4
      },
      {
@@ -116442,7 +116442,7 @@
      },
      {
       "d": "2023-07-31",
-      "h": "Got Josh Rojas, Dominic Canzone, Ryan Bliss for Paul Sewald",
+      "h": "Got Ryan Bliss, Josh Rojas, Dominic Canzone for Paul Sewald",
       "net": 5.4
      },
      {
@@ -116472,7 +116472,7 @@
      },
      {
       "d": "2016-11-23",
-      "h": "Got Zac Curtis, Jean Segura, Mitch Haniger for Ketel Marte, Taijuan Walker",
+      "h": "Got Zac Curtis, Mitch Haniger, Jean Segura for Ketel Marte, Taijuan Walker",
       "net": 1.0
      }
     ]
@@ -116675,7 +116675,7 @@
      },
      {
       "d": "2017-08-06",
-      "h": "Got Mike Marjama, Ryan Garton for Anthony Misiewicz, Luis Rengifo, Osmy Gregorio",
+      "h": "Got Ryan Garton, Mike Marjama for Anthony Misiewicz, Luis Rengifo, Osmy Gregorio",
       "net": -3.2
      },
      {
@@ -116700,7 +116700,7 @@
      },
      {
       "d": "2016-11-18",
-      "h": "Got Richie Shaffer, Taylor Motter for Dylan Thompson, Dalton Kelly, Andrew Kittredge",
+      "h": "Got Taylor Motter, Richie Shaffer for Dylan Thompson, Dalton Kelly, Andrew Kittredge",
       "net": -2.0
      }
     ]
@@ -116746,7 +116746,7 @@
      },
      {
       "d": "2018-11-19",
-      "h": "Got Dom Thompson-Williams, Erik Swanson, Justus Sheffield for James Paxton",
+      "h": "Got Dom Thompson-Williams, Justus Sheffield, Erik Swanson for James Paxton",
       "net": 0.1
      },
      {
@@ -116819,7 +116819,7 @@
      },
      {
       "d": "2016-06-22",
-      "h": "Got Pat Venditte, Wade LeBlanc for Tim Lopes",
+      "h": "Got Wade LeBlanc, Pat Venditte for Tim Lopes",
       "net": -0.1
      }
     ]
@@ -116847,7 +116847,7 @@
      },
      {
       "d": "2024-05-22",
-      "h": "Got Mike Baumann, Michael P\u00e9rez for Blake Hunt",
+      "h": "Got Michael P\u00e9rez, Mike Baumann for Blake Hunt",
       "net": -0.4
      },
      {
@@ -116908,7 +116908,7 @@
     "deals": [
      {
       "d": "2026-08-02",
-      "h": "Got Boston Smith, Seranthony Dom\u00ednguez, Nolan Jones for Luis Castillo",
+      "h": "Got Nolan Jones, Seranthony Dom\u00ednguez, Boston Smith for Luis Castillo",
       "net": 1.2
      },
      {
@@ -116977,12 +116977,12 @@
      },
      {
       "d": "2023-12-03",
-      "h": "Got Cole Phillips, Jackson Kowar for Jarred Kelenic, Marco Gonzales, Evan White",
+      "h": "Got Jackson Kowar, Cole Phillips for Jarred Kelenic, Marco Gonzales, Evan White",
       "net": 0.9
      },
      {
       "d": "2019-05-20",
-      "h": "Got Jesse Biddle, Arodys Vizca\u00edno for Anthony Swarzak",
+      "h": "Got Arodys Vizca\u00edno, Jesse Biddle for Anthony Swarzak",
       "net": -0.4
      },
      {
@@ -117151,9 +117151,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.4,
-     "out": 3.8,
-     "net": -3.4,
-     "final": -5.9
+     "out": 2.8,
+     "net": -2.4,
+     "final": -4.9
     }
    },
    {
@@ -117235,10 +117235,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 2.3,
-     "out": 5.7,
-     "net": -3.4,
-     "final": -5.0
+     "inn": 2.1,
+     "out": 4.5,
+     "net": -2.4,
+     "final": -4.0
     }
    },
    {
@@ -117320,10 +117320,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 2.7,
-     "out": 6.6,
-     "net": -3.9,
-     "final": -2.4
+     "inn": 2.3,
+     "out": 5.4,
+     "net": -3.1,
+     "final": -1.6
     }
    },
    {
@@ -117405,10 +117405,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 0.8,
-     "out": 7.3,
-     "net": -6.5,
-     "final": -7.6
+     "inn": 0.7,
+     "out": 5.6,
+     "net": -4.9,
+     "final": -6.0
     }
    },
    {
@@ -117565,9 +117565,9 @@
     "unsettled": true,
     "proj": {
      "inn": 1.2,
-     "out": 4.2,
-     "net": -3.0,
-     "final": -2.2
+     "out": 2.6,
+     "net": -1.4,
+     "final": -0.6
     }
    },
    {
@@ -117713,10 +117713,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 2.7,
-       "out": 6.6,
-       "net": -3.9,
-       "final": -2.4
+       "inn": 2.3,
+       "out": 5.4,
+       "net": -3.1,
+       "final": -1.6
       }
      },
      {
@@ -117873,9 +117873,9 @@
       "unsettled": true,
       "proj": {
        "inn": 1.2,
-       "out": 4.2,
-       "net": -3.0,
-       "final": -2.2
+       "out": 2.6,
+       "net": -1.4,
+       "final": -0.6
       }
      }
     ],
@@ -117950,9 +117950,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.4,
-       "out": 3.8,
-       "net": -3.4,
-       "final": -5.9
+       "out": 2.8,
+       "net": -2.4,
+       "final": -4.9
       }
      },
      {
@@ -118034,10 +118034,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 2.3,
-       "out": 5.7,
-       "net": -3.4,
-       "final": -5.0
+       "inn": 2.1,
+       "out": 4.5,
+       "net": -2.4,
+       "final": -4.0
       }
      },
      {
@@ -118119,10 +118119,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 0.8,
-       "out": 7.3,
-       "net": -6.5,
-       "final": -7.6
+       "inn": 0.7,
+       "out": 5.6,
+       "net": -4.9,
+       "final": -6.0
       }
      }
     ]
@@ -118967,12 +118967,12 @@
     "deals": [
      {
       "d": "2025-12-22",
-      "h": "Got Hunter Dobbins, Yhoiker Fajardo, Blake Aita for Willson Contreras",
+      "h": "Got Yhoiker Fajardo, Hunter Dobbins, Blake Aita for Willson Contreras",
       "net": -1.7
      },
      {
       "d": "2025-11-25",
-      "h": "Got Patrick Galle, Brandon Clarke, Richard Fitts for Sonny Gray",
+      "h": "Got Patrick Galle, Richard Fitts, Brandon Clarke for Sonny Gray",
       "net": -1.1
      }
     ]
@@ -119720,9 +119720,9 @@
     "unsettled": true,
     "proj": {
      "inn": 5.9,
-     "out": 16.9,
-     "net": -11.0,
-     "final": -19.3
+     "out": 15.0,
+     "net": -9.1,
+     "final": -17.4
     }
    }
   ],
@@ -120261,9 +120261,9 @@
       "unsettled": true,
       "proj": {
        "inn": 5.9,
-       "out": 16.9,
-       "net": -11.0,
-       "final": -19.3
+       "out": 15.0,
+       "net": -9.1,
+       "final": -17.4
       }
      },
      {
@@ -120346,9 +120346,9 @@
       "unsettled": true,
       "proj": {
        "inn": 1.2,
-       "out": 2.7,
-       "net": -1.5,
-       "final": -9.3
+       "out": 2.3,
+       "net": -1.1,
+       "final": -8.9
       }
      },
      {
@@ -120508,10 +120508,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 2.4,
-       "out": 6.9,
-       "net": -4.5,
-       "final": -11.1
+       "inn": 2.3,
+       "out": 6.0,
+       "net": -3.7,
+       "final": -10.3
       }
      }
     ]
@@ -125003,7 +125003,7 @@
      },
      {
       "d": "2023-12-16",
-      "h": "Got Jonny DeLuca, Ryan Pepiot for Tyler Glasnow, Manuel Margot",
+      "h": "Got Ryan Pepiot, Jonny DeLuca for Tyler Glasnow, Manuel Margot",
       "net": 5.0
      },
      {
@@ -125119,7 +125119,7 @@
      },
      {
       "d": "2025-11-18",
-      "h": "Got Steven Wilson, Yoendrys G\u00f3mez for Everson Pereira, Tanner Murray",
+      "h": "Got Yoendrys G\u00f3mez, Steven Wilson for Everson Pereira, Tanner Murray",
       "net": -0.2
      },
      {
@@ -125152,7 +125152,7 @@
     "deals": [
      {
       "d": "2024-07-28",
-      "h": "Got J.D. Gonzalez, Homer Bush Jr., Dylan Lesko for Jason Adam",
+      "h": "Got J.D. Gonzalez, Dylan Lesko, Homer Bush Jr. for Jason Adam",
       "net": 0.2
      },
      {
@@ -125167,7 +125167,7 @@
      },
      {
       "d": "2020-12-29",
-      "h": "Got Luis Pati\u00f1o, Cole Wilcox, Blake Hunt, Francisco Mej\u00eda for Blake Snell",
+      "h": "Got Luis Pati\u00f1o, Francisco Mej\u00eda, Blake Hunt, Cole Wilcox for Blake Snell",
       "net": -1.8
      },
      {
@@ -125177,7 +125177,7 @@
      },
      {
       "d": "2019-12-06",
-      "h": "Got Xavier Edwards, Hunter Renfroe, Esteban Quiroz for Jake Cronenworth, Tommy Pham",
+      "h": "Got Hunter Renfroe, Esteban Quiroz, Xavier Edwards for Jake Cronenworth, Tommy Pham",
       "net": -6.1
      },
      {
@@ -125200,7 +125200,7 @@
      },
      {
       "d": "2025-12-19",
-      "h": "Got Caden Bodine, Michael Forret, Slater de Brun, Austin Overn for Shane Baz",
+      "h": "Got Michael Forret, Slater de Brun, Austin Overn, Caden Bodine for Shane Baz",
       "net": 1.8
      },
      {
@@ -125210,7 +125210,7 @@
      },
      {
       "d": "2024-07-26",
-      "h": "Got Jackson Baumeister, Matthew Etzel, Mac Horvath for Zach Eflin",
+      "h": "Got Matthew Etzel, Jackson Baumeister, Mac Horvath for Zach Eflin",
       "net": 1.9
      },
      {
@@ -125281,7 +125281,7 @@
     "deals": [
      {
       "d": "2024-07-28",
-      "h": "Got Hunter Bigge, Christopher Morel, Ty Johnson for Isaac Paredes",
+      "h": "Got Ty Johnson, Christopher Morel, Hunter Bigge for Isaac Paredes",
       "net": -4.7
      },
      {
@@ -125481,7 +125481,7 @@
      },
      {
       "d": "2024-07-26",
-      "h": "Got Ty Cummings, Aidan Smith, Brody Hopkins for Randy Arozarena",
+      "h": "Got Brody Hopkins, Aidan Smith, Ty Cummings for Randy Arozarena",
       "net": -6.6
      },
      {
@@ -125511,7 +125511,7 @@
      },
      {
       "d": "2018-11-08",
-      "h": "Got Mike Zunino, Michael Plassmeyer, Guillermo Heredia for Jake Fraley, Mallex Smith",
+      "h": "Got Michael Plassmeyer, Mike Zunino, Guillermo Heredia for Jake Fraley, Mallex Smith",
       "net": -2.5
      },
      {
@@ -125526,7 +125526,7 @@
      },
      {
       "d": "2017-08-06",
-      "h": "Got Anthony Misiewicz, Luis Rengifo, Osmy Gregorio for Ryan Garton, Mike Marjama",
+      "h": "Got Luis Rengifo, Anthony Misiewicz, Osmy Gregorio for Ryan Garton, Mike Marjama",
       "net": 3.2
      },
      {
@@ -125551,7 +125551,7 @@
      },
      {
       "d": "2016-11-18",
-      "h": "Got Andrew Kittredge, Dylan Thompson, Dalton Kelly for Taylor Motter, Richie Shaffer",
+      "h": "Got Dalton Kelly, Dylan Thompson, Andrew Kittredge for Taylor Motter, Richie Shaffer",
       "net": 2.0
      }
     ]
@@ -125683,7 +125683,7 @@
      },
      {
       "d": "2023-11-17",
-      "h": "Got Erick Lara, Andrew Lindsey, Jake Mangum for Calvin Faucher, Vidal Bruj\u00e1n",
+      "h": "Got Erick Lara, Jake Mangum, Andrew Lindsey for Calvin Faucher, Vidal Bruj\u00e1n",
       "net": -0.3
      }
     ]
@@ -125729,12 +125729,12 @@
      },
      {
       "d": "2018-07-25",
-      "h": "Got Brian Shaffer, Michael P\u00e9rez for Matt Andriese",
+      "h": "Got Michael P\u00e9rez, Brian Shaffer for Matt Andriese",
       "net": -1.4
      },
      {
       "d": "2018-05-01",
-      "h": "Got Sam McWilliams, Colin Poche for cash/PTBNL",
+      "h": "Got Colin Poche, Sam McWilliams for cash/PTBNL",
       "net": 1.4
      },
      {
@@ -126212,10 +126212,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.4,
+     "inn": 0.9,
      "out": 0.0,
-     "net": 1.4,
-     "final": 3.9
+     "net": 0.9,
+     "final": 3.4
     }
    },
    {
@@ -126287,9 +126287,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.4,
-     "out": 1.4,
-     "net": -1.0,
-     "final": -3.4
+     "out": 1.1,
+     "net": -0.7,
+     "final": -3.1
     }
    },
    {
@@ -126469,10 +126469,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.4,
+       "inn": 0.9,
        "out": 0.0,
-       "net": 1.4,
-       "final": 3.9
+       "net": 0.9,
+       "final": 3.4
       }
      },
      {
@@ -126544,10 +126544,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 4.1,
-       "out": 1.9,
-       "net": 2.2,
-       "final": 3.8
+       "inn": 2.8,
+       "out": 0.9,
+       "net": 1.9,
+       "final": 3.5
       }
      }
     ],
@@ -126776,9 +126776,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.4,
-       "out": 1.4,
-       "net": -1.0,
-       "final": -3.4
+       "out": 1.1,
+       "net": -0.7,
+       "final": -3.1
       }
      },
      {
@@ -129820,10 +129820,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 1.2,
-     "out": 3.6,
-     "net": -2.4,
-     "final": -10.8
+     "inn": 0.9,
+     "out": 3.2,
+     "net": -2.3,
+     "final": -10.7
     }
    },
    {
@@ -130711,10 +130711,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.2,
-       "out": 3.6,
-       "net": -2.4,
-       "final": -10.8
+       "inn": 0.9,
+       "out": 3.2,
+       "net": -2.3,
+       "final": -10.7
       }
      },
      {
@@ -130937,10 +130937,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 11.5,
-       "out": 10.9,
-       "net": 0.6,
-       "final": -3.8
+       "inn": 9.1,
+       "out": 9.3,
+       "net": -0.2,
+       "final": -4.6
       }
      },
      {
@@ -131013,9 +131013,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 1.1,
-       "net": -1.1,
-       "final": -4.4
+       "out": 0.9,
+       "net": -0.9,
+       "final": -4.2
       }
      }
     ]
@@ -135935,7 +135935,7 @@
      },
      {
       "d": "2018-07-26",
-      "h": "Got Brandon Drury, Billy McKinney for J.A. Happ",
+      "h": "Got Billy McKinney, Brandon Drury for J.A. Happ",
       "net": -2.3
      },
      {
@@ -136046,7 +136046,7 @@
      },
      {
       "d": "2017-07-31",
-      "h": "Got Samad Taylor, Thomas Pannone for Joe Smith",
+      "h": "Got Thomas Pannone, Samad Taylor for Joe Smith",
       "net": -0.4
      }
     ]
@@ -136117,7 +136117,7 @@
      },
      {
       "d": "2022-08-02",
-      "h": "Got Alex De Jesus, Mitch White for Nick Frasso, Moises Brito",
+      "h": "Got Mitch White, Alex De Jesus for Nick Frasso, Moises Brito",
       "net": 0.2
      },
      {
@@ -136203,7 +136203,7 @@
      },
      {
       "d": "2019-07-28",
-      "h": "Got Curtis Taylor, Edisson Gonzalez for Eric Sogard",
+      "h": "Got Edisson Gonzalez, Curtis Taylor for Eric Sogard",
       "net": -0.3
      },
      {
@@ -136328,7 +136328,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Dameury Pena, Dasan Hill, John Klein for Jeff Hoffman",
+      "h": "Got Dameury Pena, John Klein, Dasan Hill for Jeff Hoffman",
       "net": 1.2
      },
      {
@@ -136412,7 +136412,7 @@
      },
      {
       "d": "2022-11-16",
-      "h": "Got Erik Swanson, Adam Macko for Teoscar Hern\u00e1ndez",
+      "h": "Got Adam Macko, Erik Swanson for Teoscar Hern\u00e1ndez",
       "net": -1.4
      },
      {
@@ -136775,9 +136775,9 @@
     "unsettled": true,
     "proj": {
      "inn": 4.0,
-     "out": 7.5,
-     "net": -3.5,
-     "final": -1.7
+     "out": 6.0,
+     "net": -2.0,
+     "final": -0.2
     }
    },
    {
@@ -136864,10 +136864,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 4.0,
-     "out": 6.8,
-     "net": -2.8,
-     "final": -1.0
+     "inn": 3.8,
+     "out": 6.3,
+     "net": -2.5,
+     "final": -0.7
     }
    },
    {
@@ -136939,10 +136939,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 2.8,
+     "inn": 3.0,
      "out": 0.4,
-     "net": 2.4,
-     "final": 3.9
+     "net": 2.6,
+     "final": 4.1
     }
    },
    {
@@ -137029,10 +137029,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 4.0,
-     "out": 6.8,
-     "net": -2.8,
-     "final": -1.7
+     "inn": 3.8,
+     "out": 6.3,
+     "net": -2.5,
+     "final": -1.4
     }
    },
    {
@@ -137219,9 +137219,9 @@
       "unsettled": true,
       "proj": {
        "inn": 4.0,
-       "out": 7.5,
-       "net": -3.5,
-       "final": -1.7
+       "out": 6.0,
+       "net": -2.0,
+       "final": -0.2
       }
      },
      {
@@ -137308,10 +137308,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 4.0,
-       "out": 6.8,
-       "net": -2.8,
-       "final": -1.0
+       "inn": 3.8,
+       "out": 6.3,
+       "net": -2.5,
+       "final": -0.7
       }
      },
      {
@@ -137383,10 +137383,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 2.8,
+       "inn": 3.0,
        "out": 0.4,
-       "net": 2.4,
-       "final": 3.9
+       "net": 2.6,
+       "final": 4.1
       }
      },
      {
@@ -137473,10 +137473,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 4.0,
-       "out": 6.8,
-       "net": -2.8,
-       "final": -1.7
+       "inn": 3.8,
+       "out": 6.3,
+       "net": -2.5,
+       "final": -1.4
       }
      }
     ],
@@ -138607,7 +138607,7 @@
     "deals": [
      {
       "d": "2026-08-03",
-      "h": "Got Yovanny Cruz, Jake Bird, Jack Cebert, Ben Grable for Luis Garc\u00eda Jr.",
+      "h": "Got Jake Bird, Jack Cebert, Ben Grable, Yovanny Cruz for Luis Garc\u00eda Jr.",
       "net": 1.0
      },
      {
