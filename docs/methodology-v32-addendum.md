@@ -1872,3 +1872,11 @@ Current clubs and statuses for every Desk player from the MLB Stats API (319 cha
 - **Copy link** copies the link alone on desktop (phones still use the share sheet).
 - **Trade Grade** can be walked back through after finishing, without changing the day's result.
 - **Home** is three blocks: the Wire with a Play today rail (Trade Grade, the QO poll, the simulator, the Deal Desk, the scenario), the rankings and this winter (four even tiles; free agents trimmed to one line each), and From the archive (trade and signing of the day, then tree, champions, org stat and GM rivalry as one list).
+
+## Ranking by net wins a season; contract projections and free agent pick'em (November 9, 2026, late night)
+
+- **Leaderboard order.** The overall ranking is now the composite's net wins a season, continuous: every channel's net weighted by how much it repeats, divided by seasons in the seat plus two average seasons (so one hot year cannot top the board). Before, regimes were grouped by letter and ordered by total net inside each letter, which rewarded long tenures; letters are unchanged. The leaderboard shows each regime's plain net wins a season under its bar. Effect at the top: Matt Arnold (MIL) moves from 7th to 3rd and Peter Bendix (MIA) from 9th to 4th; Antonetti and Friedman stay 1-2.
+- **Home leaderboard tile** shows each GM's net wins a season and the channel that produced the most wins, in place of the letter.
+- **Every projection on a free agent.** Signings, players electing free agency and QO decliners on the Wire show the Ledger offer, the published projections median, the market model, the model-fair offer, the nearest comps, the crowd's median and your own call; once terms are public each is shown against the actual AAV.
+- **Free agent pick'em.** For the top 20 free agents by the Ledger's number: over or under that number on total guarantee, then an exact prediction (years and total). Pooled in the same public counter as the QO poll: over/under tallies, and histograms of predicted years and AAV, from which the crowd's median deal is read. Resolved when he signs. "Your calls" scores your QO calls, over/unders and exact predictions (average miss a year against the Ledger's).
+- **Home** puts From the archive above the rankings.
