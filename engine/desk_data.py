@@ -382,6 +382,15 @@ for p in players:
         _m, _c, _lo, _thr = (3.5, 0.12, 0.7, 300.0) if role == "bat" else (3.0, 0.10, 0.75, 0.45 * _CAP[role])
         if _pe0 >= _thr:
             pt_exp *= max(_lo, min(1.0, 1 + _c * (_full - _m)))
+        # Nov 9 (pt_floor_bt.py, pt_floor_sp.py): a regular who became one
+        # last year (full 2026, partial seasons before) kept playing: that
+        # group got 25% MORE than the cut above said (hitters n 111, ratio
+        # 1.25; starters 1.10). Floor at a share of last season when it was
+        # at least 75% of a full one: hitters 0.75 (bias -90 -> -18 PA,
+        # 27+ RMSE unchanged), starters 0.70 (-10.7 -> +0.9 IP).
+        _last = _pt(rec, 2026, role)
+        if _last >= 0.75 * _CAP[role]:
+            pt_exp = min(_CAP[role], max(pt_exp, (0.75 if role == "bat" else 0.70) * _last))
     missed = debut <= 2025 and _pt(rec, 2025, role) == 0 and _pt(rec, 2026, role) == 0
     if missed: p.append(0.0); p.append(1); continue
     p.append(round(rate * pt_exp, 2)); p.append(0)
