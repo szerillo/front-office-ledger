@@ -348,7 +348,7 @@ R.c_introOnFirstVisit = await page.evaluate(() => !document.getElementById('view
 await page.evaluate(() => { document.getElementById('themebtn').click(); folTeamSet('BOS'); });
 await page.reload({waitUntil: 'load'}); await page.waitForTimeout(1500);
 R.b_themePersisted = await page.evaluate(() => document.documentElement.dataset.theme === 'dark' && /Light mode/.test(document.getElementById('themebtn').textContent));
-R.c_introHiddenOnReturn = await page.evaluate(() => /Boston Red Sox/.test(document.querySelector('#hub-team option').textContent) && /Open the Red Sox page/.test(document.getElementById('homebody').textContent));
+R.c_introHiddenOnReturn = await page.evaluate(() => /Boston Red Sox/.test(document.querySelector('#hub-team option').textContent) && /Open the Red Sox report card/.test(document.getElementById('homebody').textContent));
 await d.browser.close();
 
 // phones: 19 champion pages, 27 chart text, 28 trade-board filters

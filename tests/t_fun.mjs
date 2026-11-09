@@ -10,23 +10,23 @@ const R = await d.page.evaluate(async () => {
   o.homeIsDefault = typeof routeView === 'function';
   o.pickerHas30 = document.querySelectorAll('#hub-team option').length === 31 && !document.querySelector('#homebody .tchips');
   o.heistOfDay = !!document.querySelector('#homebody .heist') || /Heist of the day/.test(document.getElementById('homebody').textContent);
-  o.hubTeasers = ['Trade Grade', 'Best front offices', 'Offseason simulator', 'Scenario room', 'Signing of the day'].every(x => document.getElementById('homebody').textContent.includes(x));
-  o.hubOrder = (() => { const ks = [...document.querySelectorAll('#homebody .hub-grid .home-kick')].map(k => k.textContent.trim().toLowerCase()); const once = new Set(ks.map(k => k.split(' · ')[0])).size === ks.length; return /^trade of the day · (on this date|this week in history)$/.test(ks[0]) && ks.some(k => k.startsWith('signing of the day')) && ks.includes('trade grade') && ks.includes('leaderboard') && ks.length >= 12 && once; })();
-  o.hubSections = [...document.querySelectorAll('#homebody .hub-sec h3')].map(h => h.textContent).join('|') === 'Today|The rankings and this winter|Play GM|Explore' && /regimes graded/.test(document.getElementById('homebody').textContent) && /free-agent signings/.test(document.getElementById('homebody').textContent);
+  o.hubTeasers = ['Trade Grade', 'Best front offices', 'Run a winter', 'Scenario room', 'Signing of the day', 'GM rivalry of the day'].every(x => document.getElementById('homebody').textContent.includes(x));
+  o.hubOrder = (() => { const ks = [...document.querySelectorAll('#homebody .hub-grid .home-kick')].map(k => k.textContent.trim().toLowerCase()); const once = new Set(ks.map(k => k.split(' · ')[0])).size === ks.length; return /^trade of the day · (on this date|this week in history)$/.test(ks[0]) && ks.some(k => k.startsWith('signing of the day')) && ks.includes('trade grade') && ks.includes('leaderboard') && ks.length >= 11 && once; })();
+  o.hubSections = [...document.querySelectorAll('#homebody .hub-sec h3')].map(h => h.textContent).join('|') === 'Today|The rankings and this winter' && document.querySelectorAll('#homebody .hub-links .hub-link').length >= 7 && /champion line/.test(document.getElementById('homebody').textContent) && /regimes graded/.test(document.getElementById('homebody').textContent) && /free-agent signings/.test(document.getElementById('homebody').textContent);
   document.getElementById('hub-find').value = 'Friedman'; folHubFind();
   o.hubSearch = /Andrew Friedman/.test(document.getElementById('hub-find-out').textContent) && /report card/.test(document.getElementById('hub-find-out').textContent);
   document.getElementById('hub-find').value = 'Mookie'; folHubFind();
   o.hubSearchPlayer = /Mookie Betts/.test(document.getElementById('hub-find-out').textContent);
   document.getElementById('hub-find-out').innerHTML = '';
   o.hubNoDemeaning = !/Is your GM any good/i.test(document.getElementById('homebody').textContent);
-  folPickTeam('BOS'); await wait(50);
-  const hb = document.getElementById('teambody').textContent;
-  o.teamPage = !document.getElementById('view-team').hidden && !!document.querySelector('#teambody .team-band') && /Craig Breslow/.test(hb);
-  o.teamNoListTabs = ![...document.querySelectorAll('#teambody button')].some(b => /^(Prospects|Free agents)$/.test(b.textContent.trim()));
-  o.teamReportFirst = /Full report card/.test(document.querySelector('#teambody .actions button').textContent);
+  // picking a club opens its report card (the leaderboard's own) with where it stands on top
+  folPickTeam('BOS'); await wait(400);
+  const rb = document.getElementById('view-report').textContent;
+  o.teamPage = !document.getElementById('view-report').hidden && /Craig Breslow/.test(rb) && /#view=cards&id=bos/.test(location.hash);
+  o.teamStanding = !!document.querySelector('#rc-standing .rc-standing') && /active front offices/.test(document.getElementById('rc-standing').textContent) && /Run the Red Sox winter/.test(document.getElementById('rc-standing').textContent);
   o.teamRemembered = folTeam() === 'BOS';
-  o.teamBestWorst = /Best move/.test(hb) && /Worst move/.test(hb);
-  o.teamTimelinePins = document.querySelectorAll('#teambody svg circle').length >= 3;
+  o.teamTimelinePins = document.querySelectorAll('#view-report svg circle').length >= 3;
+  o.teamStandingOnlyCurrent = (() => { const h = LB_HIST.find(x => x.realCard); if(!h) return true; switchView('report', h.id); return !(document.getElementById('rc-standing') || {}).textContent; })();
   o.navOrder = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).slice(0, 8).join() === 'home,leaderboard,report,champs,dna,h2h,heists,trees' || [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).join();
   o.navQuizUnderPlayGM = (() => { const g = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view); return g.slice(-4).join() === 'gm,desk,scen,quiz'; })();
   // heists: biggest first, and a club filter shows that club's side
@@ -116,7 +116,8 @@ const R = await d.page.evaluate(async () => {
   o.simNegotiationStays = gmState.open.sel === fa1[1] && !!document.getElementById('gm-neg-' + fa1[1]) && !/Open negotiations[\s\S]*resume/.test((document.querySelector('#gmbody .card') || {}).textContent || '');
   // sharing: team card, heist links and the heist a shared link points to
   folTeamSet('BOS'); switchView('team'); await wait(50);
-  o.teamShareButtons = /Save card image/.test(document.getElementById('teambody').textContent) && /Share/.test(document.getElementById('teambody').textContent) && /tc-grade/.test(folTradingCard('BOS'));
+  folGoTeam('BOS'); await wait(300);
+  o.teamShareButtons = /Save card image/.test(document.getElementById('rc-standing').textContent) && /tc-grade/.test(folTradingCard('BOS'));
   heistState.focus = folHeistId(folHeistOfDay()); switchView('heists'); await wait(50);
   o.heistSharedLink = /Shared with you/.test(document.getElementById('heistbody').textContent) && /Share this heist/.test(document.getElementById('heistbody').textContent);
   heistState.focus = null;
