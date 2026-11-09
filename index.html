@@ -608,7 +608,7 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
   .brandrow{flex-wrap:nowrap !important; align-items:center}
   .brand{font-size:17px !important; white-space:nowrap; min-width:0}
   .brand .logo{width:26px !important; height:26px !important}
-  .beta-chip{font-size:9px !important; padding:1px 4px !important}
+  .beta-chip{display:none !important}
   #xfollow{display:none !important}
   .brandrow > span[style*="margin-left:auto"]{gap:6px !important; flex:none}
   #methbtn, #themebtn{font-size:0 !important; width:38px; min-height:38px !important; height:38px; padding:0 !important; display:inline-flex; align-items:center; justify-content:center}
@@ -950,6 +950,66 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
   .hub-find-out:empty{display:none}
   .hub-find-out button{display:block; width:100%; text-align:left; background:none; border:0; border-bottom:1px solid var(--grid, var(--rule)); padding:8px 12px; cursor:pointer; color:var(--ink); font:14px var(--f-body)}
   .hub-find-out button:hover, .hub-find-out button:focus{background:var(--surface-2)}
+  /* The Wire */
+  .linkbtn{background:none; border:none; padding:0; color:var(--accent, var(--ink)); text-decoration:underline; cursor:pointer; font:inherit}
+  .wire-top{display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap}
+  .wire-top h2{margin:0}
+  .wire-upd{white-space:nowrap}
+  .wire-dates{display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:8px; margin:12px 0 4px}
+  .wire-dates .wd{display:flex; flex-direction:column; gap:2px; padding:8px 12px; border-left:4px solid var(--ink); background:var(--surface-2)}
+  .wire-dates .wd-when{font:800 11px/1.2 var(--f-mono); letter-spacing:1px; text-transform:uppercase; color:var(--bad)}
+  .wire-grid{display:grid; grid-template-columns:minmax(0, 1fr) 340px; gap:18px; margin-top:12px; align-items:start}
+  .wire-side{display:flex; flex-direction:column; gap:14px; position:sticky; top:12px}
+  .wire-filt{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:8px}
+  .wire-filt select{font:14px var(--f-body); padding:6px 8px; border:1px solid var(--rule); border-radius:6px; background:var(--surface); color:var(--ink)}
+  .wire-chips{display:flex; flex-wrap:wrap; gap:6px}
+  .wire-chips button, .wi-mine button{font:600 13px var(--f-body); padding:5px 10px; border:1px solid var(--rule); border-radius:16px; background:var(--surface); color:var(--ink); cursor:pointer}
+  .wire-chips button.on, .wi-mine button.on{background:var(--ink); color:var(--surface); border-color:var(--ink)}
+  .wire-new{font-weight:700; color:var(--good); margin:6px 0}
+  .wire-day{font:800 12px/1 var(--f-mono); letter-spacing:1.5px; text-transform:uppercase; margin:18px 0 8px; color:var(--ink-2)}
+  .wire-item{padding:14px 16px; margin-bottom:10px}
+  .wire-item.wi-minor{padding:9px 14px}
+  .wire-item.wi-minor .wi-h{font-size:15px; font-family:var(--f-body); font-weight:600}
+  .wire-item.wi-focus{outline:3px solid var(--s1, var(--good)); outline-offset:2px}
+  .wi-head{display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-bottom:4px}
+  .wi-kind{font:800 11px/1 var(--f-mono); letter-spacing:1px; text-transform:uppercase}
+  .wi-tc{display:inline-block; font:800 11px/1 var(--f-mono); padding:3px 6px; border-radius:4px; background:var(--tc); color:var(--tt)}
+  .wi-h{margin:2px 0 4px; font-family:var(--f-display); font-size:19px; line-height:1.25}
+  .wi-sides{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:10px; margin:8px 0 6px}
+  .wi-side{border-top:4px solid var(--tc); padding-top:6px}
+  .wi-club{display:flex; gap:8px; align-items:center; margin-bottom:4px}
+  .wi-ab{font:800 13px var(--f-mono)}
+  .wi-side .wrow{display:grid; grid-template-columns:1fr auto; gap:2px 8px; font-size:13.5px; padding:2px 0}
+  .wi-side .wrow .ttype{grid-column:1; font-size:11.5px}
+  .wi-side .wrow .wv{grid-column:2; grid-row:1; font-weight:700}
+  .wi-line{font-size:14px; margin:6px 0}
+  .wi-try{display:flex; flex-wrap:wrap; gap:6px; align-items:center}
+  .wi-try input, .wi-reply input{font:14px var(--f-body); padding:6px 8px; border:1px solid var(--rule); border-radius:6px; background:var(--surface); color:var(--ink); width:96px}
+  .wi-reply{display:flex; gap:6px; margin-top:8px; flex-wrap:wrap}
+  .wi-reply input{flex:1; min-width:200px}
+  .wi-reply[hidden]{display:none}
+  .wi-mine{display:flex; flex-wrap:wrap; gap:5px; align-items:center; margin-top:8px}
+  .wi-mine button{padding:3px 9px; font-size:12.5px}
+  .wi-acts{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px}
+  .wi-acts .actbtn, .wi-acts .savebtn{font-size:12.5px; padding:5px 10px}
+  .stamp-s{display:inline-block; font:800 11px/1 var(--f-mono); letter-spacing:1px; text-transform:uppercase; padding:3px 6px; border:2px solid currentColor; border-radius:3px}
+  .wire-qo summary{list-style:none; cursor:pointer}
+  .wire-qo summary::-webkit-details-marker{display:none}
+  .wire-qo[open] .wq-tap{display:none}
+  .wq-tap{text-decoration:underline}
+  .wq-row{display:flex; justify-content:space-between; gap:8px; align-items:center; padding:7px 0; border-top:1px solid var(--rule); flex-wrap:wrap}
+  .wq-btns{display:flex; gap:4px}
+  .wq-btns .actbtn{font-size:12px; padding:4px 8px}
+  .wq-res{text-align:right}
+  .wire-more summary{cursor:pointer; margin-top:8px; font-weight:600}
+  .hub-wire .hw-top{display:flex; flex-direction:column; gap:2px}
+  .hub-wire .wire-dates{margin:6px 0 8px}
+  .hw-row{display:grid; grid-template-columns:90px auto 1fr; gap:10px; align-items:center; padding:7px 0; border-top:1px solid var(--rule); color:inherit; text-decoration:none}
+  .hw-row:hover .hw-t{text-decoration:underline}
+  .hw-g{display:flex; gap:4px; align-items:center; flex-wrap:wrap}
+  .hw-t{font-weight:600}
+  .nav-new{display:inline-block; margin-left:5px; min-width:18px; padding:1px 5px; border-radius:9px; background:var(--bad); color:#fff; font:800 11px/16px var(--f-mono); text-align:center}
+  @media (max-width: 860px){ .wire-grid{grid-template-columns:1fr} .wire-side{display:contents} .wire-qo{order:-1} .wire-feed{order:0} .wire-side > .card:not(.wire-qo){order:1} .hw-row{grid-template-columns:1fr; gap:3px} .wire-dates .wd:nth-child(n+2){display:none} .wire-top .sub{font-size:14px} }
   .hub-team{display:flex; flex-wrap:wrap; gap:8px 10px; align-items:center; margin-top:10px; font-size:14px}
   .hub-team label{font-weight:700}
   .hub-team select{font:15px var(--f-body); padding:7px 10px; border:1px solid var(--rule); border-radius:6px; background:var(--surface); color:var(--ink); min-width:200px}
@@ -1106,6 +1166,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
     <nav>
       <div class="navgrp"><span class="navlbl">Performance review</span><div class="navbtns">
         <button class="on" data-view="home" title="Heist of the day, the daily trade game, the best front offices, every club">Home</button>
+        <button data-view="wire" title="Every move of the winter, graded as it happens">The Wire</button>
         <button data-view="leaderboard">Leaderboard</button>
         <button data-view="report">Report Cards</button>
         <button data-view="champs">Champions</button>
@@ -1156,6 +1217,8 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
   </section>
 
   <!-- ================= QUIZ ================= -->
+  <section id="view-wire" hidden><div id="wirebody"></div></section>
+
   <section id="view-quiz" hidden>
     <h2>Trade Grade</h2>
     <div class="sub">Five real decisions a day: three trades and two free-agent contracts. Pick the side that came out ahead, or call whether the contract paid off, then see what every player actually produced.</div>
@@ -11331,9 +11394,10 @@ function switchView(v, regimeId){
   try { dkPopClose(); folTeamDefaults(v); } catch(e){}
   if(v === 'report' && !regimeId && folTeam() && !(folTeamDefaults._rep)){ folTeamDefaults._rep = 1; const r0 = curRegOf(folTeam()); if(r0) regimeId = r0.id; }
   navMark(v);
-  ['home','team','heists','quiz','leaderboard','report','trees','champs','method','dna','h2h','desk','horizon','scen','gm','boards'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
+  ['home','team','wire','heists','quiz','leaderboard','report','trees','champs','method','dna','h2h','desk','horizon','scen','gm','boards'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
   if(v==='home') renderHome();
   if(v==='team') renderTeam();
+  if(v==='wire') renderWire();
   if(v==='heists') renderHeists();
   if(v==='quiz') renderQuiz();
   if(v==='report'){ if(regimeId) $('#teamsel').value = regimeId; renderReport($('#teamsel').value); }
@@ -13246,6 +13310,7 @@ function renderHome(){
   const host = document.getElementById('homebody'); if(!host) return;
   host.innerHTML = folHub();
   folCountUp(host);
+  try { wireHomeFill(); } catch(e){}
 }
 function folMD(d){ const m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+String(d).slice(5, 7) - 1]; return m ? `${m} ${+String(d).slice(8, 10)}` : ''; }
 // the moves made closest to today's date in past years: within a week either side, the biggest first
@@ -13323,13 +13388,15 @@ function folHub(){
       <div class="hub-find"><input id="hub-find" autocomplete="off" placeholder="Look up a player, a GM or a club" aria-label="Look up a player, a GM or a club" oninput="folHubFind()" onkeydown="if(event.key==='Enter'){ const f = document.querySelector('#hub-find-out button'); if(f) f.click(); } if(event.key==='Escape') document.getElementById('hub-find-out').innerHTML=''"><div id="hub-find-out" class="hub-find-out"></div></div>
       <div class="hub-team"><label for="hub-team">Jump to a club</label><select id="hub-team" onchange="if(this.value) folPickTeam(this.value)"><option value="">Pick a club</option>${Object.keys(DESK.teams || {}).sort((a, b) => (CLUB_NAME[a] || a).localeCompare(CLUB_NAME[b] || b)).map(a => `<option value="${a}">${CLUB_NAME[a] || a}</option>`).join('')}</select>${mine ? `<button class="actbtn" onclick="folGoTeam('${mine}')">Open the ${teamNick(CLUB_NAME[mine] || mine)} report card</button>` : ''}</div>
       ${stats.tr ? `<div class="hub-stats"><span><b>${fmtN(stats.tr)}</b> trades</span><span><b>${fmtN(stats.fa)}</b> free-agent signings</span><span><b>${fmtN(stats.dr)}</b> draft picks</span><span><b>${fmtN(stats.reg)}</b> regimes graded</span>${stats.thru ? `<span>data through ${stats.thru}</span>` : ''}</div>` : ''}</div>
+    ${sec('Latest moves', 'every move of the winter, graded as it happens')}
+    <div id="hub-wire" class="hub-wire"><div class="card home-card hub-wide"><div class="home-kick">The Wire</div><div class="ttype">Loading the latest moves…</div></div></div>
     ${sec('Today', 'new every day')}
     <div class="hub-grid">
       ${t0 ? tile(`Trade of the day · ${when(otd)}`, `${folHeistCard(t0, {compact: true})}
         <div class="actions" style="margin-top:10px">${star ? `<button class="actbtn" onclick="treeOverlay('${star.pid}', '${t0.win.ab}', ${JSON.stringify(star.nm).replace(/"/g, '&quot;')})">See the transaction tree</button>` : ''}<button class="actbtn" onclick="folShare('${folHeistUrl(t0)}', 'Trade of the day', 'Trade of the day on Front Office Ledger:')">Share</button><button class="actbtn" onclick="switchView('heists')">See all the heists</button></div>`, 'hub-wide') : ''}
       ${sg ? tile(`Signing of the day${sg.k <= 7 ? ' · ' + when(sg) : ''}`, `<div class="h-date">${folMon(sg.x.x.d)} · ${abOf(sg.x.r)} · ${regName(sg.x.r)}</div><h3 class="hub-h">${sg.x.x.h}</h3><span class="stamp ${sg.x.x.war >= 0 ? 'pos' : 'neg'}" style="font-size:12px">${sg.x.x.war <= -6 ? 'Disaster' : sg.x.x.war < 0 ? 'Overpay' : 'Bargain'} · ${fmtW(sg.x.x.war)}</span>${folSigningPlain(sg.x.x, abOf(sg.x.r)) || sideRows(sg.x.x.sides)}`) : ''}
       ${tile('Trade Grade', `<h3>Five calls a day</h3><p class="hub-p">Three trades and two free-agent contracts. Pick the winner; the Ledger shows the receipts.</p>
-        <button class="actbtn primary" onclick="switchView('quiz')">${quizDone ? `Today: ${quizDone.filter(Boolean).length}/${quizDone.length} · see it` : "Play today's five"}</button>`)}
+        <button class="actbtn primary" onclick="switchView('quiz')">${quizDone ? `Today: ${quizDone.filter(Boolean).length}/${quizDone.length} · see it` : "Play today's five"}</button>${T(folQuizDays) >= 2 ? `<div class="ttype" style="margin-top:6px">${T(folQuizDays)} days in a row${quizDone ? '' : ': keep it going today'}</div>` : ''}`)}
       ${tr ? tile('Tree of the day', `<h3>${tr.title.split(' · ')[0]}</h3><p class="hub-p">${String(tr.title.split(' · ')[1] || 'One decision, and every move it led to.').replace(/^./, c => c.toUpperCase())}.</p><button class="actbtn" onclick="folTreeOfDay(${day % TREES.length})">Follow the tree</button>${more('All transaction trees', "switchView('trees')")}`) : ''}
       ${ch ? tile('Champions', `<h3>How the ${ch.label} were built</h3><p class="hub-p">${ch.mix}</p>${more('Every title roster since 1998', "switchView('champs')")}`) : ''}
     </div>
@@ -13634,7 +13701,14 @@ function folQuizPick(side){
 function folQuizNext(){ const q = quizState; if(!q) return; if(q.i < q.qs.length - 1){ q.i++; renderQuiz(); } else { q.done = true; renderQuiz(); } }
 function folQuizShareText(){
   const q = quizState; if(!q) return '';
-  return `Front Office Ledger · Trade Grade ${q.ans.filter(Boolean).length}/${q.ans.length}\n${q.ans.map(a => a ? '🟩' : '🟥').join('')}\nfrontofficeledger.com/play/trade-grade`;
+  const dd = folQuizDays();
+  return `Front Office Ledger · Trade Grade ${q.ans.filter(Boolean).length}/${q.ans.length}\n${q.ans.map(a => a ? '🟩' : '🟥').join('')}${dd >= 2 ? `\n${dd} days in a row` : ''}\nfrontofficeledger.com/play/trade-grade`;
+}
+// days in a row with today's five finished (today counts once it is played; a streak survives until tonight)
+function folQuizDays(){
+  const day = Math.floor(Date.now() / 864e5); let d = folQuizStore('day-' + day) ? day : day - 1, n = 0;
+  while(n < 400 && folQuizStore('day-' + d)){ n++; d--; }
+  return n;
 }
 function folQuizCopy(){
   const t = folQuizShareText();
@@ -13681,7 +13755,7 @@ function renderQuiz(){
   if(!quizState){ const done = folQuizStore('day-' + Math.floor(Date.now() / 864e5)); folQuizStart('daily'); if(done && done.length === quizState.qs.length){ quizState.ans = done; quizState.i = quizState.qs.length - 1; quizState.done = true; } return renderQuiz(); }
   const q = quizState, streak = folQuizStore('streak') || 0, best = folQuizStore('best') || 0;
   const dots = `<div class="quiz-dots">${q.qs.map((_, k) => `<span class="${k < q.ans.length ? (q.ans[k] ? 'y' : 'n') : k === q.i ? 'c' : ''}"></span>`).join('')}</div>`;
-  const score = `<div class="quiz-score"><div><div class="qs">${q.ans.filter(Boolean).length}/${q.qs.length}</div><div class="ql">${q.mode === 'daily' ? "today's five" : 'this round'}</div></div><div><div class="qs">${streak}</div><div class="ql">streak</div></div><div><div class="qs">${best}</div><div class="ql">best streak</div></div>${dots}</div>`;
+  const score = `<div class="quiz-score"><div><div class="qs">${q.ans.filter(Boolean).length}/${q.qs.length}</div><div class="ql">${q.mode === 'daily' ? "today's five" : 'this round'}</div></div><div><div class="qs">${streak}</div><div class="ql">right in a row</div></div><div><div class="qs">${best}</div><div class="ql">best run</div></div><div><div class="qs">${folQuizDays()}</div><div class="ql">days in a row played</div></div>${dots}</div>`;
   if(q.done){
     const n = q.ans.filter(Boolean).length;
     host.innerHTML = score + `<div class="card quiz-card fol-rise"><div class="home-kick">${q.mode === 'daily' ? "Today's five" : 'Round over'}</div>
@@ -13845,7 +13919,7 @@ function folMobar(){
   const b = (view, ic, lbl, extra) => `<button type="button" class="${v === view ? 'on' : ''}" onclick="${extra || ''}switchView('${view}')"><span class="mb-ic">${ic}</span>${lbl}</button>`;
   bar.innerHTML = b('home', '⚾', 'Home')
     + `<button type="button" class="${v === 'team' ? 'on' : ''}" onclick="switchView('team')"><span class="mb-ic">🏟️</span>Clubs</button>`
-    + b('leaderboard', '🏆', 'Leaders') + b('desk', '🤝', 'Trade') + b('gm', '🗓️', 'Sim');
+    + b('wire', '📰', 'Wire') + b('leaderboard', '🏆', 'Leaders') + b('desk', '🤝', 'Trade') + b('gm', '🗓️', 'Sim');
 }
 
 // pins for the report card's own cumulative chart (drawn on top of its hover layer)
@@ -13863,9 +13937,396 @@ function folPinLegend(r){
 }
 setTimeout(() => { try { if(typeof routeView === 'function' && routeView() === 'home') renderHome(); if(typeof routeView === 'function' && routeView() === 'team') renderTeam(); folMobar(); } catch(e){ console.warn('home', e); } }, 0);
 
+/* =====================================================================
+   The Wire (Nov 2026): every move of the winter, graded as it happens.
+   Transactions come live from the public MLB feed in the visitor's own
+   browser (no server); contract terms, QO decisions and moves the feed
+   does not carry come from wire.json beside the page (WIRE_FALLBACK when
+   it cannot be read). Grades use the Deal Desk's own accounting.
+   ===================================================================== */
+const WIRE_START = '2026-11-01';   // the day after the World Series: the winter so far
+const WIRE_QO_DUE = Date.parse('2026-11-17T21:00:00Z');   // 4pm ET
+const WIRE_FALLBACK = {updated: '2026-11-09', terms: {}, qo: {}, extra: []};
+const WIRE_DATES = [
+  ['2026-11-17T21:00:00Z', 'Qualifying offer decisions due', '4pm ET: eight players take $23.15M for one year or test the market'],
+  ['2026-11-17T23:00:00Z', 'Rule 5 protection deadline', '6pm ET: prospects left off the 40-man can be taken in the Rule 5 draft'],
+  ['2026-11-20T22:00:00Z', 'Non-tender deadline', 'Clubs tender contracts to their arbitration-eligible players or let them go'],
+  ['2026-12-02T04:59:00Z', 'The labor deal expires', '11:59pm ET Dec 1: a lockout would freeze big-league moves'],
+  ['2026-12-07T17:00:00Z', 'Winter Meetings', 'San Diego, Dec 7-9, if a deal is in place'],
+  ['2026-12-16T22:00:00Z', 'NPB posting windows close', '5pm ET: the posted Japanese players sign or go back'],
+];
+const WIRE = {tx: null, terms: null, items: null, err: '', at: 0, loading: null, filt: {club: '', kind: 'mlb'}, focus: '', open: {}};
+const WIRE_KIND = {trade: 'Trade', signing: 'Signing', 'qo-accept': 'Qualifying offer', 'qo-decline': 'Qualifying offer', claim: 'Waiver claim', dfa: 'Designated for assignment', release: 'Released', outright: 'Outrighted', add40: 'Added to the 40-man', rule5: 'Rule 5', retire: 'Retired', minor: 'Minor-league deal', 'fa-elect': 'Elected free agency', option: 'Option decision', ext: 'Extension', other: 'Move'};
+const WIRE_MLB = new Set(['trade', 'signing', 'qo-accept', 'qo-decline', 'claim', 'dfa', 'release', 'add40', 'rule5', 'retire', 'option', 'ext']);
+
+function wireAbOf(team){
+  if(!team || !team.name) return '';
+  const n = team.name; for(const [ab, nm] of Object.entries(CLUB_NAME || {})) if(nm === n) return ab;
+  if(/Athletics/.test(n)) return 'ATH';
+  return '';
+}
+function wireP(pid){ const m = wireP._m || (wireP._m = new Map((DESK.players || []).map(p => [p[1], p]))); return m.get(+pid) || null; }
+function wireToday(){ const d = new Date(Date.now() - 5 * 3600e3); return d.toISOString().slice(0, 10); }   // US Eastern, near enough
+function wireDayLabel(d){
+  const t = wireToday(), y = new Date(Date.parse(t) - 864e5).toISOString().slice(0, 10);
+  const wd = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date(d + 'T12:00:00Z').getUTCDay()];
+  return d === t ? 'Today' : d === y ? 'Yesterday' : `${wd}, ${folMD(d)}`;
+}
+function wireLoad(force){
+  if(WIRE.loading) return WIRE.loading;
+  if(!force && WIRE.items && Date.now() - WIRE.at < 110e3) return Promise.resolve(WIRE.items);
+  const end = new Date(Date.now() + 2 * 864e5).toISOString().slice(0, 10), bust = Math.floor(Date.now() / 120e3);
+  const txP = fetch(`https://statsapi.mlb.com/api/v1/transactions?startDate=${WIRE_START}&endDate=${end}&sportId=1&_=${bust}`).then(r => r.ok ? r.json() : Promise.reject(r.status));
+  const termsP = fetch(`wire.json?t=${bust}`, {cache: 'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null);
+  WIRE.loading = Promise.all([txP, termsP]).then(([tx, terms]) => {
+    WIRE.tx = (tx && tx.transactions) || []; WIRE.terms = terms && terms.terms ? terms : (WIRE.terms || WIRE_FALLBACK);
+    WIRE.items = wireBuild(WIRE.tx, WIRE.terms); WIRE.at = Date.now(); WIRE.err = '';
+    return WIRE.items;
+  }).catch(e => { WIRE.err = 'The league\'s transaction feed did not answer. Try again in a minute.'; WIRE.terms = WIRE.terms || WIRE_FALLBACK; WIRE.items = WIRE.items || wireBuild([], WIRE.terms); return WIRE.items; })
+    .finally(() => { WIRE.loading = null; });
+  return WIRE.loading;
+}
+// tests and offline captures hand the feed in directly
+function wireLoadData(tx, terms){ WIRE.tx = tx || []; WIRE.terms = terms || WIRE_FALLBACK; WIRE.items = wireBuild(WIRE.tx, WIRE.terms); WIRE.at = Date.now(); WIRE.err = ''; return WIRE.items; }
+
+// ---- grading: the Deal Desk's accounting, one move at a time ----
+function wireIsMLB(p){ return !!p && !gmIsProsRow(p) && (Math.abs(p[5]) + Math.abs(p[6]) + Math.abs(p[7])) >= 1.5; }
+function wirePieceVal(w){
+  // a player's surplus over his remaining control, net of salary (the Desk's trade value)
+  if(!w.p) return {v: (DESK.curves || {}).unrankedEV || 0.4, how: 'not on our boards: valued as an unranked prospect'};
+  const p = w.p;
+  if(wireIsMLB(p)) return {v: gmSurplus(p), how: `${pz(gmCtrlOf(p), 'season', 'seasons')} of control, net of salary`};
+  const pr = dkProjPlayer(p, 6), pk = gmPeakOf(p);
+  const how = p[9] > 0 ? `#${p[9]} prospect` : (DESK.pros || {})[p[1]] ? `${p[2]} prospect` : String(pr.how).split(/[:·(]/)[0].trim();
+  return {v: pr.total, how: how + (pk ? ` · projected peak ${fmtW(pk[0])}` : '')};
+}
+function wireLevSide(ws, ab){ return ws.reduce((a, w) => { const v = w.val.v; return a + (wireIsMLB(w.p) && v > 0 ? v * (0.5 + 0.5 * dkLev(ab)) : v); }, 0); }
+function wireFa(p, yrs, tot, club, nth){
+  // the free-agent channel's own expectation (as dkFaVerdict): projected WAR against what a typical club gets for this money
+  yrs = Math.max(1, +yrs || 1); tot = +tot || 0;
+  const aav = tot / yrs, dpw = y => (DESK.market.dpw[String(y)]) || 11.5;
+  const projTot = dkProjSeasons(p, yrs, false).total;
+  const qoClub = (DESK.qo27 || {})[p[1]], qo = !!qoClub && club && club !== qoClub;
+  const qoP = qo ? gmQoPenalty(club, nth || 1) : null, qoW = qoP ? qoP.war : 0;
+  let expFA = 0, costFA = 0, implied = 0;
+  for(let i = 1; i <= yrs; i++){ const c = Math.max(0, aav - 0.75) / dpw(2026 + i); costFA += c; expFA += c * dkTypFA(i, aav); implied += aav / dpw(2026 + i); }
+  const pz0 = (DESK.posted || {})[p[1]];
+  if(pz0){ const fee = dkPostingFee(tot), c = fee / ((DESK.market.dpw['2027']) || 10); costFA += c; expFA += c * dkTypFA(1, aav); implied += c; }
+  const rel = projTot - expFA - qoW, g = deskLetter(rel, costFA);
+  const sg = dkSuggest(p, 'fa', null);
+  return {projTot, rel, g, costFA, surplus: projTot - implied - qoW, qoP, sg, aav};
+}
+// the player's side of a contract: what he got against the Ledger's number for him
+function wirePlayerSide(f, yrs, tot){
+  const sg = f.sg; if(!sg || !sg.sugTot) return null;
+  const d = tot - sg.sugTot, pct = d / Math.max(sg.sugTot, 1);
+  const call = pct >= 0.08 ? ['Above his market', 'pos'] : pct <= -0.08 ? ['Under his market', 'neg'] : ['At his market', ''];
+  return {d, call, txt: `The Ledger's number for him was ${sg.sugYrs} yr / $${sg.sugTot}M${fmtAAV(sg.sugTot, sg.sugYrs)}: he got ${d >= 0 ? '$' + d.toFixed(1) + 'M more' : '$' + (-d).toFixed(1) + 'M less'}.`};
+}
+
+function wireBuild(tx, terms){
+  terms = terms || WIRE_FALLBACK;
+  const seen = new Set(), trades = new Map(), out = [];
+  const qoAcc = {};
+  (tx || []).forEach(x => {
+    const key = [x.date, x.typeCode, x.person && x.person.id, x.fromTeam && x.fromTeam.id, x.toTeam && x.toTeam.id, x.description].join('|');
+    if(seen.has(key)) return; seen.add(key);
+    const desc = String(x.description || ''), d = x.date || x.effectiveDate || '';
+    if(d < WIRE_START) return;
+    const pid = x.person ? x.person.id : 0, nm = x.person ? x.person.fullName : '';
+    const from = wireAbOf(x.fromTeam), to = wireAbOf(x.toTeam), p = wireP(pid);
+    if(x.typeCode === 'TR'){
+      const k = d + '|' + desc; let t = trades.get(k);
+      if(!t){ t = {id: String(x.id), d, kind: 'trade', desc, who: [], clubs: new Set()}; trades.set(k, t); out.push(t); }
+      if(+x.id < +t.id) t.id = String(x.id);
+      if(pid) t.who.push({pid, nm, p, from, to});
+      if(from) t.clubs.add(from); if(to) t.clubs.add(to);
+      return;
+    }
+    let kind = {CLW: 'claim', DES: 'dfa', REL: 'release', OUT: 'outright', SE: 'add40', CP: 'add40', R5: 'rule5', RET: 'retire', DFA: 'fa-elect'}[x.typeCode] || '';
+    if(x.typeCode === 'SFA') kind = /minor league/i.test(desc) ? 'minor' : 'signing';
+    if(x.typeCode === 'SC' && /retire/i.test(desc)) kind = 'retire';
+    if(!kind) return;
+    const club = to || from;
+    const it = {id: String(x.id), d, kind, desc, who: [{pid, nm, p, from, to}], clubs: new Set([club].filter(Boolean)), club};
+    // a QO player signing back with his own club before the deadline is the acceptance
+    if(kind === 'signing' && (DESK.qo27 || {})[pid] === to && d <= '2026-11-19'){ it.kind = 'qo-accept'; qoAcc[pid] = it; }
+    out.push(it);
+  });
+  // what the feed does not carry: QO decisions announced, options, extensions (wire.json)
+  Object.entries(terms.qo || {}).forEach(([pid, z]) => {
+    const p = wireP(pid), club = (DESK.qo27 || {})[pid]; if(!p || !club) return;
+    if(z.s === 'accepted' && !qoAcc[pid]){ const it = {id: 'qo-' + pid, d: z.d || wireToday(), kind: 'qo-accept', desc: `${p[0]} accepted the ${CLUB_NAME[club] || club}' $23.15M qualifying offer.`, who: [{pid: +pid, nm: p[0], p, from: '', to: club}], clubs: new Set([club]), club}; qoAcc[pid] = it; out.push(it); }
+    if(z.s === 'declined') out.push({id: 'qod-' + pid, d: z.d || wireToday(), kind: 'qo-decline', desc: `${p[0]} declined the ${CLUB_NAME[club] || club}' $23.15M qualifying offer and is a free agent.`, who: [{pid: +pid, nm: p[0], p, from: club, to: ''}], clubs: new Set([club]), club});
+  });
+  (terms.extra || []).forEach((z, i) => { const p = wireP(z.pid); out.push({id: z.id || 'x' + i, d: z.d, kind: z.kind || 'other', desc: z.txt, who: z.pid ? [{pid: z.pid, nm: p ? p[0] : z.nm || '', p, from: z.from || '', to: z.club || ''}] : [], clubs: new Set([z.club, z.from].filter(Boolean)), club: z.club || '', terms: z.yrs ? {yrs: z.yrs, tot: z.tot} : null, note: z.note || ''}); });
+  // grade each move
+  const qoN = {};
+  out.sort((a, b) => a.d.localeCompare(b.d) || String(a.id).localeCompare(String(b.id), undefined, {numeric: true}));
+  out.forEach(it => { try { wireGrade(it, terms, qoN); } catch(e){ it.g = null; } it.clubs = [...it.clubs]; });
+  return out.reverse();
+}
+function wireGrade(it, terms, qoN){
+  const w0 = it.who[0], p = w0 && w0.p;
+  it.notable = false;
+  if(it.kind === 'trade'){
+    it.who.forEach(w => { w.val = wirePieceVal(w); });
+    it.sides = [...it.clubs].map(ab => {
+      const gets = it.who.filter(w => w.to === ab), gives = it.who.filter(w => w.from === ab);
+      const vin = wireLevSide(gets, ab), vout = wireLevSide(gives, ab), net = vin - vout;
+      return {ab, gets, gives, vin, vout, net};
+    });
+    const size = Math.max(...it.sides.map(s => Math.max(Math.abs(s.vin), Math.abs(s.vout))), 0.2);
+    // a depth deal (under half a win at stake either way) gets no letter: a percentile of nothing is noise
+    it.depth = size < 0.5;
+    it.sides.forEach(s => { s.g = it.depth ? '' : moveGrade(s.net, 'trade', size) || 'C'; });
+    it.cash = /for cash/i.test(it.desc); it.ptbnl = /player to be named/i.test(it.desc);
+    it.size = size; it.notable = size >= 0.8 || it.who.some(w => w.p && w.p[9] > 0);
+    return;
+  }
+  if(it.kind === 'signing' || it.kind === 'qo-accept' || (it.kind === 'ext' && it.terms)){
+    const tm = it.kind === 'qo-accept' ? {yrs: 1, tot: 23.15} : it.terms || (terms.terms || {})[w0.pid] || null;
+    it.terms = tm;
+    if(p && tm && it.kind !== 'ext'){
+      const qoClub = (DESK.qo27 || {})[w0.pid], nth = qoClub && qoClub !== it.club ? (qoN[it.club] = (qoN[it.club] || 0) + 1) : 1;
+      it.fa = wireFa(p, tm.yrs, tm.tot, it.club, nth); it.g = it.fa.g; it.player = wirePlayerSide(it.fa, tm.yrs, tm.tot);
+    }
+    it.notable = !!p && (gmProj27(p) >= 0.5 || (tm && tm.tot >= 5));
+    if(!tm && p && !gmIsProsRow(p)){ try { it.sg = dkSuggest(p, 'fa', null); } catch(e){} }
+    return;
+  }
+  if(it.kind === 'qo-decline'){ it.notable = true; if(p){ try { it.sg = dkSuggest(p, 'fa', null); } catch(e){} } return; }
+  if(it.kind === 'claim'){
+    if(p){ const v = wireIsMLB(p) ? gmSurplus(p) : dkProjPlayer(p, 6).total; it.val = v; it.g = moveGrade(v, 'waiver', Math.abs(v)); }
+    it.notable = true; return;
+  }
+  if(it.kind === 'dfa' || it.kind === 'release' || it.kind === 'outright' || it.kind === 'fa-elect' || it.kind === 'minor'){
+    if(p){ it.p27 = gmProj27(p); it.notable = it.p27 >= 0.6 || (it.kind !== 'outright' && it.kind !== 'fa-elect' && it.kind !== 'minor'); }
+    else it.notable = it.kind === 'dfa' || it.kind === 'release';
+    return;
+  }
+  it.notable = WIRE_MLB.has(it.kind);
+}
+
+// ---- the page ----
+function wireCountdown(){
+  const now = Date.now();
+  const next = WIRE_DATES.filter(z => Date.parse(z[0]) > now - 6 * 3600e3).slice(0, 3);
+  const rel = t => { const h = (t - now) / 3600e3; return h < 0 ? 'now' : h < 1 ? 'within the hour' : h < 24 ? `in ${Math.round(h)} hours` : `in ${pz(Math.round(h / 24), 'day', 'days')}`; };
+  return `<div class="wire-dates">${next.map(z => `<div class="wd"><span class="wd-when">${rel(Date.parse(z[0]))}</span><strong>${z[1]}</strong><span class="ttype">${folMD(new Date(Date.parse(z[0]) - 5 * 3600e3).toISOString().slice(0, 10))} · ${z[2]}</span></div>`).join('')}</div>`;
+}
+function wireQoStatus(pid){
+  const it = (WIRE.items || []).find(x => (x.kind === 'qo-accept' || x.kind === 'qo-decline') && x.who[0] && String(x.who[0].pid) === String(pid));
+  if(it) return it.kind === 'qo-accept' ? 'accepted' : 'declined';
+  const away = (WIRE.items || []).find(x => x.kind === 'signing' && x.who[0] && String(x.who[0].pid) === String(pid));
+  if(away) return 'declined';
+  return Date.now() > WIRE_QO_DUE ? 'declined' : 'pending';
+}
+function wireQoCall(pid, c){ try { localStorage.setItem('fol-qo-call-' + pid, c); } catch(e){} folEvent('wire/qo-call'); renderWire(); }
+function wireQoMine(pid){ try { return localStorage.getItem('fol-qo-call-' + pid) || ''; } catch(e){ return ''; } }
+function wireQoCard(){
+  const qo = Object.entries(DESK.qo27 || {}); if(!qo.length) return '';
+  let right = 0, done = 0;
+  const rows = qo.map(([pid, club]) => {
+    const p = wireP(pid); if(!p) return '';
+    const st = wireQoStatus(pid), mine = wireQoMine(pid);
+    let sg = null; try { sg = dkSuggest(p, 'fa', null); } catch(e){}
+    const bet = sg ? sg.sugTot - 23.15 : 0;
+    const ledger = !sg ? '' : sg.sugYrs >= 2 && bet > 4 ? `Decline: the Ledger's number is ${sg.sugYrs} yr / $${sg.sugTot}M` : sg.sugTot / Math.max(sg.sugYrs, 1) < 20 && sg.sugTot < 30 ? `Take it: $23.15M beats his market (${sg.sugYrs} yr / $${sg.sugTot}M)` : `Close call: the Ledger's number is ${sg.sugYrs} yr / $${sg.sugTot}M`;
+    if(st !== 'pending' && mine){ done++; if((mine === 'accept') === (st === 'accepted')) right++; }
+    const res = st === 'pending' ? (mine ? `<span class="ttype">Your call: ${mine === 'accept' ? 'he takes it' : 'he declines'}</span> <button class="linkbtn" onclick="wireQoCall(${pid}, '')">change</button>` : `<span class="wq-btns"><button class="actbtn" onclick="wireQoCall(${pid}, 'accept')">He takes it</button><button class="actbtn" onclick="wireQoCall(${pid}, 'decline')">He declines</button></span>`)
+      : `<span class="stamp-s ${st === 'accepted' ? 'pos' : 'neg'}">${st}</span>${mine ? ` <span class="ttype">${(mine === 'accept') === (st === 'accepted') ? 'You called it' : 'You missed this one'}</span>` : ''}`;
+    return `<div class="wq-row"><div><strong>${p[0]}</strong> <span class="ttype">${p[13] || p[12] || ''} · ${teamNick(CLUB_NAME[club] || club)}</span><div class="ttype">${ledger}</div></div><div class="wq-res">${res}</div></div>`;
+  }).join('');
+  const pend = qo.filter(([pid]) => wireQoStatus(pid) === 'pending').length;
+  return `<details class="card home-card wire-qo"${innerWidth > 860 || wireQoCard._open ? ' open' : ''} ontoggle="wireQoCard._open = this.open"><summary><div class="home-kick">Qualifying offers · $23.15M for one year</div>
+    <h3>${pend ? `${pend} of ${qo.length} decisions still to come` : 'Every decision is in'}</h3><span class="ttype wq-tap">${pend ? 'Make your calls' : 'See how they played it'}</span></summary>
+    <p class="hub-p">${pend ? 'Make your calls before 4pm ET on November 17. The Ledger\'s read is from the player\'s side: his projected contract against one year at $23.15M.' : 'How the eight played it, and how your calls did.'}${done ? ` You are ${right} for ${done}.` : ''}</p>${rows}</details>`;
+}
+function wireStandings(items){
+  const acc = {};
+  const add = (ab, v, why) => { if(!ab || !isFinite(v)) return; const a = acc[ab] || (acc[ab] = {ab, net: 0, n: 0, best: null}); a.net += v; a.n++; if(!a.best || Math.abs(v) > Math.abs(a.best.v)) a.best = {v, why}; };
+  (items || []).forEach(it => {
+    if(it.kind === 'trade') it.sides.forEach(s => add(s.ab, s.net, it.desc));
+    else if(it.fa) add(it.club, it.fa.rel, it.desc);
+    else if(it.kind === 'claim' && it.val != null) add(it.club, it.val, it.desc);
+  });
+  return Object.values(acc).sort((a, b) => b.net - a.net);
+}
+function wireNewCount(){
+  let seen = 0; try { seen = +localStorage.getItem('fol-wire-seen') || 0; } catch(e){}
+  if(!seen) return 0;
+  return (WIRE.items || []).filter(it => it.notable && /^\d+$/.test(it.id) && +it.id > seen).length;
+}
+function wireMarkSeen(){
+  const mx = Math.max(0, ...(WIRE.items || []).filter(it => /^\d+$/.test(it.id)).map(it => +it.id));
+  try { if(mx) localStorage.setItem('fol-wire-seen', String(mx)); } catch(e){}
+}
+function wireBadge(){
+  const b = document.querySelector('nav button[data-view="wire"]'); if(!b) return;
+  const n = wireNewCount(); let s = b.querySelector('.nav-new');
+  if(!n){ if(s) s.remove(); return; }
+  if(!s){ s = document.createElement('span'); s.className = 'nav-new'; b.appendChild(s); }
+  s.textContent = n > 9 ? '9+' : String(n); s.title = `${n} new since your last visit`;
+}
+function wireHeadline(it){
+  const w = it.who[0] || {}, nick = ab => teamNick(CLUB_NAME[ab] || ab);
+  if(it.kind === 'trade'){
+    const s = it.sides || []; if(s.length === 2){ const [a, b] = s; const nm = ws => ws.map(x => x.nm).join(', ') || (it.cash ? 'cash' : 'a player to be named');
+      return `${nick(a.ab)} get ${nm(a.gets)} from the ${nick(b.ab)} for ${nm(a.gives)}`; }
+    return it.desc;
+  }
+  if(it.kind === 'signing') return `${nick(it.club)} sign ${w.nm}${it.terms ? `: ${it.terms.yrs} yr / $${it.terms.tot}M` : ''}`;
+  if(it.kind === 'qo-accept') return `${w.nm} takes the ${nick(it.club)}' qualifying offer: 1 yr / $23.15M`;
+  if(it.kind === 'qo-decline') return `${w.nm} turns down the ${nick(it.club)}' qualifying offer`;
+  if(it.kind === 'claim') return `${nick(it.club)} claim ${w.nm}${w.from ? ` from the ${nick(w.from)}` : ''}`;
+  const verb = {dfa: 'designate', release: 'release', outright: 'outright', add40: 'add', rule5: 'take', minor: 'sign'}[it.kind];
+  if(verb && it.club && w.nm) return `${nick(it.club)} ${verb} ${w.nm}${it.kind === 'dfa' ? ' for assignment' : it.kind === 'add40' ? ' to the 40-man roster' : it.kind === 'minor' ? ' to a minor-league deal' : it.kind === 'outright' ? ' off the 40-man' : ''}`;
+  if(it.kind === 'fa-elect' && w.nm) return `${w.nm} elects free agency${w.from ? ` from the ${nick(w.from)}` : ''}`;
+  return it.desc;
+}
+function wireShareText(it){
+  const nick = ab => teamNick(CLUB_NAME[ab] || ab);
+  if(it.kind === 'trade' && it.sides && it.sides.length) return it.depth ? `${wireHeadline(it)}. A depth deal: under half a win at stake either way.` : `Ledger grades: ${it.sides.map(s => `${nick(s.ab)} ${s.g}`).join(', ')}. ${wireHeadline(it)}.`;
+  if(it.fa) return `${wireHeadline(it)}. Ledger grade for the ${nick(it.club)}: ${it.g} (${fmtW(it.fa.rel)} wins against a typical signing for that money).${it.player ? ` For ${it.who[0].nm}: ${it.player.call[0].toLowerCase()}.` : ''}`;
+  if(it.kind === 'claim' && it.g) return `${wireHeadline(it)}. Ledger grade: ${it.g}.`;
+  return `${wireHeadline(it)}.`;
+}
+function wireUrl(it){ return `https://frontofficeledger.com/#view=wire&id=${encodeURIComponent(it.id)}`; }
+function wireX(id, reply){
+  const it = (WIRE.items || []).find(x => x.id === String(id)); if(!it) return;
+  let q = 'text=' + encodeURIComponent(wireShareText(it)) + '&url=' + encodeURIComponent(wireUrl(it));
+  if(reply){ const m = String(reply).match(/status(?:es)?\/(\d{5,})/) || String(reply).match(/^(\d{5,})$/); if(!m){ folToast('Paste a link to a post on X'); return; } q += '&in_reply_to=' + m[1]; }
+  folEvent('wire/x' + (reply ? '-reply' : '')); window.open('https://x.com/intent/post?' + q, '_blank', 'noopener');
+}
+function wireCopy(id){ const it = (WIRE.items || []).find(x => x.id === String(id)); if(it) folShare(wireUrl(it), 'Front Office Ledger', wireShareText(it)); }
+function wireReplyBox(id){
+  const el = document.getElementById('wrp-' + id); if(!el) return;
+  el.hidden = !el.hidden; if(!el.hidden){ const i = el.querySelector('input'); if(i) i.focus(); }
+}
+function wireSave(id){
+  const el = document.getElementById('wi-' + id), it = (WIRE.items || []).find(x => x.id === String(id)); if(!el || !it) return;
+  folEvent('wire/save'); folSaveEl(el, 'ledger-' + folSlug(wireHeadline(it)).slice(0, 50), WIRE_KIND[it.kind] || 'Move', `${folMD(it.d)}, ${it.d.slice(0, 4)} · graded by the Ledger the day it happened`);
+}
+function wireDesk(id){
+  const it = (WIRE.items || []).find(x => x.id === String(id)); if(!it) return;
+  if(it.kind === 'trade' && it.sides && it.sides.length === 2){
+    const [a, b] = it.sides, pc = w => w.p ? {kind: 'player', p: w.p, ctrl: gmIsProsRow(w.p) ? 6 : gmCtrlOf(w.p)} : null;
+    dkState.mode = 'trade'; dkState.you = a.ab; dkState.them = b.ab;
+    dkState.recv = a.gets.map(pc).filter(Boolean); dkState.send = a.gives.map(pc).filter(Boolean);
+    folGo('desk'); setTimeout(() => { try { if(dkState.recv.length && dkState.send.length) dkEval(); } catch(e){} }, 60);
+  } else if(it.who[0] && it.who[0].p){
+    dkState.mode = 'fa'; dkState.you = it.club; folGo('desk');
+    setTimeout(() => { try { const s = (i, v) => { const e = document.getElementById(i); if(e) e.value = v; };
+      s('dk-fa-player', it.who[0].p[0]); s('dk-fa-club', it.club); if(it.terms){ s('dk-fa-yrs', it.terms.yrs); s('dk-fa-m', it.terms.tot); dkEval(); } else dkSuggestNow('fa'); } catch(e){} }, 60);
+  }
+}
+// terms not reported yet: anyone can grade the deal with the numbers as they come out
+function wireTry(id){
+  const it = (WIRE.items || []).find(x => x.id === String(id)), w = it && it.who[0]; if(!w || !w.p) return;
+  const y = +(document.getElementById('wty-' + id) || {}).value, t = +(document.getElementById('wtt-' + id) || {}).value;
+  const out = document.getElementById('wto-' + id); if(!out) return;
+  if(!(y >= 1 && y <= 12) || !(t > 0 && t < 900)){ out.innerHTML = '<span class="ttype">Years 1-12 and a total in $M.</span>'; return; }
+  const f = wireFa(w.p, y, t, it.club, 1), ps = wirePlayerSide(f, y, t);
+  out.innerHTML = `<span class="grade ${letterClass(f.g)}">${f.g}</span> for the ${teamNick(CLUB_NAME[it.club] || it.club)}: ${fmtW(f.rel)} wins against a typical signing for that money.${ps ? ' ' + ps.txt : ''}`;
+  folEvent('wire/try');
+}
+// your own grade, next to the Ledger's
+function wireMine(id, g){ try { const o = JSON.parse(localStorage.getItem('fol-wire-mine') || '{}'); o[id] = g; localStorage.setItem('fol-wire-mine', JSON.stringify(o)); } catch(e){} folEvent('wire/mine'); renderWire(); }
+function wireMineAll(){ try { return JSON.parse(localStorage.getItem('fol-wire-mine') || '{}'); } catch(e){ return {}; } }
+function wireItem(it, mine){
+  const nick = ab => teamNick(CLUB_NAME[ab] || ab), gChip = g => g ? `<span class="grade ${letterClass(g)}">${g}</span>` : '';
+  const w = it.who[0] || {}, p = w.p, pos = p ? (p[13] || p[12] || (p[3] ? 'P' : '')) : '';
+  let body = '';
+  if(it.kind === 'trade'){
+    body = `<div class="wi-sides">${(it.sides || []).map(s => `<div class="wi-side" style="${folTC(s.ab)}"><div class="wi-club"><span class="wi-ab">${s.ab}</span> ${gChip(s.g)} <span class="${s.net >= 0 ? 'pos' : 'neg'}" style="font-weight:700">${fmtW(s.net)}</span></div>
+        ${s.gets.map(x => `<div class="wrow"><span>Gets ${x.nm}${x.p && (x.p[13] || x.p[12]) ? ` <span class="ttype">${x.p[13] || x.p[12]}</span>` : ''}</span><span class="ttype">${x.val.how}</span><span class="wv ${x.val.v >= 0 ? 'pos' : 'neg'}">${fmtW(x.val.v)}</span></div>`).join('')}
+        ${!s.gets.length ? `<div class="wrow"><span>Gets ${it.cash ? 'cash' : it.ptbnl ? 'a player to be named later' : 'nothing on our boards'}</span><span></span><span></span></div>` : ''}</div>`).join('')}</div>
+      <div class="ttype">${it.depth ? 'A depth deal: under half a win at stake either way, so no letter. ' : ''}Each side's surplus over the players' remaining control, net of salary, weighted for where the club stands; the letter ranks it among every real trade this size since 1998.${it.ptbnl ? ' A player to be named later is graded when he is named.' : ''}</div>`;
+  } else if(it.fa){
+    const f = it.fa;
+    body = `<div class="wi-line">${gChip(it.g)} <strong>${nick(it.club)}:</strong> <span class="${f.rel >= 0 ? 'pos' : 'neg'}" style="font-weight:700">${fmtW(f.rel)}</span> wins against a typical signing for that money (projected ${fmtW(f.projTot)} over the deal).${f.qoP ? ` Includes the ${f.qoP.txt} the qualifying offer costs them.` : ''}</div>
+      ${it.player ? `<div class="wi-line"><span class="stamp-s ${it.player.call[1]}">${it.player.call[0]}</span> ${it.player.txt}</div>` : ''}`;
+  } else if((it.kind === 'signing' || it.kind === 'ext') && p && !gmIsProsRow(p)){
+    body = `<div class="wi-line">${it.sg ? `The Ledger's number for him: <strong>${it.sg.sugYrs} yr / $${it.sg.sugTot}M</strong>${fmtAAV(it.sg.sugTot, it.sg.sugYrs)}. ` : ''}Terms not reported yet. Grade it as soon as they are:</div>
+      <div class="wi-try"><input id="wty-${it.id}" type="number" min="1" max="12" placeholder="Years" aria-label="Years"><input id="wtt-${it.id}" type="number" min="0" step="0.5" placeholder="Total $M" aria-label="Total in millions"><button class="actbtn" onclick="wireTry('${it.id}')">Grade it</button><span id="wto-${it.id}"></span></div>`;
+  } else if(it.kind === 'qo-decline'){
+    body = `<div class="wi-line">He bets on the market${it.sg ? `: the Ledger's number for him is <strong>${it.sg.sugYrs} yr / $${it.sg.sugTot}M</strong>${fmtAAV(it.sg.sugTot, it.sg.sugYrs)}` : ''}. The ${nick(it.club)} get a compensation pick if he signs elsewhere, and his new club gives up a pick.</div>`;
+  } else if(it.kind === 'claim' && it.val != null){
+    body = `<div class="wi-line">${gChip(it.g)} ${fmtW(it.val)} wins of surplus over his control, net of salary${p && wireIsMLB(p) ? `, ${fmtW(gmProj27(p))} projected for 2027` : ''}. A claim costs only a roster spot.</div>`;
+  } else if(p && it.p27 != null && it.p27 >= 0.3){
+    body = `<div class="wi-line">${fmtW(it.p27)} projected WAR for 2027${(it.kind === 'dfa' || it.kind === 'release') ? ': worth a claim for someone' : ''}.</div>`;
+  } else if(it.kind === 'add40' && p){
+    const pk = gmPeakOf(p);
+    body = `<div class="wi-line">${p[9] > 0 ? `#${p[9]} on the Top 100. ` : ''}${pk ? `Projected peak ${fmtW(pk[0])} WAR a season, ${Math.round(pk[1] * 100)}% chance of a 2-win peak. ` : ''}Now protected from the Rule 5 draft.</div>`;
+  }
+  const big = it.kind === 'trade' || it.kind === 'signing' || /^qo-/.test(it.kind) || it.kind === 'ext' || it.g || (it.p27 != null && it.p27 >= 0.5) || (it.kind === 'add40' && p && (p[9] > 0 || (gmPeakOf(p) || [0])[0] >= 1));
+  const canDesk = (it.kind === 'trade' && (it.sides || []).length === 2 && it.who.some(x => x.p)) || ((it.kind === 'signing' || it.kind === 'qo-accept') && p && !gmIsProsRow(p));
+  const gradable = it.kind === 'trade' || it.fa;
+  const my = mine[it.id];
+  const mineRow = gradable ? `<div class="wi-mine"><span class="ttype">Your grade${it.kind === 'trade' && it.sides && it.sides[0] ? ` for the ${nick(it.sides[0].ab)}` : ''}:</span>${['A', 'B', 'C', 'D', 'F'].map(g => `<button class="${my === g ? 'on' : ''}" onclick="wireMine('${it.id}', '${g}')" aria-label="Grade it ${g}">${g}</button>`).join('')}${my ? `<span class="ttype">Ledger: ${it.kind === 'trade' ? it.sides[0].g : it.g}</span>` : ''}</div>` : '';
+  return `<article class="card wire-item${big ? '' : ' wi-minor'}${WIRE.focus === it.id ? ' wi-focus' : ''}" id="wi-${it.id}">
+    <div class="wi-head"><span class="wi-kind">${WIRE_KIND[it.kind] || 'Move'}</span>${it.clubs.map(ab => `<span class="wi-tc" style="${folTC(ab)}">${ab}</span>`).join('')}<span class="ttype">${folMD(it.d)}</span></div>
+    <h3 class="wi-h">${wireHeadline(it)}</h3>${big ? `<div class="ttype">${it.desc}</div>` : ''}${it.note ? `<div class="ttype">${it.note}</div>` : ''}
+    ${body}${mineRow}
+    ${big ? `<div class="wi-acts">${canDesk ? `<button class="actbtn" onclick="wireDesk('${it.id}')">Open in the Deal Desk</button>` : ''}<button class="actbtn" onclick="wireX('${it.id}')">Post on X</button><button class="actbtn" onclick="wireReplyBox('${it.id}')">Reply to a post</button><button class="actbtn" onclick="wireCopy('${it.id}')">Copy link</button>${folSaveBtn(`wireSave('${it.id}')`)}</div>
+    <div class="wi-reply" id="wrp-${it.id}" hidden><input placeholder="Paste the link to the post you are replying to" aria-label="Link to the post on X" onkeydown="if(event.key==='Enter') wireX('${it.id}', this.value)"><button class="actbtn primary" onclick="wireX('${it.id}', this.previousElementSibling.value)">Write the reply</button></div>` : ''}
+  </article>`;
+}
+function wireSetFilt(k, v){ WIRE.filt[k] = v; WIRE.focus = ''; renderWire(); }
+function renderWire(){
+  const host = document.getElementById('wirebody'); if(!host) return;
+  if(!WIRE.items){ host.innerHTML = `${wireCountdown()}<div class="card home-card" style="margin-top:14px">Loading the latest moves…</div>`; wireLoad().then(() => { if(!document.getElementById('view-wire').hidden) renderWire(); wireBadge(); }); return; }
+  const f = WIRE.filt, mine = wireMineAll();
+  const items = WIRE.items.filter(it => (!f.club || it.clubs.includes(f.club)) && (f.kind === 'all' || (f.kind === 'mlb' ? (WIRE_MLB.has(it.kind) && it.notable) || (it.notable && it.kind !== 'outright') : f.kind === 'trade' ? it.kind === 'trade' : f.kind === 'sign' ? /signing|qo-|ext|option/.test(it.kind) : f.kind === 'roster' ? /claim|dfa|release|outright|add40|rule5|fa-elect|retire/.test(it.kind) : it.kind === f.kind)) || it.id === WIRE.focus);
+  const byDay = []; items.forEach(it => { const g = byDay[byDay.length - 1]; if(g && g.d === it.d) g.xs.push(it); else byDay.push({d: it.d, xs: [it]}); });
+  const st = wireStandings(WIRE.items), stRow = (s, i) => `<div class="hub-row"><strong>${i}</strong><span class="wi-tc" style="${folTC(s.ab)}">${s.ab}</span><span>${teamNick(CLUB_NAME[s.ab] || s.ab)} <span class="ttype">${pz(s.n, 'graded move', 'graded moves')}</span></span><span class="${s.net >= 0 ? 'pos' : 'neg'}" style="margin-left:auto; font-weight:700">${fmtW(s.net)}</span></div>`;
+  const clubs = Object.keys(DESK.teams || {}).sort((a, b) => (CLUB_NAME[a] || a).localeCompare(CLUB_NAME[b] || b));
+  const chip = (k, lbl) => `<button type="button" class="${f.kind === k ? 'on' : ''}" onclick="wireSetFilt('kind', '${k}')">${lbl}</button>`;
+  const upd = WIRE.at ? new Date(WIRE.at).toLocaleTimeString([], {hour: 'numeric', minute: '2-digit'}) : '';
+  const nNew = wireNewCount();
+  host.innerHTML = `<div class="wire-top"><div><h2>The Wire</h2><div class="sub">Every move of the winter, graded the day it happens: trades from both sides, signings for the club and the player, waiver claims, qualifying offers. Refreshes on its own every two minutes.</div></div>
+      <div class="ttype wire-upd">${WIRE.err ? `<span class="neg">${WIRE.err}</span>` : upd ? `Updated ${upd}` : ''} <button class="linkbtn" onclick="wireLoad(true).then(renderWire)">Refresh</button></div></div>
+    ${wireCountdown()}
+    <div class="wire-grid">
+      <div class="wire-feed">
+        <div class="wire-filt"><select aria-label="Club" onchange="wireSetFilt('club', this.value)"><option value="">All 30 clubs</option>${clubs.map(a => `<option value="${a}"${f.club === a ? ' selected' : ''}>${CLUB_NAME[a] || a}</option>`).join('')}</select>
+          <span class="wire-chips">${chip('mlb', 'Big-league moves')}${chip('trade', 'Trades')}${chip('sign', 'Signings')}${chip('roster', 'Roster moves')}${chip('all', 'Everything')}</span></div>
+        ${nNew ? `<div class="wire-new">${pz(nNew, 'new move', 'new moves')} since your last visit</div>` : ''}
+        ${byDay.length ? byDay.map(g => `<div class="wire-day">${wireDayLabel(g.d)}</div>${g.xs.map(it => wireItem(it, mine)).join('')}`).join('') : `<div class="card home-card">${f.club ? `No ${f.kind === 'all' ? '' : 'big-league '}moves for the ${teamNick(CLUB_NAME[f.club] || f.club)} yet this winter.` : 'Nothing yet.'} <button class="linkbtn" onclick="wireSetFilt('kind', 'all')">Show everything</button></div>`}
+      </div>
+      <aside class="wire-side">
+        ${wireQoCard()}
+        <div class="card home-card"><div class="home-kick">The winter so far</div><h3>Who has won the offseason</h3><p class="hub-p">Every graded move since Nov 1 added up: trades, signings with reported terms, claims.</p>
+          ${st.length ? st.slice(0, 5).map((s, i) => stRow(s, i + 1)).join('') + (st.length > 5 ? `<details class="wire-more"><summary>All ${st.length} clubs</summary>${st.slice(5).map((s, i) => stRow(s, i + 6)).join('')}</details>` : '') : '<div class="ttype">No graded moves yet.</div>'}</div>
+      </aside>
+    </div>`;
+  if(WIRE.focus){ const el = document.getElementById('wi-' + WIRE.focus); if(el) setTimeout(() => { try { el.scrollIntoView({block: 'center'}); } catch(e){} }, 30); }
+  clearTimeout(renderWire._seen); renderWire._seen = setTimeout(() => { if(!document.getElementById('view-wire').hidden){ wireMarkSeen(); wireBadge(); } }, 2500);
+}
+// home: the latest graded moves at the top of the page
+function wireHomeFill(){
+  const host = document.getElementById('hub-wire'); if(!host) return;
+  const draw = () => {
+    const h = document.getElementById('hub-wire'); if(!h || !WIRE.items) return;
+    const xs = WIRE.items.filter(it => it.notable && (it.kind === 'trade' || it.fa || it.kind === 'qo-accept' || it.kind === 'qo-decline' || it.kind === 'signing' || it.kind === 'claim')).slice(0, 4);
+    const n = wireNewCount(), nick = ab => teamNick(CLUB_NAME[ab] || ab);
+    const row = it => { const gs = it.kind === 'trade' ? (it.sides || []).map(s => `<span class="wi-tc" style="${folTC(s.ab)}">${s.ab}</span><span class="grade ${letterClass(s.g)}">${s.g}</span>`).join(' ') : it.g ? `<span class="wi-tc" style="${folTC(it.club)}">${it.club}</span><span class="grade ${letterClass(it.g)}">${it.g}</span>` : (it.clubs || []).map(ab => `<span class="wi-tc" style="${folTC(ab)}">${ab}</span>`).join('');
+      return `<a href="#" class="hw-row" onclick="WIRE.focus='${it.id}'; switchView('wire'); return false"><span class="ttype">${wireDayLabel(it.d)}</span><span class="hw-g">${gs}</span><span class="hw-t">${wireHeadline(it)}</span></a>`; };
+    h.innerHTML = `<div class="card home-card hub-wide"><div class="hw-top"><div class="home-kick">The Wire${n ? ` · <span class="pos">${n} new</span>` : ''}</div>${wireCountdown()}</div>
+      ${xs.length ? xs.map(row).join('') : '<div class="ttype">No big-league moves graded yet today.</div>'}
+      <div style="margin-top:10px"><a href="#" onclick="switchView('wire'); return false">Every move of the winter, graded →</a></div></div>`;
+    wireBadge();
+  };
+  if(WIRE.items) draw(); else wireLoad().then(draw);
+}
+// keep it fresh while someone is looking
+setInterval(() => { try { if(document.hidden) return; const v = routeView(); if(v !== 'wire' && v !== 'home') return; wireLoad(true).then(() => { if(routeView() === 'wire') renderWire(); else if(routeView() === 'home') wireHomeFill(); }); } catch(e){} }, 120e3);
+setTimeout(() => { try { if(typeof routeView === 'function' && routeView() !== 'wire') wireLoad().then(() => { wireBadge(); if(routeView() === 'home') wireHomeFill(); }); } catch(e){} }, 1200);
+
 /* ---- UI pass (Nov 2026): shareable URLs, accessible names, stale Desk verdicts ---- */
 // every view and its selection is in the hash (#view=cards&id=nyy); back and forward work
-const ROUTE_NAMES = {home:'home', team:'team', heists:'heists', quiz:'quiz', leaderboard:'leaderboard', report:'cards', trees:'trees', champs:'champions', dna:'dna', h2h:'h2h', horizon:'horizon', boards:'boards', gm:'simulator', desk:'desk', scen:'scenarios', method:'method'};
+const ROUTE_NAMES = {home:'home', team:'team', wire:'wire', heists:'heists', quiz:'quiz', leaderboard:'leaderboard', report:'cards', trees:'trees', champs:'champions', dna:'dna', h2h:'h2h', horizon:'horizon', boards:'boards', gm:'simulator', desk:'desk', scen:'scenarios', method:'method'};
 const ROUTE_BACK = Object.fromEntries(Object.entries(ROUTE_NAMES).map(([k, v]) => [v, k]));
 let ROUTE_MUTE = 1, ROUTE_LAST = null;
 function routeView(){ return Object.keys(ROUTE_NAMES).find(k => { const el = document.getElementById('view-' + k); return el && !el.hidden; }) || 'home'; }
@@ -13883,6 +14344,7 @@ function routeState(){
   else if(v === 'desk') q.id = dkState.mode;
   else if(v === 'heists'){ if(heistState.club) q.id = heistState.club.toLowerCase(); }
   else if(v === 'team'){ if(folTeam()) q.id = folTeam().toLowerCase(); }
+  else if(v === 'wire'){ if(WIRE.focus) q.id = WIRE.focus; else if(WIRE.filt.club) q.id = WIRE.filt.club.toLowerCase(); }
   else if(v === 'leaderboard'){ if(val('erasel') && val('erasel') !== 'active') q.era = val('erasel'); if(val('sortsel') && val('sortsel') !== 'for') q.sort = val('sortsel'); }
   return q;
 }
@@ -13918,6 +14380,7 @@ function routeApply(h){
     else if(v === 'gm'){ switchView('gm'); if(id && gmState.club !== id.toUpperCase() && setSel('gm-club', id.toUpperCase())) gmClubChange(); }
     else if(v === 'desk'){ if(['trade', 'walk', 'avail', 'fa', 'ext', 'draft'].includes(id)) dkState.mode = id; switchView('desk'); }
     else if(v === 'team'){ if(q.id && (CLUB_NAME || {})[q.id.toUpperCase()]) folGoTeam(q.id.toUpperCase()); else switchView('team'); }
+    else if(v === 'wire'){ if(q.id && (CLUB_NAME || {})[q.id.toUpperCase()]){ WIRE.filt.club = q.id.toUpperCase(); WIRE.focus = ''; } else if(q.id){ WIRE.focus = q.id; WIRE.filt.kind = 'all'; } switchView('wire'); }
     else if(v === 'heists'){ if(q.id && /^\d{4}-\d\d-\d\d-[a-z]+(-\d+)?$/.test(q.id)){ heistState.focus = q.id; heistState.kind = 'trades'; } else if(q.id && (CLUB_NAME || {})[q.id.toUpperCase()]) heistState.club = q.id.toUpperCase(); switchView('heists'); }
     else if(v === 'leaderboard'){ setSel('erasel', q.era || 'active'); setSel('sortsel', q.sort || 'for'); switchView('leaderboard'); renderLB(); }
     else switchView(v);
@@ -13926,7 +14389,7 @@ function routeApply(h){
   try { history.replaceState(null, '', '#' + ROUTE_LAST); } catch(e){}
   routeCount();
 }
-['switchView', 'renderReport', 'renderChamp', 'scShow', 'renderH2h', 'renderHorizon', 'renderTrees', 'renderBoards', 'renderLB', 'gmShow', 'renderDesk', 'renderHeists'].forEach(fn => {
+['switchView', 'renderReport', 'renderChamp', 'scShow', 'renderH2h', 'renderHorizon', 'renderTrees', 'renderBoards', 'renderLB', 'gmShow', 'renderDesk', 'renderHeists', 'renderWire'].forEach(fn => {
   const orig = window[fn]; if(typeof orig !== 'function') return;
   window[fn] = function(){ const r = orig.apply(this, arguments); routeWrite(); return r; };
 });
