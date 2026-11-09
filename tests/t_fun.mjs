@@ -103,6 +103,23 @@ const R = await d.page.evaluate(async () => {
   switchView('report', 'bos'); await wait(300);
   const dp = document.getElementById('dnapanel');
   o.reportDnaBeforeLedgers = !!dp && dp.nextElementSibling === document.getElementById('rc-ledgers') && /Picks signed over slot/i.test(dp.textContent) && /IL stints a season/i.test(dp.textContent) && /Trades, net/.test(dp.textContent);
+  // qualifying offers: each further qualified signing costs the next pick(s) down, by club category
+  o.qoRules = gmQoPenalty('BOS', 1).picks.join() === '2,5' && gmQoPenalty('BOS', 2).picks.join() === '3,6' && gmQoPenalty('PIT', 1).picks.join() === '3' && gmQoPenalty('PIT', 2).picks.join() === '4' && gmQoPenalty('HOU', 1).picks.join() === '2' && gmQoPenalty('HOU', 2).picks.join() === '3' && gmQoPenalty('BOS', 1).war > gmQoPenalty('PIT', 1).war;
+  // simulator: the up-next suggestion steps aside once you pick a player, and a negotiation stays put
+  gmState.stage = 2; gmState.open.tab = 'fa'; gmState.open.sel = null; gmState.nextDone2 = false; gmShow(); await wait(30);
+  const hadNext = !!document.querySelector('#gmbody .gm-next');
+  const fa1 = DESK.players.find(x => gmIsFA(x) && x[2] !== gmState.club && !(gmState.neg || {})[x[1]]);
+  gmFaPick(fa1[1]); await wait(30);
+  o.simNextStepsAside = hadNext && !document.querySelector('#gmbody .gm-next');
+  document.getElementById('gm-ny-' + fa1[1]).value = 2; document.getElementById('gm-nt-' + fa1[1]).value = 1; gmOffer(fa1[1], 0); await wait(30);
+  o.simNegotiationStays = gmState.open.sel === fa1[1] && !!document.getElementById('gm-neg-' + fa1[1]) && !/Open negotiations[\s\S]*resume/.test((document.querySelector('#gmbody .card') || {}).textContent || '');
+  // sharing: team card, heist links and the heist a shared link points to
+  folTeamSet('BOS'); switchView('team'); await wait(50);
+  o.teamShareButtons = /Save card image/.test(document.getElementById('teambody').textContent) && /Share/.test(document.getElementById('teambody').textContent) && /tc-grade/.test(folTradingCard('BOS'));
+  heistState.focus = folHeistId(folHeistOfDay()); switchView('heists'); await wait(50);
+  o.heistSharedLink = /Shared with you/.test(document.getElementById('heistbody').textContent) && /Share this heist/.test(document.getElementById('heistbody').textContent);
+  heistState.focus = null;
+  o.dataParsed = typeof DESK === 'object' && Array.isArray(DESK.players) && Array.isArray(TRADE_BOOK.trades);
   // leaderboard key folds away
   o.lbKeyFolded = document.querySelectorAll('#view-leaderboard .lbkey details').length === 2 && /How to read a row/.test(document.querySelector('#view-leaderboard .lbkey summary').textContent);
   o.sparklines = (() => { bdState.tab = 'fa'; switchView('boards'); return document.querySelectorAll('#boardsbody svg.spark').length > 5; })();

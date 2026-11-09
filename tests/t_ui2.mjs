@@ -380,7 +380,7 @@ Object.assign(R, await m.page.evaluate(async () => {
   if(wide.length) o.phoneWide = wide.join(' ');
   // v5.9: the move log loads from moves.js beside the page
   o.movesLoaded = window.MOVES_READY === true && Object.keys(PLAYER_MOVES).length > 1000 && typeof Object.values(PLAYER_MOVES)[0][0][1] === 'string';
-  o.navPerformanceReview = /Performance review/i.test(document.querySelector('nav').innerText);
+  o.navPerformanceReview = /Performance review/i.test(document.querySelector('nav').textContent);
   // v5.9: a new regime's card never keeps another card's hand-written showcase
   o.noShowcaseLeak = (() => { const ids = [...AUTO_REGIMES.map(x => x.id), ...LB_HIST.filter(x => x.realCard).map(x => x.id)];
     return ids.every(id => { renderReport('lad'); renderReport(id); const sc = document.getElementById('rc-showcase');
