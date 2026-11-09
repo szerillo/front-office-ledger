@@ -69,6 +69,7 @@ const R = await d.page.evaluate(async (fx) => {
   wireSetFilt('kind', 'mlb');
   // the winter so far
   const st = wireStandings(WIRE.items);
+  o.winterClubMoves = (() => { const d = document.querySelector('.wire-winter .ww-club'); return d && d.querySelectorAll('.ww-mv').length >= 1 && /Every .* move this winter/.test(d.textContent); })();
   o.standings = st.length >= 5 && st[0].net >= st[st.length - 1].net && /Who has won the offseason/.test(document.getElementById('wirebody').textContent);
   // QO calls: make one, see it once the decision is in
   const other = Object.keys(DESK.qo27).find(k => ![aro[1], lowe[1], bau[1]].map(String).includes(k));
@@ -111,6 +112,7 @@ const R = await d.page.evaluate(async (fx) => {
   o.deskUnknownPiece = [...dkState.recv, ...dkState.send].some(pc => pc.kind === 'other' && /Juan Garc/.test(pc.nm)) && !!document.querySelector('#dk-out .dk-sheet');
   // home: the latest graded moves at the top
   WIRE.focus = ''; switchView('home'); await wait(200);
+  o.homeWinter = !!document.querySelector('#hub-winter .wire-winter .ww-club');
   o.homeStrip = document.querySelectorAll('#hub-wire .hw-row').length >= 3 && /Qualifying offer decisions due|Rule 5|Non-tender|labor deal/.test(document.getElementById('hub-wire').textContent);
   o.navWire = !!document.querySelector('nav button[data-view="wire"]');
   // Trade Grade: days in a row played
