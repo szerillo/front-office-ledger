@@ -14466,10 +14466,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 2.9,
+     "inn": 2.5,
      "out": 0.0,
-     "net": 2.9,
-     "final": 9.9
+     "net": 2.5,
+     "final": 9.5
     }
    },
    {
@@ -14876,10 +14876,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 2.9,
+       "inn": 2.5,
        "out": 0.0,
-       "net": 2.9,
-       "final": 9.9
+       "net": 2.5,
+       "final": 9.5
       }
      },
      {
@@ -44739,9 +44739,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 1.2,
-       "net": -1.2,
-       "final": 0.2
+       "out": 1.1,
+       "net": -1.1,
+       "final": 0.3
       }
      }
     ],
@@ -77860,10 +77860,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 0.1,
-     "out": 2.9,
-     "net": -2.8,
-     "final": -9.8
+     "inn": 0.0,
+     "out": 2.5,
+     "net": -2.5,
+     "final": -9.5
     }
    },
    {
@@ -78075,10 +78075,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 0.1,
-     "out": 2.9,
-     "net": -2.8,
-     "final": -6.9
+     "inn": 0.0,
+     "out": 2.5,
+     "net": -2.5,
+     "final": -6.6
     }
    },
    {
@@ -78557,10 +78557,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 0.1,
-       "out": 2.9,
-       "net": -2.8,
-       "final": -9.8
+       "inn": 0.0,
+       "out": 2.5,
+       "net": -2.5,
+       "final": -9.5
       }
      },
      {
@@ -78636,10 +78636,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 0.1,
-       "out": 2.9,
-       "net": -2.8,
-       "final": -6.9
+       "inn": 0.0,
+       "out": 2.5,
+       "net": -2.5,
+       "final": -6.6
       }
      },
      {
@@ -104804,10 +104804,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 9.1,
+     "inn": 8.3,
      "out": 0.0,
-     "net": 9.1,
-     "final": 26.1
+     "net": 8.3,
+     "final": 25.3
     }
    },
    {
@@ -105298,10 +105298,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 9.1,
+       "inn": 8.3,
        "out": 0.0,
-       "net": 9.1,
-       "final": 26.1
+       "net": 8.3,
+       "final": 25.3
       }
      },
      {
@@ -122388,10 +122388,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 2.5,
+     "inn": 2.1,
      "out": 0.8,
-     "net": 1.7,
-     "final": 9.5
+     "net": 1.3,
+     "final": 9.1
     }
    },
    {
@@ -122929,10 +122929,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 2.5,
+       "inn": 2.1,
        "out": 0.8,
-       "net": 1.7,
-       "final": 9.5
+       "net": 1.3,
+       "final": 9.1
       }
      },
      {
@@ -148139,9 +148139,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.4,
-     "out": 1.1,
-     "net": -0.7,
-     "final": -7.6
+     "out": 0.8,
+     "net": -0.4,
+     "final": -7.3
     }
    },
    {
@@ -148213,9 +148213,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.4,
-     "out": 1.1,
-     "net": -0.7,
-     "final": -5.4
+     "out": 0.8,
+     "net": -0.4,
+     "final": -5.1
     }
    },
    {
@@ -148714,9 +148714,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.4,
-       "out": 1.1,
-       "net": -0.7,
-       "final": 1.2
+       "out": 0.8,
+       "net": -0.4,
+       "final": 1.5
       }
      },
      {
@@ -148797,10 +148797,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 1.2,
+       "inn": 1.1,
        "out": 0.0,
-       "net": 1.2,
-       "final": 3.0
+       "net": 1.1,
+       "final": 2.9
       }
      }
     ],
@@ -148869,9 +148869,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.4,
-       "out": 1.1,
-       "net": -0.7,
-       "final": -7.6
+       "out": 0.8,
+       "net": -0.4,
+       "final": -7.3
       }
      },
      {
@@ -148943,9 +148943,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.4,
-       "out": 1.1,
-       "net": -0.7,
-       "final": -5.4
+       "out": 0.8,
+       "net": -0.4,
+       "final": -5.1
       }
      },
      {
@@ -165466,9 +165466,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.0,
-     "out": 3.6,
-     "net": -3.6,
-     "final": -10.6
+     "out": 3.2,
+     "net": -3.2,
+     "final": -10.2
     }
    },
    {
@@ -166115,9 +166115,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 3.6,
-       "net": -3.6,
-       "final": -10.6
+       "out": 3.2,
+       "net": -3.2,
+       "final": -10.2
       }
      },
      {
@@ -166199,9 +166199,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 3.6,
-       "net": -3.6,
-       "final": -9.3
+       "out": 3.2,
+       "net": -3.2,
+       "final": -8.9
       }
      },
      {
@@ -166268,9 +166268,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0,
-       "out": 2.3,
-       "net": -2.3,
-       "final": -6.9
+       "out": 2.0,
+       "net": -2.0,
+       "final": -6.6
       }
      },
      {
@@ -316259,9 +316259,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0,
-     "out": 0.9,
-     "net": -0.9,
-     "final": -5.3
+     "out": 0.8,
+     "net": -0.8,
+     "final": -5.2
     }
    },
    {
@@ -316332,10 +316332,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 2.9,
+     "inn": 2.5,
      "out": 0.4,
-     "net": 2.5,
-     "final": 5.6
+     "net": 2.1,
+     "final": 5.2
     }
    },
    {
@@ -316598,10 +316598,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 2.9,
+       "inn": 2.5,
        "out": 0.4,
-       "net": 2.5,
-       "final": 5.6
+       "net": 2.1,
+       "final": 5.2
       }
      },
      {
@@ -316821,9 +316821,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.8,
-       "out": 1.6,
-       "net": -0.8,
-       "final": 0.7
+       "out": 0.8,
+       "net": 0.0,
+       "final": 1.5
       }
      }
     ],
@@ -316891,9 +316891,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0,
-       "out": 0.9,
-       "net": -0.9,
-       "final": -5.3
+       "out": 0.8,
+       "net": -0.8,
+       "final": -5.2
       }
      }
     ]
@@ -465746,9 +465746,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.1,
-     "out": 0.5,
-     "net": -0.4,
-     "final": -8.0
+     "out": 0.3,
+     "net": -0.2,
+     "final": -7.8
     }
    },
    {
@@ -466011,9 +466011,9 @@
     "unsettled": true,
     "proj": {
      "inn": 0.0,
-     "out": 1.9,
-     "net": -1.9,
-     "final": -5.0
+     "out": 1.6,
+     "net": -1.6,
+     "final": -4.7
     }
    },
    {
@@ -466174,9 +466174,9 @@
     "unsettled": true,
     "proj": {
      "inn": 11.6,
-     "out": 7.0,
-     "net": 4.6,
-     "final": 7.1
+     "out": 5.9,
+     "net": 5.7,
+     "final": 8.2
     }
    },
    {
@@ -466242,10 +466242,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 0.5,
+     "inn": 0.3,
      "out": 0.4,
-     "net": 0.1,
-     "final": -1.7
+     "net": -0.1,
+     "final": -1.9
     }
    }
   ],
@@ -466473,9 +466473,9 @@
       "unsettled": true,
       "proj": {
        "inn": 11.6,
-       "out": 7.0,
-       "net": 4.6,
-       "final": 7.1
+       "out": 5.9,
+       "net": 5.7,
+       "final": 8.2
       }
      },
      {
@@ -466637,9 +466637,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.1,
-       "out": 0.5,
-       "net": -0.4,
-       "final": -8.0
+       "out": 0.3,
+       "net": -0.2,
+       "final": -7.8
       }
      },
      {
@@ -466706,9 +466706,9 @@
       "unsettled": true,
       "proj": {
        "inn": 0.0,
-       "out": 1.9,
-       "net": -1.9,
-       "final": -5.0
+       "out": 1.6,
+       "net": -1.6,
+       "final": -4.7
       }
      },
      {
@@ -466848,10 +466848,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 0.5,
+       "inn": 0.3,
        "out": 0.4,
-       "net": 0.1,
-       "final": -1.7
+       "net": -0.1,
+       "final": -1.9
       }
      }
     ]
@@ -469333,10 +469333,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 10.7,
+     "inn": 9.6,
      "out": 0.0,
-     "net": 10.7,
-     "final": 16.4
+     "net": 9.6,
+     "final": 15.3
     }
    },
    {
@@ -469412,10 +469412,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 3.1,
-     "out": 2.7,
-     "net": 0.4,
-     "final": -2.2
+     "inn": 1.9,
+     "out": 2.6,
+     "net": -0.7,
+     "final": -3.3
     }
    },
    {
@@ -469481,10 +469481,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 3.1,
-     "out": 2.7,
-     "net": 0.4,
-     "final": -1.4
+     "inn": 1.9,
+     "out": 2.6,
+     "net": -0.7,
+     "final": -2.5
     }
    },
    {
@@ -469580,10 +469580,10 @@
     ],
     "unsettled": true,
     "proj": {
-     "inn": 0.9,
-     "out": 1.8,
-     "net": -0.9,
-     "final": -2.3
+     "inn": 0.8,
+     "out": 1.4,
+     "net": -0.6,
+     "final": -2.0
     }
    },
    {
@@ -469723,10 +469723,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 10.7,
+       "inn": 9.6,
        "out": 0.0,
-       "net": 10.7,
-       "final": 16.4
+       "net": 9.6,
+       "final": 15.3
       }
      }
     ],
@@ -469878,10 +469878,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 3.1,
-       "out": 2.7,
-       "net": 0.4,
-       "final": -2.2
+       "inn": 1.9,
+       "out": 2.6,
+       "net": -0.7,
+       "final": -3.3
       }
      },
      {
@@ -469947,10 +469947,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 3.1,
-       "out": 2.7,
-       "net": 0.4,
-       "final": -1.4
+       "inn": 1.9,
+       "out": 2.6,
+       "net": -0.7,
+       "final": -2.5
       }
      },
      {
@@ -470016,10 +470016,10 @@
       ],
       "unsettled": true,
       "proj": {
-       "inn": 0.9,
-       "out": 1.8,
-       "net": -0.9,
-       "final": -2.3
+       "inn": 0.8,
+       "out": 1.4,
+       "net": -0.6,
+       "final": -2.0
       }
      }
     ]
