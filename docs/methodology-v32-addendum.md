@@ -1838,3 +1838,10 @@ Current clubs and statuses for every Desk player from the MLB Stats API (319 cha
 - **Home, Today:** the trade of the day links to all the heists; the tree of the day links to all transaction trees; the rivalry reads as two front offices ("Erik Neander's Rays vs. Andrew Friedman's Dodgers").
 - **Home, the rankings and this winter** (three across): leaderboard; the 2027 title race (the five clubs with the most projected 2027 WAR under control, against a champion line: the median WAR the 2012-2026 title teams got from their top 16 players, 2020 left out); how the latest champion was built; top free agents with the posted players; top prospects; Org DNA's best drafters.
 - **Home, Play GM and Explore** are one wide panel of links: run a winter, price any trade, the scenario of the day; report cards, head to head, the 5-year horizon, how it works. Nothing on home appears twice.
+
+## Home page, third pass (November 9, 2026, night)
+
+- **Four rows.** Today (trade of the day, signing of the day, Trade Grade, tree of the day, and the champions tile, which stays put rather than rotating); The rankings and this winter (leaderboard, 2027 title race, top free agents, top prospects and farm systems); Play GM (simulator, Deal Desk, scenario room); Around the league (an organization stat of the day rotating through the Org DNA leaderboards, and the GM rivalry of the day).
+- **Free agents tile:** each player's Ledger offer beside his projected contract (the median of published predictions), with a link to every projected contract.
+- **Prospects tile:** the top five prospects beside the top five farm systems (same order as the boards).
+- **2027 title race** opens the all-30 horizon view, not your own club's. The horizon table, sorted by 2027, now draws the champion line (49 WAR); no club clears it yet, and the row says which club is closest. Each club's horizon page notes the line on its 2027 row.
