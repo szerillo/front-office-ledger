@@ -60,11 +60,12 @@ for(const h of heists){
   const desc = `${h.mon}: what every player produced for the club that got him, over his control window. Every trade since 1998, ranked.`;
   fs.writeFileSync(`${OUT}/h/${h.id}.html`, page({title, desc, path: `h/${h.id}`, img: `og/h/${h.id}.png`, dest: `/#view=heists&id=${h.id}`, link: `See this trade on Front Office Ledger`}));
 }
-// the daily game
+// the daily game: Trade Grade (play/who-won kept for links already shared)
 await shot(`<div style="font:600 20px var(--f-mono); color:var(--margin); letter-spacing:2px">DAILY GAME</div>
-  <div style="font:900 92px/1.02 var(--f-display); margin-top:10px">Who won the trade?</div>
+  <div style="font:900 104px/1.02 var(--f-display); margin-top:10px">Trade Grade</div>
   <div style="font-size:30px; color:var(--ink-2); margin-top:14px; max-width:960px">Five real calls a day: three trades and two free-agent contracts. Pick the winner, then see what every player produced.</div>
-  <div style="font-size:44px; letter-spacing:8px; margin-top:22px">🟩🟥🟩🟩🟩</div>`, `${OUT}/og/who-won.png`);
-fs.writeFileSync(`${OUT}/play/who-won.html`, page({title: 'Who won the trade? · Front Office Ledger', desc: 'Five real calls a day: three trades and two free-agent contracts. Pick the winner; the Ledger shows the receipts.', path: 'play/who-won', img: 'og/who-won.png', dest: '/#view=quiz', link: "Play today's five on Front Office Ledger"}));
+  <div style="font-size:44px; letter-spacing:8px; margin-top:22px">🟩🟥🟩🟩🟩</div>`, `${OUT}/og/trade-grade.png`);
+for(const slug of ['trade-grade', 'who-won'])
+  fs.writeFileSync(`${OUT}/play/${slug}.html`, page({title: 'Trade Grade · Front Office Ledger', desc: 'Five real calls a day: three trades and two free-agent contracts. Pick the winner; the Ledger shows the receipts.', path: `play/${slug}`, img: 'og/trade-grade.png', dest: '/#view=quiz', link: "Play today's Trade Grade on Front Office Ledger"}));
 console.log('team pages', teams.length, '| heist pages', heists.length);
 await b.close();
