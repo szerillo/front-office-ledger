@@ -12,7 +12,7 @@ data:
                 smoothed (3-age window), hitters and pitchers separately.
                 Survivorship bias is the known weakness of the delta
                 method; disclosed, and the backtest below is the arbiter.
-  BASE SKILL    Marcel-style: weighted recent seasons (5/4/3 on t, t-1,
+  BASE SKILL    Marcel-style: weighted recent seasons (5/3/2 on t, t-1,
                 t-2), regressed 20% toward the population mean.
   FORECAST      base walked forward on the aging curve, floored at zero,
                 with a 10%/yr roster-uncertainty haircut beyond the first
@@ -77,7 +77,7 @@ POP_MEAN = sum(pop) / len(pop)
 def base_skill(pid, asof):
     """weighted recent performance through season `asof`, regressed."""
     d = BY.get(pid, {})
-    w = [(asof, 5), (asof - 1, 4), (asof - 2, 3)]
+    w = [(asof, 5), (asof - 1, 3), (asof - 2, 2)]   # Nov 9: 5/3/2 (proj_bt.py)
     num = sum(d.get(y, 0.0) * wt for y, wt in w)
     base = num / 12.0
     return 0.8 * base + 0.2 * POP_MEAN
@@ -237,6 +237,6 @@ attach("/work/sweep_results.json")
 attach("/work/hist_results.json")
 
 json.dump(dict(curves=CURVE, pop_mean=round(POP_MEAN, 3), unranked_ev=UNRANKED_EV,
-               backtest=bt, method="Marcel-style 5/4/3, 20% regression, delta-method aging, 10%/yr haircut, zero floor"),
+               backtest=bt, method="Marcel-style 5/3/2, 20% regression, delta-method aging, 10%/yr haircut, zero floor"),
           open("/work/proj_curves.json", "w"), indent=1)
 print("wrote proj_curves.json")

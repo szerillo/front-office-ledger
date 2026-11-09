@@ -292,9 +292,13 @@ for p in players:
 # Missed time is counted once, here; the page no longer multiplies by the
 # durability factor on top. Two straight seasons with no MLB time:
 # projection withheld (idx 17 = 1) and priced at zero.
-_W = {2026: 5, 2025: 4, 2024: 3}
+# Nov 9: weights 5/3/2 and 1.5x the regression (proj_bt.py: walk-forward on
+# every player-season 2016-2026, 8,696 rows; rate RMSE 1.130 -> 1.117 with
+# actual playing time, 1.408 -> 1.389 with expected playing time; after a
+# big drop or jump the same weights still win, with little bias)
+_W = {2026: 5, 2025: 3, 2024: 2}
 _CAP = {"bat": 680.0, "SP": 195.0, "RP": 75.0}
-_K = {"bat": 1200.0, "SP": 600.0, "RP": 450.0}
+_K = {"bat": 1800.0, "SP": 900.0, "RP": 675.0}
 def _role(p):
     if not p[3]: return "bat"
     return "SP" if p[13] == "SP" else "RP"
@@ -326,7 +330,17 @@ for p in players:
     # seasons, 40% the weighted line with missed time at zero (a single short
     # season is partly a one-off; repeated ones are not)
     top2 = sorted(pts, reverse=True)[:2]
-    pt_exp = min(0.6 * (sum(top2) / len(top2)) + 0.4 * (ptw / ptd), _CAP[role])
+    # Nov 9 (pt_bt.py, walk-forward 2016-26): at 28 and older the latest
+    # seasons say more about the role than the two fullest ones (a regular
+    # turning bench player): 20% top-two, 80% weighted (RMSE 1.319 -> 1.310,
+    # bias +0.02 -> -0.01); 27 and under keep 60/40
+    # one injury season after full ones (last under half a season, one of
+    # the two before at 80%+) rebounds more: 40% there (bias +0.12 at 60%,
+    # -0.08 at 20%, +0.02 at 40%)
+    _l = _pt(rec, 2026, role); _p2 = max(_pt(rec, 2025, role), _pt(rec, 2024, role))
+    _inj = _l < 0.5 * _CAP[role] and _p2 >= 0.8 * _CAP[role]
+    _a = 0.6 if p[4] <= 26 else 0.4 if _inj else 0.2
+    pt_exp = min(_a * (sum(top2) / len(top2)) + (1 - _a) * (ptw / ptd), _CAP[role])
     # v6.0 (audit, Nov 3): young players only (27 or under in 2027). Walk-forward
     # PT backtest 2012-25 (age <= 27): the formula above ran short for a
     # partial debut season followed by a full one (SP -13.7 IP, hitters -91 PA)
@@ -364,7 +378,7 @@ def P_(nm):
     return p
 def proj27(p):
     """mirror of the page's dkBase + one aging step (dkProjSeasons per[0])"""
-    obs = [(v, w) for v, w in ((p[7], 5), (p[6], 4), (p[5], 3)) if abs(v) > 0.05]
+    obs = [(v, w) for v, w in ((p[7], 5), (p[6], 3), (p[5], 2)) if abs(v) > 0.05]
     base = (0.85 * sum(v * w for v, w in obs) / sum(w for _, w in obs) + 0.15 * PC["pop_mean"]) if obs else PC["pop_mean"]
     cv = PC["curves"]["pit" if p[3] else "bat"]
     return max(base + cv.get(str(min(max(p[4] + 1, 20), 41)), -0.3), 0) * (p[10] or 1)
