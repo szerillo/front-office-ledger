@@ -921,6 +921,9 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
   .rc-acts{margin:10px 0 4px}
   .hub-3{grid-template-columns:repeat(3, minmax(0, 1fr))}
   .hz-cline td{border-top:2px dashed var(--ink) !important; border-bottom:2px dashed var(--ink) !important; font-size:12px; color:var(--ink-2); padding:6px 8px !important; background:var(--surface-2)}
+  .sg-plain{margin-top:10px; font-size:13.5px}
+  .sg-row{display:flex; justify-content:space-between; gap:10px; padding:4px 0; border-top:1px solid var(--rule)}
+  .sg-row b{font-family:var(--f-mono); white-space:nowrap} .sg-net{border-top:2px solid var(--ink); font-weight:700}
   .hub-fa{display:grid; grid-template-columns:1fr auto auto; gap:6px 12px; align-items:baseline; font-size:13px; margin-top:6px}
   .hub-fa > span:nth-child(3n+2), .hub-fa > span:nth-child(3n+3){white-space:nowrap; text-align:right}
   .hub-two{display:grid; grid-template-columns:1.4fr 1fr; gap:12px}
@@ -13260,6 +13263,26 @@ function folThisWeek(list, dateOf, sizeOf, minSize){
 // the champion line: the median WAR title teams since 2012 got from their top 16 players (2020 left out)
 function folChampLine(){ if(folChampLine._c != null) return folChampLine._c; try { const xs = CHAMPS_AUTO.filter(c => c.year >= 2012 && c.year !== 2020).map(c => c.roster.reduce((a, x) => a + (+x[5] || 0), 0)).sort((a, b) => a - b); return folChampLine._c = xs.length ? xs[Math.floor(xs.length / 2)] : 0; } catch(e){ return 0; } }
 function folHorizonAll(){ folTeamDefaults._done = folTeamDefaults._done || {}; folTeamDefaults._done.horizon = true; renderHzLeague._k = 0; switchView('horizon'); hzPick(''); window.scrollTo({top: 0}); }
+// a free-agent grade in plain words: what he produced, what that money usually buys, the difference.
+// The ledger counts the seasons played so far, so the money is the salary for those seasons.
+function folSigningPlain(x, club){
+  try {
+    const sides = x.sides || [], num = v => parseFloat(String(v).replace('\u2212', '-'));
+    const prod = (sides[0] && sides[0][1] || []).reduce((a, [, v]) => a + num(v), 0);
+    const costTxt = ((sides[1] && sides[1][1] || [])[0] || [])[0] || '', typical = -num(((sides[1] && sides[1][1] || [])[0] || [])[1]);
+    const m = /\$([\d.]+)M over (\d+) yr: ([\d.]+) wins of cost/.exec(costTxt); if(!m || !isFinite(prod) || !isFinite(typical)) return '';
+    const tot = +m[1], yrs = +m[2], costW = +m[3];
+    const winter = (/\((\d{4})-(\d{2}) winter/.exec(x.h || '') || []), first = winter[1] ? +winter[1] + 1 : null;
+    const played = first ? Math.max(1, Math.min(yrs, 2026 - first + 1)) : yrs, paid = tot / yrs * played, perWin = paid / Math.max(costW, 0.1);
+    const qo = /QO/.test(costTxt + (sides[1] && sides[1][0] || '')), who = club ? `the ${teamNick(CLUB_NAME[club] || club)}` : 'his club', net = prod - typical;
+    const span = played < yrs ? `the first ${pz(played, 'season', 'seasons')} of ${yrs}` : `all ${pz(yrs, 'season', 'seasons')}`;
+    return `<div class="sg-plain">
+      <div class="sg-row"><span>What he gave ${who}</span><b class="${prod >= 0 ? 'pos' : 'neg'}">${fmtW(prod)} WAR</b></div>
+      <div class="sg-row"><span>What that money usually buys</span><b>${fmtW(typical)} WAR</b></div>
+      <div class="sg-row sg-net"><span>Against a typical signing</span><b class="${net >= 0 ? 'pos' : 'neg'}">${fmtW(net)} wins</b></div>
+      <div class="ttype" style="margin-top:6px">Over ${span} the club paid about $${Math.round(paid)}M. ${winter[1] ? `In the ${winter[1]}-${winter[2]} market` : 'At the time'} a win cost about $${perWin.toFixed(1)}M on the open market, so that was about ${costW.toFixed(1)} wins' worth of salary. Signings like this one usually return about ${typical.toFixed(1)} WAR${qo ? ', counting the draft pick the signing cost' : ''}.${prod < 0 ? ' Below zero means he played worse than a freely available replacement.' : ''}</div></div>`;
+  } catch(e){ return ''; }
+}
 function folHub(){
   const rk = folActiveRank(), mine = folTeam(), day = Math.floor(Date.now() / 864e5);
   const T = f => { try { return f(); } catch(e){ return null; } };
@@ -13306,7 +13329,7 @@ function folHub(){
     <div class="hub-grid">
       ${t0 ? tile(`Trade of the day · ${when(otd)}`, `${folHeistCard(t0, {compact: true})}
         <div class="actions" style="margin-top:10px">${star ? `<button class="actbtn" onclick="treeOverlay('${star.pid}', '${t0.win.ab}', ${JSON.stringify(star.nm).replace(/"/g, '&quot;')})">See the transaction tree</button>` : ''}<button class="actbtn" onclick="folShare('${folHeistUrl(t0)}', 'Trade of the day', 'Trade of the day on Front Office Ledger:')">Share</button><button class="actbtn" onclick="switchView('heists')">See all the heists</button></div>`, 'hub-wide') : ''}
-      ${sg ? tile(`Signing of the day${sg.k <= 7 ? ' · ' + when(sg) : ''}`, `<div class="h-date">${folMon(sg.x.x.d)} · ${abOf(sg.x.r)} · ${regName(sg.x.r)}</div><h3 class="hub-h">${sg.x.x.h}</h3><span class="stamp ${sg.x.x.war >= 0 ? 'pos' : 'neg'}" style="font-size:12px">${sg.x.x.war <= -6 ? 'Disaster' : sg.x.x.war < 0 ? 'Overpay' : 'Bargain'} · ${fmtW(sg.x.x.war)}</span>${sideRows(sg.x.x.sides)}`) : ''}
+      ${sg ? tile(`Signing of the day${sg.k <= 7 ? ' · ' + when(sg) : ''}`, `<div class="h-date">${folMon(sg.x.x.d)} · ${abOf(sg.x.r)} · ${regName(sg.x.r)}</div><h3 class="hub-h">${sg.x.x.h}</h3><span class="stamp ${sg.x.x.war >= 0 ? 'pos' : 'neg'}" style="font-size:12px">${sg.x.x.war <= -6 ? 'Disaster' : sg.x.x.war < 0 ? 'Overpay' : 'Bargain'} · ${fmtW(sg.x.x.war)}</span>${folSigningPlain(sg.x.x, abOf(sg.x.r)) || sideRows(sg.x.x.sides)}`) : ''}
       ${tile('Trade Grade', `<h3>Five calls a day</h3><p class="hub-p">Three trades and two free-agent contracts. Pick the winner; the Ledger shows the receipts.</p>
         <button class="actbtn primary" onclick="switchView('quiz')">${quizDone ? `Today: ${quizDone.filter(Boolean).length}/${quizDone.length} · see it` : "Play today's five"}</button>`)}
       ${tr ? tile('Tree of the day', `<h3>${tr.title.split(' · ')[0]}</h3><p class="hub-p">${String(tr.title.split(' · ')[1] || 'One decision, and every move it led to.').replace(/^./, c => c.toUpperCase())}.</p><button class="actbtn" onclick="folTreeOfDay(${day % TREES.length})">Follow the tree</button>${more('All transaction trees', "switchView('trees')")}`) : ''}
@@ -13515,7 +13538,7 @@ function renderHeists(){
     xs.sort((a, b) => st.dir === 'best' && st.club ? b.x.war - a.x.war : a.x.war - b.x.war);
     body = `<div class="ttype" style="margin-bottom:6px">Each front office's biggest free-agent wins and losses: what the player produced on the deal against what a typical club gets for that money.</div>`
       + xs.slice(0, st.n).map(({x, r}) => `<div class="card heist fol-rise" style="${folTC(abOf(r))}; border-left:5px solid var(--tc)"><div class="h-top"><div><div class="h-date">${folMon(x.d)} · ${abOf(r)} · ${regName(r)}</div><div class="h-head">${x.h}</div></div><span class="stamp ${x.war >= 0 ? 'pos' : 'neg'}">${x.war <= -6 ? 'Disaster' : x.war < 0 ? 'Overpay' : 'Bargain'} · ${fmtW(x.war)}</span></div>
-          <div class="h-sides">${(x.sides || []).map(([dir, assets]) => `<div class="h-side" style="border-top-color:var(--rule)"><div class="hs-hd"><span>${dir}</span></div>${assets.map(([nm, w]) => `<div class="wrow"><span>${nm}</span><span></span><span class="wv ${String(w).startsWith('-') ? 'neg' : 'pos'}">${w}</span></div>`).join('')}</div>`).join('')}</div></div>`).join('')
+          ${folSigningPlain(x, abOf(r)) || `<div class="h-sides">${(x.sides || []).map(([dir, assets]) => `<div class="h-side" style="border-top-color:var(--rule)"><div class="hs-hd"><span>${dir}</span></div>${assets.map(([nm, w]) => `<div class="wrow"><span>${nm}</span><span></span><span class="wv ${String(w).startsWith('-') ? 'neg' : 'pos'}">${w}</span></div>`).join('')}</div>`).join('')}</div>`}</div>`).join('')
       + (xs.length > st.n ? `<button class="actbtn" style="margin:8px 0" onclick="heistState.n+=20; renderHeists()">Show 20 more</button>` : '');
   }
   host.innerHTML = ctl + (st.kind === 'trades' ? `<div class="ttype" style="margin:-4px 0 8px">Each bar is the Ledger WAR a player produced for the club that got him, over his control window; "net" is what a club got minus what it gave up.</div>` : '') + body;
