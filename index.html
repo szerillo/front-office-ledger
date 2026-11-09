@@ -415,6 +415,7 @@
   .dna-fl{font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.6px}
   .dna-fv{font:700 18px var(--f-mono); margin:2px 0}
   .dna-fc{font-size:11.5px; color:var(--ink-2); line-height:1.35}
+  .dna-flash{box-shadow:0 0 0 3px var(--tc) !important; transition:box-shadow .3s}
   .dna-more > summary{cursor:pointer; font-size:13px; color:var(--s1); padding:6px 0; min-height:32px}
   .dna-tablewrap{margin-top:16px} .dna-tablewrap > summary{cursor:pointer; font-weight:600; padding:6px 0}
   @media (max-width:640px){ .dna-cards{grid-template-columns:1fr} .dna-split{grid-template-columns:1fr} .dna-ranks{grid-auto-flow:column; justify-content:start; gap:12px} }
@@ -1099,7 +1100,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
         <button data-view="gm" class="navfeat">Offseason Simulator</button>
         <button data-view="desk">Deal Desk</button>
         <button data-view="scen">Scenario Room</button>
-        <button data-view="quiz" title="Three trades and two free-agent contracts a day">Who Won?</button>
+        <button data-view="quiz" title="Three trades and two free-agent contracts a day">Trade Grade</button>
       </div></div>
     </nav>
     <script>
@@ -1133,7 +1134,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
 
   <!-- ================= QUIZ ================= -->
   <section id="view-quiz" hidden>
-    <h2>Who Won the Trade?</h2>
+    <h2>Trade Grade</h2>
     <div class="sub">Five real decisions a day: three trades and two free-agent contracts. Pick the side that came out ahead, or call whether the contract paid off, then see what every player actually produced.</div>
     <div id="quizbody"></div>
   </section>
@@ -1392,7 +1393,6 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
         <li>Development numbers are org tendencies, not causal proof.</li>
       </ul></details>
     </div>
-    <div id="vc-dna" class="vc-clubs" style="margin:10px 0 0"></div>
     <div id="dna-leaders" class="dna-leaders"></div>
     <div class="dna-sortbar"><label for="dna-sort">Sort the clubs by</label> <select id="dna-sort" onchange="renderDnaTab()"><option value="">club</option><option value="draft">draft value</option><option value="trade">trade value</option><option value="fa">free agency</option><option value="devPit">pitchers improve here</option><option value="devBat">hitters improve here</option><option value="inj">fewest IL stints</option><option value="slot">picks over slot</option><option value="buyLow">buys after a down year</option></select></div>
     <div id="dna-cards" class="dna-cards"></div>
@@ -11299,6 +11299,7 @@ function vcRender(view, ab, allBtn){
 function vcReport(ab){ const r = curRegOf(ab); if(r) switchView('report', r.id); }
 function vcTrees(ab){ const r = curRegOf(ab); const sel = document.getElementById('treesel'); if(r && sel){ sel.value = r.id; TREE_MODE = 'club'; renderTrees(); try { routeWrite(); } catch(e){} } }
 function vcDna(ab){ DNA_CLUB = ab || ''; renderDnaTab(); }
+function dnaScrollTo(ab){ const e = document.getElementById('dna-card-' + ab); if(!e) return; e.scrollIntoView({behavior: 'smooth', block: 'start'}); e.classList.add('dna-flash'); setTimeout(() => e.classList.remove('dna-flash'), 1600); }
 function vcH2h(ab){ const r = curRegOf(ab); const sel = document.getElementById('h2hsel'); if(r && sel && [...sel.options].some(o => o.value === r.id)){ sel.value = r.id; renderH2h(); try { routeWrite(); } catch(e){} const w = document.getElementById('h2hwrap'); if(w) w.scrollIntoView({behavior: 'smooth', block: 'start'}); } }
 function switchView(v, regimeId){
   // v5.9: a dialog belongs to the view that opened it; changing views closes it
@@ -11805,8 +11806,9 @@ function shopPhrase(d){
 }
 function renderDnaTab(){
   normalizeCurated();
-  const all = [...REGIMES, ...AUTO_REGIMES].filter(r=>r.dna && r.dna.draft && !r.isNew && (!DNA_CLUB || abOf(r) === DNA_CLUB));
-  vcRender('dna', DNA_CLUB, true);
+  // Nov 2026: every club, always; a club asked for (a link, the leaders strip) is scrolled to, not filtered
+  const all = [...REGIMES, ...AUTO_REGIMES].filter(r=>r.dna && r.dna.draft && !r.isNew);
+  const _go = DNA_CLUB; DNA_CLUB = '';
   const tb = $('#dnatable tbody'); tb.innerHTML='';
   // wins columns at two decimals, the runs column at one; a value that rounds to zero is shown unsigned (never "-0.0")
   const fmt2 = (o, unit)=> { if(!o || o.v == null) return '<span title="under 6 movers with data">·</span>';
@@ -11851,12 +11853,13 @@ function renderDnaTab(){
   const lead = [['draft', 'Best drafters', x => fmtW(x)], ['trade', 'Best traders', x => fmtW(x)], ['devPit', 'Pitchers get better', x => (x > 0 ? '+' : '') + x.toFixed(2)],
                 ['devBat', 'Hitters get better', x => (x > 0 ? '+' : '') + x.toFixed(2)], ['inj', 'Fewest IL stints', x => x.toFixed(0) + ' a year'], ['slot', 'Most picks over slot', dnaPct]];
   const lh = document.getElementById('dna-leaders');
-  if(lh) lh.innerHTML = DNA_CLUB ? '' : lead.map(([k, t, f]) => `<div class="card dna-lead"><div class="home-kick">${t}</div>${L[k].xs.slice(0, 3).map((x, i) => `<div class="hub-row"><strong>${i + 1}</strong><a href="#" onclick="DNA_CLUB='${abOf(x.r)}'; renderDnaTab(); return false">${teamNick(x.r.team)}</a><span class="ttype">${f(x.v)}</span></div>`).join('')}</div>`).join('');
+  if(lh) lh.innerHTML = lead.map(([k, t, f]) => `<div class="card dna-lead"><div class="home-kick">${t}</div>${L[k].xs.slice(0, 3).map((x, i) => `<div class="hub-row"><strong>${i + 1}</strong><a href="#" onclick="dnaScrollTo('${abOf(x.r)}'); return false">${teamNick(x.r.team)}</a><span class="ttype">${f(x.v)}</span></div>`).join('')}</div>`).join('');
   const sk = (document.getElementById('dna-sort') || {}).value || '';
   const cards = all.slice();
   if(sk){ const m = DNA_MET[sk]; cards.sort((a, b) => { const va = m.v(a.dna), vb = m.v(b.dna); if(va == null) return 1; if(vb == null) return -1; return m.hi ? vb - va : va - vb; }); }
   const ch = document.getElementById('dna-cards');
-  if(ch) ch.innerHTML = cards.map(r => `<div class="card dna-card" style="${folTC(abOf(r))}; border-top:5px solid var(--tc)">${dnaProfile(r, {page: true})}</div>`).join('');
+  if(ch) ch.innerHTML = cards.map(r => `<div class="card dna-card" id="dna-card-${abOf(r)}" style="${folTC(abOf(r))}; border-top:5px solid var(--tc)">${dnaProfile(r, {page: true})}</div>`).join('');
+  if(_go) setTimeout(() => dnaScrollTo(_go), 60);
 }
 function h2hVerdict(net){
   if(net >= 2) return '<span class="pos">ahead in the matchup</span>';
@@ -13136,7 +13139,6 @@ function folTeamDefaults(v){
   try {
     if(v === 'desk' && !dkState.you){ dkState.you = ab; if(dkState.mode === 'trade' && !dkState.them && !dkState.send.length && !dkState.recv.length) setTimeout(() => { try { dkIdea(); dkPopClose(); } catch(e){} }, 0); }
     if(v === 'horizon'){ const s = document.getElementById('hz-club'); if(s && !s.options.length) folTeamDefaults._hz = ab; else if(s && !s.value && [...s.options].some(o => o.value === ab)) s.value = ab; }
-    if(v === 'dna' && !DNA_CLUB) DNA_CLUB = ab;
     if(v === 'gm') setTimeout(() => { const s = document.getElementById('gm-club'); if(s && gmState.club !== ab && !(gmState.moves || []).length && [...s.options].some(o => o.value === ab)){ s.value = ab; try { gmClubChange(); } catch(e){} } }, 0);
     if(v === 'boards' && !bdState.org) bdState.org = '';
   } catch(e){}
@@ -13223,12 +13225,19 @@ function renderHome(){
   folCountUp(host);
 }
 function folMD(d){ const m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+String(d).slice(5, 7) - 1]; return m ? `${m} ${+String(d).slice(8, 10)}` : ''; }
+// the moves made closest to today's date in past years: within a week either side, the biggest first
+function folThisWeek(list, dateOf, sizeOf, minSize){
+  const now = new Date(), doy = (m, d) => Math.round((Date.UTC(2001, m - 1, d) - Date.UTC(2001, 0, 1)) / 864e5);
+  const today = doy(now.getMonth() + 1, now.getDate());
+  const near = list.map(x => { const d = dateOf(x); if(!d) return null; let k = Math.abs(doy(+d.slice(5, 7), +d.slice(8, 10) || 15) - today); k = Math.min(k, 365 - k); return {x, k}; })
+    .filter(o => o && o.k <= 7 && sizeOf(o.x) >= minSize);
+  if(!near.length) return null;
+  const exact = near.filter(o => o.k === 0).sort((a, b) => sizeOf(b.x) - sizeOf(a.x));
+  return (exact[0] || near.sort((a, b) => sizeOf(b.x) - sizeOf(a.x))[0]);
+}
 function folHub(){
   const rk = folActiveRank(), mine = folTeam(), day = Math.floor(Date.now() / 864e5);
-  const chips = Object.keys(DESK.teams || {}).sort().map(a => `<button type="button" class="tchip${a === mine ? ' on' : ''}" style="${folTC(a)}" onclick="folPickTeam('${a}')" title="${CLUB_NAME[a] || a}">${a}</button>`).join('');
   const T = f => { try { return f(); } catch(e){ return null; } };
-  const h = folHeistOfDay();
-  const star = h ? h.win.got[0] : null;
   const top5 = rk.slice(0, 5).map((r, i) => `<div class="hub-row"><strong>${i + 1}</strong><span class="grade ${gradeClass(r.forGrade)}">${g2letter(r.forGrade)}</span><a href="#" onclick="switchView('report','${r.id}'); return false">${regName(r)}</a><span class="ttype">${abOf(r)}</span></div>`).join('');
   const sc = T(() => { const xs = scAll(); if(!xs.length) return null; const k = day % xs.length; return {s: xs[k], k}; });
   const fas = T(() => DESK.players.filter(x => gmIsFA(x) && !gmIsProsRow(x)).map(x => ({x, v: gmProj27(x)})).sort((a, b) => b.v - a.v).slice(0, 4)) || [];
@@ -13242,60 +13251,56 @@ function folHub(){
     (c.roster || []).forEach(x => { const w = +x[5] || 0; if(w <= 0) return; const k = x[4] === 'inh' ? 'inh' : x[1]; acc[k] = (acc[k] || 0) + w; });
     const tot = Object.values(acc).reduce((a, v) => a + v, 0) || 1, xs = Object.entries(acc).sort((a, b) => b[1] - a[1]).slice(0, 3);
     return {label: c.label, mix: 'Where the title team\'s value came from: ' + xs.map(([k, v]) => `${Math.round(v / tot * 100)}% ${nm[k] || k}`).join(', ') + '.'}; });
-  // on this date: the most lopsided trade made on today's month and day (nearest day within a week if none)
-  const otd = T(() => { const now = new Date(), md = d => d.slice(5, 10), all = folTrades().filter(t => t.d.slice(0, 4) <= '2023');
-    for(let k = 0; k <= 7; k++) for(const s of (k ? [-1, 1] : [1])){ const x = new Date(now.getTime() + s * k * 864e5), key = String(x.getMonth() + 1).padStart(2, '0') + '-' + String(x.getDate()).padStart(2, '0');
-      const hits = all.filter(t => md(t.d) === key && t.gap >= 3).sort((a, b) => b.gap - a.gap); if(hits.length) return hits[0]; } return null; });
-  // signing and draft pick of the day, from the regime ledgers
-  const sg = T(() => { const xs = folSignings().filter(o => Math.abs(o.x.war) >= 4).sort((a, b) => Math.abs(b.x.war) - Math.abs(a.x.war)).slice(0, 60); return xs.length ? xs[(day * 7) % xs.length] : null; });
-  const dp = T(() => { const xs = []; folAllRegimes().forEach(r => (((r.chanLedgers || {}).draft || {}).best || []).forEach(x => { if(x && x.war >= 4) xs.push({x, r}); }));
-    const seen = new Set(), u = xs.filter(o => { const k = o.x.h; if(seen.has(k)) return false; seen.add(k); return true; }).sort((a, b) => b.x.war - a.x.war).slice(0, 60); return u.length ? u[(day * 11) % u.length] : null; });
+  // trade and signing of the day: this week in history (the date itself when there is one)
+  const otd = T(() => folThisWeek(folTrades().filter(t => t.d.slice(0, 4) <= '2023' && t.S.length === 2), t => t.d, t => t.gap, 4));
+  const sg = T(() => folThisWeek(folSignings(), o => o.x.d, o => Math.abs(o.x.war), 3)) || T(() => { const xs = folSignings().filter(o => Math.abs(o.x.war) >= 4).sort((a, b) => Math.abs(b.x.war) - Math.abs(a.x.war)).slice(0, 60); return xs.length ? {x: xs[(day * 7) % xs.length], k: 99} : null; });
   const posted = T(() => Object.entries(DESK.posted || {}).map(([pid, z]) => ({pid, z})).sort((a, b) => String(a.z.deadline).localeCompare(String(b.z.deadline)))) || [];
-  const stats = T(() => ({tr: folTrades().length, reg: folAllRegimes().length, thru: ((document.querySelector('footer') || {}).textContent || '').match(/data through ([A-Za-z]+ \d+, \d{4})/)?.[1]})) || {};
+  const all = T(folAllRegimes) || [];
+  const cnt = k => all.reduce((a, r) => a + (((r.chan || {})[k] || {}).n || 0), 0);
+  const stats = T(() => ({tr: folTrades().length, fa: cnt('fa'), dr: cnt('draft'), reg: all.length, thru: ((document.querySelector('footer') || {}).textContent || '').match(/data through ([A-Za-z]+ \d+, \d{4})/)?.[1]})) || {};
   const sideRows = sides => (sides || []).map(([dir, assets]) => `<div class="hub-side"><div class="ttype">${dir}</div>${assets.map(([nm, w]) => `<div class="wrow"><span>${nm}</span><span></span><span class="wv ${String(w).startsWith('-') ? 'neg' : 'pos'}">${w}</span></div>`).join('')}</div>`).join('');
   const tile = (kick, body, cls) => `<div class="card home-card fol-rise${cls ? ' ' + cls : ''}"><div class="home-kick">${kick}</div>${body}</div>`;
   const more = (txt, js) => `<div style="margin-top:10px"><a href="#" onclick="${js}; return false">${txt} →</a></div>`;
   const sec = (t, sub) => `<div class="hub-sec"><h3>${t}</h3>${sub ? `<span class="ttype">${sub}</span>` : ''}</div>`;
+  const when = o => o && o.k === 0 ? 'on this date' : 'this week in history';
+  const t0 = otd ? otd.x : null, star = t0 ? t0.win.got[0] : null;
+  const fmtN = n => Number(n || 0).toLocaleString();
   return `<div class="home-hero fol-rise"><div class="home-kick">Front Office Ledger</div>
       <h2>Every trade, signing and draft pick since 1998, graded.</h2>
       <p>Each move is scored against what a typical club got from the same kind of move. Then try the moves yourself.</p>
       <div class="hub-find"><input id="hub-find" autocomplete="off" placeholder="Look up a player, a GM or a club" aria-label="Look up a player, a GM or a club" oninput="folHubFind()" onkeydown="if(event.key==='Enter'){ const f = document.querySelector('#hub-find-out button'); if(f) f.click(); } if(event.key==='Escape') document.getElementById('hub-find-out').innerHTML=''"><div id="hub-find-out" class="hub-find-out"></div></div>
       <div class="hub-team"><label for="hub-team">Your team</label><select id="hub-team" onchange="if(this.value) folPickTeam(this.value)"><option value="">${mine ? (CLUB_NAME[mine] || mine) : 'Pick a club'}</option>${Object.keys(DESK.teams || {}).sort((a, b) => (CLUB_NAME[a] || a).localeCompare(CLUB_NAME[b] || b)).map(a => `<option value="${a}">${CLUB_NAME[a] || a}</option>`).join('')}</select>${mine ? `<button class="actbtn" onclick="switchView('team')">Open the ${teamNick(CLUB_NAME[mine] || mine)} page</button>` : ''}</div>
-      ${stats.tr ? `<div class="hub-stats"><span><b>${stats.tr.toLocaleString()}</b> trades</span><span><b>${stats.reg}</b> front offices graded</span><span><b>30</b> clubs projected five years out</span>${stats.thru ? `<span>data through ${stats.thru}</span>` : ''}</div>` : ''}</div>
+      ${stats.tr ? `<div class="hub-stats"><span><b>${fmtN(stats.tr)}</b> trades</span><span><b>${fmtN(stats.fa)}</b> free-agent signings</span><span><b>${fmtN(stats.dr)}</b> draft picks</span><span><b>${fmtN(stats.reg)}</b> regimes graded</span>${stats.thru ? `<span>data through ${stats.thru}</span>` : ''}</div>` : ''}</div>
+    ${sec('Today', 'new every day')}
     <div class="hub-grid">
-      ${tile('Heist of the day', `${h ? folHeistCard(h, {compact: true}) : ''}
-        <div class="actions" style="margin-top:10px">${star ? `<button class="actbtn" onclick="treeOverlay('${star.pid}', '${h.win.ab}', ${JSON.stringify(star.nm).replace(/"/g, '&quot;')})">See the transaction tree</button>` : ''}<button class="actbtn" onclick="switchView('heists')">All the heists and disasters</button>${h ? `<button class="actbtn" onclick="folShare('https://frontofficeledger.com/h/${folHeistId(h)}', 'Heist of the day', 'Heist of the day on Front Office Ledger:')">Share</button>` : ''}</div>`, 'hub-wide')}
-      ${tile('Leaderboard', `<h3>Best front offices right now</h3>${top5}${more('Full leaderboard', "switchView('leaderboard')")}`)}
-      ${tile('Daily game', `<h3>Who won the trade?</h3><p class="hub-p">Five a day: three trades, two free-agent contracts. Pick the winner; the Ledger shows the receipts.</p>
+      ${t0 ? tile(`Trade of the day · ${when(otd)}`, `${folHeistCard(t0, {compact: true})}
+        <div class="actions" style="margin-top:10px">${star ? `<button class="actbtn" onclick="treeOverlay('${star.pid}', '${t0.win.ab}', ${JSON.stringify(star.nm).replace(/"/g, '&quot;')})">See the transaction tree</button>` : ''}<button class="actbtn" onclick="folShare('${folHeistUrl(t0)}', 'Trade of the day', 'Trade of the day on Front Office Ledger:')">Share</button><button class="actbtn" onclick="switchView('heists')">Every trade, most lopsided first</button></div>`, 'hub-wide') : ''}
+      ${sg ? tile(`Signing of the day${sg.k <= 7 ? ' · ' + when(sg) : ''}`, `<div class="h-date">${folMon(sg.x.x.d)} · ${abOf(sg.x.r)} · ${regName(sg.x.r)}</div><h3 class="hub-h">${sg.x.x.h}</h3><span class="stamp ${sg.x.x.war >= 0 ? 'pos' : 'neg'}" style="font-size:12px">${sg.x.x.war <= -6 ? 'Disaster' : sg.x.x.war < 0 ? 'Overpay' : 'Bargain'} · ${fmtW(sg.x.x.war)}</span>${sideRows(sg.x.x.sides)}`) : ''}
+      ${tile('Trade Grade', `<h3>Five calls a day</h3><p class="hub-p">Three trades and two free-agent contracts. Pick the winner; the Ledger shows the receipts.</p>
         <button class="actbtn primary" onclick="switchView('quiz')">${quizDone ? `Today: ${quizDone.filter(Boolean).length}/${quizDone.length} · see it` : "Play today's five"}</button>`)}
-      ${tile('Offseason simulator', `<h3>Run a winter</h3><p class="hub-p">Your club's real free agents, arbitration class and market. Every move graded as you make it.</p><button class="actbtn primary" onclick="folGo('gm')">Start a winter</button>`)}
-      ${sc ? tile('Scenario room', `<h3>${scIsBlind(sc.s) ? `A ${sc.s.ctx && sc.s.ctx.w != null ? sc.s.ctx.w + '-' + sc.s.ctx.l + ' club' : 'club'} at ${sc.s.phase === 'deadline' ? 'the deadline' : 'a crossroads'}` : `${sc.s.teamName || CLUB_NAME[sc.s.team] || sc.s.team}, ${String(sc.s.date || '').slice(0, 4)}`}</h3><p class="hub-p">${sc.s.setup || ''}</p><button class="actbtn" onclick="scState.idx=${sc.k}; switchView('scen')">Make the call</button>`) : ''}
-    </div>
-    ${sec('Today in the ledger', 'a new set every day')}
-    <div class="hub-grid">
-      ${otd ? tile(`${otd.d.slice(5, 10) === String(new Date().getMonth() + 1).padStart(2, '0') + '-' + String(new Date().getDate()).padStart(2, '0') ? 'On this date' : 'This week in history'} · ${folMD(otd.d)}, ${otd.d.slice(0, 4)}`, folHeistCard(otd, {compact: true}), 'hub-wide') : ''}
-      ${sg ? tile('Signing of the day', `<div class="h-date">${folMon(sg.x.d)} · ${abOf(sg.r)} · ${regName(sg.r)}</div><h3 class="hub-h">${sg.x.h}</h3><span class="stamp ${sg.x.war >= 0 ? 'pos' : 'neg'}" style="font-size:12px">${sg.x.war <= -6 ? 'Disaster' : sg.x.war < 0 ? 'Overpay' : 'Bargain'} · ${fmtW(sg.x.war)}</span>${sideRows(sg.x.sides)}`) : ''}
-      ${dp ? tile('Draft steal of the day', `<div class="h-date">${folMon(dp.x.d)} · ${abOf(dp.r)} · ${regName(dp.r)}</div><h3 class="hub-h">${dp.x.h}</h3><span class="stamp pos" style="font-size:12px">Steal · ${fmtW(dp.x.war)} over slot</span>${sideRows(dp.x.sides)}`) : ''}
       ${rv ? tile('Rivalry of the day', `<h3>${rv.a.exec} vs. ${rv.p.exec}</h3><p class="hub-p">${rv.p.n} trades between ${abOf(rv.a)} and ${rv.p.opp}. ${rv.a.exec} is <strong class="pos">${fmtW(rv.p.net)}</strong> wins up on the deals.</p><button class="actbtn" onclick="switchView('h2h'); setTimeout(() => vcH2h('${abOf(rv.a)}'), 0)">See every deal</button>`) : ''}
       ${tr ? tile('Tree of the day', `<h3>${tr.title.split(' · ')[0]}</h3><p class="hub-p">${String(tr.title.split(' · ')[1] || 'One decision, and every move it led to.').replace(/^./, c => c.toUpperCase())}.</p><button class="actbtn" onclick="folTreeOfDay(${day % TREES.length})">Follow the tree</button>`) : ''}
     </div>
-    ${sec('This winter', 'the market, the newcomers and who is set up for later')}
+    ${sec('The rankings and this winter')}
     <div class="hub-grid">
-      ${fas.length ? tile('Free agents', `<h3>The top of the class</h3>${fas.map(({x, v}) => { const s = GM_SG[x[1]] || (GM_SG[x[1]] = dkSuggest(x, 'fa', null)); return `<div class="hub-row hub-row2"><strong>${x[0]}</strong><span class="ttype">${x[13] || x[12]}, ${x[4] + 1} · ${fmtW(v)} in 2027 · ${s.sugYrs} yr / $${s.sugTot}M</span></div>`; }).join('')}${more('Every free agent', "bdState.tab='fa'; switchView('boards')")}`) : ''}
-      ${posted.length ? tile('From Japan and Korea', `<h3>Posted this winter</h3>${posted.slice(0, 4).map(({z}) => `<div class="hub-row hub-row2"><strong>${z.name}</strong><span class="ttype">${z.pos}, ${z.age} · ${z.club} (${z.league}) · sign by ${folMD(z.deadline)}</span></div>`).join('')}${more('Their projections on the free-agent board', "bdState.tab='fa'; switchView('boards')")}`) : ''}
+      ${tile('Leaderboard', `<h3>Best front offices right now</h3>${top5}${more('Full leaderboard', "switchView('leaderboard')")}`)}
+      ${fas.length ? tile('Free agents', `<h3>The top of the class</h3>${fas.map(({x, v}) => { const s = GM_SG[x[1]] || (GM_SG[x[1]] = dkSuggest(x, 'fa', null)); return `<div class="hub-row hub-row2"><strong>${x[0]}</strong><span class="ttype">${x[13] || x[12]}, ${x[4] + 1} · ${fmtW(v)} in 2027 · ${s.sugYrs} yr / $${s.sugTot}M</span></div>`; }).join('')}${posted.length ? `<div class="ttype" style="margin-top:8px">Posted from Japan and Korea: ${posted.slice(0, 5).map(({z}) => `${z.name} (sign by ${folMD(z.deadline)})`).join(', ')}</div>` : ''}${more('Every free agent', "bdState.tab='fa'; switchView('boards')")}`) : ''}
       ${hz ? tile('5-year horizon', `<h3>Built for 2031</h3>${hz.map((r, i) => `<div class="hub-row"><strong>${i + 1}</strong><span>${teamNick(CLUB_NAME[r.ab] || r.ab)}</span><span class="ttype">${fmtW(r.v[4])} WAR under control</span></div>`).join('')}${more("Every club's next five years", "folGo('horizon')")}`) : ''}
       ${pros.length ? tile('Top prospects', `<h3>The top of the board</h3>${pros.map(({p}, i) => `<div class="hub-row"><strong>${i + 1}</strong><span>${p[0]}</span><span class="ttype">${p[13] || p[12]}, ${p[2]}</span></div>`).join('')}${more('The top 100 and every farm system', "bdState.tab='pros'; bdState.org=''; switchView('boards')")}`) : ''}
     </div>
-    ${sec('Play GM and explore')}
+    ${sec('Play GM')}
     <div class="hub-grid">
+      ${tile('Offseason simulator', `<h3>Run a winter</h3><p class="hub-p">Your club's real free agents, arbitration class and market. Every move graded as you make it.</p><button class="actbtn primary" onclick="folGo('gm')">Start a winter</button>`)}
       ${tile('Deal Desk', `<h3>Price any trade</h3><p class="hub-p">Build a deal between any two clubs and see who wins it, whether the other side says yes, and the closest real trades.</p><button class="actbtn primary" onclick="folGo('desk')">Make a trade</button>`)}
+      ${sc ? tile('Scenario room', `<h3>${scIsBlind(sc.s) ? `A ${sc.s.ctx && sc.s.ctx.w != null ? sc.s.ctx.w + '-' + sc.s.ctx.l + ' club' : 'club'} at ${sc.s.phase === 'deadline' ? 'the deadline' : 'a crossroads'}` : `${sc.s.teamName || CLUB_NAME[sc.s.team] || sc.s.team}, ${String(sc.s.date || '').slice(0, 4)}`}</h3><p class="hub-p">${sc.s.setup || ''}</p><button class="actbtn" onclick="scState.idx=${sc.k}; switchView('scen')">Make the call</button>`) : ''}
+    </div>
+    ${sec('Explore')}
+    <div class="hub-grid">
+      ${tile('Heists and disasters', `<h3>The most lopsided trades</h3><p class="hub-p">Every trade since 1998, ranked by how far one side came out ahead. Filter by club for its best and worst.</p><button class="actbtn" onclick="switchView('heists')">See the heists</button>`)}
       ${tile('Transaction trees', `<h3>Follow any player</h3><p class="hub-p">How he arrived, every trade he was in, what the other pieces became, and where he stands now.</p><button class="actbtn" onclick="switchView('trees'); treeMode('player')">Pick a player</button>`)}
       ${ch ? tile('Champions', `<h3>How the ${ch.label} were built</h3><p class="hub-p">${ch.mix}</p><button class="actbtn" onclick="switchView('champs')">Every title roster since 1998</button>`) : ''}
       ${tile('Org DNA', `<h3>How each front office builds</h3><p class="hub-p">Who drafts best, who trades best, where pitchers get better, who stays healthy.</p><button class="actbtn" onclick="switchView('dna')">Compare the clubs</button>`)}
-    </div>
-    <div class="card home-card fol-rise" style="margin-top:14px"><div class="home-kick">Your team</div>
-      <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:4px 0 8px">${mine ? `<span style="font-size:15px">${CLUB_NAME[mine]}: <a href="#" onclick="switchView('team'); return false">open the front office page →</a></span>` : '<span style="font-size:15px">Pick a club for its front office page: grade, best and worst moves, the next five years.</span>'}</div>
-      <div class="tchips">${chips}</div></div>`;
+    </div>`;
 }
 // one box for everything: players open their tree, GMs their report card, clubs their page
 function folHubFind(){
@@ -13430,7 +13435,7 @@ function folHeistCard(t, o){
   return `<div class="${o.compact ? '' : 'card '}heist fol-rise"${o.compact ? ' style="padding:0; margin:6px 0 0"' : ''}>
     <div class="h-top"><div><div class="h-date">${folMon(t.d)} · trade</div><div class="h-head">${head}</div></div><span class="stamp ${cls}">${stamp}</span></div>
     <div class="h-sides">${t.S.slice().sort((a, b) => me ? (a.ab === me.ab ? -1 : b.ab === me.ab ? 1 : 0) : b.net - a.net).map(side).join('')}</div>
-    ${o.share ? `<div class="actions" style="margin-top:8px"><button class="actbtn" onclick="folShare('https://frontofficeledger.com/h/${folHeistId(t)}', 'Heist', ${JSON.stringify(head).replace(/"/g, '&quot;')})">Share this heist</button></div>` : ''}</div>`;
+    ${o.share ? `<div class="actions" style="margin-top:8px"><button class="actbtn" onclick="folShare('${folHeistUrl(t)}', 'Heist', ${JSON.stringify(head).replace(/"/g, '&quot;')})">Share this heist</button></div>` : ''}</div>`;
 }
 function folHeistOfDay(){
   const xs = folTrades().filter(t => t.gap >= 8 && t.S.length === 2).sort((a, b) => b.gap - a.gap).slice(0, 150);
@@ -13480,6 +13485,9 @@ function folShare(url, title, text){
 }
 // the leaderboard's own net: every channel plus retention
 function folLbNet(r){ try { return CHANNELS.reduce((t, c) => t + ((r.chan[c.key] || extOf(r)).net || 0), 0) + ((r.chan.ret && r.chan.ret.net2) || 0); } catch(e){ return folNetOf(r); } }
+// a trade's share link: its own preview page when one was built (the heist pool), the app otherwise
+function folHeistUrl(t){ const pool = folHeistUrl._p || (folHeistUrl._p = new Set(folTrades().filter(x => x.gap >= 8 && x.S.length === 2).sort((a, b) => b.gap - a.gap).slice(0, 150).map(folHeistId)));
+  const id = folHeistId(t); return pool.has(id) ? `https://frontofficeledger.com/h/${id}` : `https://frontofficeledger.com/#view=heists&id=${id}`; }
 function folHeistId(t){ return `${t.d}-${t.win.ab.toLowerCase()}-${(t.win.got[0] || {}).pid || 0}`; }
 // a front office's trading card: what the share image and the saved image both show
 function folCardFacts(ab){
@@ -13505,7 +13513,7 @@ function folSaveTradingCard(ab){
   folEvent('save/card/' + ab);
   return folSave(`${CLUB_NAME[ab] || ab} front office`, 'Every decision graded against what a typical club got from the same move', folTradingCard(ab), 'front-office-' + ab.toLowerCase(), {w: 1200});
 }
-// Who won? as an image: the score, the squares and the five calls
+// Trade Grade as an image: the score, the squares and the five calls
 function folQuizSave(){
   const q = quizState; if(!q) return;
   folEvent('save/quiz');
@@ -13514,7 +13522,7 @@ function folQuizSave(){
     const what = t.kind === 'fa' ? `${t.c[0]}, ${t.c[4]} yr / $${Math.round(t.c[5])}M (${t.c[2]}): ${t.earned ? 'earned it' : 'fell short'}, ${fmtW(t.c[9] - t.c[10])} vs. a typical deal`
       : `${folMon(t.d)}: ${folNickAt(t.win.ab, t.d)} over the ${folNickAt(t.lose.ab, t.d)} by ${fmtW(t.gap)} (${(t.win.got[0] || {}).nm || ''})`;
     return `<div class="qz-row"><span class="qz-sq">${ok ? '🟩' : ok === false ? '🟥' : '⬜'}</span><span>${what}</span></div>`; }).join('');
-  return folSave(`Who won? ${q.ans.filter(Boolean).length}/${q.ans.length}`, q.mode === 'daily' ? "Today's five on Front Office Ledger · frontofficeledger.com/play/who-won" : 'Front Office Ledger · frontofficeledger.com/play/who-won', `<div class="qz-save">${rows}</div>`, 'who-won-' + q.day, {w: 1200});
+  return folSave(`Trade Grade ${q.ans.filter(Boolean).length}/${q.ans.length}`, q.mode === 'daily' ? "Today's five on Front Office Ledger · frontofficeledger.com/play/trade-grade" : 'Front Office Ledger · frontofficeledger.com/play/trade-grade', `<div class="qz-save">${rows}</div>`, 'trade-grade-' + q.day, {w: 1200});
 }
 
 // ---- WHO WON THE TRADE? (trades plus free-agent contracts) ----
@@ -13559,7 +13567,7 @@ function folQuizPick(side){
 function folQuizNext(){ const q = quizState; if(!q) return; if(q.i < q.qs.length - 1){ q.i++; renderQuiz(); } else { q.done = true; renderQuiz(); } }
 function folQuizShareText(){
   const q = quizState; if(!q) return '';
-  return `Front Office Ledger · Who won? ${q.ans.filter(Boolean).length}/${q.ans.length}\n${q.ans.map(a => a ? '🟩' : '🟥').join('')}\nfrontofficeledger.com/play/who-won`;
+  return `Front Office Ledger · Trade Grade ${q.ans.filter(Boolean).length}/${q.ans.length}\n${q.ans.map(a => a ? '🟩' : '🟥').join('')}\nfrontofficeledger.com/play/trade-grade`;
 }
 function folQuizCopy(){
   const t = folQuizShareText();
