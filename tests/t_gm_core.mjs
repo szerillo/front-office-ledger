@@ -11,7 +11,7 @@ const r = await page.evaluate(() => {
   // surplus trade logic
   const witt = g('Bobby Witt Jr.'), soto = g('Juan Soto');
   out.wittFranchise = gmFranchise(witt) === true;
-  out.wittSurplusBig = gmSurplus(witt) > 10;
+  out.wittSurplusBig = gmSurplus(witt) > 8;   // Nov 9: 27+ playing time regressed 15% toward half a season and the decline curve x1.5; Witt ~8.8 over six seasons
   out.sotoSurplusNeg = gmSurplus(soto) < 0;
   // FA anchors (media-range sanity, wide bands)
   const sug = n => { const p = g(n); if(!p) return null; const s = dkSuggest(p, 'fa', null); return [s.sugYrs, s.sugTot]; };
