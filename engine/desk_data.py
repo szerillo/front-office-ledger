@@ -409,6 +409,27 @@ for p in players:
     PTX[p[1]] = round(pt_exp) if role == "bat" else round(pt_exp, 1)   # Nov 9: expected 2027 PA / IP, shown beside the projection
 print("service from transactions:", n_svc, "| contract-expiry FAs:", len(CONTRACT_FA))
 
+
+# ---- Nov 9: published arbitration projections (MLB Trade Rumors, Matt Swartz's model) ----
+# On the 48 real 2026 awards our WAR-based estimate missed by ~$1.6M a player (leave-one-out);
+# MLBTR's 2026 projections missed the same awards by $0.49M (MAE), RMSE $0.71M. The 2027 award
+# is theirs where they list the player; later awards scale our estimate by his ratio to theirs.
+ARB27 = {}
+try:
+    _ab = {v: k for k, v in ABBR_BY_NAME.items()}
+    _byn = {}
+    for _p in players: _byn.setdefault(norm(_p[0]), []).append(_p)
+    _miss = []
+    for _o in json.load(open("/work/arb_mlbtr_2027.json")):
+        _c = _byn.get(norm(_o["name"].replace("\u2019", "'")), [])
+        _t = ABBR_BY_NAME.get(_o["team"], "")
+        _c2 = [x for x in _c if x[2] == _t] or _c
+        if len(_c2) == 1: ARB27[str(_c2[0][1])] = _o["aav"]
+        else: _miss.append(_o["name"])
+    print("MLBTR arbitration projections matched:", len(ARB27), "| unmatched:", _miss[:12])
+except FileNotFoundError:
+    pass
+
 # ---- v5.2: the winter as it actually happened (winter_2026.py) ----
 import winter_2026 as W
 PBYNAME = {}
@@ -807,6 +828,7 @@ out = dict(
     deb26=(json.load(open("/work/debut26.json")) if os.path.exists("/work/debut26.json") else {}),
     ptx={str(k): v for k, v in PTX.items()},   # Nov 9: expected 2027 playing time (PA for hitters, IP for pitchers)
     skadj={k: v[0] for k, v in (json.load(open("/work/skill_adj.json"))["adj"].items() if os.path.exists("/work/skill_adj.json") else {}) if abs(v[0]) >= 0.02},   # Nov 3: Statcast skill adjustment to the projection base (skills_fit.py)
+    arb27=ARB27,   # Nov 9: MLB Trade Rumors 2027 arbitration projections {pid: $M} (mlbtr_arb.py)
     qo27=(json.load(open("/work/qo_2027.json"))["qo"] if os.path.exists("/work/qo_2027.json") else {}),   # Nov 3: this winter's real qualifying offers {pid: club}
     cons=(json.load(open("/work/market_consensus.json")) if os.path.exists("/work/market_consensus.json") else {}),   # Nov 3: published contract projections, median per player: [years, AAV $M, sources, source keys]   # v6.1: prospects who reached the majors in 2026
     cbt={"2026": 244, "2027": None},  # 2027+ awaits the next CBA
