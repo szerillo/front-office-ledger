@@ -774,6 +774,158 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
 @media (max-width:440px){
   .tile .val{font-size:23px}
 }
+  /* ===== Nov 2026 "fun" pass: home, heists, quiz, meter, scoreboard, sparklines ===== */
+  @keyframes folStamp{0%{transform:scale(1.9) rotate(-9deg); opacity:0} 60%{transform:scale(.94) rotate(-3deg); opacity:1} 100%{transform:scale(1) rotate(-3deg); opacity:1}}
+  @keyframes folPop{0%{transform:scale(.6); opacity:0} 100%{transform:scale(1); opacity:1}}
+  @keyframes folRise{0%{transform:translateY(8px); opacity:0} 100%{transform:none; opacity:1}}
+  @keyframes folFlashUp{0%{background:rgba(30,107,71,.35)} 100%{background:transparent}}
+  @keyframes folFlashDn{0%{background:rgba(163,44,32,.30)} 100%{background:transparent}}
+  @media (prefers-reduced-motion: reduce){ .fol-anim, .stamp, .fol-rise{animation:none !important} }
+  .fol-rise{animation:folRise .35s ease-out both}
+  .stamp{display:inline-block; font:800 13px/1 var(--f-mono); letter-spacing:1.5px; text-transform:uppercase; padding:6px 10px; border:2.5px solid currentColor; border-radius:4px; transform:rotate(-3deg); animation:folStamp .45s cubic-bezier(.2,.9,.3,1.2) both}
+  .stamp.big{font-size:30px; padding:8px 16px; letter-spacing:1px}
+  .stamp.pos{color:var(--good)} .stamp.neg{color:var(--bad)} .stamp.mid{color:var(--s4)}
+  .grade.pop{animation:folPop .4s cubic-bezier(.2,.9,.3,1.3) both}
+
+  /* home */
+  .home-hero{margin:18px 0 6px}
+  .home-hero h2{font-family:var(--f-display); font-size:clamp(28px, 5vw, 44px); line-height:1.08; margin:0}
+  .home-hero p{margin:8px 0 0; color:var(--ink-2); font-size:16px; max-width:760px}
+  .team-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:10px; margin:18px 0}
+  .team-tile{position:relative; display:flex; flex-direction:column; gap:3px; text-align:left; cursor:pointer; padding:12px 12px 11px; border-radius:8px; border:1px solid var(--rule);
+    background:var(--surface); color:var(--ink); border-left:7px solid var(--tc); transition:transform .12s, box-shadow .12s; font-family:var(--f-body); min-height:84px}
+  .team-tile:hover, .team-tile:focus-visible{transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,.12)}
+  .team-tile .tt-ab{font:800 18px/1 var(--f-mono); color:var(--tc)}
+  :root[data-theme="dark"] .team-tile .tt-ab{color:var(--ink)}
+  .team-tile .tt-nm{font-size:12.5px; color:var(--ink-2)}
+  .team-tile .tt-gm{font-size:11.5px; color:var(--muted); margin-top:auto}
+  .team-tile .grade{position:absolute; top:10px; right:10px; font-size:13px}
+  .home-row{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:14px; margin:14px 0}
+  .home-card{padding:16px 18px}
+  .home-card h3{margin:0 0 6px; font-family:var(--f-display); font-size:20px}
+  .home-kick{font:700 11px/1.2 var(--f-mono); letter-spacing:1.5px; text-transform:uppercase; color:var(--muted)}
+  .team-band{display:flex; align-items:center; gap:16px; flex-wrap:wrap; padding:18px 20px; border-radius:10px; background:var(--tc); color:var(--tt); margin:18px 0 8px}
+  .team-band h2{font-family:var(--f-display); margin:0; font-size:clamp(26px, 4.5vw, 40px); color:inherit; line-height:1.05}
+  .team-band .tb-sub{opacity:.88; font-size:14px; margin-top:4px}
+  .team-band button{background:transparent; color:inherit; border:1.5px solid currentColor; border-radius:6px; padding:6px 12px; cursor:pointer; font:700 12px var(--f-body); margin-left:auto}
+  .home-tiles{display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:12px; margin:12px 0}
+  .home-tiles .tile{padding:14px 16px}
+  .home-tiles .val{font:800 32px/1.1 var(--f-display)}
+  .actions{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px}
+  .actbtn{cursor:pointer; padding:10px 14px; border-radius:8px; border:1px solid var(--rule); background:var(--surface); color:var(--ink); font:700 13px var(--f-body); display:inline-flex; gap:7px; align-items:center; min-height:42px}
+  .actbtn:hover{border-color:var(--ink-2)}
+  .actbtn.primary{background:var(--ink); color:var(--page); border-color:var(--ink)}
+  .vsleague{position:relative; height:46px; margin:10px 4px 4px}
+  .vsleague .axis{position:absolute; left:0; right:0; top:22px; height:2px; background:var(--grid)}
+  .vsleague .dot{position:absolute; top:16px; width:12px; height:12px; margin-left:-6px; border-radius:50%; background:var(--baseline); opacity:.8}
+  .vsleague .dot.me{width:20px; height:20px; top:12px; margin-left:-10px; background:var(--tc, var(--s2)); opacity:1; border:3px solid var(--surface); box-shadow:0 0 0 1.5px var(--ink); z-index:2}
+  .vsleague .lab{position:absolute; top:-2px; font-size:11px; color:var(--muted); transform:translateX(-50%); white-space:nowrap}
+  .vsleague .end{position:absolute; top:32px; font-size:11px; color:var(--muted)}
+  .mini-bars{display:flex; gap:10px; align-items:flex-end; height:120px; margin-top:8px}
+  .mini-bars .mb{flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; font-size:11.5px; color:var(--ink-2)}
+  .mini-bars .mb .b{width:100%; max-width:56px; border-radius:5px 5px 0 0; background:var(--s1); opacity:.8; transform-origin:bottom; animation:folPop .5s ease-out both}
+
+  /* heists */
+  .heist{padding:14px 16px; margin:12px 0; position:relative; overflow:hidden}
+  .heist .h-top{display:flex; gap:10px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap}
+  .heist .h-head{font-family:var(--f-display); font-size:19px; line-height:1.25; margin:2px 0 0}
+  .heist .h-date{font:700 11px var(--f-mono); letter-spacing:1px; color:var(--muted); text-transform:uppercase}
+  .heist .h-sides{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px}
+  @media (max-width:640px){ .heist .h-sides{grid-template-columns:1fr} }
+  .h-side{border-top:3px solid var(--tc); padding-top:6px}
+  .h-side .hs-hd{display:flex; justify-content:space-between; gap:8px; font-weight:700; font-size:13.5px}
+  .h-side .hs-ex{font-size:11.5px; color:var(--muted)}
+  .wrow{display:grid; grid-template-columns:minmax(90px, 1.2fr) 2fr 44px; gap:8px; align-items:center; font-size:12.5px; margin-top:5px}
+  .wrow .wb{height:10px; background:var(--surface-2); border-radius:3px; position:relative; overflow:hidden}
+  .wrow .wb i{position:absolute; top:0; bottom:0; left:0; border-radius:3px; background:var(--good); transform-origin:left; animation:folPop .45s ease-out both}
+  .wrow .wb i.n{background:var(--bad)}
+  .wrow .wv{text-align:right; font-variant-numeric:tabular-nums; font-weight:600}
+  .h-foot{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; align-items:center}
+
+  /* quiz */
+  .quiz-card{padding:20px 22px; margin:14px 0; max-width:860px}
+  .quiz-q{font-family:var(--f-display); font-size:clamp(20px, 3vw, 26px); line-height:1.2; margin:4px 0 12px}
+  .quiz-sides{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  @media (max-width:640px){ .quiz-sides{grid-template-columns:1fr} }
+  .quiz-pick{cursor:pointer; text-align:left; padding:14px 16px; border-radius:10px; border:2px solid var(--rule); background:var(--surface); color:var(--ink); font:15px var(--f-body); border-top:6px solid var(--tc); transition:transform .12s, border-color .12s; min-height:120px}
+  .quiz-pick:hover:not([disabled]){transform:translateY(-2px); border-color:var(--ink-2)}
+  .quiz-pick .qp-ab{font:800 20px var(--f-mono); color:var(--tc)}
+  :root[data-theme="dark"] .quiz-pick .qp-ab{color:var(--ink)}
+  .quiz-pick .qp-got{font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin:6px 0 2px}
+  .quiz-pick.right{border-color:var(--good); box-shadow:0 0 0 3px rgba(30,107,71,.18)}
+  .quiz-pick.wrong{border-color:var(--bad); opacity:.85}
+  .quiz-pick[disabled]{cursor:default}
+  .quiz-score{display:flex; gap:18px; flex-wrap:wrap; align-items:center; margin:10px 0}
+  .quiz-score .qs{font:800 26px var(--f-display)} .quiz-score .ql{font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:1px}
+  .quiz-dots{display:flex; gap:6px} .quiz-dots span{width:14px; height:14px; border-radius:50%; border:1.5px solid var(--rule)}
+  .quiz-dots span.y{background:var(--good); border-color:var(--good)} .quiz-dots span.n{background:var(--bad); border-color:var(--bad)} .quiz-dots span.c{border-color:var(--ink)}
+
+  /* Deal Desk meter */
+  .dk-meter{margin:14px 0 4px}
+  .dk-meter .mt-labels{display:flex; justify-content:space-between; font:700 12px var(--f-body); color:var(--ink-2)}
+  .dk-meter .mt-track{position:relative; height:16px; border-radius:9px; margin-top:6px;
+    background:linear-gradient(90deg, var(--tl, #a32c20) 0%, var(--surface-2) 42%, var(--surface-2) 58%, var(--tr, #1e6b47) 100%)}
+  .dk-meter .mt-mid{position:absolute; left:50%; top:-4px; bottom:-4px; width:2px; background:var(--ink-2); opacity:.5}
+  .dk-meter .mt-needle{position:absolute; top:-6px; width:6px; height:28px; margin-left:-3px; border-radius:3px; background:var(--ink); box-shadow:0 0 0 2px var(--surface); transition:left .6s cubic-bezier(.2,.9,.3,1.2)}
+  .dk-meter .mt-cap{text-align:center; font-size:12px; color:var(--muted); margin-top:6px}
+  .dk-badges{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:10px}
+  .dk-badge{font:800 12px var(--f-mono); letter-spacing:1px; text-transform:uppercase; padding:6px 10px; border-radius:6px; color:#fff}
+  .dk-fair{cursor:pointer; padding:7px 14px; border-radius:7px; border:1.5px solid var(--ink); background:var(--surface); color:var(--ink); font:700 13px var(--f-body)}
+  .dk-idea{padding:14px 16px; margin-top:12px; border-left:4px solid var(--s2)}
+
+  /* simulator scoreboard */
+  .gm-score{position:sticky; top:0; z-index:20; display:flex; gap:16px; align-items:center; flex-wrap:wrap; padding:8px 14px; margin:8px 0 12px; border-radius:8px; background:var(--surface); border:1px solid var(--rule); box-shadow:0 4px 14px rgba(0,0,0,.06)}
+  .gm-score .rec{font:800 30px/1 var(--f-display); font-variant-numeric:tabular-nums; padding:2px 6px; border-radius:6px}
+  .gm-score .rec.up{animation:folFlashUp 1.2s ease-out} .gm-score .rec.dn{animation:folFlashDn 1.2s ease-out}
+  .gm-score .lbl{font:700 10.5px var(--f-mono); letter-spacing:1.2px; text-transform:uppercase; color:var(--muted)}
+  .gm-score .dl{font-weight:700}
+  .gm-next{padding:14px 16px; margin-bottom:12px; border-left:4px solid var(--s1)}
+  .gm-score:empty{display:none}
+  #gm-rail{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+  .gm-next .nx-q{font-family:var(--f-display); font-size:19px; margin:3px 0 8px}
+
+  /* sparklines */
+  .spark{display:inline-block; vertical-align:middle; margin-left:6px}
+
+  /* leaderboard key as dropdowns */
+  .lbkey details{margin-top:6px}
+  .lbkey details > summary{cursor:pointer; font-weight:700; color:var(--ink)}
+  .lbkey details > ul{margin-top:6px}
+
+  /* phones: a bottom bar for the five places people go most */
+  .mobar{display:none}
+  @media (max-width:760px){
+    .mobar{display:flex; position:fixed; left:0; right:0; bottom:0; z-index:40; background:var(--surface); border-top:1px solid var(--rule); box-shadow:0 -4px 14px rgba(0,0,0,.08); padding:4px 4px calc(4px + env(safe-area-inset-bottom))}
+    .mobar button{flex:1; background:none; border:none; color:var(--ink-2); font:700 10.5px var(--f-body); padding:7px 2px; display:flex; flex-direction:column; align-items:center; gap:3px; cursor:pointer; min-height:48px}
+    .mobar button.on{color:var(--s2)}
+    .mobar .mb-ic{font-size:17px; line-height:1}
+    .mobar .mb-team{font:800 12px var(--f-mono); color:var(--tt, #fff); background:var(--tc, var(--ink)); border-radius:4px; padding:2px 5px}
+    body{padding-bottom:64px}
+    button, .modechip, select{min-height:40px}
+    .clubchip{min-height:36px}
+  }
+  @keyframes folDraw{to{stroke-dashoffset:0}}
+  /* the trade verdict pops over the deal screen */
+  #dk-out.dk-pop{position:fixed; inset:0; z-index:80; background:rgba(15,12,8,.55); overflow:auto; padding:28px 14px 40px; margin:0}
+  #dk-out .dk-pop-in{max-width:1000px; margin:0 auto}
+  #dk-out.dk-pop .dk-pop-in{background:var(--page); border-radius:12px; padding:0 18px 18px; box-shadow:0 18px 50px rgba(0,0,0,.35); animation:folRise .25s ease-out}
+  #dk-out .dk-pop-bar{display:none}
+  #dk-out.dk-pop .dk-pop-bar{display:block; position:sticky; top:0; z-index:2; background:var(--page); padding:14px 0 10px; border-bottom:1px solid var(--rule)}
+  .dk-pop-top{display:flex; align-items:center; gap:10px}
+  .dk-pop-top strong{font-family:var(--f-display); font-size:20px}
+  .dk-pop-x{margin-left:auto; cursor:pointer; width:40px; height:40px; border-radius:50%; border:1px solid var(--rule); background:var(--surface); color:var(--ink); font-size:18px}
+  .dk-pop-pcs{display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-top:8px}
+  .dk-pc{display:inline-flex; align-items:center; gap:2px; border:1px solid var(--rule); background:var(--surface); border-radius:999px; padding:3px 4px 3px 10px; font-size:13px; font-weight:600}
+  .dk-pc button{cursor:pointer; background:none; border:none; color:var(--muted); font-size:13px; padding:2px 6px; border-radius:999px; min-height:0}
+  .dk-pc button:hover{background:var(--surface-2); color:var(--ink)}
+  .dk-pop-acts{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:8px}
+  #dk-out[data-closed="1"] .dk-pop-in{display:none}
+  #dk-out .dk-reopen{display:none}
+  #dk-out[data-closed="1"] .dk-reopen{display:flex}
+  body.dk-lock{overflow:hidden}
+  @media (max-width:760px){ #dk-out.dk-pop{padding:0} #dk-out.dk-pop .dk-pop-in{border-radius:0; min-height:100%} #dk-out.dk-pop .dk-pop-bar{top:0} }
+  .dk-nix{cursor:pointer; background:none; border:1px solid var(--rule); color:var(--muted); border-radius:6px; padding:2px 8px}
+
 </style>
 <script>
 /* theme choice survives a reload (storage may be blocked: then it is per visit) */
@@ -807,7 +959,9 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
     <div class="tagline"><strong>Evaluating the evaluators.</strong> A decision-making model for front offices: every move since 1998 graded, any move you are weighing priced, and every club's next five years projected.</div>
     <nav>
       <div class="navgrp"><span class="navlbl">Performance review</span><div class="navbtns">
-        <button class="on" data-view="leaderboard">Leaderboard</button>
+        <button class="on" data-view="home" title="Pick your team: its front office, best and worst moves, the next five years">Your Team</button>
+        <button data-view="leaderboard">Leaderboard</button>
+        <button data-view="heists" title="The most lopsided trades and signings since 1998">Heists</button>
         <button data-view="report">Report Cards</button>
         <button data-view="champs">Champions</button>
         <button data-view="dna">Org DNA</button>
@@ -820,6 +974,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
         <button data-view="boards" data-tab="fa">Top Free Agents</button>
       </div></div>
       <div class="navgrp"><span class="navlbl">Play GM</span><div class="navbtns">
+        <button data-view="quiz" title="Five real trades a day: pick the side that won">Who Won?</button>
         <button data-view="gm" class="navfeat">Offseason Simulator</button>
         <button data-view="desk">Deal Desk</button>
         <button data-view="scen">Scenario Room</button>
@@ -838,25 +993,29 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
 
 <div class="wrap">
 
-  <div id="introstrip" class="card" style="margin:14px 0 4px; padding:14px 16px; border-left:3px solid var(--s1)">
-    <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start">
-      <div class="introtext">
-        <strong style="color:var(--ink)">New here?</strong> A report card for every MLB front office since 1998, and the same math pointed at the moves still to come.
-        <ul>
-          <li><strong>Looking back:</strong> every trade, draft pick, signing, extension and waiver claim, graded against what a typical club got from the same move.</li>
-          <li><strong>Looking ahead:</strong> fair value for any deal at the <a href="#" onclick="switchView('desk');return false" style="color:var(--s2)">Deal Desk</a>, the <a href="#" onclick="bdState.tab='fa'; switchView('boards');return false" style="color:var(--s2)">top free agents</a> and <a href="#" onclick="bdState.tab='pros'; switchView('boards');return false" style="color:var(--s2)">prospects</a>, every club's next five years on <a href="#" onclick="switchView('horizon');return false" style="color:var(--s2)">Horizon</a>, a whole winter in the <a href="#" onclick="switchView('gm');return false" style="color:var(--s2)">Offseason Simulator</a>.</li>
-          <li>Start with the leaderboard below, or see <a href="#" onclick="switchView('champs');return false" style="color:var(--s2)">how championships get built</a>.</li>
-        </ul>
-      </div>
-      <button onclick="introDismiss()" aria-label="Dismiss the introduction" style="background:none; border:1px solid var(--rule); color:var(--muted); border-radius:6px; padding:2px 9px; cursor:pointer; font-size:13px">×</button>
-    </div>
-  </div>
+  <!-- ================= HOME: your team ================= -->
+  <section id="view-home"><div id="homebody"></div></section>
+
+  <!-- ================= HEISTS ================= -->
+  <section id="view-heists" hidden>
+    <h2>Heists and Disasters</h2>
+    <div class="sub">Every trade since 1998, most lopsided first: what each player produced for the club that got him, through his years of control. Pick a club to see its best and worst.</div>
+    <div id="heistbody"></div>
+  </section>
+
+  <!-- ================= QUIZ ================= -->
+  <section id="view-quiz" hidden>
+    <h2>Who Won the Trade?</h2>
+    <div class="sub">Five real deals a day. Pick the side that came out ahead, then see what every player actually produced.</div>
+    <div id="quizbody"></div>
+  </section>
 
   <!-- ================= LEADERBOARD ================= -->
-  <section id="view-leaderboard">
+  <section id="view-leaderboard" hidden>
     <h2 id="lb-h2">Front Office Leaderboard · Active MLB Regimes</h2>
     <div class="sub lbkey">
-      <strong>How to read a row.</strong> Click any regime for its full report card.
+      <div>Click any front office for its full report card.</div>
+      <details><summary>How to read a row</summary>
       <ul>
         <li><strong>Channel grades</strong> (Draft through Ret): wins above (+) or below (−) what a typical front office got from the same kind of move, per season in the chair. 50 is average on the 20-80 scale; A is about 70+, F under 35. Hover a grade for its number.</li>
         <li><strong>Overall</strong> is the ranking: every channel rolled into one grade of decision quality, leaning on the channels where results repeat (free agency most, trades least). <strong>Net wins</strong> is the plain total of every decision's value in wins, before that weighting. <strong>Success</strong> grades results on the field; the gap between Overall and Success shows how much came from luck, payroll or inheritance.</li>
@@ -871,6 +1030,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
         <li><span class="badge-ss">SS</span> small sample (under 3 seasons) · <span class="badge-ss">partial</span> a channel with too few graded deals is filled at the league-average rate · <strong>·</strong> too few moves to grade (counts as average) · <strong>new</strong> too new to grade.</li>
         <li>Every graded seat is ranked. Short tenures are partial samples and carry a small-sample tag; front offices hired after the last completed season have nothing to grade yet.</li>
       </ul>
+      </details>
       <details><summary>Where the numbers come from</summary>
         <ul>
           <li>Every value is <strong>Ledger WAR</strong>, built here from public data (park factors, defense, framing, baserunning), and only what has already happened on the field counts.</li>
@@ -1012,12 +1172,15 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
   <section id="view-desk" hidden>
     <h2>Deal Desk · Propose a Move</h2>
     <div class="sub lbkey">
+      <div>Build a trade, a signing or an extension and get a verdict.</div>
+      <details><summary>How it works</summary>
       <ul>
         <li>Build a trade, free-agent signing or extension and get a verdict: projected value over each piece's control, against what the market pays for deals of that shape.</li>
         <li>For signings and extensions the Desk proposes the terms itself, with the nearest real contracts and how they turned out.</li>
         <li>Use the assistant GM to fill out a fair deal, then export any verdict as a one-page memo.</li>
         <li>Nothing here is recorded, and real grades never move on a projection.</li>
       </ul>
+      </details>
     </div>
     <div class="live-slot"></div>
     <div id="deskbody"></div>
@@ -1027,11 +1190,14 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
   <section id="view-horizon" hidden>
     <h2>5-Year Horizon · Where Every Club's Window Sits</h2>
     <div class="sub lbkey">
+      <div>Every club's roster under control today, walked forward through 2031.</div>
+      <details><summary>How it works</summary>
       <ul>
         <li>Every club's current roster, walked forward season by season through 2031.</li>
         <li>Lines fall over time by design: they count only players under club control today, so they show when each club's contracts run out, not how good it will be.</li>
         <li>Prospects sit on the farm line until they arrive.</li>
       </ul>
+      </details>
     </div>
     <select id="hz-club" onchange="renderHorizon()" hidden aria-hidden="true" tabindex="-1"></select>
     <div id="hz-chips" style="margin:12px 0"></div>
@@ -1061,12 +1227,15 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
   <section id="view-gm" hidden>
     <h2>The Offseason Simulator · Run Your Club's Winter</h2>
     <div class="sub lbkey">
+      <div>Run your club's real 2026-27 winter, one decision at a time.</div>
+      <details><summary>How it works</summary>
       <ul>
         <li>Run your club's real 2026-27 winter: your free agents, your arbitration class, the real free-agent market and every farm system.</li>
         <li>Every move is graded as you make it; payroll and the tax line update live.</li>
         <li>Ask the assistant GM for a recommendation on any decision. Close the winter for a report card and a one-page memo you can save.</li>
         <li>Numbers are wins: the 24-26 slashes are a player's last three seasons, "projects +N" is his 2027, surplus is projected wins net of salary. Dollars are guarantees in $M.</li>
       </ul>
+      </details>
     </div>
     <div class="filters" style="margin:12px 0">
       <label for="gm-club">Your club</label>
@@ -1075,6 +1244,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
       <button id="gm-reset" onclick="gmReset()" style="cursor:pointer; background:none; border:1px solid var(--rule); color:var(--ink-2); border-radius:6px; padding:4px 11px; font-size:12px">Start over</button>
       <span id="gm-rail" class="ttype" style="margin-left:12px"></span>
     </div>
+    <div id="gm-score" class="gm-score" aria-live="polite"></div>
     <div class="live-slot"></div>
     <div id="gmbody"></div>
   </section>
@@ -6720,7 +6890,7 @@ function dkPieceChip(pc, side, i){
   const val = pc.kind==='player' && pc.p && !gmIsProsRow(pc.p) ? `surplus <span class="${gmSurplus(pc.p)>=0?'pos':'neg'}">${fmtW(gmSurplus(pc.p))}</span>` : `<span class="${pr.total>=0?'pos':'neg'}">${fmtW(pr.total)} projected</span>`;
   return `<div class="card" style="padding:8px 12px; margin:6px 0; display:flex; justify-content:space-between; align-items:center; gap:10px">
     <div style="font-size:13px"><strong>${label}</strong><div class="ttype">${dkPieceTerms(pc)} · ${val}</div></div>
-    <button onclick="dkRemove('${side}',${i})" aria-label="Remove this piece" style="background:none; border:1px solid var(--rule); color:var(--muted); border-radius:6px; cursor:pointer; padding:2px 8px">×</button></div>`;
+    <span style="display:flex; gap:4px">${pc.kind === 'player' && pc.p ? `<button onclick="dkNix('${side}',${i})" class="dk-nix" title="Not interested: take him off the table and renegotiate without him" aria-label="Not interested in ${String(pc.p[0]).replace(/"/g, '&quot;')}">🚫</button>` : ''}<button onclick="dkRemove('${side}',${i})" aria-label="Remove this piece" style="background:none; border:1px solid var(--rule); color:var(--muted); border-radius:6px; cursor:pointer; padding:2px 8px">×</button></span></div>`;
 }
 function dkCtrl(side, i, d){ const pc = dkState[side][i]; pc.ctrl = Math.min(6, Math.max(1, pc.ctrl + d)); renderDesk(); }
 function dkRemove(side, i){ dkState[side].splice(i,1); renderDesk(); }
@@ -6953,6 +7123,7 @@ function dkTradeVerdict(opts){
     <div class="card dk-sheet" style="padding:18px 20px; margin-top:12px">
       ${dkSheetHead(dkKicker('Trade proposal', you), `${nick(you)} get ${listNames(dkState.recv)} from the ${nick(them)} for ${listNames(dkState.send)}`,
         `Deal Desk · ${dkToday()} · projected net ${fmtW(net)} WAR to ${you}, weighted for its ${W(you)}-win pace`)}
+      ${opts.sim ? '' : dkMeter(you, them, netYou, netThem, call, blocked)}
       <div class="sides">
         ${dkSideBox(`${CLUB_NAME[you] || you} get`, rowsOf(dkState.recv), {k: 'recv', l: 'Surplus received, net of salary', v: fmtW(lin), cls: lin >= 0 ? 'pos' : 'neg'})}
         ${dkSideBox(`${CLUB_NAME[them] || them} get`, rowsOf(dkState.send), {k: 'send', l: `Surplus ${you} gives up${lout < 0 ? ' (a negative figure is salary shed)' : ''}`, v: fmtW(lout), cls: lout >= 0 ? 'pos' : 'neg'})}
@@ -7503,6 +7674,11 @@ function dkEval(){
   const val = id => (document.getElementById(id)||{}).value || '';
   dkState.lastEval = (m === 'fa' || m === 'ext') ? {mode: m, pl: val('dk-'+m+'-player'), yrs: val('dk-'+m+'-yrs'), tm: val('dk-'+m+'-m'), club: val('dk-'+m+'-club') || dkState.you, cls: m === 'ext' ? val('dk-ext-cls') : '', sg: (document.getElementById('dk-suggest')||{}).innerHTML || ''} : {mode: m};
   host.dataset.stale = ''; if(innerWidth <= 760) setTimeout(() => { try { host.scrollIntoView({behavior: 'smooth', block: 'start'}); } catch(e){} }, 0);
+  if(m === 'trade' && v.includes('dk-sheet')){
+    host.innerHTML = `<div class="dk-reopen card" style="padding:10px 14px; gap:10px; align-items:center; flex-wrap:wrap"><strong>Verdict ready</strong><button class="dk-fair" onclick="dkPopOpen()">Show the verdict</button></div><div class="dk-pop-in">${dkPopBar()}${v}<div style="margin-top:12px"><button onclick="dkMemo()" class="grade g55" style="cursor:pointer; border:none; padding:7px 16px; font-size:13px">Deal memo (print / save as PDF)</button></div></div>`;
+    dkPopOpen(); return;
+  }
+  host.classList.remove('dk-pop'); host.dataset.closed = '';
   host.innerHTML = v + (v.includes('class="tiles"') || v.includes('dk-sheet') ? `<div style="margin-top:12px"><button onclick="dkMemo()" class="grade g55" style="cursor:pointer; border:none; padding:7px 16px; font-size:13px">Deal memo (print / save as PDF)</button></div>` : '');
 }
 // an input edited after a verdict marks the verdict stale until Evaluate runs again
@@ -7518,7 +7694,7 @@ function dkMarkStale(){
 function dkMemoBody(out){
   // the printed memo reads for both clubs: no fine print, no notes from one side's desk
   const c = out.cloneNode(true);
-  c.querySelectorAll('.dk-stale, button, .tiles').forEach(e => e.remove());
+  c.querySelectorAll('.dk-stale, button, .tiles, .dk-pop-bar, .dk-reopen, .dk-meter').forEach(e => e.remove());
   c.querySelectorAll('div[style*="font-size:11px"]:not(.dk-foot)').forEach(e => e.remove());
   [...c.querySelectorAll('.card')].filter(e => /^\s*(Assistant GM|Your horizon moves)/.test(e.textContent)).forEach(e => e.remove());
   return c.innerHTML;
@@ -7707,7 +7883,7 @@ function renderHorizon(){
   if(!sel.options.length){
     const abbrs = Object.keys(DESK.teams||{}).sort();
     sel.innerHTML = `<option value="">All 30 clubs</option>` + abbrs.map(a => `<option value="${a}">${a} · ${CLUB_NAME[a] || a}</option>`).join('');
-    sel.value = '';
+    sel.value = folTeam() || '';
   }
   const ab = sel.value;
   const chips = document.getElementById('hz-chips');
@@ -7795,7 +7971,7 @@ function dkFilt(){ return dkState.f || (dkState.f = {q: '', pos: '', view: 'all'
 function dkClubPlayers(club){
   const inDeal = new Set([...(dkState.send||[]), ...(dkState.recv||[])].filter(pc => pc.p).map(pc => pc.p[1]));
   const f = dkFilt(), q = foldTxt(f.q);
-  const ok = p => p[2] === club && !inDeal.has(p[1]) && !gmIsFA(p) && (gmStatus(p)||[])[0] !== 'out' && (!q || foldTxt(p[0]).includes(q)) && gmPosMatch(p, f.pos);
+  const ok = p => p[2] === club && !inDeal.has(p[1]) && !(dkState.excl && dkState.excl.has(p[1])) && !gmIsFA(p) && (gmStatus(p)||[])[0] !== 'out' && (!q || foldTxt(p[0]).includes(q)) && gmPosMatch(p, f.pos);
   const mlb = f.view === 'farm' ? [] : gmBoardSort((DESK.players||[]).filter(p => ok(p) && !gmIsProsRow(p) && gmControlled(p) && Math.abs(p[5])+Math.abs(p[6])+Math.abs(p[7]) >= 0.3), f.sort).slice(0, 40);
   const farm = f.view === 'mlb' ? [] : (DESK.players||[]).filter(p => ok(p) && gmIsProsRow(p)).sort((a, b) => gmPV(b) - gmPV(a)).slice(0, 40);
   return {mlb, farm};
@@ -8073,6 +8249,7 @@ function renderDesk(){
         <input id="dk-pick-${side}" type="number" min="1" max="620" step="1" placeholder="pick #" aria-label="2027 draft pick number, 1 to 620" style="width:90px; background:var(--surface-2); color:var(--ink); border:1px solid var(--rule); border-radius:6px; padding:5px 8px"><button onclick="dkAddPick('${side}')" class="grade g60 dkbtn">+ 2027 pick</button></div>`;
     body = `<div class="dk-step"><span class="dk-steplbl">Your club</span>${clubChips(you, 'dkPickYou', null, 'Your club')}</div>
       ${you ? `<div class="dk-step"><span class="dk-steplbl">Trade partner</span>${clubChips(them, 'dkPickThem', you, 'Trade partner')}</div>` : '<div class="ttype" style="margin:6px 0 4px">Pick your club to start.</div>'}
+      ${you ? `<div class="card dk-idea"><strong>Need a starting point?</strong> <span class="ttype">The best available player who fills ${teamNick(CLUB_NAME[you] || you)}' weakest spot, with a package the other club would take.</span> <button class="dk-fair" style="margin-left:6px" onclick="dkIdea()">${them ? 'Suggest a different trade' : 'Suggest a trade'}</button></div>` : ''}
       ${you && them ? `<div class="filters" style="margin:10px 0">
         <span class="fgrp"><label for="dk-f-q">find a player</label><input id="dk-f-q" value="${(f.q||'').replace(/"/g,'&quot;')}" oninput="dkFilt().q=this.value; clearTimeout(dkFilt()._t); dkFilt()._t=setTimeout(()=>{ renderDesk(); const e=document.getElementById('dk-f-q'); if(e){ e.focus(); e.setSelectionRange(e.value.length, e.value.length); } }, 250)" placeholder="name…" autocomplete="off" style="min-width:140px"></span>
         <span class="fgrp"><label for="dk-f-view">show</label><select id="dk-f-view" onchange="dkFilt().view=this.value; renderDesk()">${[['all','MLB roster + prospects'],['mlb','MLB roster only'],['farm','prospects only']].map(([k,l])=>`<option value="${k}"${k===f.view?' selected':''}>${l}</option>`).join('')}</select></span>
@@ -8089,8 +8266,8 @@ function renderDesk(){
           ${pieces('recv')}${pickIn('recv')}
           <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px">
             <button onclick="dkEval()" class="grade g70" style="cursor:pointer; border:none; font-size:14px; padding:8px 18px">Evaluate this trade</button>
-            <button onclick="dkAgm()" class="grade g55" style="cursor:pointer; border:none; font-size:13px; padding:8px 14px" title="Fill in or balance the deal to the other club's asking price">Assistant GM: negotiate the deal</button>
-          </div>
+            <button onclick="dkAgm()" class="grade g55" style="cursor:pointer; border:none; font-size:13px; padding:8px 14px" title="Fill in or balance the deal to the other club's asking price">Make it fair</button>
+          </div>${dkExclLine()}
           <div id="dk-agm-note"></div>
         </div>
         ${dkBoardCol(them, 'recv')}
@@ -8688,6 +8865,7 @@ function gmRail(){
   const w = gmWins(), pay = gmPayroll(), base = gmBaselineWins();
   document.getElementById('gm-rail').innerHTML =
     `projected 2027: <strong>${w}-${162-w}</strong> (${w>=base?'+':''}${w-base} vs standing pat) · est payroll <strong>$${Math.round(pay)}M</strong>${pay>244?' <span class="neg">over the $244M CBT line</span>':''} · ${gmState.moves.filter(m=>m.kind!=='info').length} move${gmState.moves.filter(m=>m.kind!=='info').length===1?'':'s'}`;
+  try { gmScore(); } catch(e){}
 }
 function gmLog(kind, label, detail, surplus, war27, aav, extra){
   gmState.moves.push({id: ++gmState.seq, kind, label, detail, surplus, war27: war27||0, aav: aav||0, ...(extra||{})});
@@ -10528,7 +10706,7 @@ function gmShow(){
       : '<div class="ttype" style="margin-top:6px">nothing yet.</div>'}
     <details style="margin-top:10px"><summary class="ttype" style="cursor:pointer">full journal (${gmState.journal.length})</summary>
       <div style="max-height:260px; overflow:auto; margin-top:6px">${gmState.journal.map(j=>`<div style="font-size:11px; color:var(--muted); border-top:1px solid var(--grid); padding:3px 0">${j}</div>`).join('') || '<div class="ttype">empty</div>'}</div></details></div>`;
-  const main = gmInProgress() + [gmStage0, gmStage1, gmStage2, gmStageCallups, gmDepth, gmReport][gmState.stage]();
+  const main = gmInProgress() + gmNextCard() + [gmStage0, gmStage1, gmStage2, gmStageCallups, gmDepth, gmReport][gmState.stage]();
   if(gmState.stage === 2 && gmState.open.tab === 'trade')
     host.innerHTML = stepper + gmAdvisor() + main + `<div class="gm-under">${gmDepthStrip()}<div>${log}</div></div>`;
   else host.innerHTML = stepper + gmAdvisor() + `<div style="display:flex; gap:14px; flex-wrap:wrap; align-items:flex-start"><div style="flex:2.2; min-width:min(340px, 100%)">${main}</div><div style="flex:1; min-width:280px; max-width:360px">${gmState.stage === 4 ? '' : gmDepthStrip()}${log}</div></div>`;
@@ -10899,8 +11077,13 @@ function vcH2h(ab){ const r = curRegOf(ab); const sel = document.getElementById(
 function switchView(v, regimeId){
   // v5.9: a dialog belongs to the view that opened it; changing views closes it
   try { if(typeof closeModal === 'function') closeModal(); if(typeof closeTreeOverlay === 'function') closeTreeOverlay(); } catch(e){}
+  try { dkPopClose(); folTeamDefaults(v); } catch(e){}
+  if(v === 'report' && !regimeId && folTeam() && !(folTeamDefaults._rep)){ folTeamDefaults._rep = 1; const r0 = curRegOf(folTeam()); if(r0) regimeId = r0.id; }
   navMark(v);
-  ['leaderboard','report','trees','champs','method','dna','h2h','desk','horizon','scen','gm','boards'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
+  ['home','heists','quiz','leaderboard','report','trees','champs','method','dna','h2h','desk','horizon','scen','gm','boards'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
+  if(v==='home') renderHome();
+  if(v==='heists') renderHeists();
+  if(v==='quiz') renderQuiz();
   if(v==='report'){ if(regimeId) $('#teamsel').value = regimeId; renderReport($('#teamsel').value); }
   if(v==='trees'){ renderTrees(); treeFindInit(); }
   if(v==='champs') renderChamp($('#champsel').value);
@@ -10915,6 +11098,7 @@ function switchView(v, regimeId){
   // phones: the tab bar scrolls sideways, so bring the active tab into view
   const on = document.querySelector('nav button.on');
   if(on && window.innerWidth < 760){ try { on.scrollIntoView({inline:'center', block:'nearest'}); } catch(e){} }
+  try { folMobar(); } catch(e){}
 }
 
 /* =========================================================
@@ -11251,6 +11435,7 @@ function renderReport(id){
         return `<div class="card tile"><div class="lbl">Estimated surplus value</div><div class="val">≈${fmtM(net * rate)}</div><div class="dlt">net WAR × $${rate.toFixed(1)}M per win, the tenure's average market rate${y0 < 2006 ? ' (2006 rate for earlier seasons)' : ''}</div></div>`; })()}
     <div class="card tile"><div class="lbl">Decisions graded</div><div class="val">${r.decisions}</div><div class="dlt">drafts · trades · signings · claims · losses</div></div>`;
 
+  try { $('#rc-tiles').querySelectorAll('.grade').forEach(g => g.classList.add('pop')); } catch(e){}
   renderChanChart(r);
   renderCumChart(r);
   renderLedgers(r);
@@ -11508,6 +11693,7 @@ function renderCumChart(r){
     <line id="xhair" y1="${padT}" y2="${H-padB}" stroke="var(--baseline)" stroke-width="1" opacity="0"/>
     <circle id="hoverdot" r="4.5" fill="var(--s1)" stroke="var(--surface)" stroke-width="2" opacity="0"/>
     <rect x="${padL}" y="${padT}" width="${W-padL-padR}" height="${H-padT-padB}" fill="transparent" id="cumhit"/>
+    ${folPinMarks(r, X, Y, data)}
   </svg>`;
   // v5.9: reconcile the line with the channel bars beside it. The line counts
   // value in the season it arrived; the bars also carry the at-the-time
@@ -11515,7 +11701,7 @@ function renderCumChart(r){
   const _five = ['trade','draft','waiver','fa','ext'].reduce((a, k) => a + (((r.chan||{})[k]||{}).net || 0), 0);
   const _gap = _five - data[n-1];
   const _note = Math.abs(_gap) >= 0.5 ? `<div class="ttype" style="margin-top:4px">The line ends at ${fmtW(data[n-1])}; the same five channels total ${fmtW(_five)} in the bars. The ${fmtW(_gap)} difference is the expected value of prospects received or sent in trades who have not reached the majors yet, which the bars count and the line adds only as their seasons arrive.</div>` : '';
-  $('#cumchart').innerHTML = svg + _note;
+  $('#cumchart').innerHTML = svg + _note + folPinLegend(r);
   const hit = $('#cumhit'), xh=$('#xhair'), hd=$('#hoverdot'), svgEl=$('#cumsvg');
   hit.addEventListener('mousemove', e=>{
     const rct = svgEl.getBoundingClientRect();
@@ -12460,7 +12646,7 @@ function bdFA(){
     const how = st ? stShow(st[1]) : 'free agent';
     const fee = pz ? ` <span class="ttype">+ $${dkPostingFee(sg.sugTot).toFixed(1)}M posting fee</span>` : '';
     return `<tr><td class="num">${i+1}</td><td><strong>${playerLink(p[1], p[0])}</strong> <span class="ttype">${p[13]||p[12]}, ${p[4]+1} in 2027</span><div class="ttype">${p[2] ? p[2] + ' · ' : ''}${how}</div></td>
-      <td class="num" style="white-space:nowrap">${pz ? '<span class="ttype">translated</span>' : [p[5], p[6], p[7]].map(v => v.toFixed(1)).join(' / ')}</td><td class="num">${fmtW(proj)}${dkPTNote(p, proj) ? `<div class="ttype" style="white-space:nowrap">${dkPTNote(p, proj)}</div>` : ''}</td><td class="num" style="white-space:nowrap"><strong>${sg.sugYrs} yr / $${sg.sugTot}M</strong>${fee}<div class="ttype">$${(sg.sugTot/Math.max(sg.sugYrs,1)).toFixed(1)}M a year · likely range ${bdRange(sg.sugTot/Math.max(sg.sugYrs,1))}</div></td><td class="num" style="white-space:nowrap">${bdFaFair(sg)}</td></tr>`;
+      <td class="num" style="white-space:nowrap">${pz ? '<span class="ttype">translated</span>' : [p[5], p[6], p[7]].map(v => v.toFixed(1)).join(' / ') + folSpark(p[5], p[6], p[7])}</td><td class="num">${fmtW(proj)}${dkPTNote(p, proj) ? `<div class="ttype" style="white-space:nowrap">${dkPTNote(p, proj)}</div>` : ''}</td><td class="num" style="white-space:nowrap"><strong>${sg.sugYrs} yr / $${sg.sugTot}M</strong>${fee}<div class="ttype">$${(sg.sugTot/Math.max(sg.sugYrs,1)).toFixed(1)}M a year · likely range ${bdRange(sg.sugTot/Math.max(sg.sugYrs,1))}</div></td><td class="num" style="white-space:nowrap">${bdFaFair(sg)}</td></tr>`;
   }).join('');
   const bands = bdRangeBands().filter(x => x.n).map(x => `<li>${x.b < 1e9 ? `$${x.a}-${x.b}M` : `$${x.a}M+`} a year: ${Math.round(x.lo*100)}% to ${Math.round(x.hi*100)}% of the offer (${x.n} signings)</li>`).join('');
   return `<div class="card" style="padding:10px 14px; margin-top:10px">
@@ -12646,12 +12832,451 @@ async function liveWinter(){
   } catch(e){ /* offline or blocked: the Nov 1 winter stands */ }
 }
 setTimeout(liveWinter, 0);   // after every declaration above has run
+/* =====================================================================
+   Nov 2026 "fun" pass: your team front door, heists, the trade quiz,
+   timeline pins, Deal Desk meter + popup + not-interested, simulator
+   scoreboard and next-decision card, sparklines, phone bottom bar.
+   ===================================================================== */
+// ---- your team, remembered (localStorage; blocked storage means per visit) ----
+function folTeam(){ try { const t = localStorage.getItem('fol-team'); return t && (CLUB_NAME || {})[t] ? t : ''; } catch(e){ return folTeam._m || ''; } }
+function folTeamSet(ab){
+  try { if(ab) localStorage.setItem('fol-team', ab); else localStorage.removeItem('fol-team'); } catch(e){ folTeam._m = ab; }
+  folTeamDefaults._done = {};
+  folMobar();
+}
+// first visit to a tool after picking a team opens it on that team (never overrides a choice made there)
+function folTeamDefaults(v){
+  const ab = folTeam(); if(!ab) return;
+  const done = folTeamDefaults._done || (folTeamDefaults._done = {});
+  if(done[v]) return; done[v] = 1;
+  try {
+    if(v === 'desk' && !dkState.you){ dkState.you = ab; if(dkState.mode === 'trade' && !dkState.them && !dkState.send.length && !dkState.recv.length) setTimeout(() => { try { dkIdea(); dkPopClose(); } catch(e){} }, 0); }
+    if(v === 'horizon'){ const s = document.getElementById('hz-club'); if(s && !s.options.length) folTeamDefaults._hz = ab; else if(s && !s.value && [...s.options].some(o => o.value === ab)) s.value = ab; }
+    if(v === 'dna' && !DNA_CLUB) DNA_CLUB = ab;
+    if(v === 'gm') setTimeout(() => { const s = document.getElementById('gm-club'); if(s && gmState.club !== ab && !(gmState.moves || []).length && [...s.options].some(o => o.value === ab)){ s.value = ab; try { gmClubChange(); } catch(e){} } }, 0);
+    if(v === 'boards' && !bdState.org) bdState.org = '';
+  } catch(e){}
+}
+function folPickTeam(ab){ folTeamSet(ab); switchView('home'); window.scrollTo({top: 0}); }
+
+// ---- small shared pieces ----
+function folSpark(a, b, c, w, h){
+  w = w || 46; h = h || 14;
+  const v = [a, b, c].map(x => +x || 0), lo = Math.min(0, ...v), hi = Math.max(1, ...v), Y = x => h - 2 - (x - lo) / (hi - lo) * (h - 4);
+  const X = i => 2 + i * (w - 4) / 2, up = v[2] >= v[0];
+  return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><line x1="0" x2="${w}" y1="${Y(0)}" y2="${Y(0)}" stroke="var(--grid)" stroke-width="1"/><polyline points="${v.map((x, i) => `${X(i)},${Y(x)}`).join(' ')}" fill="none" stroke="${up ? 'var(--good)' : 'var(--bad)'}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${X(2)}" cy="${Y(v[2])}" r="2" fill="${up ? 'var(--good)' : 'var(--bad)'}"/></svg>`;
+}
+function folCountUp(root){
+  if(!root || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  root.querySelectorAll('[data-count]').forEach(el => {
+    const to = +el.dataset.count, dec = +(el.dataset.dec || 0), pre = el.dataset.pre || '', suf = el.dataset.suf || '', sign = el.dataset.sign === '1';
+    const t0 = performance.now(), dur = 700;
+    const fmt = x => pre + (sign && x > 0 ? '+' : '') + x.toFixed(dec) + suf;
+    const step = t => { const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = fmt(to * e); if(k < 1) requestAnimationFrame(step); else el.textContent = fmt(to); };
+    requestAnimationFrame(step);
+  });
+}
+function folTC(ab){ const c = (CLUB_COL || {})[ab] || ['#555', '#fff']; return `--tc:${c[0]}; --tt:${c[1]}`; }
+function folMon(d){ const m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const [y, mo] = String(d).split('-'); return `${m[(+mo || 1) - 1]} ${y}`; }
+function folAllRegimes(){ return [...REGIMES, ...AUTO_REGIMES, ...LB_HIST.filter(x => x.realCard)]; }
+// the front office in charge of a club on a date
+function folRegAt(ab, d){
+  const xs = folAllRegimes().filter(r => abOf(r) === ab);
+  return xs.find(r => (r.startDate || (r.start + '-01-01')) <= d && d <= (r.endDate || '9999')) || null;
+}
+function folNetOf(r){ return CHANNELS.reduce((s, c) => s + ((r.chan[c.key] || extOf(r)).net || 0), 0) + ((r.chan.ret && r.chan.ret.net2) || 0); }
+// active seats ranked as the leaderboard ranks them (overall grade, then net)
+function folActiveRank(){
+  if(folActiveRank._c) return folActiveRank._c;
+  const xs = [...REGIMES, ...AUTO_REGIMES].filter(r => !r.isNew && r.forGrade != null);
+  xs.sort((a, b) => (b.forGrade - a.forGrade) || (folNetOf(b) / Math.max(3, b.seatSeasons || b.seasons || 1) - folNetOf(a) / Math.max(3, a.seatSeasons || a.seasons || 1)));
+  return folActiveRank._c = xs;
+}
+// a regime's biggest single moves, best and worst, from its ledgers
+function folBigMoves(r){
+  const L = r.ledgers || {}, all = [...(L.bestTrades || []), ...(L.bestAcq || []), ...(L.worstTrades || []), ...(L.losses || [])].filter(x => x && x.d && isFinite(x.war));
+  const seen = new Set(), out = [];
+  all.sort((a, b) => Math.abs(b.war) - Math.abs(a.war)).forEach(x => { const k = x.d + x.h; if(!seen.has(k)){ seen.add(k); out.push(x); } });
+  return out;
+}
+
+// ---- the timeline: cumulative net value with the big moves pinned on it ----
+function folTimeline(r, opts){
+  opts = opts || {};
+  if(!r || !r.cum || r.cum.length < 2) return '';
+  const W = opts.w || 640, H = opts.h || 230, padL = 40, padR = 54, padT = 16, padB = 28;
+  const data = r.cum, n = data.length, y0 = +r.start;
+  const lo0 = Math.min(0, ...data), hi0 = Math.max(0, ...data), pad = (hi0 - lo0) * 0.12 || 1;
+  const lo = lo0 - (lo0 < 0 ? pad : 0), hi = hi0 + pad;
+  const X = i => padL + i * (W - padL - padR) / Math.max(1, n - 1), Y = v => padT + (hi - v) / (hi - lo) * (H - padT - padB);
+  const at = yr => { const i = Math.max(0, Math.min(n - 1, yr - y0)); return {x: X(i), y: Y(data[i])}; };
+  const pins = folBigMoves(r).filter(x => +x.d.slice(0, 4) >= y0 - 1).slice(0, 6);
+  const pts = data.map((v, i) => `${X(i)},${Y(v)}`).join(' ');
+  const step = hi - lo > 60 ? 25 : hi - lo > 25 ? 10 : 5;
+  let grid = '';
+  for(let t = Math.ceil(lo / step) * step; t <= hi; t += step) grid += `<line x1="${padL}" x2="${W - padR}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--grid)"/><text x="${padL - 6}" y="${Y(t) + 4}" text-anchor="end" font-size="10.5" fill="var(--muted)">${t}</text>`;
+  const used = {};
+  const pinSvg = pins.map((x, k) => { const p0 = at(+x.d.slice(0, 4) + (+x.d.slice(5, 7) >= 7 ? 1 : 0)), key = Math.round(p0.x), u = used[key] = (used[key] || 0) + 1, p = {x: p0.x + (u > 1 ? (u % 2 ? 1 : -1) * 13 * Math.ceil((u - 1) / 2) : 0), y: p0.y}; const c = x.war >= 0 ? 'var(--good)' : 'var(--bad)';
+    return `<g class="fol-anim" style="animation:folPop .35s ${0.15 + k * 0.08}s both"><circle cx="${p.x}" cy="${p.y}" r="9" fill="${c}" stroke="var(--surface)" stroke-width="2"><title>${String(x.h).replace(/</g, '&lt;')} (${fmtW(x.war)})</title></circle><text x="${p.x}" y="${p.y + 3.6}" text-anchor="middle" font-size="10" font-weight="800" fill="#fff" pointer-events="none">${k + 1}</text></g>`; }).join('');
+  const last = data[n - 1];
+  const svg = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:760px; display:block" role="img" aria-label="Net value over the tenure with the biggest moves marked">${grid}
+    <line x1="${padL}" x2="${W - padR}" y1="${Y(0)}" y2="${Y(0)}" stroke="var(--baseline)"/>
+    <polyline points="${pts}" fill="none" stroke="var(--s1)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" pathLength="1" style="stroke-dasharray:1; stroke-dashoffset:1; animation:folDraw 1s ease-out forwards"/>
+    <text x="${X(n - 1) + 8}" y="${Y(last) + 4}" font-size="12" font-weight="700" fill="var(--ink-2)">${fmtW(last)}</text>
+    <text x="${X(0)}" y="${H - 8}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${y0}</text><text x="${X(n - 1)}" y="${H - 8}" text-anchor="middle" font-size="10.5" fill="var(--muted)">${y0 + n - 1}</text>
+    ${pinSvg}</svg>`;
+  const legend = pins.length ? `<ol class="fol-pins" style="margin:8px 0 0; padding-left:20px; font-size:12.5px">${pins.map(x => `<li><span class="${x.war >= 0 ? 'pos' : 'neg'}" style="font-weight:700">${fmtW(x.war)}</span> · ${folMon(x.d)} · ${x.h}</li>`).join('')}</ol>` : '';
+  return svg + legend;
+}
+
+// ---- HOME: pick your team, or your team's front page ----
+function renderHome(){
+  const host = document.getElementById('homebody'); if(!host) return;
+  const ab = folTeam();
+  host.innerHTML = ab ? folTeamPage(ab) : folPicker();
+  folCountUp(host);
+}
+function folPicker(){
+  const rk = folActiveRank();
+  const tiles = Object.keys(DESK.teams || {}).sort((a, b) => (CLUB_NAME[a] || a).localeCompare(CLUB_NAME[b] || b)).map(a => {
+    const r = curRegOf(a);
+    const g = r && !r.isNew && r.forGrade != null ? `<span class="grade ${gradeClass(r.forGrade)}">${g2letter(r.forGrade)}</span>` : '';
+    return `<button type="button" class="team-tile" style="${folTC(a)}" onclick="folPickTeam('${a}')" aria-label="${CLUB_NAME[a] || a}"><span class="tt-ab">${a}</span><span class="tt-nm">${CLUB_NAME[a] || a}</span><span class="tt-gm">${r ? regName(r) : ''}</span>${g}</button>`;
+  }).join('');
+  const h = folHeistOfDay();
+  const top5 = rk.slice(0, 5).map((r, i) => `<div style="display:flex; gap:10px; align-items:center; margin-top:6px; font-size:14px"><strong style="width:18px">${i + 1}</strong><span class="grade ${gradeClass(r.forGrade)}">${g2letter(r.forGrade)}</span><a href="#" onclick="switchView('report','${r.id}'); return false">${regName(r)}</a><span class="ttype">${abOf(r)}</span></div>`).join('');
+  return `<div class="home-hero fol-rise"><div class="home-kick">Every front office move since 1998, graded</div>
+      <h2>Is your GM any good? Pick your team.</h2>
+      <p>Trades, draft picks and signings, scored against what a typical club got from the same move. Then play GM yourself.</p></div>
+    <div class="team-grid">${tiles}</div>
+    <div class="home-row">
+      <div class="card home-card fol-rise"><div class="home-kick">Heist of the day</div>${h ? folHeistCard(h, {compact: true}) : ''}<div style="margin-top:8px"><a href="#" onclick="switchView('heists'); return false">All the heists and disasters →</a></div></div>
+      <div class="card home-card fol-rise"><div class="home-kick">Play</div><h3>Who won the trade?</h3><p style="margin:4px 0 10px; color:var(--ink-2)">Five real deals a day. Pick the side that came out ahead; the Ledger shows you the receipts.</p><button class="actbtn primary" onclick="switchView('quiz')">Play today's five</button></div>
+      <div class="card home-card fol-rise"><div class="home-kick">Leaderboard</div><h3>The best front offices right now</h3>${top5}<div style="margin-top:10px"><a href="#" onclick="switchView('leaderboard'); return false">Full leaderboard →</a></div></div>
+    </div>`;
+}
+function folTeamPage(ab){
+  const r = curRegOf(ab), rk = folActiveRank(), i = r ? rk.indexOf(r) : -1;
+  const per = x => folNetOf(x) / Math.max(3, x.seatSeasons || x.seasons || 1);
+  const head = `<div class="team-band fol-rise" style="${folTC(ab)}"><div><div class="home-kick" style="color:inherit; opacity:.8">Your team</div><h2>${CLUB_NAME[ab] || ab}</h2>
+      <div class="tb-sub">${r ? `${regName(r)} · ${r.title || 'front office'} since ${r.start}` : ''}</div></div>
+      <button type="button" onclick="folTeamSet(''); renderHome()">Change team</button></div>`;
+  if(!r) return head;
+  const net = folNetOf(r), s = r.success || {};
+  const tiles = r.isNew ? `<div class="card" style="padding:14px 16px">A new front office: nothing to grade yet.</div>` : `<div class="home-tiles">
+      <div class="card tile"><div class="lbl">Your GM's grade</div><div class="val"><span class="stamp big ${r.forGrade >= 60 ? 'pos' : r.forGrade >= 45 ? 'mid' : 'neg'}">${g2letter(r.forGrade)}</span></div><div class="dlt">${i >= 0 ? `#${i + 1} of ${rk.length} active front offices` : ''}</div></div>
+      <div class="card tile"><div class="lbl">Wins vs. a typical front office</div><div class="val ${net >= 0 ? 'pos' : 'neg'}"><span data-count="${net.toFixed(1)}" data-dec="1" data-sign="1">${fmtW(net)}</span></div><div class="dlt">over ${pz(fmtSeas(r.seatSeasons || r.seasons), 'season', 'seasons')}, every channel</div></div>
+      <div class="card tile"><div class="lbl">On the field</div><div class="val"><span class="grade ${gradeClass(s.g || 50)} pop" style="font-size:26px; padding:4px 14px">${g2letter(s.g || 50)}</span></div><div class="dlt">${s.wpct || ''} W% · ${pz(s.po || 0, 'playoff trip', 'playoff trips')}${s.ws ? ` · ${pz(s.ws, 'title', 'titles')}` : ''}</div></div>
+      <div class="card tile"><div class="lbl">Decisions graded</div><div class="val"><span data-count="${r.decisions || 0}">${r.decisions || 0}</span></div><div class="dlt">trades, picks, signings, claims</div></div></div>`;
+  // your GM against the league: net wins per season in the chair, every active seat
+  const pts = rk.map(x => ({r: x, v: per(x)}));
+  const lo = Math.min(...pts.map(p => p.v)), hi = Math.max(...pts.map(p => p.v)), L = v => ((v - lo) / ((hi - lo) || 1) * 96 + 2).toFixed(1);
+  const me = pts.find(p => p.r === r);
+  const vs = r.isNew || !me ? '' : `<div class="card home-card"><div class="home-kick">Your GM vs. the league</div><h3>${regName(r)} ${me.v >= 0 ? 'beats' : 'trails'} a typical front office by ${Math.abs(me.v).toFixed(1)} wins a season</h3>
+      <div class="vsleague" style="${folTC(ab)}"><div class="axis"></div>${pts.map(p => `<div class="dot${p.r === r ? ' me' : ''}" style="left:${L(p.v)}%" title="${regName(p.r)} (${abOf(p.r)}): ${fmtW(p.v)} a season"></div>`).join('')}
+        <div class="lab" style="left:${L(me.v)}%; font-weight:700; color:var(--ink)">${abOf(r)}</div><div class="end" style="left:0">worst</div><div class="end" style="right:0">best</div></div>
+      <div class="ttype">Each dot is one of the ${pts.length} active front offices: net wins per season in the chair against what a typical club got from the same moves.</div></div>`;
+  const moves = folBigMoves(r), best = moves.filter(x => x.war > 0)[0], worst = moves.filter(x => x.war < 0)[0];
+  const mv = (x, lbl, cls) => x ? `<div class="card home-card"><div class="home-kick">${lbl}</div><div style="display:flex; gap:10px; align-items:center; margin:6px 0"><span class="stamp ${cls}">${fmtW(x.war)} WAR</span><span class="ttype">${folMon(x.d)} · ${x.t || ''}</span></div><div style="font-size:15px">${x.h}</div></div>` : '';
+  const hz = (() => { try { const d = hzClubData(ab), mx = Math.max(1, ...d.seasons.map(y => d.tot[y]));
+      return `<div class="card home-card"><div class="home-kick">The next five years</div><h3>${d.rk[0] <= 10 ? 'Built to win now' : d.rk[0] >= 21 ? 'A long way to go' : 'In the middle'}</h3>
+        <div class="mini-bars">${d.seasons.map((y, k) => `<div class="mb"><span>#${d.rk[k]}</span><div class="b" style="height:${Math.round(d.tot[y] / mx * 80) + 4}px; animation-delay:${k * 0.07}s"></div><span>${y}</span></div>`).join('')}</div>
+        <div class="ttype" style="margin-top:6px">Projected WAR already under control, roster plus farm, and its rank among the 30 clubs. <a href="#" onclick="folGo('horizon'); return false">Full outlook →</a></div></div>`; } catch(e){ return ''; } })();
+  const acts = `<div class="actions">
+      <button class="actbtn primary" onclick="folGo('gm')">Run ${teamNick(CLUB_NAME[ab] || ab)} winter</button>
+      <button class="actbtn" onclick="dkState.you='${ab}'; dkState.mode='trade'; folGo('desk')">Make a trade</button>
+      <button class="actbtn" onclick="bdState.tab='fa'; folGo('boards')">Free agents</button>
+      <button class="actbtn" onclick="bdState.tab='pros'; folGo('boards')">Prospects</button>
+      <button class="actbtn" onclick="switchView('report','${r.id}')">Full report card</button>
+      <button class="actbtn" onclick="heistState.club='${ab}'; heistState.dir='best'; switchView('heists')">${ab}'s best and worst trades</button></div>`;
+  const tl = folTimeline(r);
+  return head + acts + tiles
+    + `<div class="home-row">${vs}${hz}</div>`
+    + `<div class="home-row">${mv(best, 'Best move', 'pos')}${mv(worst, 'Worst move', 'neg')}</div>`
+    + (tl ? `<div class="card home-card"><div class="home-kick">The tenure, season by season</div><h3>Net value over time, with the biggest moves pinned</h3>${tl}</div>` : '');
+}
+function folGo(v){ folTeamDefaults._done = folTeamDefaults._done || {}; delete folTeamDefaults._done[v]; switchView(v); }
+
+// ---- HEISTS and disasters: every trade since 1998, most lopsided first ----
+var heistState = {kind: 'trades', era: 'all', club: '', dir: 'best', n: 20};
+function folTrades(){
+  if(folTrades._c) return folTrades._c;
+  const nm = pid => (TRADE_BOOK.names || {})[pid] || (typeof PLAYER_NAMES !== 'undefined' && PLAYER_NAMES[pid]) || 'a player';
+  const out = (TRADE_BOOK.trades || []).filter(t => t[1] && t[1].length >= 2).map(([d, sides]) => {
+    const S = sides.map(([ab, net, got, gave]) => ({ab, net, got: got.map(([pid, w]) => ({pid, nm: nm(pid), w})).sort((a, b) => b.w - a.w), gave}));
+    const win = S.slice().sort((a, b) => b.net - a.net)[0], lose = S.slice().sort((a, b) => a.net - b.net)[0];
+    return {d, S, win, lose, gap: win.net};
+  });
+  return folTrades._c = out;
+}
+function folStamp(v){ return v >= 15 ? 'Grand larceny' : v >= 10 ? 'Heist' : v >= 6 ? 'Lopsided' : v >= 2 ? 'Win' : 'Even'; }
+function folHeistCard(t, o){
+  o = o || {};
+  const side = s => { const rg = folRegAt(s.ab, t.d), mx = Math.max(3, ...t.S.flatMap(x => x.got.map(g => Math.abs(g.w))));
+    const rows = s.got.slice(0, o.compact ? 3 : 6).map(g => `<div class="wrow"><span>${g.nm}</span><span class="wb"><i class="${g.w < 0 ? 'n' : ''}" style="width:${Math.max(2, Math.abs(g.w) / mx * 100).toFixed(0)}%"></i></span><span class="wv ${g.w >= 0 ? 'pos' : 'neg'}">${fmtW(g.w)}</span></div>`).join('')
+      + (s.got.length > (o.compact ? 3 : 6) ? `<div class="ttype" style="margin-top:3px">+ ${s.got.length - (o.compact ? 3 : 6)} more</div>` : '');
+    return `<div class="h-side" style="${folTC(s.ab)}"><div class="hs-hd"><span>${CLUB_NAME[s.ab] || s.ab} got</span><span class="${s.net >= 0 ? 'pos' : 'neg'}">${fmtW(s.net)}</span></div>${rg ? `<div class="hs-ex">${regName(rg)}</div>` : ''}${rows || '<div class="ttype">nothing of value</div>'}</div>`; };
+  const star = t.win.got[0], who = star ? star.nm : 'the better end';
+  const head = `${teamNick(CLUB_NAME[t.win.ab] || t.win.ab)} got ${who} from the ${teamNick(CLUB_NAME[t.lose.ab] || t.lose.ab)}`;
+  const cls = t.gap >= 10 ? 'neg' : t.gap >= 6 ? 'mid' : 'pos';
+  return `<div class="${o.compact ? '' : 'card '}heist fol-rise"${o.compact ? ' style="padding:0; margin:6px 0 0"' : ''}>
+    <div class="h-top"><div><div class="h-date">${folMon(t.d)} · trade</div><div class="h-head">${head}</div></div><span class="stamp ${cls}">${folStamp(t.gap)} · ${fmtW(t.gap)}</span></div>
+    <div class="h-sides">${t.S.slice().sort((a, b) => b.net - a.net).map(side).join('')}</div>
+    ${o.compact ? '' : `<div class="h-foot"><span class="ttype">Ledger WAR each piece produced for the club that got him, over its control window; net of what each club gave up.</span></div>`}</div>`;
+}
+function folHeistOfDay(){
+  const xs = folTrades().filter(t => t.gap >= 8 && t.S.length === 2).sort((a, b) => b.gap - a.gap).slice(0, 150);
+  if(!xs.length) return null;
+  const day = Math.floor(Date.now() / 864e5);
+  return xs[(day * 37) % xs.length];
+}
+function folSignings(){
+  const out = [];
+  folAllRegimes().forEach(r => { const L = r.ledgers || {}; [...(L.losses || []), ...(L.bestAcq || [])].forEach(x => { if(x && /^Free agency/.test(x.t || '')) out.push({x, r}); }); });
+  const seen = new Set(); return out.filter(o => { const k = o.x.d + o.x.h; if(seen.has(k)) return false; seen.add(k); return true; });
+}
+function renderHeists(){
+  const host = document.getElementById('heistbody'); if(!host) return;
+  const st = heistState, clubs = Object.keys(DESK.teams || {}).sort();
+  const ctl = `<div class="filters" style="margin:12px 0">
+      <span class="fgrp"><label for="hs-kind">show</label><select id="hs-kind" onchange="heistState.kind=this.value; heistState.n=20; renderHeists()"><option value="trades"${st.kind === 'trades' ? ' selected' : ''}>Trades</option><option value="fa"${st.kind === 'fa' ? ' selected' : ''}>Free-agent signings</option></select></span>
+      <span class="fgrp"><label for="hs-era">since</label><select id="hs-era" onchange="heistState.era=this.value; heistState.n=20; renderHeists()">${[['all', '1998'], ['2010', '2010'], ['2020', '2020']].map(([k, l]) => `<option value="${k}"${st.era === k ? ' selected' : ''}>${l}</option>`).join('')}</select></span>
+      <span class="fgrp"><label for="hs-club">club</label><select id="hs-club" onchange="heistState.club=this.value; heistState.n=20; renderHeists()"><option value="">all 30</option>${clubs.map(a => `<option value="${a}"${st.club === a ? ' selected' : ''}>${a} · ${CLUB_NAME[a] || a}</option>`).join('')}</select></span>
+      ${st.club ? `<span class="fgrp"><label for="hs-dir">their</label><select id="hs-dir" onchange="heistState.dir=this.value; heistState.n=20; renderHeists()"><option value="best"${st.dir === 'best' ? ' selected' : ''}>best (heists)</option><option value="worst"${st.dir === 'worst' ? ' selected' : ''}>worst (disasters)</option></select></span>` : ''}</div>`;
+  let body = '';
+  const y0 = st.era === 'all' ? '0' : st.era;
+  if(st.kind === 'trades'){
+    let xs = folTrades().filter(t => t.d.slice(0, 4) >= y0);
+    if(st.club){ xs = xs.filter(t => t.S.some(s => s.ab === st.club)); const v = t => t.S.find(s => s.ab === st.club).net; xs.sort((a, b) => st.dir === 'worst' ? v(a) - v(b) : v(b) - v(a)); }
+    else xs.sort((a, b) => b.gap - a.gap);
+    body = xs.slice(0, st.n).map(t => folHeistCard(t)).join('') + (xs.length > st.n ? `<button class="actbtn" style="margin:8px 0" onclick="heistState.n+=20; renderHeists()">Show 20 more</button>` : '');
+  } else {
+    let xs = folSignings().filter(o => o.x.d.slice(0, 4) >= y0 && (!st.club || abOf(o.r) === st.club));
+    xs.sort((a, b) => st.dir === 'best' && st.club ? b.x.war - a.x.war : a.x.war - b.x.war);
+    body = `<div class="ttype" style="margin-bottom:6px">Each front office's biggest free-agent wins and losses: what the player produced on the deal against what a typical club gets for that money.</div>`
+      + xs.slice(0, st.n).map(({x, r}) => `<div class="card heist fol-rise" style="${folTC(abOf(r))}; border-left:5px solid var(--tc)"><div class="h-top"><div><div class="h-date">${folMon(x.d)} · ${abOf(r)} · ${regName(r)}</div><div class="h-head">${x.h}</div></div><span class="stamp ${x.war >= 0 ? 'pos' : 'neg'}">${x.war <= -6 ? 'Disaster' : x.war < 0 ? 'Overpay' : 'Bargain'} · ${fmtW(x.war)}</span></div>
+          <div class="h-sides">${(x.sides || []).map(([dir, assets]) => `<div class="h-side" style="border-top-color:var(--rule)"><div class="hs-hd"><span>${dir}</span></div>${assets.map(([nm, w]) => `<div class="wrow"><span>${nm}</span><span></span><span class="wv ${String(w).startsWith('-') ? 'neg' : 'pos'}">${w}</span></div>`).join('')}</div>`).join('')}</div></div>`).join('')
+      + (xs.length > st.n ? `<button class="actbtn" style="margin:8px 0" onclick="heistState.n+=20; renderHeists()">Show 20 more</button>` : '');
+  }
+  host.innerHTML = ctl + body;
+}
+
+// ---- WHO WON THE TRADE? ----
+var quizState = null;
+function folQuizPool(){
+  if(folQuizPool._c) return folQuizPool._c;
+  return folQuizPool._c = folTrades().filter(t => t.S.length === 2 && t.gap >= 4 && t.d.slice(0, 4) <= '2023' && t.S.every(s => s.got.length >= 1 && s.got.length <= 5) && t.S.some(s => s.got.some(g => Math.abs(g.w) >= 4)));
+}
+function folRng(seed){ let s = seed % 2147483647; if(s <= 0) s += 2147483646; return () => (s = s * 16807 % 2147483647) / 2147483647; }
+function folQuizStart(mode){
+  const pool = folQuizPool(), day = Math.floor(Date.now() / 864e5);
+  const rnd = mode === 'daily' ? folRng(day * 7919 + 13) : Math.random;
+  const pick = new Set(); while(pick.size < Math.min(5, pool.length)) pick.add(Math.floor(rnd() * pool.length));
+  quizState = {mode, day, qs: [...pick].map(i => pool[i]), i: 0, ans: [], flip: [...pick].map(() => rnd() < 0.5)};
+  renderQuiz();
+}
+function folQuizStore(k, v){ try { if(v === undefined) return JSON.parse(localStorage.getItem('fol-quiz-' + k) || 'null'); localStorage.setItem('fol-quiz-' + k, JSON.stringify(v)); } catch(e){ return null; } }
+function folQuizPick(side){
+  const q = quizState; if(!q || q.ans.length > q.i) return;
+  const t = q.qs[q.i], sides = q.flip[q.i] ? [t.S[1], t.S[0]] : t.S, chosen = sides[side], right = chosen.net >= t.win.net - 1e-9;
+  q.ans.push(right);
+  let streak = folQuizStore('streak') || 0, best = folQuizStore('best') || 0;
+  streak = right ? streak + 1 : 0; best = Math.max(best, streak);
+  folQuizStore('streak', streak); folQuizStore('best', best);
+  if(q.mode === 'daily' && q.ans.length === q.qs.length) folQuizStore('day-' + q.day, q.ans);
+  renderQuiz();
+}
+function folQuizNext(){ const q = quizState; if(!q) return; if(q.i < q.qs.length - 1){ q.i++; renderQuiz(); } else { q.done = true; renderQuiz(); } }
+function folQuizShareText(){
+  const q = quizState; if(!q) return '';
+  return `Front Office Ledger · Who won the trade? ${q.ans.filter(Boolean).length}/${q.ans.length}\n${q.ans.map(a => a ? '🟩' : '🟥').join('')}\nfrontofficeledger.com/#view=quiz`;
+}
+function folQuizCopy(){
+  const t = folQuizShareText();
+  try { navigator.clipboard.writeText(t).then(() => folToast('Copied: paste it anywhere'), () => folToast(t)); } catch(e){ folToast(t); }
+}
+function renderQuiz(){
+  const host = document.getElementById('quizbody'); if(!host) return;
+  if(!quizState){ const done = folQuizStore('day-' + Math.floor(Date.now() / 864e5)); folQuizStart('daily'); if(done){ quizState.ans = done; quizState.i = quizState.qs.length - 1; quizState.done = true; } return renderQuiz(); }
+  const q = quizState, streak = folQuizStore('streak') || 0, best = folQuizStore('best') || 0;
+  const dots = `<div class="quiz-dots">${q.qs.map((_, k) => `<span class="${k < q.ans.length ? (q.ans[k] ? 'y' : 'n') : k === q.i ? 'c' : ''}"></span>`).join('')}</div>`;
+  const score = `<div class="quiz-score"><div><div class="qs">${q.ans.filter(Boolean).length}/${q.qs.length}</div><div class="ql">${q.mode === 'daily' ? "today's five" : 'this round'}</div></div><div><div class="qs">${streak}</div><div class="ql">streak</div></div><div><div class="qs">${best}</div><div class="ql">best streak</div></div>${dots}</div>`;
+  if(q.done){
+    const n = q.ans.filter(Boolean).length;
+    host.innerHTML = score + `<div class="card quiz-card fol-rise"><div class="home-kick">${q.mode === 'daily' ? "Today's five" : 'Round over'}</div>
+      <div class="quiz-q">${n === 5 ? 'Perfect. You could run a front office.' : n >= 4 ? 'Sharp eye. Most front offices would take that.' : n >= 3 ? 'Better than a coin flip.' : n >= 2 ? 'The scouts have notes.' : 'Bold choices. History disagrees.'}</div>
+      <div style="font-size:24px; letter-spacing:4px">${q.ans.map(a => a ? '🟩' : '🟥').join('')}</div>
+      <div class="actions"><button class="actbtn primary" onclick="folQuizCopy()">Copy my result</button><button class="actbtn" onclick="folQuizStart('free')">Play five more</button><button class="actbtn" onclick="switchView('heists')">See the biggest heists</button></div>
+      ${q.mode === 'daily' ? '<div class="ttype">A new five every day.</div>' : ''}</div>`;
+    return;
+  }
+  const t = q.qs[q.i], sides = q.flip[q.i] ? [t.S[1], t.S[0]] : t.S, answered = q.ans.length > q.i;
+  const mx = Math.max(3, ...t.S.flatMap(s => s.got.map(g => Math.abs(g.w))));
+  const pickBtn = (s, k) => {
+    const rg = folRegAt(s.ab, t.d), isWin = s.net >= t.win.net - 1e-9;
+    const cls = answered ? (isWin ? ' right' : (q.ans[q.i] ? '' : ' wrong')) : '';
+    return `<button class="quiz-pick${cls}" style="${folTC(s.ab)}" ${answered ? 'disabled' : `onclick="folQuizPick(${k})"`}>
+      <div class="qp-ab">${s.ab}</div><div style="font-size:13px; color:var(--ink-2)">${CLUB_NAME[s.ab] || s.ab}${rg ? ` · ${regName(rg)}` : ''}</div>
+      <div class="qp-got">got</div>${s.got.map(g => answered ? `<div class="wrow"><span>${g.nm}</span><span class="wb"><i class="${g.w < 0 ? 'n' : ''}" style="width:${Math.max(2, Math.abs(g.w) / mx * 100).toFixed(0)}%"></i></span><span class="wv ${g.w >= 0 ? 'pos' : 'neg'}">${fmtW(g.w)}</span></div>` : `<div style="font-weight:600">${g.nm}</div>`).join('')}
+      ${answered ? `<div style="margin-top:8px; font-weight:700" class="${s.net >= 0 ? 'pos' : 'neg'}">${fmtW(s.net)} WAR net</div>` : ''}</button>`;
+  };
+  host.innerHTML = score + `<div class="card quiz-card fol-rise">
+    <div class="home-kick">Deal ${q.i + 1} of ${q.qs.length} · ${folMon(t.d)}</div>
+    <div class="quiz-q">${answered ? (q.ans[q.i] ? 'Right.' : 'Not this time.') + ` <span class="stamp ${t.gap >= 10 ? 'neg' : t.gap >= 6 ? 'mid' : 'pos'}" style="font-size:12px; vertical-align:middle">${folStamp(t.gap)}</span>` : 'Who won this trade?'}</div>
+    <div class="quiz-sides">${sides.map(pickBtn).join('')}</div>
+    ${answered ? `<div class="ttype" style="margin-top:10px">Ledger WAR each player produced for the club that got him over his control window. ${teamNick(CLUB_NAME[t.win.ab] || t.win.ab)} came out ${fmtW(t.gap)} wins ahead.</div>
+      <div class="actions"><button class="actbtn primary" onclick="folQuizNext()">${q.i < q.qs.length - 1 ? 'Next deal' : 'See my score'}</button></div>` : `<div class="ttype" style="margin-top:10px">Value counts what each player did for the club that got him, through his years of control.</div>`}
+  </div>`;
+}
+
+// ---- Deal Desk: not interested, make it fair, suggested trade, the popup verdict ----
+function dkExcl(){ return dkState.excl || (dkState.excl = new Set()); }
+function dkNix(side, i){
+  const pc = dkState[side][i]; if(!pc) return;
+  if(pc.p) dkExcl().add(pc.p[1]);
+  dkState[side].splice(i, 1);
+  if(dkState.you && dkState.them){ dkAgm(); folToast(`${pc.p ? pc.p[0] : 'That piece'} is off the table; renegotiated`); }
+  else renderDesk();
+}
+function dkUnnix(){ dkExcl().clear(); renderDesk(); }
+function dkExclLine(){
+  const xs = [...dkExcl()].map(pid => ((DESK.players || []).find(p => p[1] === pid) || [])[0]).filter(Boolean);
+  return xs.length ? `<div class="ttype" style="margin-top:8px">Not interested: ${xs.join(', ')} · <a href="#" onclick="dkUnnix(); return false">bring them back</a></div>` : '';
+}
+// a starting point: the best available player on any club who fills your weakest spot, balanced by the assistant GM
+function dkIdea(){
+  const you = dkState.you; if(!you) return;
+  const weak = clubWeakSlots(you), ex = dkExcl();
+  let best = null;
+  Object.keys(DESK.teams || {}).filter(a => a !== you).forEach(a => {
+    const f0 = dkState.f; dkState.f = {q: '', pos: '', view: 'mlb', sort: 'proj'};
+    const ps = dkClubPlayers(a).mlb; dkState.f = f0;
+    ps.forEach(p => {
+      if(ex.has(p[1])) return;
+      const pc = {kind: 'player', p, ctrl: gmCtrlOf(p)}, ask = dkPieceAsk(pc, a);
+      if(!isFinite(ask) || ask <= 0.3 || gmFranchise(p) || ask > 6) return;
+      const fit = weak.some(pos => gmNaturalFit(pos, p)), sell = gmClubPosture(a) === 'rebuilding' ? 1 : gmClubPosture(a) === 'middle' ? 0.4 : 0;
+      const sc = gmProj27(p) + (fit ? 2 : 0) + sell + Math.random() * 0.6;
+      if(!best || sc > best.sc) best = {a, pc, sc};
+    });
+  });
+  if(!best){ folToast('No obvious target right now'); return; }
+  dkState.mode = 'trade'; dkState.them = best.a; dkState.recv = [best.pc]; dkState.send = [];
+  dkAgm();
+}
+function dkPopClose(){
+  const h = document.getElementById('dk-out'); if(!h) return;
+  h.classList.remove('dk-pop'); h.dataset.closed = '1'; document.body.classList.remove('dk-lock');
+}
+function dkPopOpen(){
+  const h = document.getElementById('dk-out'); if(!h || !h.innerHTML.trim()) return;
+  h.classList.add('dk-pop'); h.dataset.closed = ''; document.body.classList.add('dk-lock');
+  const box = h.querySelector('.dk-pop-in'); if(box){ box.scrollTop = 0; setTimeout(() => { const x = h.querySelector('.dk-pop-x'); if(x) x.focus(); }, 30); }
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape'){ const h = document.getElementById('dk-out'); if(h && h.classList.contains('dk-pop')) dkPopClose(); } });
+// the bar on top of the popup: every piece with remove and not-interested, make it fair, close
+function dkPopBar(){
+  const chip = (pc, side, i) => `<span class="dk-pc">${pc.p ? pc.p[0] : pc.kind === 'pick' ? `pick #${pc.pick}` : 'prospect'}
+      <button type="button" title="Remove from the deal" aria-label="Remove ${pc.p ? pc.p[0] : 'this piece'}" onclick="dkRemove('${side}',${i}); dkEval()">×</button>
+      ${pc.p ? `<button type="button" title="Not interested: take him out and renegotiate without him" aria-label="Not interested in ${pc.p[0]}" onclick="dkNix('${side}',${i})">🚫</button>` : ''}</span>`;
+  return `<div class="dk-pop-bar">
+      <div class="dk-pop-top"><strong>Deal verdict</strong><button type="button" class="dk-pop-x" aria-label="Close the verdict" onclick="dkPopClose()">✕</button></div>
+      <div class="dk-pop-pcs"><span class="ttype">${dkState.you} gets</span>${dkState.recv.map((pc, i) => chip(pc, 'recv', i)).join('') || '<span class="ttype">nothing</span>'}
+        <span class="ttype" style="margin-left:6px">${dkState.them} gets</span>${dkState.send.map((pc, i) => chip(pc, 'send', i)).join('') || '<span class="ttype">nothing</span>'}</div>
+      <div class="dk-pop-acts"><button type="button" class="dk-fair" onclick="dkAgm()">Make it fair</button><span class="ttype">🚫 = not interested: he comes off the table and the deal is renegotiated without him</span></div>
+      ${dkExclLine()}</div>`;
+}
+// the meter and badges at the top of the trade sheet
+function dkMeter(you, them, netYou, netThem, call, blocked){
+  const sc = netYou - netThem, pos = 50 + 46 * Math.tanh(sc / 3);
+  const cy = (CLUB_COL[you] || ['#1e6b47'])[0], ct = (CLUB_COL[them] || ['#a32c20'])[0];
+  const badge = blocked ? ['No deal', 'var(--bad)'] : /^Yes/.test(call[0]) ? ['Deal', 'var(--good)'] : /^Only if/.test(call[0]) ? ['Overpay', 'var(--s4)'] : /^Not as built/.test(call[0]) ? ['Not yet', 'var(--s4)'] : ['No deal', 'var(--bad)'];
+  return `<div class="dk-meter"><div class="mt-labels"><span>${teamNick(CLUB_NAME[them] || them)} win it</span><span>Even</span><span>${teamNick(CLUB_NAME[you] || you)} win it</span></div>
+      <div class="mt-track" style="--tl:${ct}; --tr:${cy}"><div class="mt-mid"></div><div class="mt-needle" style="left:${pos.toFixed(1)}%"></div></div>
+      <div class="dk-badges"><span class="dk-badge" style="background:${badge[1]}">${badge[0]}</span><span style="font-size:13px">${call[0]}</span>${blocked ? '' : `<button type="button" class="dk-fair" onclick="dkAgm()" style="margin-left:auto">Make it fair</button>`}</div></div>`;
+}
+
+// ---- simulator: scoreboard, next decision, share my winter ----
+function gmScore(){
+  const host = document.getElementById('gm-score'); if(!host || !gmState.club) { if(host) host.innerHTML = ''; return; }
+  const w = gmWins(), base = gmBaselineWins(), pay = gmPayroll(), prev = gmScore._w;
+  const n = (gmState.moves || []).filter(m => m.kind !== 'info').length;
+  host.innerHTML = `<div style="${folTC(gmState.club)}; display:flex; gap:10px; align-items:center"><span class="mb-team" style="font:800 13px var(--f-mono); background:var(--tc); color:var(--tt); padding:4px 7px; border-radius:5px">${gmState.club}</span>
+      <div><div class="lbl">Projected 2027</div><div class="rec ${prev == null || prev === w ? '' : w > prev ? 'up' : 'dn'}">${w}-${162 - w}</div></div></div>
+    <div><div class="lbl">vs standing pat</div><div class="dl ${w - base >= 0 ? 'pos' : 'neg'}" style="font-size:18px">${w - base >= 0 ? '+' : ''}${w - base}</div></div>
+    <div><div class="lbl">Payroll</div><div class="dl ${pay > 244 ? 'neg' : ''}" style="font-size:18px">$${Math.round(pay)}M</div></div>
+    <div><div class="lbl">Moves</div><div class="dl" style="font-size:18px">${n}</div></div>
+    ${gmState.stage === GM_STAGES.length - 1 ? `<button class="actbtn primary" style="margin-left:auto" onclick="gmShareWinter()">Share my winter</button>` : ''}`;
+  gmScore._w = w;
+}
+function gmReviewed(){ return gmState.rev || (gmState.rev = new Set()); }
+function gmNextCard(){
+  const ab = gmState.club; if(!ab) return '';
+  const rev = gmReviewed(), card = (q, sub, btns) => `<div class="card gm-next fol-rise"><div class="home-kick">Up next</div><div class="nx-q">${q}</div>${sub ? `<div class="ttype">${sub}</div>` : ''}<div class="actions">${btns}</div></div>`;
+  if(gmState.stage === 0){
+    const arb = (DESK.players || []).filter(p => p[2] === ab && gmControlled(p) && !gmState.outs.has(p[1]) && !rev.has(p[1]) && (hzBookEnd()[p[1]] || 0) < 2027 && (gmArbNo(p, 2027) || 0) > 0 && Math.abs(p[5]) + Math.abs(p[6]) + Math.abs(p[7]) >= 0.6)
+      .map(p => ({p, sal: gmArbSal(p, 2027), war: gmProj27(p)})).filter(x => gmNonTenderCall(x.sal, x.war)).sort((a, b) => b.sal - a.sal);
+    if(arb.length){ const x = arb[0];
+      return card(`Keep ${x.p[0]} at about $${x.sal.toFixed(1)}M?`, `${x.p[13] || x.p[12]}, ${x.p[4] + 1} in 2027 · projects ${fmtW(x.war)} · the assistant GM says that money plays better on the open market`,
+        `<button class="actbtn" onclick="gmNonTender(${x.p[1]})">Non-tender him</button><button class="actbtn" onclick="gmReviewed().add(${x.p[1]}); gmShow()">Keep him</button><span class="ttype">${pz(arb.length - 1, 'more call', 'more calls')} after this</span>`); }
+    return card('Contract decisions are done.', 'Next: your own free agents get an exclusive window before the market opens.', `<button class="actbtn primary" onclick="gmAdvance()">Go to the exclusive window</button>`);
+  }
+  if(gmState.stage === 1){
+    const taken = new Set(gmState.ins.map(m => m.pid));
+    const fa = (DESK.players || []).filter(p => p[2] === ab && gmIsFA(p) && !taken.has(p[1]) && !rev.has(p[1])).sort((a, b) => gmProj27(b) - gmProj27(a));
+    if(fa.length){ const p = fa[0], sg = GM_SG[p[1]] || (GM_SG[p[1]] = dkSuggest(p, 'fa', null));
+      return card(`Bring back ${p[0]}?`, `${p[13] || p[12]}, ${p[4] + 1} in 2027 · projects ${fmtW(gmProj27(p))} · market about ${sg.sugYrs} yr / $${sg.sugTot}M`,
+        `<button class="actbtn primary" onclick="gmReviewed().add(${p[1]}); gmShow(); setTimeout(() => { const e = [...document.querySelectorAll('#gmbody strong')].find(x => x.textContent === ${JSON.stringify(p[0])}); if(e) e.scrollIntoView({behavior:'smooth', block:'center'}); }, 50)">Negotiate</button><button class="actbtn" onclick="gmReviewed().add(${p[1]}); gmShow()">Let him walk</button>`); }
+    return card('Your free agents are settled.', 'Next: the open market and the trade board.', `<button class="actbtn primary" onclick="gmAdvance()">Open the market</button>`);
+  }
+  if(gmState.stage === 2){
+    const weak = clubWeakSlots(ab), taken = new Set(gmState.ins.map(m => m.pid));
+    const fa = (DESK.players || []).filter(p => gmIsFA(p) && p[2] !== ab && !taken.has(p[1]) && !rev.has(p[1]) && weak.some(pos => gmNaturalFit(pos, p))).sort((a, b) => gmProj27(b) - gmProj27(a));
+    if(fa.length){ const p = fa[0], pos = weak.find(x => gmNaturalFit(x, p));
+      return card(`Your biggest need is ${pos}. Go after ${p[0]}?`, `${p[13] || p[12]}, ${p[4] + 1} in 2027 · projects ${fmtW(gmProj27(p))}`,
+        `<button class="actbtn primary" onclick="gmReviewed().add(${p[1]}); gmState.open = gmState.open || {}; gmState.open.tab = 'fa'; try { gmFaPick(${p[1]}); } catch(e){ gmShow(); }">See his terms</button><button class="actbtn" onclick="gmReviewed().add(${p[1]}); gmShow()">Someone else</button>`); }
+  }
+  return '';
+}
+function gmShareWinter(){
+  const ab = gmState.club, w = gmWins(), base = gmBaselineWins(), pay = gmPayroll();
+  const real = (gmState.moves || []).filter(m => m.kind !== 'info');
+  const rows = real.map(m => `<div style="font-size:16px; margin:6px 0">${gmGradeChip(m)} <strong>${m.label}</strong> <span class="ff-m">${String(m.detail || '').replace(/<[^>]*>/g, '').slice(0, 110)}</span></div>`).join('') || '<div>Stood pat.</div>';
+  folSave(`My ${CLUB_NAME[ab] || ab} winter`, `Projected 2027: ${w}-${162 - w} (${w - base >= 0 ? '+' : ''}${w - base} vs standing pat) · payroll ~$${Math.round(pay)}M · ${pz(real.length, 'move', 'moves')}`,
+    `<div style="font-size:15px">${rows}</div>`, `${folSlug(ab)}-winter`);
+}
+
+// ---- phones: the bottom bar ----
+function folMobar(){
+  let bar = document.getElementById('mobar');
+  if(!bar){ bar = document.createElement('div'); bar.id = 'mobar'; bar.className = 'mobar'; bar.setAttribute('role', 'navigation'); bar.setAttribute('aria-label', 'Quick navigation'); document.body.appendChild(bar); }
+  const ab = folTeam(), v = typeof routeView === 'function' ? routeView() : '';
+  const b = (view, ic, lbl, extra) => `<button type="button" class="${v === view ? 'on' : ''}" onclick="${extra || ''}switchView('${view}')"><span class="mb-ic">${ic}</span>${lbl}</button>`;
+  bar.innerHTML = `<button type="button" class="${v === 'home' ? 'on' : ''}" onclick="switchView('home')" style="${ab ? folTC(ab) : ''}"><span class="mb-team">${ab || '⚾'}</span>${ab ? 'Team' : 'Home'}</button>`
+    + b('heists', '💰', 'Heists') + b('quiz', '❓', 'Quiz') + b('desk', '🤝', 'Trade') + b('gm', '🗓️', 'Sim');
+}
+
+// pins for the report card's own cumulative chart (drawn on top of its hover layer)
+function folPinMarks(r, X, Y, data){
+  const y0 = +r.start, n = data.length, used = {};
+  return folBigMoves(r).filter(x => +x.d.slice(0, 4) >= y0 - 1).slice(0, 6).map((x, k) => {
+    const i = Math.max(0, Math.min(n - 1, +x.d.slice(0, 4) + (+x.d.slice(5, 7) >= 7 ? 1 : 0) - y0)), c = x.war >= 0 ? 'var(--good)' : 'var(--bad)';
+    const u = used[i] = (used[i] || 0) + 1, cx = X(i) + (u > 1 ? (u % 2 ? 1 : -1) * 12 * Math.ceil((u - 1) / 2) : 0), cy = Y(data[i]);
+    return `<g class="fol-anim" style="animation:folPop .35s ${0.15 + k * 0.08}s both; cursor:help"><circle cx="${cx}" cy="${cy}" r="8.5" fill="${c}" stroke="var(--surface)" stroke-width="2"><title>${String(x.h).replace(/</g, '&lt;')} (${fmtW(x.war)})</title></circle><text x="${cx}" y="${cy + 3.5}" text-anchor="middle" font-size="9.5" font-weight="800" fill="#fff" pointer-events="none">${k + 1}</text></g>`;
+  }).join('');
+}
+function folPinLegend(r){
+  const pins = folBigMoves(r).filter(x => +x.d.slice(0, 4) >= +r.start - 1).slice(0, 6);
+  return pins.length ? `<div class="ttype" style="margin-top:8px; font-weight:700">The biggest moves on the line</div><ol class="fol-pins" style="margin:4px 0 0; padding-left:20px; font-size:12px">${pins.map(x => `<li><span class="${x.war >= 0 ? 'pos' : 'neg'}" style="font-weight:700">${fmtW(x.war)}</span> · ${folMon(x.d)} · ${x.h}</li>`).join('')}</ol>` : '';
+}
+setTimeout(() => { try { if(typeof routeView === 'function' && routeView() === 'home') renderHome(); folMobar(); } catch(e){ console.warn('home', e); } }, 0);
+
 /* ---- UI pass (Nov 2026): shareable URLs, accessible names, stale Desk verdicts ---- */
 // every view and its selection is in the hash (#view=cards&id=nyy); back and forward work
-const ROUTE_NAMES = {leaderboard:'leaderboard', report:'cards', trees:'trees', champs:'champions', dna:'dna', h2h:'h2h', horizon:'horizon', boards:'boards', gm:'simulator', desk:'desk', scen:'scenarios', method:'method'};
+const ROUTE_NAMES = {home:'home', heists:'heists', quiz:'quiz', leaderboard:'leaderboard', report:'cards', trees:'trees', champs:'champions', dna:'dna', h2h:'h2h', horizon:'horizon', boards:'boards', gm:'simulator', desk:'desk', scen:'scenarios', method:'method'};
 const ROUTE_BACK = Object.fromEntries(Object.entries(ROUTE_NAMES).map(([k, v]) => [v, k]));
 let ROUTE_MUTE = 1, ROUTE_LAST = null;
-function routeView(){ return Object.keys(ROUTE_NAMES).find(k => { const el = document.getElementById('view-' + k); return el && !el.hidden; }) || 'leaderboard'; }
+function routeView(){ return Object.keys(ROUTE_NAMES).find(k => { const el = document.getElementById('view-' + k); return el && !el.hidden; }) || 'home'; }
 function routeState(){
   const v = routeView(), q = {view: ROUTE_NAMES[v]};
   const val = id => (document.getElementById(id) || {}).value || '';
@@ -12664,6 +13289,7 @@ function routeState(){
   else if(v === 'boards') q.id = bdState.tab;
   else if(v === 'gm'){ if(gmState.club) q.id = gmState.club.toLowerCase(); }
   else if(v === 'desk') q.id = dkState.mode;
+  else if(v === 'heists'){ if(heistState.club) q.id = heistState.club.toLowerCase(); }
   else if(v === 'leaderboard'){ if(val('erasel') && val('erasel') !== 'active') q.era = val('erasel'); if(val('sortsel') && val('sortsel') !== 'for') q.sort = val('sortsel'); }
   return q;
 }
@@ -12684,7 +13310,7 @@ function routeWrite(){
 function routeCount(){ try { const q = routeState(); folCount('/' + q.view + (q.id ? '/' + q.id : '')); } catch(e){} }
 function routeApply(h){
   const q = routeParse(h);
-  const v = ROUTE_BACK[q.view] || (ROUTE_NAMES[q.view] ? q.view : 'leaderboard');
+  const v = ROUTE_BACK[q.view] || (ROUTE_NAMES[q.view] ? q.view : 'home');
   const id = q.id || '';
   const setSel = (sid, val) => { const el = document.getElementById(sid); if(el && val && [...el.options].some(o => o.value === val)){ el.value = val; return true; } return false; };
   ROUTE_MUTE++;
@@ -12698,6 +13324,7 @@ function routeApply(h){
     else if(v === 'boards'){ if(['fa', 'pros', 'farm'].includes(id)) bdState.tab = id === 'farm' ? 'pros' : id; switchView('boards'); }
     else if(v === 'gm'){ switchView('gm'); if(id && gmState.club !== id.toUpperCase() && setSel('gm-club', id.toUpperCase())) gmClubChange(); }
     else if(v === 'desk'){ if(['trade', 'walk', 'avail', 'fa', 'ext', 'draft'].includes(id)) dkState.mode = id; switchView('desk'); }
+    else if(v === 'heists'){ if(q.id && (CLUB_NAME || {})[q.id.toUpperCase()]) heistState.club = q.id.toUpperCase(); switchView('heists'); }
     else if(v === 'leaderboard'){ setSel('erasel', q.era || 'active'); setSel('sortsel', q.sort || 'for'); switchView('leaderboard'); renderLB(); }
     else switchView(v);
   } finally { ROUTE_MUTE--; }
@@ -12705,7 +13332,7 @@ function routeApply(h){
   try { history.replaceState(null, '', '#' + ROUTE_LAST); } catch(e){}
   routeCount();
 }
-['switchView', 'renderReport', 'renderChamp', 'scShow', 'renderH2h', 'renderHorizon', 'renderTrees', 'renderBoards', 'renderLB', 'gmShow', 'renderDesk'].forEach(fn => {
+['switchView', 'renderReport', 'renderChamp', 'scShow', 'renderH2h', 'renderHorizon', 'renderTrees', 'renderBoards', 'renderLB', 'gmShow', 'renderDesk', 'renderHeists'].forEach(fn => {
   const orig = window[fn]; if(typeof orig !== 'function') return;
   window[fn] = function(){ const r = orig.apply(this, arguments); routeWrite(); return r; };
 });
