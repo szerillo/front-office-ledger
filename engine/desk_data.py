@@ -363,6 +363,25 @@ for p in players:
         _last = _pt(rec, 2026, role)
         if _last >= 0.6 * _CAP[role]:
             pt_exp = min(max(pt_exp, 0.85 * _last), _CAP[role])
+    # Nov 9 (pt_war_bt2.py, pt_war_bt3.py, pt_pit_bt.py; hitters and starters
+    # 27 and older in 2027, walk-forward 2016-26): the formula above still ran
+    # high for established players. Hitters coming off 300+ PA got 7-25% less
+    # than it said, more when older and when they had hit poorly (under 1
+    # WAR per 600, 75% of the estimate; stars 91%); full-timers came in 100
+    # PA under, part-timers 130 over. Starters the same shape (+30 IP for
+    # full-time 27+). Two steps, both only for 27+: regress expected playing
+    # time 15% toward half a season, then cut it for weak recent performance,
+    # never raise it. Hitters: WAR RMSE 1.661 -> 1.637 (1.632 with the
+    # steeper aging decline), 31-34 bias +0.43 -> +0.18. Starters: 1.379 ->
+    # 1.359 at 27+, full-time bias +0.34 -> +0.13. Relievers: no gain, unchanged.
+    if p[4] >= 26 and role in ("bat", "SP"):
+        _mid = 350.0 if role == "bat" else 0.5 * _CAP[role]
+        _pe0 = pt_exp
+        pt_exp = 0.85 * pt_exp + 0.15 * _mid
+        _full = rate * _CAP[role]            # WAR per full season at the regressed rate
+        _m, _c, _lo, _thr = (3.5, 0.12, 0.7, 300.0) if role == "bat" else (3.0, 0.10, 0.75, 0.45 * _CAP[role])
+        if _pe0 >= _thr:
+            pt_exp *= max(_lo, min(1.0, 1 + _c * (_full - _m)))
     missed = debut <= 2025 and _pt(rec, 2025, role) == 0 and _pt(rec, 2026, role) == 0
     if missed: p.append(0.0); p.append(1); continue
     p.append(round(rate * pt_exp, 2)); p.append(0)

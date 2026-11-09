@@ -68,6 +68,17 @@ def build_curve(pit):
             curve[age] = sum(pool) / len(pool)
     return curve
 CURVE = {"bat": build_curve(False), "pit": build_curve(True)}
+# Nov 9 (aging_bt.py, combo_bt.py, final_bt.py): the delta method only sees
+# players who came back the next year, so the decline side is too gentle
+# (the survivor bias the FanGraphs community joint-model piece describes).
+# Walk-forward 2016-26 the curve over-projected 30-32 by +0.05 WAR and 33+
+# by +0.12 (hitters 31-34 by +0.43 with expected playing time). Steepening
+# the decline side (ages 27+, negative steps) by 1.5x removes the bias with
+# no loss of accuracy (rate-only RMSE 1.1167 -> 1.1169, expected-PT 1.3886
+# -> 1.3802); the growth side is unchanged.
+DECLINE = 1.5
+for _k in CURVE:
+    CURVE[_k] = {a: (v * DECLINE if (a >= 27 and v < 0) else v) for a, v in CURVE[_k].items()}
 print("aging curve (bat):", {a: round(v, 2) for a, v in sorted(CURVE["bat"].items()) if a % 2 == 0})
 print("aging curve (pit):", {a: round(v, 2) for a, v in sorted(CURVE["pit"].items()) if a % 2 == 0})
 
@@ -237,6 +248,6 @@ attach("/work/sweep_results.json")
 attach("/work/hist_results.json")
 
 json.dump(dict(curves=CURVE, pop_mean=round(POP_MEAN, 3), unranked_ev=UNRANKED_EV,
-               backtest=bt, method="Marcel-style 5/3/2, 20% regression, delta-method aging, 10%/yr haircut, zero floor"),
+               backtest=bt, method="Marcel-style 5/3/2, 20% regression, delta-method aging with the decline side x1.5 (survivor correction), 10%/yr haircut, zero floor"),
           open("/work/proj_curves.json", "w"), indent=1)
 print("wrote proj_curves.json")
