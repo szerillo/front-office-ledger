@@ -263,7 +263,7 @@ Object.assign(R, await page.evaluate(async () => {
   sug.focus(); sug.dispatchEvent(new KeyboardEvent('keydown', {key: 'Enter', bubbles: true}));
   o.i41_enterPicksSuggestion = /Mookie/.test(tf.value) && txt('tree-find-out').length > 20;
   switchView('horizon');
-  o.i41_horizonRowsFocusable = [...document.querySelector('#horizonbody table').querySelectorAll('tbody tr')].every(r => r.tabIndex === 0) && [...document.querySelector('#horizonbody table').querySelectorAll('thead th[onclick]')].every(t => t.tabIndex === 0);
+  o.i41_horizonRowsFocusable = [...document.querySelector('#horizonbody table').querySelectorAll('tbody tr:not(.hz-cline)')].every(r => r.tabIndex === 0) && [...document.querySelector('#horizonbody table').querySelectorAll('thead th[onclick]')].every(t => t.tabIndex === 0);
 
   // ---------- page-wide ----------
   // d: one h1, the site title; headings never skip a level in any view

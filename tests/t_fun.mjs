@@ -12,12 +12,16 @@ const R = await d.page.evaluate(async () => {
   o.heistOfDay = !!document.querySelector('#homebody .heist') || /Heist of the day/.test(document.getElementById('homebody').textContent);
   o.hubTeasers = ['Trade Grade', 'Best front offices', 'Run a winter', 'Scenario room', 'Signing of the day', 'GM rivalry of the day'].every(x => document.getElementById('homebody').textContent.includes(x));
   o.hubOrder = (() => { const ks = [...document.querySelectorAll('#homebody .hub-grid .home-kick')].map(k => k.textContent.trim().toLowerCase()); const once = new Set(ks.map(k => k.split(' · ')[0])).size === ks.length; return /^trade of the day · (on this date|this week in history)$/.test(ks[0]) && ks.some(k => k.startsWith('signing of the day')) && ks.includes('trade grade') && ks.includes('leaderboard') && ks.length >= 11 && once; })();
-  o.hubSections = [...document.querySelectorAll('#homebody .hub-sec h3')].map(h => h.textContent).join('|') === 'Today|The rankings and this winter' && document.querySelectorAll('#homebody .hub-links .hub-link').length >= 7 && /champion line/.test(document.getElementById('homebody').textContent) && /regimes graded/.test(document.getElementById('homebody').textContent) && /free-agent signings/.test(document.getElementById('homebody').textContent);
+  o.hubSections = [...document.querySelectorAll('#homebody .hub-sec h3')].map(h => h.textContent).join('|') === 'Today|The rankings and this winter|Play GM|Around the league' && /champion line/.test(document.getElementById('homebody').textContent) && /Organization stat of the day/.test(document.getElementById('homebody').textContent) && /Ledger offer/.test(document.getElementById('homebody').textContent) && /Systems/.test(document.getElementById('homebody').textContent) && /regimes graded/.test(document.getElementById('homebody').textContent) && /free-agent signings/.test(document.getElementById('homebody').textContent);
   document.getElementById('hub-find').value = 'Friedman'; folHubFind();
   o.hubSearch = /Andrew Friedman/.test(document.getElementById('hub-find-out').textContent) && /report card/.test(document.getElementById('hub-find-out').textContent);
   document.getElementById('hub-find').value = 'Mookie'; folHubFind();
   o.hubSearchPlayer = /Mookie Betts/.test(document.getElementById('hub-find-out').textContent);
   document.getElementById('hub-find-out').innerHTML = '';
+  folTeamSet('BOS'); folHorizonAll(); await wait(100);
+  o.titleRaceAll30 = document.getElementById('hz-club').value === '' && !!document.querySelector('#horizonbody tr.hz-cline');
+  try { localStorage.removeItem('fol-team'); } catch(e){}
+  switchView('home'); await wait(50);
   o.hubNoDemeaning = !/Is your GM any good/i.test(document.getElementById('homebody').textContent);
   // picking a club opens its report card (the leaderboard's own) with where it stands on top
   folPickTeam('BOS'); await wait(400);
