@@ -306,6 +306,15 @@ def _pt(rec, y, role):
     r = (rec or {}).get(str(y)) or [0, 0, 0]
     return float(r[0] if role == "bat" else r[1])
 PTX = {}
+# Nov 9 (pt_model.py): hitters' expected playing time from a ridge fit, walk-forward 2016-26,
+# on the last three seasons' PA, games played, PA per healthy team game (injured-list days from
+# the transaction sweep), the regressed WAR rate, age and the formula below. PA RMSE 176.9 ->
+# 157.4, WAR RMSE 1.541 -> 1.532; role-drop group bias +100 -> +11 PA, 31+ +78 -> +9.
+# Covers hitters 37 or younger with 150+ PA in 2026 or 300+ in 2025; the formula covers the rest.
+try:
+    PTM = json.load(open("/work/pt_model.json")).get("p27", {})
+except Exception:
+    PTM = {}
 _acc = {"bat": [0.0, 0.0], "SP": [0.0, 0.0], "RP": [0.0, 0.0]}
 for p in players:
     rec = PT_RAW.get(str(p[1])); role = _role(p)
@@ -379,7 +388,7 @@ for p in players:
         _mid = 350.0 if role == "bat" else 0.5 * _CAP[role]
         _pe0 = pt_exp
         pt_exp = 0.85 * pt_exp + 0.15 * _mid
-        _full = rate * _CAP[role]            # WAR per full season at the regressed rate
+        _full = rate * (600.0 if role == "bat" else _CAP[role])   # WAR per 600 PA / per full starter season, as tested
         _m, _c, _lo, _thr = (3.5, 0.12, 0.7, 300.0) if role == "bat" else (3.0, 0.10, 0.75, 0.45 * _CAP[role])
         if _pe0 >= _thr:
             pt_exp *= max(_lo, min(1.0, 1 + _c * (_full - _m)))
@@ -392,6 +401,8 @@ for p in players:
         _last = _pt(rec, 2026, role)
         if _last >= 0.75 * _CAP[role]:
             pt_exp = min(_CAP[role], max(pt_exp, (0.75 if role == "bat" else 0.70) * _last))
+    if role == "bat" and str(p[1]) in PTM:
+        pt_exp = min(_CAP[role], float(PTM[str(p[1])]))
     missed = debut <= 2025 and _pt(rec, 2025, role) == 0 and _pt(rec, 2026, role) == 0
     if missed: p.append(0.0); p.append(1); continue
     p.append(round(rate * pt_exp, 2)); p.append(0)
