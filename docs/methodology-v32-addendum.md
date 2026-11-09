@@ -1802,3 +1802,25 @@ Current clubs and statuses for every Desk player from the MLB Stats API (319 cha
 - **Org DNA.** Leaders strip (best drafters, best traders, where pitchers and hitters improve, fewest IL stints, most picks over slot), then one card per club: style tags, what it shops for, arms and bats net by draft, trades and free agency as bars with its rank, and its habits against the league median (picks over slot, IL stints, buys after a down year, arrival changes). Sortable by any of them. The full table folds below.
 - **Report cards.** "How this front office builds" (the same profile) now sits above the ledgers instead of at the bottom.
 - **Scenario room.** With names hidden, the list shows no player names at all: live 2026-27 calls read "sign a free agent at SP", "extend a 25-year-old", "trade for a controlled star". The home tile for a hidden archive call shows the club's record and the moment, not the club and year.
+
+## Sharing, phone pass, simulator fixes, qualifying offers, load speed (November 9, 2026, evening)
+
+- **Qualifying offers.** Signing a free agent who declined a qualifying offer now costs what the 2022-26 CBA says, by the signing club's category for the 2027 draft (MLB Trade Rumors' October 2026 list):
+  - Tax payors (TOR, ATL, CHC, LAD, NYM, SD, PHI, BOS, NYY): second- and fifth-highest picks plus $1M of international pool; a second signing costs the third and sixth.
+  - Revenue-sharing recipients (ATH, MIL, STL, ARI, CLE, SEA, MIA, BAL, PIT, TB, CIN, COL, KC, DET, MIN): third-highest pick; a second costs the fourth.
+  - Everyone else (LAA, HOU, SF, WSH, TEX, CWS): second-highest pick plus $500K; a second costs the third.
+  - A third signing is modeled the same way, one pick further down. Re-signing your own player costs nothing; the highest first-round pick is never forfeited.
+  - Each pick is valued at the slot curve (82% maturity, 10% a year discount) at a typical position for that pick; pool money at the 2027 dollars per win. One tax-payor signing is about 1.5 WAR, one revenue-sharing signing about 1.0. Before this, every qualified signing cost a flat 1.0 WAR.
+- **Simulator.** An offer no longer moves the page: the negotiation is measured before the redraw and put back where it was. The player you are talking to stays selected even after he signs or drops out of a filter. "Open negotiations" lists only the talks not already on screen, and Resume jumps to that negotiation. The "Up next" suggestion in the open market shows once and steps aside as soon as you pick a player or make an offer.
+- **Share pages.** New pages with their own preview images, built from the page by `share_more.mjs`: `t/<club>` (a front-office trading card: grade, rank, net wins, 2031 outlook, best and worst move, signature trait), `h/<date>-<club>-<player>` (the 116 trades the heist of the day draws from; the link opens that heist on top) and `play/who-won`. Report-card pages (`c/`) are unchanged. Team pages and heist cards have Share buttons (the phone share sheet, or a copied link); the team page saves its trading card as an image; Who won? saves the day's five as an image. Shares and saves are counted as GoatCounter events.
+- **Phone pass** (a separate review at 390px):
+  - The masthead is one row of about 106px instead of 208px.
+  - The home "best front offices" and the team page's rank now use the leaderboard's own order (overall grade, then total net value).
+  - Trade cards on a club's page read from that club's side ("Loss · -11.9"). Each side's number reads "net", bars share one scale, and the trade-card footnote appears once.
+  - Club names are the ones used at the time (Indians, Devil Rays, Expos, Florida Marlins, Anaheim, Oakland).
+  - Wide tables keep their first column; free-agent board text wraps; controls are larger.
+  - The Evaluate button on the Deal Desk is solid and sticky on phones.
+  - "Click" copy is gone. A retry banner appears if the card data never loads.
+  - The team chart draws narrower on phones. Org DNA folds each club's habits. Home has a "Your team" picker under the search.
+- **Load speed.** The page's big data blocks now ship as `JSON.parse('...')` strings (`jsonparse_pass.py`, run after `regen_v3.py`), which V8 parses faster than object literals: about 0.3-0.4s off a mid-range phone's parse. Home also paints a static headline and placeholder tiles before the data arrives. Measured live before the change: first paint 0.6-0.9s; home tiles 3.0s on 4G and 7.9s on slow 4G (1.1MB compressed).
+- **Elite-peak hitters (not shipped).** Tested a pull toward the best recent season for hitters with a 6+ WAR-per-600 season in the last four and a sub-2.5 last season (95 cases, 2018-26, under-projected by 0.24 WAR). Picking the weight walk-forward made it worse (RMSE 1.651 to 1.671), so the projection is unchanged (`peak_bt.py`).
