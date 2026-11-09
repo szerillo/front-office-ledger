@@ -1863,3 +1863,12 @@ Current clubs and statuses for every Desk player from the MLB Stats API (319 cha
 - **The winter so far** adds up each club's graded moves.
 - **Sharing.** Every move has its own link, a Post on X button with the grades, a reply-to-a-post button, and a saved image.
 - **Trade Grade** now counts days in a row played.
+
+## The Wire as deal screens; home consolidated (November 9, 2026, late)
+
+- **Every real trade on the Wire carries the Deal Desk's sheet**: what each club gets with salary, control and 2027 projection, net to each seat, the letter, the market check against deals of the same shape, comparable trades and both front offices' records (folded). The wire's letters are computed the same way as the sheet's, so they always match. Players not on our boards come along as pieces valued as unranked prospects, so "Rework it in the Deal Desk" opens the whole deal.
+- **Signings with terms carry the free-agent sheet** (what he brings by season, cost in wins, comps, payroll before and after). Signings without terms show the player's last three seasons, his 2027 projection, the Ledger's number and the projected contract. Claims, releases and DFAs show the same player line.
+- **QO poll.** One call per browser per player, pooled in a public counter (two tallies per player, nothing personal). After voting you see how everyone called it and the Ledger's read; votes are locked once cast.
+- **Copy link** copies the link alone on desktop (phones still use the share sheet).
+- **Trade Grade** can be walked back through after finishing, without changing the day's result.
+- **Home** is three blocks: the Wire with a Play today rail (Trade Grade, the QO poll, the simulator, the Deal Desk, the scenario), the rankings and this winter (four even tiles; free agents trimmed to one line each), and From the archive (trade and signing of the day, then tree, champions, org stat and GM rivalry as one list).
