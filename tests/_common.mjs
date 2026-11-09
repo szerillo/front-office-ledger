@@ -20,6 +20,8 @@ export async function open(viewport){
   if(!process.env.LIVE_FEED) await page.route('**/statsapi.mlb.com/**', r => r.abort());
   // never send test runs to the visit counter
   await page.route(/gc\.zgo\.at|goatcounter\.com/, r => r.abort());
+  // nor to the public poll counter (a fixed tally comes back instead)
+  await page.route(/abacus\.jasoncameron\.dev/, r => r.fulfill({status: 200, contentType: 'application/json', body: '{"value":5}'}));
   await page.goto(url, {waitUntil: 'load', timeout: 120000});
   await page.waitForTimeout(2600);
   await page.waitForFunction(() => window.CARDS_READY === true && window.MOVES_READY === true, null, {timeout: 90000}).catch(() => {});

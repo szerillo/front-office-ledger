@@ -43,6 +43,16 @@ const R = await d.page.evaluate(async (fx) => {
   o.wireRendered = !document.getElementById('view-wire').hidden && document.querySelectorAll('#wirebody .wire-item').length >= 8 && /\#view=wire/.test(location.hash);
   document.getElementById('wty-990005').value = 2; document.getElementById('wtt-990005').value = 30; wireTry('990005');
   o.gradeItYourself = /for the Red Sox/.test(document.getElementById('wto-990005').textContent);
+  // the deal screen: the Desk's own sheet for the real trade and the real signing
+  o.tradeSheet = !!document.querySelector('#wi-990003 .wi-sheet .dk-sheet') && /From both seats/.test(document.getElementById('wi-990003').textContent) && /Market check/.test(document.getElementById('wi-990003').textContent) && !/Will it get done/.test(document.getElementById('wi-990003').textContent);
+  o.sheetGradeMatches = (() => { const el = document.querySelector('#wi-990003 .dk-grade .grade'); return el && el.textContent.trim() === I(990003).sides[0].g; })();
+  o.faSheet = !!document.querySelector('#wi-990002 .wi-sheet .dk-sheet') && /What he brings/.test(document.getElementById('wi-990002').textContent);
+  o.playerContext = /WAR 2024-26/.test(document.getElementById('wi-990005').textContent);
+  // copy link copies the link alone
+  let copied = ''; const cw = navigator.clipboard && navigator.clipboard.writeText;
+  try { Object.defineProperty(navigator, 'clipboard', {value: {writeText: t => { copied = t; return Promise.resolve(); }}, configurable: true}); } catch(e){}
+  wireCopy('990003'); await wait(20);
+  o.copyLinkOnly = copied === 'https://frontofficeledger.com/#view=wire&id=990003';
   // sharing: text with the letters, a link to the move, X intent and replies
   let opened = ''; const wo = window.open; window.open = u => { opened = u; return null; };
   wireX('990003'); o.xIntent = /x\.com\/intent\/post\?text=Ledger%20grades/.test(opened) && /view%3Dwire%26id%3D990003/.test(opened);
@@ -65,6 +75,9 @@ const R = await d.page.evaluate(async (fx) => {
   try { localStorage.removeItem('fol-qo-call-' + other); } catch(e){}
   wireQoCall(other, 'decline'); await wait(30);
   o.qoCallSaved = /Your call: he declines/.test(document.querySelector('.wire-qo').textContent);
+  // a poll: once you vote you see how everyone voted, and the vote is locked in
+  o.qoPollShown = !!document.querySelector('.wire-qo .wq-bar') && /say he declines/.test(document.querySelector('.wire-qo').textContent);
+  wireQoCall(other, 'accept'); o.qoVoteLocked = wireQoMine(other) === 'decline';
   wireQoCall(bau[1], 'decline'); await wait(30);
   o.qoCallScored = /You called it/.test(document.querySelector('.wire-qo').textContent) && /You are 1 for 1/.test(document.querySelector('.wire-qo').textContent);
   try { localStorage.removeItem('fol-qo-call-' + other); localStorage.removeItem('fol-qo-call-' + bau[1]); } catch(e){}
@@ -76,7 +89,10 @@ const R = await d.page.evaluate(async (fx) => {
   o.deepLink = WIRE.focus === '990002' && !!document.querySelector('#wi-990002.wi-focus');
   // Deal Desk from a wire trade
   wireDesk('990003'); await wait(400);
-  o.openInDesk = dkState.you === 'TB' && dkState.them === 'NYY' && dkState.recv.length === 1 && dkState.send.length === 1;
+  o.openInDesk = dkState.you === I(990003).sides[0].ab && dkState.recv.length === 1 && dkState.send.length === 1 && !!document.querySelector('#dk-out .dk-sheet');
+  // a trade with a player who is not on our boards still opens whole
+  wireDesk(WIRE.items.find(x => /Eduardo Rivera/.test(x.desc)).id); await wait(400);
+  o.deskUnknownPiece = [...dkState.recv, ...dkState.send].some(pc => pc.kind === 'other' && /Juan Garc/.test(pc.nm)) && !!document.querySelector('#dk-out .dk-sheet');
   // home: the latest graded moves at the top
   WIRE.focus = ''; switchView('home'); await wait(200);
   o.homeStrip = document.querySelectorAll('#hub-wire .hw-row').length >= 3 && /Qualifying offer decisions due|Rule 5|Non-tender|labor deal/.test(document.getElementById('hub-wire').textContent);
