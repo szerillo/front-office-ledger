@@ -1846,3 +1846,9 @@ Current clubs and statuses for every Desk player from the MLB Stats API (319 cha
 - **Prospects tile:** the top five prospects beside the top five farm systems (same order as the boards).
 - **2027 title race** opens the all-30 horizon view, not your own club's. The horizon table, sorted by 2027, now draws the champion line (49 WAR); no club clears it yet, and the row says which club is closest. Each club's horizon page notes the line on its 2027 row.
 - **Signings in plain words** (home's signing of the day and the heists page's signings list): what the player gave the club, what that money usually buys, and the difference, then one sentence on where the second number comes from: the salary paid over the seasons played so far, the price of a win on the open market that winter (salary paid divided by its wins of cost), and what signings like it usually return, counting the draft pick for qualifying-offer signings.
+
+## No remembered club (November 9, 2026, night)
+
+- **The site no longer remembers a club.** Earlier versions saved the last club picked and opened the Deal Desk, the simulator, the horizon and the report cards on it. Every tool now opens neutral. A pick saved by an earlier version is cleared on the first visit.
+- **Jump to a club** on home and **Clubs** on the phone bar open a club's report card; nothing is stored.
+- **Run the winter / Make a trade** on a report card open the simulator or the Deal Desk on that club for that click only.
