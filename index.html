@@ -917,6 +917,21 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
   .hub-skel .hub-wide{min-height:230px}
   @keyframes folSkel{0%{background-position:100% 0} 100%{background-position:-100% 0}}
   @media (prefers-reduced-motion: reduce){ .hub-skel .home-card{animation:none} }
+  .rc-standing{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:14px; margin:4px 0 14px}
+  .rc-acts{margin:10px 0 4px}
+  .hub-3{grid-template-columns:repeat(3, minmax(0, 1fr))}
+  @media (max-width:900px){ .hub-3{grid-template-columns:1fr} }
+  .hub-race{margin:8px 0 4px}
+  .hr-row{display:grid; grid-template-columns:72px 1fr 40px; gap:8px; align-items:center; font-size:13.5px; margin:5px 0}
+  .hr-bar{position:relative; height:10px; background:var(--grid, rgba(0,0,0,.06)); border-radius:5px} .hr-bar i{display:block; height:100%; border-radius:5px}
+  .hr-bar b{position:absolute; top:-4px; bottom:-4px; border-left:2px dashed var(--ink); width:0}
+  .hr-lab{background:none; height:14px} .hr-lab em{position:absolute; top:0; transform:translateX(-50%); white-space:nowrap; font:600 11px var(--f-mono); font-style:normal; color:var(--ink-2)}
+  .hr-v{font:600 12.5px var(--f-mono); text-align:right}
+  .hub-links{display:grid; grid-template-columns:1fr 1fr; gap:10px 28px; margin-top:14px}
+  @media (max-width:760px){ .hub-links{grid-template-columns:1fr} }
+  .hub-link{display:block; text-decoration:none; color:var(--ink); padding:10px 0; border-top:1px solid var(--rule)}
+  .hub-link b{display:block; font-family:var(--f-display); font-size:18px} .hub-link span{font-size:14px; color:var(--ink-2)}
+  .hub-link:hover b{color:var(--margin)}
   .hub-sec{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; border-top:2px solid var(--ink); margin:26px 0 0; padding-top:8px}
   .hub-sec h3{font-family:var(--f-display); font-size:22px; margin:0}
   .hub-h{font-size:17px; line-height:1.3; margin:4px 0 8px}
@@ -11669,6 +11684,7 @@ function renderReport(id){
   renderLedgers(r);
   renderDev(r);
   renderDna(r);
+  try { folReportStanding(r); } catch(e){ console.warn('standing', e); }
 }
 
 
@@ -13244,7 +13260,10 @@ function folHub(){
   const quizDone = folQuizStore('day-' + day);
   const tr = T(() => { treeSync(); return TREES.length ? TREES[day % TREES.length] : null; });
   const rv = T(() => { const ps = []; [...REGIMES, ...AUTO_REGIMES].forEach(r => (r.h2h || []).forEach(p => { if(p.n >= 4 && p.net > 2) ps.push({a: r, p}); })); ps.sort((x, y) => y.p.net - x.p.net); const top = ps.slice(0, 30); return top.length ? top[day % top.length] : null; });
-  const hz = T(() => hzLeague().rows.slice().sort((a, b) => b.v[4] - a.v[4]).slice(0, 4));
+  const hz = T(() => hzLeague().rows.slice().sort((a, b) => b.v[0] - a.v[0]).slice(0, 5));
+  // the champion line: what title teams since 2012 got from their top contributors (2020 left out)
+  const cline = T(() => { const xs = CHAMPS_AUTO.filter(c => c.year >= 2012 && c.year !== 2020).map(c => c.roster.reduce((a, x) => a + (+x[5] || 0), 0)).sort((a, b) => a - b); return xs.length ? xs[Math.floor(xs.length / 2)] : null; });
+  const drafters = T(() => dnaLeague().draft.xs.slice(0, 3));
   const pros = T(() => (DESK.players || []).filter(p => gmIsProsRow(p)).map(p => ({p, v: gmPV(p)})).sort((a, b) => b.v - a.v).slice(0, 4)) || [];
   const ch = T(() => { const c = CHAMPS_AUTO.slice().sort((a, b) => b.year - a.year)[0]; if(!c) return null;
     const nm = {fa: 'free agency', trade: 'trades', draft: 'the draft', intl: 'international and minor-league finds', inh: 'inherited players'}, acc = {};
@@ -13269,37 +13288,40 @@ function folHub(){
       <h2>Every trade, signing and draft pick since 1998, graded.</h2>
       <p>Each move is scored against what a typical club got from the same kind of move. Then try the moves yourself.</p>
       <div class="hub-find"><input id="hub-find" autocomplete="off" placeholder="Look up a player, a GM or a club" aria-label="Look up a player, a GM or a club" oninput="folHubFind()" onkeydown="if(event.key==='Enter'){ const f = document.querySelector('#hub-find-out button'); if(f) f.click(); } if(event.key==='Escape') document.getElementById('hub-find-out').innerHTML=''"><div id="hub-find-out" class="hub-find-out"></div></div>
-      <div class="hub-team"><label for="hub-team">Your team</label><select id="hub-team" onchange="if(this.value) folPickTeam(this.value)"><option value="">${mine ? (CLUB_NAME[mine] || mine) : 'Pick a club'}</option>${Object.keys(DESK.teams || {}).sort((a, b) => (CLUB_NAME[a] || a).localeCompare(CLUB_NAME[b] || b)).map(a => `<option value="${a}">${CLUB_NAME[a] || a}</option>`).join('')}</select>${mine ? `<button class="actbtn" onclick="switchView('team')">Open the ${teamNick(CLUB_NAME[mine] || mine)} page</button>` : ''}</div>
+      <div class="hub-team"><label for="hub-team">Your team</label><select id="hub-team" onchange="if(this.value) folPickTeam(this.value)"><option value="">${mine ? (CLUB_NAME[mine] || mine) : 'Pick a club'}</option>${Object.keys(DESK.teams || {}).sort((a, b) => (CLUB_NAME[a] || a).localeCompare(CLUB_NAME[b] || b)).map(a => `<option value="${a}">${CLUB_NAME[a] || a}</option>`).join('')}</select>${mine ? `<button class="actbtn" onclick="folGoTeam('${mine}')">Open the ${teamNick(CLUB_NAME[mine] || mine)} report card</button>` : ''}</div>
       ${stats.tr ? `<div class="hub-stats"><span><b>${fmtN(stats.tr)}</b> trades</span><span><b>${fmtN(stats.fa)}</b> free-agent signings</span><span><b>${fmtN(stats.dr)}</b> draft picks</span><span><b>${fmtN(stats.reg)}</b> regimes graded</span>${stats.thru ? `<span>data through ${stats.thru}</span>` : ''}</div>` : ''}</div>
     ${sec('Today', 'new every day')}
     <div class="hub-grid">
       ${t0 ? tile(`Trade of the day · ${when(otd)}`, `${folHeistCard(t0, {compact: true})}
-        <div class="actions" style="margin-top:10px">${star ? `<button class="actbtn" onclick="treeOverlay('${star.pid}', '${t0.win.ab}', ${JSON.stringify(star.nm).replace(/"/g, '&quot;')})">See the transaction tree</button>` : ''}<button class="actbtn" onclick="folShare('${folHeistUrl(t0)}', 'Trade of the day', 'Trade of the day on Front Office Ledger:')">Share</button><button class="actbtn" onclick="switchView('heists')">Every trade, most lopsided first</button></div>`, 'hub-wide') : ''}
+        <div class="actions" style="margin-top:10px">${star ? `<button class="actbtn" onclick="treeOverlay('${star.pid}', '${t0.win.ab}', ${JSON.stringify(star.nm).replace(/"/g, '&quot;')})">See the transaction tree</button>` : ''}<button class="actbtn" onclick="folShare('${folHeistUrl(t0)}', 'Trade of the day', 'Trade of the day on Front Office Ledger:')">Share</button><button class="actbtn" onclick="switchView('heists')">See all the heists</button></div>`, 'hub-wide') : ''}
       ${sg ? tile(`Signing of the day${sg.k <= 7 ? ' · ' + when(sg) : ''}`, `<div class="h-date">${folMon(sg.x.x.d)} · ${abOf(sg.x.r)} · ${regName(sg.x.r)}</div><h3 class="hub-h">${sg.x.x.h}</h3><span class="stamp ${sg.x.x.war >= 0 ? 'pos' : 'neg'}" style="font-size:12px">${sg.x.x.war <= -6 ? 'Disaster' : sg.x.x.war < 0 ? 'Overpay' : 'Bargain'} · ${fmtW(sg.x.x.war)}</span>${sideRows(sg.x.x.sides)}`) : ''}
       ${tile('Trade Grade', `<h3>Five calls a day</h3><p class="hub-p">Three trades and two free-agent contracts. Pick the winner; the Ledger shows the receipts.</p>
         <button class="actbtn primary" onclick="switchView('quiz')">${quizDone ? `Today: ${quizDone.filter(Boolean).length}/${quizDone.length} · see it` : "Play today's five"}</button>`)}
-      ${rv ? tile('Rivalry of the day', `<h3>${rv.a.exec} vs. ${rv.p.exec}</h3><p class="hub-p">${rv.p.n} trades between ${abOf(rv.a)} and ${rv.p.opp}. ${rv.a.exec} is <strong class="pos">${fmtW(rv.p.net)}</strong> wins up on the deals.</p><button class="actbtn" onclick="switchView('h2h'); setTimeout(() => vcH2h('${abOf(rv.a)}'), 0)">See every deal</button>`) : ''}
-      ${tr ? tile('Tree of the day', `<h3>${tr.title.split(' · ')[0]}</h3><p class="hub-p">${String(tr.title.split(' · ')[1] || 'One decision, and every move it led to.').replace(/^./, c => c.toUpperCase())}.</p><button class="actbtn" onclick="folTreeOfDay(${day % TREES.length})">Follow the tree</button>`) : ''}
+      ${rv ? tile('GM rivalry of the day', `<h3>${regName(rv.a)}'s ${teamNick(rv.a.team)} vs. ${rv.p.exec}'s ${teamNick(CLUB_NAME[rv.p.opp] || rv.p.opp)}</h3><p class="hub-p">These two front offices have made ${rv.p.n} trades with each other. ${regName(rv.a)}'s side is <strong class="pos">${fmtW(rv.p.net)}</strong> wins up on them.</p><button class="actbtn" onclick="switchView('h2h'); setTimeout(() => vcH2h('${abOf(rv.a)}'), 0)">See every deal</button>${more('Every GM head to head', "switchView('h2h')")}`) : ''}
+      ${tr ? tile('Tree of the day', `<h3>${tr.title.split(' · ')[0]}</h3><p class="hub-p">${String(tr.title.split(' · ')[1] || 'One decision, and every move it led to.').replace(/^./, c => c.toUpperCase())}.</p><button class="actbtn" onclick="folTreeOfDay(${day % TREES.length})">Follow the tree</button>${more('All transaction trees', "switchView('trees')")}`) : ''}
     </div>
     ${sec('The rankings and this winter')}
-    <div class="hub-grid">
+    <div class="hub-grid hub-3">
       ${tile('Leaderboard', `<h3>Best front offices right now</h3>${top5}${more('Full leaderboard', "switchView('leaderboard')")}`)}
+      ${hz ? tile('2027 title race', `<h3>Who is built to win next year</h3>${(() => { const mx = Math.max(cline || 0, ...hz.map(r => r.v[0])) * 1.08; const L = cline ? (cline / mx * 100).toFixed(1) : null; return `<div class="hub-race">${L ? `<div class="hr-row hr-head"><span></span><span class="hr-bar hr-lab"><em style="left:${L}%">champion line ${cline.toFixed(0)}</em></span><span></span></div>` : ''}${hz.map(r => `<div class="hr-row"><span class="hr-nm">${teamNick(CLUB_NAME[r.ab] || r.ab)}</span><span class="hr-bar"><i style="width:${(r.v[0] / mx * 100).toFixed(1)}%; ${folTC(r.ab)}; background:var(--tc)"></i>${L ? `<b style="left:${L}%"></b>` : ''}</span><span class="hr-v">${r.v[0].toFixed(1)}</span></div>`).join('')}</div>`; })()}<div class="ttype" style="margin-top:6px">Projected 2027 WAR already under control. The line is what a typical title team since 2012 got from its top 16 players; projections run low before the winter's moves.</div>${more("Every club's next five years", "folGo('horizon')")}`) : ''}
+      ${ch ? tile('Champions', `<h3>How the ${ch.label} were built</h3><p class="hub-p">${ch.mix}</p>${more('Every title roster since 1998', "switchView('champs')")}`) : ''}
       ${fas.length ? tile('Free agents', `<h3>The top of the class</h3>${fas.map(({x, v}) => { const s = GM_SG[x[1]] || (GM_SG[x[1]] = dkSuggest(x, 'fa', null)); return `<div class="hub-row hub-row2"><strong>${x[0]}</strong><span class="ttype">${x[13] || x[12]}, ${x[4] + 1} · ${fmtW(v)} in 2027 · ${s.sugYrs} yr / $${s.sugTot}M</span></div>`; }).join('')}${posted.length ? `<div class="ttype" style="margin-top:8px">Posted from Japan and Korea: ${posted.slice(0, 5).map(({z}) => `${z.name} (sign by ${folMD(z.deadline)})`).join(', ')}</div>` : ''}${more('Every free agent', "bdState.tab='fa'; switchView('boards')")}`) : ''}
-      ${hz ? tile('5-year horizon', `<h3>Built for 2031</h3>${hz.map((r, i) => `<div class="hub-row"><strong>${i + 1}</strong><span>${teamNick(CLUB_NAME[r.ab] || r.ab)}</span><span class="ttype">${fmtW(r.v[4])} WAR under control</span></div>`).join('')}${more("Every club's next five years", "folGo('horizon')")}`) : ''}
       ${pros.length ? tile('Top prospects', `<h3>The top of the board</h3>${pros.map(({p}, i) => `<div class="hub-row"><strong>${i + 1}</strong><span>${p[0]}</span><span class="ttype">${p[13] || p[12]}, ${p[2]}</span></div>`).join('')}${more('The top 100 and every farm system', "bdState.tab='pros'; bdState.org=''; switchView('boards')")}`) : ''}
+      ${drafters && drafters.length ? tile('Org DNA', `<h3>Who drafts best</h3>${drafters.map((x, i) => `<div class="hub-row"><strong>${i + 1}</strong><span>${teamNick(x.r.team)}</span><span class="ttype">${regName(x.r)} · ${fmtW(x.v)} over slot</span></div>`).join('')}<p class="hub-p" style="margin-top:8px">Plus who trades best, where pitchers get better and who stays healthy.</p>${more('How each front office builds', "switchView('dna')")}`) : ''}
     </div>
-    ${sec('Play GM')}
-    <div class="hub-grid">
-      ${tile('Offseason simulator', `<h3>Run a winter</h3><p class="hub-p">Your club's real free agents, arbitration class and market. Every move graded as you make it.</p><button class="actbtn primary" onclick="folGo('gm')">Start a winter</button>`)}
-      ${tile('Deal Desk', `<h3>Price any trade</h3><p class="hub-p">Build a deal between any two clubs and see who wins it, whether the other side says yes, and the closest real trades.</p><button class="actbtn primary" onclick="folGo('desk')">Make a trade</button>`)}
-      ${sc ? tile('Scenario room', `<h3>${scIsBlind(sc.s) ? `A ${sc.s.ctx && sc.s.ctx.w != null ? sc.s.ctx.w + '-' + sc.s.ctx.l + ' club' : 'club'} at ${sc.s.phase === 'deadline' ? 'the deadline' : 'a crossroads'}` : `${sc.s.teamName || CLUB_NAME[sc.s.team] || sc.s.team}, ${String(sc.s.date || '').slice(0, 4)}`}</h3><p class="hub-p">${sc.s.setup || ''}</p><button class="actbtn" onclick="scState.idx=${sc.k}; switchView('scen')">Make the call</button>`) : ''}
+    <div class="card home-card hub-links fol-rise">
+      <div><div class="home-kick">Play GM</div>
+        <a class="hub-link" href="#" onclick="folGo('gm'); return false"><b>Run a winter</b><span>Your club's real free agents, arbitration class and market, every move graded as you make it.</span></a>
+        <a class="hub-link" href="#" onclick="folGo('desk'); return false"><b>Price any trade</b><span>Any two clubs: who wins it, whether the other side says yes, the closest real trades.</span></a>
+        <a class="hub-link" href="#" onclick="${sc ? `scState.idx=${sc.k}; ` : ''}switchView('scen'); return false"><b>Scenario room</b><span>${sc ? (scIsBlind(sc.s) ? `Today: a ${sc.s.ctx && sc.s.ctx.w != null ? sc.s.ctx.w + '-' + sc.s.ctx.l + ' club' : 'club'} at ${sc.s.phase === 'deadline' ? 'the deadline' : 'a crossroads'}. Make the call, then see what really happened.` : 'Real decisions from the archive: make the call, then see what really happened.') : 'Real decisions from the archive.'}</span></a>
+      </div>
+      <div><div class="home-kick">Explore</div>
+        <a class="hub-link" href="#" onclick="switchView('report'); return false"><b>Report cards</b><span>Every front office since 1998, decision by decision.</span></a>
+        <a class="hub-link" href="#" onclick="switchView('h2h'); return false"><b>Head to head</b><span>Who wins when two GMs trade with each other.</span></a>
+        <a class="hub-link" href="#" onclick="folGo('horizon'); return false"><b>5-year horizon</b><span>Every club's talent under control through 2031.</span></a>
+        <a class="hub-link" href="#" onclick="switchView('method'); window.scrollTo(0, 0); return false"><b>How it works</b><span>The grading, the projections and the backtests behind every number.</span></a>
+      </div>
     </div>
-    ${sec('Explore')}
-    <div class="hub-grid">
-      ${tile('Heists and disasters', `<h3>The most lopsided trades</h3><p class="hub-p">Every trade since 1998, ranked by how far one side came out ahead. Filter by club for its best and worst.</p><button class="actbtn" onclick="switchView('heists')">See the heists</button>`)}
-      ${tile('Transaction trees', `<h3>Follow any player</h3><p class="hub-p">How he arrived, every trade he was in, what the other pieces became, and where he stands now.</p><button class="actbtn" onclick="switchView('trees'); treeMode('player')">Pick a player</button>`)}
-      ${ch ? tile('Champions', `<h3>How the ${ch.label} were built</h3><p class="hub-p">${ch.mix}</p><button class="actbtn" onclick="switchView('champs')">Every title roster since 1998</button>`) : ''}
-      ${tile('Org DNA', `<h3>How each front office builds</h3><p class="hub-p">Who drafts best, who trades best, where pitchers get better, who stays healthy.</p><button class="actbtn" onclick="switchView('dna')">Compare the clubs</button>`)}
     </div>`;
 }
 // one box for everything: players open their tree, GMs their report card, clubs their page
@@ -13318,7 +13340,23 @@ function folHubFind(){
     res.push({k: 2, lbl: nm, sub: `player${club[pid] ? ', ' + club[pid] : ''} · every move`, js: `treeOverlay('${pid}', '${club[pid] || ''}', ${JSON.stringify(nm).replace(/"/g, '&quot;')})`}); } }
   out.innerHTML = res.slice(0, 10).map(r => `<button type="button" onclick="document.getElementById('hub-find-out').innerHTML=''; ${r.js}"><strong>${r.lbl}</strong> <span class="ttype">${r.sub}</span></button>`).join('') || '<div class="ttype" style="padding:8px 10px">Nothing by that name in the ledger.</div>';
 }
-function folPickTeam(ab){ folTeamSet(ab); switchView('team'); window.scrollTo({top: 0}); }
+// Nov 2026: a club's page is its report card (the leaderboard's own), with where it stands added on top
+function folGoTeam(ab){ const r = curRegOf(ab); if(r) switchView('report', r.id); else switchView('team'); window.scrollTo({top: 0}); }
+function folPickTeam(ab){ folTeamSet(ab); folGoTeam(ab); }
+function folReportStanding(r){
+  let host = document.getElementById('rc-standing');
+  if(!host){ host = document.createElement('div'); host.id = 'rc-standing'; const t = document.getElementById('rc-tiles'); if(t) t.after(host); }
+  const ab = r ? abOf(r) : '';
+  if(!r || !ab || curRegOf(ab) !== r || r.isNew){ host.innerHTML = ''; return; }
+  const P = folTeamPage(ab, true);
+  if(!P || typeof P !== 'object'){ host.innerHTML = ''; return; }
+  const nick = teamNick(CLUB_NAME[ab] || ab);
+  host.innerHTML = `<div class="actions rc-acts">
+      <button class="actbtn primary" onclick="folTeamSet('${ab}'); folGo('gm')">Run the ${nick} winter</button>
+      <button class="actbtn" onclick="folTeamSet('${ab}'); dkState.you='${ab}'; dkState.mode='trade'; folGo('desk')">Make a trade</button>
+      <button class="actbtn" onclick="folSaveTradingCard('${ab}')">Save card image</button></div>
+    <div class="rc-standing">${P.lb}${P.vs}${P.hz}</div>`;
+}
 
 // ---- the front office page for your team: stays on this GM ----
 function renderTeam(){
@@ -13334,7 +13372,7 @@ function folClubTrades(ab, r){
   const v = t => t.S.find(s => s.ab === ab).net;
   return {best: xs.slice().sort((a, b) => v(b) - v(a)).filter(t => v(t) > 0).slice(0, 3), worst: xs.slice().sort((a, b) => v(a) - v(b)).filter(t => v(t) < 0).slice(0, 3), n: xs.length};
 }
-function folTeamPage(ab){
+function folTeamPage(ab, asParts){
   const r = curRegOf(ab), rk = folActiveRank(), i = r ? rk.indexOf(r) : -1;
   const per = x => folNetOf(x) / Math.max(3, x.seatSeasons || x.seasons || 1);
   const others = Object.keys(DESK.teams || {}).sort().map(a => `<button type="button" class="tchip${a === ab ? ' on' : ''}" style="${folTC(a)}" onclick="folPickTeam('${a}')" title="${CLUB_NAME[a] || a}">${a}</button>`).join('');
@@ -13379,6 +13417,7 @@ function folTeamPage(ab){
   const trades = ct.n ? `<div class="card home-card"><div class="home-kick">Trades under ${regName(r)}</div><h3>${pz(ct.n, 'trade', 'trades')}, best and worst</h3>
       <div class="home-row" style="margin:6px 0 0">${ct.best.length ? `<div><div class="ttype" style="font-weight:700">Best</div>${ct.best.map(t => folHeistCard(t, {compact: true, club: ab})).join('')}</div>` : ''}${ct.worst.length ? `<div><div class="ttype" style="font-weight:700">Worst</div>${ct.worst.map(t => folHeistCard(t, {compact: true, club: ab})).join('')}</div>` : ''}</div></div>` : '';
   const tl = folTimeline(r);
+  if(asParts) return {lb, vs, hz};
   return head + tiles + acts
     + `<div class="home-row">${lb}${vs}</div>`
     + `<div class="home-row">${mv(best, 'Best move', 'pos')}${mv(worst, 'Worst move', 'neg')}${hz}</div>`
@@ -13777,7 +13816,7 @@ function folMobar(){
   const ab = folTeam(), v = typeof routeView === 'function' ? routeView() : '';
   const b = (view, ic, lbl, extra) => `<button type="button" class="${v === view ? 'on' : ''}" onclick="${extra || ''}switchView('${view}')"><span class="mb-ic">${ic}</span>${lbl}</button>`;
   bar.innerHTML = b('home', '⚾', 'Home')
-    + `<button type="button" class="${v === 'team' ? 'on' : ''}" onclick="switchView('team')" style="${ab ? folTC(ab) : ''}"><span class="mb-team">${ab || '?'}</span>Team</button>`
+    + `<button type="button" class="${v === 'team' ? 'on' : ''}" onclick="${ab ? `folGoTeam('${ab}')` : `switchView('team')`}" style="${ab ? folTC(ab) : ''}"><span class="mb-team">${ab || '?'}</span>Team</button>`
     + b('leaderboard', '🏆', 'Leaders') + b('desk', '🤝', 'Trade') + b('gm', '🗓️', 'Sim');
 }
 
@@ -13850,7 +13889,7 @@ function routeApply(h){
     else if(v === 'boards'){ if(['fa', 'pros', 'farm'].includes(id)) bdState.tab = id === 'farm' ? 'pros' : id; switchView('boards'); }
     else if(v === 'gm'){ switchView('gm'); if(id && gmState.club !== id.toUpperCase() && setSel('gm-club', id.toUpperCase())) gmClubChange(); }
     else if(v === 'desk'){ if(['trade', 'walk', 'avail', 'fa', 'ext', 'draft'].includes(id)) dkState.mode = id; switchView('desk'); }
-    else if(v === 'team'){ if(q.id && (CLUB_NAME || {})[q.id.toUpperCase()]) folTeamSet(q.id.toUpperCase()); switchView('team'); }
+    else if(v === 'team'){ if(q.id && (CLUB_NAME || {})[q.id.toUpperCase()]) folGoTeam(q.id.toUpperCase()); else switchView('team'); }
     else if(v === 'heists'){ if(q.id && /^\d{4}-\d\d-\d\d-[a-z]+(-\d+)?$/.test(q.id)){ heistState.focus = q.id; heistState.kind = 'trades'; } else if(q.id && (CLUB_NAME || {})[q.id.toUpperCase()]) heistState.club = q.id.toUpperCase(); switchView('heists'); }
     else if(v === 'leaderboard'){ setSel('erasel', q.era || 'active'); setSel('sortsel', q.sort || 'for'); switchView('leaderboard'); renderLB(); }
     else switchView(v);
