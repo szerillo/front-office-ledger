@@ -1,0 +1,2011 @@
+[
+{
+"team": "Angels",
+"name": "Taylor Ward",
+"svc": 5.164,
+"aav": 13.7,
+"note": ""
+},
+{
+"team": "Angels",
+"name": "Brock Burke",
+"svc": 5.045,
+"aav": 2.0,
+"note": ""
+},
+{
+"team": "Angels",
+"name": "Connor Brogdon",
+"svc": 4.09,
+"aav": 1.0,
+"note": ""
+},
+{
+"team": "Angels",
+"name": "Jo Adell",
+"svc": 4.085,
+"aav": 5.5,
+"note": ""
+},
+{
+"team": "Angels",
+"name": "Carson Fulmer",
+"svc": 4.018,
+"aav": 1.2,
+"note": ""
+},
+{
+"team": "Angels",
+"name": "Reid Detmers",
+"svc": 3.159,
+"aav": 2.6,
+"note": ""
+},
+{
+"team": "Angels",
+"name": "Jose Soriano",
+"svc": 3.121,
+"aav": 3.2,
+"note": ""
+},
+{
+"team": "Angels",
+"name": "Carter Kieboom",
+"svc": 3.009,
+"aav": 0.8,
+"note": ""
+},
+{
+"team": "Angels",
+"name": "Logan O\u2019Hoppe",
+"svc": 3.008,
+"aav": 2.9,
+"note": ""
+},
+{
+"team": "Angels",
+"name": "Zach Neto",
+"svc": 2.17,
+"aav": 4.1,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Mauricio Dubon",
+"svc": 5.162,
+"aav": 5.8,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Steven Okert",
+"svc": 5.089,
+"aav": 2.0,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Luis Garcia",
+"svc": 5.083,
+"aav": 2.2,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Ramon Urias",
+"svc": 5.025,
+"aav": 4.4,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Bryan Abreu",
+"svc": 5.022,
+"aav": 5.9,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Enyel De Los Santos",
+"svc": 5.015,
+"aav": 2.1,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Chas McCormick",
+"svc": 4.161,
+"aav": 3.4,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Isaac Paredes",
+"svc": 4.16,
+"aav": 9.3,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Jesus Sanchez",
+"svc": 4.118,
+"aav": 6.5,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Jake Meyers",
+"svc": 4.044,
+"aav": 3.5,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Jeremy Pena",
+"svc": 4.0,
+"aav": 7.9,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Hunter Brown",
+"svc": 3.035,
+"aav": 5.7,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Yainer Diaz",
+"svc": 3.035,
+"aav": 4.5,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Hayden Wesneski",
+"svc": 2.17,
+"aav": 1.5,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Bennett Sousa",
+"svc": 2.156,
+"aav": 1.1,
+"note": ""
+},
+{
+"team": "Astros",
+"name": "Taylor Trammell",
+"svc": 2.144,
+"aav": 0.9,
+"note": ""
+},
+{
+"team": "Athletics",
+"name": "Austin Wynns",
+"svc": 5.017,
+"aav": 1.8,
+"note": ""
+},
+{
+"team": "Athletics",
+"name": "Shea Langeliers",
+"svc": 3.051,
+"aav": 5.1,
+"note": ""
+},
+{
+"team": "Athletics",
+"name": "JJ Bleday",
+"svc": 3.029,
+"aav": 2.2,
+"note": ""
+},
+{
+"team": "Athletics",
+"name": "Ken Waldichuk",
+"svc": 2.15,
+"aav": 0.9,
+"note": ""
+},
+{
+"team": "Athletics",
+"name": "Luis Medina",
+"svc": 2.149,
+"aav": 0.9,
+"note": ""
+},
+{
+"team": "Blue Jays",
+"name": "Daulton Varsho",
+"svc": 5.128,
+"aav": 9.7,
+"note": ""
+},
+{
+"team": "Blue Jays",
+"name": "Eric Lauer",
+"svc": 5.091,
+"aav": 4.4,
+"note": ""
+},
+{
+"team": "Blue Jays",
+"name": "Dillon Tate",
+"svc": 5.018,
+"aav": 1.7,
+"note": ""
+},
+{
+"team": "Blue Jays",
+"name": "Nick Sandlin",
+"svc": 4.157,
+"aav": 2.0,
+"note": ""
+},
+{
+"team": "Blue Jays",
+"name": "Ernie Clement",
+"svc": 3.168,
+"aav": 4.3,
+"note": ""
+},
+{
+"team": "Blue Jays",
+"name": "Ryan Burr",
+"svc": 3.109,
+"aav": 0.8,
+"note": ""
+},
+{
+"team": "Blue Jays",
+"name": "Tyler Heineman",
+"svc": 3.066,
+"aav": 1.0,
+"note": ""
+},
+{
+"team": "Braves",
+"name": "Jake Fraley",
+"svc": 5.097,
+"aav": 3.6,
+"note": ""
+},
+{
+"team": "Braves",
+"name": "Joel Payamps",
+"svc": 4.117,
+"aav": 3.4,
+"note": ""
+},
+{
+"team": "Braves",
+"name": "Jose Suarez",
+"svc": 4.064,
+"aav": 1.5,
+"note": ""
+},
+{
+"team": "Braves",
+"name": "Alek Manoah",
+"svc": 4.063,
+"aav": 2.2,
+"note": ""
+},
+{
+"team": "Braves",
+"name": "Dylan Lee",
+"svc": 3.15,
+"aav": 1.9,
+"note": ""
+},
+{
+"team": "Braves",
+"name": "Eli White",
+"svc": 3.14,
+"aav": 1.2,
+"note": ""
+},
+{
+"team": "Braves",
+"name": "Vidal Brujan",
+"svc": 3.014,
+"aav": 0.8,
+"note": ""
+},
+{
+"team": "Braves",
+"name": "Joey Wentz",
+"svc": 2.166,
+"aav": 1.1,
+"note": ""
+},
+{
+"team": "Braves",
+"name": "Nick Allen",
+"svc": 2.164,
+"aav": 1.5,
+"note": ""
+},
+{
+"team": "Brewers",
+"name": "Jake Bauers",
+"svc": 5.084,
+"aav": 2.0,
+"note": ""
+},
+{
+"team": "Brewers",
+"name": "Andrew Vaughn",
+"svc": 4.142,
+"aav": 7.8,
+"note": ""
+},
+{
+"team": "Brewers",
+"name": "William Contreras",
+"svc": 4.112,
+"aav": 11.1,
+"note": "(Brewers hold a $12MM club option with a $100K buyout)"
+},
+{
+"team": "Brewers",
+"name": "Nick Mears",
+"svc": 4.022,
+"aav": 1.6,
+"note": ""
+},
+{
+"team": "Brewers",
+"name": "Trevor Megill",
+"svc": 4.002,
+"aav": 4.2,
+"note": ""
+},
+{
+"team": "Brewers",
+"name": "Garrett Mitchell",
+"svc": 3.04,
+"aav": 1.0,
+"note": ""
+},
+{
+"team": "Brewers",
+"name": "Brice Turang",
+"svc": 2.165,
+"aav": 4.4,
+"note": ""
+},
+{
+"team": "Cardinals",
+"name": "Jorge Alcala",
+"svc": 5.165,
+"aav": 2.1,
+"note": ""
+},
+{
+"team": "Cardinals",
+"name": "JoJo Romero",
+"svc": 5.045,
+"aav": 4.4,
+"note": ""
+},
+{
+"team": "Cardinals",
+"name": "John King",
+"svc": 4.148,
+"aav": 2.1,
+"note": ""
+},
+{
+"team": "Cardinals",
+"name": "Lars Nootbaar",
+"svc": 4.076,
+"aav": 5.7,
+"note": ""
+},
+{
+"team": "Cardinals",
+"name": "Brendan Donovan",
+"svc": 4.0,
+"aav": 5.4,
+"note": ""
+},
+{
+"team": "Cardinals",
+"name": "Andre Pallante",
+"svc": 3.145,
+"aav": 3.4,
+"note": ""
+},
+{
+"team": "Cardinals",
+"name": "Nolan Gorman",
+"svc": 3.114,
+"aav": 2.9,
+"note": ""
+},
+{
+"team": "Cardinals",
+"name": "Alec Burleson",
+"svc": 3.029,
+"aav": 3.5,
+"note": ""
+},
+{
+"team": "Cardinals",
+"name": "Matthew Liberatore",
+"svc": 2.144,
+"aav": 2.8,
+"note": ""
+},
+{
+"team": "Cubs",
+"name": "Reese McGuire",
+"svc": 5.11,
+"aav": 1.9,
+"note": ""
+},
+{
+"team": "Cubs",
+"name": "Justin Steele",
+"svc": 4.143,
+"aav": 6.55,
+"note": ""
+},
+{
+"team": "Cubs",
+"name": "Eli Morgan",
+"svc": 4.091,
+"aav": 1.1,
+"note": ""
+},
+{
+"team": "Cubs",
+"name": "Javier Assad",
+"svc": 3.027,
+"aav": 1.9,
+"note": ""
+},
+{
+"team": "Diamondbacks",
+"name": "Ildemaro Vargas",
+"svc": 5.129,
+"aav": 1.4,
+"note": ""
+},
+{
+"team": "Diamondbacks",
+"name": "A.J. Puk",
+"svc": 5.124,
+"aav": 3.3,
+"note": ""
+},
+{
+"team": "Diamondbacks",
+"name": "Ryan Thompson",
+"svc": 5.095,
+"aav": 3.9,
+"note": ""
+},
+{
+"team": "Diamondbacks",
+"name": "Kevin Ginkel",
+"svc": 5.033,
+"aav": 3.0,
+"note": ""
+},
+{
+"team": "Diamondbacks",
+"name": "John Curtiss",
+"svc": 4.078,
+"aav": 1.2,
+"note": ""
+},
+{
+"team": "Diamondbacks",
+"name": "Pavin Smith",
+"svc": 4.015,
+"aav": 2.4,
+"note": ""
+},
+{
+"team": "Diamondbacks",
+"name": "Alek Thomas",
+"svc": 3.103,
+"aav": 2.2,
+"note": ""
+},
+{
+"team": "Diamondbacks",
+"name": "Kyle Nelson",
+"svc": 3.081,
+"aav": 1.0,
+"note": ""
+},
+{
+"team": "Diamondbacks",
+"name": "Jake McCarthy",
+"svc": 3.074,
+"aav": 1.9,
+"note": ""
+},
+{
+"team": "Diamondbacks",
+"name": "Gabriel Moreno",
+"svc": 3.061,
+"aav": 2.4,
+"note": ""
+},
+{
+"team": "Diamondbacks",
+"name": "Ryne Nelson",
+"svc": 3.02,
+"aav": 3.3,
+"note": ""
+},
+{
+"team": "Dodgers",
+"name": "Brusdar Graterol",
+"svc": 5.167,
+"aav": 2.8,
+"note": ""
+},
+{
+"team": "Dodgers",
+"name": "Tony Gonsolin",
+"svc": 5.152,
+"aav": 5.4,
+"note": ""
+},
+{
+"team": "Dodgers",
+"name": "Evan Phillips",
+"svc": 5.136,
+"aav": 6.1,
+"note": ""
+},
+{
+"team": "Dodgers",
+"name": "Alex Vesia",
+"svc": 5.078,
+"aav": 4.1,
+"note": "(Dodgers hold a $3.65MM club option with a $50K buyout)"
+},
+{
+"team": "Dodgers",
+"name": "Anthony Banda",
+"svc": 4.135,
+"aav": 1.7,
+"note": ""
+},
+{
+"team": "Dodgers",
+"name": "Brock Stewart",
+"svc": 4.093,
+"aav": 1.4,
+"note": ""
+},
+{
+"team": "Dodgers",
+"name": "Ben Rortvedt",
+"svc": 3.135,
+"aav": 1.3,
+"note": ""
+},
+{
+"team": "Dodgers",
+"name": "Michael Grove",
+"svc": 3.031,
+"aav": 0.8,
+"note": ""
+},
+{
+"team": "Dodgers",
+"name": "Alex Call",
+"svc": 2.161,
+"aav": 1.5,
+"note": ""
+},
+{
+"team": "Giants",
+"name": "JT Brubaker",
+"svc": 5.162,
+"aav": 2.1,
+"note": ""
+},
+{
+"team": "Giants",
+"name": "Andrew Knizner",
+"svc": 5.09,
+"aav": 1.3,
+"note": ""
+},
+{
+"team": "Giants",
+"name": "Joey Lucchesi",
+"svc": 5.047,
+"aav": 2.0,
+"note": ""
+},
+{
+"team": "Giants",
+"name": "Ryan Walker",
+"svc": 2.136,
+"aav": 2.5,
+"note": ""
+},
+{
+"team": "Giants",
+"name": "Patrick Bailey",
+"svc": 2.136,
+"aav": 2.2,
+"note": ""
+},
+{
+"team": "Guardians",
+"name": "Kolby Allard",
+"svc": 5.004,
+"aav": 1.9,
+"note": ""
+},
+{
+"team": "Guardians",
+"name": "Sam Hentges",
+"svc": 4.157,
+"aav": 1.3375,
+"note": ""
+},
+{
+"team": "Guardians",
+"name": "Steven Kwan",
+"svc": 4.0,
+"aav": 8.8,
+"note": ""
+},
+{
+"team": "Guardians",
+"name": "Ben Lively",
+"svc": 3.133,
+"aav": 2.7,
+"note": ""
+},
+{
+"team": "Guardians",
+"name": "Nolan Jones",
+"svc": 3.007,
+"aav": 2.0,
+"note": ""
+},
+{
+"team": "Guardians",
+"name": "Will Brennan",
+"svc": 2.155,
+"aav": 0.9,
+"note": ""
+},
+{
+"team": "Guardians",
+"name": "David Fry",
+"svc": 2.154,
+"aav": 1.2,
+"note": ""
+},
+{
+"team": "Guardians",
+"name": "Matt Festa",
+"svc": 2.153,
+"aav": 1.0,
+"note": ""
+},
+{
+"team": "Marlins",
+"name": "Anthony Bender",
+"svc": 4.153,
+"aav": 2.3,
+"note": ""
+},
+{
+"team": "Marlins",
+"name": "Braxton Garrett",
+"svc": 3.168,
+"aav": 1.53,
+"note": ""
+},
+{
+"team": "Marlins",
+"name": "Edward Cabrera",
+"svc": 3.147,
+"aav": 3.7,
+"note": ""
+},
+{
+"team": "Marlins",
+"name": "Ryan Weathers",
+"svc": 3.066,
+"aav": 1.5,
+"note": ""
+},
+{
+"team": "Marlins",
+"name": "Andrew Nardi",
+"svc": 3.053,
+"aav": 0.8,
+"note": ""
+},
+{
+"team": "Marlins",
+"name": "Max Meyer",
+"svc": 2.166,
+"aav": 1.3,
+"note": ""
+},
+{
+"team": "Marlins",
+"name": "Calvin Faucher",
+"svc": 2.156,
+"aav": 1.9,
+"note": ""
+},
+{
+"team": "Mariners",
+"name": "Trent Thornton",
+"svc": 5.148,
+"aav": 2.5,
+"note": ""
+},
+{
+"team": "Mariners",
+"name": "Randy Arozarena",
+"svc": 5.129,
+"aav": 18.2,
+"note": ""
+},
+{
+"team": "Mariners",
+"name": "Logan Gilbert",
+"svc": 4.144,
+"aav": 10.0,
+"note": ""
+},
+{
+"team": "Mariners",
+"name": "Gabe Speier",
+"svc": 4.0,
+"aav": 1.7,
+"note": ""
+},
+{
+"team": "Mariners",
+"name": "George Kirby",
+"svc": 3.151,
+"aav": 5.4,
+"note": ""
+},
+{
+"team": "Mariners",
+"name": "Tayler Saucedo",
+"svc": 3.146,
+"aav": 1.1,
+"note": ""
+},
+{
+"team": "Mariners",
+"name": "Matt Brash",
+"svc": 3.121,
+"aav": 1.8,
+"note": ""
+},
+{
+"team": "Mariners",
+"name": "Luke Raley",
+"svc": 3.106,
+"aav": 1.8,
+"note": ""
+},
+{
+"team": "Mariners",
+"name": "Gregory Santos",
+"svc": 3.055,
+"aav": 0.8,
+"note": ""
+},
+{
+"team": "Mariners",
+"name": "Bryce Miller",
+"svc": 2.153,
+"aav": 2.4,
+"note": ""
+},
+{
+"team": "Mariners",
+"name": "Jackson Kowar",
+"svc": 2.139,
+"aav": 0.8,
+"note": ""
+},
+{
+"team": "Mets",
+"name": "Luis Torrens",
+"svc": 5.105,
+"aav": 2.2,
+"note": ""
+},
+{
+"team": "Mets",
+"name": "Tyrone Taylor",
+"svc": 5.093,
+"aav": 3.6,
+"note": ""
+},
+{
+"team": "Mets",
+"name": "David Peterson",
+"svc": 5.089,
+"aav": 7.6,
+"note": ""
+},
+{
+"team": "Mets",
+"name": "Nick Madrigal",
+"svc": 5.087,
+"aav": 1.35,
+"note": ""
+},
+{
+"team": "Mets",
+"name": "Tylor Megill",
+"svc": 4.031,
+"aav": 2.6,
+"note": ""
+},
+{
+"team": "Mets",
+"name": "Max Kranick",
+"svc": 3.011,
+"aav": 1.0,
+"note": ""
+},
+{
+"team": "Mets",
+"name": "Huascar Brazoban",
+"svc": 2.17,
+"aav": 1.3,
+"note": ""
+},
+{
+"team": "Mets",
+"name": "Francisco Alvarez",
+"svc": 2.164,
+"aav": 2.4,
+"note": ""
+},
+{
+"team": "Mets",
+"name": "Reed Garrett",
+"svc": 2.143,
+"aav": 1.4,
+"note": ""
+},
+{
+"team": "Nationals",
+"name": "Jorge Alfaro",
+"svc": 5.16,
+"aav": 1.0,
+"note": ""
+},
+{
+"team": "Nationals",
+"name": "Luis Garcia Jr.",
+"svc": 4.142,
+"aav": 7.0,
+"note": ""
+},
+{
+"team": "Nationals",
+"name": "Josiah Gray",
+"svc": 4.075,
+"aav": 1.35,
+"note": ""
+},
+{
+"team": "Nationals",
+"name": "Mason Thompson",
+"svc": 4.022,
+"aav": 1.0,
+"note": ""
+},
+{
+"team": "Nationals",
+"name": "MacKenzie Gore",
+"svc": 4.0,
+"aav": 4.7,
+"note": ""
+},
+{
+"team": "Nationals",
+"name": "Riley Adams",
+"svc": 3.171,
+"aav": 1.5,
+"note": ""
+},
+{
+"team": "Nationals",
+"name": "CJ Abrams",
+"svc": 3.13,
+"aav": 5.6,
+"note": ""
+},
+{
+"team": "Nationals",
+"name": "Jake Irvin",
+"svc": 2.152,
+"aav": 3.3,
+"note": ""
+},
+{
+"team": "Nationals",
+"name": "Cade Cavalli",
+"svc": 2.141,
+"aav": 1.3,
+"note": ""
+},
+{
+"team": "Orioles",
+"name": "Ryan Mountcastle",
+"svc": 5.105,
+"aav": 7.8,
+"note": ""
+},
+{
+"team": "Orioles",
+"name": "Keegan Akin",
+"svc": 5.083,
+"aav": 3.0,
+"note": ""
+},
+{
+"team": "Orioles",
+"name": "Dylan Carlson",
+"svc": 5.067,
+"aav": 1.5,
+"note": ""
+},
+{
+"team": "Orioles",
+"name": "Trevor Rogers",
+"svc": 5.047,
+"aav": 6.0,
+"note": ""
+},
+{
+"team": "Orioles",
+"name": "Tyler Wells",
+"svc": 4.132,
+"aav": 2.7,
+"note": ""
+},
+{
+"team": "Orioles",
+"name": "Jose Castillo",
+"svc": 4.112,
+"aav": 1.7,
+"note": ""
+},
+{
+"team": "Orioles",
+"name": "Dean Kremer",
+"svc": 4.112,
+"aav": 5.1,
+"note": ""
+},
+{
+"team": "Orioles",
+"name": "Adley Rutschman",
+"svc": 4.0,
+"aav": 6.8,
+"note": ""
+},
+{
+"team": "Orioles",
+"name": "Felix Bautista",
+"svc": 4.0,
+"aav": 2.1,
+"note": ""
+},
+{
+"team": "Orioles",
+"name": "Kyle Bradish",
+"svc": 3.16,
+"aav": 2.8,
+"note": ""
+},
+{
+"team": "Orioles",
+"name": "Yennier Cano",
+"svc": 3.065,
+"aav": 1.8,
+"note": ""
+},
+{
+"team": "Orioles",
+"name": "Gunnar Henderson",
+"svc": 3.036,
+"aav": 6.6,
+"note": ""
+},
+{
+"team": "Orioles",
+"name": "Alex Jackson",
+"svc": 3.036,
+"aav": 1.8,
+"note": ""
+},
+{
+"team": "Orioles",
+"name": "Albert Suarez",
+"svc": 3.019,
+"aav": 0.9,
+"note": ""
+},
+{
+"team": "Padres",
+"name": "Adrian Morejon",
+"svc": 5.14,
+"aav": 3.6,
+"note": ""
+},
+{
+"team": "Padres",
+"name": "Jason Adam",
+"svc": 5.132,
+"aav": 6.8,
+"note": ""
+},
+{
+"team": "Padres",
+"name": "Gavin Sheets",
+"svc": 4.076,
+"aav": 4.3,
+"note": ""
+},
+{
+"team": "Padres",
+"name": "JP Sears",
+"svc": 3.065,
+"aav": 3.5,
+"note": ""
+},
+{
+"team": "Padres",
+"name": "Luis Campusano",
+"svc": 3.003,
+"aav": 1.0,
+"note": ""
+},
+{
+"team": "Padres",
+"name": "Mason Miller",
+"svc": 2.166,
+"aav": 3.4,
+"note": ""
+},
+{
+"team": "Phillies",
+"name": "Jesus Luzardo",
+"svc": 5.165,
+"aav": 10.4,
+"note": ""
+},
+{
+"team": "Phillies",
+"name": "Edmundo Sosa",
+"svc": 5.14,
+"aav": 3.9,
+"note": ""
+},
+{
+"team": "Phillies",
+"name": "Alec Bohm",
+"svc": 5.106,
+"aav": 10.3,
+"note": ""
+},
+{
+"team": "Phillies",
+"name": "Garrett Stubbs",
+"svc": 4.148,
+"aav": 0.925,
+"note": ""
+},
+{
+"team": "Phillies",
+"name": "Brandon Marsh",
+"svc": 4.078,
+"aav": 4.5,
+"note": ""
+},
+{
+"team": "Phillies",
+"name": "Jhoan Duran",
+"svc": 4.0,
+"aav": 7.6,
+"note": ""
+},
+{
+"team": "Phillies",
+"name": "Bryson Stott",
+"svc": 4.0,
+"aav": 5.8,
+"note": ""
+},
+{
+"team": "Phillies",
+"name": "Tanner Banks",
+"svc": 3.092,
+"aav": 1.2,
+"note": ""
+},
+{
+"team": "Phillies",
+"name": "Rafael Marchan",
+"svc": 3.006,
+"aav": 1.0,
+"note": ""
+},
+{
+"team": "Pirates",
+"name": "Dennis Santana",
+"svc": 5.126,
+"aav": 3.4,
+"note": ""
+},
+{
+"team": "Pirates",
+"name": "Johan Oviedo",
+"svc": 4.078,
+"aav": 2.0,
+"note": ""
+},
+{
+"team": "Pirates",
+"name": "Joey Bart",
+"svc": 4.02,
+"aav": 2.7,
+"note": ""
+},
+{
+"team": "Pirates",
+"name": "Justin Lawrence",
+"svc": 3.167,
+"aav": 1.2,
+"note": ""
+},
+{
+"team": "Pirates",
+"name": "Yohan Ramirez",
+"svc": 3.135,
+"aav": 1.2,
+"note": ""
+},
+{
+"team": "Pirates",
+"name": "Colin Holderman",
+"svc": 3.12,
+"aav": 1.7,
+"note": ""
+},
+{
+"team": "Pirates",
+"name": "Oneil Cruz",
+"svc": 3.11,
+"aav": 3.6,
+"note": ""
+},
+{
+"team": "Pirates",
+"name": "Dauri Moreta",
+"svc": 3.056,
+"aav": 0.8,
+"note": ""
+},
+{
+"team": "Pirates",
+"name": "Jack Suwinski",
+"svc": 2.17,
+"aav": 1.7,
+"note": ""
+},
+{
+"team": "Rangers",
+"name": "Jonah Heim",
+"svc": 5.097,
+"aav": 6.0,
+"note": ""
+},
+{
+"team": "Rangers",
+"name": "Adolis Garcia",
+"svc": 5.095,
+"aav": 12.1,
+"note": ""
+},
+{
+"team": "Rangers",
+"name": "Josh Sborz",
+"svc": 5.055,
+"aav": 1.1,
+"note": ""
+},
+{
+"team": "Rangers",
+"name": "Jacob Webb",
+"svc": 5.046,
+"aav": 2.0,
+"note": ""
+},
+{
+"team": "Rangers",
+"name": "Sam Haggerty",
+"svc": 5.007,
+"aav": 1.4,
+"note": ""
+},
+{
+"team": "Rangers",
+"name": "Josh Smith",
+"svc": 3.129,
+"aav": 3.0,
+"note": ""
+},
+{
+"team": "Rangers",
+"name": "Jake Burger",
+"svc": 3.127,
+"aav": 3.5,
+"note": ""
+},
+{
+"team": "Rangers",
+"name": "Ezequiel Duran",
+"svc": 3.05,
+"aav": 1.4,
+"note": ""
+},
+{
+"team": "Rangers",
+"name": "Josh Jung",
+"svc": 3.023,
+"aav": 2.9,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Shane McClanahan",
+"svc": 4.158,
+"aav": 3.6,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Cole Sulser",
+"svc": 4.096,
+"aav": 1.2,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Taylor Walls",
+"svc": 4.092,
+"aav": 2.0,
+"note": "(Rays hold a $2.45MM club option with a $50K buyout)"
+},
+{
+"team": "Rays",
+"name": "Griffin Jax",
+"svc": 4.091,
+"aav": 3.6,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Garrett Cleavinger",
+"svc": 4.06,
+"aav": 2.1,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Shane Baz",
+"svc": 3.158,
+"aav": 3.1,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Nick Fortes",
+"svc": 3.149,
+"aav": 2.4,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Christopher Morel",
+"svc": 3.117,
+"aav": 2.6,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Stuart Fairchild",
+"svc": 3.114,
+"aav": 0.9,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Josh Lowe",
+"svc": 3.093,
+"aav": 2.9,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Bryan Baker",
+"svc": 3.049,
+"aav": 1.5,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Ryan Pepiot",
+"svc": 3.005,
+"aav": 3.7,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Alex Faedo",
+"svc": 2.169,
+"aav": 0.8,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Kevin Kelly",
+"svc": 2.156,
+"aav": 1.0,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Richie Palacios",
+"svc": 2.156,
+"aav": 1.0,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Edwin Uceta",
+"svc": 2.15,
+"aav": 1.4,
+"note": ""
+},
+{
+"team": "Rays",
+"name": "Manuel Rodriguez",
+"svc": 2.139,
+"aav": 1.2,
+"note": ""
+},
+{
+"team": "Red Sox",
+"name": "Nathaniel Lowe",
+"svc": 5.145,
+"aav": 13.5,
+"note": ""
+},
+{
+"team": "Red Sox",
+"name": "Tanner Houck",
+"svc": 4.1,
+"aav": 3.95,
+"note": ""
+},
+{
+"team": "Red Sox",
+"name": "Jarren Duran",
+"svc": 3.155,
+"aav": 8.4,
+"note": "(Red Sox hold an $8MM club option with a $100K buyout)"
+},
+{
+"team": "Red Sox",
+"name": "Kutter Crawford",
+"svc": 3.136,
+"aav": 2.75,
+"note": ""
+},
+{
+"team": "Red Sox",
+"name": "Romy Gonzalez",
+"svc": 3.083,
+"aav": 1.8,
+"note": ""
+},
+{
+"team": "Red Sox",
+"name": "Connor Wong",
+"svc": 3.079,
+"aav": 1.6,
+"note": ""
+},
+{
+"team": "Red Sox",
+"name": "Triston Casas",
+"svc": 3.032,
+"aav": 1.7,
+"note": ""
+},
+{
+"team": "Red Sox",
+"name": "Brennan Bernardino",
+"svc": 2.15,
+"aav": 1.1,
+"note": ""
+},
+{
+"team": "Reds",
+"name": "Brady Singer",
+"svc": 5.156,
+"aav": 11.9,
+"note": ""
+},
+{
+"team": "Reds",
+"name": "Santiago Espinal",
+"svc": 5.149,
+"aav": 2.9,
+"note": ""
+},
+{
+"team": "Reds",
+"name": "Gavin Lux",
+"svc": 5.114,
+"aav": 5.0,
+"note": ""
+},
+{
+"team": "Reds",
+"name": "Tyler Stephenson",
+"svc": 5.056,
+"aav": 6.4,
+"note": ""
+},
+{
+"team": "Reds",
+"name": "Ian Gibaut",
+"svc": 4.077,
+"aav": 1.5,
+"note": ""
+},
+{
+"team": "Reds",
+"name": "Sam Moll",
+"svc": 4.023,
+"aav": 1.2,
+"note": ""
+},
+{
+"team": "Reds",
+"name": "Nick Lodolo",
+"svc": 4.0,
+"aav": 4.3,
+"note": ""
+},
+{
+"team": "Reds",
+"name": "Graham Ashcraft",
+"svc": 3.13,
+"aav": 1.4,
+"note": ""
+},
+{
+"team": "Reds",
+"name": "TJ Friedl",
+"svc": 3.112,
+"aav": 4.9,
+"note": ""
+},
+{
+"team": "Reds",
+"name": "Tony Santillan",
+"svc": 3.099,
+"aav": 2.4,
+"note": ""
+},
+{
+"team": "Reds",
+"name": "Spencer Steer",
+"svc": 3.035,
+"aav": 4.5,
+"note": ""
+},
+{
+"team": "Reds",
+"name": "Will Benson",
+"svc": 3.003,
+"aav": 1.7,
+"note": ""
+},
+{
+"team": "Reds",
+"name": "Matt McLain",
+"svc": 2.14,
+"aav": 2.6,
+"note": ""
+},
+{
+"team": "Reds",
+"name": "Brandon Williamson",
+"svc": 2.139,
+"aav": 0.8,
+"note": ""
+},
+{
+"team": "Rockies",
+"name": "Thairo Estrada",
+"svc": 5.153,
+"aav": 3.8,
+"note": "(Estrada\u2019s contract contains a $7MM mutual option with a $750K buyout)"
+},
+{
+"team": "Rockies",
+"name": "Jimmy Herget",
+"svc": 4.069,
+"aav": 1.5,
+"note": ""
+},
+{
+"team": "Rockies",
+"name": "Mickey Moniak",
+"svc": 4.027,
+"aav": 4.2,
+"note": ""
+},
+{
+"team": "Rockies",
+"name": "Lucas Gilbreath",
+"svc": 3.15,
+"aav": 0.9,
+"note": ""
+},
+{
+"team": "Rockies",
+"name": "Ryan Feltner",
+"svc": 3.071,
+"aav": 2.3,
+"note": ""
+},
+{
+"team": "Rockies",
+"name": "Tyler Freeman",
+"svc": 3.046,
+"aav": 1.8,
+"note": ""
+},
+{
+"team": "Rockies",
+"name": "Brenton Doyle",
+"svc": 2.161,
+"aav": 3.2,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "Taylor Clarke",
+"svc": 5.148,
+"aav": 1.9,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "Kris Bubic",
+"svc": 5.135,
+"aav": 6.0,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "John Schreiber",
+"svc": 5.027,
+"aav": 3.8,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "Jonathan India",
+"svc": 5.0,
+"aav": 7.4,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "Kyle Wright",
+"svc": 4.151,
+"aav": 1.8,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "Kyle Isbel",
+"svc": 4.043,
+"aav": 2.7,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "Bailey Falter",
+"svc": 3.138,
+"aav": 3.3,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "Daniel Lynch IV",
+"svc": 3.136,
+"aav": 1.3,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "Sam Long",
+"svc": 3.121,
+"aav": 0.95,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "Vinnie Pasquantino",
+"svc": 3.101,
+"aav": 5.4,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "Angel Zerpa",
+"svc": 3.082,
+"aav": 1.2,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "Michael Massey",
+"svc": 3.068,
+"aav": 2.0,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "MJ Melendez",
+"svc": 3.016,
+"aav": 2.65,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "Maikel Garcia",
+"svc": 2.168,
+"aav": 4.8,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "James McArthur",
+"svc": 2.15,
+"aav": 0.8,
+"note": ""
+},
+{
+"team": "Royals",
+"name": "Lucas Erceg",
+"svc": 2.136,
+"aav": 1.9,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Tanner Rainey",
+"svc": 5.167,
+"aav": 1.6,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Tarik Skubal",
+"svc": 5.114,
+"aav": 17.8,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Casey Mize",
+"svc": 5.111,
+"aav": 5.4,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Jake Rogers",
+"svc": 5.04,
+"aav": 2.9,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Will Vest",
+"svc": 4.1,
+"aav": 3.3,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Zach McKinstry",
+"svc": 4.099,
+"aav": 3.5,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Matt Vierling",
+"svc": 4.026,
+"aav": 3.1,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Jason Foley",
+"svc": 3.15,
+"aav": 3.15,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Alex Lange",
+"svc": 3.145,
+"aav": 0.9,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Andy Ibanez",
+"svc": 3.133,
+"aav": 1.8,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Riley Greene",
+"svc": 3.11,
+"aav": 6.6,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Spencer Torkelson",
+"svc": 3.076,
+"aav": 5.1,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Kerry Carpenter",
+"svc": 3.057,
+"aav": 3.5,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Beau Brieske",
+"svc": 3.056,
+"aav": 1.3,
+"note": ""
+},
+{
+"team": "Tigers",
+"name": "Tyler Holton",
+"svc": 3.047,
+"aav": 1.7,
+"note": ""
+},
+{
+"team": "Twins",
+"name": "Genesis Cabrera",
+"svc": 5.149,
+"aav": 1.4,
+"note": ""
+},
+{
+"team": "Twins",
+"name": "Ryan Jeffers",
+"svc": 5.089,
+"aav": 6.6,
+"note": ""
+},
+{
+"team": "Twins",
+"name": "Justin Topa",
+"svc": 5.044,
+"aav": 1.7,
+"note": "(Twins hold a $2MM club option with a $225K buyout)"
+},
+{
+"team": "Twins",
+"name": "Michael Tonkin",
+"svc": 5.044,
+"aav": 1.4,
+"note": ""
+},
+{
+"team": "Twins",
+"name": "Bailey Ober",
+"svc": 4.093,
+"aav": 4.6,
+"note": ""
+},
+{
+"team": "Twins",
+"name": "Joe Ryan",
+"svc": 4.033,
+"aav": 5.8,
+"note": ""
+},
+{
+"team": "Twins",
+"name": "Trevor Larnach",
+"svc": 4.014,
+"aav": 4.7,
+"note": ""
+},
+{
+"team": "Twins",
+"name": "Royce Lewis",
+"svc": 3.142,
+"aav": 3.0,
+"note": ""
+},
+{
+"team": "Twins",
+"name": "Anthony Misiewicz",
+"svc": 3.082,
+"aav": 1.1,
+"note": ""
+},
+{
+"team": "Twins",
+"name": "Cole Sands",
+"svc": 3.017,
+"aav": 1.3,
+"note": ""
+},
+{
+"team": "White Sox",
+"name": "Mike Tauchman",
+"svc": 5.143,
+"aav": 3.4,
+"note": ""
+},
+{
+"team": "White Sox",
+"name": "Steven Wilson",
+"svc": 3.166,
+"aav": 1.5,
+"note": ""
+},
+{
+"team": "White Sox",
+"name": "Derek Hill",
+"svc": 3.04,
+"aav": 1.0,
+"note": ""
+},
+{
+"team": "Yankees",
+"name": "Jazz Chisholm Jr.",
+"svc": 5.075,
+"aav": 10.2,
+"note": ""
+},
+{
+"team": "Yankees",
+"name": "David Bednar",
+"svc": 5.073,
+"aav": 9.0,
+"note": ""
+},
+{
+"team": "Yankees",
+"name": "Mark Leiter Jr.",
+"svc": 5.031,
+"aav": 3.0,
+"note": ""
+},
+{
+"team": "Yankees",
+"name": "Clarke Schmidt",
+"svc": 4.148,
+"aav": 4.9,
+"note": ""
+},
+{
+"team": "Yankees",
+"name": "Camilo Doval",
+"svc": 4.071,
+"aav": 6.6,
+"note": ""
+},
+{
+"team": "Yankees",
+"name": "Jake Cousins",
+"svc": 3.091,
+"aav": 0.841,
+"note": ""
+},
+{
+"team": "Yankees",
+"name": "Ian Hamilton",
+"svc": 3.081,
+"aav": 0.941,
+"note": ""
+},
+{
+"team": "Yankees",
+"name": "Luis Gil",
+"svc": 3.073,
+"aav": 2.1,
+"note": ""
+},
+{
+"team": "Yankees",
+"name": "Scott Effross",
+"svc": 3.063,
+"aav": 0.8,
+"note": ""
+},
+{
+"team": "Yankees",
+"name": "Jake Bird",
+"svc": 3.051,
+"aav": 1.0,
+"note": ""
+},
+{
+"team": "Yankees",
+"name": "Oswaldo Cabrera",
+"svc": 3.05,
+"aav": 1.2,
+"note": ""
+},
+{
+"team": "Yankees",
+"name": "Fernando Cruz",
+"svc": 3.035,
+"aav": 1.3,
+"note": ""
+},
+{
+"team": "Yankees",
+"name": "Anthony Volpe",
+"svc": 3.0,
+"aav": 3.9,
+"note": ""
+},
+{
+"team": "Yankees",
+"name": "Jose Caballero",
+"svc": 2.17,
+"aav": 1.9,
+"note": ""
+}
+]
