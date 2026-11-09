@@ -952,6 +952,13 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
   .hub-find-out:empty{display:none}
   .hub-find-out button{display:block; width:100%; text-align:left; background:none; border:0; border-bottom:1px solid var(--grid, var(--rule)); padding:8px 12px; cursor:pointer; color:var(--ink); font:14px var(--f-body)}
   .hub-find-out button:hover, .hub-find-out button:focus{background:var(--surface-2)}
+  .lb-ps{display:block; font:600 11.5px var(--f-mono); color:var(--ink-2); margin-top:2px}
+  .hub-lb{display:grid; grid-template-columns:18px minmax(0, 1fr) auto; gap:8px; align-items:center; padding:5px 0; border-top:1px solid var(--rule)}
+  .hub-lb:first-of-type{border-top:none}
+  .hub-lb .hl-who{min-width:0}
+  .hub-lb .hl-best{display:block; font-size:12px}
+  .hub-lb .hl-ps{font:700 15px var(--f-mono); text-align:right; display:flex; flex-direction:column; align-items:flex-end; line-height:1.1}
+  .hub-lb .hl-ps .ttype{font:400 10.5px var(--f-body)}
   /* home, Nov 9 night: hero with tools beside it, the Wire with a Play rail, rankings, the archive */
   .home-hero{display:grid; grid-template-columns:minmax(0, 1.35fr) minmax(280px, 1fr); gap:10px 36px; align-items:end}
   .home-hero .hh-tools{display:flex; flex-direction:column; gap:10px}
@@ -985,7 +992,7 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
   .wire-dates .wd{display:flex; flex-direction:column; gap:2px; padding:8px 12px; border-left:4px solid var(--ink); background:var(--surface-2)}
   .wire-dates .wd-when{font:800 11px/1.2 var(--f-mono); letter-spacing:1px; text-transform:uppercase; color:var(--bad)}
   .wire-grid{display:grid; grid-template-columns:minmax(0, 1fr) 340px; gap:18px; margin-top:12px; align-items:start}
-  .wire-side{display:flex; flex-direction:column; gap:14px; position:sticky; top:12px}
+  .wire-side{display:flex; flex-direction:column; gap:14px}
   .wire-filt{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:8px}
   .wire-filt select{font:14px var(--f-body); padding:6px 8px; border:1px solid var(--rule); border-radius:6px; background:var(--surface); color:var(--ink)}
   .wire-chips{display:flex; flex-wrap:wrap; gap:6px}
@@ -1038,6 +1045,22 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
   .wi-sheet .m-title{display:none}
   .dk-more > summary{cursor:pointer; font-weight:600; font-size:13.5px; margin-top:12px}
   .wi-sheet .dk-sheet{margin-top:8px !important; box-shadow:none; padding:14px 16px !important}
+  .wp-tab{margin:8px 0; font-size:13px; border:1px solid var(--rule); border-radius:6px; overflow:hidden}
+  .wp-h, .wp-r{display:grid; grid-template-columns:minmax(0, 1fr) auto 104px; gap:4px 12px; padding:6px 10px; align-items:baseline}
+  .wp-h{background:var(--surface-2)}
+  .wp-r{border-top:1px solid var(--rule)}
+  .wp-r > span:first-child .ttype{display:block; font-size:11px}
+  .wp-r > span:nth-child(2){font-family:var(--f-mono); font-size:12.5px; white-space:nowrap}
+  .wp-r > span:last-child, .wp-h > span:last-child{text-align:right; font-family:var(--f-mono); font-size:12px}
+  .wp-act{background:var(--surface-2)}
+  .wire-pk .wp-r .ttype{display:none}
+  .wire-pk .wp-h, .wire-pk .wp-r{grid-template-columns:minmax(0, 1fr) auto 64px; gap:4px 8px; padding:5px 8px}
+  .pk-row{display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 8px; align-items:center; padding:8px 0; border-top:1px solid var(--rule)}
+  .pk-more{flex:1 1 100%}
+  .pk-pred{flex:1 1 100%}
+  .wire-pk summary, .wire-qo summary{list-style:none; cursor:pointer}
+  .wire-pk summary::-webkit-details-marker{display:none}
+  .wire-pk[open] .wq-tap{display:none}
   .wq-row{flex-wrap:wrap}
   .wq-who{flex:1 1 180px}
   .wq-poll{flex:1 1 100%}
@@ -1052,7 +1075,7 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
   .hw-g{display:flex; gap:4px; align-items:center; flex-wrap:wrap}
   .hw-t{font-weight:600}
   .nav-new{display:inline-block; margin-left:5px; min-width:18px; padding:1px 5px; border-radius:9px; background:var(--bad); color:#fff; font:800 11px/16px var(--f-mono); text-align:center}
-  @media (max-width: 860px){ .wire-grid{grid-template-columns:1fr} .wire-side{display:contents} .wire-qo{order:-1} .wire-feed{order:0} .wire-side > .card:not(.wire-qo){order:1} .hw-row{grid-template-columns:auto 1fr; gap:3px 8px} .hw-row > .ttype{grid-column:1 / -1} .wire-dates .wd:nth-child(n+2){display:none} .wire-top .sub{font-size:14px} }
+  @media (max-width: 860px){ .wire-grid{grid-template-columns:1fr} .wire-side{display:contents} .wire-qo, .wire-pk{order:-1} .wire-feed{order:0} .wire-side > .card:not(.wire-qo){order:1} .hw-row{grid-template-columns:auto 1fr; gap:3px 8px} .hw-row > .ttype{grid-column:1 / -1} .wire-dates .wd:nth-child(n+2){display:none} .wire-top .sub{font-size:14px} }
   .hub-team{display:flex; flex-wrap:wrap; gap:8px 10px; align-items:center; margin-top:10px; font-size:14px}
   .hub-team label{font-weight:700}
   .hub-team select{font:15px var(--f-body); padding:7px 10px; border:1px solid var(--rule); border-radius:6px; background:var(--surface); color:var(--ink); min-width:200px}
@@ -1276,7 +1299,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
       <details><summary>How to read a row</summary>
       <ul>
         <li><strong>Channel grades</strong> (Draft through Ret): wins above (+) or below (−) what a typical front office got from the same kind of move, per season in the chair. 50 is average on the 20-80 scale; A is about 70+, F under 35. Hover a grade for its number.</li>
-        <li><strong>Overall</strong> is the ranking: every channel rolled into one grade of decision quality, leaning on the channels where results repeat (free agency most, trades least). <strong>Net wins</strong> is the plain total of every decision's value in wins, before that weighting. <strong>Success</strong> grades results on the field; the gap between Overall and Success shows how much came from luck, payroll or inheritance.</li>
+        <li><strong>Overall</strong> is the ranking: every channel rolled into net wins a season of decision quality, leaning on the channels where results repeat (free agency most, trades least). A short tenure is counted as if it began with two average seasons, so one hot year cannot top the board. <strong>Net wins</strong> is the plain total of every decision's value in wins, before that weighting. <strong>Success</strong> grades results on the field; the gap between Overall and Success shows how much came from luck, payroll or inheritance.</li>
         <li><strong>Column key</strong>
           <ul>
             <li><strong>Waiver / Minor</strong>: waiver claims and minor-league signings.</li>
@@ -1306,7 +1329,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
       </select>
       <label for="sortsel">Sort by</label>
       <select id="sortsel">
-        <option value="for">Overall (composite)</option>
+        <option value="for">Overall (net wins a season)</option>
         <option value="success">Team success</option>
         <option value="net">Total net value (WAR)</option>
         <option value="dev">Development grade</option>
@@ -11645,7 +11668,7 @@ function renderLB(){
     const va = lbSortVal(a, key), vb = lbSortVal(b, key);
     if((va == null) !== (vb == null)) return va == null ? 1 : -1;
     if(lbShort(a) !== lbShort(b)) return lbShort(a) ? 1 : -1;
-    if(key==='for') return (b.forGrade||0) - (a.forGrade||0) || b.net - a.net;
+    if(key==='for') return ((b.gradeRate ?? -99) - (a.gradeRate ?? -99)) || b.net - a.net;
     if(key==='success') return b.success.g - a.success.g || b.net - a.net;
     if(key==='net') return b.net - a.net;
     if(key==='dev') return ((devOf(b)||{}).g||0) - ((devOf(a)||{}).g||0) || ((devOf(b)||{}).net||0) - ((devOf(a)||{}).net||0);
@@ -11666,7 +11689,7 @@ function renderLB(){
       <td class="rk">${_sv == null || lbShort(r) ? '' : _rk}</td>
       <td><div class="execcell"><span class="nm">${regName(r)}${(r.flags||[]).includes('interim')?'<span class="badge-ss" title="Interim head of baseball operations">interim</span>':''}${(r.flags||[]).includes('ownership era')?'<span class="badge-ss" title="Steinbrenner\'s group often had the final say on personnel">ownership era</span>':''}${r.isNew?'<span class="badge-ss" title="Hired after the last completed season: nothing to grade yet">new</span>':r.smallSample?'<span class="badge-ss" title="Small sample: under 3 seasons in the seat, graded as if the rest were average">SS</span>':''}${(r.unscored||[]).length && !r.isNew ? `<span class="badge-ss" title="Not scored here: ${r.unscored.map(k=>({fa:'free agency',intl:'international',ext:'extensions',ret:'retention'})[k]).join(', ')}. ${r._hist ? 'Not scored for this archive regime' : 'Too few graded deals there yet (a free-agent letter needs 3 deals with public terms, an extension letter 2)'}, so the composite fills them at the league-average rate.">partial</span>` : ''}<span class="mfor">${gradeChip(r.forGrade)}</span></span><span class="tm">${r.teamEra||r.team} · ${yrSpan(r.start, r.end)} (${r.isNew ? 'new' : pz(fmtSeas(r.seatSeasons != null ? r.seatSeasons : r.seasons),'season','seasons')}${r.titles?` · ${r.titles} WS`:''})</span></div></td>
       <td class="num lb-overall">${gradeChip(r.forGrade, true)}</td>
-      <td class="lb-netcol">${bar}</td>
+      <td class="lb-netcol">${bar}${r.isNew ? '' : `<span class="lb-ps" title="Net wins a season over ${pz(+(r.seatSeasons ?? r.seasons).toFixed(1), 'season', 'seasons')} in the seat">${fmtW(r.net / Math.max(1, r.seatSeasons ?? r.seasons))} a season</span>`}</td>
       ${CHANNELS.map(c=>{const ch=r.chan[c.key];return `<td class="num">${gradeChip(ch.g)}</td>`;}).join('')}
       <td class="num" title="${r.chan.ret&&r.chan.ret.net2!=null?`Retention: ${fmtW(r.chan.ret.net2)} vs expectation across ${r.chan.ret.n2} material departures (what departed players did next vs what departures of that caliber usually do, + comp-pick credit on ${r.chan.ret.qo||0} QO walkaways). Raw leakage ${pz(r.chan.ret.lost||0,'win','wins')}, shown for context.`:(r.chan.ret?`${pz(r.chan.ret.lost,'win','wins')} walked out the door (${r.chan.ret.n} departures)`:'retention needs a 2005+ active window')}">${gradeChip(r.chan.ret?(r.chan.ret.g2!=null?r.chan.ret.g2:r.chan.ret.g):null)}</td>
       <td class="num" title="${(dv=>dv?`${fmtW(dv.net)} prospect value created · ${dv.n} graded moves · ${farmLine(r, dv)}`:'development grading needs the regime to overlap the top-100 archive (2011+)')(devOf(r))}">${gradeChip((devOf(r)||{}).g==null?null:devOf(r).g)}</td>
@@ -13309,9 +13332,10 @@ function folNetOf(r){ return CHANNELS.reduce((s, c) => s + ((r.chan[c.key] || ex
 function folActiveRank(){
   if(folActiveRank._c) return folActiveRank._c;
   const xs = [...REGIMES, ...AUTO_REGIMES].filter(r => !r.isNew && r.forGrade != null);
-  // the leaderboard's own order: overall grade, then total net value (every channel plus retention)
+  // Nov 9: the leaderboard's own order is the composite's net wins a season (every channel, weighted by how
+  // much it repeats), shrunk toward average as if every GM started with two average seasons; total breaks ties
   const tot = folLbNet;
-  xs.sort((a, b) => (b.forGrade - a.forGrade) || (tot(b) - tot(a)));
+  xs.sort((a, b) => (b.gradeRate - a.gradeRate) || (tot(b) - tot(a)));
   return folActiveRank._c = xs;
 }
 // a regime's biggest single moves, best and worst, from its ledgers
@@ -13397,7 +13421,9 @@ function folSigningPlain(x, club){
 function folHub(){
   const rk = folActiveRank(), mine = folTeam(), day = Math.floor(Date.now() / 864e5);
   const T = f => { try { return f(); } catch(e){ return null; } };
-  const top5 = rk.slice(0, 5).map((r, i) => `<div class="hub-row"><strong>${i + 1}</strong><span class="grade ${gradeClass(r.forGrade)}">${g2letter(r.forGrade)}</span><a href="#" onclick="switchView('report','${r.id}'); return false">${regName(r)}</a><span class="ttype">${abOf(r)}</span></div>`).join('');
+  // Nov 9: each GM's best skill and net wins a season, in place of the letter
+  const bestAt = r => { const NM = {draft: 'drafting', trade: 'trades', fa: 'free agency', waiver: 'waivers', intl: 'international', ext: 'extensions'}; const c = CHANNELS.map(c => [c.key, (r.chan[c.key] || {}).net, (r.chan[c.key] || {}).g]).filter(x => x[2] != null && x[1] > 0).sort((a, b) => b[1] - a[1])[0]; return c ? NM[c[0]] : ''; };
+  const top5 = rk.slice(0, 5).map((r, i) => `<div class="hub-lb"><strong>${i + 1}</strong><span class="hl-who"><a href="#" onclick="switchView('report','${r.id}'); return false">${regName(r)}</a> <span class="ttype">${abOf(r)}</span>${bestAt(r) ? `<span class="ttype hl-best">Best at ${bestAt(r)}</span>` : ''}</span><span class="hl-ps ${folLbNet(r) >= 0 ? 'pos' : 'neg'}" title="Net wins vs. expectation a season">${fmtW(folLbNet(r) / Math.max(1, r.seatSeasons ?? r.seasons))}<span class="ttype">a season</span></span></div>`).join('');
   const sc = T(() => { const xs = scAll(); if(!xs.length) return null; const k = day % xs.length; return {s: xs[k], k}; });
   const fas = T(() => DESK.players.filter(x => gmIsFA(x) && !gmIsProsRow(x)).map(x => ({x, v: gmProj27(x)})).sort((a, b) => b.v - a.v).slice(0, 5)) || [];
   const quizDone = folQuizStore('day-' + day);
@@ -13446,17 +13472,11 @@ function folHub(){
       <div class="card home-card hub-play fol-rise"><div class="home-kick">Play today</div>
         ${play('Daily game', 'Trade Grade', `${quizDone ? `Today: ${quizDone.filter(Boolean).length}/${quizDone.length}` : 'Five calls: three trades, two contracts'}${qd >= 2 ? ` · ${qd} days in a row` : ''}`, quizDone ? 'See it' : 'Play', "switchView('quiz')", !quizDone)}
         ${qoLeft ? play('Poll', 'Will they take the QO?', `${qoLeft} of ${Object.keys(DESK.qo27 || {}).length} decisions due Nov 17 · see how everyone voted`, 'Vote', "wireQoCard._open = true; switchView('wire')", false) : ''}
+        ${play("Free agent pick'em", "Over or under the Ledger's number?", 'Call the top free agents, then predict the exact deal', 'Play', "pkCard._open = true; switchView('wire')", false)}
         ${play('Offseason simulator', 'Run a winter', "Any club's real free agents, arbitration class and market", 'Start', "folGo('gm')", false)}
         ${play('Deal Desk', 'Price any trade', 'Who wins it, and would the other side say yes', 'Make a trade', "folGo('desk')", false)}
         ${sc ? play('Scenario of the day', scTitle, 'Make the call with only what was known then', 'Decide', `scState.idx=${sc.k}; switchView('scen')`, false) : ''}
       </div>
-    </div>
-    ${sec('The rankings and this winter')}
-    <div class="hub-grid hub-even">
-      ${tile('Leaderboard', `<h3>Best front offices</h3>${top5}${more('Full leaderboard', "switchView('leaderboard')")}`)}
-      ${hz ? tile('2027 title race', `<h3>Built to win next year</h3>${(() => { const mx = Math.max(cline || 0, ...hz.map(r => r.v[0])) * 1.08; const L = cline ? (cline / mx * 100).toFixed(1) : null; return `<div class="hub-race">${L ? `<div class="hr-row hr-head"><span></span><span class="hr-bar hr-lab"><em style="left:${L}%">champion line ${cline.toFixed(0)}</em></span><span></span></div>` : ''}${hz.map(r => `<div class="hr-row"><span class="hr-nm">${teamNick(CLUB_NAME[r.ab] || r.ab)}</span><span class="hr-bar"><i style="width:${(r.v[0] / mx * 100).toFixed(1)}%; ${folTC(r.ab)}; background:var(--tc)"></i>${L ? `<b style="left:${L}%"></b>` : ''}</span><span class="hr-v">${r.v[0].toFixed(1)}</span></div>`).join('')}</div>`; })()}<div class="ttype" style="margin-top:6px" title="Projected 2027 WAR already under control. The line is what a typical title team since 2012 got from its top 16 players.">2027 WAR already under control, against what title teams usually have.</div>${more('All 30 clubs', 'folHorizonAll()')}`) : ''}
-      ${fas.length ? tile('Free agents', `<h3>Top of the class</h3><div class="hub-fa2"><span></span><span class="ttype">Ledger</span><span class="ttype" title="The median of published contract predictions">Projected</span>${fas.map(({x}) => { const s = GM_SG[x[1]] || (GM_SG[x[1]] = dkSuggest(x, 'fa', null)), c = (DESK.cons || {})[x[1]]; return `<span class="hf-nm">${x[0]}</span><span>${s.sugYrs}/$${s.sugTot}M</span><span>${c ? `${c[0] % 1 ? Math.floor(c[0]) + '-' + Math.ceil(c[0]) : c[0]}/$${Math.round(c[0] * c[1])}M` : '·'}</span>`; }).join('')}</div><div class="ttype" style="margin-top:6px">Years / total. Ledger: what the Ledger would offer.</div>${more('Every projected contract', "bdState.tab='fa'; switchView('boards')")}`) : ''}
-      ${pros.length ? tile('Prospects', `<h3>Top prospects and farms</h3><div class="hub-two"><div>${pros.map(({p}, i) => `<div class="hub-row"><strong>${i + 1}</strong><span>${p[0]}</span></div>`).join('')}</div><div>${farms.map((f, i) => `<div class="hub-row"><strong>${i + 1}</strong><span>${teamNick(CLUB_NAME[f.ab] || f.ab)}</span></div>`).join('')}</div></div>${more('The top 100 and all 30 systems', "bdState.tab='pros'; bdState.org=''; switchView('boards')")}`) : ''}
     </div>
     ${sec('From the archive', 'something new every day')}
     <div class="hub-grid hub-arch">
@@ -13469,6 +13489,13 @@ function folHub(){
         ${orgStat && orgStat.rows[0] ? link('Org stat of the day', orgStat.t, `1. ${teamNick(orgStat.rows[0].r.team)} (${orgStat.f(orgStat.rows[0].v)}) · 2. ${teamNick(orgStat.rows[1].r.team)} · 3. ${teamNick(orgStat.rows[2].r.team)}`, "switchView('dna')") : ''}
         ${rv ? link('GM rivalry of the day', `${regName(rv.a)}'s ${teamNick(rv.a.team)} vs. ${rv.p.exec}'s ${teamNick(CLUB_NAME[rv.p.opp] || rv.p.opp)}`, `${rv.p.n} trades; ${regName(rv.a)}'s side is ${fmtW(rv.p.net)} wins up`, `switchView('h2h'); setTimeout(() => vcH2h('${abOf(rv.a)}'), 0)`) : ''}
       </div>
+    </div>
+    ${sec('The rankings and this winter')}
+    <div class="hub-grid hub-even">
+      ${tile('Leaderboard', `<h3>Best front offices</h3><div class="ttype" style="margin-bottom:4px">Ranked by net wins a season</div>${top5}${more('Full leaderboard', "switchView('leaderboard')")}`)}
+      ${hz ? tile('2027 title race', `<h3>Built to win next year</h3>${(() => { const mx = Math.max(cline || 0, ...hz.map(r => r.v[0])) * 1.08; const L = cline ? (cline / mx * 100).toFixed(1) : null; return `<div class="hub-race">${L ? `<div class="hr-row hr-head"><span></span><span class="hr-bar hr-lab"><em style="left:${L}%">champion line ${cline.toFixed(0)}</em></span><span></span></div>` : ''}${hz.map(r => `<div class="hr-row"><span class="hr-nm">${teamNick(CLUB_NAME[r.ab] || r.ab)}</span><span class="hr-bar"><i style="width:${(r.v[0] / mx * 100).toFixed(1)}%; ${folTC(r.ab)}; background:var(--tc)"></i>${L ? `<b style="left:${L}%"></b>` : ''}</span><span class="hr-v">${r.v[0].toFixed(1)}</span></div>`).join('')}</div>`; })()}<div class="ttype" style="margin-top:6px" title="Projected 2027 WAR already under control. The line is what a typical title team since 2012 got from its top 16 players.">2027 WAR already under control, against what title teams usually have.</div>${more('All 30 clubs', 'folHorizonAll()')}`) : ''}
+      ${fas.length ? tile('Free agents', `<h3>Top of the class</h3><div class="hub-fa2"><span></span><span class="ttype">Ledger</span><span class="ttype" title="The median of published contract predictions">Projected</span>${fas.map(({x}) => { const s = GM_SG[x[1]] || (GM_SG[x[1]] = dkSuggest(x, 'fa', null)), c = (DESK.cons || {})[x[1]]; return `<span class="hf-nm">${x[0]}</span><span>${s.sugYrs}/$${s.sugTot}M</span><span>${c ? `${c[0] % 1 ? Math.floor(c[0]) + '-' + Math.ceil(c[0]) : c[0]}/$${Math.round(c[0] * c[1])}M` : '·'}</span>`; }).join('')}</div><div class="ttype" style="margin-top:6px">Years / total. Ledger: what the Ledger would offer.</div>${more('Every projected contract', "bdState.tab='fa'; switchView('boards')")}`) : ''}
+      ${pros.length ? tile('Prospects', `<h3>Top prospects and farms</h3><div class="hub-two"><div>${pros.map(({p}, i) => `<div class="hub-row"><strong>${i + 1}</strong><span>${p[0]}</span></div>`).join('')}</div><div>${farms.map((f, i) => `<div class="hub-row"><strong>${i + 1}</strong><span>${teamNick(CLUB_NAME[f.ab] || f.ab)}</span></div>`).join('')}</div></div>${more('The top 100 and all 30 systems', "bdState.tab='pros'; bdState.org=''; switchView('boards')")}`) : ''}
     </div>`;
 }
 // one box for everything: players open their tree, GMs their report card, clubs their page
@@ -14230,6 +14257,114 @@ function wireQoCard(compact){
     <h3>${pend ? `Will they take it? ${pend} of ${qo.length} still deciding` : 'Every decision is in'}</h3><span class="ttype wq-tap">${pend ? 'Make your calls and see how everyone else voted' : 'See how they played it'}</span></summary>
     <p class="hub-p">${pend ? 'Call each one before 4pm ET on November 17. Once you vote you see how everyone else called it, and the Ledger\'s read from the player\'s side: his projected contract against one year at $23.15M.' : 'How the eight played it, how the crowd called it, and how you did.'}${done ? ` You are ${right} for ${done}.` : ''}</p>${rows}</details>`;
 }
+// ---- contract projections: every number the Desk has for a player, and how each did once he signs ----
+function wireSg(p){ const m = wireSg._m || (wireSg._m = {}); if(!m[p[1]]) { try { m[p[1]] = dkSuggest(p, 'fa', null); } catch(e){ m[p[1]] = null; } } return m[p[1]]; }
+function wireActual(pid){
+  // terms once they are public: the feed's signing plus reported terms, or the QO accepted
+  const it = (WIRE.items || []).find(x => (x.kind === 'signing' || x.kind === 'qo-accept') && x.who[0] && String(x.who[0].pid) === String(pid));
+  if(!it) return null;
+  return {club: it.club, d: it.d, terms: it.terms || null, id: it.id};
+}
+function wireProjTable(p, actual){
+  const sg = wireSg(p); if(!sg) return '';
+  const rows = [['Ledger offer', sg.sugYrs, sg.sugTot, "what the Ledger would pay: the market's rate, our model's term"]];
+  if(sg.cons) rows.push(['Published projections', sg.cons.yrs, sg.cons.tot, `median of ${pz(sg.cons.n, 'published projection', 'published projections')}`]);
+  if(sg.gm) rows.push(['Market model', sg.gm.yrs, sg.gm.tot, 'what players with his line, age and position have been paid']);
+  rows.push(['Model-fair', sg.fairYrs, sg.fairTot, `full price for ${fmtW(sg.fairProj)} projected WAR`]);
+  if(sg.mktYrs) rows.push(['Nearest comps', sg.mktYrs, sg.mktTot, 'median terms of the closest past contracts']);
+  const cw = pkCrowd(p[1]); if(cw) rows.push(['The crowd', cw.yrs, Math.round(cw.yrs * cw.aav), `median of ${pz(cw.n, 'reader prediction', 'reader predictions')}`]);
+  const mine = pkMine(p[1]); if(mine && mine.yrs) rows.push(['Your call', mine.yrs, Math.round(mine.yrs * mine.aav), 'your prediction']);
+  const at = actual && actual.terms;
+  const fmtT = (y, t) => `${y % 1 ? Math.floor(y) + '-' + Math.ceil(y) : y} yr / $${Math.round(t)}M`;
+  const off = (y, t) => { if(!at) return ''; const d = t / Math.max(y, 1) - at.tot / at.yrs; return `<span class="${Math.abs(d) <= 2 ? 'pos' : Math.abs(d) >= 6 ? 'neg' : ''}">${d >= 0 ? '+' : '-'}$${Math.abs(d).toFixed(1)}M a year</span>`; };
+  return `<div class="wp-tab"><div class="wp-h"><span class="ttype">Projected contract</span><span class="ttype">Terms</span><span class="ttype">${at ? 'Off by' : 'AAV'}</span></div>
+    ${at ? `<div class="wp-r wp-act"><span><strong>Actual</strong><span class="ttype">${teamNick(CLUB_NAME[actual.club] || actual.club)}, ${folMD(actual.d)}</span></span><span><strong>${fmtT(at.yrs, at.tot)}</strong></span><span>$${(at.tot / at.yrs).toFixed(1)}M</span></div>` : ''}
+    ${rows.map(r => `<div class="wp-r"><span>${r[0]}<span class="ttype">${r[3]}</span></span><span>${fmtT(r[1], r[2])}</span><span>${at ? off(r[1], r[2]) : '$' + (r[2] / Math.max(r[1], 1)).toFixed(1) + 'M'}</span></div>`).join('')}</div>`;
+}
+
+// ---- Free agent pick'em: over/under on the Ledger's number, then the exact deal; pooled like the QO poll ----
+const PK = {crowd: {}, at: {}};
+const PK_AAV = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 35, 40, 50, 70];
+function pkMine(pid){ try { return JSON.parse(localStorage.getItem('fol-pk-' + pid) || 'null'); } catch(e){ return null; } }
+function pkSave(pid, o){ try { localStorage.setItem('fol-pk-' + pid, JSON.stringify(o)); } catch(e){} }
+function pkPool(){
+  if(pkPool._c) return pkPool._c;
+  const xs = (DESK.players || []).filter(p => gmIsFA(p) && !gmIsProsRow(p)).map(p => ({p, v: gmProj27(p)})).sort((a, b) => b.v - a.v).slice(0, 40)
+    .map(({p}) => ({p, sg: wireSg(p)})).filter(x => x.sg && x.sg.sugTot >= 10).sort((a, b) => b.sg.sugTot - a.sg.sugTot).slice(0, 20);
+  return pkPool._c = xs;
+}
+function pkHit(k){ return fetch(`${WIRE_POLL}/hit/${WIRE_POLL_NS}/${k}`).then(r => r.ok ? r.json() : null).catch(() => null); }
+function pkGet(k){ return fetch(`${WIRE_POLL}/get/${WIRE_POLL_NS}/${k}`).then(r => r.ok ? r.json() : {value: 0}).then(j => +j.value || 0).catch(() => 0); }
+function pkLoad(pid, force){
+  if(!force && PK.at[pid] && Date.now() - PK.at[pid] < 60e3) return Promise.resolve(PK.crowd[pid]);
+  const K = `fa27-${pid}`;
+  return Promise.all([pkGet(K + '-over'), pkGet(K + '-under'), Promise.all([1, 2, 3, 4, 5, 6, 7, 8, 9].map(y => pkGet(`${K}-y${y}`))), Promise.all(PK_AAV.map((_, i) => pkGet(`${K}-a${i}`)))])
+    .then(([o, u, ys, as]) => { PK.crowd[pid] = {over: o, under: u, ys, as}; PK.at[pid] = Date.now(); return PK.crowd[pid]; });
+}
+// the crowd's median deal from the two histograms (a bucket's AAV interpolated inside it)
+function pkCrowd(pid){
+  const c = PK.crowd[pid]; if(!c) return null;
+  const n = c.ys.reduce((a, b) => a + b, 0), na = c.as.reduce((a, b) => a + b, 0); if(!n || !na) return null;
+  let k = 0, acc = 0; while(k < 8 && acc + c.ys[k] < n / 2){ acc += c.ys[k]; k++; }
+  let j = 0, aa = 0; while(j < c.as.length - 1 && aa + c.as[j] < na / 2){ aa += c.as[j]; j++; }
+  const lo = PK_AAV[j], hi = PK_AAV[j + 1] || lo + 20, frac = c.as[j] ? (na / 2 - aa) / c.as[j] : 0.5;
+  return {yrs: k + 1, aav: lo + (hi - lo) * Math.min(1, Math.max(0, frac)), n};
+}
+function pkRedraw(){ try { if(routeView() === 'wire') renderWire(); else if(routeView() === 'home') wireHomeFill(); } catch(e){} }
+function pkOU(pid, side){
+  const m = pkMine(pid) || {}; if(m.ou) return;
+  m.ou = side; m.at = Date.now(); pkSave(pid, m); folEvent('wire/pk-ou');
+  pkHit(`fa27-${pid}-${side}`).then(() => pkLoad(pid, true)).then(pkRedraw);
+  pkRedraw();
+}
+function pkPredict(pid){
+  const y = Math.round(+(document.getElementById('pky-' + pid) || {}).value), t = +(document.getElementById('pkt-' + pid) || {}).value;
+  const out = document.getElementById('pko-' + pid);
+  if(!(y >= 1 && y <= 12) || !(t >= 1 && t <= 800) || t / y > 70){ if(out) out.textContent = 'Years 1-12 and a total in $M (no more than $70M a year).'; return; }
+  const m = pkMine(pid) || {}; if(m.yrs) return;
+  m.yrs = y; m.aav = t / y; m.at = m.at || Date.now(); pkSave(pid, m); folEvent('wire/pk-predict');
+  const ab = PK_AAV.findIndex((e, i) => m.aav >= e && m.aav < (PK_AAV[i + 1] ?? 1e9));
+  Promise.all([pkHit(`fa27-${pid}-y${Math.min(9, y)}`), pkHit(`fa27-${pid}-a${Math.max(0, ab)}`)]).then(() => pkLoad(pid, true)).then(pkRedraw);
+  pkRedraw();
+}
+function pkOpen(pid){ PK.open = PK.open === String(pid) ? '' : String(pid); if(PK.open) pkLoad(pid).then(pkRedraw); pkRedraw(); }
+function pkRow(x){
+  const p = x.p, pid = p[1], sg = x.sg, mine = pkMine(pid) || {}, act = wireActual(pid), at = act && act.terms, c = PK.crowd[pid];
+  const line = sg.sugTot, fmt = (y, t) => `${y} yr / $${t}M`;
+  const res = at ? (at.tot > line ? 'over' : at.tot < line ? 'under' : 'push') : '';
+  let right = '';
+  if(act) right = at ? `<span class="stamp-s ${res === 'over' ? 'pos' : 'neg'}">${res}</span> <span class="ttype">${teamNick(CLUB_NAME[act.club] || act.club)}, ${fmt(at.yrs, at.tot)}</span>${mine.ou ? ` <span class="ttype">${mine.ou === res ? 'You called it' : 'You missed'}</span>` : ''}` : `<span class="ttype">Signed with the ${teamNick(CLUB_NAME[act.club] || act.club)}; terms to come</span>`;
+  else right = mine.ou ? `<span class="ttype">Your call: ${mine.ou}</span>` : `<span class="wq-btns"><button class="actbtn" onclick="pkOU(${pid}, 'over')">Over</button><button class="actbtn" onclick="pkOU(${pid}, 'under')">Under</button></span>`;
+  const n = c ? c.over + c.under : 0, po = n ? Math.round(c.over / n * 100) : 0;
+  const bar = (mine.ou || act) && n ? `<div class="wq-bar pk-bar"><span class="wq-d" style="width:${100 - po}%"></span></div><div class="wq-pct"><span>${po}% over</span><span>${100 - po}% under</span><span class="ttype">${pz(n, 'call', 'calls')}</span></div>` : '';
+  const open = PK.open === String(pid);
+  const pred = open ? `<div class="pk-pred">${mine.yrs ? '' : act ? '' : `<div class="wi-try"><input id="pky-${pid}" type="number" min="1" max="12" placeholder="Years" aria-label="Years"><input id="pkt-${pid}" type="number" min="1" step="1" placeholder="Total $M" aria-label="Total in millions"><button class="actbtn" onclick="pkPredict(${pid})">Lock it in</button><span id="pko-${pid}" class="ttype"></span></div>`}${wireProjTable(p, act)}</div>` : '';
+  return `<div class="pk-row"><div class="wq-who"><strong>${p[0]}</strong> <span class="ttype">${p[13] || p[12] || ''}, ${p[4] + 1}</span><div class="ttype">Line: ${fmt(sg.sugYrs, line)} (the Ledger's number, total $)</div></div><div class="wq-res">${right}</div>${bar ? `<div class="wq-poll">${bar}</div>` : ''}
+    <div class="pk-more"><button class="linkbtn" onclick="pkOpen(${pid})">${open ? 'Close' : mine.yrs ? 'Your prediction and every projection' : act ? 'Every projection against the deal' : 'Predict the exact deal'}</button></div>${pred}</div>`;
+}
+function pkCard(){
+  const xs = pkPool(); if(!xs.length) return '';
+  if(!pkCard._asked){ pkCard._asked = 1; xs.filter(x => (pkMine(x.p[1]) || {}).ou || wireActual(x.p[1])).slice(0, 12).forEach(x => pkLoad(x.p[1]).then(pkRedraw)); }
+  const nOpen = innerWidth > 860 || pkCard._open;
+  return `<details class="card home-card wire-pk"${nOpen ? ' open' : ''} ontoggle="pkCard._open = this.open"><summary><div class="home-kick">Free agent pick'em</div><h3>Over or under the Ledger's number?</h3><span class="ttype wq-tap">Call the top ${xs.length} free agents</span></summary>
+    <p class="hub-p">The line is the Ledger's number for each player's total guarantee. Call it, see how everyone else called it, then predict the exact deal. Each one is scored when he signs.</p>
+    ${xs.slice(0, 8).map(pkRow).join('')}${xs.length > 8 ? `<details class="wire-more"${pkCard._all ? ' open' : ''} ontoggle="pkCard._all = this.open"><summary>The other ${xs.length - 8}</summary>${xs.slice(8).map(pkRow).join('')}</details>` : ''}</details>`;
+}
+// your record: QO calls, over/unders and exact predictions, scored as they resolve
+function pkMyCard(){
+  const qo = Object.keys(DESK.qo27 || {}).map(pid => ({pid, mine: wireQoMine(pid), st: wireQoStatus(pid)})).filter(x => x.mine);
+  const pk = pkPool().map(x => ({x, m: pkMine(x.p[1]), act: wireActual(x.p[1])})).filter(z => z.m && (z.m.ou || z.m.yrs));
+  if(!qo.length && !pk.length) return '';
+  const qoDone = qo.filter(x => x.st !== 'pending'), qoRight = qoDone.filter(x => (x.mine === 'accept') === (x.st === 'accepted')).length;
+  const ouDone = pk.filter(z => z.m.ou && z.act && z.act.terms), ouRight = ouDone.filter(z => (z.act.terms.tot > z.x.sg.sugTot ? 'over' : 'under') === z.m.ou).length;
+  const pr = pk.filter(z => z.m.yrs && z.act && z.act.terms).map(z => ({me: Math.abs(z.m.aav - z.act.terms.tot / z.act.terms.yrs), led: Math.abs(z.x.sg.sugTot / z.x.sg.sugYrs - z.act.terms.tot / z.act.terms.yrs)}));
+  const avg = a => a.reduce((s, v) => s + v, 0) / Math.max(1, a.length);
+  return `<div class="card home-card wire-my"><div class="home-kick">Your calls</div><h3>How you are doing</h3>
+    <div class="hub-row"><span>Qualifying offers</span><span class="ttype" style="margin-left:auto">${qoDone.length ? `${qoRight} for ${qoDone.length}` : 'none decided yet'}${qo.length > qoDone.length ? ` · ${qo.length - qoDone.length} pending` : ''}</span></div>
+    <div class="hub-row"><span>Over/unders</span><span class="ttype" style="margin-left:auto">${ouDone.length ? `${ouRight} for ${ouDone.length}` : 'none decided yet'}${pk.filter(z => z.m.ou).length > ouDone.length ? ` · ${pk.filter(z => z.m.ou).length - ouDone.length} pending` : ''}</span></div>
+    <div class="hub-row"><span>Exact deals</span><span class="ttype" style="margin-left:auto">${pr.length ? `off by $${avg(pr.map(x => x.me)).toFixed(1)}M a year; the Ledger, $${avg(pr.map(x => x.led)).toFixed(1)}M` : `${pz(pk.filter(z => z.m.yrs).length, 'prediction', 'predictions')} waiting on signings`}</span></div>
+    <div class="ttype" style="margin-top:6px">Saved in this browser.</div></div>`;
+}
 function wireStandings(items){
   const acc = {};
   const add = (ab, v, why) => { if(!ab || !isFinite(v)) return; const a = acc[ab] || (acc[ab] = {ab, net: 0, n: 0, best: null}); a.net += v; a.n++; if(!a.best || Math.abs(v) > Math.abs(a.best.v)) a.best = {v, why}; };
@@ -14365,17 +14500,20 @@ function wireItem(it, mine){
     const f = it.fa;
     body = `<div class="wi-verdict"><span class="wi-tc" style="${folTC(it.club)}">${it.club}</span>${gChip(it.g)}<span class="${f.rel >= 0 ? 'pos' : 'neg'}" style="font-weight:700">${fmtW(f.rel)}</span><span class="ttype">against a typical signing for that money</span>${it.player ? `<span class="stamp-s ${it.player.call[1]}">${it.player.call[0]}</span>` : ''}</div>
       ${it.player ? `<div class="wi-line">For ${w.nm}: ${it.player.txt}</div>` : ''}`;
+    if(it.kind === 'signing') body += `<details class="wi-sheet"><summary>How every projection did</summary>${wireProjTable(p, wireActual(w.pid))}</details>`;
     sheet = wireFaSheet(it); if(sheet) sheet = `<div class="wi-sheet">${sheet}</div>`;
   } else if((it.kind === 'signing' || it.kind === 'ext') && p && !gmIsProsRow(p)){
     const c = (DESK.cons || {})[p[1]];
     body = `<div class="wi-pl">${wirePlayerLine(p)}</div>
-      <div class="wi-nums">${it.sg ? `<div><span class="ttype">Ledger's number</span><strong>${it.sg.sugYrs} yr / $${it.sg.sugTot}M</strong><span class="ttype">${fmtAAV(it.sg.sugTot, it.sg.sugYrs).replace(/[()]/g, '')}</span></div>` : ''}${c ? `<div><span class="ttype">Projected contract</span><strong>${c[0]} yr / $${Math.round(c[0] * c[1])}M</strong><span class="ttype">median of published predictions</span></div>` : ''}</div>
+      ${wireProjTable(p, null)}
       <div class="wi-line">Terms not reported yet. Grade it the moment they are:</div>
       <div class="wi-try"><input id="wty-${it.id}" type="number" min="1" max="12" placeholder="Years" aria-label="Years"><input id="wtt-${it.id}" type="number" min="0" step="0.5" placeholder="Total $M" aria-label="Total in millions"><button class="actbtn" onclick="wireTry('${it.id}')">Grade it</button></div><div id="wto-${it.id}"></div>`;
   } else if(it.kind === 'qo-decline'){
-    body = `<div class="wi-pl">${wirePlayerLine(p)}</div><div class="wi-line">He bets on the market${it.sg ? `: the Ledger's number for him is <strong>${it.sg.sugYrs} yr / $${it.sg.sugTot}M</strong>${fmtAAV(it.sg.sugTot, it.sg.sugYrs)}, against $23.15M for one year` : ''}. The ${nick(it.club)} get a compensation pick if he signs elsewhere, and his new club gives one up.</div>`;
+    body = `<div class="wi-pl">${wirePlayerLine(p)}</div>${wireProjTable(p, null)}<div class="wi-line">He bets on the market${it.sg ? `: the Ledger's number for him is <strong>${it.sg.sugYrs} yr / $${it.sg.sugTot}M</strong>${fmtAAV(it.sg.sugTot, it.sg.sugYrs)}, against $23.15M for one year` : ''}. The ${nick(it.club)} get a compensation pick if he signs elsewhere, and his new club gives one up.</div>`;
   } else if(it.kind === 'claim' && it.val != null){
     body = `<div class="wi-verdict"><span class="wi-tc" style="${folTC(it.club)}">${it.club}</span>${gChip(it.g)}<span class="${it.val >= 0 ? 'pos' : 'neg'}" style="font-weight:700">${fmtW(it.val)}</span><span class="ttype">surplus over his control, net of salary; a claim costs only a roster spot</span></div><div class="wi-pl">${wirePlayerLine(p)}</div>`;
+  } else if(p && it.kind === 'fa-elect' && !gmIsProsRow(p) && it.p27 >= 0.5){
+    body = `<div class="wi-pl">${wirePlayerLine(p)}</div><div class="wi-line">On the market now. What he should get:</div>${wireProjTable(p, null)}`;
   } else if(p){
     const why = it.kind === 'dfa' || it.kind === 'release' ? (it.p27 >= 0.3 ? ' Worth a claim for someone.' : '') : it.kind === 'add40' ? ' Now protected from the Rule 5 draft.' : '';
     body = `<div class="wi-pl">${wirePlayerLine(p)}${why}</div>`;
@@ -14417,6 +14555,8 @@ function renderWire(){
       </div>
       <aside class="wire-side">
         ${wireQoCard()}
+        ${pkCard()}
+        ${pkMyCard()}
         <div class="card home-card"><div class="home-kick">The winter so far</div><h3>Who has won the offseason</h3><p class="hub-p">Every graded move since Nov 1 added up: trades, signings with reported terms, claims.</p>
           ${st.length ? st.slice(0, 5).map((s, i) => stRow(s, i + 1)).join('') + (st.length > 5 ? `<details class="wire-more"><summary>All ${st.length} clubs</summary>${st.slice(5).map((s, i) => stRow(s, i + 6)).join('')}</details>` : '') : '<div class="ttype">No graded moves yet.</div>'}</div>
       </aside>
