@@ -1852,3 +1852,14 @@ Current clubs and statuses for every Desk player from the MLB Stats API (319 cha
 - **The site no longer remembers a club.** Earlier versions saved the last club picked and opened the Deal Desk, the simulator, the horizon and the report cards on it. Every tool now opens neutral. A pick saved by an earlier version is cleared on the first visit.
 - **Jump to a club** on home and **Clubs** on the phone bar open a club's report card; nothing is stored.
 - **Run the winter / Make a trade** on a report card open the simulator or the Deal Desk on that club for that click only.
+
+## The Wire: every move of the winter, graded as it happens (November 9, 2026, night)
+
+- **What it is.** A live feed of every transaction since November 1, read straight from the league's public transaction feed in the visitor's browser and refreshed every two minutes. Nothing runs on a server.
+- **Trades** are graded from both seats with the Deal Desk's accounting: each player's surplus over his remaining control, net of salary, weighted for where the club stands; prospects at their rank or comparables expectation; players not on our boards at the unranked-prospect expectation. The letter ranks the deal among every real trade of its size since 1998. Deals with under half a win at stake either way are labeled depth deals and get no letter.
+- **Signings** are graded once terms are reported (wire.json, or typed in by the reader): projected WAR against what a typical club gets back for that money in those contract years, minus the draft pick for a qualifying-offer player. The player's side compares his deal with the Ledger's number for him. Before terms are out, the card shows the Ledger's number.
+- **Qualifying offers.** A QO player signing back with his own club before the deadline is read as the acceptance; signing elsewhere, or no acceptance by 4pm ET November 17, is read as a decline. Readers can call each decision in advance.
+- **Waiver claims** are graded on the claimed player's surplus over his control (a claim costs only a roster spot). Releases, DFAs and 40-man additions show the player's projection or prospect peak.
+- **The winter so far** adds up each club's graded moves.
+- **Sharing.** Every move has its own link, a Post on X button with the grades, a reply-to-a-post button, and a saved image.
+- **Trade Grade** now counts days in a row played.
