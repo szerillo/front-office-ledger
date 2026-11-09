@@ -1,10 +1,12 @@
 // Builds the share pages (c/<id>.html) and their preview images (og/<id>.png),
 // plus the site-wide og.png, from the built page itself. Run after regen.
-import { chromium } from 'playwright';
+import { createRequire } from 'module'; import { execSync } from 'child_process';
+const require = createRequire(import.meta.url);
+let chromium; try { ({ chromium } = require('playwright')); } catch { ({ chromium } = require(execSync('npm root -g').toString().trim() + '/playwright')); }
 import fs from 'fs';
 const OUT = process.argv[2] || '/work/share';
 fs.mkdirSync(OUT + '/c', {recursive: true}); fs.mkdirSync(OUT + '/og', {recursive: true});
-const b = await chromium.launch({executablePath: '/opt/pw-browsers/chromium', proxy: process.env.HTTPS_PROXY ? {server: process.env.HTTPS_PROXY} : undefined});
+const b = await chromium.launch({proxy: process.env.HTTPS_PROXY ? {server: process.env.HTTPS_PROXY} : undefined});
 const p = await b.newPage();
 await p.route('**/statsapi.mlb.com/**', r => r.abort());
 await p.goto('file:///work/front-office-ledger-prototype.html');
@@ -71,7 +73,7 @@ for(const r of data.rows){
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}"><meta property="og:image" content="https://frontofficeledger.com/og/${slug(r.id)}.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@FrontOfficeLdgr"><meta name="twitter:creator" content="@SeanZerillo"><meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="https://frontofficeledger.com/og/${slug(r.id)}.png">
 <meta http-equiv="refresh" content="0; url=${dest}">
 <style>body{font-family:Georgia,serif; background:#f2ecdd; color:#1d1a14; padding:40px}</style>
