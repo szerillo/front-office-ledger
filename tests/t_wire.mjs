@@ -108,6 +108,13 @@ const R = await d.page.evaluate(async ({fx, dz}) => {
   // Deal Desk from a wire trade
   wireDesk('990003'); await wait(400);
   o.openInDesk = dkState.you === I(990003).sides[0].ab && dkState.recv.length === 1 && dkState.send.length === 1 && !!document.querySelector('#dk-out .dk-sheet');
+  // the assistant GM leaves a depth swap alone (no closer thrown into a deal of fringe arms), and roster needs
+  // only come up when proven big leaguers change hands
+  wireDesk(WIRE.items.find(x => /Eduardo Rivera/.test(x.desc)).id); await wait(300);
+  const nSend = dkState.send.length; dkAgm(); await wait(50);
+  o.agmDepthFair = dkState.send.length === nSend && /Fair as built/.test(document.getElementById('dk-agm-note').textContent);
+  dkEval(); await wait(50);
+  o.noNeedsOnDepth = !/address its needs|Fills a real need/.test((document.getElementById('dk-out') || {}).textContent || '');
   // a trade with a player who is not on our boards still opens whole
   wireDesk(WIRE.items.find(x => /Eduardo Rivera/.test(x.desc)).id); await wait(400);
   o.deskUnknownPiece = [...dkState.recv, ...dkState.send].some(pc => pc.kind === 'other' && /Juan Garc/.test(pc.nm)) && !!document.querySelector('#dk-out .dk-sheet');
@@ -137,6 +144,13 @@ const R = await d.page.evaluate(async ({fx, dz}) => {
   o.dudesDone = DUDES.st.done && /Remember Some Dudes \d+\/10/.test(dudesShareText()) && !!dudesStore('day-' + dudeDay());
   o.dudesLinesFair = (() => { const xs = DUDES.rows.map(dudeOf); const over = xs.filter(q => q.war > q.line).length / xs.length; return over > 0.4 && over < 0.6; })();
   try { localStorage.removeItem('fol-dudes-day-' + dudeDay()); } catch(e){}
+  // games have their own links: pick'em lands on its card, open
+  location.hash = '#view=wire&id=pickem'; await wait(400);
+  o.pickemLink = !document.getElementById('view-wire').hidden && document.querySelector('.wire-pk').open && document.querySelector('.wire-pk').classList.contains('wi-focus');
+  // the deal ledger on a heist: WAR and salary separately, the new-contract note on Santana
+  folPartsData({'2008-02-02|276371|NYM': [0, 0, null, null, 0, 1], '2008-02-02|460576|MIN': [10.4, 0.6, 2008, 2013, 0, 0]});
+  const sant = folTrades().find(x => x.d === '2008-02-02' && x.S.some(s => s.ab === 'NYM'));
+  o.dealLedger = !!sant && /signed a new contract/.test(folDealLedger(sant)) && /\+10\.4/.test(folDealLedger(sant)) && /Gave up/.test(folDealLedger(sant));
   // Trade Grade: days in a row played
   const day = Math.floor(Date.now() / 864e5); folQuizStore('day-' + (day - 1), [true]); folQuizStore('day-' + (day - 2), [false]); try { localStorage.removeItem('fol-quiz-day-' + day); } catch(e){}
   o.quizDaysInARow = folQuizDays() === 2;

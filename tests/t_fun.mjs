@@ -10,11 +10,14 @@ const R = await d.page.evaluate(async () => {
   o.homeIsDefault = typeof routeView === 'function';
   o.pickerHas30 = document.querySelectorAll('#hub-team option').length === 31 && !document.querySelector('#homebody .tchips');
   o.heistOfDay = !!document.querySelector('#homebody .heist') || /Heist of the day/.test(document.getElementById('homebody').textContent);
-  o.hubTeasers = ['Trade Grade', 'Best front offices', 'Run a winter', 'Scenario of the day', 'Signing of the day', 'GM rivalry of the day', 'Will they take the QO?'].every(x => document.getElementById('homebody').textContent.includes(x));
-  o.hubOrder = (() => { const ks = [...document.querySelectorAll('#homebody .hub-grid > .card > .home-kick, #homebody .hub-links .home-kick')].map(k => k.textContent.trim().toLowerCase()); const once = new Set(ks.map(k => k.split(' · ')[0])).size === ks.length; return ks.includes('leaderboard') && ks.some(k => /^trade of the day · (on this date|this week in history)$/.test(k)) && ks.some(k => k.startsWith('signing of the day')) && ks.length >= 10 && once; })();
-  o.rankByRate = folActiveRank().every((r, i, a) => i === 0 || a[i - 1].gradeRate >= r.gradeRate) && /Best at/.test(document.querySelector('#homebody .hub-lb').textContent) && /a season/.test(document.querySelector('#homebody .hub-lb').textContent);
-  o.hubPlayRail = [...document.querySelectorAll('#homebody .hub-play .hp-row')].length >= 4 && !!document.querySelector('#homebody .hub-top #hub-wire');
-  o.hubSections = [...document.querySelectorAll('#homebody .hub-sec h3')].map(h => h.textContent).join('|') === 'From the archive|The rankings and this winter' && /champion line/.test(document.getElementById('homebody').textContent) && /Org stat of the day/.test(document.getElementById('homebody').textContent) && /Ledger/.test(document.querySelector('#homebody .hub-fa2').textContent) && /Projected/.test(document.querySelector('#homebody .hub-fa2').textContent) && /front offices/.test(document.querySelector('#homebody .hub-stats').textContent) && /free-agent signings/.test(document.getElementById('homebody').textContent);
+  o.hubTeasers = ['Trade Grade', 'The best front offices in baseball', 'Run a winter', 'Scenario of the day', 'Signing of the day', 'GM rivalry of the week', 'Remember Some Dudes', 'Featured farm system', 'Champion of the week', 'Will they take the QO?'].every(x => document.getElementById('homebody').textContent.includes(x));
+  o.hubOrder = [...document.querySelectorAll('#homebody .hub-sec h3')].map(h => h.textContent).join('|') === 'The front office rankings|This winter|Play|From the archive';
+  o.rankByRate = folActiveRank().every((r, i, a) => i === 0 || a[i - 1].gradeRate >= r.gradeRate) && (() => { const rows = [...document.querySelectorAll('#homebody .hub-lbcard .hub-lb:not(.hub-lbhead)')]; const v = rows.map(x => parseFloat(x.querySelector('.hl-ps').textContent)); return rows.length === 8 && /Best at/.test(rows[0].textContent) && v.every((x, i) => i === 0 || v[i - 1] >= x); })();
+  o.champLine48 = Math.abs(folChampLine() - 48) < 1.5;
+  o.heistContext = (() => { const t = folTrades().find(x => x.d.startsWith('2003-11') && x.S.some(s => s.ab === 'SF') && x.S.some(s => s.ab === 'MIN')); const c = t && folHeistCtx(t); return c && c.contender && c.r.w === 100; })();
+  o.heistsRankedInContext = (() => { const xs = folTrades().slice().sort((a, b) => folHeistAdj(b) - folHeistAdj(a)); return xs.length > 100 && folHeistAdj(xs[0]) >= folHeistAdj(xs[1]); })();
+  o.hubPlayRail = document.querySelectorAll('#homebody .hub-play2 .hp-row').length >= 6 && !!document.querySelector('#homebody .hub-top #hub-wire');
+  o.hubSections = /champion line 48/.test(document.getElementById('homebody').textContent) && /Org stat of the day/.test(document.getElementById('homebody').textContent) && /Ledger/.test(document.querySelector('#homebody .hub-fa2').textContent) && /Projected/.test(document.querySelector('#homebody .hub-fa2').textContent) && /front offices/.test(document.querySelector('#homebody .hub-stats').textContent) && /\(#\d+ of 30\)/.test(document.getElementById('homebody').textContent);
   document.getElementById('hub-find').value = 'Friedman'; folHubFind();
   o.hubSearch = /Andrew Friedman/.test(document.getElementById('hub-find-out').textContent) && /report card/.test(document.getElementById('hub-find-out').textContent);
   document.getElementById('hub-find').value = 'Mookie'; folHubFind();
@@ -29,16 +32,16 @@ const R = await d.page.evaluate(async () => {
   folPickTeam('BOS'); await wait(400);
   const rb = document.getElementById('view-report').textContent;
   o.teamPage = !document.getElementById('view-report').hidden && /Craig Breslow/.test(rb) && /#view=cards&id=bos/.test(location.hash);
-  o.teamStanding = !!document.querySelector('#rc-standing .rc-standing') && /active front offices/.test(document.getElementById('rc-standing').textContent) && /Run the Red Sox winter/.test(document.getElementById('rc-standing').textContent);
+  o.teamStanding = !!document.querySelector('#rc-standing .rc-standing') && /active front offices/.test(document.getElementById('rc-standing').textContent) && !document.querySelector('#rc-standing button.actbtn');
   o.teamNotRemembered = folTeam() === '' && (() => { try { return !localStorage.getItem('fol-team'); } catch(e){ return true; } })();
-  [...document.querySelectorAll('#rc-standing button')].find(b => /Run the Red Sox winter/.test(b.textContent)).click(); await wait(300);
+  folOpenAs('BOS', 'gm'); await wait(300);
   o.teamRunWinterOpensClub = !document.getElementById('view-gm').hidden && gmState.club === 'BOS';
   dkState.you = null; switchView('desk'); await wait(100);
   o.noDefaultClubAfter = !dkState.you;
   o.teamTimelinePins = document.querySelectorAll('#view-report svg circle').length >= 3;
   o.teamStandingOnlyCurrent = (() => { const h = LB_HIST.find(x => x.realCard); if(!h) return true; switchView('report', h.id); return !(document.getElementById('rc-standing') || {}).textContent; })();
   o.navOrder = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).slice(0, 9).join() === 'home,wire,leaderboard,report,champs,dna,h2h,heists,trees' || [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).join();
-  o.navQuizUnderPlayGM = (() => { const g = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view); return g.slice(-5).join() === 'gm,desk,scen,quiz,dudes'; })();
+  o.navQuizUnderPlayGM = (() => { const g = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view + (b.dataset.tab ? ':' + b.dataset.tab : '')); return g.slice(-6).join() === 'gm,desk,scen,quiz,dudes,wire:pickem'; })();
   // heists: biggest first, and a club filter shows that club's side
   switchView('heists'); await wait(50);
   const gaps = folTrades().map(t => t.gap).sort((a, b) => b - a);
@@ -127,7 +130,7 @@ const R = await d.page.evaluate(async () => {
   // sharing: team card, heist links and the heist a shared link points to
   folTeamSet('BOS'); switchView('team'); await wait(50);
   folGoTeam('BOS'); await wait(300);
-  o.teamShareButtons = /Save card image/.test(document.getElementById('rc-standing').textContent) && /tc-grade/.test(folTradingCard('BOS'));
+  o.teamShareButtons = /tc-grade/.test(folTradingCard('BOS'));
   heistState.focus = folHeistId(folHeistOfDay()); switchView('heists'); await wait(50);
   o.heistSharedLink = /Shared with you/.test(document.getElementById('heistbody').textContent) && /Share this heist/.test(document.getElementById('heistbody').textContent);
   heistState.focus = null;
