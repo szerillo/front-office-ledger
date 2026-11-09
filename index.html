@@ -1105,7 +1105,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
     <div class="tagline"><strong>Evaluating the evaluators.</strong> A decision-making model for front offices: every move since 1998 graded, any move you are weighing priced, and every club's next five years projected.</div>
     <nav>
       <div class="navgrp"><span class="navlbl">Performance review</span><div class="navbtns">
-        <button class="on" data-view="home" title="Heist of the day, the daily trade game, the best front offices, your team">Home</button>
+        <button class="on" data-view="home" title="Heist of the day, the daily trade game, the best front offices, every club">Home</button>
         <button data-view="leaderboard">Leaderboard</button>
         <button data-view="report">Report Cards</button>
         <button data-view="champs">Champions</button>
@@ -13149,18 +13149,16 @@ setTimeout(liveWinter, 0);   // after every declaration above has run
    timeline pins, Deal Desk meter + popup + not-interested, simulator
    scoreboard and next-decision card, sparklines, phone bottom bar.
    ===================================================================== */
-// ---- your team, remembered (localStorage; blocked storage means per visit) ----
-function folTeam(){ try { const t = localStorage.getItem('fol-team'); return t && (CLUB_NAME || {})[t] ? t : ''; } catch(e){ return folTeam._m || ''; } }
-function folTeamSet(ab){
-  try { if(ab) localStorage.setItem('fol-team', ab); else localStorage.removeItem('fol-team'); } catch(e){ folTeam._m = ab; }
-  folTeamDefaults._done = {};
-  folMobar();
-}
-// first visit to a tool after picking a team opens it on that team (never overrides a choice made there)
+// ---- Nov 2026: the site no longer remembers or defaults a club. Every tool opens neutral. ----
+// (an old saved pick from earlier versions is cleared once)
+try { localStorage.removeItem('fol-team'); } catch(e){}
+function folTeam(){ return ''; }
+function folTeamSet(ab){ folTeamDefaults._done = {}; folMobar(); }
+// a club's report card can open a tool on that club, once, for that click only
+function folOpenAs(ab, v){ folTeamDefaults._once = ab; folGo(v); }
 function folTeamDefaults(v){
-  const ab = folTeam(); if(!ab) return;
-  const done = folTeamDefaults._done || (folTeamDefaults._done = {});
-  if(done[v]) return; done[v] = 1;
+  const ab = folTeamDefaults._once || ''; folTeamDefaults._once = '';
+  if(!ab) return;
   try {
     if(v === 'desk' && !dkState.you){ dkState.you = ab; if(dkState.mode === 'trade' && !dkState.them && !dkState.send.length && !dkState.recv.length) setTimeout(() => { try { dkIdea(); dkPopClose(); } catch(e){} }, 0); }
     if(v === 'horizon'){ const s = document.getElementById('hz-club'); if(s && !s.options.length) folTeamDefaults._hz = ab; else if(s && !s.value && [...s.options].some(o => o.value === ab)) s.value = ab; }
@@ -13323,7 +13321,7 @@ function folHub(){
       <h2>Every trade, signing and draft pick since 1998, graded.</h2>
       <p>Each move is scored against what a typical club got from the same kind of move. Then try the moves yourself.</p>
       <div class="hub-find"><input id="hub-find" autocomplete="off" placeholder="Look up a player, a GM or a club" aria-label="Look up a player, a GM or a club" oninput="folHubFind()" onkeydown="if(event.key==='Enter'){ const f = document.querySelector('#hub-find-out button'); if(f) f.click(); } if(event.key==='Escape') document.getElementById('hub-find-out').innerHTML=''"><div id="hub-find-out" class="hub-find-out"></div></div>
-      <div class="hub-team"><label for="hub-team">Your team</label><select id="hub-team" onchange="if(this.value) folPickTeam(this.value)"><option value="">${mine ? (CLUB_NAME[mine] || mine) : 'Pick a club'}</option>${Object.keys(DESK.teams || {}).sort((a, b) => (CLUB_NAME[a] || a).localeCompare(CLUB_NAME[b] || b)).map(a => `<option value="${a}">${CLUB_NAME[a] || a}</option>`).join('')}</select>${mine ? `<button class="actbtn" onclick="folGoTeam('${mine}')">Open the ${teamNick(CLUB_NAME[mine] || mine)} report card</button>` : ''}</div>
+      <div class="hub-team"><label for="hub-team">Jump to a club</label><select id="hub-team" onchange="if(this.value) folPickTeam(this.value)"><option value="">Pick a club</option>${Object.keys(DESK.teams || {}).sort((a, b) => (CLUB_NAME[a] || a).localeCompare(CLUB_NAME[b] || b)).map(a => `<option value="${a}">${CLUB_NAME[a] || a}</option>`).join('')}</select>${mine ? `<button class="actbtn" onclick="folGoTeam('${mine}')">Open the ${teamNick(CLUB_NAME[mine] || mine)} report card</button>` : ''}</div>
       ${stats.tr ? `<div class="hub-stats"><span><b>${fmtN(stats.tr)}</b> trades</span><span><b>${fmtN(stats.fa)}</b> free-agent signings</span><span><b>${fmtN(stats.dr)}</b> draft picks</span><span><b>${fmtN(stats.reg)}</b> regimes graded</span>${stats.thru ? `<span>data through ${stats.thru}</span>` : ''}</div>` : ''}</div>
     ${sec('Today', 'new every day')}
     <div class="hub-grid">
@@ -13372,7 +13370,7 @@ function folHubFind(){
 }
 // Nov 2026: a club's page is its report card (the leaderboard's own), with where it stands added on top
 function folGoTeam(ab){ const r = curRegOf(ab); if(r) switchView('report', r.id); else switchView('team'); window.scrollTo({top: 0}); }
-function folPickTeam(ab){ folTeamSet(ab); folGoTeam(ab); }
+function folPickTeam(ab){ folGoTeam(ab); }
 function folReportStanding(r){
   let host = document.getElementById('rc-standing');
   if(!host){ host = document.createElement('div'); host.id = 'rc-standing'; const t = document.getElementById('rc-tiles'); if(t) t.after(host); }
@@ -13382,8 +13380,8 @@ function folReportStanding(r){
   if(!P || typeof P !== 'object'){ host.innerHTML = ''; return; }
   const nick = teamNick(CLUB_NAME[ab] || ab);
   host.innerHTML = `<div class="actions rc-acts">
-      <button class="actbtn primary" onclick="folTeamSet('${ab}'); folGo('gm')">Run the ${nick} winter</button>
-      <button class="actbtn" onclick="folTeamSet('${ab}'); dkState.you='${ab}'; dkState.mode='trade'; folGo('desk')">Make a trade</button>
+      <button class="actbtn primary" onclick="folOpenAs('${ab}', 'gm')">Run the ${nick} winter</button>
+      <button class="actbtn" onclick="dkState.you='${ab}'; dkState.mode='trade'; folOpenAs('${ab}', 'desk')">Make a trade</button>
       <button class="actbtn" onclick="folSaveTradingCard('${ab}')">Save card image</button></div>
     <div class="rc-standing">${P.lb}${P.vs}${P.hz}</div>`;
 }
@@ -13846,7 +13844,7 @@ function folMobar(){
   const ab = folTeam(), v = typeof routeView === 'function' ? routeView() : '';
   const b = (view, ic, lbl, extra) => `<button type="button" class="${v === view ? 'on' : ''}" onclick="${extra || ''}switchView('${view}')"><span class="mb-ic">${ic}</span>${lbl}</button>`;
   bar.innerHTML = b('home', '⚾', 'Home')
-    + `<button type="button" class="${v === 'team' ? 'on' : ''}" onclick="${ab ? `folGoTeam('${ab}')` : `switchView('team')`}" style="${ab ? folTC(ab) : ''}"><span class="mb-team">${ab || '?'}</span>Team</button>`
+    + `<button type="button" class="${v === 'team' ? 'on' : ''}" onclick="switchView('team')"><span class="mb-ic">🏟️</span>Clubs</button>`
     + b('leaderboard', '🏆', 'Leaders') + b('desk', '🤝', 'Trade') + b('gm', '🗓️', 'Sim');
 }
 
