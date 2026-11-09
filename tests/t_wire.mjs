@@ -3,8 +3,9 @@
 import { open, report } from './_common.mjs';
 import fs from 'fs';
 const fx = JSON.parse(fs.readFileSync(new URL('./fixtures/wire_tx.json', import.meta.url))).transactions;
+const dz = JSON.parse(fs.readFileSync(new URL('../dudes.json', import.meta.url)));
 const d = await open();
-const R = await d.page.evaluate(async (fx) => {
+const R = await d.page.evaluate(async ({fx, dz}) => {
   const o = {}, wait = ms => new Promise(z => setTimeout(z, ms));
   // with the feed unreachable (the harness blocks it) the page says so and keeps working
   await wireLoad(true);
@@ -115,12 +116,33 @@ const R = await d.page.evaluate(async (fx) => {
   o.homeWinter = !!document.querySelector('#hub-winter .wire-winter .ww-club');
   o.homeStrip = document.querySelectorAll('#hub-wire .hw-row').length >= 3 && /Qualifying offer decisions due|Rule 5|Non-tender|labor deal/.test(document.getElementById('hub-wire').textContent);
   o.navWire = !!document.querySelector('nav button[data-view="wire"]');
+  // the offseason hub: a club's winter, the money, the reports, the labor clock
+  WIRE.focus = ''; WIRE.filt = {club: 'TB', kind: 'mlb'}; WIRE.tab = 'feed'; switchView('wire'); await wait(150);
+  o.clubPanel = /The Rays winter/.test(document.querySelector('.wire-club').textContent) && /2027 payroll/.test(document.querySelector('.wire-club').textContent) && /Out:.*Junior Caminero|Out:.*/.test(document.querySelector('.wire-club').textContent);
+  o.clubFlows = (() => { const c = wireClubWinter('NYY'); return c.ins.some(x => x.w.pid === star[1]) && c.dWar > 0; })();
+  o.moneyCard = document.querySelectorAll('.wire-money .wm-row').length === 30;
+  o.laborClock = /until the labor deal expires|Lockout|labor deal/.test(document.querySelector('.wire-labor').textContent);
+  WIRE.filt.club = ''; location.hash = '#view=wire&id=daily'; await wait(300);
+  o.dailyReport = WIRE.tab === 'daily' && /The Ledger Daily/.test(document.getElementById('wire-daily').textContent) && document.querySelectorAll('#wire-daily .wr-mv').length >= 1;
+  location.hash = '#view=wire&id=weekly'; await wait(300);
+  o.weeklyReport = WIRE.tab === 'weekly' && document.querySelectorAll('#wire-weekly .wr-club').length === 30;
+  WIRE.tab = 'feed';
+  // Remember Some Dudes: ten a day across the eras, over/under on career WAR, a link to each player's page
+  dudesLoadData(dz); DUDES.st = null; try { localStorage.removeItem('fol-dudes-day-' + dudeDay()); } catch(e){}
+  switchView('dudes'); await wait(100);
+  o.dudesTen = DUDES.st && DUDES.st.qs.length === 10 && DUDES.st.qs.filter(q => q.y0 < 1960).length >= 3 && /Career WAR: over or under/.test(document.getElementById('dudesbody').textContent);
+  const q0 = DUDES.st.qs[0]; dudesCall(q0.war > q0.line ? 'over' : 'under'); await wait(50);
+  o.dudesReveal = DUDES.st.ans[0] === true && !!document.querySelector('#dudesbody a[href^="https://www.baseball-reference.com/players/"]');
+  for(let k = 1; k < 10; k++){ dudesNext(); dudesCall('over'); } dudesNext(); await wait(50);
+  o.dudesDone = DUDES.st.done && /Remember Some Dudes \d+\/10/.test(dudesShareText()) && !!dudesStore('day-' + dudeDay());
+  o.dudesLinesFair = (() => { const xs = DUDES.rows.map(dudeOf); const over = xs.filter(q => q.war > q.line).length / xs.length; return over > 0.4 && over < 0.6; })();
+  try { localStorage.removeItem('fol-dudes-day-' + dudeDay()); } catch(e){}
   // Trade Grade: days in a row played
   const day = Math.floor(Date.now() / 864e5); folQuizStore('day-' + (day - 1), [true]); folQuizStore('day-' + (day - 2), [false]); try { localStorage.removeItem('fol-quiz-day-' + day); } catch(e){}
   o.quizDaysInARow = folQuizDays() === 2;
   try { localStorage.removeItem('fol-quiz-day-' + (day - 1)); localStorage.removeItem('fol-quiz-day-' + (day - 2)); } catch(e){}
   return o;
-}, fx);
+}, {fx, dz});
 await d.browser.close();
 // phones: the wire fits
 const m = await open({width: 390, height: 844});

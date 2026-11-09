@@ -38,7 +38,7 @@ const R = await d.page.evaluate(async () => {
   o.teamTimelinePins = document.querySelectorAll('#view-report svg circle').length >= 3;
   o.teamStandingOnlyCurrent = (() => { const h = LB_HIST.find(x => x.realCard); if(!h) return true; switchView('report', h.id); return !(document.getElementById('rc-standing') || {}).textContent; })();
   o.navOrder = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).slice(0, 9).join() === 'home,wire,leaderboard,report,champs,dna,h2h,heists,trees' || [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).join();
-  o.navQuizUnderPlayGM = (() => { const g = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view); return g.slice(-4).join() === 'gm,desk,scen,quiz'; })();
+  o.navQuizUnderPlayGM = (() => { const g = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view); return g.slice(-5).join() === 'gm,desk,scen,quiz,dudes'; })();
   // heists: biggest first, and a club filter shows that club's side
   switchView('heists'); await wait(50);
   const gaps = folTrades().map(t => t.gap).sort((a, b) => b - a);
