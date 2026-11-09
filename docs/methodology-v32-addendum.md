@@ -1831,3 +1831,10 @@ Current clubs and statuses for every Desk player from the MLB Stats API (319 cha
 - **Trade and signing of the day.** The most lopsided trade (4+ wins apart) and the biggest signing (3+ wins either way) made on today's date in past years; when there is none on the date, the biggest within a week either side ("this week in history").
 - **Trade Grade.** The daily game's new name (nav, page, share text, saved image). Its share link is `play/trade-grade`; `play/who-won` still works.
 - **Org DNA.** No club buttons: every club's card shows, and the leaders strip scrolls to a club instead of filtering.
+
+## Home page, second pass; a club's page is its report card (November 9, 2026, night)
+
+- **Picking a club** (home, the phone bar, or a shared `t/<club>` link) opens that club's report card, the same one the leaderboard opens. Above the channel charts it now carries where the front office stands: its five leaderboard neighbors, its spot among the 28 graded front offices, the next five years, and Run the winter / Make a trade / Save card image. Archive regimes don't get this section.
+- **Home, Today:** the trade of the day links to all the heists; the tree of the day links to all transaction trees; the rivalry reads as two front offices ("Erik Neander's Rays vs. Andrew Friedman's Dodgers").
+- **Home, the rankings and this winter** (three across): leaderboard; the 2027 title race (the five clubs with the most projected 2027 WAR under control, against a champion line: the median WAR the 2012-2026 title teams got from their top 16 players, 2020 left out); how the latest champion was built; top free agents with the posted players; top prospects; Org DNA's best drafters.
+- **Home, Play GM and Explore** are one wide panel of links: run a winter, price any trade, the scenario of the day; report cards, head to head, the 5-year horizon, how it works. Nothing on home appears twice.
