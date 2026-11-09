@@ -11,6 +11,13 @@ const R = await d.page.evaluate(async () => {
   o.pickerHas30 = document.querySelectorAll('#homebody .tchip').length === 30;
   o.heistOfDay = !!document.querySelector('#homebody .heist') || /Heist of the day/.test(document.getElementById('homebody').textContent);
   o.hubTeasers = ['Who won', 'Best front offices', 'Offseason simulator', 'Scenario room'].every(x => document.getElementById('homebody').textContent.includes(x));
+  o.hubOrder = (() => { const ks = [...document.querySelectorAll('#homebody .hub-grid .home-kick')].map(k => k.textContent.trim().toLowerCase()); return ks[0] === 'heist of the day' && ks[1] === 'leaderboard' && ks[2] === 'daily game' && ks[3] === 'offseason simulator' && ks[4] === 'scenario room' && ks.length >= 10; })();
+  o.hubSections = document.querySelectorAll('#homebody .hub-sec').length === 3 && /Signing of the day/.test(document.getElementById('homebody').textContent) && /Draft steal of the day/.test(document.getElementById('homebody').textContent);
+  document.getElementById('hub-find').value = 'Friedman'; folHubFind();
+  o.hubSearch = /Andrew Friedman/.test(document.getElementById('hub-find-out').textContent) && /report card/.test(document.getElementById('hub-find-out').textContent);
+  document.getElementById('hub-find').value = 'Mookie'; folHubFind();
+  o.hubSearchPlayer = /Mookie Betts/.test(document.getElementById('hub-find-out').textContent);
+  document.getElementById('hub-find-out').innerHTML = '';
   o.hubNoDemeaning = !/Is your GM any good/i.test(document.getElementById('homebody').textContent);
   folPickTeam('BOS'); await wait(50);
   const hb = document.getElementById('teambody').textContent;
@@ -21,7 +28,7 @@ const R = await d.page.evaluate(async () => {
   o.teamBestWorst = /Best move/.test(hb) && /Worst move/.test(hb);
   o.teamTimelinePins = document.querySelectorAll('#teambody svg circle').length >= 3;
   o.navOrder = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).slice(0, 8).join() === 'home,leaderboard,report,champs,dna,h2h,heists,trees' || [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).join();
-  o.navNoQuiz = ![...document.querySelectorAll('nav [data-view]')].some(b => b.dataset.view === 'quiz');
+  o.navQuizUnderPlayGM = (() => { const g = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view); return g.slice(-4).join() === 'gm,desk,scen,quiz'; })();
   // heists: biggest first, and a club filter shows that club's side
   switchView('heists'); await wait(50);
   const gaps = folTrades().map(t => t.gap).sort((a, b) => b - a);
@@ -73,6 +80,29 @@ const R = await d.page.evaluate(async () => {
   gmState.stage = 0; gmShow(); await wait(30);
   o.simScoreboard = /\d{2,3}-\d{2,3}/.test(document.getElementById('gm-score').textContent) && /Payroll/.test(document.getElementById('gm-score').textContent);
   o.simNextCard = !!document.querySelector('#gmbody .gm-next');
+  // trees: tabs, the player's main line first, other pieces folded
+  switchView('trees'); await wait(300);
+  o.treesTabs = document.querySelectorAll('#view-trees .tree-tabs .modechip').length === 3 && document.getElementById('tree-player-panel').hidden && !document.getElementById('treeswrap').hidden;
+  document.getElementById('tree-find').value = 'Mookie Betts'; treeFind(); await wait(50);
+  o.treesPlayerTab = !document.getElementById('tree-player-panel').hidden && document.getElementById('treeswrap').hidden && document.querySelectorAll('#tree-find-out details.tfold').length >= 1 && [...document.querySelectorAll('#tree-find-out details.tfold')].every(d => !d.open) && /Where the other pieces went/.test(document.getElementById('tree-find-out').textContent);
+  vcTrees('BOS'); await wait(50);
+  o.treesClubReplacesPlayer = document.getElementById('tree-player-panel').hidden && !document.getElementById('tree-club-panel').hidden && document.querySelectorAll('#treeswrap .tree-card').length >= 1;
+  const fb = document.querySelector('#treeswrap .tfold-all'); if(fb) fb.click();
+  o.treesOpenAll = !!fb && [...document.querySelector('#treeswrap .tree-card').querySelectorAll('details.tfold')].every(d => d.open);
+  // scenario list: no player names while names are hidden
+  switchView('scen'); await wait(300);
+  o.scenListNoNames = (() => { const ls = [...document.getElementById('sc-sel').options].map(o => o.textContent); return !ls.some(t => /Skubal|De La Cruz|Holmes|Neto/.test(t)); })();
+  // Org DNA: leaders, one card per club, the full table folded; the report card carries the profile
+  switchView('dna'); await wait(300); DNA_CLUB = ''; renderDnaTab(); await wait(30);
+  o.dnaLeaders = document.querySelectorAll('#dna-leaders .dna-lead').length === 6;
+  o.dnaCards = document.querySelectorAll('#dna-cards .dna-card').length === document.querySelectorAll('#dnatable tbody tr').length && document.querySelectorAll('#dna-cards .dna-card').length >= 25;
+  o.dnaTableFolded = !document.querySelector('#view-dna details.dna-tablewrap').open;
+  document.getElementById('dna-sort').value = 'draft'; renderDnaTab(); await wait(20);
+  o.dnaSortDraft = /Guardians|Dodgers|Diamondbacks/.test(document.querySelector('#dna-cards .dna-card .dna-nm').textContent);
+  document.getElementById('dna-sort').value = ''; renderDnaTab();
+  switchView('report', 'bos'); await wait(300);
+  const dp = document.getElementById('dnapanel');
+  o.reportDnaBeforeLedgers = !!dp && dp.nextElementSibling === document.getElementById('rc-ledgers') && /Picks signed over slot/i.test(dp.textContent) && /IL stints a season/i.test(dp.textContent) && /Trades, net/.test(dp.textContent);
   // leaderboard key folds away
   o.lbKeyFolded = document.querySelectorAll('#view-leaderboard .lbkey details').length === 2 && /How to read a row/.test(document.querySelector('#view-leaderboard .lbkey summary').textContent);
   o.sparklines = (() => { bdState.tab = 'fa'; switchView('boards'); return document.querySelectorAll('#boardsbody svg.spark').length > 5; })();

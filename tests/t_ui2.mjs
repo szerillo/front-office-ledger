@@ -214,17 +214,17 @@ Object.assign(R, await page.evaluate(async () => {
   // ---------- Org DNA ----------
   switchView('dna');
   const ari = AUTO_REGIMES.find(r => r.id === 'ari');
-  const ariRow = [...document.querySelectorAll('#dnatable tbody tr')].find(r => /Diamondbacks/.test(r.innerText));
+  const ariRow = [...document.querySelectorAll('#dnatable tbody tr')].find(r => /Diamondbacks/.test(r.textContent));
   const tcol = [...document.querySelectorAll('#dnatable thead th')].findIndex(th => /Trade value/.test(th.textContent));
   const net = (ari.dna.trade_in.pit - ari.dna.trade_out.pit);
-  o.i17_tradeColumnIsNet = tcol > 0 && ariRow.children[tcol].innerText.includes(fmtW(net)) && /net/i.test(document.querySelectorAll('#dnatable thead th')[tcol].textContent);
+  o.i17_tradeColumnIsNet = tcol > 0 && ariRow.children[tcol].textContent.includes(fmtW(net)) && /net/i.test(document.querySelectorAll('#dnatable thead th')[tcol].textContent);
   const clubsOrd = [...AUTO_REGIMES, ...REGIMES].filter(r => r.dna && r.dna.draft && !r.isNew).map(abOf).sort();
   const shown = [...document.querySelectorAll('#dnatable tbody tr')].length;
   o.i35_dnaOrderByNickname = shown === clubsOrd.length;   // Nov 3: rows run in club order (ARI, ATH, ATL...)
   const head = [...document.querySelectorAll('#dnatable thead th')].map(t => t.textContent);
   o.i39_dnaUnits = /wins\/yr/.test(head.find(h => /Pitchers improve/.test(h))) && /runs\/yr/.test(head.find(h => /Defense improves/.test(h)));
   const defCol = head.findIndex(h => /Defense improves/.test(h)), pitCol = head.findIndex(h => /Pitchers improve/.test(h));
-  const dec = (col, n) => [...document.querySelectorAll('#dnatable tbody tr')].map(r => r.children[col].innerText.trim()).filter(t => t !== '·').every(t => (t.split('.')[1] || '').length === n);
+  const dec = (col, n) => [...document.querySelectorAll('#dnatable tbody tr')].map(r => r.children[col].textContent.trim()).filter(t => t !== '·').every(t => (t.split('.')[1] || '').length === n);
   o.i39_dnaDecimalsConsistent = dec(defCol, 1) && dec(pitCol, 2);
 
   // ---------- Champions ----------

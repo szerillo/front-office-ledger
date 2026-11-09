@@ -40,7 +40,7 @@ const r = await d.page.evaluate(async () => {
   const pidOf = nm => Object.keys(names).find(k => names[k] === nm);
   o.treesBuild = ['William Contreras','Ozzie Albies','Garrett Whitlock','Mookie Betts','Juan Soto','Francisco Lindor'].every(nm => { try { const t = tnode(careerTree(pidOf(nm))).replace(/<[^>]+>/g,''); return !/undefined|NaN|null/.test(t); } catch(e) { return false; } });
   const betts = tnode(careerTree(pidOf('Mookie Betts'))).replace(/<[^>]+>/g,' ');
-  o.bettsOrigin = /drafted by BOS/.test(betts); o.bettsBothSeats = /BOS\s+\(Chaim Bloom\) got/.test(betts) && /LAD\s+\(Andrew Friedman\) got/.test(betts); o.bettsPieces = /Verdugo/.test(betts) && /Weissert/.test(betts); o.bettsExtension = /12 yr/.test(betts);
+  o.bettsOrigin = /drafted by BOS/.test(betts); o.bettsBothSeats = /BOS\s+\(Chaim Bloom\)\s+got/.test(betts) && /LAD\s+\(Andrew Friedman\)\s+got/.test(betts); o.bettsPieces = /Verdugo/.test(betts) && /Weissert/.test(betts); o.bettsExtension = /12 yr/.test(betts);
   o.tradeLinesClose = TRADE_BOOK.trades.every(([dt, seats]) => seats.every(s => Math.abs(s[2].reduce((a,x)=>a+x[1],0) - s[3].reduce((a,x)=>a+x[1],0) - s[1]) <= 0.25));
   const lindor = TRADE_BOOK.trades.find(([dt, seats]) => dt === '2021-01-07' && seats.some(s => s[0] === 'NYM'));
   o.lindorBothSeats = !!lindor && lindor[1].length === 2;
