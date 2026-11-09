@@ -952,6 +952,31 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
   .hub-find-out:empty{display:none}
   .hub-find-out button{display:block; width:100%; text-align:left; background:none; border:0; border-bottom:1px solid var(--grid, var(--rule)); padding:8px 12px; cursor:pointer; color:var(--ink); font:14px var(--f-body)}
   .hub-find-out button:hover, .hub-find-out button:focus{background:var(--surface-2)}
+  .dl-wrap{margin-top:8px}
+  .dl-wrap > summary{cursor:pointer; font-weight:600; font-size:13.5px}
+  .dl-club{margin-top:10px; border-top:4px solid var(--tc); padding-top:6px}
+  .dl-hd{display:flex; justify-content:space-between; font-size:14px}
+  .dl-tab{width:100%; border-collapse:collapse; font-size:13px; margin-top:4px}
+  .dl-tab th{font:600 11px var(--f-body); text-align:left; color:var(--ink-2); padding:4px 6px; border-bottom:1px solid var(--rule)}
+  .dl-tab td{padding:5px 6px; border-bottom:1px solid var(--rule); vertical-align:top}
+  .dl-tab .num{text-align:right; font-family:var(--f-mono); white-space:nowrap}
+  .dl-sub td{font:700 11px var(--f-mono); letter-spacing:1px; text-transform:uppercase; color:var(--ink-2); background:var(--surface-2)}
+  @media (max-width: 600px){ .dl-tab th:nth-child(2), .dl-tab td:nth-child(2):not([colspan]){display:none} .dl-tab{font-size:12px} }
+  .h-ctx{font-size:13px; color:var(--ink-2); margin-top:8px; padding:7px 10px; background:var(--surface-2); border-left:3px solid var(--rule)}
+  .hub-rank{display:grid; grid-template-columns:minmax(0, 2fr) minmax(280px, 1fr); gap:16px; margin-top:14px; align-items:start}
+  .hub-lbcard .hub-lb{grid-template-columns:22px minmax(0, 1fr) 44px 58px}
+  .hub-lbhead{border-top:none !important; padding-bottom:0 !important}
+  .hub-lbhead .ttype{font-size:11px; text-align:center}
+  .hub-lbnote{margin:-2px 0 8px}
+  .hub-lbcard .grade{justify-self:center}
+  .hub-lbmore{display:flex; gap:18px; flex-wrap:wrap; margin-top:10px}
+  .hub-three{grid-template-columns:repeat(3, minmax(0, 1fr))}
+  .hub-three > #hub-labor{display:flex}
+  .hub-three > #hub-labor > .card{flex:1}
+  .hub-play2{display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:0 22px; margin-top:12px; padding:4px 18px; background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius, 6px)}
+  .hub-play2 .hp-row{border-top:none !important; border-bottom:1px solid var(--rule)}
+  @media (max-width: 1100px){ .hub-three{grid-template-columns:repeat(2, minmax(0, 1fr))} }
+  @media (max-width: 860px){ .hub-rank{grid-template-columns:1fr} .hub-three{grid-template-columns:1fr} .hub-play2{grid-template-columns:1fr; padding:4px 14px} }
   .hub-right{display:flex; flex-direction:column; gap:16px; min-width:0}
   .wire-tabs{display:flex; gap:0; border-bottom:2px solid var(--ink); margin-bottom:12px; flex-wrap:wrap}
   .wire-tabs button{font:700 13px var(--f-body); letter-spacing:.3px; padding:8px 14px; border:none; background:none; color:var(--ink-2); cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-2px}
@@ -1307,6 +1332,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
         <button data-view="scen">Scenario Room</button>
         <button data-view="quiz" title="Three trades and two free-agent contracts a day">Trade Grade</button>
         <button data-view="dudes" title="Ten players a day: over or under on career WAR">Remember Some Dudes</button>
+        <button data-view="wire" data-tab="pickem" title="Free agent pick'em and the qualifying offer poll" onclick="event.stopImmediatePropagation(); location.hash='#view=wire&id=pickem'">Pick'em and Polls</button>
       </div></div>
     </nav>
     <script>
@@ -1361,7 +1387,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
       <details><summary>How to read a row</summary>
       <ul>
         <li><strong>Channel grades</strong> (Draft through Ret): wins above (+) or below (−) what a typical front office got from the same kind of move, per season in the chair. 50 is average on the 20-80 scale; A is about 70+, F under 35. Hover a grade for its number.</li>
-        <li><strong>Overall</strong> is the ranking: every channel rolled into net wins a season of decision quality, leaning on the channels where results repeat (free agency most, trades least). A short tenure is counted as if it began with two average seasons, so one hot year cannot top the board. <strong>Net wins</strong> is the plain total of every decision's value in wins, before that weighting. <strong>Success</strong> grades results on the field; the gap between Overall and Success shows how much came from luck, payroll or inheritance.</li>
+        <li><strong>Overall</strong> is the ranking. The letter and the score under it are the same measure: wins a season above a typical front office, leaning on the channels where results repeat (free agency most, trades least), with a short tenure counted as if it began with two average seasons so one hot year cannot top the board. <strong>Net wins</strong> is the plain total of every decision's value in wins, before that weighting. <strong>Success</strong> grades results on the field; the gap between Overall and Success shows how much came from luck, payroll or inheritance.</li>
         <li><strong>Column key</strong>
           <ul>
             <li><strong>Waiver / Minor</strong>: waiver claims and minor-league signings.</li>
@@ -7477,7 +7503,9 @@ function dkTradeVerdict(opts){
   const netYou = net;
   const netThem = levSide(dkState.send, them) - levSide(dkState.recv, them);
   const gThem = moveGrade(netThem, 'trade', Math.max(levIn, levOut)) || 'C';
-  const fitOf = (ab, pcs) => { const weak = clubWeakSlots(ab); const hit = pcs.filter(pc => pc.kind === 'player' && pc.p && !gmIsProsRow(pc.p)).map(pc => weak.find(pos => gmNaturalFit(pos, pc.p))).filter(Boolean); return {weak, hit: [...new Set(hit)]}; };
+  // Nov 9: roster needs only come up when a proven big leaguer (1.5+ WAR over 2024-26) changes hands
+  const proven = pcs => pcs.some(pc => pc.kind === 'player' && pc.p && !gmIsProsRow(pc.p) && (Math.abs(pc.p[5]) + Math.abs(pc.p[6]) + Math.abs(pc.p[7])) >= 1.5);
+  const fitOf = (ab, pcs) => { if(!proven([...dkState.recv, ...dkState.send])) return {weak: [], hit: []}; const weak = clubWeakSlots(ab); const hit = pcs.filter(pc => pc.kind === 'player' && pc.p && !gmIsProsRow(pc.p)).map(pc => weak.find(pos => gmNaturalFit(pos, pc.p))).filter(Boolean); return {weak, hit: [...new Set(hit)]}; };
   const fYou = fitOf(you, dkState.recv), fThem = fitOf(them, dkState.send);
   const posL = {contender: 'a contender', middle: 'in the middle of the pack', rebuilding: 'rebuilding'};
   const youOk = netYou >= -0.5 || (fYou.hit.length && netYou >= -1.5);
@@ -7673,7 +7701,9 @@ function dkSuggest(p, mode, cls){
   if(_cs){
     const wA = _cs[2] >= 2 ? 0.8 : 0.7;
     sugAAV = Math.exp(wA * Math.log(_cs[1]) + (1 - wA) * Math.log(Math.max(sugAAV, 0.75)));
-    sugYrs = Math.max(1, Math.round(0.5 * _cs[0] + 0.5 * sugYrs));
+    // Nov 9: the term leans on the published projections too (65/35, ties go to the published term): an
+    // even split rounded up added a year to most short deals (Ledger 2 years where the market said 1)
+    sugYrs = Math.max(1, Math.round(0.65 * _cs[0] + 0.35 * sugYrs - 0.01));
   }
   // v5.8: a player who just declined guaranteed money prices at least at it
   const _st = mode === 'fa' && typeof gmStatus === 'function' ? gmStatus(p) : null;
@@ -8249,7 +8279,7 @@ function renderHzLeague(){
       <li>Click a year to sort; click a club for its five-year detail.</li>
     </ul>
     <div style="overflow-x:auto; margin-top:4px"><table style="width:100%; font-size:12.5px"><thead><tr><th>Club</th>${seasons.map((s, i) => `<th class="num" style="cursor:pointer" tabindex="0" role="button" aria-label="Sort by ${s}" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); this.click();}" onclick="renderHzLeague._k=${i}; renderHorizon()">${s}${i === key ? ' &#9660;' : ''}</th>`).join('')}<th class="num" title="share of 2029-31 controlled value coming from prospects">farm share, 29-31</th></tr></thead><tbody>
-    ${(() => { const cl = folChampLine(); let done = key !== 0 || !cl; return sorted.map(r => { let pre = ''; if(!done && r.v[0] < cl){ done = true; const none = r === sorted[0]; pre = `<tr class="hz-cline"><td colspan="${seasons.length + 2}">Champion line: ${cl.toFixed(0)} WAR. Title teams since 2012 got about this much from their top 16 players (median; 2020 left out). ${none ? `No club has that much under control for 2027 yet; ${r.ab} is closest at ${r.v[0].toFixed(1)}. Projections run low before the winter's moves.` : 'Clubs above the line already have a title-sized core under control.'}</td></tr>`; } return pre + hzRowHtml(r); }).join(''); })()}
+    ${(() => { const cl = folChampLine(); let done = key !== 0 || !cl; return sorted.map(r => { let pre = ''; if(!done && r.v[0] < cl){ done = true; const none = r === sorted[0]; pre = `<tr class="hz-cline"><td colspan="${seasons.length + 2}">Champion line: ${cl.toFixed(0)} WAR. A typical champion since 2012 won 96 games, about this many wins above a replacement-level club (median; 2020 left out). ${none ? `No club has that much under control for 2027 yet; ${r.ab} is closest at ${r.v[0].toFixed(1)}. Projections run low before the winter's moves.` : 'Clubs above the line already have a title-sized core under control.'}</td></tr>`; } return pre + hzRowHtml(r); }).join(''); })()}
     </tbody></table></div></div>
 `;
 }
@@ -8446,10 +8476,16 @@ function dkAgm(){
     }
     dkState.recv.push(pick);
   }
+  // Nov 9: a deal within the noise is fair as built (depth deals especially: a third of a win either way
+  // is inside the error of projecting fringe players); a piece is added only to close a real gap, and
+  // never one worth much more than the gap (no closer thrown into a swap of depth arms)
+  const tol = () => Math.max(0.75, 0.2 * Math.abs(ask()));
   const mine = pool(you).filter(pc => !gmFranchise(pc.p) && dkPieceGive(pc) > 0.05 && !dkState.send.some(s => s.p && s.p[1] === pc.p[1]));
-  for(let k = 0; k < 4 && give() < ask() * 0.95; k++){
-    const gap = ask() * 0.95 - give();
-    const left = mine.filter(pc => !dkState.send.some(s => s.p && s.p[1] === pc.p[1]));
+  let fairAsIs = give() >= ask() - tol();
+  if(fairAsIs && give() < ask() * 0.95) note.push(`Fair as built: they price their side at ${fmtW(ask())} and ours at ${fmtW(give())}, under ${tol() > 0.75 ? fmtW(tol()).replace("+", "") + " wins" : "three-quarters of a win"} apart, which is inside the noise of projecting players like these. I would not add anything.`);
+  for(let k = 0; k < 4 && !fairAsIs && give() < ask() - tol(); k++){
+    const gap = ask() * 0.95 - give(), cap = gap * 1.6 + 0.3;
+    const left = mine.filter(pc => !dkState.send.some(s => s.p && s.p[1] === pc.p[1]) && dkPieceGive(pc) <= cap && (gap >= 1.5 || gmIsProsRow(pc.p) || gmProj27(pc.p) < 1.0));
     if(!left.length) break;
     const pc = left.filter(x => dkPieceGive(x) >= gap).sort((a, b) => dkPieceGive(a) - dkPieceGive(b))[0] || left.sort((a, b) => dkPieceGive(b) - dkPieceGive(a))[0];
     dkState.send.push(pc);
@@ -8462,8 +8498,8 @@ function dkAgm(){
     if(more){ dkState.recv.push(more); note.push(`You were paying well over their price, so I also asked for ${more.p[0]} (${lbl(more)}).`); }
   }
   const a = ask(), g = give();
-  note.push(g >= a * 0.95 ? `Done: they price their side at ${fmtW(a)} of surplus and ours at ${fmtW(g)}. Everything you put on the table is still there.`
-                          : `Still short: they price their side at ${fmtW(a)}, ours at ${fmtW(g)}, and nothing else on our board closes it without one of our core players.`);
+  if(!fairAsIs) note.push(g >= a - tol() ? `Done: they price their side at ${fmtW(a)} of surplus and ours at ${fmtW(g)}. Everything you put on the table is still there.`
+                          : `Still short: they price their side at ${fmtW(a)}, ours at ${fmtW(g)}, and nothing on our board closes it without overpaying with a much bigger piece.`);
   // Nov 9: balancing builds the deal; the verdict opens only from Evaluate (refreshed in place if it is already open)
   const _open = !!(document.getElementById('dk-out') || {classList: {contains: () => false}}).classList.contains('dk-pop');
   renderDesk(); if(_open) dkEval(); dkAgmNote(note);
@@ -9861,6 +9897,9 @@ function gmSurplus(p){
     const sal = gmSalaryYear(p, season);
     sur += (per[i]||0) - ((sal === null ? 0.8 : sal) / ((DESK.market.dpw[String(season)])||11));
   }
+  // Nov 9: a cheap player projected below his salary is not a liability: a club can cut him for next to nothing,
+  // so a near-minimum depth player's surplus floors at zero (real salary dumps still count against)
+  if(sur < 0){ try { if(gmSalary27(p) <= 3) sur = 0; } catch(e){} }
   return sur;
 }
 function gmFranchise(p){ return gmSurplus(p) >= 5 && gmCtrlOf(p) >= 4; }
@@ -11751,8 +11790,8 @@ function renderLB(){
     tr.innerHTML = `
       <td class="rk">${_sv == null || lbShort(r) ? '' : _rk}</td>
       <td><div class="execcell"><span class="nm">${regName(r)}${(r.flags||[]).includes('interim')?'<span class="badge-ss" title="Interim head of baseball operations">interim</span>':''}${(r.flags||[]).includes('ownership era')?'<span class="badge-ss" title="Steinbrenner\'s group often had the final say on personnel">ownership era</span>':''}${r.isNew?'<span class="badge-ss" title="Hired after the last completed season: nothing to grade yet">new</span>':r.smallSample?'<span class="badge-ss" title="Small sample: under 3 seasons in the seat, graded as if the rest were average">SS</span>':''}${(r.unscored||[]).length && !r.isNew ? `<span class="badge-ss" title="Not scored here: ${r.unscored.map(k=>({fa:'free agency',intl:'international',ext:'extensions',ret:'retention'})[k]).join(', ')}. ${r._hist ? 'Not scored for this archive regime' : 'Too few graded deals there yet (a free-agent letter needs 3 deals with public terms, an extension letter 2)'}, so the composite fills them at the league-average rate.">partial</span>` : ''}<span class="mfor">${gradeChip(r.forGrade)}</span></span><span class="tm">${r.teamEra||r.team} · ${yrSpan(r.start, r.end)} (${r.isNew ? 'new' : pz(fmtSeas(r.seatSeasons != null ? r.seatSeasons : r.seasons),'season','seasons')}${r.titles?` · ${r.titles} WS`:''})</span></div></td>
-      <td class="num lb-overall">${gradeChip(r.forGrade, true)}</td>
-      <td class="lb-netcol">${bar}${r.isNew ? '' : `<span class="lb-ps" title="Net wins a season over ${pz(+(r.seatSeasons ?? r.seasons).toFixed(1), 'season', 'seasons')} in the seat">${fmtW(r.net / Math.max(1, r.seatSeasons ?? r.seasons))} a season</span>`}</td>
+      <td class="num lb-overall">${gradeChip(r.forGrade, true)}${r.isNew || r.gradeRate == null ? '' : `<span class="lb-ps" title="Overall score: wins a season above a typical front office, weighted toward the skills that repeat and adjusted for time in the seat. The ranking.">${fmtW(r.gradeRate)}</span>`}</td>
+      <td class="lb-netcol">${bar}${r.isNew ? '' : `<span class="lb-ps">over ${pz(+(r.seatSeasons ?? r.seasons).toFixed(1), 'season', 'seasons')} in the seat</span>`}</td>
       ${CHANNELS.map(c=>{const ch=r.chan[c.key];return `<td class="num">${gradeChip(ch.g)}</td>`;}).join('')}
       <td class="num" title="${r.chan.ret&&r.chan.ret.net2!=null?`Retention: ${fmtW(r.chan.ret.net2)} vs expectation across ${r.chan.ret.n2} material departures (what departed players did next vs what departures of that caliber usually do, + comp-pick credit on ${r.chan.ret.qo||0} QO walkaways). Raw leakage ${pz(r.chan.ret.lost||0,'win','wins')}, shown for context.`:(r.chan.ret?`${pz(r.chan.ret.lost,'win','wins')} walked out the door (${r.chan.ret.n} departures)`:'retention needs a 2005+ active window')}">${gradeChip(r.chan.ret?(r.chan.ret.g2!=null?r.chan.ret.g2:r.chan.ret.g):null)}</td>
       <td class="num" title="${(dv=>dv?`${fmtW(dv.net)} prospect value created · ${dv.n} graded moves · ${farmLine(r, dv)}`:'development grading needs the regime to overlap the top-100 archive (2011+)')(devOf(r))}">${gradeChip((devOf(r)||{}).g==null?null:devOf(r).g)}</td>
@@ -13459,7 +13498,10 @@ function folThisWeek(list, dateOf, sizeOf, minSize){
   return (exact[0] || near.sort((a, b) => sizeOf(b.x) - sizeOf(a.x))[0]);
 }
 // the champion line: the median WAR title teams since 2012 got from their top 16 players (2020 left out)
-function folChampLine(){ if(folChampLine._c != null) return folChampLine._c; try { const xs = CHAMPS_AUTO.filter(c => c.year >= 2012 && c.year !== 2020).map(c => c.roster.reduce((a, x) => a + (+x[5] || 0), 0)).sort((a, b) => a - b); return folChampLine._c = xs.length ? xs[Math.floor(xs.length / 2)] : 0; } catch(e){ return 0; } }
+// Nov 9: the champion line, from records: a typical champion since 2012 (2020 left out) won 96 games, which on the
+// accounting study's scale (team WAR = wins above a 48-win replacement club) is about 48 WAR. The title rosters'
+// own core WAR (median 48.6) agrees to within a win.
+function folChampLine(){ if(folChampLine._c != null) return folChampLine._c; try { const ab = nm => Object.keys(CLUB_NAME).find(k => CLUB_NAME[k] === nm || String(nm).endsWith(teamNick(CLUB_NAME[k]))); const xs = CHAMPS_AUTO.filter(c => c.year >= 2012 && c.year !== 2020).map(c => { const r = folWL(ab(c.team), c.year); return r ? r.pct * 162 - 48 : null; }).filter(v => v != null).sort((a, b) => a - b); return folChampLine._c = xs.length ? (xs.length % 2 ? xs[xs.length >> 1] : (xs[xs.length / 2 - 1] + xs[xs.length / 2]) / 2) : 48; } catch(e){ return folChampLine._c = 48; } }
 function folHorizonAll(){ folTeamDefaults._done = folTeamDefaults._done || {}; folTeamDefaults._done.horizon = true; renderHzLeague._k = 0; switchView('horizon'); hzPick(''); window.scrollTo({top: 0}); }
 // a free-agent grade in plain words: what he produced, what that money usually buys, the difference.
 // The ledger counts the seasons played so far, so the money is the salary for those seasons.
@@ -13486,25 +13528,27 @@ function folHub(){
   const T = f => { try { return f(); } catch(e){ return null; } };
   // Nov 9: each GM's best skill and net wins a season, in place of the letter
   const bestAt = r => { const NM = {draft: 'drafting', trade: 'trades', fa: 'free agency', waiver: 'waivers', intl: 'international', ext: 'extensions'}; const c = CHANNELS.map(c => [c.key, (r.chan[c.key] || {}).net, (r.chan[c.key] || {}).g]).filter(x => x[2] != null && x[1] > 0).sort((a, b) => b[1] - a[1])[0]; return c ? NM[c[0]] : ''; };
-  const top5 = rk.slice(0, 5).map((r, i) => `<div class="hub-lb"><strong>${i + 1}</strong><span class="hl-who"><a href="#" onclick="switchView('report','${r.id}'); return false">${regName(r)}</a> <span class="ttype">${abOf(r)}</span>${bestAt(r) ? `<span class="ttype hl-best">Best at ${bestAt(r)}</span>` : ''}</span><span class="hl-ps ${folLbNet(r) >= 0 ? 'pos' : 'neg'}" title="Net wins vs. expectation a season">${fmtW(folLbNet(r) / Math.max(1, r.seatSeasons ?? r.seasons))}<span class="ttype">a season</span></span></div>`).join('');
+  const topLb = rk.slice(0, 8).map((r, i) => `<div class="hub-lb"><strong>${i + 1}</strong><span class="hl-who"><a href="#" onclick="switchView('report','${r.id}'); return false">${regName(r)}</a> <span class="ttype">${abOf(r)}</span>${bestAt(r) ? `<span class="ttype hl-best">Best at ${bestAt(r)}</span>` : ''}</span><span class="grade ${gradeClass(r.forGrade)}">${g2letter(r.forGrade)}</span><span class="hl-ps ${r.gradeRate >= 0 ? 'pos' : 'neg'}" title="Overall score: wins a season above a typical front office, adjusted">${fmtW(r.gradeRate)}</span></div>`).join('');
   const sc = T(() => { const xs = scAll(); if(!xs.length) return null; const k = day % xs.length; return {s: xs[k], k}; });
   const fas = T(() => DESK.players.filter(x => gmIsFA(x) && !gmIsProsRow(x)).map(x => ({x, v: gmProj27(x)})).sort((a, b) => b.v - a.v).slice(0, 5)) || [];
   const quizDone = folQuizStore('day-' + day);
   const tr = T(() => { treeSync(); return TREES.length ? TREES[day % TREES.length] : null; });
-  const rv = T(() => { const ps = []; [...REGIMES, ...AUTO_REGIMES].forEach(r => (r.h2h || []).forEach(p => { if(p.n >= 4 && p.net > 2) ps.push({a: r, p}); })); ps.sort((x, y) => y.p.net - x.p.net); const top = ps.slice(0, 30); return top.length ? top[day % top.length] : null; });
-  const hz = T(() => hzLeague().rows.slice().sort((a, b) => b.v[0] - a.v[0]).slice(0, 5));
+  const rv = T(() => { const ps = []; [...REGIMES, ...AUTO_REGIMES].forEach(r => (r.h2h || []).forEach(p => { if(p.n >= 4 && p.net > 2) ps.push({a: r, p}); })); ps.sort((x, y) => y.p.net - x.p.net); const top = ps.slice(0, 30); return top.length ? top[Math.floor((day + 3) / 7) % top.length] : null; });
+  const hz = T(() => hzLeague().rows.slice().sort((a, b) => b.v[0] - a.v[0]).slice(0, 8));
   // the champion line: what title teams since 2012 got from their top contributors (2020 left out)
   const cline = T(folChampLine);
   // organization stat of the day: one Org DNA leaderboard, rotating
   const orgStat = T(() => { const L = dnaLeague(), opts = [['draft', 'Who drafts best', x => fmtW(x) + ' over slot'], ['trade', 'Who trades best', x => fmtW(x) + ' net'], ['devPit', 'Where pitchers get better', x => (x > 0 ? '+' : '') + x.toFixed(2) + ' wins a season'], ['devBat', 'Where hitters get better', x => (x > 0 ? '+' : '') + x.toFixed(2) + ' wins a season'], ['inj', 'Fewest injured-list stints', x => x.toFixed(0) + ' a season'], ['slot', 'Most picks signed over slot', dnaPct], ['buyLow', 'Who buys after a down year', dnaPct]];
     const o = opts[day % opts.length]; return {t: o[1], rows: L[o[0]].xs.slice(0, 5), f: o[2]}; });
   const farms = T(() => bdFarmList().slice(0, 5)) || [];
+  // featured farm system: one club's top five prospects a day, with its rank
+  const ff = T(() => { const L = bdFarmList(), k = day % L.length, c = L[k]; return {c, rank: k + 1, ps: (DESK.players || []).filter(p => p[2] === c.ab && gmIsProsRow(p)).map(p => ({p, v: gmPV(p)})).sort((a, b) => b.v - a.v).slice(0, 5)}; });
   const pros = T(() => (DESK.players || []).filter(p => gmIsProsRow(p)).map(p => ({p, v: gmPV(p)})).sort((a, b) => b.v - a.v).slice(0, 5)) || [];
-  const ch = T(() => { const c = CHAMPS_AUTO.slice().sort((a, b) => b.year - a.year)[0]; if(!c) return null;
+  const ch = T(() => { const cs = CHAMPS_AUTO.slice().sort((a, b) => b.year - a.year), c = cs[Math.floor((day + 3) / 7) % cs.length]; if(!c) return null;
     const nm = {fa: 'free agency', trade: 'trades', draft: 'the draft', intl: 'international and minor-league finds', inh: 'inherited players'}, acc = {};
     (c.roster || []).forEach(x => { const w = +x[5] || 0; if(w <= 0) return; const k = x[4] === 'inh' ? 'inh' : x[1]; acc[k] = (acc[k] || 0) + w; });
     const tot = Object.values(acc).reduce((a, v) => a + v, 0) || 1, xs = Object.entries(acc).sort((a, b) => b[1] - a[1]).slice(0, 3);
-    return {label: c.label, mix: 'Where the title team\'s value came from: ' + xs.map(([k, v]) => `${Math.round(v / tot * 100)}% ${nm[k] || k}`).join(', ') + '.'}; });
+    return {id: c.id, label: c.label, mix: 'Where the title team\'s value came from: ' + xs.map(([k, v]) => `${Math.round(v / tot * 100)}% ${nm[k] || k}`).join(', ') + '.'}; });
   // trade and signing of the day: this week in history (the date itself when there is one)
   const otd = T(() => folThisWeek(folTrades().filter(t => t.d.slice(0, 4) <= '2023' && t.S.length === 2), t => t.d, t => t.gap, 4));
   const sg = T(() => folThisWeek(folSignings(), o => o.x.d, o => Math.abs(o.x.war), 3)) || T(() => { const xs = folSignings().filter(o => Math.abs(o.x.war) >= 4).sort((a, b) => Math.abs(b.x.war) - Math.abs(a.x.war)).slice(0, 60); return xs.length ? {x: xs[(day * 7) % xs.length], k: 99} : null; });
@@ -13524,42 +13568,54 @@ function folHub(){
   const qd = T(folQuizDays) || 0;
   const play = (kick, title, sub, btn, js, primary) => `<div class="hp-row"><div><div class="home-kick">${kick}</div><strong>${title}</strong><div class="ttype">${sub}</div></div><button class="actbtn${primary ? ' primary' : ''}" onclick="${js}">${btn}</button></div>`;
   const link = (kick, title, sub, js) => `<a href="#" class="hl-row" onclick="${js}; return false"><span class="home-kick">${kick}</span><strong>${title}</strong>${sub ? `<span class="ttype">${sub}</span>` : ''}</a>`;
+  const week = Math.floor((day + 3) / 7);   // weeks start on Monday
+  const xPost = (txt, url) => `<button class="actbtn" onclick="folXPost(${JSON.stringify(txt).replace(/"/g, '&quot;')}, '${url}')">Post on X</button>`;
+  const dd = T(dudesDays) || 0, dudesDone = T(() => dudesStore('day-' + dudeDay()));
   return `<div class="home-hero fol-rise"><div class="hh-main"><div class="home-kick">Front Office Ledger</div>
       <h2>Every trade, signing and draft pick since 1998, graded.</h2>
       <p>Each move is scored against what a typical club got from the same kind of move. This winter's moves are graded the day they happen.</p>
       ${stats.tr ? `<div class="hub-stats"><span><b>${fmtN(stats.tr)}</b> trades</span><span><b>${fmtN(stats.fa)}</b> free-agent signings</span><span><b>${fmtN(stats.dr)}</b> draft picks</span><span><b>${fmtN(stats.reg)}</b> front offices</span></div>` : ''}</div>
       <div class="hh-tools"><div class="hub-find"><input id="hub-find" autocomplete="off" placeholder="Look up a player, a GM or a club" aria-label="Look up a player, a GM or a club" oninput="folHubFind()" onkeydown="if(event.key==='Enter'){ const f = document.querySelector('#hub-find-out button'); if(f) f.click(); } if(event.key==='Escape') document.getElementById('hub-find-out').innerHTML=''"><div id="hub-find-out" class="hub-find-out"></div></div>
       <div class="hub-team"><label for="hub-team">Jump to a club</label><select id="hub-team" onchange="if(this.value) folPickTeam(this.value)"><option value="">Pick a club</option>${Object.keys(DESK.teams || {}).sort((a, b) => (CLUB_NAME[a] || a).localeCompare(CLUB_NAME[b] || b)).map(a => `<option value="${a}">${CLUB_NAME[a] || a}</option>`).join('')}</select></div></div></div>
-    <div class="hub-top">
-      <div class="hub-left"><div id="hub-wire" class="hub-wire"><div class="card home-card"><div class="home-kick">The Wire</div><div class="ttype">Loading the latest moves…</div></div></div><div id="hub-winter"></div></div>
-      <div class="hub-right"><div class="card home-card hub-play fol-rise"><div class="home-kick">Play today</div>
-        ${play('Daily game', 'Trade Grade', `${quizDone ? `Today: ${quizDone.filter(Boolean).length}/${quizDone.length}` : 'Five calls: three trades, two contracts'}${qd >= 2 ? ` · ${qd} days in a row` : ''}`, quizDone ? 'See it' : 'Play', "switchView('quiz')", !quizDone)}
-        ${qoLeft ? play('Poll', 'Will they take the QO?', `${qoLeft} of ${Object.keys(DESK.qo27 || {}).length} decisions due Nov 17 · see how everyone voted`, 'Vote', "wireQoCard._open = true; switchView('wire')", false) : ''}
-        ${play("Free agent pick'em", "Over or under the Ledger's number?", 'Call the top free agents, then predict the exact deal', 'Play', "pkCard._open = true; switchView('wire')", false)}
-        ${play('Offseason simulator', 'Run a winter', "Any club's real free agents, arbitration class and market", 'Start', "folGo('gm')", false)}
-        ${play('Deal Desk', 'Price any trade', 'Who wins it, and would the other side say yes', 'Make a trade', "folGo('desk')", false)}
-        ${play('Daily game', 'Remember Some Dudes', 'Ten players from across the century: over or under on career WAR', 'Play', "switchView('dudes')", false)}
-        ${sc ? play('Scenario of the day', scTitle, 'Make the call with only what was known then', 'Decide', `scState.idx=${sc.k}; switchView('scen')`, false) : ''}
-      </div><div id="hub-labor"></div></div>
+    ${sec('The front office rankings', 'every active regime, graded on every decision')}
+    <div class="hub-rank">
+      <div class="card home-card fol-rise hub-lbcard"><div class="home-kick">Leaderboard</div><h3>The best front offices in baseball</h3>
+        <div class="ttype hub-lbnote">Ranked by overall score: wins a season above what a typical front office gets from the same moves, leaning on the skills that repeat and adjusted for time in the seat.</div>
+        <div class="hub-lb hub-lbhead"><span></span><span></span><span class="ttype">Overall</span><span class="ttype">Score</span></div>${topLb}
+        <div class="hub-lbmore"><a href="#" onclick="switchView('leaderboard'); return false">All 30 front offices →</a><a href="#" onclick="switchView('dna'); return false">How each one builds →</a></div></div>
+      ${hz ? tile('2027 title race', `<h3>Built to win next year</h3>${(() => { const mx = Math.max(cline || 0, ...hz.map(r => r.v[0])) * 1.08; const L = cline ? (cline / mx * 100).toFixed(1) : null; return `<div class="hub-race">${L ? `<div class="hr-row hr-head"><span></span><span class="hr-bar hr-lab"><em style="left:${L}%">champion line ${cline.toFixed(0)}</em></span><span></span></div>` : ''}${hz.map(r => `<div class="hr-row"><span class="hr-nm">${teamNick(CLUB_NAME[r.ab] || r.ab)}</span><span class="hr-bar"><i style="width:${(r.v[0] / mx * 100).toFixed(1)}%; ${folTC(r.ab)}; background:var(--tc)"></i>${L ? `<b style="left:${L}%"></b>` : ''}</span><span class="hr-v">${r.v[0].toFixed(1)}</span></div>`).join('')}</div>`; })()}<div class="ttype" style="margin-top:6px">Projected 2027 WAR already under contract or control, before the winter's moves. The line is a typical champion since 2012: 96 wins, about 48 WAR above a replacement-level club.</div>${more('All 30 clubs, the next five years', 'folHorizonAll()')}`) : ''}
     </div>
-    ${sec('From the archive', 'something new every day')}
+    ${sec('This winter', 'every move graded the day it happens')}
+    <div class="hub-top">
+      <div id="hub-wire" class="hub-wire"><div class="card home-card"><div class="home-kick">The Wire</div><div class="ttype">Loading the latest moves…</div></div></div>
+      <div id="hub-winter"></div>
+    </div>
+    <div class="hub-grid hub-even hub-three">
+      ${fas.length ? tile('Free agents', `<h3>Top of the class</h3><div class="hub-fa2"><span></span><span class="ttype">Ledger</span><span class="ttype" title="The median of published contract predictions">Projected</span>${fas.map(({x}) => { const s = GM_SG[x[1]] || (GM_SG[x[1]] = dkSuggest(x, 'fa', null)), c = (DESK.cons || {})[x[1]]; return `<span class="hf-nm">${x[0]}</span><span>${s.sugYrs}/$${s.sugTot}M</span><span>${c ? `${c[0] % 1 ? Math.floor(c[0]) + '-' + Math.ceil(c[0]) : c[0]}/$${Math.round(c[0] * c[1])}M` : '·'}</span>`; }).join('')}</div><div class="ttype" style="margin-top:6px">Years / total. Ledger: what the Ledger would offer. Projected: the median published prediction.</div>${more('Every projected contract', "bdState.tab='fa'; switchView('boards')")}`) : ''}
+      ${ff ? tile('Featured farm system', `<h3>${CLUB_NAME[ff.c.ab] || ff.c.ab} <span class="ttype">(#${ff.rank} of 30)</span></h3>${ff.ps.map(({p}, i) => `<div class="hub-row"><strong>${i + 1}</strong><span>${p[0]} <span class="ttype">${p[13] || p[12] || ''}${p[9] > 0 ? ` · #${p[9]} overall` : ''}</span></span></div>`).join('')}<div class="ttype" style="margin-top:6px">${ff.c.t100 ? pz(ff.c.t100, 'Top 100 prospect', 'Top 100 prospects') + ' · ' : ''}a different system every day</div>${more('The top 100 and all 30 systems', `bdState.tab='pros'; bdState.org='${ff.c.ab}'; switchView('boards')`)}`) : ''}
+      <div id="hub-labor"></div>
+    </div>
+    ${sec('Play', 'new every day')}
+    <div class="hub-play2">
+      ${play('Daily game', 'Trade Grade', `${quizDone ? `Today: ${quizDone.filter(Boolean).length}/${quizDone.length}` : 'Three trades, two contracts: who won?'}${qd >= 2 ? ` · ${qd} days in a row` : ''}`, quizDone ? 'See it' : 'Play', "switchView('quiz')", !quizDone)}
+      ${play('Daily game', 'Remember Some Dudes', `${dudesDone ? `Today: ${dudesDone.filter(Boolean).length}/${dudesDone.length}` : 'Ten players from across the century: over or under on career WAR'}${dd >= 2 ? ` · ${dd} days in a row` : ''}`, dudesDone ? 'See it' : 'Play', "switchView('dudes')", !dudesDone)}
+      ${play("Free agent pick'em", "Over or under the Ledger's number?", 'Call the top free agents, then predict the exact deal', 'Play', "location.hash='#view=wire&id=pickem'", false)}
+      ${qoLeft ? play('Poll', 'Will they take the QO?', `${qoLeft} of ${Object.keys(DESK.qo27 || {}).length} decisions due Nov 17`, 'Vote', "location.hash='#view=wire&id=qo'", false) : ''}
+      ${play('Offseason simulator', 'Run a winter', "Any club's real free agents, arbitration class and market", 'Start', "folGo('gm')", false)}
+      ${play('Deal Desk', 'Price any trade', 'Who wins it, and would the other side say yes', 'Make a trade', "folGo('desk')", false)}
+      ${sc ? play('Scenario of the day', scTitle, 'Make the call with only what was known then', 'Decide', `scState.idx=${sc.k}; switchView('scen')`, false) : ''}
+    </div>
+    ${sec('From the archive', 'a trade, a signing and a tree every day; a champion and a rivalry every week')}
     <div class="hub-grid hub-arch">
       ${t0 ? tile(`Trade of the day · ${when(otd)}`, `${folHeistCard(t0, {compact: true})}
-        <div class="actions" style="margin-top:10px">${star ? `<button class="actbtn" onclick="treeOverlay('${star.pid}', '${t0.win.ab}', ${JSON.stringify(star.nm).replace(/"/g, '&quot;')})">The transaction tree</button>` : ''}<button class="actbtn" onclick="folShare('${folHeistUrl(t0)}', 'Trade of the day', 'Trade of the day on Front Office Ledger:')">Copy link</button><button class="actbtn" onclick="switchView('heists')">All the heists</button></div>`, 'hub-wide2') : ''}
-      ${sg ? tile(`Signing of the day${sg.k <= 7 ? ' · ' + when(sg) : ''}`, `<div class="h-date">${folMon(sg.x.x.d)} · ${abOf(sg.x.r)} · ${regName(sg.x.r)}</div><h3 class="hub-h">${sg.x.x.h}</h3><span class="stamp ${sg.x.x.war >= 0 ? 'pos' : 'neg'}" style="font-size:12px">${sg.x.x.war <= -6 ? 'Disaster' : sg.x.x.war < 0 ? 'Overpay' : 'Bargain'} · ${fmtW(sg.x.x.war)}</span>${folSigningPlain(sg.x.x, abOf(sg.x.r)) || sideRows(sg.x.x.sides)}${more('The best and worst signings since 1998', "heistState.kind='signings'; switchView('heists')")}`) : ''}
+        <div class="actions" style="margin-top:10px">${star ? `<button class="actbtn" onclick="treeOverlay('${star.pid}', '${t0.win.ab}', ${JSON.stringify(star.nm).replace(/"/g, '&quot;')})">The transaction tree</button>` : ''}${xPost(`Trade of the day, ${folMon(t0.d)}: the ${folNickAt(t0.win.ab, t0.d)} got ${star ? star.nm : 'the better end'} from the ${folNickAt(t0.lose.ab, t0.d)}. ${folStamp(t0.gap)}: ${fmtW(t0.gap)} wins.`, folHeistUrl(t0))}<button class="actbtn" onclick="switchView('heists')">All the heists</button></div>`, 'hub-wide2') : ''}
+      ${sg ? tile(`Signing of the day${sg.k <= 7 ? ' · ' + when(sg) : ''}`, `<div class="h-date">${folMon(sg.x.x.d)} · ${abOf(sg.x.r)} · ${regName(sg.x.r)}</div><h3 class="hub-h">${sg.x.x.h}</h3><span class="stamp ${sg.x.x.war >= 0 ? 'pos' : 'neg'}" style="font-size:12px">${sg.x.x.war <= -6 ? 'Disaster' : sg.x.x.war < 0 ? 'Overpay' : 'Bargain'} · ${fmtW(sg.x.x.war)}</span>${folSigningPlain(sg.x.x, abOf(sg.x.r)) || sideRows(sg.x.x.sides)}<div class="actions" style="margin-top:8px">${xPost(`Signing of the day: ${String(sg.x.x.h).replace(/<[^>]*>/g, '')}. ${fmtW(sg.x.x.war)} wins against a typical signing for that money.`, 'https://frontofficeledger.com/#view=heists')}</div>${more('The best and worst signings since 1998', "heistState.kind='fa'; switchView('heists')")}`) : ''}
       <div class="card home-card hub-links fol-rise">
         ${tr ? link('Tree of the day', tr.title.split(' · ')[0], String(tr.title.split(' · ')[1] || 'One decision, and every move it led to.').replace(/^./, c => c.toUpperCase()), `folTreeOfDay(${day % TREES.length})`) : ''}
-        ${ch ? link('Champions', `How the ${ch.label} were built`, ch.mix.replace("Where the title team's value came from: ", ''), "switchView('champs')") : ''}
+        ${ch ? link('Champion of the week', `How the ${ch.label} were built`, ch.mix.replace("Where the title team's value came from: ", ''), `switchView('champs'); renderChamp('${ch.id}')`) : ''}
         ${orgStat && orgStat.rows[0] ? link('Org stat of the day', orgStat.t, `1. ${teamNick(orgStat.rows[0].r.team)} (${orgStat.f(orgStat.rows[0].v)}) · 2. ${teamNick(orgStat.rows[1].r.team)} · 3. ${teamNick(orgStat.rows[2].r.team)}`, "switchView('dna')") : ''}
-        ${rv ? link('GM rivalry of the day', `${regName(rv.a)}'s ${teamNick(rv.a.team)} vs. ${rv.p.exec}'s ${teamNick(CLUB_NAME[rv.p.opp] || rv.p.opp)}`, `${rv.p.n} trades; ${regName(rv.a)}'s side is ${fmtW(rv.p.net)} wins up`, `switchView('h2h'); setTimeout(() => vcH2h('${abOf(rv.a)}'), 0)`) : ''}
+        ${rv ? link('GM rivalry of the week', `${regName(rv.a)}'s ${teamNick(rv.a.team)} vs. ${rv.p.exec}'s ${teamNick(CLUB_NAME[rv.p.opp] || rv.p.opp)}`, `${rv.p.n} trades; ${regName(rv.a)}'s side is ${fmtW(rv.p.net)} wins up`, `switchView('h2h'); setTimeout(() => vcH2h('${abOf(rv.a)}'), 0)`) : ''}
       </div>
-    </div>
-    ${sec('The rankings and this winter')}
-    <div class="hub-grid hub-even">
-      ${tile('Leaderboard', `<h3>Best front offices</h3><div class="ttype" style="margin-bottom:4px">Ranked by net wins a season</div>${top5}${more('Full leaderboard', "switchView('leaderboard')")}`)}
-      ${hz ? tile('2027 title race', `<h3>Built to win next year</h3>${(() => { const mx = Math.max(cline || 0, ...hz.map(r => r.v[0])) * 1.08; const L = cline ? (cline / mx * 100).toFixed(1) : null; return `<div class="hub-race">${L ? `<div class="hr-row hr-head"><span></span><span class="hr-bar hr-lab"><em style="left:${L}%">champion line ${cline.toFixed(0)}</em></span><span></span></div>` : ''}${hz.map(r => `<div class="hr-row"><span class="hr-nm">${teamNick(CLUB_NAME[r.ab] || r.ab)}</span><span class="hr-bar"><i style="width:${(r.v[0] / mx * 100).toFixed(1)}%; ${folTC(r.ab)}; background:var(--tc)"></i>${L ? `<b style="left:${L}%"></b>` : ''}</span><span class="hr-v">${r.v[0].toFixed(1)}</span></div>`).join('')}</div>`; })()}<div class="ttype" style="margin-top:6px" title="Projected 2027 WAR already under control. The line is what a typical title team since 2012 got from its top 16 players.">2027 WAR already under control, against what title teams usually have.</div>${more('All 30 clubs', 'folHorizonAll()')}`) : ''}
-      ${fas.length ? tile('Free agents', `<h3>Top of the class</h3><div class="hub-fa2"><span></span><span class="ttype">Ledger</span><span class="ttype" title="The median of published contract predictions">Projected</span>${fas.map(({x}) => { const s = GM_SG[x[1]] || (GM_SG[x[1]] = dkSuggest(x, 'fa', null)), c = (DESK.cons || {})[x[1]]; return `<span class="hf-nm">${x[0]}</span><span>${s.sugYrs}/$${s.sugTot}M</span><span>${c ? `${c[0] % 1 ? Math.floor(c[0]) + '-' + Math.ceil(c[0]) : c[0]}/$${Math.round(c[0] * c[1])}M` : '·'}</span>`; }).join('')}</div><div class="ttype" style="margin-top:6px">Years / total. Ledger: what the Ledger would offer.</div>${more('Every projected contract', "bdState.tab='fa'; switchView('boards')")}`) : ''}
-      ${pros.length ? tile('Prospects', `<h3>Top prospects and farms</h3><div class="hub-two"><div>${pros.map(({p}, i) => `<div class="hub-row"><strong>${i + 1}</strong><span>${p[0]}</span></div>`).join('')}</div><div>${farms.map((f, i) => `<div class="hub-row"><strong>${i + 1}</strong><span>${teamNick(CLUB_NAME[f.ab] || f.ab)}</span></div>`).join('')}</div></div>${more('The top 100 and all 30 systems', "bdState.tab='pros'; bdState.org=''; switchView('boards')")}`) : ''}
     </div>`;
 }
 // one box for everything: players open their tree, GMs their report card, clubs their page
@@ -13589,11 +13645,7 @@ function folReportStanding(r){
   const P = folTeamPage(ab, true);
   if(!P || typeof P !== 'object'){ host.innerHTML = ''; return; }
   const nick = teamNick(CLUB_NAME[ab] || ab);
-  host.innerHTML = `<div class="actions rc-acts">
-      <button class="actbtn primary" onclick="folOpenAs('${ab}', 'gm')">Run the ${nick} winter</button>
-      <button class="actbtn" onclick="dkState.you='${ab}'; dkState.mode='trade'; folOpenAs('${ab}', 'desk')">Make a trade</button>
-      <button class="actbtn" onclick="folSaveTradingCard('${ab}')">Save card image</button></div>
-    <div class="rc-standing">${P.lb}${P.vs}${P.hz}</div>`;
+  host.innerHTML = `<div class="rc-standing">${P.lb}${P.vs}${P.hz}</div>`;
 }
 
 // ---- the front office page for your team: stays on this GM ----
@@ -13680,6 +13732,60 @@ function folTrades(){
   });
   return folTrades._c = out;
 }
+// Nov 9: every club's record by season (1997-2026, the league's standings feed) for trade context
+const TEAM_WL = JSON.parse('{"1997":{"BAL":[98,64],"NYY":[96,66],"DET":[79,83],"BOS":[78,84],"TOR":[76,86],"CLE":[86,75],"CWS":[80,81],"MIL":[78,83],"MIN":[68,94],"KC":[67,94],"SEA":[90,72],"LAA":[84,78],"TEX":[77,85],"ATH":[65,97],"ATL":[101,61],"MIA":[92,70],"NYM":[88,74],"WSH":[78,84],"PHI":[68,94],"HOU":[84,78],"PIT":[79,83],"CIN":[76,86],"STL":[73,89],"CHC":[68,94],"SF":[90,72],"LAD":[88,74],"COL":[83,79],"SD":[76,86]},"1998":{"NYY":[114,48],"BOS":[92,70],"TOR":[88,74],"BAL":[79,83],"TB":[63,99],"CLE":[89,73],"CWS":[80,82],"KC":[72,89],"MIN":[70,92],"DET":[65,97],"TEX":[88,74],"LAA":[85,77],"SEA":[76,85],"ATH":[74,88],"ATL":[106,56],"NYM":[88,74],"PHI":[75,87],"WSH":[65,97],"MIA":[54,108],"HOU":[102,60],"CHC":[90,73],"STL":[83,79],"CIN":[77,85],"MIL":[74,88],"PIT":[69,93],"SD":[98,64],"SF":[89,74],"LAD":[83,79],"COL":[77,85],"ARI":[65,97]},"1999":{"NYY":[98,64],"BOS":[94,68],"TOR":[84,78],"BAL":[78,84],"TB":[69,93],"CLE":[97,65],"CWS":[75,86],"DET":[69,92],"KC":[64,97],"MIN":[63,97],"TEX":[95,67],"ATH":[87,75],"SEA":[79,83],"LAA":[70,92],"ATL":[103,59],"NYM":[97,66],"PHI":[77,85],"WSH":[68,94],"MIA":[64,98],"HOU":[97,65],"CIN":[96,67],"PIT":[78,83],"STL":[75,86],"MIL":[74,87],"CHC":[67,95],"ARI":[100,62],"SF":[86,76],"LAD":[77,85],"SD":[74,88],"COL":[72,90]},"2000":{"NYY":[87,74],"BOS":[85,77],"TOR":[83,79],"BAL":[74,88],"TB":[69,92],"CWS":[95,67],"CLE":[90,72],"DET":[79,83],"KC":[77,85],"MIN":[69,93],"ATH":[91,70],"SEA":[91,71],"LAA":[82,80],"TEX":[71,91],"ATL":[95,67],"NYM":[94,68],"MIA":[79,82],"WSH":[67,95],"PHI":[65,97],"STL":[95,67],"CIN":[85,77],"MIL":[73,89],"HOU":[72,90],"PIT":[69,93],"CHC":[65,97],"SF":[97,65],"LAD":[86,76],"ARI":[85,77],"COL":[82,80],"SD":[76,86]},"2001":{"NYY":[95,65],"BOS":[82,79],"TOR":[80,82],"BAL":[63,98],"TB":[62,100],"CLE":[91,71],"MIN":[85,77],"CWS":[83,79],"DET":[66,96],"KC":[65,97],"SEA":[116,46],"ATH":[102,60],"LAA":[75,87],"TEX":[73,89],"ATL":[88,74],"PHI":[86,76],"NYM":[82,80],"MIA":[76,86],"WSH":[68,94],"HOU":[93,69],"STL":[93,69],"CHC":[88,74],"MIL":[68,94],"CIN":[66,96],"PIT":[62,100],"ARI":[92,70],"SF":[90,72],"LAD":[86,76],"SD":[79,83],"COL":[73,89]},"2002":{"NYY":[103,58],"BOS":[93,69],"TOR":[78,84],"BAL":[67,95],"TB":[55,106],"MIN":[94,67],"CWS":[81,81],"CLE":[74,88],"KC":[62,100],"DET":[55,106],"ATH":[103,59],"LAA":[99,63],"SEA":[93,69],"TEX":[72,90],"ATL":[101,59],"WSH":[83,79],"PHI":[80,81],"MIA":[79,83],"NYM":[75,86],"STL":[97,65],"HOU":[84,78],"CIN":[78,84],"PIT":[72,89],"CHC":[67,95],"MIL":[56,106],"ARI":[98,64],"SF":[95,66],"LAD":[92,70],"COL":[73,89],"SD":[66,96]},"2003":{"NYY":[101,61],"BOS":[95,67],"TOR":[86,76],"BAL":[71,91],"TB":[63,99],"MIN":[90,72],"CWS":[86,76],"KC":[83,79],"CLE":[68,94],"DET":[43,119],"ATH":[96,66],"SEA":[93,69],"LAA":[77,85],"TEX":[71,91],"ATL":[101,61],"MIA":[91,71],"PHI":[86,76],"WSH":[83,79],"NYM":[66,95],"CHC":[88,74],"HOU":[87,75],"STL":[85,77],"PIT":[75,87],"CIN":[69,93],"MIL":[68,94],"SF":[100,61],"LAD":[85,77],"ARI":[84,78],"COL":[74,88],"SD":[64,98]},"2004":{"NYY":[101,61],"BOS":[98,64],"BAL":[78,84],"TB":[70,91],"TOR":[67,94],"MIN":[92,70],"CWS":[83,79],"CLE":[80,82],"DET":[72,90],"KC":[58,104],"LAA":[92,70],"ATH":[91,71],"TEX":[89,73],"SEA":[63,99],"ATL":[96,66],"PHI":[86,76],"MIA":[83,79],"NYM":[71,91],"WSH":[67,95],"STL":[105,57],"HOU":[92,70],"CHC":[89,73],"CIN":[76,86],"PIT":[72,89],"MIL":[67,94],"LAD":[93,69],"SF":[91,71],"SD":[87,75],"COL":[68,94],"ARI":[51,111]},"2005":{"NYY":[95,67],"BOS":[95,67],"TOR":[80,82],"BAL":[74,88],"TB":[67,95],"CWS":[99,63],"CLE":[93,69],"MIN":[83,79],"DET":[71,91],"KC":[56,106],"LAA":[95,67],"ATH":[88,74],"TEX":[79,83],"SEA":[69,93],"ATL":[90,72],"PHI":[88,74],"NYM":[83,79],"MIA":[83,79],"WSH":[81,81],"STL":[100,62],"HOU":[89,73],"MIL":[81,81],"CHC":[79,83],"CIN":[73,89],"PIT":[67,95],"SD":[82,80],"ARI":[77,85],"SF":[75,87],"LAD":[71,91],"COL":[67,95]},"2006":{"NYY":[97,65],"TOR":[87,75],"BOS":[86,76],"BAL":[70,92],"TB":[61,101],"MIN":[96,66],"DET":[95,67],"CWS":[90,72],"CLE":[78,84],"KC":[62,100],"ATH":[93,69],"LAA":[89,73],"TEX":[80,82],"SEA":[78,84],"NYM":[97,65],"PHI":[85,77],"ATL":[79,83],"MIA":[78,84],"WSH":[71,91],"STL":[83,78],"HOU":[82,80],"CIN":[80,82],"MIL":[75,87],"PIT":[67,95],"CHC":[66,96],"SD":[88,74],"LAD":[88,74],"SF":[76,85],"ARI":[76,86],"COL":[76,86]},"2007":{"BOS":[96,66],"NYY":[94,68],"TOR":[83,79],"BAL":[69,93],"TB":[66,96],"CLE":[96,66],"DET":[88,74],"MIN":[79,83],"CWS":[72,90],"KC":[69,93],"LAA":[94,68],"SEA":[88,74],"ATH":[76,86],"TEX":[75,87],"PHI":[89,73],"NYM":[88,74],"ATL":[84,78],"WSH":[73,89],"MIA":[71,91],"CHC":[85,77],"MIL":[83,79],"STL":[78,84],"HOU":[73,89],"CIN":[72,90],"PIT":[68,94],"ARI":[90,72],"COL":[90,73],"SD":[89,74],"LAD":[82,80],"SF":[71,91]},"2008":{"TB":[97,65],"BOS":[95,67],"NYY":[89,73],"TOR":[86,76],"BAL":[68,93],"CWS":[89,74],"MIN":[88,75],"CLE":[81,81],"KC":[75,87],"DET":[74,88],"LAA":[100,62],"TEX":[79,83],"ATH":[75,86],"SEA":[61,101],"PHI":[92,70],"NYM":[89,73],"MIA":[84,77],"ATL":[72,90],"WSH":[59,102],"CHC":[97,64],"MIL":[90,72],"HOU":[86,75],"STL":[86,76],"CIN":[74,88],"PIT":[67,95],"LAD":[84,78],"ARI":[82,80],"COL":[74,88],"SF":[72,90],"SD":[63,99]},"2009":{"NYY":[103,59],"BOS":[95,67],"TB":[84,78],"TOR":[75,87],"BAL":[64,98],"MIN":[87,76],"DET":[86,77],"CWS":[79,83],"CLE":[65,97],"KC":[65,97],"LAA":[97,65],"TEX":[87,75],"SEA":[85,77],"ATH":[75,87],"PHI":[93,69],"MIA":[87,75],"ATL":[86,76],"NYM":[70,92],"WSH":[59,103],"STL":[91,71],"CHC":[83,78],"MIL":[80,82],"CIN":[78,84],"HOU":[74,88],"PIT":[62,99],"LAD":[95,67],"COL":[92,70],"SF":[88,74],"SD":[75,87],"ARI":[70,92]},"2010":{"TB":[96,66],"NYY":[95,67],"BOS":[89,73],"TOR":[85,77],"BAL":[66,96],"MIN":[94,68],"CWS":[88,74],"DET":[81,81],"CLE":[69,93],"KC":[67,95],"TEX":[90,72],"ATH":[81,81],"LAA":[80,82],"SEA":[61,101],"PHI":[97,65],"ATL":[91,71],"MIA":[80,82],"NYM":[79,83],"WSH":[69,93],"CIN":[91,71],"STL":[86,76],"MIL":[77,85],"HOU":[76,86],"CHC":[75,87],"PIT":[57,105],"SF":[92,70],"SD":[90,72],"COL":[83,79],"LAD":[80,82],"ARI":[65,97]},"2011":{"NYY":[97,65],"TB":[91,71],"BOS":[90,72],"TOR":[81,81],"BAL":[69,93],"DET":[95,67],"CLE":[80,82],"CWS":[79,83],"KC":[71,91],"MIN":[63,99],"TEX":[96,66],"LAA":[86,76],"ATH":[74,88],"SEA":[67,95],"PHI":[102,60],"ATL":[89,73],"WSH":[80,81],"NYM":[77,85],"MIA":[72,90],"MIL":[96,66],"STL":[90,72],"CIN":[79,83],"PIT":[72,90],"CHC":[71,91],"HOU":[56,106],"ARI":[94,68],"SF":[86,76],"LAD":[82,79],"COL":[73,89],"SD":[71,91]},"2012":{"NYY":[95,67],"BAL":[93,69],"TB":[90,72],"TOR":[73,89],"BOS":[69,93],"DET":[88,74],"CWS":[85,77],"KC":[72,90],"CLE":[68,94],"MIN":[66,96],"ATH":[94,68],"TEX":[93,69],"LAA":[89,73],"SEA":[75,87],"WSH":[98,64],"ATL":[94,68],"PHI":[81,81],"NYM":[74,88],"MIA":[69,93],"CIN":[97,65],"STL":[88,74],"MIL":[83,79],"PIT":[79,83],"CHC":[61,101],"HOU":[55,107],"SF":[94,68],"LAD":[86,76],"ARI":[81,81],"SD":[76,86],"COL":[64,98]},"2013":{"BOS":[97,65],"TB":[92,71],"NYY":[85,77],"BAL":[85,77],"TOR":[74,88],"DET":[93,69],"CLE":[92,70],"KC":[86,76],"MIN":[66,96],"CWS":[63,99],"ATH":[96,66],"TEX":[91,72],"LAA":[78,84],"SEA":[71,91],"HOU":[51,111],"ATL":[96,66],"WSH":[86,76],"NYM":[74,88],"PHI":[73,89],"MIA":[62,100],"STL":[97,65],"PIT":[94,68],"CIN":[90,72],"MIL":[74,88],"CHC":[66,96],"LAD":[92,70],"ARI":[81,81],"SF":[76,86],"SD":[76,86],"COL":[74,88]},"2014":{"BAL":[96,66],"NYY":[84,78],"TOR":[83,79],"TB":[77,85],"BOS":[71,91],"DET":[90,72],"KC":[89,73],"CLE":[85,77],"CWS":[73,89],"MIN":[70,92],"LAA":[98,64],"ATH":[88,74],"SEA":[87,75],"HOU":[70,92],"TEX":[67,95],"WSH":[96,66],"NYM":[79,83],"ATL":[79,83],"MIA":[77,85],"PHI":[73,89],"STL":[90,72],"PIT":[88,74],"MIL":[82,80],"CIN":[76,86],"CHC":[73,89],"LAD":[94,68],"SF":[88,74],"SD":[77,85],"COL":[66,96],"ARI":[64,98]},"2015":{"TOR":[93,69],"NYY":[87,75],"BAL":[81,81],"TB":[80,82],"BOS":[78,84],"KC":[95,67],"MIN":[83,79],"CLE":[81,80],"CWS":[76,86],"DET":[74,87],"TEX":[88,74],"HOU":[86,76],"LAA":[85,77],"SEA":[76,86],"ATH":[68,94],"NYM":[90,72],"WSH":[83,79],"MIA":[71,91],"ATL":[67,95],"PHI":[63,99],"STL":[100,62],"PIT":[98,64],"CHC":[97,65],"MIL":[68,94],"CIN":[64,98],"LAD":[92,70],"SF":[84,78],"ARI":[79,83],"SD":[74,88],"COL":[68,94]},"2016":{"BOS":[93,69],"TOR":[89,73],"BAL":[89,73],"NYY":[84,78],"TB":[68,94],"CLE":[94,67],"DET":[86,75],"KC":[81,81],"CWS":[78,84],"MIN":[59,103],"TEX":[95,67],"SEA":[86,76],"HOU":[84,78],"LAA":[74,88],"ATH":[69,93],"WSH":[95,67],"NYM":[87,75],"MIA":[79,82],"PHI":[71,91],"ATL":[68,93],"CHC":[103,58],"STL":[86,76],"PIT":[78,83],"MIL":[73,89],"CIN":[68,94],"LAD":[91,71],"SF":[87,75],"COL":[75,87],"ARI":[69,93],"SD":[68,94]},"2017":{"BOS":[93,69],"NYY":[91,71],"TB":[80,82],"TOR":[76,86],"BAL":[75,87],"CLE":[102,60],"MIN":[85,77],"KC":[80,82],"CWS":[67,95],"DET":[64,98],"HOU":[101,61],"LAA":[80,82],"SEA":[78,84],"TEX":[78,84],"ATH":[75,87],"WSH":[97,65],"MIA":[77,85],"ATL":[72,90],"NYM":[70,92],"PHI":[66,96],"CHC":[92,70],"MIL":[86,76],"STL":[83,79],"PIT":[75,87],"CIN":[68,94],"LAD":[104,58],"ARI":[93,69],"COL":[87,75],"SD":[71,91],"SF":[64,98]},"2018":{"BOS":[108,54],"NYY":[100,62],"TB":[90,72],"TOR":[73,89],"BAL":[47,115],"CLE":[91,71],"MIN":[78,84],"DET":[64,98],"CWS":[62,100],"KC":[58,104],"HOU":[103,59],"ATH":[97,65],"SEA":[89,73],"LAA":[80,82],"TEX":[67,95],"ATL":[90,72],"WSH":[82,80],"PHI":[80,82],"NYM":[77,85],"MIA":[63,98],"MIL":[96,67],"CHC":[95,68],"STL":[88,74],"PIT":[82,79],"CIN":[67,95],"LAD":[92,71],"COL":[91,72],"ARI":[82,80],"SF":[73,89],"SD":[66,96]},"2019":{"NYY":[103,59],"TB":[96,66],"BOS":[84,78],"TOR":[67,95],"BAL":[54,108],"MIN":[101,61],"CLE":[93,69],"CWS":[72,89],"KC":[59,103],"DET":[47,114],"HOU":[107,55],"ATH":[97,65],"TEX":[78,84],"LAA":[72,90],"SEA":[68,94],"ATL":[97,65],"WSH":[93,69],"NYM":[86,76],"PHI":[81,81],"MIA":[57,105],"STL":[91,71],"MIL":[89,73],"CHC":[84,78],"CIN":[75,87],"PIT":[69,93],"LAD":[106,56],"ARI":[85,77],"SF":[77,85],"COL":[71,91],"SD":[70,92]},"2020":{"TB":[40,20],"NYY":[33,27],"TOR":[32,28],"BAL":[25,35],"BOS":[24,36],"MIN":[36,24],"CLE":[35,25],"CWS":[35,25],"KC":[26,34],"DET":[23,35],"ATH":[36,24],"HOU":[29,31],"SEA":[27,33],"LAA":[26,34],"TEX":[22,38],"ATL":[35,25],"MIA":[31,29],"PHI":[28,32],"WSH":[26,34],"NYM":[26,34],"CHC":[34,26],"STL":[30,28],"CIN":[31,29],"MIL":[29,31],"PIT":[19,41],"LAD":[43,17],"SD":[37,23],"SF":[29,31],"COL":[26,34],"ARI":[25,35]},"2021":{"TB":[100,62],"BOS":[92,70],"NYY":[92,70],"TOR":[91,71],"BAL":[52,110],"CWS":[93,69],"CLE":[80,82],"DET":[77,85],"KC":[74,88],"MIN":[73,89],"HOU":[95,67],"SEA":[90,72],"ATH":[86,76],"LAA":[77,85],"TEX":[60,102],"ATL":[88,73],"PHI":[82,80],"NYM":[77,85],"MIA":[67,95],"WSH":[65,97],"MIL":[95,67],"STL":[90,72],"CIN":[83,79],"CHC":[71,91],"PIT":[61,101],"SF":[107,55],"LAD":[106,56],"SD":[79,83],"COL":[74,87],"ARI":[52,110]},"2022":{"NYY":[99,63],"TOR":[92,70],"TB":[86,76],"BAL":[83,79],"BOS":[78,84],"CLE":[92,70],"CWS":[81,81],"MIN":[78,84],"DET":[66,96],"KC":[65,97],"HOU":[106,56],"SEA":[90,72],"LAA":[73,89],"TEX":[68,94],"ATH":[60,102],"ATL":[101,61],"NYM":[101,61],"PHI":[87,75],"MIA":[69,93],"WSH":[55,107],"STL":[93,69],"MIL":[86,76],"CHC":[74,88],"PIT":[62,100],"CIN":[62,100],"LAD":[111,51],"SD":[89,73],"SF":[81,81],"ARI":[74,88],"COL":[68,94]},"2023":{"BAL":[101,61],"TB":[99,63],"TOR":[89,73],"NYY":[82,80],"BOS":[78,84],"MIN":[87,75],"DET":[78,84],"CLE":[76,86],"CWS":[61,101],"KC":[56,106],"HOU":[90,72],"TEX":[90,72],"SEA":[88,74],"LAA":[73,89],"ATH":[50,112],"ATL":[104,58],"PHI":[90,72],"MIA":[84,78],"NYM":[75,87],"WSH":[71,91],"MIL":[92,70],"CHC":[83,79],"CIN":[82,80],"PIT":[76,86],"STL":[71,91],"LAD":[100,62],"ARI":[84,78],"SD":[82,80],"SF":[79,83],"COL":[59,103]},"2024":{"NYY":[94,68],"BAL":[91,71],"BOS":[81,81],"TB":[80,82],"TOR":[74,88],"CLE":[92,69],"KC":[86,76],"DET":[86,76],"MIN":[82,80],"CWS":[41,121],"HOU":[88,73],"SEA":[85,77],"TEX":[78,84],"ATH":[69,93],"LAA":[63,99],"PHI":[95,67],"ATL":[89,73],"NYM":[89,73],"WSH":[71,91],"MIA":[62,100],"MIL":[93,69],"STL":[83,79],"CHC":[83,79],"CIN":[77,85],"PIT":[76,86],"LAD":[98,64],"SD":[93,69],"ARI":[89,73],"SF":[80,82],"COL":[61,101]},"2025":{"TOR":[94,68],"NYY":[94,68],"BOS":[89,73],"TB":[77,85],"BAL":[75,87],"CLE":[88,74],"DET":[87,75],"KC":[82,80],"MIN":[70,92],"CWS":[60,102],"SEA":[90,72],"HOU":[87,75],"TEX":[81,81],"ATH":[76,86],"LAA":[72,90],"PHI":[96,66],"NYM":[83,79],"MIA":[79,83],"ATL":[76,86],"WSH":[66,96],"MIL":[97,65],"CHC":[92,70],"CIN":[83,79],"STL":[78,84],"PIT":[71,91],"LAD":[93,69],"SD":[90,72],"SF":[81,81],"ARI":[80,82],"COL":[43,119]},"2026":{"TB":[98,64],"NYY":[93,68],"BOS":[87,75],"BAL":[79,82],"TOR":[79,83],"CLE":[85,77],"CWS":[84,78],"MIN":[77,85],"DET":[76,86],"KC":[69,93],"HOU":[81,81],"TEX":[80,82],"SEA":[76,86],"ATH":[64,98],"LAA":[62,100],"ATL":[94,68],"PHI":[88,74],"MIA":[80,82],"WSH":[77,85],"NYM":[74,88],"MIL":[103,59],"CHC":[89,73],"PIT":[82,80],"STL":[77,85],"CIN":[75,87],"LAD":[100,62],"SD":[91,71],"ARI":[86,76],"SF":[65,97],"COL":[58,104]}}');
+// where a club stood when it made the deal: the season it was playing for (a deadline deal: that season;
+// an offseason deal: the season just finished)
+function folTradeSeason(d){ const y = +d.slice(0, 4), m = +d.slice(5, 7); return m >= 10 ? y : m <= 3 ? y - 1 : y; }
+function folWL(ab, y){ const r = (TEAM_WL[String(y)] || {})[ab]; return r ? {w: r[0], l: r[1], pct: r[0] / Math.max(1, r[0] + r[1])} : null; }
+// a contender buying help: its wins count more (the win curve), so its overpay is read in that light.
+// Adjusted gap: the losing club's received wins weighted 1.35x when it was a contender (a .550+ club)
+const FOL_WIN_NOW = 0.35;
+function folHeistCtx(t){
+  const lose = t.lose, y = folTradeSeason(t.d), r = folWL(lose.ab, y), m = +t.d.slice(5, 7);
+  if(!r) return null;
+  // a contender (.535+, about 87 wins: most playoff clubs) weights the help 1.35x; a fringe club (.500-.535) 1.15x
+  const contender = r.pct >= 0.535, bubble = !contender && r.pct >= 0.5, got = lose.got.reduce((a, g) => a + Math.max(0, g.w), 0);
+  const wt = contender ? FOL_WIN_NOW : bubble ? 0.15 : 0, adj = t.gap - wt * got;
+  const when = m >= 10 || m <= 3 ? `coming off a ${r.w}-${r.l} season` : m >= 6 && m <= 8 ? `${r.w}-${r.l} that season, buying at the deadline` : `on the way to a ${r.w}-${r.l} season`;
+  return {contender, bubble, wt, r, when, got, adj, y};
+}
+function folHeistAdj(t){ const c = folHeistCtx(t); return c ? c.adj : t.gap; }
+// ---- the deal ledger: the numbers behind a graded trade (trade_parts.json, loaded on first open) ----
+const FOL_PARTS = {d: null, p: null};
+function folPartsLoad(){ if(FOL_PARTS.d) return Promise.resolve(FOL_PARTS.d); if(!FOL_PARTS.p) FOL_PARTS.p = fetch('trade_parts.json?v=1').then(r => r.ok ? r.json() : {}).then(j => FOL_PARTS.d = j).catch(() => FOL_PARTS.d = {}); return FOL_PARTS.p; }
+function folPartsData(j){ FOL_PARTS.d = j || {}; return FOL_PARTS.d; }
+function folDealLedger(t){
+  const P = FOL_PARTS.d || {}, recvOf = {};
+  t.S.forEach(s => s.got.forEach(g => { recvOf[g.pid] = s.ab; }));
+  const pl = pid => (DESK.players || []).find(x => String(x[1]) === String(pid));
+  const yr = +t.d.slice(0, 4);
+  const row = (g, recv, gaveTo) => {
+    const z = P[`${t.d}|${g.pid}|${recv}`] || null, w = z ? z[0] : null, c = z ? z[1] : null, opn = z ? z[4] : 0, newc = z && z[5];
+    const span = z && z[2] ? (z[2] === z[3] ? String(z[2]) : `${z[2]}-${String(z[3]).slice(2)}`) : '';
+    let note = '';
+    if(newc) note = `signed a new contract with the ${folNickAt(recv, t.d)} as the deal closed: those seasons are graded with that contract, not this trade`;
+    else if(z && !z[2] && !opn) note = 'no big-league value in the window';
+    else if(opn) note = `includes ${fmtW(opn)} still expected from a prospect`;
+    // still to come: players with control left in 2027 (recent deals), at the Desk's projection
+    let fut = null; const p = yr >= 2019 ? pl(g.pid) : null;
+    try { if(p && !gmIsFA(p) && !gmIsProsRow(p) && gmCtrlOf(p) >= 1 && z && z[3] >= 2026) fut = gmSurplus(p); } catch(e){}
+    return `<tr><td>${g.nm}${gaveTo ? ` <span class="ttype">to ${folNickAt(gaveTo, t.d)}</span>` : ''}${note ? `<div class="ttype">${note}</div>` : ''}</td><td class="ttype">${span}</td><td class="num">${w == null ? '·' : fmtW(w)}</td><td class="num">${c == null ? '·' : fmtW(-c)}</td><td class="num"><strong class="${g.w >= 0 ? 'pos' : 'neg'}">${fmtW(g.w)}</strong></td><td class="num">${fut == null ? '' : `<span class="${fut >= 0 ? 'pos' : 'neg'}">${fmtW(fut)}</span>`}</td></tr>`;
+  };
+  const head = `<tr><th>Player</th><th>Seasons</th><th class="num">WAR</th><th class="num">Salary</th><th class="num">Net</th><th class="num" title="Projected surplus still to come over his remaining control (deals since 2019)">To come</th></tr>`;
+  return t.S.map(s => {
+    const gave = t.S.filter(o => o.ab !== s.ab).flatMap(o => o.got.filter(g => s.gave.some(x => String(x[0]) === String(g.pid))).map(g => ({g, to: o.ab})));
+    return `<div class="dl-club" style="${folTC(s.ab)}"><div class="dl-hd"><strong>${folClubAt(s.ab, t.d)}</strong><span class="${s.net >= 0 ? 'pos' : 'neg'}">net ${fmtW(s.net)}</span></div>
+      <table class="dl-tab"><thead>${head}</thead><tbody><tr class="dl-sub"><td colspan="6">Got</td></tr>${s.got.map(g => row(g, s.ab)).join('') || '<tr><td colspan="6" class="ttype">nothing on the books (cash or a player who never reached the majors)</td></tr>'}
+        <tr class="dl-sub"><td colspan="6">Gave up</td></tr>${gave.map(x => row(x.g, x.to, x.to)).join('') || '<tr><td colspan="6" class="ttype">nothing on the books</td></tr>'}</tbody></table></div>`;
+  }).join('') + `<div class="ttype" style="margin-top:6px">WAR is Ledger WAR over the window the trade bought (to the end of control or six seasons, ended early by a new contract, free agency or a release), discounted 10% a season. Salary is what that window cost, in wins at market prices. Net = WAR minus salary: a star on a big contract can produce plenty and still net close to zero. A club's net is what it got minus what it gave up.</div>`;
+}
+function folLedgerOpen(el, id){
+  if(el.dataset.done) return; el.dataset.done = '1';
+  const t = folTrades().find(x => folHeistId(x) === id), box = el.querySelector('.dl-body'); if(!t || !box) return;
+  box.innerHTML = '<div class="ttype">Loading the ledger…</div>';
+  folPartsLoad().then(() => { box.innerHTML = folDealLedger(t); folEvent('heist/ledger'); });
+}
 function folStamp(v){ return v >= 15 ? 'Grand larceny' : v >= 10 ? 'Heist' : v >= 6 ? 'Lopsided' : v >= 2 ? 'Win' : 'Even'; }
 // club names as they were on the date (Indians, Devil Rays, Expos, Florida Marlins, Anaheim, Oakland)
 function folClubAt(ab, d){
@@ -13704,7 +13810,9 @@ function folHeistCard(t, o){
   const W = folNickAt(t.win.ab, t.d), L = folNickAt(t.lose.ab, t.d);
   // on a club's own page the card reads from that club's side
   const me = o.club ? t.S.find(x => x.ab === o.club) : null;
-  let head = `${W} got ${who} from the ${L}`, stamp = `${folStamp(t.gap)} · ${fmtW(t.gap)}`, cls = t.gap >= 10 ? 'neg' : t.gap >= 6 ? 'mid' : 'pos';
+  // a three-team deal: the winner did not get everything from one club, so say it was a three-team trade
+  const multi = t.S.length > 2, who2 = (t.win.got[1] || {}).nm;
+  let head = multi ? `${W} won a ${t.S.length}-team trade: ${who}${who2 ? ' and ' + who2 : ''}` : `${W} got ${who} from the ${L}`, stamp = `${folStamp(t.gap)} · ${fmtW(t.gap)}`, cls = t.gap >= 10 ? 'neg' : t.gap >= 6 ? 'mid' : 'pos';
   if(me && me.ab !== t.win.ab){
     head = `${folNickAt(me.ab, t.d)} sent ${who} to the ${W}`;
     stamp = `${me.net <= -10 ? 'Fleeced' : me.net <= -2 ? 'Loss' : 'Even'} · ${fmtW(me.net)}`; cls = me.net <= -2 ? 'neg' : 'mid';
@@ -13712,6 +13820,9 @@ function folHeistCard(t, o){
   return `<div class="${o.compact ? '' : 'card '}heist fol-rise"${o.compact ? ' style="padding:0; margin:6px 0 0"' : ''}>
     <div class="h-top"><div><div class="h-date">${folMon(t.d)} · trade</div><div class="h-head">${head}</div></div><span class="stamp ${cls}">${stamp}</span></div>
     <div class="h-sides">${t.S.slice().sort((a, b) => me ? (a.ab === me.ab ? -1 : b.ab === me.ab ? 1 : 0) : b.net - a.net).map(side).join('')}</div>
+    ${(() => { const c = folHeistCtx(t); if(!c) return ''; const L = folNickAt(t.lose.ab, t.d);
+      return `<div class="h-ctx">${c.contender ? `<strong>Win-now context.</strong> The ${L} were ${c.when}. A contender's wins are worth more than a rebuilder's, so the help they got (${fmtW(c.got)} WAR) counts 1.35x here: ${fmtW(t.gap)} becomes <strong>${fmtW(c.adj)}</strong> in light of the race.${c.got < 1 ? ' The help never came, so the overpay stands.' : ''}` : c.bubble ? `The ${L} were ${c.when}, on the edge of the race: the help they got (${fmtW(c.got)} WAR) counts 1.15x here, so ${fmtW(t.gap)} becomes <strong>${fmtW(c.adj)}</strong>.` : `The ${L} were ${c.when}: no pennant race to justify paying up.`}</div>`; })()}
+    <details class="dl-wrap" ontoggle="if(this.open) folLedgerOpen(this, '${folHeistId(t)}')"><summary>The deal ledger: every player, WAR, salary and what is still to come</summary><div class="dl-body"></div></details>
     ${o.share ? `<div class="actions" style="margin-top:8px"><button class="actbtn" onclick="folShare('${folHeistUrl(t)}', 'Heist', ${JSON.stringify(head).replace(/"/g, '&quot;')})">Share this heist</button></div>` : ''}</div>`;
 }
 function folHeistOfDay(){
@@ -13738,7 +13849,7 @@ function renderHeists(){
   if(st.kind === 'trades'){
     let xs = folTrades().filter(t => t.d.slice(0, 4) >= y0);
     if(st.club){ xs = xs.filter(t => t.S.some(s => s.ab === st.club)); const v = t => t.S.find(s => s.ab === st.club).net; xs.sort((a, b) => st.dir === 'worst' ? v(a) - v(b) : v(b) - v(a)); }
-    else xs.sort((a, b) => b.gap - a.gap);
+    else xs.sort((a, b) => folHeistAdj(b) - folHeistAdj(a));
     const fx = st.focus ? folTrades().find(t => folHeistId(t) === st.focus) : null;
     body = (fx ? `<div class="home-kick" style="margin:4px 0">Shared with you</div>${folHeistCard(fx, {share: true})}<div class="hub-sec"><h3>Every heist</h3></div>` : '') + xs.filter(t => t !== fx).slice(0, st.n).map(t => folHeistCard(t, {share: true})).join('') + (xs.length > st.n ? `<button class="actbtn" style="margin:8px 0" onclick="heistState.n+=20; renderHeists()">Show 20 more</button>` : '');
   } else {
@@ -13749,7 +13860,7 @@ function renderHeists(){
           ${folSigningPlain(x, abOf(r)) || `<div class="h-sides">${(x.sides || []).map(([dir, assets]) => `<div class="h-side" style="border-top-color:var(--rule)"><div class="hs-hd"><span>${dir}</span></div>${assets.map(([nm, w]) => `<div class="wrow"><span>${nm}</span><span></span><span class="wv ${String(w).startsWith('-') ? 'neg' : 'pos'}">${w}</span></div>`).join('')}</div>`).join('')}</div>`}</div>`).join('')
       + (xs.length > st.n ? `<button class="actbtn" style="margin:8px 0" onclick="heistState.n+=20; renderHeists()">Show 20 more</button>` : '');
   }
-  host.innerHTML = ctl + (st.kind === 'trades' ? `<div class="ttype" style="margin:-4px 0 8px">Each bar is the Ledger WAR a player produced for the club that got him, over his control window; "net" is what a club got minus what it gave up.</div>` : '') + body;
+  host.innerHTML = ctl + (st.kind === 'trades' ? `<div class="ttype" style="margin:-4px 0 8px">Each bar is a player's net for the club that got him: his Ledger WAR over the window the trade bought, minus what his salary cost in wins. Open the deal ledger on any trade for the WAR and salary separately. "Net" for a club is what it got minus what it gave up. Ranked in light of the situation: when the losing club was a contender (.535 or better, about 87 wins), the wins it got count 1.35x, and 1.15x for a club on the edge (.500 to .535), because a win in a pennant race is worth more than one in a lost season.</div>` : '') + body;
 }
 
 // ---- Nov 2026: sharing. Links go to small pages built with their own preview image (t/, h/, play/, c/) ----
@@ -13760,6 +13871,7 @@ function folShare(url, title, text){
   // desktop: the link alone (the post's own words are the person's to write)
   try { navigator.clipboard.writeText(url).then(() => folToast('Link copied'), () => folToast(url)); } catch(e){ folToast(url); }
 }
+function folXPost(text, url){ folEvent('xpost'); window.open('https://x.com/intent/post?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url), '_blank', 'noopener'); }
 function folCopyLink(url, text){ return folShare(url, 'Front Office Ledger', text); }
 // the leaderboard's own net: every channel plus retention
 function folLbNet(r){ try { return CHANNELS.reduce((t, c) => t + ((r.chan[c.key] || extOf(r)).net || 0), 0) + ((r.chan.ret && r.chan.ret.net2) || 0); } catch(e){ return folNetOf(r); } }
@@ -14657,6 +14769,7 @@ function renderWire(){
       </aside>
     </div>`;
   if(WIRE.focus){ const el = document.getElementById('wi-' + WIRE.focus); if(el) setTimeout(() => { try { el.scrollIntoView({block: 'center'}); } catch(e){} }, 30); }
+  else if(WIRE.jump){ const el = document.querySelector(WIRE.jump === 'pickem' ? '.wire-pk' : '.wire-qo'); WIRE.jump = ''; if(el){ el.open = true; el.classList.add('wi-focus'); setTimeout(() => { try { el.scrollIntoView({block: 'start'}); window.scrollBy(0, -10); } catch(e){} }, 40); } }
   clearTimeout(renderWire._seen); renderWire._seen = setTimeout(() => { if(!document.getElementById('view-wire').hidden){ wireMarkSeen(); wireBadge(); } }, 2500);
 }
 // home: the latest graded moves at the top of the page
@@ -14897,7 +15010,7 @@ function routeState(){
   else if(v === 'desk') q.id = dkState.mode;
   else if(v === 'heists'){ if(heistState.club) q.id = heistState.club.toLowerCase(); }
   else if(v === 'team'){ if(folTeam()) q.id = folTeam().toLowerCase(); }
-  else if(v === 'wire'){ if(WIRE.tab === 'daily') q.id = 'daily' + (WIRE.day ? '-' + WIRE.day : ''); else if(WIRE.tab === 'weekly') q.id = 'weekly'; else if(WIRE.focus) q.id = WIRE.focus; else if(WIRE.filt.club) q.id = WIRE.filt.club.toLowerCase(); }
+  else if(v === 'wire'){ if(WIRE.jump) q.id = WIRE.jump; else if(WIRE.tab === 'daily') q.id = 'daily' + (WIRE.day ? '-' + WIRE.day : ''); else if(WIRE.tab === 'weekly') q.id = 'weekly'; else if(WIRE.focus) q.id = WIRE.focus; else if(WIRE.filt.club) q.id = WIRE.filt.club.toLowerCase(); }
   else if(v === 'leaderboard'){ if(val('erasel') && val('erasel') !== 'active') q.era = val('erasel'); if(val('sortsel') && val('sortsel') !== 'for') q.sort = val('sortsel'); }
   return q;
 }
@@ -14933,6 +15046,7 @@ function routeApply(h){
     else if(v === 'gm'){ switchView('gm'); if(id && gmState.club !== id.toUpperCase() && setSel('gm-club', id.toUpperCase())) gmClubChange(); }
     else if(v === 'desk'){ if(['trade', 'walk', 'avail', 'fa', 'ext', 'draft'].includes(id)) dkState.mode = id; switchView('desk'); }
     else if(v === 'team'){ if(q.id && (CLUB_NAME || {})[q.id.toUpperCase()]) folGoTeam(q.id.toUpperCase()); else switchView('team'); }
+    else if(v === 'wire' && (q.id === 'pickem' || q.id === 'qo')){ WIRE.tab = 'feed'; WIRE.focus = ''; WIRE.filt.club = ''; if(q.id === 'pickem') pkCard._open = true; else wireQoCard._open = true; WIRE.jump = q.id; switchView('wire'); }
     else if(v === 'wire'){ WIRE.tab = 'feed'; if(/^daily/.test(q.id || '')){ WIRE.tab = 'daily'; WIRE.day = (q.id.match(/^daily-(\d{4}-\d\d-\d\d)$/) || [])[1] || ''; switchView('wire'); } else if(q.id === 'weekly'){ WIRE.tab = 'weekly'; switchView('wire'); } else if(q.id && (CLUB_NAME || {})[q.id.toUpperCase()]){ WIRE.filt.club = q.id.toUpperCase(); WIRE.focus = ''; } else if(q.id){ WIRE.focus = q.id; WIRE.filt.kind = 'all'; } switchView('wire'); }
     else if(v === 'heists'){ if(q.id && /^\d{4}-\d\d-\d\d-[a-z]+(-\d+)?$/.test(q.id)){ heistState.focus = q.id; heistState.kind = 'trades'; } else if(q.id && (CLUB_NAME || {})[q.id.toUpperCase()]) heistState.club = q.id.toUpperCase(); switchView('heists'); }
     else if(v === 'leaderboard'){ setSel('erasel', q.era || 'active'); setSel('sortsel', q.sort || 'for'); switchView('leaderboard'); renderLB(); }
