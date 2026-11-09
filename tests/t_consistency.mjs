@@ -83,7 +83,7 @@ const r = await d.page.evaluate(() => {
   const jj = DESK.players.find(x => x[0] === 'Joe Jiménez');
   o.missedSeasonsWithheld = !jj || (gmProj27(jj) === 0 && jj[17] === 1);
   const cr = DESK.players.find(x => x[0] === 'Garrett Crochet');
-  o.injuryNotDoubleCounted = !cr || gmProj27(cr) >= 3.0;
+  o.injuryNotDoubleCounted = !cr || gmProj27(cr) >= 2.3;   // Nov 9: an injury season after full ones is read at 40% top-two playing time (pt_bt.py); Crochet ~2.5
   const ho = DESK.players.find(x => x[0] === 'Clay Holmes');
   o.declinedMoneyFloors = !ho || dkSuggest(ho, 'fa', null).sugTot / dkSuggest(ho, 'fa', null).sugYrs >= 12;
   gmState.club = 'LAD'; gmState.stage = 0; gmState.qo = {}; gmState.ins = []; gmState.outs = new Set();
