@@ -231,3 +231,10 @@ failure is a regression, not noise:
                                   # service, grade rules, report = leaderboard,
                                   # champions, H2H symmetry, payroll closure,
                                   # control, full career trees, clean text
+
+## Deploy build (since Nov 10 night)
+The live `index.html` is built from the working page, not copied: `python3 engine/split_book.py
+<working page> <repo dir>` writes `index.html` and `book.js` (trade book, player fates, quiz notes). Upload
+both in one commit; an `index.html` without its `book.js` leaves report cards waiting. Tests run against
+either form (`PAGE=<repo>/index.html` for the split build). `rumors.json` and `wire.json` carry a `checked`
+time written by their scheduled tasks; the page shows it.

@@ -5,6 +5,25 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 
 ## 2026-11-10 (Tue)
 
+### Night 6: Kirk re-walk, refresh hardening, smaller first download
+- **Re-walk of Kirk's QA on the live site**: all 32 scripted cases (16 trade, 8 free agent, 8 advisor) and the
+  53-check suite pass. Report in `docs/qa-rewalk-nov10.md`. His original write-up is no longer in my records,
+  so a pass from his own notes is still worth having.
+- **Refresh hardening.** The trade-reports and contract-terms tasks now (1) stop in seconds, with a one-line
+  phone note saying how old the file is, when Chrome is asleep, (2) skip if another run checked in the last
+  3 to 4 hours, (3) always stamp a `checked` time in the file even when nothing changed, and (4) run more
+  often (trade reports 12:23, 3:23, 7:23, 10:23 pm ET; terms 1:37, 5:37, 9:37 pm ET), so a missed slot is
+  caught at the next one. The page shows "checked Nov 11" beside the trade reports and the Wire's contract
+  terms, and "last checked" once that is more than two days old.
+- **Smaller first download (QA S16).** Measured on the live site with a throttled phone: first paint about
+  1 second; home content 3.7 s on 4G and 9.4 s on slow 4G; everything 6.3 s and 18 s. The trade book, player
+  fates and quiz notes (a sixth of the page) now ship as `book.js`, loaded right after the page:
+  the page went from 1,233 KB to 1,044 KB over the wire. Heists, the quiz and the home counts wait for it
+  and redraw; a view-by-view comparison against the old build is identical once loaded.
+- **Deploy step changed**: `index.html` is no longer a copy of the prototype. Build it with
+  `python3 engine/split_book.py front-office-ledger-prototype.html repo` and upload `index.html` and
+  `book.js` in the same commit.
+
 ### Evening 5: qualifying-offer wording, NHL value stat first cut
 - Deal Desk free-agent verdict: when a qualifying offer is attached it now says how many wins the forfeited
   picks account for and what the same contract grades without them (Suzuki to LAD at 4 years, $92M: F, and C
