@@ -12,7 +12,9 @@ const r = await page.evaluate(() => {
   const witt = g('Bobby Witt Jr.'), soto = g('Juan Soto');
   out.wittFranchise = gmFranchise(witt) === true;
   out.wittSurplusBig = gmSurplus(witt) > 8;   // Nov 9: 27+ playing time regressed 15% toward half a season and the decline curve x1.5; Witt ~8.8 over six seasons
-  out.sotoSurplusNeg = gmSurplus(soto) < 0;
+  // Nov 10: salary is charged at what a win costs on the market and a star is never a liability, so Soto's
+  // contract still reads under water on its own (raw) but his trade value does not go below zero
+  out.sotoRawNegTradeNot = gmSurplusRaw(soto) < 0 && gmSurplus(soto) >= 0;
   // FA anchors (media-range sanity, wide bands)
   const sug = n => { const p = g(n); if(!p) return null; const s = dkSuggest(p, 'fa', null); return [s.sugYrs, s.sugTot]; };
   const ch = sug('Jazz Chisholm Jr.'); out.chisholmBand = !!ch && ch[1] >= 45 && ch[1] <= 170;   // Nov 2026: DRS at 2B/3B cut his 2026 Ledger WAR
