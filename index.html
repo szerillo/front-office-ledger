@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@600&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   /* the headline face: Noto Serif Display (SIL Open Font License) pinned at 75% width */
   @font-face{font-family:'FOL Headline'; font-style:normal; font-weight:400 900; font-stretch:75%; font-display:swap; src:url(https://fonts.gstatic.com/s/notoserifdisplay/v29/buErppa9f8_vkXaZLAgP0G5Wi6QmA1Qwe65MClo.woff2) format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
@@ -32,7 +32,7 @@
   :root{
     color-scheme: light;
     --f-display:'FOL Headline','Noto Serif Display',Georgia,'Times New Roman',serif;
-    --f-brand:'Grenze Gotisch','Noto Serif Display',Georgia,serif;
+    --f-brand:'FOL Headline','Noto Serif Display',Georgia,'Times New Roman',serif;
     --f-body:'Source Serif 4','Iowan Old Style',Georgia,'Times New Roman',serif;
     --f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Consolas,monospace;
     /* the scorecard palette (Nov 10): paper, ink, scorecard red, blue, green for good */
@@ -68,7 +68,7 @@
   header{background:var(--page); border-bottom:4px double var(--ink)}
   .hd{max-width:1240px; margin:0 auto; padding:12px 24px 0; border-top:3px solid var(--ink)}
   .brandrow{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
-  .brand{font-family:var(--f-brand); font-size:40px; font-weight:600; letter-spacing:0; line-height:1; font-stretch:100%;
+  .brand{font-family:var(--f-brand); font-size:42px; font-weight:700; letter-spacing:0; line-height:1;
     display:inline-flex; align-items:center; gap:12px}
   .brand .logo{width:40px; height:40px; flex:none}
   .brand .ledger{color:inherit}
@@ -151,7 +151,7 @@
   /* the share frame: what a saved image looks like */
   .fol-frame{position:absolute; left:-20000px; top:0; background:var(--page); color:var(--ink); padding:34px 44px 22px; box-sizing:border-box; font-family:var(--f-body)}
   .ff-head{border-bottom:3px double var(--ink); padding-bottom:12px; margin-bottom:16px}
-  .ff-brand{font:600 20px var(--f-brand); letter-spacing:0; font-stretch:100%}
+  .ff-brand{font:700 22px var(--f-brand); letter-spacing:0}
   .ff-brand span{color:inherit}
   .hz-pick{display:flex; flex-wrap:wrap; gap:6px; align-items:center} .hz-pick .clubchips{display:contents}
   .ff-brandrow{display:flex; align-items:center; justify-content:space-between; gap:12px}
@@ -1359,7 +1359,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
     <nav>
       <div class="navgrp"><span class="navlbl">Performance review</span><div class="navbtns">
         <button class="on" data-view="home" title="The winter, the daily games, the best front offices, every club">Home</button>
-        <button data-view="leaderboard">Leaderboard</button>
+        <button data-view="leaderboard">Rankings</button>
         <button data-view="report">Report Cards</button>
         <button data-view="champs">Champions</button>
         <button data-view="dna">Org DNA</button>
@@ -1435,7 +1435,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
 
   <!-- ================= LEADERBOARD ================= -->
   <section id="view-leaderboard" hidden>
-    <h2 id="lb-h2">Front Office Leaderboard · Active MLB Regimes</h2>
+    <h2 id="lb-h2">Front Office Rankings · Active MLB Regimes</h2>
     <div class="sub lbkey">
       <div>Pick any front office for its full report card.</div>
       <details><summary>How to read a row</summary>
@@ -11807,7 +11807,7 @@ function renderLB(){
   if(_ho) _ho.textContent = `Archive regimes (${_hs}, now closed)`;
   document.querySelectorAll('.lbh-n').forEach(el => el.textContent = LB_HIST.length);
   document.querySelectorAll('.lbh-yrs').forEach(el => el.textContent = _hs);
-  if(_h) _h.textContent = 'Front Office Leaderboard · ' + (_era === 'hist' ? `Archive Regimes, ${_hs}` : _era === 'active' ? 'Active MLB Regimes' : 'Active and Archive Regimes');
+  if(_h) _h.textContent = 'Front Office Rankings · ' + (_era === 'hist' ? `Archive Regimes, ${_hs}` : _era === 'active' ? 'Active MLB Regimes' : 'Active and Archive Regimes');
   // a sort with no data at all for this era is disabled (the archive cannot grade free agency, extensions or development)
   const _all = lbRows(), _ss = $('#sortsel');
   [..._ss.options].forEach(o => { const none = !_all.some(r => lbSortVal(r, o.value) != null); o.disabled = none; o.title = none ? 'No regime in this era has a grade here' : ''; });
@@ -13195,9 +13195,9 @@ function folSaveTree(x, title){
   return folSaveEl(card, 'tree-' + folSlug(t).slice(0, 60), title ? `${title}: every move` : '', title ? 'Wins from each club\'s side; solid cards arrived, dashed cards left' : '');
 }
 function lbSave(){
-  const t = (document.getElementById('lb-h2') || {}).textContent || 'Front Office Leaderboard';
+  const t = (document.getElementById('lb-h2') || {}).textContent || 'Front Office Rankings';
   const srt = document.getElementById('sortsel'), by = srt ? srt.selectedOptions[0].textContent : '';
-  return folSaveEl(document.querySelector('.lb-tablecard'), 'leaderboard-' + folSlug(by || 'overall'), t.replace('Front Office Leaderboard · ', 'Front office leaderboard: '),
+  return folSaveEl(document.querySelector('.lb-tablecard'), 'leaderboard-' + folSlug(by || 'overall'), t.replace('Front Office Rankings · ', 'Front office rankings: '),
     `Sorted by ${by.toLowerCase()} · every decision graded against what a typical club got from the same move · Dev = development, Ret = retention`);
 }
 function folToast(msg){
@@ -13667,7 +13667,7 @@ function folHub(){
     ${sec('The front office rankings', 'every active regime, graded on every decision')}
     <div class="hub-cols">
       <div class="hub-left">
-      <div class="card home-card fol-rise hub-lbcard"><div class="home-kick">Leaderboard</div><h3>The best front offices in baseball</h3>
+      <div class="card home-card fol-rise hub-lbcard"><div class="home-kick">Overall</div><h3>The best front offices in baseball</h3>
         <div class="ttype hub-lbnote">Ranked by overall score: wins a season above what a typical front office gets from the same moves, leaning on the skills that repeat and adjusted for time in the seat.</div>
         <div class="hub-lb hub-lbhead"><span></span><span></span><span class="ttype">Overall</span><span class="ttype">Score</span></div>${topLb}
         <div class="hub-lbmore"><a href="#" onclick="switchView('leaderboard'); return false">All 30 front offices →</a><a href="#" onclick="switchView('dna'); return false">How each one builds →</a></div></div>
@@ -13744,7 +13744,7 @@ function folTeamPage(ab, asParts){
   // where this front office sits on the leaderboard, with its neighbors
   const lb = i < 0 ? '' : (() => {
     const lo = Math.max(0, Math.min(rk.length - 5, i - 2)), rows = rk.slice(lo, lo + 5);
-    return `<div class="card home-card fol-rise"><div class="home-kick">Leaderboard</div><h3>#${i + 1} of ${rk.length} active front offices</h3>
+    return `<div class="card home-card fol-rise"><div class="home-kick">Rankings</div><h3>#${i + 1} of ${rk.length} active front offices</h3>
       ${rows.map((x, k) => `<div class="hub-row${x === r ? ' me' : ''}"><strong>${lo + k + 1}</strong><span class="grade ${gradeClass(x.forGrade)}">${g2letter(x.forGrade)}</span><a href="#" onclick="switchView('report','${x.id}'); return false">${regName(x)}</a><span class="ttype">${abOf(x)}</span><span class="ttype ${folNetOf(x) >= 0 ? 'pos' : 'neg'}" style="margin-left:auto">${fmtW(folNetOf(x))}</span></div>`).join('')}
       <div style="margin-top:10px"><a href="#" onclick="switchView('leaderboard'); return false">Full leaderboard →</a></div></div>`;
   })();
@@ -13755,7 +13755,7 @@ function folTeamPage(ab, asParts){
       <div class="card tile"><div class="lbl">Decisions graded</div><div class="val"><span data-count="${r.decisions || 0}">${r.decisions || 0}</span></div><div class="dlt">trades, picks, signings, claims</div></div></div>`;
   const acts = `<div class="actions">
       <button class="actbtn primary" onclick="switchView('report','${r.id}')">Full report card</button>
-      <button class="actbtn" onclick="switchView('leaderboard')">Leaderboard</button>
+      <button class="actbtn" onclick="switchView('leaderboard')">Rankings</button>
       <button class="actbtn" onclick="folGo('gm')">Run the ${teamNick(CLUB_NAME[ab] || ab)} winter</button>
       <button class="actbtn" onclick="dkState.you='${ab}'; dkState.mode='trade'; folGo('desk')">Make a trade</button>
       <button class="actbtn" onclick="folShare('https://frontofficeledger.com/t/${ab.toLowerCase()}', '${(CLUB_NAME[ab] || ab).replace(/'/g, '')} front office', '${regName(r).replace(/'/g, '')}: ${r.isNew ? 'new' : g2letter(r.forGrade)} on Front Office Ledger.')">Share</button>
@@ -14245,7 +14245,7 @@ function folMobar(){
   const b = (view, ic, lbl, extra) => `<button type="button" class="${v === view ? 'on' : ''}" onclick="${extra || ''}switchView('${view}')"><span class="mb-ic">${ic}</span>${lbl}</button>`;
   bar.innerHTML = b('home', '⚾', 'Home')
     + `<button type="button" class="${v === 'team' ? 'on' : ''}" onclick="switchView('team')"><span class="mb-ic">🏟️</span>Clubs</button>`
-    + b('wire', '📰', 'Wire') + b('leaderboard', '🏆', 'Leaders') + b('desk', '🤝', 'Trade') + b('gm', '🗓️', 'Sim');
+    + b('wire', '📰', 'Wire') + b('leaderboard', '🏆', 'Rankings') + b('desk', '🤝', 'Trade') + b('gm', '🗓️', 'Sim');
 }
 
 // pins for the report card's own cumulative chart (drawn on top of its hover layer)
