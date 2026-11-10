@@ -45,9 +45,18 @@ for d in out:
 random.seed(7)
 print(len(out), sum(1 for d in out if d['w'] > d['L']) / len(out))
 print(collections.Counter((d['y0'] // 10 * 10) for d in out).most_common())
-# the shipped set: 1950-on regulars (2,000 PA or 500 IP) and a 450-player sample from 1901-1949
-modern=[x for x in out if x['y0']>=1950 and ((not x['p'] and x['pa']>=2000) or (x['p'] and x['ip']>=500))]
-old=[x for x in out if x['y0']<1950 and ((not x['p'] and x['pa']>=3000) or (x['p'] and x['ip']>=900))]
-random.seed(11); old=random.sample(old, min(450, len(old)))
-rows=[[x['id'], x['n'], x['y0'], x['y1'], x['p'], x['w'], x['ip'] if x['p'] else x['pa'], '/'.join(x['t'][:3]), x['b'][0], x['b'][1], x['L']] for x in modern+old]
-json.dump({'v':1,'src':'Career WAR: Baseball-Reference','cols':['id','name','first','last','pitcher','war','pa_or_ip','teams','best_year','best_war','line'],'rows':rows}, open(f'{S}/dudes.json','w'), separators=(',',':'), ensure_ascii=False)
+# the shipped set (Nov 10): regulars whose careers centered on 1991-2014 (began 1984 or later, ended by 2020),
+# 2,500+ PA or 700+ IP; the line re-cut within that pool (5-year era band, playing-time band)
+def mid(x): return (x['y0'] + x['y1']) / 2
+pool = [x for x in out if x['y0'] >= 1984 and x['y1'] <= 2020 and 1991 <= mid(x) <= 2014 and ((not x['p'] and x['pa'] >= 2500) or (x['p'] and x['ip'] >= 700))]
+def k2(x): return (x['p'], int(mid(x)) // 5, int(math.log((x['ip'] if x['p'] else x['pa']) + 1) * 5))
+g2 = collections.defaultdict(list)
+for x in pool: g2[k2(x)].append(x['w'])
+for x in pool:
+    xs = sorted(g2[k2(x)])
+    if len(xs) < 5: xs = sorted(y['w'] for y in pool if y['p'] == x['p'] and abs(math.log((y['ip'] if y['p'] else y['pa']) + 1) - math.log((x['ip'] if x['p'] else x['pa']) + 1)) < 0.15)
+    L = round(xs[len(xs) // 2] * 2) / 2
+    if abs(L - x['w']) < 0.3: L += 0.5 if x['w'] <= L else -0.5
+    x['L'] = L
+rows = [[x['id'], x['n'], x['y0'], x['y1'], x['p'], x['w'], x['ip'] if x['p'] else x['pa'], '/'.join(x['t'][:3]), x['b'][0], x['b'][1], x['L']] for x in pool]
+json.dump({'v': 2, 'src': 'Career WAR: Baseball-Reference', 'cols': ['id', 'name', 'first', 'last', 'pitcher', 'war', 'pa_or_ip', 'teams', 'best_year', 'best_war', 'line'], 'rows': rows}, open(f'{S}/dudes.json', 'w'), separators=(',', ':'), ensure_ascii=False)
