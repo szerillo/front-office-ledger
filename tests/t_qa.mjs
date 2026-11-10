@@ -146,6 +146,18 @@ const R = await page.evaluate(async (offsJson) => {
   o.rankPoolExplained = /of the \d+ front offices with two or more seasons in the seat/.test(document.getElementById('view-report').textContent) && /graded but not ranked yet/.test(document.getElementById('view-report').textContent);
   REG_BY_ID_CUR = ranked;
   o.tradeLettersExplained = /grades each trade against other trades of its size/.test(allTradesTable(ranked));
+  // "stays" calls settle on Opening Day; pitchers are not aged faster than the record supports
+  try { Object.keys(localStorage).filter(k => /^fol-tp-/.test(k)).forEach(k => localStorage.removeItem(k)); } catch(e){}
+  WIRE.items = []; const tpl = tpPool(), pa = tpl[0].p[1], pb = tpl[1].p[1];
+  tpCall(pa, 'n'); tpCall(pb, 'y'); await wait(60);
+  const before = [tpResult(pa), tpResult(pb)], nowFn = Date.now;
+  Date.now = () => TP_SETTLE + 864e5;
+  o.staysScoredOnOpeningDay = before[0] === null && before[1] === null && tpResult(pa) === true && tpResult(pb) === false;
+  Date.now = nowFn; try { Object.keys(localStorage).filter(k => /^fol-tp-/.test(k)).forEach(k => localStorage.removeItem(k)); } catch(e){} WIRE.items = null;
+  const mk = pit => { const q = DESK.players.find(x => !!x[3] === pit && !gmIsProsRow(x) && x[4] >= 27 && x[4] <= 29 && gmProj27(x) >= 3); return dkProjSeasons(q, 6, false).per; };
+  const hp = mk(false), pp = mk(true);
+  o.pitcherAgingNotHarsherThanTested = pp[5] / pp[0] > 0.15 && pp[5] / pp[0] <= hp[5] / hp[0] + 0.25 && /0\.03 : 0/.test(dkProjSeasons.toString());
+  o.betaLabels = /Beta/.test(document.getElementById('view-desk').textContent.slice(0, 600)) && /Beta/.test(document.getElementById('view-gm').textContent.slice(0, 600));
   return o;
 }, offsJson);
 // phones: the Deal Desk rosters start folded, and a search opens them
