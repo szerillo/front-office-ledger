@@ -167,6 +167,11 @@ numbers if `validation.json` moved.
                                      # 40 latest graded moves. A scheduled task runs
                                      # it with --only-new and uploads what changed.
 
+`offseasons_build.py` also writes `trade_stars.json`: for every two-club trade of four or more
+players, the best-known player each side got (most career WAR at the time when someone had 15
+or more, else the one who produced most afterward). It is inlined in the page as `TRADE_STAR`
+and names the big trades on heist cards; paste the new file into that constant after a rebuild.
+
 Trade reports live in `rumors.json` at the repo root (format in its `_about` field):
 the trade block, the club pages and trade pick'em all read it, and the scheduled task
 "Ledger: trade reports" refreshes it twice a day. `TRADE_RUMORS` and `TRADE_OFF` in
@@ -205,6 +210,11 @@ upload flow (no tokens on this project, ever) and verify the Pages deploy
 at szerillo.github.io/front-office-ledger/prototype.
 
 ## 6. Regression tests
+
+`t_qa.mjs` holds the Nov 10 2026 launch-day QA cases (star contracts are not dead weight, the
+Assistant GM respects where a club stands, the note and the verdict use one test, a free-agent
+deal is graded against the board's fair value). Run it with the others.
+
 
 `tests/` holds the headless acceptance harnesses (node, Playwright,
 chromium). Run against the local page before shipping and the live page
