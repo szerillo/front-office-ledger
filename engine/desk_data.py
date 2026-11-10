@@ -822,6 +822,7 @@ out = dict(
     pros=PROS_OUT,
     bio=(json.load(open("/work/prospect_bio.json")) if os.path.exists("/work/prospect_bio.json") else {}),   # Nov 10: how each prospect entered pro ball (prospect_bio.py)
     line26=(json.load(open("/work/line26.json")) if os.path.exists("/work/line26.json") else {}),   # Nov 10: 2026 big-league stat lines (line26_build.py)
+    adv26=(json.load(open("/work/adv26.json")) if os.path.exists("/work/adv26.json") else {}),   # Nov 10: xFIP/SIERA and xwOBA from the tracker (adv26_build.py)
     peak=PEAK,
     peakBacktest=PK["backtest"],
     rankTraj=PK.get("rankTraj", {}),
