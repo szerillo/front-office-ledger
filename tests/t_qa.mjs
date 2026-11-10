@@ -157,6 +157,9 @@ const R = await page.evaluate(async (offsJson) => {
   const mk = pit => { const q = DESK.players.find(x => !!x[3] === pit && !gmIsProsRow(x) && x[4] >= 27 && x[4] <= 29 && gmProj27(x) >= 3); return dkProjSeasons(q, 6, false).per; };
   const hp = mk(false), pp = mk(true);
   o.pitcherAgingNotHarsherThanTested = pp[5] / pp[0] > 0.15 && pp[5] / pp[0] <= hp[5] / hp[0] + 0.25 && /0\.03 : 0/.test(dkProjSeasons.toString());
+  treeOverlay('605141', 'LAD', 'Mookie Betts'); await wait(700);
+  o.extensionOnTheTradeLine = /traded BOS to LAD · control years only\. Under the LAD extension that followed: [+\-−][\d.]+ WAR in \d+ seasons so far/.test(document.getElementById('tree-ov').textContent.replace(/\s+/g, ' '));
+  closeTreeOverlay(); await wait(60);
   o.betaLabels = /Beta/.test(document.getElementById('view-desk').textContent.slice(0, 600)) && /Beta/.test(document.getElementById('view-gm').textContent.slice(0, 600));
   return o;
 }, offsJson);
