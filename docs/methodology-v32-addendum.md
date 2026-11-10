@@ -1903,3 +1903,12 @@ Current clubs and statuses for every Desk player from the MLB Stats API (319 cha
 - **Home** is four blocks: the front office rankings (top eight with the overall letter and score, the 2027 title race), this winter (the Wire, who has won the offseason, free agents, a featured farm system of the day, the labor clock), Play (every game and tool, each with its own link), and from the archive (trade, signing and tree of the day, champion and GM rivalry of the week), with Post on X on the daily items. The leaderboard's overall column shows the score that sets the order.
 - **Report cards** no longer carry play-GM buttons or a second save-image button.
 - **Three-team trades** are headlined as such ("Tigers won a 3-team trade: Austin Jackson and Max Scherzer") instead of naming one club as the victim.
+
+## Home, nav and games, third pass; still to come on report cards (November 10, 2026)
+
+- **Home** is three blocks with one layout: main content on the left, a column on the right. This winter (the Wire with the deadline bubbles, who has won the offseason; on the right, Play today and the top of the free-agent class), then the front office rankings (the leaderboard; on the right, the 2027 title race and the featured farm system), then from the archive. The masthead tagline is gone and the hero is one line with search beside it.
+- **The labor clock** is one of the deadline bubbles above the Wire (a live day-and-hour count to Dec 1, then the lockout or the deal).
+- **Pick'em and Polls** has its own page (free agent pick'em, the qualifying offer poll, your calls), and stays anchored beside the Wire.
+- **Play GM** order: Deal Desk, Offseason Simulator, Scenario Room, Trade Grade, Remember Some Dudes, Pick'em and Polls.
+- **Remember Some Dudes** now draws from 881 regulars whose careers centered on 1991-2014 (began 1984 or later, done by 2020; 2,500+ PA or 700+ IP), with the line re-cut inside that pool.
+- **Still to come on report cards.** Every trade in a tenure since 2019 shows the projected surplus still to come (the Desk's projections for players under control in 2027: the ones who came in and are still here, against the ones who went out and are still controlled elsewhere), with a tenure total. Context only; grades count what has happened.
