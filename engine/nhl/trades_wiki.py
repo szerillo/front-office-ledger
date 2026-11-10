@@ -37,7 +37,8 @@ def asset(a, y, teams):
     if m and 'pick' in low:
         yr = re.search(r'\b(19|20)\d{2}\b', a); rd = m.group(1).lower(); rd = int(rd) if rd.isdigit() else ORD.index(rd) + 1
         o = re.search(r'\[\[([^|\]]+)\|[A-Z]{2,3}\]\]', a[:m.start()])
-        return {'k': 'pick', 'round': rd, 'year': int(yr.group(0)) if yr else None, 'orig': TEAM.get(o.group(1)) if o else None, 'cond': 'conditional' in low}
+        ov = re.search(r'#\s?(\d{1,3})\b', a)
+        return {'k': 'pick', 'round': rd, 'year': int(yr.group(0)) if yr else None, 'orig': TEAM.get(o.group(1)) if o else None, 'cond': 'conditional' in low, 'ov': int(ov.group(1)) if ov else None}
     links = [(t, d or t) for t, d in re.findall(r'\[\[([^|\]]+)(?:\|([^\]]+))?\]\]', a) if 'draft' not in t.lower() and t not in TEAM and not re.fullmatch(r'\d{4}.*', t)]
     if links and not any(w in low for w in ('future considerations', 'cash')):
         t, d = links[0]; nm = re.sub(r'\s*\(.*?\)\s*$', '', t); ids = NAME.get(norm(nm), []) or NAME.get(norm(d), [])
