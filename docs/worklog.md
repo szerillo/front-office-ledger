@@ -19,7 +19,12 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
   defensemen, too low on defensive defensemen, noisy for goalies, and no better than last year's standings
   at predicting clubs. A test of players who changed clubs showed that club-level defense does not follow
   the player, so it was removed.
-- Next for the NHL: the shift-level model (fixes defensemen), then the draft channel.
+- **NHL step 2 done as a first cut: the draft channel.** Every pick 1998 to 2017 against what its slot and
+  position return over the control years, by class and by general manager. Write-up in
+  `docs/nhl-draft-v0.md`, script `engine/nhl/draft.py`. Two finds: the league's records site has general
+  manager tenures with dates (332 stints), and the draft data carries each pick's trade trail.
+- Next for the NHL: the shift-level model (fixes defensemen), then a decision from Sean on a source for
+  trades and contracts.
 
 ### Evening 4: extension on the trade line, NHL plan
 - A player's trade line now carries the extension that followed ("traded BOS to LAD, control years only.
@@ -80,4 +85,4 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 - No em dashes. No player headshots. Steamer and Depth Charts projections are not redistributed.
 
 ## Next
-- NHL edition after MLB is settled (Sean, Nov 10). Plan in `docs/nhl-plan.md`; first step is the value stat and its backtest.
+- NHL edition (Sean, Nov 10). Plan in `docs/nhl-plan.md`; value stat v0 and draft channel v0 are built and written up, nothing is on the site.

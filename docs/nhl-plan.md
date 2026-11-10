@@ -22,6 +22,12 @@ checks below were run that day from the build machine; everything else is a prop
 | Trades (who for whom, dates) | records.nhl.com/site/api/trade | Not there (404). No official feed found yet |
 | Contracts and cap hits | none official | Not checked; lives on cap sites with their own terms |
 
+## Status, Nov 10 evening
+- Step 1 (value stat): first cut built and tested, see `nhl-value-v0.md`.
+- Step 2 (draft channel): first cut built, see `nhl-draft-v0.md`.
+- Front office tenures (item 5 below): found on the league's records site with dates, no outside source needed.
+- Still open: a source for trades and contracts, and the shift-level model that fixes defensemen.
+
 ## What has to be built, hardest first
 1. **A value stat in wins.** Hockey has no public WAR we can republish. Build one from the league's own
    season lines: scoring and shot rates by situation, ice time as the coach's vote, a defense share from
