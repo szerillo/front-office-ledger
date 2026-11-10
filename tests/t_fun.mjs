@@ -139,6 +139,18 @@ const R = await d.page.evaluate(async () => {
   // leaderboard key folds away
   o.lbKeyFolded = document.querySelectorAll('#view-leaderboard .lbkey details').length === 2 && /How to read a row/.test(document.querySelector('#view-leaderboard .lbkey summary').textContent);
   o.sparklines = (() => { bdState.tab = 'fa'; switchView('boards'); return document.querySelectorAll('#boardsbody svg.spark').length > 5; })();
+  // Nov 10: prospect bios and stat lines; real prospects in the winter scenarios; the trade block
+  const P = n => DESK.players.find(p => p[0] === n);
+  o.bioIntl = /International signing, 2022, \$397,500 bonus/.test(gmBio(P('Josue De Paula'))) && /2023, \$525,000 bonus/.test(gmBio(P('Franklin Arias')));
+  o.bioDraft = (() => { const d = DESK.players.find(p => (DESK.bio[p[1]] || [])[0] === 'd' && DESK.bio[p[1]][3] === 1); return !!d && /draft, #1 overall, \$[\d.]+M bonus/.test(gmBio(d)); })();
+  o.line26 = /^\.\d{3}\/\.\d{3}\/\.\d{3}, \d+ HR/.test(gmLine26(P('Zach Neto'))) && / IP, [\d.]+ ERA/.test(gmLine26(P('Tarik Skubal')));
+  const w27 = scWinter27(), trs = w27.filter(s => s.kind === 'trade'), bls = w27.filter(s => s.kind === 'block');
+  o.scenRealProspects = trs.length >= 2 && trs.every(s => s.send.length && s.send.every(q => { const p = DESK.players.find(x => x[1] === q.pid); return p && gmIsProsRow(p) && p[2] === s.team; })) && !w27.some(s => /consensus #/.test(s.setup));
+  o.scenBlock = bls.length >= 2 && bls.every(s => s.offers.length === 3 && new Set(s.offers.map(q => q.buyer)).size === 3 && Math.max(...['o0', 'o1', 'o2'].map(a => scAdjudicate(s, a).proc)) >= 65 && scAdjudicate(s, 'hold').outw === null);
+  o.scenBlockShown = (() => { switchView('scen'); scState.idx = scAll().findIndex(s => s.kind === 'block'); document.getElementById('sc-sel').innerHTML = ''; renderScen(); const t = document.getElementById('scenbody').textContent; const pre = /On the block/.test(t) && /Keep him/.test(t) && !/to you/.test(t); scAct('hold'); return pre && /to you/.test(document.getElementById('scenbody').textContent); })();
+  // pick'em: the club, both lines, add a player, the card image
+  o.pickemTeam = (() => { const x = pkPool().find(x => !wireActual(x.p[1])); const pid = x.p[1]; try { localStorage.removeItem('fol-pk-' + pid); } catch(e){} pkTeam(pid, 'SEA'); const ok = pkMine(pid).team === 'SEA'; pkLineSet('fair'); pkOU(pid, 'under'); const m = pkMine(pid); pkLineSet('proj'); const ok2 = m.ouf === 'under' && !m.ou; window.FOL_SHARE_KEEP = 1; const el = pkSaveCard(); const ok3 = !!el && /Mariners/.test(el.textContent) && /fair value/.test(el.textContent); if(el) el.remove(); window.FOL_SHARE_KEEP = 0; try { localStorage.removeItem('fol-pk-' + pid); } catch(e){} return ok && ok2 && ok3; })();
+  o.pickemAdd = (() => { const base = new Set(pkPool().map(x => x.p[1])); const p = DESK.players.find(p => gmIsFA(p) && !gmIsProsRow(p) && !base.has(p[1]) && gmProj27(p) > 0.8); pkAdd(p[1]); const ok = pkPool().some(x => x.p[1] === p[1] && x.added); pkDrop(p[1]); return ok && !pkPool().some(x => x.p[1] === p[1]); })();
   try { localStorage.removeItem('fol-team'); } catch(e){}
   return o;
 });

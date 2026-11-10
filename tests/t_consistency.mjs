@@ -68,7 +68,7 @@ const r = await d.page.evaluate(() => {
   // v5.7: the Scenario Room grades process only; the archive plays blind; Winter 2027 is live
   switchView('scen'); scState.idx = 0; scShow();
   o.scenBlind = !/Cabrera|Detroit|Dombrowski/.test(document.getElementById('scenbody').innerText);
-  o.scenWinter27 = scWinter27().length >= 8 && scWinter27().every(s => scAdjudicate(s, s.kind === 'trade' ? 'accept' : 'sign').outw === null);
+  o.scenWinter27 = scWinter27().length >= 8 && scWinter27().every(s => scAdjudicate(s, s.kind === 'trade' ? 'accept' : s.kind === 'block' ? 'o0' : 'sign').outw === null);
   scAct('accept');
   o.scenProcessOnly = /not graded/.test(scScoreLine()) && /Cabrera/.test(document.getElementById('scenbody').innerText);
   // v5.7: free agency and extensions grade against a typical club's return on the money, not zero
