@@ -18,9 +18,9 @@ const shot = async (inner, file) => {
     let f = document.getElementById('og-frame'); if(f) f.remove();
     f = document.createElement('div'); f.id = 'og-frame';
     f.style.cssText = 'position:fixed; left:0; top:0; width:1200px; height:630px; z-index:999999; background:var(--page); color:var(--ink); padding:34px 56px; box-sizing:border-box; overflow:hidden; display:flex; flex-direction:column';
-    f.innerHTML = `<div style="display:flex; align-items:center; gap:12px; font:700 22px var(--f-body); letter-spacing:3px">${document.querySelector('.brand .logo').outerHTML.replace('class="logo"', 'width="34" height="34"')}FRONT OFFICE <span style="color:var(--margin)">LEDGER</span></div>
+    f.innerHTML = `<div style="display:flex; align-items:center; gap:12px; font:600 34px/1 var(--f-brand); font-stretch:100%; color:var(--ink)">${document.querySelector('.brand .logo').outerHTML.replace('class="logo"', 'width="38" height="38"')}Front Office Ledger</div>
       <div style="flex:1; display:flex; flex-direction:column; justify-content:center; min-height:0">${inner}</div>
-      <div style="font:600 20px var(--f-mono); color:var(--muted)">frontofficeledger.com</div>`;
+      <div style="font:600 20px var(--f-mono); color:var(--muted)">frontofficeledger.com · Every move, graded.</div>`;
     f.innerHTML = f.innerHTML.replace(/\bfol-rise\b/g, '').replace(/\bfol-anim\b/g, '');
     document.body.appendChild(f);
     f.querySelectorAll('button, .savebtn').forEach(x => x.remove());
@@ -39,7 +39,7 @@ const page = (o) => `<!doctype html>
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@FrontOfficeLdgr"><meta name="twitter:creator" content="@SeanZerillo">
 <meta name="twitter:title" content="${esc(o.title)}"><meta name="twitter:description" content="${esc(o.desc)}"><meta name="twitter:image" content="https://frontofficeledger.com/${o.img}">
 <meta http-equiv="refresh" content="0; url=${o.dest}">
-<style>body{font-family:Georgia,serif; background:#f2ecdd; color:#1d1a14; padding:40px}</style>
+<style>body{font-family:Georgia,serif; background:#f4efe2; color:#1d1d1b; padding:40px}</style>
 </head><body><p><a href="${o.dest}">${esc(o.link)}</a></p>
 <script>location.replace(${JSON.stringify(o.dest)});</script></body></html>
 `;
