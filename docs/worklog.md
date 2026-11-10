@@ -5,6 +5,22 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 
 ## 2026-11-10 (Tue)
 
+### Evening 5: qualifying-offer wording, NHL value stat first cut
+- Deal Desk free-agent verdict: when a qualifying offer is attached it now says how many wins the forfeited
+  picks account for and what the same contract grades without them (Suzuki to LAD at 4 years, $92M: F, and C
+  with no pick). The fine print said "a flat 1.0 win"; the Desk actually charges the club's real forfeit
+  (about 0.95 wins for most clubs, 1.5 over the tax line), so the sentence was corrected. No grade changed.
+- Checked the pick'em settle date: MLB's 2027 schedule has one game on Wed March 24 and Opening Day on
+  Thu March 25, so `TP_SETTLE` (March 25) stands.
+- Every-view sweep, desktop and phone: no errors, no blank views.
+- **NHL step 1 done as a first cut.** Pulled every skater, goalie and club season since 1998-99 from the
+  league's stats service and built a wins-above-replacement stat from them. Write-up with the test numbers
+  in `docs/nhl-value-v0.md`; scripts in `engine/nhl/`. Short version: believable for forwards and scoring
+  defensemen, too low on defensive defensemen, noisy for goalies, and no better than last year's standings
+  at predicting clubs. A test of players who changed clubs showed that club-level defense does not follow
+  the player, so it was removed.
+- Next for the NHL: the shift-level model (fixes defensemen), then the draft channel.
+
 ### Evening 4: extension on the trade line, NHL plan
 - A player's trade line now carries the extension that followed ("traded BOS to LAD, control years only.
   Under the LAD extension that followed: +34.7 WAR in 6 seasons so far"). Closes the last partial from the QA.
