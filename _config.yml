@@ -1,0 +1,11 @@
+# GitHub Pages publishes only what the site serves. The pipeline, its data,
+# the tests and the docs stay in the repo but out of the published site
+# (they were 40 MB of a 70 MB build, and deploys had started timing out).
+exclude:
+  - data
+  - engine
+  - ingest
+  - tests
+  - docs
+  - run_chain.sh
+  - PUSH_ME.command
