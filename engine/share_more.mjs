@@ -8,7 +8,7 @@ for(const d of ['t', 'h', 'play', 'og/t', 'og/h']) fs.mkdirSync(`${OUT}/${d}`, {
 const b = await chromium.launch();
 const p = await b.newPage({viewport: {width: 1200, height: 630}});
 await p.route('**/statsapi.mlb.com/**', r => r.abort());
-await p.goto('file:///work/front-office-ledger-prototype.html');
+await p.goto('file://' + (process.argv[3] || '/work/front-office-ledger-prototype.html'));
 await p.waitForFunction(() => window.CARDS_READY === true, null, {timeout: 60000});
 await p.evaluate(() => { document.querySelectorAll('.fol-rise, .fol-anim').forEach(e => e.classList.remove('fol-rise', 'fol-anim')); document.documentElement.dataset.theme = 'light'; });
 const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
@@ -49,11 +49,11 @@ for(const t of teams){
   const slug = t.ab.toLowerCase();
   await shot(`<div style="transform:scale(1.0); transform-origin:left top; margin-top:6px">${t.html.replace('width:1040px', 'width:1088px')}</div>`, `${OUT}/og/t/${slug}.png`);
   const title = `${t.club} front office: ${t.grade} · Front Office Ledger`;
-  const desc = `${t.exec}${t.rank ? `, #${t.rank} of ${t.n} front offices` : ''}, ${t.net} wins vs. a typical front office.${t.best ? ` Best move: ${t.best} (${t.bw}).` : ''}`;
+  const desc = `${t.exec}${t.rank ? `, #${t.rank} of the ${t.n} ranked front offices` : ''}, ${t.net} wins vs. a typical front office.${t.best ? ` Best move: ${t.best} (${t.bw}).` : ''}`;
   fs.writeFileSync(`${OUT}/t/${slug}.html`, page({title, desc, path: `t/${slug}`, img: `og/t/${slug}.png`, dest: `/#view=team&id=${slug}`, link: `Open the ${t.club} front office on Front Office Ledger`}));
 }
 // heists: every trade the heist of the day draws from
-const heists = await p.evaluate(() => folTrades().filter(t => t.gap >= 8 && t.S.length === 2).sort((a, b) => b.gap - a.gap).slice(0, 150).map(t => ({id: folHeistId(t), d: t.d, html: folHeistCard(t), head: `${folNickAt(t.win.ab, t.d)} got ${(t.win.got[0] || {}).nm || 'the better end'} from the ${folNickAt(t.lose.ab, t.d)}`, gap: fmtW(t.gap), stamp: folStamp(t.gap), mon: folMon(t.d)})));
+const heists = await p.evaluate(() => folTrades().filter(t => t.gap >= 8 && t.S.length === 2).sort((a, b) => b.gap - a.gap).slice(0, 150).map(t => ({id: folHeistId(t), d: t.d, html: folHeistCard(t), head: (() => { const d = document.createElement('div'); d.innerHTML = folHeistCard(t); return (d.querySelector('.h-head') || {}).textContent || `${folNickAt(t.win.ab, t.d)} got ${(t.win.got[0] || {}).nm || 'the better end'} from the ${folNickAt(t.lose.ab, t.d)}`; })(), gap: fmtW(t.gap), stamp: folStamp(t.gap), mon: folMon(t.d)})));
 for(const h of heists){
   await shot(`<div style="font:600 20px var(--f-mono); color:var(--margin); letter-spacing:2px; margin-bottom:8px">HEISTS AND DISASTERS</div><div style="font-size:21px; zoom:1.45">${h.html}</div>`, `${OUT}/og/h/${h.id}.png`);
   const title = `${h.head} (${h.stamp}, ${h.gap} wins) · Front Office Ledger`;
