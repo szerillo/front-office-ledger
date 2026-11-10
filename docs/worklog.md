@@ -5,6 +5,17 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 
 ## 2026-11-10 (Tue)
 
+### Night 8: NHL shift-level work (v1)
+- Built expected goals (2.19 million shot attempts, out-of-sample, calibrated), five-on-five stints and a
+  shift-level skater model. Write-up with every test number in `docs/nhl-value-v1.md`.
+- Result, plainly: it did not fix defensemen (their share of wins stays 14% in every version) and it did
+  not fix goalies (goals saved above expected repeats at 0.17 against 0.19 for plain save percentage).
+  It did improve club prediction a little (0.595 against 0.567; standings alone 0.552), so v1 is v0 plus
+  half of the shift-level effects. v1 tracks v0 at 0.996.
+- Draft channel rerun on v1: unchanged for practical purposes (0.998 pick by pick).
+- For the edition: forwards graded normally, defensemen only against defensemen, goalies over several
+  seasons. Next real blocker is still a source for trades and contracts (Sean's call).
+
 ### Night 7: hitters in their prime (the mid-tier projection gap)
 - Tested first (`engine/y1_split.py`): the quarter-win gap is not general. It is hitters 30 and under
   projected for 2.5 to 4.25 wins: +0.36 (se 0.11) in year one, positive in all four blocks of years
