@@ -111,7 +111,7 @@ const r = await d.page.evaluate(() => {
   o.olderDealsCarryAttrition = (() => { const j = DESK.players.find(x => x[0] === 'Aaron Judge'); if(!j) return true;
     return dkProjSeasons(j, 8, false).total < dkProjSeasons(j, 8, false, true).total * 0.8; })();
   // v5.9: the QO table is complete and the charge is on again
-  o.qoChargeOn = /QO signing, draft comp charged/.test(JSON.stringify(AUTO_REGIMES)) && /QO signing, draft comp charged/.test(JSON.stringify(LB_HIST));
+  o.qoChargeOn = /winter, QO\)/.test(JSON.stringify(AUTO_REGIMES)) && /winter, QO\)/.test(JSON.stringify(LB_HIST));   // Nov 10: the label was shortened from "QO signing, draft comp charged"
   return o;
 });
 await d.page.waitForTimeout(400);

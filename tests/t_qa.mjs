@@ -111,6 +111,32 @@ const R = await page.evaluate(async (offsJson) => {
   o.onePerSeasonScore = new RegExp('Score: \\+' + cle.gradeRate.toFixed(1).replace('.', '\\.') + ' wins a season').test(tp) && /Unadjusted, the ledger reads/.test(tp);
   const box = [...document.querySelectorAll('#view-report .hub-row')].filter(r => r.querySelector('.grade') && r.querySelector('a'));
   o.rankBoxShowsTheScore = box.length >= 3 && (() => { const v = box.map(r => parseFloat(r.lastElementChild.textContent.replace('−', '-'))); return v.every((x, i) => i === 0 || x <= v[i - 1] + 0.001); })();
+  // Nov 10 afternoon: Org DNA ranks all 30, the Play card order, the tree tile, the reigning champion, one-line rows
+  switchView('dna'); await wait(200);
+  const Ld = dnaLeague();
+  o.dnaRanksAllThirty = Ld.draft.n === 30 && [...document.querySelectorAll('#dna-leaders .dna-lead')].every(c => [...c.querySelectorAll('.hub-row strong')].map(e => e.textContent).join(',') === '1,2,3,30,29,28') && /All 30 clubs are ranked/.test(document.querySelector('.dna-leadnote').textContent);
+  o.dnaNewClubsNotNamedWorst = Object.values(Ld).every(L => L.xs.slice(0, 3).concat(L.xs.slice(-3)).every(x => !x.fill));
+  switchView('home'); await wait(250);
+  o.playOrder = [...document.querySelectorAll('#homebody .hub-play .hp-row strong')].map(e => e.textContent).join('|') === "Deal Desk|Offseason Simulator|Scenario of the day|Pick'em|Trade Grade|Remember Some Dudes";
+  const champ = CHAMPS_AUTO.slice().sort((a, b) => b.year - a.year)[0];
+  o.championAnchored = new RegExp('How the ' + champ.label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ' were built').test(document.getElementById('homebody').textContent) && champ.year === 2026;
+  const oi = TREES.findIndex(t => /Ortiz/.test(t.title)), realNow = Date.now;
+  if(oi >= 0){ const day0 = Math.floor(realNow() / 864e5), shift = ((oi - day0 % TREES.length) + TREES.length) % TREES.length; Date.now = () => realNow() + shift * 864e5; renderHome(); await wait(200);
+    const kids = [...document.querySelectorAll('#homebody .arch-tree .at-kid')];
+    o.ortizTileShowsTheChain = /Ortiz/.test(document.querySelector('#homebody .arch-tree .at-root').textContent) && kids.length >= 3 && kids.some(k => /Burnes/.test(k.textContent)) && !/not on file/.test(document.querySelector('#homebody .arch-tree').textContent);
+    Date.now = realNow; renderHome(); }
+  switchView('leaderboard'); await wait(200);
+  const lrows = [...document.querySelectorAll('#lbtable tbody tr, .lb-tablecard tbody tr')].slice(0, 28);
+  o.rankRowsOneLine = lrows.length >= 20 && lrows.every(tr => !/seasons? in the seat/.test(tr.textContent) && (!tr.querySelector('.execcell .tm') || tr.querySelector('.execcell .tm').getBoundingClientRect().height < 22)) && new Set(lrows.map(tr => Math.round(tr.getBoundingClientRect().height))).size <= 2;
+  // a player page has its own link; a near-miss spelling still finds him
+  treeOverlay('605141', 'LAD', 'Mookie Betts'); await wait(400);
+  o.playerLink = /player=605141/.test(location.hash) && !!document.getElementById('tree-ov');
+  closeTreeOverlay(); await wait(60);
+  o.playerLinkClears = !/player=/.test(location.hash);
+  switchView('home'); await wait(100);
+  document.getElementById('hub-find').value = 'Mooky Bets'; folHubFind();
+  o.nearSpellingFinds = /Mookie Betts/.test(document.getElementById('hub-find-out').textContent);
+  document.getElementById('hub-find').value = ''; folHubFind();
   return o;
 }, offsJson);
 await browser.close();
