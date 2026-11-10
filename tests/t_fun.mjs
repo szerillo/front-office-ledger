@@ -11,12 +11,13 @@ const R = await d.page.evaluate(async () => {
   o.pickerHas30 = document.querySelectorAll('#hub-team option').length === 31 && !document.querySelector('#homebody .tchips');
   o.heistOfDay = !!document.querySelector('#homebody .heist') || /Heist of the day/.test(document.getElementById('homebody').textContent);
   o.hubTeasers = ['Trade Grade', 'The best front offices in baseball', 'Run a winter', 'Scenario of the day', 'Signing of the day', 'GM rivalry of the week', 'Remember Some Dudes', 'Featured farm system', 'Champion of the week', 'Will they take the QO?'].every(x => document.getElementById('homebody').textContent.includes(x));
-  o.hubOrder = [...document.querySelectorAll('#homebody .hub-sec h3')].map(h => h.textContent).join('|') === 'The front office rankings|This winter|Play|From the archive';
+  o.hubOrder = [...document.querySelectorAll('#homebody .hub-sec h3')].map(h => h.textContent).join('|') === 'This winter|The front office rankings|From the archive';
   o.rankByRate = folActiveRank().every((r, i, a) => i === 0 || a[i - 1].gradeRate >= r.gradeRate) && (() => { const rows = [...document.querySelectorAll('#homebody .hub-lbcard .hub-lb:not(.hub-lbhead)')]; const v = rows.map(x => parseFloat(x.querySelector('.hl-ps').textContent)); return rows.length === 8 && /Best at/.test(rows[0].textContent) && v.every((x, i) => i === 0 || v[i - 1] >= x); })();
+  o.toComeOnReportCard = (() => { const r = curRegOf('MIL'); const rows = regimeTrades(r); return rows.some(x => rcToCome(x, 'MIL') != null) && /Still to come/.test(allTradesTable(r)); })();
   o.champLine48 = Math.abs(folChampLine() - 48) < 1.5;
   o.heistContext = (() => { const t = folTrades().find(x => x.d.startsWith('2003-11') && x.S.some(s => s.ab === 'SF') && x.S.some(s => s.ab === 'MIN')); const c = t && folHeistCtx(t); return c && c.contender && c.r.w === 100; })();
   o.heistsRankedInContext = (() => { const xs = folTrades().slice().sort((a, b) => folHeistAdj(b) - folHeistAdj(a)); return xs.length > 100 && folHeistAdj(xs[0]) >= folHeistAdj(xs[1]); })();
-  o.hubPlayRail = document.querySelectorAll('#homebody .hub-play2 .hp-row').length >= 6 && !!document.querySelector('#homebody .hub-top #hub-wire');
+  o.hubPlayRail = document.querySelectorAll('#homebody .hub-right .hub-play .hp-row').length >= 6 && !!document.querySelector('#homebody .hub-cols .hub-left #hub-wire') && /Deal Desk[\s\S]*Offseason simulator/i.test(document.querySelector('#homebody .hub-play').textContent);
   o.hubSections = /champion line 48/.test(document.getElementById('homebody').textContent) && /Org stat of the day/.test(document.getElementById('homebody').textContent) && /Ledger/.test(document.querySelector('#homebody .hub-fa2').textContent) && /Projected/.test(document.querySelector('#homebody .hub-fa2').textContent) && /front offices/.test(document.querySelector('#homebody .hub-stats').textContent) && /\(#\d+ of 30\)/.test(document.getElementById('homebody').textContent);
   document.getElementById('hub-find').value = 'Friedman'; folHubFind();
   o.hubSearch = /Andrew Friedman/.test(document.getElementById('hub-find-out').textContent) && /report card/.test(document.getElementById('hub-find-out').textContent);
@@ -41,7 +42,7 @@ const R = await d.page.evaluate(async () => {
   o.teamTimelinePins = document.querySelectorAll('#view-report svg circle').length >= 3;
   o.teamStandingOnlyCurrent = (() => { const h = LB_HIST.find(x => x.realCard); if(!h) return true; switchView('report', h.id); return !(document.getElementById('rc-standing') || {}).textContent; })();
   o.navOrder = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).slice(0, 9).join() === 'home,wire,leaderboard,report,champs,dna,h2h,heists,trees' || [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).join();
-  o.navQuizUnderPlayGM = (() => { const g = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view + (b.dataset.tab ? ':' + b.dataset.tab : '')); return g.slice(-6).join() === 'gm,desk,scen,quiz,dudes,wire:pickem'; })();
+  o.navQuizUnderPlayGM = (() => { const g = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view + (b.dataset.tab ? ':' + b.dataset.tab : '')); return g.slice(-6).join() === 'desk,gm,scen,quiz,dudes,pickem'; })();
   // heists: biggest first, and a club filter shows that club's side
   switchView('heists'); await wait(50);
   const gaps = folTrades().map(t => t.gap).sort((a, b) => b - a);

@@ -128,25 +128,27 @@ const R = await d.page.evaluate(async ({fx, dz}) => {
   o.clubPanel = /The Rays winter/.test(document.querySelector('.wire-club').textContent) && /2027 payroll/.test(document.querySelector('.wire-club').textContent) && /Out:.*Junior Caminero|Out:.*/.test(document.querySelector('.wire-club').textContent);
   o.clubFlows = (() => { const c = wireClubWinter('NYY'); return c.ins.some(x => x.w.pid === star[1]) && c.dWar > 0; })();
   o.moneyCard = document.querySelectorAll('.wire-money .wm-row').length === 30;
-  o.laborClock = /until the labor deal expires|Lockout|labor deal/.test(document.querySelector('.wire-labor').textContent);
+  o.laborClock = /labor clock|Lockout|labor deal/i.test(document.querySelector('.wire-dates .wd-labor').textContent);
   WIRE.filt.club = ''; location.hash = '#view=wire&id=daily'; await wait(300);
   o.dailyReport = WIRE.tab === 'daily' && /The Ledger Daily/.test(document.getElementById('wire-daily').textContent) && document.querySelectorAll('#wire-daily .wr-mv').length >= 1;
   location.hash = '#view=wire&id=weekly'; await wait(300);
   o.weeklyReport = WIRE.tab === 'weekly' && document.querySelectorAll('#wire-weekly .wr-club').length === 30;
   WIRE.tab = 'feed';
   // Remember Some Dudes: ten a day across the eras, over/under on career WAR, a link to each player's page
-  dudesLoadData(dz); DUDES.st = null; try { localStorage.removeItem('fol-dudes-day-' + dudeDay()); } catch(e){}
+  dudesLoadData(dz); DUDES.st = null; try { localStorage.removeItem('fol-dudes-d2-' + dudeDay()); } catch(e){}
   switchView('dudes'); await wait(100);
-  o.dudesTen = DUDES.st && DUDES.st.qs.length === 10 && DUDES.st.qs.filter(q => q.y0 < 1960).length >= 3 && /Career WAR: over or under/.test(document.getElementById('dudesbody').textContent);
+  o.dudesTen = DUDES.st && DUDES.st.qs.length === 10 && DUDES.st.qs.every(q => q.y0 >= 1984 && q.y1 <= 2020) && /Career WAR: over or under/.test(document.getElementById('dudesbody').textContent);
   const q0 = DUDES.st.qs[0]; dudesCall(q0.war > q0.line ? 'over' : 'under'); await wait(50);
   o.dudesReveal = DUDES.st.ans[0] === true && !!document.querySelector('#dudesbody a[href^="https://www.baseball-reference.com/players/"]');
   for(let k = 1; k < 10; k++){ dudesNext(); dudesCall('over'); } dudesNext(); await wait(50);
-  o.dudesDone = DUDES.st.done && /Remember Some Dudes \d+\/10/.test(dudesShareText()) && !!dudesStore('day-' + dudeDay());
+  o.dudesDone = DUDES.st.done && /Remember Some Dudes \d+\/10/.test(dudesShareText()) && !!dudesStore('d2-' + dudeDay());
   o.dudesLinesFair = (() => { const xs = DUDES.rows.map(dudeOf); const over = xs.filter(q => q.war > q.line).length / xs.length; return over > 0.4 && over < 0.6; })();
-  try { localStorage.removeItem('fol-dudes-day-' + dudeDay()); } catch(e){}
+  try { localStorage.removeItem('fol-dudes-d2-' + dudeDay()); } catch(e){}
   // games have their own links: pick'em lands on its card, open
-  location.hash = '#view=wire&id=pickem'; await wait(400);
-  o.pickemLink = !document.getElementById('view-wire').hidden && document.querySelector('.wire-pk').open && document.querySelector('.wire-pk').classList.contains('wi-focus');
+  switchView('pickem'); await wait(300);
+  o.pickemPage = !document.getElementById('view-pickem').hidden && /#view=pickem/.test(location.hash) && document.querySelector('#pickembody .wire-pk').open && !!document.querySelector('#pickembody .wire-qo');
+  location.hash = '#view=wire&id=pickem'; await wait(300);
+  o.oldPickemLink = !document.getElementById('view-pickem').hidden;
   // the deal ledger on a heist: WAR and salary separately, the new-contract note on Santana
   folPartsData({'2008-02-02|276371|NYM': [0, 0, null, null, 0, 1], '2008-02-02|460576|MIN': [10.4, 0.6, 2008, 2013, 0, 0]});
   const sant = folTrades().find(x => x.d === '2008-02-02' && x.S.some(s => s.ab === 'NYM'));
