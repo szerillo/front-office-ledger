@@ -10847,7 +10847,11 @@ function treeOverlay(pid, ab, label){
       const tr = node.kids.slice(0, i).reverse().find(t => new RegExp(`traded [A-Z]{2,3} to ${m[1]}\\b`).test(t.via || ''));
       if(tr && !/its own decision/.test(tr.nm)){
         tr.nm += `<div class="ttype" style="margin-top:4px">This trade is graded on the control years it bought. His ${m[1]} extension is its own decision, shown below.</div>`;
-        if(tr.via && !/control years only/.test(tr.via)) tr.via += ` · control years only: the ${m[1]} extension that followed is graded on its own line`;
+        if(tr.via && !/control years only/.test(tr.via)){
+          // Nov 10: the extension's own number sits on the trade line, so the first thing a reader sees is the whole story
+          const mm = /([+\-−][\d.]+) WAR on the field over (\d+) seasons? played/.exec(String(k.nm || '').replace(/<[^>]*>/g, ''));
+          tr.via += ` · control years only. Under the ${m[1]} extension that followed: ${mm ? `${mm[1]} WAR in ${pz(+mm[2], 'season', 'seasons')} so far` : 'graded on its own line below'}`;
+        }
       }
     });
   }
