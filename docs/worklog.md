@@ -5,6 +5,22 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 
 ## 2026-11-10 (Tue)
 
+### Night 7: hitters in their prime (the mid-tier projection gap)
+- Tested first (`engine/y1_split.py`): the quarter-win gap is not general. It is hitters 30 and under
+  projected for 2.5 to 4.25 wins: +0.36 (se 0.11) in year one, positive in all four blocks of years
+  (+0.30, +0.34, +0.57, +0.15), and still +0.30 in year two. Hitters 31 and over: -0.02. Starters: +0.11
+  (se 0.14), nothing reliable, left alone.
+- Fix (`desk_data.py`): a quarter win added to the base for hitters 30 and under across a first-year
+  projection of 2.75 to 4.0, fading to nothing at 2.0 and 4.75. On the walk-forward (`engine/y1_bump.py`)
+  the tiers come out at -0.04, +0.05 and +0.07 where they were +0.10, +0.24 and +0.08.
+- Applied surgically (`engine/apply_y1.mjs`): 62 hitters' base values changed in the page's data and nothing
+  else (checked field by field). A full rebuild of `desk_data.json` was not used because it drifts from the
+  live page in three side tables. Examples: Raleigh 3.4 to 3.6, Julio Rodriguez 3.5 to 3.8, Abrams 3.8 to
+  4.1 for 2027. Club projections moved by a win for COL, LAA (down) and MIA (up, now a bubble club).
+- All 12 suites pass. Methodology has a paragraph on it.
+- Sean's earlier formatting notes: searched the session transcript, every subagent log and stored tool
+  result; they are not recoverable. Waiting on a re-list.
+
 ### Night 6: Kirk re-walk, refresh hardening, smaller first download
 - **Re-walk of Kirk's QA on the live site**: all 32 scripted cases (16 trade, 8 free agent, 8 advisor) and the
   53-check suite pass. Report in `docs/qa-rewalk-nov10.md`. His original write-up is no longer in my records,
