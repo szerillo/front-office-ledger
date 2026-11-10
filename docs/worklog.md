@@ -5,6 +5,16 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 
 ## 2026-11-10 (Tue)
 
+### Night 9: register of what was tried, NHL trades prototype
+- New `docs/what-worked.md`: one row per experiment or fix with its result and whether it was kept, so
+  nothing is tested twice. Keep it current alongside this log.
+- NHL trades: Wikipedia's season transaction pages carry every trade with dates, both sides and picks, each
+  row citing the club or league announcement. `engine/nhl/trades_wiki.py` parses them: 2005-06 to 2010-11
+  done (715 trades, 85% of traded players matched to league ids, 745 picks). The site rate-limited the
+  pull after six seasons; the other 15 need a slow pull. Still Sean's call whether this is the source.
+- Next: finish the pull, resolve picks to the players drafted (the draft data has each pick's trail),
+  value each side by what the assets produced for the acquiring club, and attribute to general managers.
+
 ### Night 8: NHL shift-level work (v1)
 - Built expected goals (2.19 million shot attempts, out-of-sample, calibrated), five-on-five stints and a
   shift-level skater model. Write-up with every test number in `docs/nhl-value-v1.md`.
