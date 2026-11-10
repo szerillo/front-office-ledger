@@ -963,6 +963,16 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
   .dl-sub td{font:700 11px var(--f-mono); letter-spacing:1px; text-transform:uppercase; color:var(--ink-2); background:var(--surface-2)}
   @media (max-width: 600px){ .dl-tab th:nth-child(2), .dl-tab td:nth-child(2):not([colspan]){display:none} .dl-tab{font-size:12px} }
   .h-ctx{font-size:13px; color:var(--ink-2); margin-top:8px; padding:7px 10px; background:var(--surface-2); border-left:3px solid var(--rule)}
+  .hub-cols{display:grid; grid-template-columns:minmax(0, 2fr) minmax(290px, 1fr); gap:16px; margin-top:14px; align-items:start}
+  .hub-cols .hub-left, .hub-cols .hub-right{display:flex; flex-direction:column; gap:16px; min-width:0}
+  .hub-cols .hub-right > .card{margin:0}
+  .home-hero.hh-compact{padding-top:6px; padding-bottom:4px; align-items:center}
+  .home-hero.hh-compact h2{font-size:clamp(24px, 3.2vw, 36px); margin:0 0 6px; border-top:none !important; padding-top:0 !important}
+  @media (max-width: 860px){ .hub-cols{grid-template-columns:1fr} }
+  .pk-page{display:grid; grid-template-columns:minmax(0, 1.3fr) minmax(300px, 1fr); gap:16px; margin-top:14px; align-items:start}
+  .pk-page > div{display:flex; flex-direction:column; gap:16px}
+  .wd-labor{border-left-color:var(--bad) !important}
+  @media (max-width: 860px){ .pk-page{grid-template-columns:1fr} }
   .hub-rank{display:grid; grid-template-columns:minmax(0, 2fr) minmax(280px, 1fr); gap:16px; margin-top:14px; align-items:start}
   .hub-lbcard .hub-lb{grid-template-columns:22px minmax(0, 1fr) 44px 58px}
   .hub-lbhead{border-top:none !important; padding-bottom:0 !important}
@@ -1155,7 +1165,7 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
   .hw-g{display:flex; gap:4px; align-items:center; flex-wrap:wrap}
   .hw-t{font-weight:600}
   .nav-new{display:inline-block; margin-left:5px; min-width:18px; padding:1px 5px; border-radius:9px; background:var(--bad); color:#fff; font:800 11px/16px var(--f-mono); text-align:center}
-  @media (max-width: 860px){ .wire-grid{grid-template-columns:1fr} .wire-side{display:contents} .wire-winter, .wire-qo, .wire-pk{order:-1} .wire-feed{order:0} .wire-side > .card:not(.wire-qo){order:1} .hw-row{grid-template-columns:auto 1fr; gap:3px 8px} .hw-row > .ttype{grid-column:1 / -1} .wire-dates .wd:nth-child(n+2){display:none} .wire-top .sub{font-size:14px} }
+  @media (max-width: 860px){ .wire-grid{grid-template-columns:1fr} .wire-side{display:contents} .wire-winter, .wire-qo, .wire-pk{order:-1} .wire-feed{order:0} .wire-side > .card:not(.wire-qo){order:1} .hw-row{grid-template-columns:auto 1fr; gap:3px 8px} .hw-row > .ttype{grid-column:1 / -1} .wire-dates .wd:nth-child(2):not(.wd-labor){display:none} .wire-top .sub{font-size:14px} }
   .hub-team{display:flex; flex-wrap:wrap; gap:8px 10px; align-items:center; margin-top:10px; font-size:14px}
   .hub-team label{font-weight:700}
   .hub-team select{font:15px var(--f-body); padding:7px 10px; border:1px solid var(--rule); border-radius:6px; background:var(--surface); color:var(--ink); min-width:200px}
@@ -1308,7 +1318,6 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
       <span style="margin-left:auto; display:flex; gap:8px; align-items:center"><a id="xfollow" href="https://x.com/FrontOfficeLdgr" target="_blank" rel="noopener" aria-label="Follow @FrontOfficeLdgr on X" title="Follow @FrontOfficeLdgr on X" style="display:inline-flex; align-items:center; gap:6px; border:1px solid var(--rule); color:var(--ink-2); font-family:var(--f-body); font-size:11px; font-weight:700; letter-spacing:.4px; text-transform:uppercase; padding:6px 10px; border-radius:3px; text-decoration:none"><svg aria-hidden="true" viewBox="0 0 24 24" width="12" height="12" style="display:block"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span class="xf-txt">Follow</span></a><button id="methbtn" onclick="switchView('method')" style="background:none; border:1px solid var(--rule); color:var(--ink-2); font-family:var(--f-body); font-size:11px; font-weight:700; letter-spacing:.4px; text-transform:uppercase; padding:6px 12px; border-radius:3px; cursor:pointer">How it works</button>
       <button id="themebtn" aria-label="Toggle theme">Dark mode</button></span>
     </div>
-    <div class="tagline"><strong>Evaluating the evaluators.</strong> A decision-making model for front offices: every move since 1998 graded, any move you are weighing priced, and every club's next five years projected.</div>
     <nav>
       <div class="navgrp"><span class="navlbl">Performance review</span><div class="navbtns">
         <button class="on" data-view="home" title="Heist of the day, the daily trade game, the best front offices, every club">Home</button>
@@ -1327,12 +1336,12 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
         <button data-view="boards" data-tab="fa">Top Free Agents</button>
       </div></div>
       <div class="navgrp"><span class="navlbl">Play GM</span><div class="navbtns">
-        <button data-view="gm" class="navfeat">Offseason Simulator</button>
         <button data-view="desk">Deal Desk</button>
+        <button data-view="gm" class="navfeat">Offseason Simulator</button>
         <button data-view="scen">Scenario Room</button>
         <button data-view="quiz" title="Three trades and two free-agent contracts a day">Trade Grade</button>
         <button data-view="dudes" title="Ten players a day: over or under on career WAR">Remember Some Dudes</button>
-        <button data-view="wire" data-tab="pickem" title="Free agent pick'em and the qualifying offer poll" onclick="event.stopImmediatePropagation(); location.hash='#view=wire&id=pickem'">Pick'em and Polls</button>
+        <button data-view="pickem" title="Free agent pick'em and the qualifying offer poll">Pick'em and Polls</button>
       </div></div>
     </nav>
     <script>
@@ -1367,9 +1376,15 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
   <!-- ================= QUIZ ================= -->
   <section id="view-wire" hidden><div id="wirebody"></div></section>
 
+  <section id="view-pickem" hidden>
+    <h2>Pick'em and Polls</h2>
+    <div class="sub">Call this winter before it happens: whether the qualifying-offer players take $23.15M, and over or under the Ledger's number for the top free agents, then the exact deal. See how everyone else called it, and get scored as players sign.</div>
+    <div id="pickembody"></div>
+  </section>
+
   <section id="view-dudes" hidden>
     <h2>Remember Some Dudes</h2>
-    <div class="sub">Ten players a day from across the last 125 years. Over or under on career WAR, then see his real numbers and whether anyone else remembered him.</div>
+    <div class="sub">Ten players a day from the 90s, the 2000s and the early 2010s. Over or under on career WAR, then see his real numbers and whether anyone else remembered him.</div>
     <div id="dudesbody"></div>
   </section>
 
@@ -11566,11 +11581,12 @@ function switchView(v, regimeId){
   try { dkPopClose(); folTeamDefaults(v); } catch(e){}
   if(v === 'report' && !regimeId && folTeam() && !(folTeamDefaults._rep)){ folTeamDefaults._rep = 1; const r0 = curRegOf(folTeam()); if(r0) regimeId = r0.id; }
   navMark(v);
-  ['home','team','wire','dudes','heists','quiz','leaderboard','report','trees','champs','method','dna','h2h','desk','horizon','scen','gm','boards'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
+  ['home','team','wire','pickem','dudes','heists','quiz','leaderboard','report','trees','champs','method','dna','h2h','desk','horizon','scen','gm','boards'].forEach(k=>{ $('#view-'+k).hidden = (k!==v); });
   if(v==='home') renderHome();
   if(v==='team') renderTeam();
   if(v==='wire') renderWire();
   if(v==='dudes') renderDudes();
+  if(v==='pickem') renderPickem();
   if(v==='heists') renderHeists();
   if(v==='quiz') renderQuiz();
   if(v==='report'){ if(regimeId) $('#teamsel').value = regimeId; renderReport($('#teamsel').value); }
@@ -12419,9 +12435,20 @@ function regimeTrades(r){
   return out;
 }
 let rcTradeSort = 'best';
+// Nov 10: what is still to come from a trade: the projected surplus (the Desk's numbers) of players with
+// control left in 2027, for the club that has them; players this club sent away count against it while
+// they are still controlled elsewhere. Context only: grades never move on a forecast.
+function rcToCome(x, ab){
+  if(String(x.d) < '2019') return null;
+  const P = pid => (DESK.players || []).find(p => String(p[1]) === String(pid));
+  const fut = (p, mine) => { try { if(!p || gmIsFA(p)) return 0; if(mine ? p[2] !== ab : p[2] === ab) return 0; return gmIsProsRow(p) ? gmPV(p) : gmCtrlOf(p) >= 1 ? gmSurplus(p) : 0; } catch(e){ return 0; } };
+  const v = x.got.reduce((a, [pid]) => a + fut(P(pid), true), 0) - x.gave.reduce((a, [pid]) => a + fut(P(pid), false), 0);
+  return Math.abs(v) < 0.05 ? null : v;
+}
 function allTradesTable(r){
   const rows = regimeTrades(r);
   if(!rows.length) return '';
+  const ab0 = abOf(r), fut = rows.map(x => rcToCome(x, ab0)), futTot = fut.reduce((a, v) => a + (v || 0), 0), anyFut = fut.some(v => v != null);
   const srt = rows.slice().sort((a, b) => rcTradeSort === 'date' ? (a.d < b.d ? 1 : -1) : rcTradeSort === 'best' ? b.net - a.net : a.net - b.net);
   const nm = arr => arr.length ? arr.map(([p, v]) => `${pName(p)} <span class="ttype">${fmtW(v)}</span>`).join(', ') : '<span class="ttype">cash, picks, or no MLB value</span>';
   const won = rows.filter(x => /A|B/.test(moveGrade(x.net, 'trade', x.st) || '')).length, lost = rows.filter(x => /D|F/.test(moveGrade(x.net, 'trade', x.st) || '')).length;
@@ -12430,10 +12457,11 @@ function allTradesTable(r){
   return `<details class="card" id="rc-alltrades" style="grid-column:1/-1; padding:10px 14px">
     <summary style="cursor:pointer; font-weight:700">Every trade in this tenure (${rows.length}) · ${won} graded A or B, ${lost} graded D or F against trades of their size, rows sum to ${fmtW(tot)}${(r.chan.trade||{}).net != null && Math.abs(r.chan.trade.net - tot) > 0.05 ? ` (the channel's ${fmtW(r.chan.trade.net)} before each player's value is rounded)` : ''}</summary>
     <div style="display:flex; gap:6px; margin:8px 0">${btn('best','Best first')}${btn('worst','Worst first')}${btn('date','Newest first')}</div>
-    <div style="overflow:auto"><table style="width:100%"><thead><tr><th>Date</th><th>With</th><th>Got</th><th>Gave</th><th class="num">This move</th></tr></thead><tbody>
-    ${srt.map(x => `<tr><td style="color:var(--muted); white-space:nowrap">${x.d}</td><td>${x.with.join(', ')}</td><td>${nm(x.got)}</td><td>${nm(x.gave)}</td>
-      <td class="num" style="white-space:nowrap">${moveChip(x.net, 'trade', x.st)} <span class="${x.net>=0?'pos':'neg'}">${fmtW(x.net)}</span></td></tr>`).join('')}
+    <div style="overflow:auto"><table style="width:100%"><thead><tr><th>Date</th><th>With</th><th>Got</th><th>Gave</th><th class="num">This move</th>${anyFut ? '<th class="num" title="Projected surplus still to come over the players\' remaining control (deals since 2019)">To come</th>' : ''}</tr></thead><tbody>
+    ${srt.map(x => { const f = rcToCome(x, ab0); return `<tr><td style="color:var(--muted); white-space:nowrap">${x.d}</td><td>${x.with.join(', ')}</td><td>${nm(x.got)}</td><td>${nm(x.gave)}</td>
+      <td class="num" style="white-space:nowrap">${moveChip(x.net, 'trade', x.st)} <span class="${x.net>=0?'pos':'neg'}">${fmtW(x.net)}</span></td>${anyFut ? `<td class="num" data-label="To come">${f == null ? '' : `<span class="${f >= 0 ? 'pos' : 'neg'}">${fmtW(f)}</span>`}</td>` : ''}</tr>`; }).join('')}
     </tbody></table></div>
+    ${anyFut ? `<div class="wi-line" style="margin-top:6px"><strong>Still to come:</strong> <span class="${futTot >= 0 ? 'pos' : 'neg'}">${fmtW(futTot)}</span> projected wins of surplus from this tenure's open trades, on the Deal Desk's projections (players still under control in 2027: those who came in and are still here, against those who went out and are still controlled elsewhere). Context only; the grades count what has happened.</div>` : ''}
     <div class="ttype" style="margin-top:6px">Values are each player's control-window wins for the club that got him, leverage-weighted and discounted (see Methodology). Follow any player's full chain in Transaction Trees.</div>
   </details>`;
 }
@@ -13570,40 +13598,42 @@ function folHub(){
   const link = (kick, title, sub, js) => `<a href="#" class="hl-row" onclick="${js}; return false"><span class="home-kick">${kick}</span><strong>${title}</strong>${sub ? `<span class="ttype">${sub}</span>` : ''}</a>`;
   const week = Math.floor((day + 3) / 7);   // weeks start on Monday
   const xPost = (txt, url) => `<button class="actbtn" onclick="folXPost(${JSON.stringify(txt).replace(/"/g, '&quot;')}, '${url}')">Post on X</button>`;
-  const dd = T(dudesDays) || 0, dudesDone = T(() => dudesStore('day-' + dudeDay()));
-  return `<div class="home-hero fol-rise"><div class="hh-main"><div class="home-kick">Front Office Ledger</div>
-      <h2>Every trade, signing and draft pick since 1998, graded.</h2>
-      <p>Each move is scored against what a typical club got from the same kind of move. This winter's moves are graded the day they happen.</p>
+  const dd = T(dudesDays) || 0, dudesDone = T(() => dudesStore('d2-' + dudeDay()));
+  return `<div class="home-hero hh-compact fol-rise"><div class="hh-main"><h2>Every trade, signing and draft pick since 1998, graded.</h2>
       ${stats.tr ? `<div class="hub-stats"><span><b>${fmtN(stats.tr)}</b> trades</span><span><b>${fmtN(stats.fa)}</b> free-agent signings</span><span><b>${fmtN(stats.dr)}</b> draft picks</span><span><b>${fmtN(stats.reg)}</b> front offices</span></div>` : ''}</div>
       <div class="hh-tools"><div class="hub-find"><input id="hub-find" autocomplete="off" placeholder="Look up a player, a GM or a club" aria-label="Look up a player, a GM or a club" oninput="folHubFind()" onkeydown="if(event.key==='Enter'){ const f = document.querySelector('#hub-find-out button'); if(f) f.click(); } if(event.key==='Escape') document.getElementById('hub-find-out').innerHTML=''"><div id="hub-find-out" class="hub-find-out"></div></div>
       <div class="hub-team"><label for="hub-team">Jump to a club</label><select id="hub-team" onchange="if(this.value) folPickTeam(this.value)"><option value="">Pick a club</option>${Object.keys(DESK.teams || {}).sort((a, b) => (CLUB_NAME[a] || a).localeCompare(CLUB_NAME[b] || b)).map(a => `<option value="${a}">${CLUB_NAME[a] || a}</option>`).join('')}</select></div></div></div>
+    ${sec('This winter', 'every move graded the day it happens')}
+    <div class="hub-cols">
+      <div class="hub-left">
+        <div id="hub-wire" class="hub-wire"><div class="card home-card"><div class="home-kick">The Wire</div><div class="ttype">Loading the latest moves…</div></div></div>
+        <div id="hub-winter"></div>
+      </div>
+      <div class="hub-right">
+        <div class="card home-card hub-play fol-rise"><div class="home-kick">Play today</div>
+      ${play('Daily game', 'Trade Grade', `${quizDone ? `Today: ${quizDone.filter(Boolean).length}/${quizDone.length}` : 'Three trades, two contracts: who won?'}${qd >= 2 ? ` · ${qd} days in a row` : ''}`, quizDone ? 'See it' : 'Play', "switchView('quiz')", !quizDone)}
+      ${play('Daily game', 'Remember Some Dudes', `${dudesDone ? `Today: ${dudesDone.filter(Boolean).length}/${dudesDone.length}` : 'Ten players from the 90s and 2000s: over or under on career WAR'}${dd >= 2 ? ` · ${dd} days in a row` : ''}`, dudesDone ? 'See it' : 'Play', "switchView('dudes')", !dudesDone)}
+      ${play("Free agent pick'em", "Over or under the Ledger's number?", 'Call the top free agents, then predict the exact deal', 'Play', "switchView('pickem')", false)}
+      ${qoLeft ? play('Poll', 'Will they take the QO?', `${qoLeft} of ${Object.keys(DESK.qo27 || {}).length} decisions due Nov 17`, 'Vote', "switchView('pickem')", false) : ''}
+      ${play('Deal Desk', 'Price any trade', 'Who wins it, and would the other side say yes', 'Make a trade', "folGo('desk')", false)}
+      ${play('Offseason simulator', 'Run a winter', "Any club's real free agents, arbitration class and market", 'Start', "folGo('gm')", false)}
+      ${sc ? play('Scenario of the day', scTitle, 'Make the call with only what was known then', 'Decide', `scState.idx=${sc.k}; switchView('scen')`, false) : ''}
+        </div>
+      ${fas.length ? tile('Free agents', `<h3>Top of the class</h3><div class="hub-fa2"><span></span><span class="ttype">Ledger</span><span class="ttype" title="The median of published contract predictions">Projected</span>${fas.map(({x}) => { const s = GM_SG[x[1]] || (GM_SG[x[1]] = dkSuggest(x, 'fa', null)), c = (DESK.cons || {})[x[1]]; return `<span class="hf-nm">${x[0]}</span><span>${s.sugYrs}/$${s.sugTot}M</span><span>${c ? `${c[0] % 1 ? Math.floor(c[0]) + '-' + Math.ceil(c[0]) : c[0]}/$${Math.round(c[0] * c[1])}M` : '·'}</span>`; }).join('')}</div><div class="ttype" style="margin-top:6px">Years / total. Ledger: what the Ledger would offer. Projected: the median published prediction.</div>${more('Every projected contract', "bdState.tab='fa'; switchView('boards')")}`) : ''}
+      </div>
+    </div>
     ${sec('The front office rankings', 'every active regime, graded on every decision')}
-    <div class="hub-rank">
+    <div class="hub-cols">
+      <div class="hub-left">
       <div class="card home-card fol-rise hub-lbcard"><div class="home-kick">Leaderboard</div><h3>The best front offices in baseball</h3>
         <div class="ttype hub-lbnote">Ranked by overall score: wins a season above what a typical front office gets from the same moves, leaning on the skills that repeat and adjusted for time in the seat.</div>
         <div class="hub-lb hub-lbhead"><span></span><span></span><span class="ttype">Overall</span><span class="ttype">Score</span></div>${topLb}
         <div class="hub-lbmore"><a href="#" onclick="switchView('leaderboard'); return false">All 30 front offices →</a><a href="#" onclick="switchView('dna'); return false">How each one builds →</a></div></div>
+      </div>
+      <div class="hub-right">
       ${hz ? tile('2027 title race', `<h3>Built to win next year</h3>${(() => { const mx = Math.max(cline || 0, ...hz.map(r => r.v[0])) * 1.08; const L = cline ? (cline / mx * 100).toFixed(1) : null; return `<div class="hub-race">${L ? `<div class="hr-row hr-head"><span></span><span class="hr-bar hr-lab"><em style="left:${L}%">champion line ${cline.toFixed(0)}</em></span><span></span></div>` : ''}${hz.map(r => `<div class="hr-row"><span class="hr-nm">${teamNick(CLUB_NAME[r.ab] || r.ab)}</span><span class="hr-bar"><i style="width:${(r.v[0] / mx * 100).toFixed(1)}%; ${folTC(r.ab)}; background:var(--tc)"></i>${L ? `<b style="left:${L}%"></b>` : ''}</span><span class="hr-v">${r.v[0].toFixed(1)}</span></div>`).join('')}</div>`; })()}<div class="ttype" style="margin-top:6px">Projected 2027 WAR already under contract or control, before the winter's moves. The line is a typical champion since 2012: 96 wins, about 48 WAR above a replacement-level club.</div>${more('All 30 clubs, the next five years', 'folHorizonAll()')}`) : ''}
-    </div>
-    ${sec('This winter', 'every move graded the day it happens')}
-    <div class="hub-top">
-      <div id="hub-wire" class="hub-wire"><div class="card home-card"><div class="home-kick">The Wire</div><div class="ttype">Loading the latest moves…</div></div></div>
-      <div id="hub-winter"></div>
-    </div>
-    <div class="hub-grid hub-even hub-three">
-      ${fas.length ? tile('Free agents', `<h3>Top of the class</h3><div class="hub-fa2"><span></span><span class="ttype">Ledger</span><span class="ttype" title="The median of published contract predictions">Projected</span>${fas.map(({x}) => { const s = GM_SG[x[1]] || (GM_SG[x[1]] = dkSuggest(x, 'fa', null)), c = (DESK.cons || {})[x[1]]; return `<span class="hf-nm">${x[0]}</span><span>${s.sugYrs}/$${s.sugTot}M</span><span>${c ? `${c[0] % 1 ? Math.floor(c[0]) + '-' + Math.ceil(c[0]) : c[0]}/$${Math.round(c[0] * c[1])}M` : '·'}</span>`; }).join('')}</div><div class="ttype" style="margin-top:6px">Years / total. Ledger: what the Ledger would offer. Projected: the median published prediction.</div>${more('Every projected contract', "bdState.tab='fa'; switchView('boards')")}`) : ''}
       ${ff ? tile('Featured farm system', `<h3>${CLUB_NAME[ff.c.ab] || ff.c.ab} <span class="ttype">(#${ff.rank} of 30)</span></h3>${ff.ps.map(({p}, i) => `<div class="hub-row"><strong>${i + 1}</strong><span>${p[0]} <span class="ttype">${p[13] || p[12] || ''}${p[9] > 0 ? ` · #${p[9]} overall` : ''}</span></span></div>`).join('')}<div class="ttype" style="margin-top:6px">${ff.c.t100 ? pz(ff.c.t100, 'Top 100 prospect', 'Top 100 prospects') + ' · ' : ''}a different system every day</div>${more('The top 100 and all 30 systems', `bdState.tab='pros'; bdState.org='${ff.c.ab}'; switchView('boards')`)}`) : ''}
-      <div id="hub-labor"></div>
-    </div>
-    ${sec('Play', 'new every day')}
-    <div class="hub-play2">
-      ${play('Daily game', 'Trade Grade', `${quizDone ? `Today: ${quizDone.filter(Boolean).length}/${quizDone.length}` : 'Three trades, two contracts: who won?'}${qd >= 2 ? ` · ${qd} days in a row` : ''}`, quizDone ? 'See it' : 'Play', "switchView('quiz')", !quizDone)}
-      ${play('Daily game', 'Remember Some Dudes', `${dudesDone ? `Today: ${dudesDone.filter(Boolean).length}/${dudesDone.length}` : 'Ten players from across the century: over or under on career WAR'}${dd >= 2 ? ` · ${dd} days in a row` : ''}`, dudesDone ? 'See it' : 'Play', "switchView('dudes')", !dudesDone)}
-      ${play("Free agent pick'em", "Over or under the Ledger's number?", 'Call the top free agents, then predict the exact deal', 'Play', "location.hash='#view=wire&id=pickem'", false)}
-      ${qoLeft ? play('Poll', 'Will they take the QO?', `${qoLeft} of ${Object.keys(DESK.qo27 || {}).length} decisions due Nov 17`, 'Vote', "location.hash='#view=wire&id=qo'", false) : ''}
-      ${play('Offseason simulator', 'Run a winter', "Any club's real free agents, arbitration class and market", 'Start', "folGo('gm')", false)}
-      ${play('Deal Desk', 'Price any trade', 'Who wins it, and would the other side say yes', 'Make a trade', "folGo('desk')", false)}
-      ${sc ? play('Scenario of the day', scTitle, 'Make the call with only what was known then', 'Decide', `scState.idx=${sc.k}; switchView('scen')`, false) : ''}
+      </div>
     </div>
     ${sec('From the archive', 'a trade, a signing and a tree every day; a champion and a rivalry every week')}
     <div class="hub-grid hub-arch">
@@ -14369,9 +14399,20 @@ function wireGrade(it, terms, qoN){
 // ---- the page ----
 function wireCountdown(){
   const now = Date.now();
-  const next = WIRE_DATES.filter(z => Date.parse(z[0]) > now - 6 * 3600e3).slice(0, 3);
+  const next = WIRE_DATES.filter(z => Date.parse(z[0]) > now - 6 * 3600e3 && !/labor deal/.test(z[1])).slice(0, 2);
   const rel = t => { const h = (t - now) / 3600e3; return h < 0 ? 'now' : h < 1 ? 'within the hour' : h < 24 ? `in ${Math.round(h)} hours` : `in ${pz(Math.round(h / 24), 'day', 'days')}`; };
-  return `<div class="wire-dates">${next.map(z => `<div class="wd"><span class="wd-when">${rel(Date.parse(z[0]))}</span><strong>${z[1]}</strong><span class="ttype">${folMD(new Date(Date.parse(z[0]) - 5 * 3600e3).toISOString().slice(0, 10))} · ${z[2]}</span></div>`).join('')}</div>`;
+  return `<div class="wire-dates">${next.map(z => `<div class="wd"><span class="wd-when">${rel(Date.parse(z[0]))}</span><strong>${z[1]}</strong><span class="ttype">${folMD(new Date(Date.parse(z[0]) - 5 * 3600e3).toISOString().slice(0, 10))} · ${z[2]}</span></div>`).join('')}${wireLaborBubble()}</div>`;
+}
+// the labor clock lives in the deadline bubbles: a live count to Dec 1, then what wire.json says happened
+function wireLaborBubble(){
+  const now = Date.now(), L = (WIRE.terms || {}).labor || {};
+  const moves = (WIRE.items || []).filter(it => it.notable && WIRE_MLB.has(it.kind)).length;
+  let when = '', h = '', sub = '';
+  if(L.status === 'deal'){ when = 'done'; h = 'A new labor deal'; sub = `${L.d ? 'Agreed ' + folMD(L.d) + '. ' : ''}The winter goes on.`; }
+  else if(now < WIRE_CBA_END){ const ms = WIRE_CBA_END - now, d = Math.floor(ms / 864e5), hr = Math.floor(ms % 864e5 / 3600e3); when = `${d}d ${hr}h`; h = 'The labor clock'; sub = `The deal expires 11:59pm ET Dec 1; a lockout would freeze 40-man moves. ${pz(moves, 'big-league move has', 'big-league moves have')} beaten the clock.`; }
+  else if(L.status === 'on'){ const d = Math.max(1, Math.ceil((now - Date.parse((L.since || '2026-12-02') + 'T05:00:00Z')) / 864e5)); when = `day ${d}`; h = 'Lockout'; sub = `Big-league moves are frozen. ${pz(moves, 'move', 'moves')} got done before it.`; }
+  else { when = 'expired'; h = 'The labor deal'; sub = 'Watch here for a lockout or a new deal.'; }
+  return `<div class="wd wd-labor"><span class="wd-when">${when}</span><strong>${h}</strong><span class="ttype">${sub}</span></div>`;
 }
 function wireQoStatus(pid){
   const it = (WIRE.items || []).find(x => (x.kind === 'qo-accept' || x.kind === 'qo-decline') && x.who[0] && String(x.who[0].pid) === String(pid));
@@ -14402,7 +14443,7 @@ function wireQoCall(pid, c){
   fetch(`${WIRE_POLL}/hit/${WIRE_POLL_NS}/${wirePollKey(pid, c)}`).then(r => r.ok ? r.json() : null).then(j => { if(j && j.value != null){ if(c === 'accept') v.take = Math.max(v.take, +j.value); else v.dec = Math.max(v.dec, +j.value); wireQoRedraw(); } }).catch(() => {});
   folEvent('wire/qo-call'); wireQoRedraw();
 }
-function wireQoRedraw(){ try { if(routeView() === 'wire') renderWire(); else if(routeView() === 'home') wireHomeFill(); } catch(e){} }
+function wireQoRedraw(){ try { const v = routeView(); if(v === 'wire') renderWire(); else if(v === 'pickem') renderPickem(); else if(v === 'home') wireHomeFill(); } catch(e){} }
 function wireQoMine(pid){ try { return localStorage.getItem('fol-qo-call-' + pid) || ''; } catch(e){ return ''; } }
 function wireQoBar(pid, mine){
   const v = (WIRE.poll || {})[pid]; if(!v) return mine ? '<span class="ttype">Your call is in.</span>' : '';
@@ -14486,7 +14527,14 @@ function pkCrowd(pid){
   const lo = PK_AAV[j], hi = PK_AAV[j + 1] || lo + 20, frac = c.as[j] ? (na / 2 - aa) / c.as[j] : 0.5;
   return {yrs: k + 1, aav: lo + (hi - lo) * Math.min(1, Math.max(0, frac)), n};
 }
-function pkRedraw(){ try { if(routeView() === 'wire') renderWire(); else if(routeView() === 'home') wireHomeFill(); } catch(e){} }
+function pkRedraw(){ try { const v = routeView(); if(v === 'wire') renderWire(); else if(v === 'pickem') renderPickem(); else if(v === 'home') wireHomeFill(); } catch(e){} }
+// Pick'em and Polls: its own page (also anchored beside the Wire)
+function renderPickem(){
+  const host = document.getElementById('pickembody'); if(!host) return;
+  if(!WIRE.items){ host.innerHTML = '<div class="card home-card">Loading…</div>'; wireLoad().then(() => { if(routeView() === 'pickem') renderPickem(); }); return; }
+  pkCard._open = true; wireQoCard._open = true;
+  host.innerHTML = `<div class="pk-page"><div>${pkCard()}</div><div>${wireQoCard()}${pkMyCard()}</div></div>`;
+}
 function pkOU(pid, side){
   const m = pkMine(pid) || {}; if(m.ou) return;
   m.ou = side; m.at = Date.now(); pkSave(pid, m); folEvent('wire/pk-ou');
@@ -14761,7 +14809,6 @@ function renderWire(){
       </div>
       <aside class="wire-side">
         ${wireWinterCard()}
-        ${wireLaborCard()}
         ${wireQoCard()}
         ${pkCard()}
         ${wireMoneyCard()}
@@ -14785,7 +14832,7 @@ function wireHomeFill(){
       ${xs.length ? xs.map(row).join('') : '<div class="ttype">No big-league moves graded yet today.</div>'}
       <div style="margin-top:10px"><a href="#" onclick="switchView('wire'); return false">Every move of the winter, graded →</a></div></div>`;
     const ww = document.getElementById('hub-winter'); if(ww) ww.innerHTML = wireWinterCard(true);
-    const wl = document.getElementById('hub-labor'); if(wl) wl.innerHTML = wireLaborCard(true);
+
     wireBadge();
   };
   if(WIRE.items) draw(); else wireLoad().then(draw);
@@ -14915,7 +14962,7 @@ const DUDE_TEAMS = {ANA: 'Angels', ARI: 'Diamondbacks', ATL: 'Braves', BAL: 'Ori
 function dudesLoad(){
   if(DUDES.rows) return Promise.resolve(DUDES.rows);
   if(DUDES.loading) return DUDES.loading;
-  DUDES.loading = fetch('dudes.json?v=1').then(r => r.ok ? r.json() : Promise.reject(r.status)).then(j => dudesLoadData(j)).catch(() => { DUDES.err = 'Could not load the dudes. Try again in a minute.'; return null; }).finally(() => { DUDES.loading = null; });
+  DUDES.loading = fetch('dudes.json?v=2').then(r => r.ok ? r.json() : Promise.reject(r.status)).then(j => dudesLoadData(j)).catch(() => { DUDES.err = 'Could not load the dudes. Try again in a minute.'; return null; }).finally(() => { DUDES.loading = null; });
   return DUDES.loading;
 }
 function dudesLoadData(j){ DUDES.rows = (j && j.rows) || []; DUDES.src = (j && j.src) || ''; return DUDES.rows; }
@@ -14925,22 +14972,21 @@ function dudeDay(){ return Math.floor(Date.now() / 864e5); }
 function dudesStart(mode){
   const rows = DUDES.rows || []; if(!rows.length) return;
   const day = dudeDay(), rnd = mode === 'daily' ? folRng(day * 4241 + 77) : Math.random;
-  // the daily ten span the eras: a few from before 1960, the rest spread across the decades since
-  const pick = new Set(), old = rows.map((r, i) => [r, i]).filter(([r]) => r[2] < 1960), rest = rows.map((r, i) => [r, i]).filter(([r]) => r[2] >= 1960);
-  while(pick.size < 3 && old.length) pick.add(old[Math.floor(rnd() * old.length)][1]);
-  while(pick.size < 10) pick.add(rest[Math.floor(rnd() * rest.length)][1]);
+  // Nov 10: the pool is the 90s, 2000s and early 2010s (regulars whose careers centered 1991-2014)
+  const pick = new Set();
+  while(pick.size < Math.min(10, rows.length)) pick.add(Math.floor(rnd() * rows.length));
   const qs = [...pick].map(i => dudeOf(rows[i])).sort((a, b) => a.y0 - b.y0);
   DUDES.st = {mode, day, qs, i: 0, ans: [], done: false};
-  if(mode === 'daily'){ const sv = dudesStore('day-' + day); if(sv && sv.length === qs.length){ DUDES.st.ans = sv; DUDES.st.i = qs.length - 1; DUDES.st.done = true; } }
+  if(mode === 'daily'){ const sv = dudesStore('d2-' + day); if(sv && sv.length === qs.length){ DUDES.st.ans = sv; DUDES.st.i = qs.length - 1; DUDES.st.done = true; } }
   renderDudes();
 }
 function dudesStore(k, v){ try { if(v === undefined) return JSON.parse(localStorage.getItem('fol-dudes-' + k) || 'null'); localStorage.setItem('fol-dudes-' + k, JSON.stringify(v)); } catch(e){ return null; } }
-function dudesDays(){ const day = dudeDay(); let d = dudesStore('day-' + day) ? day : day - 1, n = 0; while(n < 400 && dudesStore('day-' + d)){ n++; d--; } return n; }
+function dudesDays(){ const day = dudeDay(); let d = dudesStore('d2-' + day) ? day : day - 1, n = 0; while(n < 400 && dudesStore('d2-' + d)){ n++; d--; } return n; }
 function dudesCall(side){
   const s = DUDES.st; if(!s || s.ans.length > s.i) return;
   const q = s.qs[s.i], right = side === 'over' ? q.war > q.line : q.war < q.line;
   s.ans.push(right); folEvent('dudes/call');
-  if(s.mode === 'daily' && s.ans.length === s.qs.length) dudesStore('day-' + s.day, s.ans);
+  if(s.mode === 'daily' && s.ans.length === s.qs.length) dudesStore('d2-' + s.day, s.ans);
   renderDudes();
   // did you remember him? pooled like the polls
   try { fetch(`${WIRE_POLL}/get/${WIRE_POLL_NS}/dude-${q.id}-y`).then(r => r.ok ? r.json() : {value: 0}).then(a => fetch(`${WIRE_POLL}/get/${WIRE_POLL_NS}/dude-${q.id}-n`).then(r => r.ok ? r.json() : {value: 0}).then(b => { q.crowd = {y: +a.value || 0, n: +b.value || 0}; renderDudes(); })).catch(() => {}); } catch(e){}
@@ -14992,7 +15038,7 @@ function renderDudes(){
 
 /* ---- UI pass (Nov 2026): shareable URLs, accessible names, stale Desk verdicts ---- */
 // every view and its selection is in the hash (#view=cards&id=nyy); back and forward work
-const ROUTE_NAMES = {home:'home', team:'team', wire:'wire', dudes:'dudes', heists:'heists', quiz:'quiz', leaderboard:'leaderboard', report:'cards', trees:'trees', champs:'champions', dna:'dna', h2h:'h2h', horizon:'horizon', boards:'boards', gm:'simulator', desk:'desk', scen:'scenarios', method:'method'};
+const ROUTE_NAMES = {home:'home', team:'team', wire:'wire', pickem:'pickem', dudes:'dudes', heists:'heists', quiz:'quiz', leaderboard:'leaderboard', report:'cards', trees:'trees', champs:'champions', dna:'dna', h2h:'h2h', horizon:'horizon', boards:'boards', gm:'simulator', desk:'desk', scen:'scenarios', method:'method'};
 const ROUTE_BACK = Object.fromEntries(Object.entries(ROUTE_NAMES).map(([k, v]) => [v, k]));
 let ROUTE_MUTE = 1, ROUTE_LAST = null;
 function routeView(){ return Object.keys(ROUTE_NAMES).find(k => { const el = document.getElementById('view-' + k); return el && !el.hidden; }) || 'home'; }
@@ -15046,7 +15092,8 @@ function routeApply(h){
     else if(v === 'gm'){ switchView('gm'); if(id && gmState.club !== id.toUpperCase() && setSel('gm-club', id.toUpperCase())) gmClubChange(); }
     else if(v === 'desk'){ if(['trade', 'walk', 'avail', 'fa', 'ext', 'draft'].includes(id)) dkState.mode = id; switchView('desk'); }
     else if(v === 'team'){ if(q.id && (CLUB_NAME || {})[q.id.toUpperCase()]) folGoTeam(q.id.toUpperCase()); else switchView('team'); }
-    else if(v === 'wire' && (q.id === 'pickem' || q.id === 'qo')){ WIRE.tab = 'feed'; WIRE.focus = ''; WIRE.filt.club = ''; if(q.id === 'pickem') pkCard._open = true; else wireQoCard._open = true; WIRE.jump = q.id; switchView('wire'); }
+    else if(v === 'wire' && (q.id === 'pickem' || q.id === 'qo')){ switchView('pickem'); }
+    else if(false){ WIRE.tab = 'feed'; WIRE.focus = ''; WIRE.filt.club = ''; if(q.id === 'pickem') pkCard._open = true; else wireQoCard._open = true; WIRE.jump = q.id; switchView('wire'); }
     else if(v === 'wire'){ WIRE.tab = 'feed'; if(/^daily/.test(q.id || '')){ WIRE.tab = 'daily'; WIRE.day = (q.id.match(/^daily-(\d{4}-\d\d-\d\d)$/) || [])[1] || ''; switchView('wire'); } else if(q.id === 'weekly'){ WIRE.tab = 'weekly'; switchView('wire'); } else if(q.id && (CLUB_NAME || {})[q.id.toUpperCase()]){ WIRE.filt.club = q.id.toUpperCase(); WIRE.focus = ''; } else if(q.id){ WIRE.focus = q.id; WIRE.filt.kind = 'all'; } switchView('wire'); }
     else if(v === 'heists'){ if(q.id && /^\d{4}-\d\d-\d\d-[a-z]+(-\d+)?$/.test(q.id)){ heistState.focus = q.id; heistState.kind = 'trades'; } else if(q.id && (CLUB_NAME || {})[q.id.toUpperCase()]) heistState.club = q.id.toUpperCase(); switchView('heists'); }
     else if(v === 'leaderboard'){ setSel('erasel', q.era || 'active'); setSel('sortsel', q.sort || 'for'); switchView('leaderboard'); renderLB(); }
@@ -15056,7 +15103,7 @@ function routeApply(h){
   try { history.replaceState(null, '', '#' + ROUTE_LAST); } catch(e){}
   routeCount();
 }
-['switchView', 'renderReport', 'renderChamp', 'scShow', 'renderH2h', 'renderHorizon', 'renderTrees', 'renderBoards', 'renderLB', 'gmShow', 'renderDesk', 'renderHeists', 'renderWire'].forEach(fn => {
+['switchView', 'renderReport', 'renderChamp', 'scShow', 'renderH2h', 'renderHorizon', 'renderTrees', 'renderBoards', 'renderLB', 'gmShow', 'renderDesk', 'renderHeists', 'renderWire', 'renderPickem'].forEach(fn => {
   const orig = window[fn]; if(typeof orig !== 'function') return;
   window[fn] = function(){ const r = orig.apply(this, arguments); routeWrite(); return r; };
 });
