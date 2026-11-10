@@ -134,6 +134,7 @@
   .bd-mini{margin:6px 0 8px; padding-left:18px; font-size:11.5px; color:var(--ink-2); line-height:1.45}
   .bd-mini li{margin:2px 0}
   .bd-bio{opacity:.85}
+  .h2h-key{font-size:12.5px; margin-top:3px; line-height:1.4}
   .offs-card .h-head .wi-tc{vertical-align:2px; margin-right:4px}
   .of-split{margin:10px 0 4px; max-width:640px}
   .of-moves{margin-top:8px; border-top:1px solid var(--rule); padding-top:6px}
@@ -9297,7 +9298,7 @@ function scShow(){
       : `thinnest position groups (the group's Ledger WAR; lower is thinner): ${s.ctx.needs.map(([g,v])=>`${g} ${fmtW(v)}`).join(', ')}`) : '';
   const ctx = `<div class="card" style="padding:12px 16px; margin-top:10px">
     ${blind ? `<strong>You are running a club</strong> · ${s.phase} · <span class="chip chip-open">NAMES HIDDEN</span> <span class="ttype">names, club and date revealed after you decide</span>`
-      : `<strong>You are ${s.exec_ && s.exec_ !== 'you' ? s.exec_ + ', ' : ''}running ${s.teamName || s.team}</strong> · ${s.date} · ${s.phase}`}
+      : `<strong>You are ${s.exec_ && s.exec_ !== 'you' ? s.exec_ + ', ' : ''}running ${s.live27 ? 'the ' + (CLUB_NAME[s.team] || s.team) : s.teamName || s.team}</strong> · ${s.date} · ${s.phase}`}
     ${s.fictional ? ' <span class="chip chip-open">FICTIONAL</span>' : ''}${s.live27 ? ' <span class="chip chip-open">WINTER 2027 · PROCESS ONLY · SETTLES NEXT FALL</span>' : ''}${s.outcome && !s.outcome.settled && !s.fictional && !s.live27 ? ' <span class="chip chip-open">UNSETTLED · RETURN STILL OPEN</span>' : ''}
     <div class="ttype" style="margin-top:5px">${s.ctx.w}-${s.ctx.l}${s.fictional?' last season':s.phase==='deadline'?' on the morning of the deal':' the season just played'} · ${gbTxt}${s.ctx.rank?` · ${s.ctx.rank}${['','st','nd','rd'][+s.ctx.rank]||'th'} in the division`:''} · playoff leverage ${s.ctx.lev}x · market $/win ~$${s.ctx.dpw}M${needsTxt?` · ${needsTxt}`:''}</div>
     <div style="font-size:13px; margin-top:7px; font-style:italic">${blind ? (SC_BLIND[s.id] || s.setup) : s.setup}</div></div>`;
@@ -12444,12 +12445,15 @@ function renderH2hTab(){
 function renderH2h(){
   const r = [...REGIMES, ...AUTO_REGIMES].find(x=>x.id===$('#h2hsel').value) || AUTO_REGIMES[0];
   vcRender('h2h', abOf(r));
+  // Nov 10: the trade that decided each rivalry sits on the row, so nobody has to open the list to find it
+  const keyOf = p => (p.deals || []).slice().sort((a, b) => Math.abs(b.net) - Math.abs(a.net))[0];
   const rows = (r.h2h||[]).map(p=>`<tr><td>${p.exec} <span style="color:var(--muted)">(${p.opp})</span>${
+      keyOf(p) ? `<div class="h2h-key"><span class="ttype">Key trade, ${String(keyOf(p).d).slice(0, 4)}</span> ${keyOf(p).h} <span class="${keyOf(p).net >= 0 ? 'pos' : 'neg'}">${fmtW(keyOf(p).net)}</span></div>` : ''}${
       (p.deals&&p.deals.length) ? `<details style="margin-top:2px"><summary class="ttype" style="cursor:pointer; font-size:11px">the deals (${p.deals.length < p.n ? p.deals.length + ' most recent of ' + p.n : p.deals.length})</summary>${
         p.deals.map(dl=>`<div style="font-size:11.5px; margin-top:3px; border-top:1px solid var(--grid); padding-top:2px">${dl.d} · ${dl.h} · <span class="${dl.net>=0?'pos':'neg'}">${fmtW(dl.net)}</span> <a href="#" onclick="switchView('trees', '${r.id}'); return false" style="color:inherit">tree &rarr;</a></div>`).join('')
       }</details>` : ''
     }</td><td class="num">${p.n}</td><td class="num ${p.net>=0?'pos':'neg'}">${fmtW(p.net)}</td><td style="font-size:12px">${h2hVerdict(p.net)}</td></tr>`).join('');
-  $('#h2hwrap').innerHTML = rows ? `<div class="card"><table><thead><tr><th>Counterparty</th><th class="num">Deals</th><th class="num">Net (this seat)</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>` : '<div class="card" style="padding:14px; color:var(--muted)">No repeat trade partners among sitting regimes yet.</div>';
+  $('#h2hwrap').innerHTML = rows ? `<div class="card"><div class="ttype" style="padding:10px 12px 0">Net is in wins: what this front office got from every trade with that counterpart, minus what it gave up, each player counted through the years of control the deal bought. +5.0 means five more wins came in than went out.</div><table><thead><tr><th>Counterparty</th><th class="num">Deals</th><th class="num" title="Wins in minus wins out, across every trade with this counterpart">Net wins (this seat)</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>` : '<div class="card" style="padding:14px; color:var(--muted)">No repeat trade partners among sitting regimes yet.</div>';
 }
 
 /* ---- channel diverging bar chart ---- */
@@ -14474,7 +14478,7 @@ function folMobar(){
   const ab = folTeam(), v = typeof routeView === 'function' ? routeView() : '';
   const b = (view, ic, lbl, extra) => `<button type="button" class="${v === view ? 'on' : ''}" onclick="${extra || ''}switchView('${view}')"><span class="mb-ic">${ic}</span>${lbl}</button>`;
   bar.innerHTML = b('home', '⚾', 'Home')
-    + `<button type="button" class="${v === 'team' ? 'on' : ''}" onclick="switchView('team')"><span class="mb-ic">🏟️</span>Clubs</button>`
+    + `<button type="button" class="${v === 'team' || v === 'stove' ? 'on' : ''}" onclick="stoveGo('')"><span class="mb-ic">🏟️</span>Clubs</button>`
     + b('wire', '📰', 'Wire') + b('leaderboard', '🏆', 'Rankings') + b('desk', '🤝', 'Trade') + b('gm', '🗓️', 'Sim');
 }
 
