@@ -107,8 +107,8 @@ seconds when it is not, send a one-line phone note, and the next run catches up.
 ## 8. State on Nov 10 2026
 - Live and passing all 12 suites. Kirk's launch QA (3 blockers, 16 should-fix) is fixed and was
   re-walked on the live site: `docs/qa-rewalk-nov10.md`.
-- First download 1,044 KB over the wire after the book split; measured before the split at 3.7 s to
-  home content on 4G and 9.4 s on slow 4G. Not re-timed since.
+- First download 1,044 KB over the wire after the book split. Throttled phone, live site: home content
+  3.3 s on 4G and 8.2 s on slow 4G (3.7 and 9.4 before the split).
 - The refresh tasks were re-timed tonight; their first runs on the new schedule have not been observed.
 
 ## 9. Open items
@@ -122,13 +122,13 @@ seconds when it is not, send a one-line phone note, and the next run catches up.
 
 ## 10. NHL edition (not on the site)
 Plan `nhl-plan.md`. Built: a wins stat (`nhl-value-v0.md`, `nhl-value-v1.md`), a draft channel
-(`nhl-draft-v0.md`), general manager tenures from the league's records site, and a trade history parsed
-from Wikipedia's season pages (six of 21 seasons pulled; the site rate-limits). Honest limits: defensemen
-are 14% of the wins in every version, goalies are mostly noise season to season. Next: finish the trade
-pull, value both sides of every trade, attribute to general managers, then contracts (no source yet).
+(`nhl-draft-v0.md`), general manager tenures from the league's records site, and a trade channel
+(`nhl-trades-v0.md`) on 21 seasons of trades parsed from Wikipedia's season pages. Honest limits: defensemen
+are 14% of the wins in every version, goalies are mostly noise season to season, conditional picks and
+re-signings are handled roughly. Next: contracts (no source yet), then a first general manager card.
 To rebuild the NHL data from nothing, in `engine/nhl/`: `fetch.py`, `assemble.py`, `value.py`,
 `pbp_fetch.py 2010 2025`, `shots.py`, `xg.py`, `stints.py`, `rapm.py 50`, `write_v1.py`, `draft.py`,
-`trades_wiki.py` (the draft and general-manager files come from `records.nhl.com/site/api/draft` and
+`trades_wiki.py`, `trades_value.py` (the draft and general-manager files come from `records.nhl.com/site/api/draft` and
 `/general-manager-franchise-records`, saved under `draft/`).
 
 ## 11. Things that only existed in the chat

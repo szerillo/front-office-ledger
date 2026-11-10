@@ -28,7 +28,8 @@ checks below were run that day from the build machine; everything else is a prop
 - Front office tenures (item 5 below): found on the league's records site with dates, no outside source needed.
 - Shift-level model built and tested, see `nhl-value-v1.md`. It improved club prediction a little and did not
   fix defensemen or goalies; the edition should grade defensemen against defensemen and goalies over several seasons.
-- Still open: a source for trades and contracts.
+- Trade channel first cut built on Wikipedia's season pages, see `nhl-trades-v0.md`.
+- Still open: a source for contracts, and Sean's decision on the trade source.
 
 ## What has to be built, hardest first
 1. **A value stat in wins.** Hockey has no public WAR we can republish. Build one from the league's own

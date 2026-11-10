@@ -11,6 +11,7 @@ is "no change".
 | Nov 10 | Same question for hitters 31 and over, and for starters | Hitters 31+: -0.02. Starters: +0.11 (se 0.14), young ones over-projected, older under | No change | `engine/y1_split.py` |
 | Nov 10 | Full rebuild of `desk_data.json` to apply a data change | Drifts from the live page in three side tables (status, prospect ranks, one missing table) | No. Change the page's data surgically | `engine/apply_y1.mjs` |
 | Nov 10 | Move the trade book, player fates and quiz notes out of the first download | Page 15% smaller over the wire; three views needed a redraw when the book arrives; identical once loaded | Yes | `engine/split_book.py` |
+| Nov 10 | Phone load re-timed after the split (live, throttled) | Home content 3.3 s on 4G (was 3.7) and 8.2 s on slow 4G (was 9.4); everything 6.0 s and 17.9 s | Measured | `tests/tools/perf_live.mjs` |
 | Nov 10 | Moving more data out (player names, the Desk's player table) | Not tried: used at first paint everywhere, large risk for about 8% and 35% | Open | |
 | Nov 10 | Scheduled refreshes: stop fast when Chrome is asleep, stamp a checked time, run more often | In place; first runs on the new schedule not yet observed | Yes | task prompts |
 | Nov 10 | Qualifying-offer cost turning a market-rate signing into an F | Model is consistent (0.95 wins for most clubs, 1.5 over the tax line); the sheet now says what the grade is without the pick | Wording only | page |
@@ -32,7 +33,9 @@ is "no change".
 | Nov 10 | Any version to lift defensemen's share of wins | 14% in every version | Unsolved. Grade defensemen against defensemen | `docs/nhl-value-v1.md` |
 | Nov 10 | Draft channel on v0, then v1 | Works; v1 changes nothing material (0.998); drafting repeats at 0.38 for general managers | Yes | `docs/nhl-draft-v0.md` |
 | Nov 10 | General manager tenures from an official source | Found on the league's records site, 332 stints with dates | Yes | `engine/nhl/draft.py` |
-| Nov 10 | Trades from Wikipedia's season transaction pages (prototype) | Parses cleanly: 715 trades in six seasons, 85% of players matched to league ids (the rest mostly never played), 745 picks. The site rate-limits; 15 seasons still to pull, slowly | Prototype; sourcing is Sean's call | `engine/nhl/trades_wiki.py` |
+| Nov 10 | Trades from Wikipedia's season transaction pages | All 21 seasons parsed: 2,435 trades, 84% of players matched to league ids, 2,881 picks. The JSON interface rate-limits after two pages; the plain-text page form (`index.php?action=raw`) does not | Working source, Sean decides later | `engine/nhl/trades_wiki.py` |
+| Nov 10 | Valuing both sides of every trade and attributing to general managers | Works end to end; results repeat weakly (0.23 first half against second, 0.35 alternating); conditional picks and re-signings are the weak points | First cut | `docs/nhl-trades-v0.md` |
+| Nov 10 | Tying a traded pick to "the sender's own pick" when the page names no owner | Wrong often enough to inflate results (a late first read as second overall). Now only when the draft record shows the pick passed through the acquiring club, or the page gives the overall number | Fixed | `engine/nhl/trades_value.py` |
 
 ## What a better NHL trade source would have to beat
 Wikipedia's season pages are the working source (Nov 10, pending Sean's decision). They give: every trade

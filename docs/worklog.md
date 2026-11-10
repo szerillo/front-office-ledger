@@ -5,6 +5,17 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 
 ## 2026-11-10 (Tue)
 
+### Night 11: NHL trade channel first cut, checks
+- All 21 seasons of trades pulled and parsed (the plain-text page form avoids the rate limit). Both sides of
+  2,430 trades valued and attributed to general managers: `docs/nhl-trades-v0.md`. Results repeat weakly
+  (0.23). Weak points are conditional picks and re-signings; both need better inputs, not more tuning.
+- Phone load re-timed on the live site after the split: home content 3.3 s on 4G (was 3.7), 8.2 s on slow
+  4G (was 9.4).
+- Refresh tasks: at 23:54 UTC neither `rumors.json` nor `wire.json` carried a `checked` time yet. The first
+  runs under the new prompts are due 00:23 UTC (trade reports) and 02:37 UTC (terms); the 22:37 UTC terms run
+  fired one minute after the prompt change and left no stamp. Check again after those.
+- Not done yet: reconciling the old task-list items against the live site.
+
 ### Night 10: handoff file
 - `docs/HANDOFF.md`: what the site is, architecture, sources and refresh jobs with schedules, how each
   number is made, state, open items, what only existed in the chat, which scheduled tasks and chats belong
