@@ -18,7 +18,7 @@ const shot = async (inner, file) => {
     let f = document.getElementById('og-frame'); if(f) f.remove();
     f = document.createElement('div'); f.id = 'og-frame';
     f.style.cssText = 'position:fixed; left:0; top:0; width:1200px; height:630px; z-index:999999; background:var(--page); color:var(--ink); padding:34px 56px; box-sizing:border-box; overflow:hidden; display:flex; flex-direction:column';
-    f.innerHTML = `<div style="display:flex; align-items:center; gap:12px; font:600 34px/1 var(--f-brand); font-stretch:100%; color:var(--ink)">${document.querySelector('.brand .logo').outerHTML.replace('class="logo"', 'width="38" height="38"')}Front Office Ledger</div>
+    f.innerHTML = `<div style="display:flex; align-items:center; gap:12px; font:700 36px/1 var(--f-brand); color:var(--ink)">${document.querySelector('.brand .logo').outerHTML.replace('class="logo"', 'width="38" height="38"')}Front Office Ledger</div>
       <div style="flex:1; display:flex; flex-direction:column; justify-content:center; min-height:0">${inner}</div>
       <div style="font:600 20px var(--f-mono); color:var(--muted)">frontofficeledger.com · Every move, graded.</div>`;
     f.innerHTML = f.innerHTML.replace(/\bfol-rise\b/g, '').replace(/\bfol-anim\b/g, '');
