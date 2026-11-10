@@ -41,8 +41,11 @@ const R = await d.page.evaluate(async () => {
   o.noDefaultClubAfter = !dkState.you;
   o.teamTimelinePins = document.querySelectorAll('#view-report svg circle').length >= 3;
   o.teamStandingOnlyCurrent = (() => { const h = LB_HIST.find(x => x.realCard); if(!h) return true; switchView('report', h.id); return !(document.getElementById('rc-standing') || {}).textContent; })();
-  o.navOrder = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).slice(0, 9).join() === 'home,wire,leaderboard,report,champs,dna,h2h,heists,trees' || [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).join();
-  o.navQuizUnderPlayGM = (() => { const g = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view + (b.dataset.tab ? ':' + b.dataset.tab : '')); return g.slice(-5).join() === 'desk,gm,scen,quiz,dudes' && g.join().includes('wire:feed,stove,boards:fa,pickem,boards:pros,horizon,offs'); })();
+  // Nov 10: five doors (Home and four sections); the pages of the open section sit in one row under them
+  o.navOrder = [...document.querySelectorAll('nav .navtop button')].map(b => b.dataset.view || b.dataset.sec).join() === 'home,winter,fo,hist,play' && [...document.querySelectorAll('nav [data-view]')].length === 20;
+  o.navOneRowOpen = (() => { switchView('heists'); const open = [...document.querySelectorAll('nav .navgrp')].filter(g => !g.hidden); const ok = open.length === 1 && open[0].dataset.sec === 'hist' && document.querySelector('nav .navtop button[data-sec="hist"]').classList.contains('on') && document.querySelector('nav button[data-view="heists"]').classList.contains('on'); switchView('home'); return ok && [...document.querySelectorAll('nav .navgrp')].every(g => g.hidden); })();
+  o.navDoorOpensFirstPage = (() => { document.querySelector('nav .navtop button[data-sec="fo"]').click(); const ok = routeView() === 'leaderboard'; switchView('home'); return ok; })();
+  o.navQuizUnderPlayGM = (() => { const g = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view + (b.dataset.tab ? ':' + b.dataset.tab : '')); return g.slice(-5).join() === 'desk,gm,scen,quiz,dudes' && g.join().includes('wire:feed,stove,boards:fa,boards:pros,pickem,horizon') && g.join().includes('heists,offs,trees'); })();
   // heists: biggest first, and a club filter shows that club's side
   switchView('heists'); await wait(50);
   const gaps = folTrades().map(t => t.gap).sort((a, b) => b - a);
@@ -190,7 +193,14 @@ Object.assign(R, await d.page.evaluate(async (offsJson) => {
   const sv = document.getElementById('stovebody').textContent;
   o.stoveClub = /Atlanta Braves/.test(sv) && /Gained/.test(sv) && /Lost/.test(sv) && /still unsigned/.test(sv) && /On the trade block/.test(sv) && /What the roster still needs/.test(sv) && /view=stove&id=atl/.test(location.hash) && /Braves hot stove/.test(document.title);
   switchView('home'); await wait(60);
-  o.stoveTitleReset = !/hot stove/.test(document.title) && document.querySelectorAll('#homebody .hs-chips a').length === 30 && !!document.getElementById('hub-offs');
+  o.stoveTitleReset = !/hot stove/.test(document.title) && !!document.getElementById('hub-offs');
+  // the morning line: three boxes, each a kicker, one line and one note; the club picker opens the winter page
+  o.morningLine = document.querySelectorAll('#hub-line .ml-box').length === 3 && [...document.querySelectorAll('#hub-line .ml-box')].every(b => b.querySelectorAll('.home-kick').length === 1 && b.querySelectorAll('strong').length === 1 && b.querySelectorAll('.ttype').length === 1) && /Today's games/.test(document.getElementById('hub-line').textContent);
+  o.clubPickerToStove = (() => { const sel = document.getElementById('hub-team'); sel.value = 'SEA'; sel.onchange(); const ok = routeView() === 'stove' && stoveState.club === 'SEA'; switchView('home'); return ok; })();
+  // share links: a page with its own preview where one is built, the # link otherwise
+  shareLoadData({w: ['123'], s: 1, o: ['2011-ath']});
+  o.shareLinks = wireUrl({id: '123'}) === 'https://frontofficeledger.com/w/123' && /#view=wire&id=999/.test(wireUrl({id: '999'})) && stoveUrl('NYM') === 'https://frontofficeledger.com/s/nym' && offsUrl('2011-ath') === 'https://frontofficeledger.com/o/2011-ath' && /#view=winters/.test(offsUrl('2001-nym'));
+  shareLoadData({});
   WIRE.items = null;
   return o;
 }, offsJson));

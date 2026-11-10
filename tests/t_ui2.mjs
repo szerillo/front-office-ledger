@@ -305,7 +305,7 @@ Object.assign(R, await page.evaluate(async () => {
     && !!document.querySelector('meta[name="google-site-verification"]');
   // nav: H2H, 5-Year Horizon, Top Prospects (farm beside it), Top Free Agents; beta badge back
   const navT = [...document.querySelectorAll('nav button')].map(b => b.textContent.trim());
-  o.j1_navLabels = ['H2H', 'Transaction Trees', '5-Year Horizon', 'Top Prospects', 'Top Free Agents', 'Offseason Simulator'].every(x => navT.includes(x)) && !navT.includes('Farm Systems') && !!document.querySelector('.beta-chip');
+  o.j1_navLabels = ['Head to Head', 'Transaction Trees', '5-Year Horizon', 'Prospects', 'Free Agents', 'Offseason Simulator', 'This Winter', 'Front Offices', 'History', 'Play'].every(x => navT.includes(x)) && !navT.includes('Farm Systems') && !!document.querySelector('.beta-chip');
   // column key defines the abbreviations
   o.j2_columnKey = /Dev<\/strong> \(development\)/.test(document.querySelector('#view-leaderboard .lbkey').innerHTML) && /Ret<\/strong> \(retention\)/.test(document.querySelector('#view-leaderboard .lbkey').innerHTML);
   // long explainers split into bullets
@@ -380,7 +380,7 @@ Object.assign(R, await m.page.evaluate(async () => {
   if(wide.length) o.phoneWide = wide.join(' ');
   // v5.9: the move log loads from moves.js beside the page
   o.movesLoaded = window.MOVES_READY === true && Object.keys(PLAYER_MOVES).length > 1000 && typeof Object.values(PLAYER_MOVES)[0][0][1] === 'string';
-  o.navPerformanceReview = /Performance review/i.test(document.querySelector('nav').textContent);
+  o.navPerformanceReview = /Front Offices/.test(document.querySelector('nav .navtop').textContent) && !/Performance review/i.test(document.querySelector('nav').textContent);   // Nov 10: the section is a door now, not a label
   // v5.9: a new regime's card never keeps another card's hand-written showcase
   o.noShowcaseLeak = (() => { const ids = [...AUTO_REGIMES.map(x => x.id), ...LB_HIST.filter(x => x.realCard).map(x => x.id)];
     return ids.every(id => { renderReport('lad'); renderReport(id); const sc = document.getElementById('rc-showcase');
