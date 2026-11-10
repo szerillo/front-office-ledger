@@ -134,6 +134,16 @@
   .bd-mini{margin:6px 0 8px; padding-left:18px; font-size:11.5px; color:var(--ink-2); line-height:1.45}
   .bd-mini li{margin:2px 0}
   .bd-bio{opacity:.85}
+  /* Nov 10: Play is one stacked card on the right; every row is a title, one note and a button */
+  .hub-play{padding-bottom:6px !important}
+  .hub-play .hp-row{padding:8px 0}
+  .hub-play .hp-txt{min-width:0; display:flex; flex-direction:column}
+  .hub-play .hp-row strong{font-size:15px; margin-top:0}
+  .hub-play .hp-txt .ttype{white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .hub-play .hp-row .actbtn{min-width:64px; text-align:center}
+  .hub-pair{display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1.25fr); gap:16px; align-items:start}
+  .hub-pair > .card{margin:0}
+  @media (max-width:1000px){ .hub-pair{grid-template-columns:1fr} }
   /* Nov 10: side-by-side tiles carry the same number of lines: one for the title, two for the note */
   .pt-t, .ml-box strong, .wire-dates .wd strong{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:block}
   .pt-s, .wire-dates .wd .ttype{display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; min-height:2.8em; flex:none}
@@ -1434,10 +1444,9 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
       </div>
       <div class="navgrp" data-sec="winter" hidden><div class="navbtns">
         <button data-view="wire" data-tab="feed" title="Every move of the winter, graded as it happens">The Wire</button>
-        <button data-view="stove" title="What your club has gained and lost this winter: one bookmarkable page per club">Hot Stove</button>
+        <button data-view="stove" title="What each club has gained and lost this winter: one bookmarkable page per club">Club by Club</button>
         <button data-view="boards" data-tab="fa">Free Agents</button>
         <button data-view="boards" data-tab="pros" title="Top 100 prospects and all 30 farm systems">Prospects</button>
-        <button data-view="pickem" title="Free agent pick'em and the qualifying offer poll">Pick'em</button>
         <button data-view="horizon">5-Year Horizon</button>
       </div></div>
       <div class="navgrp" data-sec="fo" hidden><div class="navbtns">
@@ -1458,6 +1467,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
         <button data-view="scen">Scenario Room</button>
         <button data-view="quiz" title="Three trades and two free-agent contracts a day">Trade Grade</button>
         <button data-view="dudes" title="Ten players a day: over or under on career WAR">Remember Some Dudes</button>
+        <button data-view="pickem" title="Free agent pick'em and the qualifying offer poll">Pick'em</button>
       </div></div>
     </nav>
   </div>
@@ -1494,7 +1504,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
 
   <!-- ================= HOT STOVE ================= -->
   <section id="view-stove" hidden>
-    <h2>Hot Stove</h2>
+    <h2>This Winter, Club by Club</h2>
     <div class="sub">What every club has gained and lost this winter, one page per club. Bookmark yours.</div>
     <div id="stovebody"></div>
   </section>
@@ -11841,7 +11851,7 @@ document.querySelectorAll('nav button').forEach(b=>{
 });
 // the boards are one view with three nav tabs (prospects, farms, free agents)
 // Nov 10: five doors across the top; the pages inside the open one sit in a single row under it
-const NAV_SEC = {wire: 'winter', stove: 'winter', boards: 'winter', pickem: 'winter', horizon: 'winter', leaderboard: 'fo', report: 'fo', team: 'fo', dna: 'fo', h2h: 'fo', champs: 'fo', heists: 'hist', offs: 'hist', trees: 'hist', desk: 'play', gm: 'play', scen: 'play', quiz: 'play', dudes: 'play'};
+const NAV_SEC = {wire: 'winter', stove: 'winter', boards: 'winter', horizon: 'winter', leaderboard: 'fo', report: 'fo', team: 'fo', dna: 'fo', h2h: 'fo', champs: 'fo', heists: 'hist', offs: 'hist', trees: 'hist', desk: 'play', gm: 'play', scen: 'play', quiz: 'play', dudes: 'play', pickem: 'play'};
 function navMark(v){
   const sec = NAV_SEC[v] || '';
   document.querySelectorAll('nav button').forEach(x => x.classList.toggle('on', x.dataset.view ? (x.dataset.view === v && (!x.dataset.tab || x.dataset.tab === (v === 'wire' ? 'feed' : (bdState || {}).tab))) : x.dataset.sec === sec));
@@ -13892,6 +13902,7 @@ function folHub(){
   const qoLeft = T(() => Object.keys(DESK.qo27 || {}).filter(pid => wireQoStatus(pid) === 'pending').length) || 0;
   const qd = T(folQuizDays) || 0;
   const ptile = (kick, title, sub, btn, js, primary) => `<div class="card home-card pt-tile fol-rise"><div class="home-kick">${kick}</div><strong class="pt-t">${title}</strong><div class="ttype pt-s">${sub}</div><button class="actbtn${primary ? ' primary' : ''}" onclick="${js}">${btn}</button></div>`;
+  const prow = (title, sub, btn, js, primary) => `<div class="hp-row"><div class="hp-txt"><strong>${title}</strong><span class="ttype">${sub}</span></div><button class="actbtn${primary ? ' primary' : ''}" onclick="${js}">${btn}</button></div>`;
   const dline = (o, d) => `${o && o.k === 0 ? 'On this date' : 'This week'} in ${String(d).slice(0, 4)}`;
   const play = (kick, title, sub, btn, js, primary) => `<div class="hp-row"><div><div class="home-kick">${kick}</div><strong>${title}</strong><div class="ttype">${sub}</div></div><button class="actbtn${primary ? ' primary' : ''}" onclick="${js}">${btn}</button></div>`;
   const link = (kick, title, sub, js) => `<a href="#" class="hl-row" onclick="${js}; return false"><span class="home-kick">${kick}</span><strong>${title}</strong>${sub ? `<span class="ttype">${sub}</span>` : ''}</a>`;
@@ -13907,25 +13918,23 @@ function folHub(){
     <div class="hub-cols">
       <div class="hub-left">
         <div id="hub-wire" class="hub-wire"><div class="card home-card"><div class="home-kick">The Wire</div><div class="ttype">Loading the latest moves…</div></div></div>
+        <div class="hub-pair">
+        ${fas.length ? tile('Free agents', `<h3>Top of the class</h3><div class="hub-fa2"><span></span><span class="ttype">Ledger offer</span><span class="ttype" title="The median of published contract predictions">Published</span>${fas.map(({x}) => { const s = GM_SG[x[1]] || (GM_SG[x[1]] = dkSuggest(x, 'fa', null)), c = (DESK.cons || {})[x[1]]; return `<span class="hf-nm">${x[0]}</span><span>${s.sugYrs}/$${s.sugTot}M</span><span>${c ? `${c[0] % 1 ? Math.floor(c[0]) + '-' + Math.ceil(c[0]) : c[0]}/$${Math.round(c[0] * c[1])}M` : '·'}</span>`; }).join('')}</div><div class="ttype" style="margin-top:6px">Years / total. Ledger offer: the contract we expect him to sign. Published: the median published prediction.</div>${more('Every Ledger offer', "bdState.tab='fa'; switchView('boards')")}`) : ''}
         <div id="hub-offs" class="card home-card fol-rise hub-offs"><div class="home-kick">Winter of the day</div><div class="ttype">The best and worst offseasons since 1998, added up.</div><div style="margin-top:10px"><a href="#" onclick="switchView('offs'); return false">The best and worst winters since 1998 →</a></div></div>
+        </div>
       </div>
       <div class="hub-right">
+        <div class="card home-card hub-play fol-rise"><div class="home-kick">Play</div>
+          ${prow('Trade Grade', `${quizDone ? `Today: ${quizDone.filter(Boolean).length}/${quizDone.length}` : 'Three trades, two contracts: who won?'}${qd >= 2 ? ` · ${qd} days in a row` : ''}`, quizDone ? 'See it' : 'Play', "switchView('quiz')", !quizDone)}
+          ${prow('Remember Some Dudes', `${dudesDone ? `Today: ${dudesDone.filter(Boolean).length}/${dudesDone.length}` : 'Ten players a day: over or under?'}${dd >= 2 ? ` · ${dd} days in a row` : ''}`, dudesDone ? 'See it' : 'Play', "switchView('dudes')")}
+          ${prow("Pick'em", qoLeft ? `Where free agents sign · ${qoLeft} QO calls due Nov 17` : 'Where the top free agents sign, and for how much', 'Pick', "switchView('pickem')")}
+          ${prow('Deal Desk', 'Price any trade: who wins, would they say yes', 'Trade', "folGo('desk')")}
+          ${prow('Offseason Simulator', "Run a winter with any club's real market", 'Start', "folGo('gm')")}
+          ${sc ? prow('Scenario of the day', scTitle, 'Decide', `scState.idx=${sc.k}; switchView('scen')`) : ''}
+        </div>
         <div id="hub-winter"></div>
-      ${fas.length ? tile('Free agents', `<h3>Top of the class</h3><div class="hub-fa2"><span></span><span class="ttype">Ledger offer</span><span class="ttype" title="The median of published contract predictions">Published</span>${fas.map(({x}) => { const s = GM_SG[x[1]] || (GM_SG[x[1]] = dkSuggest(x, 'fa', null)), c = (DESK.cons || {})[x[1]]; return `<span class="hf-nm">${x[0]}</span><span>${s.sugYrs}/$${s.sugTot}M</span><span>${c ? `${c[0] % 1 ? Math.floor(c[0]) + '-' + Math.ceil(c[0]) : c[0]}/$${Math.round(c[0] * c[1])}M` : '·'}</span>`; }).join('')}</div><div class="ttype" style="margin-top:6px">Years / total. Ledger offer: the contract we expect him to sign. Published: the median published prediction.</div>${more('Every Ledger offer', "bdState.tab='fa'; switchView('boards')")}`) : ''}
       </div>
     </div>
-    ${sec('Play', 'a few minutes a day, or a whole winter in the chair')}
-    <div class="hp-group"><div class="hp-lab">Daily games</div><div class="hp-tiles hp4">
-      ${ptile('Five calls a day', 'Trade Grade', `${quizDone ? `Today: ${quizDone.filter(Boolean).length}/${quizDone.length}` : 'Three trades, two contracts: who won?'}${qd >= 2 ? ` · ${qd} days in a row` : ''}`, quizDone ? 'See it' : 'Play', "switchView('quiz')", !quizDone)}
-      ${ptile("Free agent pick'em", 'Where does he sign?', 'Pick the club and the contract for every top free agent', 'Play', "switchView('pickem')")}
-      ${ptile('Poll', 'Will they take the QO?', qoLeft ? `${qoLeft} of ${Object.keys(DESK.qo27 || {}).length} decisions due Nov 17` : 'Every qualifying offer, and how the calls went', qoLeft ? 'Vote' : 'Results', "switchView('pickem')")}
-      ${ptile('Ten players a day', 'Remember Some Dudes', `${dudesDone ? `Today: ${dudesDone.filter(Boolean).length}/${dudesDone.length}` : 'Ten players from the 90s and 2000s: over or under?'}${dd >= 2 ? ` · ${dd} days in a row` : ''}`, dudesDone ? 'See it' : 'Play', "switchView('dudes')")}
-    </div></div>
-    <div class="hp-group"><div class="hp-lab">Run the front office</div><div class="hp-tiles hp3">
-      ${ptile('Deal Desk', 'Price any trade', 'Who wins it, and would the other side say yes', 'Make a trade', "folGo('desk')", true)}
-      ${ptile('Offseason simulator', 'Run a winter', "Any club's real free agents, arbitration class and market", 'Start', "folGo('gm')")}
-      ${sc ? ptile('Scenario of the day', scTitle, 'Make the call with only what was known then', 'Decide', `scState.idx=${sc.k}; switchView('scen')`) : ''}
-    </div></div>
     ${sec('The front office rankings', 'every active regime, graded on every decision')}
     <div class="hub-cols">
       <div class="hub-left">
@@ -15020,7 +15029,7 @@ function wireWinterCard(home){
   // on the home page each club opens the winter report card, scrolled to that club
   if(home){
     const go = ab => `WIRE.tab='weekly'; WIRE.focus=''; WIRE.wk='${ab || ''}'; switchView('wire'); return false`;
-    return `<div class="card home-card wire-winter"><div class="home-kick">The winter so far</div><h3><a href="#" class="hub-hlink" onclick="${go('')}">Who has won the offseason</a></h3><p class="hub-p">Every graded move since Nov 1 added up, in wins. Tap a club for its hot stove page: who came, who left, who is still out there.</p>
+    return `<div class="card home-card wire-winter"><div class="home-kick">The winter so far</div><h3><a href="#" class="hub-hlink" onclick="${go('')}">Who has won the offseason</a></h3><p class="hub-p">Every graded move since Nov 1 added up, in wins. Tap a club for its winter page: who came, who left, who is still out there.</p>
       ${st.length ? st.slice(0, top).map((s, i) => `<a href="#" class="ww-club ww-link" onclick="stoveGo('${s.ab}'); return false"><strong class="ww-rk">${i + 1}</strong><span class="wi-tc" style="${folTC(s.ab)}">${s.ab}</span><span class="ww-nm">${teamNick(CLUB_NAME[s.ab] || s.ab)} <span class="ttype">${pz(s.n, 'move', 'moves')}</span></span><span class="${s.net >= 0 ? 'pos' : 'neg'} ww-net">${fmtW(s.net)}</span></a>`).join('') : '<div class="ttype">No graded moves yet.</div>'}
       <div style="margin-top:10px"><a href="#" onclick="${go('')}">The winter report card: all 30 clubs →</a></div></div>`;
   }
@@ -15339,7 +15348,7 @@ function wireClubPanel(ab){
     ${c.needs.length ? `<div class="wi-line"><strong>Needs:</strong> ${c.needs.map(pos => c.filled.includes(pos) ? `<span class="pos">${pos} (filled)</span>` : pos).join(', ')}.</div>` : ''}
     ${c.ins.length ? `<div class="wi-line"><strong>In:</strong> ${c.ins.map(nm).join(', ')}.</div>` : ''}${c.outs.length ? `<div class="wi-line"><strong>Out:</strong> ${c.outs.map(nm).join(', ')}.</div>` : ''}
     ${own.length ? `<div class="wi-line"><strong>Their free agents:</strong> ${own.slice(0, 6).map(p => { const a = wireActual(p[1]); const sg = wireSg(p); return a ? `${p[0]} (${a.club === ab ? 'back' : 'to ' + a.club})` : `${p[0]}${qo.includes(p) ? ' (QO)' : ''}${sg ? ` <span class="ttype">${sg.sugYrs}/$${sg.sugTot}M</span>` : ''}`; }).join(', ')}${own.length > 6 ? ` and ${own.length - 6} more` : ''}. ${pz(ownLeft.length, 'is', 'are')} still unsigned.</div>` : ''}
-    <div class="actions" style="margin-top:8px"><button class="actbtn primary" onclick="stoveGo('${ab}')">The ${nick} hot stove page</button><button class="actbtn" onclick="folOpenAs('${ab}', 'gm')">Run the ${nick} winter</button><button class="actbtn" onclick="folGoTeam('${ab}')">Report card</button><button class="actbtn" onclick="WIRE.filt.club=''; renderWire()">All 30 clubs</button></div></div>`;
+    <div class="actions" style="margin-top:8px"><button class="actbtn primary" onclick="stoveGo('${ab}')">The ${nick} winter, on one page</button><button class="actbtn" onclick="folOpenAs('${ab}', 'gm')">Run the ${nick} winter</button><button class="actbtn" onclick="folGoTeam('${ab}')">Report card</button><button class="actbtn" onclick="WIRE.filt.club=''; renderWire()">All 30 clubs</button></div></div>`;
 }
 function T0(f){ try { return f(); } catch(e){ return null; } }
 // the money: every club's 2027 payroll with this winter's moves, against the tax line
@@ -15397,7 +15406,7 @@ function wireWeekly(){
   const nick = ab => teamNick(CLUB_NAME[ab] || ab);
   return `<article class="card home-card wire-report" id="wire-weekly"><div class="home-kick">The winter report card</div><h2 class="wr-h">Every club's offseason, graded</h2><div class="ttype">As of ${folMD(today)}, ${today.slice(0, 4)} · a fresh card every Monday, updated live in between</div>
     <p class="wr-lede">${up ? `Biggest riser this week: the ${nick(up.ab)} (${fmtW(up.wk)}). ` : ''}${dn ? `Biggest faller: the ${nick(dn.ab)} (${fmtW(dn.wk)}). ` : ''}Letters grade each club's graded moves so far, in wins: A+ is three or more, F is a loss of more than one and a half; a dash means nothing graded yet.</p>
-    <div class="wr-grid">${rows.map(r => { const L = wireWinterLetter(r.net, r.n); return `<div class="wr-club st-club${WIRE.wk === r.ab ? ' wi-focus' : ''}" id="wr-${r.ab}" style="${folTC(r.ab)}" role="link" tabindex="0" title="The ${nick(r.ab)} hot stove page" onclick="stoveGo('${r.ab}')" onkeydown="if(event.key==='Enter') stoveGo('${r.ab}')"><span class="wi-tc">${r.ab}</span><span class="grade ${L === '–' ? 'gnone' : letterClass(L)}">${L}</span><span class="wr-n ${r.net >= 0 ? 'pos' : 'neg'}">${r.n ? fmtW(r.net) : ''}</span><span class="ttype wr-best">${r.best ? wireHeadline(r.best.it) : 'Nothing graded yet'}</span>${Math.abs(r.wk) >= 0.05 ? `<span class="wr-wk ${r.wk > 0 ? 'pos' : 'neg'}">${r.wk > 0 ? '▲' : '▼'} ${Math.abs(r.wk).toFixed(1)} this week</span>` : ''}</div>`; }).join('')}</div>
+    <div class="wr-grid">${rows.map(r => { const L = wireWinterLetter(r.net, r.n); return `<div class="wr-club st-club${WIRE.wk === r.ab ? ' wi-focus' : ''}" id="wr-${r.ab}" style="${folTC(r.ab)}" role="link" tabindex="0" title="The ${nick(r.ab)} winter, on one page" onclick="stoveGo('${r.ab}')" onkeydown="if(event.key==='Enter') stoveGo('${r.ab}')"><span class="wi-tc">${r.ab}</span><span class="grade ${L === '–' ? 'gnone' : letterClass(L)}">${L}</span><span class="wr-n ${r.net >= 0 ? 'pos' : 'neg'}">${r.n ? fmtW(r.net) : ''}</span><span class="ttype wr-best">${r.best ? wireHeadline(r.best.it) : 'Nothing graded yet'}</span>${Math.abs(r.wk) >= 0.05 ? `<span class="wr-wk ${r.wk > 0 ? 'pos' : 'neg'}">${r.wk > 0 ? '▲' : '▼'} ${Math.abs(r.wk).toFixed(1)} this week</span>` : ''}</div>`; }).join('')}</div>
     <div class="wi-acts">${folSaveBtn("folSaveEl(document.getElementById('wire-weekly'), 'winter-report-card', '', '')")}<button class="actbtn" onclick="folCopyLink('https://frontofficeledger.com/#view=wire&id=weekly')">Copy link</button></div></article>`;
 }
 
@@ -15605,14 +15614,14 @@ function stoveClub(ab){
   const sec = (t, n, body) => `<div class="card home-card st-sec"><div class="home-kick">${t}${n != null ? ` · ${n}` : ''}</div>${body}</div>`;
   const outs = c.outs.filter(x => x.it.kind !== 'release' || (x.w && x.w.p && gmProj27(x.w.p) >= 0.3));
   const url = stoveUrl(ab);
-  return `<div id="stove-page"><div class="card home-card wire-club" style="${folTC(ab)}"><div class="wc-band"><div><div class="home-kick" style="color:inherit; opacity:.85">Hot stove · the 2026-27 winter</div><h3>${CLUB_NAME[ab] || ab}</h3></div>
+  return `<div id="stove-page"><div class="card home-card wire-club" style="${folTC(ab)}"><div class="wc-band"><div><div class="home-kick" style="color:inherit; opacity:.85">The 2026-27 winter, club by club</div><h3>${CLUB_NAME[ab] || ab}</h3></div>
       <div class="wc-rank"><span class="grade ${L === '–' ? 'gnone' : letterClass(L)}" style="font-size:20px; padding:3px 12px">${L}</span>${c.rank ? `<span>#${c.rank} of ${c.of} clubs with a graded move</span>` : '<span>no graded move yet</span>'}</div></div>
     <div class="wc-stats">
       <div><b class="${c.net >= 0 ? 'pos' : 'neg'}">${fmtW(c.net)}</b><span>wins from graded moves (${pz(c.n, 'move', 'moves')})</span></div>
       <div><b>${c.w27 != null ? (c.w27 + c.dWar).toFixed(1) : '·'}</b><span>2027 WAR under control${c.dWar ? ` (${fmtW(c.dWar)} from moves)` : ''}${cl ? `; title teams have about ${cl.toFixed(0)}` : ''}</span></div>
       <div><b>$${Math.round(c.payNow)}M</b><span>2027 payroll${c.payEst ? ' (est.)' : ''}, ${c.payNow >= WIRE_CBT ? `$${Math.round(c.payNow - WIRE_CBT)}M over` : `$${Math.round(WIRE_CBT - c.payNow)}M under`} the $${WIRE_CBT}M tax line</span></div>
     </div>
-    <div class="actions" style="margin-top:10px"><button class="actbtn primary" onclick="folCopyLink('${url}', 'The ${nick} hot stove page')">Copy link</button><button class="actbtn" onclick="folXPost('The ${nick} winter so far: ${fmtW(c.net)} wins from ${pz(c.n, 'graded move', 'graded moves')}, ${c.ins.length} in and ${c.outs.length} out.', '${url}')">Post on X</button>${folSaveBtn(`folSaveEl(document.getElementById('stove-page'), '${ab.toLowerCase()}-hot-stove', '${(CLUB_NAME[ab] || ab).replace(/'/g, "\\'")}: the winter so far', 'Who came, who left, who is still out there')`)}<button class="actbtn" onclick="folOpenAs('${ab}', 'gm')">Run the ${nick} winter yourself</button><button class="actbtn" onclick="folGoTeam('${ab}')">Front office report card</button><button class="actbtn" onclick="WIRE.filt.club='${ab}'; WIRE.tab='feed'; WIRE.focus=''; switchView('wire')">Every ${nick} move on the Wire</button></div></div>
+    <div class="actions" style="margin-top:10px"><button class="actbtn primary" onclick="folCopyLink('${url}', 'The ${nick} winter so far')">Copy link</button><button class="actbtn" onclick="folXPost('The ${nick} winter so far: ${fmtW(c.net)} wins from ${pz(c.n, 'graded move', 'graded moves')}, ${c.ins.length} in and ${c.outs.length} out.', '${url}')">Post on X</button>${folSaveBtn(`folSaveEl(document.getElementById('stove-page'), '${ab.toLowerCase()}-winter', '${(CLUB_NAME[ab] || ab).replace(/'/g, "\\'")}: the winter so far', 'Who came, who left, who is still out there')`)}<button class="actbtn" onclick="folOpenAs('${ab}', 'gm')">Run the ${nick} winter yourself</button><button class="actbtn" onclick="folGoTeam('${ab}')">Front office report card</button><button class="actbtn" onclick="WIRE.filt.club='${ab}'; WIRE.tab='feed'; WIRE.focus=''; switchView('wire')">Every ${nick} move on the Wire</button></div></div>
     <div class="st-grid">
       ${sec('Gained', c.ins.length, c.ins.length ? tbl(c.ins.map(x => stoveRow(x, ab, false)).join(''), ['Player', 'How', '2027 proj.', '2027 salary', 'Grade']) : '<div class="ttype">Nobody in yet.</div>')}
       ${sec('Lost', outs.length + ownGone.length, outs.length || ownGone.length ? tbl(outs.map(x => stoveRow(x, ab, true)).join('') + ownGone.map(p => { const a = wireActual(p[1]); return `<tr><td><strong>${playerLink(p[1], p[0])}</strong> <span class="ttype">${p[13] || p[12] || ''}, ${p[4] + 1}</span>${gmLine26(p) ? `<div class="ttype">2026: ${gmLine26(p)}</div>` : ''}</td><td data-label="How"><a href="#" onclick="WIRE.focus='${a.id}'; WIRE.filt.kind='all'; WIRE.tab='feed'; switchView('wire'); return false">signed with ${a.club}${a.terms ? `, ${a.terms.yrs} yr / $${a.terms.tot}M` : ''}</a><div class="ttype">${folMD(a.d)}</div></td><td class="num" data-label="2027 proj.">${fmtW(gmProj27(p))}</td><td class="num">·</td><td class="num">·</td></tr>`; }).join(''), ['Player', 'How', '2027 proj.', '2027 salary', 'Grade']) : '<div class="ttype">Nobody out yet.</div>')}
@@ -15641,7 +15650,7 @@ function renderStove(){
   const pick = ab ? `<div class="hz-pick" style="margin:10px 0"><button type="button" class="modechip" onclick="stoveGo('')">All 30</button>${clubChips(ab, 'stoveGo', '', 'Pick a club')}</div>` : '';
   let body = ''; try { body = ab ? stoveClub(ab) : stoveHub(); } catch(e){ body = '<div class="card home-card">Could not build this page. Try another club.</div>'; }
   host.innerHTML = pick + body;
-  try { document.title = ab ? `${teamNick(CLUB_NAME[ab] || ab)} hot stove: the 2026-27 winter · Front Office Ledger` : (window.FOL_TITLE0 || document.title); } catch(e){}
+  try { document.title = ab ? `${teamNick(CLUB_NAME[ab] || ab)}: the 2026-27 winter so far · Front Office Ledger` : (window.FOL_TITLE0 || document.title); } catch(e){}
 }
 
 /* ---- UI pass (Nov 2026): shareable URLs, accessible names, stale Desk verdicts ---- */
