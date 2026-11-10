@@ -23,7 +23,13 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
   position return over the control years, by class and by general manager. Write-up in
   `docs/nhl-draft-v0.md`, script `engine/nhl/draft.py`. Two finds: the league's records site has general
   manager tenures with dates (332 stints), and the draft data carries each pick's trade trail.
-- Next for the NHL: the shift-level model (fixes defensemen), then a decision from Sean on a source for
+- **Shift-level data pulled** (`engine/nhl/pbp_fetch.py`): every regular-season game from 2010-11 to
+  2025-26, 18,152 games, with every shot attempt (all with a location on the ice), every penalty with who
+  took and drew it, and every shift. About 80 seconds a season; 96 MB kept in compact form under
+  `nhl/pbp/` on the build machine, not in the repo. Shift rows are thin in 57 games of 2024-25.
+- Next for the NHL, in order: (1) expected goals from shot location, which gives goalies a fair
+  denominator; (2) the shift-level model for skaters, teammates and opponents held fixed, which is the fix
+  for defensemen; (3) rerun the draft channel on the new stat; (4) a decision from Sean on a source for
   trades and contracts.
 
 ### Evening 4: extension on the trade line, NHL plan

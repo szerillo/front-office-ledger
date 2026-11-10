@@ -26,7 +26,8 @@ checks below were run that day from the build machine; everything else is a prop
 - Step 1 (value stat): first cut built and tested, see `nhl-value-v0.md`.
 - Step 2 (draft channel): first cut built, see `nhl-draft-v0.md`.
 - Front office tenures (item 5 below): found on the league's records site with dates, no outside source needed.
-- Still open: a source for trades and contracts, and the shift-level model that fixes defensemen.
+- Shift-level data (every shot attempt with location, every shift, 2010-11 to 2025-26) is pulled and ready.
+- Still open: a source for trades and contracts, and building the shift-level model that fixes defensemen.
 
 ## What has to be built, hardest first
 1. **A value stat in wins.** Hockey has no public WAR we can republish. Build one from the league's own
