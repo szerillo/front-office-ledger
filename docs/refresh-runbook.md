@@ -160,14 +160,24 @@ numbers if `validation.json` moved.
 
     node engine/share_live.mjs <out> [site url] [--only-new <repo>]
                                      # share pages with their own preview images for
-                                     # every graded Wire move (w/), every club's Hot
-                                     # Stove page (s/) and the 40 biggest winters (o/),
+                                     # every graded Wire move (w/), every club's winter
+                                     # page (s/) and the 40 biggest winters (o/),
                                      # plus share.json, which tells the page which
-                                     # links exist. A scheduled task runs it with
-                                     # --only-new and uploads what changed.
+                                     # links exist, and feed.xml, the RSS feed of the
+                                     # 40 latest graded moves. A scheduled task runs
+                                     # it with --only-new and uploads what changed.
 
-Trade reports: `TRADE_RUMORS` and `TRADE_OFF` in the page are hand-kept (sources in
-the comment above them). Refresh them as the winter moves.
+Trade reports live in `rumors.json` at the repo root (format in its `_about` field):
+the trade block, the club pages and trade pick'em all read it, and the scheduled task
+"Ledger: trade reports" refreshes it twice a day. `TRADE_RUMORS` and `TRADE_OFF` in
+the page are only the fallback for when the file cannot be read.
+
+Install to home screen: `manifest.webmanifest` and `icons/` at the repo root (the
+icons are rendered from `assets/logo.svg`). Nothing to refresh unless the logo changes.
+
+Shared counters (polls, readers' grades) sit on abacus.jasoncameron.dev under the
+`frontofficeledger` namespace: `fa27-*` free agent calls, `tr27-<id>-y|n` trade
+pick'em, `wg-<move id>-<A..F>` readers' grades on Wire moves.
 
 ## 3. Verify before shipping
 
