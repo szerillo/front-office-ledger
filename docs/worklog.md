@@ -5,6 +5,15 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 
 ## 2026-11-10 (Tue)
 
+### Evening 4: extension on the trade line, NHL plan
+- A player's trade line now carries the extension that followed ("traded BOS to LAD, control years only.
+  Under the LAD extension that followed: +34.7 WAR in 6 seasons so far"). Closes the last partial from the QA.
+- Load size (QA S16) looked at again: `cards.js` and `moves.js` are already injected after the page parses,
+  so the page works before they arrive. Left as is.
+- `docs/nhl-plan.md`: what carries over, which NHL data sources were checked today (stats and draft work,
+  no official trade or contract feed), what has to be built and in what order. Nothing built.
+- Open: the quarter-win mid-tier bias in year one; Kirk's re-walk; one real link posted on X.
+
 ### Evening 3: heist previews, the year-one check
 - Uploaded the 64 rebuilt heist share pages and images. Big trades are now named for the best-known player on
   each side with the rest counted ("Marlins got Yunel Escobar and 6 others from the Blue Jays for Mark Buehrle
@@ -55,4 +64,4 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 - No em dashes. No player headshots. Steamer and Depth Charts projections are not redistributed.
 
 ## Next
-- NHL edition after MLB is settled (Sean, Nov 10). Not started; see the plan entry when it is written.
+- NHL edition after MLB is settled (Sean, Nov 10). Plan in `docs/nhl-plan.md`; first step is the value stat and its backtest.
