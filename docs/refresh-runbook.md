@@ -81,6 +81,15 @@ new facts are the completed postseason and any early offseason transactions.
     python3 proj_v1.py               # Ledger Projection v1 onto open deals
     python3 trade_book.py            # every trade, every seat, for the trees;
                                      # prints its cross-check against the cards
+    python3 prospect_bio.py          # how each prospect turned pro: draft slot and
+                                     # bonus from draft_picks, international signings
+                                     # from the feed, bonuses from intl_bonus_src.txt
+                                     # (add each January's signing-day tracker to it)
+    python3 line26_build.py          # the season's big-league stat lines (rename and
+                                     # bump the season at a rollover); both feed
+                                     # desk_data.py (DESK.bio, DESK.line26).
+                                     # splice_desk.py re-splices just these two
+                                     # tables without rerunning the chain
     python3 desk_data.py             # Deal Desk data pack. On a pool change
     python3 pt_fetch.py              #   run desk_data -> pt_fetch -> desk_data
     python3 desk_data.py             #   so new pool members get durability
