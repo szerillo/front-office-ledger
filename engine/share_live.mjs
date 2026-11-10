@@ -1,9 +1,10 @@
 // Nov 10 2026: share pages for the live parts of the site, each with its own preview image, so a link
 // posted on X shows the deal, the club's winter or the offseason instead of the generic card.
 //   w/<id>.html + og/w/<id>.png   every graded move on the Wire
-//   s/<ab>.html + og/s/<ab>.png   every club's Hot Stove page (30)
+//   s/<ab>.html + og/s/<ab>.png   every club's winter page (30)
 //   o/<id>.html + og/o/<id>.png   the 20 best and 20 worst winters
 //   share.json                    what exists, read by the page to pick the share link
+//   feed.xml                      an RSS feed of the 40 latest graded moves (each item links to its w/ page)
 // Rendered from the site itself. Usage: node engine/share_live.mjs <out dir> [site url] [--only-new <repo dir>]
 // With --only-new, a move or winter that already has a page in <repo dir> is skipped; club pages are rebuilt
 // only when that club's winter changed (the page's description is the fingerprint).
@@ -60,17 +61,17 @@ const data = await p.evaluate(() => {
     const body = it.kind === 'trade'
       ? it.sides.slice(0, 3).map(s => `<div style="display:flex; align-items:center; gap:16px; margin-top:16px; font-size:27px">${chip(s.ab, 26)}${grade(s.g, 30)}<span style="min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">gets ${(s.gets || []).map(w => w.nm).slice(0, 3).join(', ') || 'cash'}</span>${s.net != null ? `<strong class="${s.net >= 0 ? 'pos' : 'neg'}" style="margin-left:auto; font:700 28px var(--f-mono); white-space:nowrap">${fmtW(s.net)} wins</strong>` : ''}</div>`).join('')
       : `<div style="display:flex; align-items:center; gap:18px; margin-top:22px; font-size:28px">${chip(it.club, 30)}${grade(it.g, 40)}<span>${it.terms ? `${it.terms.yrs} yr / $${it.terms.tot}M` : it.kind === 'claim' ? 'waiver claim' : ''}${it.fa && it.fa.rel != null ? ` · <strong class="${it.fa.rel >= 0 ? 'pos' : 'neg'}">${fmtW(it.fa.rel)} wins</strong> against a typical signing` : it.val != null ? ` · <strong class="${it.val >= 0 ? 'pos' : 'neg'}">${fmtW(it.val)} wins</strong> of surplus` : ''}</span></div>`;
-    return {id: slug(it.id), raw: String(it.id), title: `${h} · Front Office Ledger`, desc: wireShareText(it), to: `#view=wire&id=${encodeURIComponent(it.id)}`, link: `${h}: the grade on Front Office Ledger`,
+    return {id: slug(it.id), raw: String(it.id), d: it.d, h, title: `${h} · Front Office Ledger`, desc: wireShareText(it), to: `#view=wire&id=${encodeURIComponent(it.id)}`, link: `${h}: the grade on Front Office Ledger`,
       inner: kick(`The Wire · ${when} · graded the day it happened`) + head(h, h.length > 60 ? 44 : 54) + body};
   });
-  // Hot Stove: every club
+  // club by club
   const S = Object.keys(DESK.teams || {}).sort().map(ab => {
     const c = wireClubWinter(ab), L = wireWinterLetter(c.net, c.n), nm = x => x.w ? x.w.nm : '';
     const own = (DESK.players || []).filter(q => q[2] === ab && gmIsFA(q) && !gmIsProsRow(q) && gmProj27(q) >= 0.3 && !wireActual(q[1])).sort((a, b) => gmProj27(b) - gmProj27(a));
     const line = (lbl, xs, none) => `<div style="display:flex; gap:14px; margin-top:12px; font-size:26px"><strong style="flex:none; width:210px; font:700 20px var(--f-mono); letter-spacing:2px; text-transform:uppercase; color:var(--muted); padding-top:5px">${lbl}</strong><span style="min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">${xs.length ? xs.slice(0, 4).join(', ') + (xs.length > 4 ? ` and ${xs.length - 4} more` : '') : none}</span></div>`;
-    const desc = `${nick(ab)} this winter: ${c.n ? `${fmtW(c.net)} wins from ${pz(c.n, 'graded move', 'graded moves')}` : 'no graded move yet'}, ${c.ins.length} in, ${c.outs.length} out, ${pz(own.length, 'free agent', 'free agents')} still unsigned.`;
-    return {id: ab.toLowerCase(), title: `${CLUB_NAME[ab] || ab}: the winter so far · Front Office Ledger`, desc, to: `#view=stove&id=${ab.toLowerCase()}`, link: `The ${nick(ab)} hot stove page on Front Office Ledger`,
-      inner: kick('Hot stove · the 2026-27 winter') + `<div style="display:flex; align-items:center; gap:20px; margin-top:8px">${head(CLUB_NAME[ab] || ab, 60)}<span style="margin-left:auto; display:flex; align-items:center; gap:14px">${L !== '–' ? grade(L, 46) : ''}${c.n ? `<strong class="${c.net >= 0 ? 'pos' : 'neg'}" style="font:700 40px var(--f-mono)">${fmtW(c.net)}</strong>` : ''}</span></div>
+    const desc = `${nick(ab)} this winter: ${c.n ? `${fmtW(c.net)} wins from ${pz(c.n, 'graded move', 'graded moves')}` : 'no graded move yet'}, ${c.ins.length} in, ${c.outs.length} out, ${own.length ? pz(own.length, 'free agent', 'free agents') + ' still unsigned' : 'no free agent of note unsigned'}.`;
+    return {id: ab.toLowerCase(), title: `${CLUB_NAME[ab] || ab}: the winter so far · Front Office Ledger`, desc, to: `#view=stove&id=${ab.toLowerCase()}`, link: `The ${nick(ab)} winter page on Front Office Ledger`,
+      inner: kick('The 2026-27 winter, club by club') + `<div style="display:flex; align-items:center; gap:20px; margin-top:8px">${head(CLUB_NAME[ab] || ab, 60)}<span style="margin-left:auto; display:flex; align-items:center; gap:14px">${L !== '–' ? grade(L, 46) : ''}${c.n ? `<strong class="${c.net >= 0 ? 'pos' : 'neg'}" style="font:700 40px var(--f-mono)">${fmtW(c.net)}</strong>` : ''}</span></div>
         <div style="height:5px; background:var(--tc); ${folTC(ab)}; margin:14px 0 6px"></div>`
         + line('Gained', c.ins.map(nm).filter(Boolean), 'nobody yet') + line('Lost', c.outs.map(nm).filter(Boolean), 'nobody yet') + line('Still unsigned', own.map(q => q[0]), 'none') + line('Needs', c.needs.filter(x => !c.filled.includes(x)), 'no clear need')};
   });
@@ -97,5 +98,18 @@ for(const [dir, rows] of [['w', data.W], ['s', data.S], ['o', data.O]]){
   }
 }
 fs.writeFileSync(`${OUT}/share.json`, JSON.stringify({built: new Date().toISOString(), w: data.W.map(r => r.raw), s: 1, o: data.O.map(r => r.id)}));
+// RSS: newest first, one item per graded move, so a reader or an RSS-to-X service can follow the Wire
+const rfc = d => new Date(String(d).slice(0, 10) + 'T17:00:00Z').toUTCString();
+const feedRows = data.W.slice().sort((a, b) => String(b.d).localeCompare(String(a.d))).slice(0, 40);
+fs.writeFileSync(`${OUT}/feed.xml`, `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>
+<title>Front Office Ledger: The Wire</title>
+<link>https://frontofficeledger.com/#view=wire</link>
+<atom:link href="https://frontofficeledger.com/feed.xml" rel="self" type="application/rss+xml"/>
+<description>Every MLB move of the 2026-27 winter, graded the day it happens.</description>
+<language>en-us</language>
+${feedRows.map(r => `<item><title>${esc(r.h)}</title><link>https://frontofficeledger.com/w/${r.id}</link><guid isPermaLink="true">https://frontofficeledger.com/w/${r.id}</guid><pubDate>${rfc(r.d)}</pubDate><description>${esc(r.desc)}</description></item>`).join('\n')}
+</channel></rss>
+`);
 console.log(`share pages written: ${made.w} moves (of ${data.W.length}), ${made.s} clubs (of ${data.S.length}), ${made.o} winters (of ${data.O.length}) -> ${OUT}`);
 await b.close();
