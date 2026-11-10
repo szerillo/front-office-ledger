@@ -1,0 +1,300 @@
+{
+ "_about": "Players named in trade reports this winter, read by the trade block, the club pages and trade pick'em. rows: [MLBAM id, rank on MLB Trade Rumors' top trade candidates list (0 = not ranked), reporter credited ('' = none), why in our own words (short, no player name), 1 if a long shot]. off: ids reported as NOT available, with the note. names is for people reading this file; the page ignores it.",
+ "asof": "Nov 10",
+ "updated": "2026-11-10",
+ "sources": [
+  "https://www.mlbtraderumors.com/2026/10/top-trade-candidates-mlb-offseason-2026-27.html",
+  "https://www.mlb.com/news/mlb-rumors-and-2026-27-free-agent-news-november-4",
+  "https://www.mlb.com/news/mlb-rumors-and-2026-27-free-agent-news-november-9",
+  "https://www.mlbtraderumors.com/",
+  "https://www.cbssports.com/mlb/news/mlb-rumors-gm-meetings-trades-cubs-tarik-skubal/"
+ ],
+ "rows": [
+  [
+   672282,
+   1,
+   "",
+   "career year, two years of control, a club without a direction"
+  ],
+  [
+   656876,
+   2,
+   "Jeff Passan, ESPN",
+   "$20M option picked up; the Rays say they intend to keep him for now"
+  ],
+  [
+   687263,
+   3,
+   "",
+   "three years of control if the Angels rebuild"
+  ],
+  [
+   669923,
+   4,
+   "",
+   "Seattle has starters to spare"
+  ],
+  [
+   676106,
+   5,
+   "",
+   "four years of control from a deep rotation"
+  ],
+  [
+   606466,
+   6,
+   "Steve Gilbert, MLB.com",
+   "Arizona is listening again; he holds a full no-trade clause"
+  ],
+  [
+   682928,
+   7,
+   "",
+   "two arbitration years left"
+  ],
+  [
+   670623,
+   8,
+   "",
+   "crowded Houston infield"
+  ],
+  [
+   572233,
+   9,
+   "",
+   "one year left on a crowded infield"
+  ],
+  [
+   676475,
+   10,
+   "",
+   "two years of control on a club in transition"
+  ],
+  [
+   680757,
+   11,
+   "",
+   "arbitration salary climbing, a year from free agency; Cleveland says it expects him back"
+  ],
+  [
+   680776,
+   12,
+   "",
+   "down year in a crowded outfield"
+  ],
+  [
+   594798,
+   13,
+   "Jon Heyman, New York Post",
+   "Texas wants to cut payroll; full no-trade clause"
+  ],
+  [
+   608369,
+   14,
+   "Jon Heyman, New York Post",
+   "Texas will consider it to cut payroll; full no-trade clause"
+  ],
+  [
+   663616,
+   15,
+   "",
+   "last arbitration year, outfield depth behind him"
+  ],
+  [
+   606192,
+   16,
+   "",
+   "last guaranteed year, young outfielders arriving"
+  ],
+  [
+   669022,
+   17,
+   "",
+   "one year of control"
+  ],
+  [
+   665161,
+   18,
+   "",
+   "a year from free agency, no extension in sight"
+  ],
+  [
+   646240,
+   19,
+   "",
+   "big contract on a club that may want flexibility"
+  ],
+  [
+   696100,
+   20,
+   "",
+   "three years of control on a rebuilding club"
+  ],
+  [
+   669127,
+   21,
+   "",
+   "two arbitration years on a rebuilding club"
+  ],
+  [
+   679529,
+   22,
+   "",
+   "Detroit may turn over its lineup"
+  ],
+  [
+   664983,
+   23,
+   "",
+   "affordable outfielder on a rebuilding club"
+  ],
+  [
+   699625,
+   24,
+   "",
+   "blocked behind the plate"
+  ],
+  [
+   579328,
+   25,
+   "",
+   "final contract year on a retooling club"
+  ],
+  [
+   683734,
+   26,
+   "",
+   "final control year after a breakout"
+  ],
+  [
+   656730,
+   27,
+   "",
+   "final control year for a closer"
+  ],
+  [
+   669016,
+   28,
+   "",
+   "final arbitration year after a poor second half"
+  ],
+  [
+   666176,
+   29,
+   "",
+   "final arbitration year"
+  ],
+  [
+   669387,
+   30,
+   "",
+   "squeezed out of a full rotation"
+  ],
+  [
+   701542,
+   31,
+   "",
+   "rotation depth in New York"
+  ],
+  [
+   677960,
+   32,
+   "",
+   "rotation depth in New York"
+  ],
+  [
+   665795,
+   33,
+   "",
+   "two arbitration years left after a rough first season in Chicago"
+  ],
+  [
+   641857,
+   34,
+   "",
+   "$16M salary in his final year"
+  ],
+  [
+   683011,
+   35,
+   "",
+   "buy-low shortstop without a clear spot"
+  ],
+  [
+   668904,
+   36,
+   "",
+   "uneven seasons, infield options behind him"
+  ],
+  [
+   694497,
+   0,
+   "MLB Trade Rumors",
+   "Texas is looking at center fielders; his value is down after hip surgery"
+  ],
+  [
+   607208,
+   0,
+   "Bob Nightengale, USA Today",
+   "reported available after a career-worst season"
+  ],
+  [
+   543135,
+   0,
+   "Jon Heyman, New York Post",
+   "Texas will consider it to free up payroll"
+  ],
+  [
+   683002,
+   0,
+   "Andy Kostka, Baltimore Banner",
+   "Baltimore would listen, at a steep price",
+   1
+  ]
+ ],
+ "off": {
+  "660670": "Atlanta is not moving him (Jon Paul Morosi, MLB Network, Nov 9)"
+ },
+ "names": {
+  "672282": "Reid Detmers",
+  "656876": "Drew Rasmussen",
+  "687263": "Zach Neto",
+  "669923": "George Kirby",
+  "676106": "Emerson Hancock",
+  "606466": "Ketel Marte",
+  "682928": "CJ Abrams",
+  "670623": "Isaac Paredes",
+  "572233": "Christian Walker",
+  "676475": "Alec Burleson",
+  "680757": "Steven Kwan",
+  "680776": "Jarren Duran",
+  "594798": "Jacob deGrom",
+  "608369": "Corey Seager",
+  "663616": "Trevor Larnach",
+  "606192": "Teoscar Hernández",
+  "669022": "MacKenzie Gore",
+  "665161": "Jeremy Peña",
+  "646240": "Rafael Devers",
+  "696100": "Hunter Goodman",
+  "669127": "Shea Langeliers",
+  "679529": "Spencer Torkelson",
+  "664983": "Jake McCarthy",
+  "699625": "Jimmy Crooks",
+  "579328": "Yusei Kikuchi",
+  "683734": "Andrew Vaughn",
+  "656730": "Trevor Megill",
+  "669016": "Brandon Marsh",
+  "666176": "Jo Adell",
+  "669387": "Carmen Mlodzinski",
+  "701542": "Will Warren",
+  "677960": "Ryan Weathers",
+  "665795": "Edward Cabrera",
+  "641857": "Ryan McMahon",
+  "683011": "Anthony Volpe",
+  "668904": "Royce Lewis",
+  "607208": "Trea Turner",
+  "543135": "Nathan Eovaldi",
+  "683002": "Gunnar Henderson",
+  "694497": "Evan Carter"
+ }
+}
