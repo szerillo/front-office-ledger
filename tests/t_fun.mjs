@@ -10,14 +10,15 @@ const R = await d.page.evaluate(async () => {
   o.homeIsDefault = typeof routeView === 'function';
   o.pickerHas30 = document.querySelectorAll('#hub-team option').length === 31 && !document.querySelector('#homebody .tchips');
   o.heistOfDay = !!document.querySelector('#homebody .heist') || /Heist of the day/.test(document.getElementById('homebody').textContent);
-  o.hubTeasers = ['Trade Grade', 'The best front offices in baseball', 'Run a winter', 'Scenario of the day', 'Signing of the day', 'GM rivalry of the week', 'Remember Some Dudes', 'Featured farm system', 'Champion of the week', 'Will they take the QO?'].every(x => document.getElementById('homebody').textContent.includes(x));
-  o.hubOrder = [...document.querySelectorAll('#homebody .hub-sec h3')].map(h => h.textContent).join('|') === 'This winter|Play|The front office rankings|From the archive' && document.querySelectorAll('#homebody .hub-arch6 > .card').length === 6 && [...document.querySelectorAll('#homebody .hub-arch6 .home-kick')].map(k => k.textContent).join('|') === 'Trade of the day|Signing of the day|Tree of the day|Champion of the week|Org stat of the day|GM rivalry of the week';
+  o.hubTeasers = ['Trade Grade', 'The best front offices in baseball', 'Run a winter', 'Scenario of the day', 'Signing of the day', 'GM rivalry of the week', 'Remember Some Dudes', 'Featured farm system', 'Champion of the week', "Pick'em"].every(x => document.getElementById('homebody').textContent.includes(x));
+  o.hubOrder = [...document.querySelectorAll('#homebody .hub-sec h3')].map(h => h.textContent).join('|') === 'This winter|The front office rankings|From the archive' && document.querySelectorAll('#homebody .hub-arch6 > .card').length === 6 && [...document.querySelectorAll('#homebody .hub-arch6 .home-kick')].map(k => k.textContent).join('|') === 'Trade of the day|Signing of the day|Tree of the day|Champion of the week|Org stat of the day|GM rivalry of the week';
   o.rankByRate = folActiveRank().every((r, i, a) => i === 0 || a[i - 1].gradeRate >= r.gradeRate) && (() => { const rows = [...document.querySelectorAll('#homebody .hub-lbcard .hub-lb:not(.hub-lbhead)')]; const v = rows.map(x => parseFloat(x.querySelector('.hl-ps').textContent)); return rows.length === 8 && /Strength: /.test(rows[0].textContent) && !/Best at/.test(rows[0].textContent) && v.every((x, i) => i === 0 || v[i - 1] >= x); })();
   o.toComeOnReportCard = (() => { const r = curRegOf('MIL'); const rows = regimeTrades(r); return rows.some(x => rcToCome(x, 'MIL') != null) && /Still to come/.test(allTradesTable(r)); })();
   o.champLine48 = Math.abs(folChampLine() - 48) < 1.5;
   o.heistContext = (() => { const t = folTrades().find(x => x.d.startsWith('2003-11') && x.S.some(s => s.ab === 'SF') && x.S.some(s => s.ab === 'MIN')); const c = t && folHeistCtx(t); return c && c.contender && c.r.w === 100; })();
   o.heistsRankedInContext = (() => { const xs = folTrades().slice().sort((a, b) => folHeistAdj(b) - folHeistAdj(a)); return xs.length > 100 && folHeistAdj(xs[0]) >= folHeistAdj(xs[1]); })();
-  o.hubPlayRail = (() => { const gs = [...document.querySelectorAll('#homebody .hp-group')]; if(gs.length !== 2) return false; const t = g => [...g.querySelectorAll('.pt-t')].map(x => x.textContent); const a = t(gs[0]), b = t(gs[1]); return a.length === 4 && a[0] === 'Trade Grade' && a[3] === 'Remember Some Dudes' && /QO/.test(a[2]) && b.length === 3 && b[0] === 'Price any trade' && b[1] === 'Run a winter' && /Daily games/.test(gs[0].textContent) && /Run the front office/.test(gs[1].textContent); })() && !!document.querySelector('#homebody .hub-cols .hub-left #hub-wire');
+  // Nov 10: Play is one stacked card at the top of the right column (the tile rows took too much room)
+  o.hubPlayRail = (() => { const rows = [...document.querySelectorAll('#homebody .hub-cols .hub-right .hub-play .hp-row strong')].map(x => x.textContent); return rows.join('|') === "Trade Grade|Remember Some Dudes|Pick'em|Deal Desk|Offseason Simulator|Scenario of the day" && document.querySelector('#homebody .hub-right').firstElementChild.classList.contains('hub-play'); })() && !!document.querySelector('#homebody .hub-cols .hub-left #hub-wire');
   o.hubSections = /champion line 48/.test(document.getElementById('homebody').textContent) && /Org stat of the day/.test(document.getElementById('homebody').textContent) && /Ledger/.test(document.querySelector('#homebody .hub-fa2').textContent) && /Published/.test(document.querySelector('#homebody .hub-fa2').textContent) && /front offices/.test(document.querySelector('#homebody .hub-stats').textContent) && /\(#\d+ of 30\)/.test(document.getElementById('homebody').textContent);
   document.getElementById('hub-find').value = 'Friedman'; folHubFind();
   o.hubSearch = /Andrew Friedman/.test(document.getElementById('hub-find-out').textContent) && /report card/.test(document.getElementById('hub-find-out').textContent);
@@ -45,7 +46,7 @@ const R = await d.page.evaluate(async () => {
   o.navOrder = [...document.querySelectorAll('nav .navtop button')].map(b => b.dataset.view || b.dataset.sec).join() === 'home,winter,fo,hist,play' && [...document.querySelectorAll('nav [data-view]')].length === 20;
   o.navOneRowOpen = (() => { switchView('heists'); const open = [...document.querySelectorAll('nav .navgrp')].filter(g => !g.hidden); const ok = open.length === 1 && open[0].dataset.sec === 'hist' && document.querySelector('nav .navtop button[data-sec="hist"]').classList.contains('on') && document.querySelector('nav button[data-view="heists"]').classList.contains('on'); switchView('home'); return ok && [...document.querySelectorAll('nav .navgrp')].every(g => g.hidden); })();
   o.navDoorOpensFirstPage = (() => { document.querySelector('nav .navtop button[data-sec="fo"]').click(); const ok = routeView() === 'leaderboard'; switchView('home'); return ok; })();
-  o.navQuizUnderPlayGM = (() => { const g = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view + (b.dataset.tab ? ':' + b.dataset.tab : '')); return g.slice(-5).join() === 'desk,gm,scen,quiz,dudes' && g.join().includes('wire:feed,stove,boards:fa,boards:pros,pickem,horizon') && g.join().includes('heists,offs,trees'); })();
+  o.navQuizUnderPlayGM = (() => { const g = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view + (b.dataset.tab ? ':' + b.dataset.tab : '')); return g.slice(-6).join() === 'desk,gm,scen,quiz,dudes,pickem' && g.join().includes('wire:feed,stove,boards:fa,boards:pros,horizon') && g.join().includes('heists,offs,trees') && /Club by Club/.test(document.querySelector('nav button[data-view="stove"]').textContent); })();
   // heists: biggest first, and a club filter shows that club's side
   switchView('heists'); await wait(50);
   const gaps = folTrades().map(t => t.gap).sort((a, b) => b - a);
@@ -191,9 +192,11 @@ Object.assign(R, await d.page.evaluate(async (offsJson) => {
   o.stoveHub = document.querySelectorAll('#stovebody .st-club').length === 30;
   stoveGo('ATL'); await wait(60);
   const sv = document.getElementById('stovebody').textContent;
-  o.stoveClub = /Atlanta Braves/.test(sv) && /Gained/.test(sv) && /Lost/.test(sv) && /still unsigned/.test(sv) && /On the trade block/.test(sv) && /What the roster still needs/.test(sv) && /view=stove&id=atl/.test(location.hash) && /Braves hot stove/.test(document.title);
+  o.stoveClub = /Atlanta Braves/.test(sv) && /Gained/.test(sv) && /Lost/.test(sv) && /still unsigned/.test(sv) && /On the trade block/.test(sv) && /What the roster still needs/.test(sv) && /view=stove&id=atl/.test(location.hash) && /Braves: the 2026-27 winter/.test(document.title);
   switchView('home'); await wait(60);
-  o.stoveTitleReset = !/hot stove/.test(document.title) && !!document.getElementById('hub-offs');
+  o.stoveTitleReset = !/winter so far/.test(document.title) && !!document.getElementById('hub-offs');
+  // Play is one stacked card on the right of the home page: six rows, no tile grid
+  o.playStacked = document.querySelectorAll('#homebody .hub-right .hub-play .hp-row').length === 6 && !document.querySelector('#homebody .hp-tiles');
   // the morning line: three boxes, each a kicker, one line and one note; the club picker opens the winter page
   o.morningLine = document.querySelectorAll('#hub-line .ml-box').length === 3 && [...document.querySelectorAll('#hub-line .ml-box')].every(b => b.querySelectorAll('.home-kick').length === 1 && b.querySelectorAll('strong').length === 1 && b.querySelectorAll('.ttype').length === 1) && /Today's games/.test(document.getElementById('hub-line').textContent);
   o.clubPickerToStove = (() => { const sel = document.getElementById('hub-team'); sel.value = 'SEA'; sel.onchange(); const ok = routeView() === 'stove' && stoveState.club === 'SEA'; switchView('home'); return ok; })();
@@ -201,6 +204,66 @@ Object.assign(R, await d.page.evaluate(async (offsJson) => {
   shareLoadData({w: ['123'], s: 1, o: ['2011-ath']});
   o.shareLinks = wireUrl({id: '123'}) === 'https://frontofficeledger.com/w/123' && /#view=wire&id=999/.test(wireUrl({id: '999'})) && stoveUrl('NYM') === 'https://frontofficeledger.com/s/nym' && offsUrl('2011-ath') === 'https://frontofficeledger.com/o/2011-ath' && /#view=winters/.test(offsUrl('2001-nym'));
   shareLoadData({});
+  // trade pick'em: two dozen reported candidates, a call sticks, a Wire trade scores it, the calls card counts it
+  try { Object.keys(localStorage).filter(k => /^fol-tp-/.test(k)).forEach(k => localStorage.removeItem(k)); } catch(e){}
+  WIRE.items = []; switchView('pickem'); await wait(80);
+  const tpc = () => document.querySelector('#view-pickem .wire-tp');
+  const pool = tpPool();
+  o.tpCardShown = !!tpc() && pool.length >= 20 && pool.length <= 24 && pool.every(x => !x.r.long) && tpc().querySelectorAll('.wq-row').length === pool.length && /Traded this winter/.test(tpc().textContent);
+  const a = pool[0].p, b = pool[1].p;
+  tpCall(a[1], 'y'); tpCall(b[1], 'n'); await wait(120);
+  o.tpCallSticks = tpMine(a[1]).call === 'y' && tpMine(b[1]).call === 'n' && /Your call: traded/.test(tpc().textContent) && /Your call: stays/.test(tpc().textContent) && !!tpc().querySelector('select[aria-label^="Where"]');
+  tpCall(a[1], 'n'); o.tpNoSecondCall = tpMine(a[1]).call === 'y';
+  const dest = Object.keys(DESK.teams).find(ab => ab !== a[2]);
+  tpTeam(a[1], dest); await wait(60);
+  WIRE.items = [{id: 'tp-test', kind: 'trade', d: '2026-11-12', who: [{pid: a[1], name: a[0], from: a[2], to: dest}]}]; pkRedraw(); await wait(80);
+  o.tpScored = tpMoved(a[1]).to === dest && /You called the club too/.test(tpc().textContent) && /Trades\s*1 for 1/.test(document.querySelector('#view-pickem').textContent);
+  WIRE.items = []; try { Object.keys(localStorage).filter(k => /^fol-tp-/.test(k)).forEach(k => localStorage.removeItem(k)); } catch(e){}
+  // price and best fits fold open on a candidate; the offer opens at the Deal Desk
+  WIRE.items = []; pkRedraw(); await wait(60);
+  const fitP = pool.map(x => x.p).find(p => tpFits(p).offers.length >= 2);
+  tpToggle(fitP[1]); await wait(60);
+  o.tpFitsOpen = !!tpc().querySelector('.tp-fits') && /The Ledger's price/.test(tpc().querySelector('.tp-fits').textContent) && tpc().querySelectorAll('.tp-fit').length === tpFits(fitP).offers.length;
+  tpBuild(fitP[1], tpFits(fitP).offers[0].buyer); await wait(80);
+  o.tpFitsToDesk = routeView() === 'desk' && dkState.mode === 'trade' && dkState.you === fitP[2] && dkState.send.length === 1 && dkState.send[0].p[1] === fitP[1] && dkState.recv.length >= 1;
+  document.querySelectorAll('.fol-pop, .dk-pop, .modal.on').forEach(e => e.remove()); try { dkPopClose(); } catch(e){}
+  dkState.send = []; dkState.recv = []; dkState.mode = 'trade'; tpToggle(fitP[1]);
+  // one streak for the three daily games, and one card to copy
+  const dday = Math.floor(Date.now() / 864e5), lsKeep = {};
+  ['fol-quiz-day-' + dday, 'fol-quiz-day-' + (dday - 1), 'fol-dudes-d2-' + dday, 'fol-dudes-d2-' + (dday - 1), 'fol-dudes-d2-' + (dday - 2), 'fol-daily-sc-' + dday].forEach(k => { lsKeep[k] = localStorage.getItem(k); localStorage.removeItem(k); });
+  o.dailyZero = folDailyDays() === 0 && folQuizDays() === 0 && dudesDays() === 0;
+  dudesStore('d2-' + (dday - 2), [true, false]); folQuizStore('day-' + (dday - 1), [true, true, false, true, true]);
+  o.dailyCarries = folDailyDays() === 2;      // yesterday and the day before, by two different games; today not played yet
+  const dly = folDailyScen(); scState.idx = dly.k; switchView('scen'); await wait(80);
+  const ds = scAll()[dly.k]; scAct(ds.kind === 'block' ? 'hold' : ds.type === 'trade' || !ds.type ? 'reject' : 'pass'); await wait(60);
+  o.dailyScenCounts = !!folDailyGet(dday).s && folDailyDays() === 3 && /Scenario of the day: process \d+\/100/.test(folDailyText()) && /3 days in a row/.test(folDailyText());
+  switchView('home'); await wait(120);
+  o.dailyFoot = /1 of 3 daily games played/.test(document.querySelector('.hub-play .hp-foot').textContent) && /3 days in a row/.test(document.querySelector('.hub-play .hp-foot').textContent) && document.querySelectorAll('#homebody .hub-right .hub-play .hp-row').length === 6
+    && /2 games still to play/.test(document.getElementById('hub-line').textContent);
+  Object.entries(lsKeep).forEach(([k, v]) => { if(v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); }); delete scState.played[ds.id];
+  // tale of the tape: two front offices, a tally that adds up, a link that restores the pair
+  switchView('h2h'); await wait(80);
+  const bt = () => document.getElementById('bt-card'), reg = btAll();
+  const rws = btRows(reg.find(r => r.id === btState.a), reg.find(r => r.id === btState.b)), tl = btTally(rws);
+  o.battleCard = !!bt() && bt().querySelectorAll('.bt-row').length === rws.length + 3 && tl.a + tl.b <= tl.n && rws[0].k === 'overall' && bt().querySelectorAll('.bt-win').length === rws.filter(r => r.w).length && btState.a !== btState.b;
+  btPick('a', btState.b); await wait(40);
+  o.battleNoSelf = btState.a !== btState.b && /vs=/.test(location.hash);
+  const two = reg.slice(-2).map(r => r.id); routeApply('#view=h2h&vs=' + two.join('~')); await wait(80);
+  o.battleRoute = btState.a === two[0] && btState.b === two[1] && bt().textContent.includes(reg.find(r => r.id === two[0]).exec);
+  btState.set = false;
+  // club by club: every tile carries the same three lines
+  WIRE.items = []; stoveGo(''); await wait(80);
+  const tiles = [...document.querySelectorAll('#stovebody .st-club')];
+  o.clubTilesEven = tiles.length === 30 && tiles.every(t => t.querySelectorAll('.wr-best').length === 1 && t.querySelectorAll('.st-last').length === 1) && new Set(tiles.map(t => Math.round(t.getBoundingClientRect().height))).size === 1;
+  // trade reports come from rumors.json; a bad file leaves the built-in list alone
+  const keep = JSON.parse(JSON.stringify(TRADE_RUMORS)), keepOff = TRADE_OFF, n0 = TRADE_RUMORS.rows.length;
+  rumorsLoadData(null); rumorsLoadData({rows: []}); rumorsLoadData({rows: 'x'});
+  o.rumorsBadFileIgnored = TRADE_RUMORS.rows.length === n0 && !!TRADE_OFF[660670];
+  const tt = DESK.players.find(p => p[0] === 'Trea Turner');
+  rumorsLoadData({asof: 'Dec 1', rows: [[tt[1], 1, 'A Reporter', 'test reason'], ['junk'], [0, 1, '', '']], off: {}});
+  o.rumorsFileApplied = TRADE_RUMORS.rows.length === 1 && TRADE_RUMORS.asof === 'Dec 1' && dkRumor(tt[1]).why === 'test reason' && !dkRumor(pool[0].p[1]) && !TRADE_OFF[660670] && tpPool().length === 1;
+  TRADE_RUMORS.rows = keep.rows; TRADE_RUMORS.asof = keep.asof; TRADE_OFF = keepOff; dkRumor._m = null; dkAvailList._c = null;
+  o.rumorsRestored = tpPool().length === pool.length;
   WIRE.items = null;
   return o;
 }, offsJson));
@@ -215,6 +278,14 @@ Object.assign(R, await m.page.evaluate(async () => {
   folTeamSet('NYY');
   for(const v of ['home', 'heists', 'quiz', 'desk', 'gm']){ switchView(v); await wait(250); if(over() > 2) wide.push(v + ':' + over()); }
   dkEval(); await wait(30); if(over() > 2) wide.push('popup:' + over());
+  // phones: Play sits right after the Wire on home, ahead of the free agent and winter tiles
+  switchView('home'); await wait(250);
+  const top = q => { const e = document.querySelector(q); return e ? e.getBoundingClientRect().top + scrollY : -1; };
+  o.phonePlayAfterWire = top('#hub-wire') < top('.hub-play') && top('.hub-play') < top('.hub-pair') && top('.hub-pair') < top('#hub-winter');
+  // phones: the tale of the tape fits without sideways scroll
+  switchView('h2h'); await wait(250); if(over() > 2) wide.push('h2h:' + over());
+  switchView('pickem'); await wait(250); if(over() > 2) wide.push('pickem:' + over());
+  stoveGo(''); await wait(250); if(over() > 2) wide.push('clubs:' + over());
   o.phoneNewViewsFit = wide.length === 0; if(wide.length) o.phoneWide = wide.join(' ');
   try { localStorage.removeItem('fol-team'); } catch(e){}
   return o;

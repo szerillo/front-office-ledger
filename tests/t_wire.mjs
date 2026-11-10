@@ -62,6 +62,9 @@ const R = await d.page.evaluate(async ({fx, dz}) => {
   // your grade beside the Ledger's
   wireMine('990003', 'B'); await wait(30);
   o.yourGrade = /Ledger: [A-F]/.test(document.getElementById('wi-990003').textContent);
+  // readers' grades pooled: five counters a move; the harness answers 5 for each, which averages to a C on 25 grades
+  await wait(500);
+  o.readersGrade = /Readers: C on 25 grades/.test(document.getElementById('wi-990003').textContent) && wgKey('a b/c', 'A') === 'wg-a-b-c-A';
   // filters: one club, trades only
   wireSetFilt('club', 'TB'); await wait(30);
   o.clubFilter = [...document.querySelectorAll('#wirebody .wire-item')].every(e => e.querySelector('.wi-tc') && [...e.querySelectorAll('.wi-tc')].some(t => t.textContent === 'TB')) && /id=tb/.test(location.hash);
