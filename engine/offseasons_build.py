@@ -26,6 +26,22 @@ def exec_on(ab, d):
     return "", ""
 W = defaultdict(lambda: dict(tr=0.0, trN=0, fa=0.0, faN=0, faM=0.0, moves=[]))
 nm = lambda pid: NM.get(str(pid), "")
+LVM = json.load(open(R + "lvm_cache.json"))
+def career(pid, d):
+    y = int(d[:4]) + (1 if int(d[5:7]) >= 10 else 0)        # seasons finished before the deal
+    return sum(max(r[2], 0) for r in (LVM.get(str(pid)) or {}).get("rows", []) if r[0] < y)
+def star(xs, d):
+    """the best-known player in a list of [pid, value]: most career WAR before the trade when someone had 15 or more, else the one who produced most afterward"""
+    if not xs: return ""
+    best = max(xs, key=lambda x: (round(career(x[0], d), 1), x[1]))
+    if career(best[0], d) < 15: best = max(xs, key=lambda x: x[1])     # no established star: the name fans know now
+    return best[0]
+STARS = {}
+for d, seats in tb["trades"]:
+    if len(seats) == 2 and sum(len(s[2]) for s in seats) >= 4:
+        for ab, net, got, gave in seats:
+            if got: STARS[f"{d}|{ab}"] = int(star(got, d))
+json.dump(STARS, open(R + "trade_stars.json", "w"), separators=(",", ":"))
 for d, seats in tb["trades"]:
     w = winter_of(d)
     if w is None or w < 1998 or w > 2025: continue
@@ -34,8 +50,16 @@ for d, seats in tb["trades"]:
         g = sorted(got, key=lambda x: -x[1]); o = sorted(gave, key=lambda x: -x[1])
         gn = [nm(p) for p, _ in g[:2] if nm(p)]; on = [nm(p) for p, _ in o[:2] if nm(p)]
         if not gn and not on: continue
-        label = (f'Got {" and ".join(gn)}' if gn else "Cash or a player to be named") + (f' for {" and ".join(on)}' if on else "")
-        k["moves"].append(["t", d, label, round(net, 1), (g[0][0] if g else (o[0][0] if o else ""))])
+        if len(got) + len(gave) >= 4:
+            # a big trade is named for the best-known player on each side (most career WAR at the time)
+            sg, so = star(got, d), star(gave, d)
+            side = lambda st, xs: (nm(st) + (f" and {len(xs) - 1} other{'s' if len(xs) > 2 else ''}" if len(xs) > 1 else "")) if st and nm(st) else ""
+            label = (f"Got {side(sg, got)}" if side(sg, got) else "Cash or a player to be named") + (f" for {side(so, gave)}" if side(so, gave) else "")
+            lead = sg or (g[0][0] if g else "")
+        else:
+            label = (f'Got {" and ".join(gn)}' if gn else "Cash or a player to be named") + (f' for {" and ".join(on)}' if on else "")
+            lead = (g[0][0] if g else (o[0][0] if o else ""))
+        k["moves"].append(["t", d, label, round(net, 1), lead])
 seen = set()
 for r in sweep + hist:
     for row in r.get("allx_fa") or []:
