@@ -3,8 +3,8 @@
 import sys, warnings, itertools, numpy as np, pandas as pd
 warnings.filterwarnings('ignore')
 from value import compute
-def evaluate(**kw):
-    sk, go, tm, rr, grepl, gpw = compute(**kw)
+def evaluate(**kw): return evaluate_t(*compute(**kw))
+def evaluate_t(sk, go, tm, rr, grepl, gpw):
     seasons = sorted(tm.seasonId.unique()); nxt = dict(zip(seasons[:-1], seasons[1:]))
     ps = sk.groupby(['playerId', 'seasonId', 'pos', 'era']).agg(gaa=('gaa', 'sum'), gar=('gar', 'sum'), t=('timeOnIce', 'sum')).reset_index()
     ps['n'] = ps.seasonId.map(nxt); m = ps.merge(ps, left_on=['playerId', 'n'], right_on=['playerId', 'seasonId'], suffixes=('', '2'))

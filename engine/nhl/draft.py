@@ -1,7 +1,8 @@
 # Draft channel, first cut: every pick since 1998 against what its slot usually returns while the club
 # controls the player, in v0 wins. Needs player_seasons.csv (value.py) and draft/*.json (records.nhl.com).
 import json, glob, numpy as np, pandas as pd
-ps = pd.read_csv('player_seasons.csv'); bio = pd.read_pickle('bio.pkl')
+import sys
+ps = pd.read_csv(sys.argv[1] if len(sys.argv) > 1 else 'player_seasons.csv'); bio = pd.read_pickle('bio.pkl')
 picks = pd.DataFrame([r for f in sorted(glob.glob('draft/d*.json')) for r in json.load(open(f))['data']])
 picks = picks[(picks.draftYear >= 1998) & (picks.supplementalDraft != 'Y')].copy()
 picks['posg'] = picks.position.map(lambda p: 'G' if p == 'G' else 'D' if p == 'D' else 'F')
