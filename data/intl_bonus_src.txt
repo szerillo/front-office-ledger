@@ -1,0 +1,807 @@
+# International amateur signing bonuses, by signing class (year the period opened).
+# Source: MLB.com signing-day trackers (top-50 list plus "other prospects signing for $300,000 or more"),
+#   2021: mlb.com/news/mlb-international-signing-day-2020-21
+#   2022: mlb.com/news/mlb-international-prospects-signing-day-2021-22
+#   2023: mlb.com/news/mlb-international-prospects-signing-day-2023
+#   2024: mlb.com/news/mlb-international-prospects-signing-day-2024
+#   2025: mlb.com/news/mlb-international-prospects-signing-day-2025
+#   2026: mlb.com/news/mlb-international-prospects-signing-day-2026
+# plus single-player lines marked with their own source. Format: Name|Club|bonus in $K
+@2021
+Yoelqui Cespedes|White Sox|2050
+Wilman Diaz|Dodgers|2697.5
+Carlos Colmenarez|Rays|3000
+Armando Cruz|Nationals|3900
+Cristian Hernandez|Cubs|3000
+Pedro Leon|Astros|4000
+Jesus Galiz|Dodgers|812.5
+Rickardo Perez|Phillies|1000
+Yiddi Cappe|Marlins|3500
+Shalin Polanco|Pirates|2350
+Daniel Vazquez|Royals|1497.5
+Pedro Pineda|Athletics|2500
+Cristian Santana|Tigers|2975
+Norge Vera|White Sox|1500
+Danny De Andrade|Twins|2200
+Jhonny Piron|Rays|1825
+Jackson Chourio|Brewers|1800
+Victor Acosta|Padres|1800
+Miguel Bleis|Red Sox|1500
+Diego Velasquez|Giants|900
+Angel Genao|Guardians|1175
+Manuel Beltre|Blue Jays|2350
+Fran Alduey|Guardians|1200
+Ariel Almonte|Reds|1850
+Abel Bastidas|Tigers|1175
+Fredy LaFlor|Twins|1100
+Denzer Guzman|Angels|2000
+Maikol Hernandez|Orioles|1200
+Rich Del Rosario|Astros|300
+Anderson Sanchez|Astros|350
+Luis Garcia|Blue Jays|520
+Martin Gimenez|Blue Jays|1000
+Jhonatan Peguero|Blue Jays|400
+Yhoangel Aponte|Blue Jays|360
+Yeuni Munoz|Blue Jays|315
+Ambioris Tavarez|Braves|1500
+Daniel Guilarte|Brewers|1000
+Gregory Barrios|Brewers|1000
+Hendry Mendez|Brewers|735
+Ney Serrano|Brewers|360
+Leonardo Bernal|Cardinals|680
+Elias Reynosa|Cardinals|575
+Carlos Carmona|Cardinals|350
+Christian Avendano|Cardinals|300
+Samil De La Rosa|Cardinals|300
+Moises Ballesteros|Cubs|1200
+Manuel Pena|D-backs|1200
+Ezequiel Surun|D-backs|425
+Rayne Doncon|Dodgers|497.5
+Ramon Peralta|Giants|597.5
+Brian Guzman|Giants|537.5
+Mauricio Pierre|Giants|490
+Samuel Rodriguez|Giants|442.5
+Robert Lopez|Guardians|1000
+Richard Polanco|Guardians|530
+Yefrii Rivera|Guardians|500
+Kevin Guerrero|Marlins|600
+Ronald Hernandez|Marlins|850
+Edward Duran|Marlins|450
+Yohairo Cuevas|Mets|500
+Elian Nunez|Mets|400
+Diego Mosquera|Mets|400
+Samuel Camacaro|Mets|330
+Lenerd Ramos|Mets|300
+Gustavo Marquez|Mets|300
+Gustavo Rivas|Nationals|450
+Samuel Basallo|Orioles|1300
+Wilmer Feliciano|Orioles|400
+Victor Celedonio|Orioles|360
+Eruviel Castillo|Orioles|350
+Anderson De Los Santos|Orioles|350
+Teudis Cortorreal|Orioles|350
+Yasmil Bucce|Orioles|300
+Samuel Zavala|Padres|1200
+Daniel Montesino|Padres|1000
+Bradgley Rodriguez|Padres|370
+Yemal Flores|Phillies|1300
+Marco Soto|Phillies|375
+Leonardo Rondon|Phillies|350
+Raylin Heredia|Phillies|300
+Jose Garces|Pirates|350
+Rubel Lebron|Pirates|350
+John Zorrilla|Pirates|450
+Yeison Morrobel|Rangers|1800
+Danyer Cueva|Rangers|1025
+Yeferson Tineo|Rangers|600
+Julio Pinto|Rangers|400
+Luis Ariza|Rays|430
+Malvin Valdez|Reds|1900
+Luis Reyes|Reds|680
+Brayan Rijo|Reds|750
+Carlos Jorge|Reds|495
+Jose Serrano|Reds|450
+Enderso Lira|Red Sox|850
+Luis Ravelo|Red Sox|545
+Jedixon Paez|Red Sox|450
+Ahbram Liendo|Red Sox|450
+Alvaro Mejias|Red Sox|300
+Jordy Vargas|Rockies|500
+Jose Colina|Rockies|300
+Luis Paredes|Rockies|300
+Bryan Perez|Rockies|750
+Felix Tena|Rockies|700
+Gabriel Terrero|Rockies|650
+Claudio Galva|Rockies|600
+Rony Cruz|Rockies|325
+Andy Perez|Rockies|300
+Diego Guzman|Royals|447.5
+Sebastian Ramirez|Royals|547.5
+Rayner Castillo|Tigers|600
+Carlos Pelegrin|Tigers|550
+Yimmy Diaz|Tigers|300
+Rafael Cruz|Twins|500
+Reynaldo Madrigal|Twins|400
+Luis Rodriguez|Twins|360
+Andres Centeno|Twins|300
+Hans Montero|Yankees|1600
+@2022
+Roderick Arias|Yankees|4000
+Cristhian Vaquero|Nationals|4925
+William Bergolla|Phillies|2050
+Oscar Colas|White Sox|2700
+Anthony Gutierrez|Rangers|1997.5
+Lazaro Montes|Mariners|2500
+Ryan Reckley|Giants|2200
+Diego Benitez|Braves|2500
+Tony Blanco Jr.|Pirates|900
+Yordany De Los Santos|Pirates|1200
+Javier Osorio|Tigers|2200
+Dyan Jorge|Rockies|2800
+Simon Juan|Mets|1900
+Yasser Mercedes|Twins|1700
+Alexis Hernandez|Cubs|1300
+Freili Encarnacion|Red Sox|1100
+Jaison Chourio|Guardians|1200
+Jhonny Severino|Brewers|1230
+Braylin Tavera|Orioles|1700
+Johan Barrios|Brewers|1385
+Yendry Rojas|Padres|1300
+Juan Olmos|Royals|797.5
+Jose De Jesus|Rangers|1197.5
+Erick Hernandez|White Sox|1000
+Nelson Rada|Angels|1850
+Juan Perez|Giants|1100
+Jarlin Susana|Padres|1700
+Luis Meza|Blue Jays|2050
+Johanfran Garcia|Red Sox|850
+Yilber Herrera|Twins|700
+Abdias De La Cruz|D-backs|1100
+Randy De Jesus|Angels|1200
+Bryan Acuna|Twins|650
+Victor Izturis|Guardians|1150
+Michael Arroyo|Mariners|1375
+Kenni Gomez|Astros|775
+Adan Sanchez|Cubs|1500
+Yoffry Solano|Marlins|750
+Henry Ramos|Royals|797.5
+Leandro Arias|Orioles|600
+Rosman Verdugo|Padres|700
+Martin Gonzales|Mariners|1300
+Fraymi De Leon|Red Sox|1200
+Railin Tejada|Blue Jays|600
+Jean Joseph|Blue Jays|450
+Raudy Gomez|Blue Jays|300
+Cesar Prieto|Orioles|650
+Edwin Amparo|Orioles|647.5
+Thomas Sosa|Orioles|400
+Felix Cotes|Rays|730
+Jose Sanabria|Rays|480
+Nicandro Aybar|Rays|450
+Rodrigo Romero|Rays|300
+Jancel Santana|Red Sox|600
+Natanael Yuten|Red Sox|400
+Rafael Ramirez|Guardians|800
+Yorfran John|Guardians|425
+Alberto Mendes|Guardians|320
+Erick Torres|Royals|497.5
+Ivan Sosa|Royals|497.5
+Samuel Gil|Tigers|1250
+Josue Briceno|Tigers|800
+Heison Sanchez|Tigers|800
+Franyerber Montilla|Tigers|500
+Jose Rodriguez|Twins|650
+Harold Grant|Twins|400
+Ricardo Pena|Twins|300
+Nixon Encarnacion|Angels|500
+Luis Rodriguez|Angels|500
+Dario Laverde|Angels|350
+Luis Baez|Astros|1300
+Alberto Hernandez|Astros|950
+Samuel Capellan|Astros|500
+Carlos Espinosa|Astros|480
+Rafael Ramirez|Astros|360
+Axell De Paula|Astros|300
+Carlos Pacheco|Athletics|1200
+Cesar Gonzalez|Athletics|800
+Kevin Dume|Athletics|600
+Byran Andrade|Athletics|525
+Daniel Bruzal|Rangers|397.5
+Jesus Lopez|Rangers|347.5
+Douglas Glod|Braves|1300
+Alexander Martinez|Braves|400
+Antony Peguero|Marlins|575
+Jhon Cabral|Marlins|400
+Santiago Suarez|Marlins|385
+Willy Fanas|Mets|1500
+Dangelo Sarmiento|Mets|700
+Aroon Escobar|Phillies|450
+Romel Mendez|Phillies|450
+Neify Rosario|Phillies|400
+Leny Carela|Phillies|400
+Nolan Beltran|Phillies|350
+Luis Lara|Brewers|1100
+Gery Holguin|Brewers|450
+Fabricio Valera|Brewers|400
+Jefferson Rojas|Cubs|1000
+Josefrailin Alcantara|Cubs|500
+Pitterson Rosa|Pirates|700
+Huang-Leng Chang|Pirates|500
+Eduardo Oviedo|Pirates|450
+Axiel Plaz|Pirates|350
+Carlos Tirado|Pirates|350
+Roinny Aguiar|Pirates|315
+Yerald Nin|D-backs|900
+Ruben Santana|D-backs|750
+Andy Encarnacion|D-backs|605
+Jansel Luis|D-backs|525
+Abel Fuerte|D-backs|450
+Omar Moya|D-backs|350
+Dennys Riera|Giants|700
+Alessandro Duran|Giants|397.5
+Erick Arosemena|Giants|369.7
+Maikol Munoz|Padres|900
+Oliver Cedeno|Padres|500
+Braian Salazar|Padres|500
+Estuar Suero|Padres|325
+Cesar Vargas|Rockies|750
+Kevin Hidalgo|Rockies|500
+Ervin Torres|Rockies|400
+# en.wikipedia.org/wiki/Josue_De_Paula
+Josue De Paula|Dodgers|397.5
+@2023
+Ethan Salas|Padres|5600
+Felnin Celesten|Mariners|4700
+Joendry Vargas|Dodgers|2077.5
+Alfredo Duno|Reds|3100
+Luis Morales|Athletics|3000
+Derniche Valdez|Cubs|2800
+Enmanuel Bonilla|Blue Jays|4100
+Sebastian Walcott|Rangers|3200
+Brando Mayea|Yankees|4350
+Ariel Castro|Twins|2400
+Brailer Guerrero|Rays|3700
+Jesus Caba|Phillies|3000
+Ludwing Espinoza|Cubs|1000
+Rayner Arias|Giants|2697.5
+Janero Miller|Marlins|950
+Camilo Diaz|Astros|2250
+Gian Zapata|D-backs|950
+Angel Cepeda|Cubs|1000
+Luis Almeyda|Orioles|2297.5
+Esmil Valencia|Astros|897.5
+Yophery Rodriguez|Brewers|1500
+Arnaldo Lantigua|Dodgers|697.5
+Robert Calaz|Rockies|1700
+Yoeilin Cespedes|Red Sox|1400
+Raymond Mola|Pirates|600
+Daiverson Gutierrez|Mets|1900
+Welbyn Francisca|Guardians|1375
+Anthony Baptist|Mets|1100
+Carlos Silva|Twins|1100
+Enrique Jimenez|Tigers|1250
+Filippo Di Turi|Brewers|1300
+Luis Guanipa|Braves|2500
+Kevin Ereu|Brewers|1400
+Reiner Lopez|Cardinals|500
+Yerlin Luis|Guardians|850
+Hendry Chivilli|Twins|2100
+Manuel Cabrera|Nationals|550
+Darling Fernandez|Athletics|750
+Luis Reyes|White Sox|700
+Jeter Martinez|Mariners|600
+Cristopher Larez|Mets|1400
+Maikol Orozco|Tigers|900
+Andy Acevedo|Nationals|1300
+Edwin Solano|Nationals|1300
+Jeremy Rodriguez|D-backs|1250
+Cristian Perez|Tigers|1100
+Marwys Jorge|Royals|450
+Felix Morrobel|Angels|900
+Byron Castillo|Angels|900
+Anyelo Marquez|Angels|600
+German Ramirez|Astros|1200
+Eduardo Perez|Astros|797.5
+Ramon Landaeta|Athletics|750
+David Guzman|Blue Jays|650
+Samuel Acuna|Blue Jays|300
+John Estevez|Braves|310
+Carlos Monteverde|Braves|600
+Antony Gomez|Brewers|600
+Joan Gutierrez|Brewers|325
+Luis Lameda|Brewers|320
+Bracewell Taveras|Cardinals|450
+Ruben Menes|Cardinals|400
+Angel Gil|Cardinals|375
+Yassel Soler|D-backs|425
+Jesus Tillero|Dodgers|497.5
+Daniel Mielcarek|Dodgers|397.5
+Chen-Hsun Lee|Giants|647.5
+Yosneiker Rivas|Giants|997.5
+Jose Marcano|Guardians|800
+Luis Merejo|Guardians|340
+Jose Pirela|Guardians|320
+Juan Frances|Guardians|320
+Jonathan Martinez|Guardians|300
+Sebastian De Andrade|Mariners|300
+Jancory De La Cruz|Marlins|405
+Manuel Genao|Marlins|300
+Osvaldo Heredia|Marlins|450
+Fabian Lopez|Marlins|650
+Joseph Tailor|Marlins|400
+Andres Valor|Marlins|520
+Breyias Dean|Marlins|325
+Daniel Gaitor|Marlins|300
+Daviel Hurtado|Mets|500
+Juan Obispo|Nationals|600
+Hector Liriano|Nationals|400
+Carlos Batista|Nationals|375
+Joshua Liranzo|Orioles|497.5
+Jose Mejia|Orioles|407.5
+Felix Amparo|Orioles|347.5
+Wen-Hui Pan|Phillies|350
+Jonathan Rivero|Pirates|840
+Carlos Mateo|Pirates|800
+Bladimir Pichardo|Pirates|750
+Wilian Trinidad|Rays|500
+Jose Monzon|Rays|300
+Franklin Arias|Red Sox|525
+Yoiber Ruiz|Red Sox|500
+Alfredo Alcantara|Reds|640
+Rafhlmil Torres|Reds|300
+Alessander De La Cruz|Rockies|650
+Yeiker Reyes|Rockies|500
+Jeremy Ciriaco|Rockies|500
+Alison Zacarias|Rockies|500
+Anibal Salas|Tigers|1000
+Juan Hernandez|Tigers|350
+Juan Hernandez|Twins|350
+Abraham Nunez|White Sox|700
+Angelo Hernandez|White Sox|500
+Rafael Alvarez|White Sox|350
+D'Angelo Tejada|White Sox|350
+Jerson Alejandro|Yankees|409
+# dodgerblue.com (Jan 27 2026): "a reported $297,500"
+Eduardo Quintero|Dodgers|297.5
+@2024
+Leo De Vries|Padres|4200
+Leodalis De Vries|Padres|4200
+Paulino Santana|Rangers|1300
+Jose Perdomo|Braves|5000
+Fernando Cruz|Cubs|4000
+Adolfo Sanchez|Reds|2700
+Yovanny Rodriguez|Mets|2850
+Dawel Joseph|Mariners|3300
+Daiber De Los Santos|Twins|1900
+Adriel Radney|D-backs|1850
+Eduardo Herrera|White Sox|1800
+Jorge Quintana|Brewers|1700
+Robert Arias|Guardians|1900
+Emil Morales|Dodgers|1900
+Francisco Vilorio|Yankees|1750
+Ashly Andujar|Rockies|1700
+Leonardo Pineda|Rays|1750
+Jalvin Arias|Phillies|1450
+Victor Hurtado|Nationals|2700
+Luis Cova|Marlins|1400
+Jesus Made|Brewers|950
+Angel Feliz|Nationals|1800
+Belfi Rivera|D-backs|1800
+Branneli Franco|Cardinals|800
+Franklin Rojas|Blue Jays|998
+Stiven Martinez|Orioles|950
+Curley Martha|Rangers|798
+Emilio Sanchez|Orioles|1300
+Yensi Rivas|Mets|500
+Angel Guzman|Blue Jays|768
+Vladimir Asencio|Red Sox|1000
+Andres Arias|Blue Jays|898
+Oscar Pujols|Rockies|600
+Yohendry Sanchez|Giants|1400
+Joswa Lugo|Angels|2300
+Bralyn Brazoban|Pirates|2000
+Eduardo Beltre|Twins|1500
+Edward Lantigua|Mets|950
+Naibel Mariano|Reds|1650
+Edgar Montero|Athletics|1200
+Jhonny Level|Giants|998
+Nestor Miranda|Tigers|1500
+Yolfran Castillo|Rangers|648
+Jose Ramos|Athletics|1200
+Leandro Romero|Mariners|1000
+Abdiel Feliz|Pirates|1200
+Hayden Alvarez|Angels|685
+Greylin De La Paz|Angels|575
+Humberto De Jesus Tiberi|Angels|450
+Dioris De La Rosa|Angels|300
+Cesar Y. Hernandez|Astros|1700
+Franchely Silverio|Astros|672.5
+Amauri Ramirez|Astros|597.5
+Erick Matos|Athletics|700
+Sebastian Rojas|Athletics|550
+Azaeel Pacheco|Athletics|350
+Pascual Archila|Blue Jays|847.5
+Juarlin Soto|Blue Jays|547.5
+Juan Espinal|Braves|440
+Luis Pena|Brewers|800
+Joandrew Pena|Brewers|500
+Handelfry Encarnacion|Brewers|400
+Frederi Montero|Brewers|300
+Yairo Padilla|Cardinals|760
+Edward Guribe|Cardinals|700
+Earle Zulueta|Cardinals|400
+Robin Ortiz|Cubs|400
+Alfredo Benzan|D-backs|550
+Erick De La Cruz|D-backs|455
+Raily Liriano|D-backs|400
+Yoxander Benitez|Giants|372.5
+Miguel Flores|Guardians|500
+Gabriel Rodriguez|Guardians|500
+Estivel Morillo|Guardians|435
+Luis De La Cruz|Guardians|430
+Edelvis Perez|Guardians|415
+Johan Rodriguez|Guardians|325
+Juneiker Caceres|Guardians|300
+Zeus Nunez|Mariners|550
+Gabriel Guanchez|Mariners|500
+Jose Castro|Marlins|450
+Jose Paulino|Marlins|350
+Leandy Mella|Mets|500
+Bohan Adderley|Mets|350
+Eddy Marmolejos|Nationals|300
+Elvin Garcia|Orioles|500
+Jemone Nuel|Orioles|500
+Cesar Mujica|Phillies|700
+Jose Familia|Phillies|600
+Nathanael Cijntje|Phillies|337.5
+Kendrick Herrera|Pirates|450
+Irwin Ramirez|Pirates|450
+Edward Florentino|Pirates|395
+Iverson Allen|Pirates|300
+Nathaniel Palacios|Rangers|497.5
+Daniel Flames|Rangers|447.5
+Jose Marcano|Rangers|297.5
+Angel Brachi|Rays|800
+Aaron Pinero|Rays|450
+Deinys Gonzalez|Rays|440
+Domingo Batista|Rays|425
+Carlos Matias|Rays|425
+Israfell Bautista|Rays|400
+Sebastian Perez|Rays|310
+Andreimi Antunez|Rays|300
+Ismael Del Rosario|Rays|300
+Carlos Carrasquel|Red Sox|590
+Edwin Brito|Red Sox|450
+Dalvinson Reyes|Red Sox|450
+Anderson Fermin|Red Sox|400
+Jirvin Morillo|Reds|420
+Juan D. Brown|Reds|300
+Diorland Zambrano|Reds|300
+Cristian Arguelles|Rockies|700
+Eriel Dihigo|Rockies|500
+Roldy Brito|Rockies|420
+Nicolas Ortiz|Rockies|300
+Jhonayker Ugarte|Royals|1300
+Darison Garcia|Royals|797.5
+Jesus Pinto|Tigers|897.5
+Jose Dickson|Tigers|397.5
+Victor Leal|Twins|447.5
+Nestor Urbina|Twins|397.5
+Alver Medina|Twins|347.5
+Jesus Premoli|White Sox|550
+Richard Matic|Yankees|850
+Dexters Peralta|Yankees|500
+Queni Pineda|Yankees|350
+# soxprospects.com/players/gonzales-justin.htm
+Justin Gonzales|Red Sox|250
+@2025
+Roki Sasaki|Dodgers|6500
+Josuar De Jesus Gonzalez|Giants|2997.5
+Josuar Gonzalez|Giants|2997.5
+Josuar De Jesus|Giants|2997.5
+Elian Pena|Mets|5000
+Cris Rodriguez|Tigers|3197.5
+Andrew Salas|Marlins|3700
+Yorger Bautista|Mariners|2100
+Kevin Alvarez|Astros|2000
+Dorian Soto|Red Sox|1400
+Maykel Coret|Rays|1600
+Juan Cabada|Cubs|1500
+Mani Cedeno|Yankees|2500
+Ayden Johnson|Athletics|1500
+Wilfri De La Cruz|Cubs|2300
+Brayan Cortesia|Nationals|1920
+Diego Tornes|Braves|2497.5
+Darwing Ozuna|Athletics|850
+Gabriel Davalillo|Angels|2000
+Liberts Aponte|Reds|1900
+Kendry Martinez|Mariners|2500
+Raymer Medina|Rays|1100
+Jhoan De La Cruz|Padres|1000
+Cristopher Polanco|Blue Jays|2297.5
+Johan De Los Santos|Pirates|2250
+Santiago Leon|Twins|1697.5
+Elian De La Cruz|D-backs|1100
+Royelny Strop|Cardinals|1400
+Elorky Rodriguez|Rangers|1097.5
+Warel Solano|Rays|1050
+Moises Marchan|Royals|802.5
+Harold Rivas|Red Sox|950
+Alejandro Cruz|White Sox|2000
+Larry Suero|Rockies|425
+Deivid Coronil|Padres|900
+Kenny Fenelon|Brewers|1300
+Kenly Hunter|Cardinals|700
+Warren Calcano|Royals|1847.5
+Carlos Alvarez|Padres|1000
+Kevin Defrank|Marlins|560
+Hiverson Lopez|Guardians|900
+Brailyn Antunez|Brewers|900
+Haritzon Castillo|Twins|947.5
+Nieves Izaguirre|Phillies|800
+Cristopher Acosta|Brewers|1100
+Sadbiel Delzine|Red Sox|500
+Jose Pena|Orioles|997.5
+Heins Brito|Guardians|825
+Ramcell Medina|Royals|947.5
+Teilon Serrano|Twins|847.5
+Yilver De Paula|Angels|900
+Jose Santana|Angels|400
+Yojancel Cabrera|Angels|400
+Cesar Paredes|Angels|350
+Junior Suriel|Angels|300
+Albert Morel|Angels|300
+Yelinson Betances|Angels|300
+Anthony Millan|Astros|472.5
+Juan Rojas|Astros|447.5
+Omar Damian|Astros|397.5
+Santiago Martinez|Astros|347.5
+Shotaro Morii|Athletics|1510.5
+Breyson Guedez|Athletics|1500
+Yorvit Diaz|Athletics|500
+Yordan Rodriguez|Athletics|400
+Juan Sanchez|Blue Jays|997.5
+Elaineiker Coronado|Blue Jays|797.5
+Kennew Blanco|Blue Jays|597.5
+Raudy Reyes|Braves|1797.5
+Angel Carmona|Braves|447.5
+Isais Chavez|Brewers|480
+Gerlyn Payano|Brewers|350
+Alexander Frias|Brewers|350
+Eryks Rivero|Brewers|300
+Juan Rujano|Cardinals|750
+Miguel Hernandez|Cardinals|500
+Yeferson Portolatin|Cardinals|450
+Daniel Gomez|Cardinals|350
+Yostin Pena|Cardinals|300
+Juan Tomas|Cubs|1100
+Alam Bruno|D-backs|950
+Ronny Suarez|D-backs|550
+Juan Brima|D-backs|500
+Mayki De La Rosa|D-backs|500
+Feliz Genao|D-backs|300
+Eybert Sanchez|D-backs|300
+Victor Santana|D-backs|300
+Luis Tovar|Dodgers|397.5
+Adrian Torres|Dodgers|362.5
+Yulian Barreto|Giants|1118.7
+Luis Garcia|Guardians|775
+Gustavo Baptista|Guardians|450
+Jose Riera|Guardians|400
+Luis Galan|Guardians|320
+Maikol Rodriguez|Mariners|600
+Elias Perez|Mariners|600
+Po-Chun Lin|Mariners|460
+Anthony Abreu|Marlins|550
+Adrian Pena|Marlins|400
+Johan Machado|Marlins|330
+Daniel Hernandez|Nationals|1100
+Rony Bello|Nationals|450
+Esnaider Vargas|Nationals|400
+Marconi German|Nationals|400
+Jonierbis Garces|Nationals|350
+Edgardo Figueroa|Nationals|300
+Johanse Gomez|Orioles|747.5
+Meykel Baro|Orioles|497.5
+Ronald Terrero|Orioles|397.5
+Yeison Acosta|Orioles|372.5
+Elias Marrero|Phillies|700
+Deivis Velasquez|Phillies|620
+Geremy Villoria|Phillies|425
+Leonardo Carpio|Phillies|350
+Dayber Cruceta|Phillies|300
+Darell Morel|Pirates|1778.6
+Gabriel Rodriguez|Pirates|900
+Robinson Smith|Pirates|400
+Yoslaniel Hernandez|Pirates|400
+Jhon Simon|Rangers|497.5
+Oliver Guerrero|Rangers|397.5
+Emil Martinez|Rangers|397.5
+Emmanuel Cedeno|Rays|500
+Brainerh Palacios|Rays|350
+Emile Torres|Rays|300
+Eliezer Alfonzo|Red Sox|700
+Hector Ramos|Red Sox|500
+Christopher Cordero|Red Sox|350
+Adrian Valdez|Red Sox|300
+Enry Torres|Reds|800
+Isaac Garcia|Reds|700
+Angel Salio|Reds|500
+Jealmy Frias|Reds|350
+Wandi Feliz|Rockies|850
+Rosniell De Paula|Rockies|750
+Kamuel Villar|Rockies|750
+Sebastian Blanco|Rockies|600
+Brian Tiburco|Rockies|425
+Pedro Nunez|Rockies|400
+Melky Ventura|Rockies|350
+Luis King|Royals|388.5
+Jose Ramirez|Tigers|897.5
+Carlos Benavides|Tigers|797.5
+Anderson Diaz|Tigers|447.5
+Jhonger Ochoa|Tigers|397.5
+Angel De Los Santos|Tigers|387.5
+Jose Barrios|Twins|422.5
+Joyner Perez|Twins|397.5
+Jhomnardo Reyes|Twins|322.5
+Orlando Patino|White Sox|570
+Cesar Familia|White Sox|350
+Alan Escobar|White Sox|350
+Jefrank Silva|White Sox|350
+Yordani Soto|White Sox|300
+Jhonny Morao|White Sox|300
+Ruben Castillo|Yankees|875
+Isaias Castillo|Yankees|750
+Carlos Bello|Yankees|400
+Edison Charles|Yankees|300
+@2026
+Luis Hernandez|Giants|4997.5
+Wandy Asigen|Mets|3900
+Francisco Renteria|Phillies|4000
+Angeibel Gomez|Royals|2900
+Johenssy Colome|Athletics|4000
+Angel Nunez|Reds|3000
+Jeancer Custodio|Pirates|900
+Emanuel Luna|Cardinals|2300
+Jeyson Horton|Angels|2000
+Elian Rosario|Rangers|2500
+Victor Valdez|Rays|3500
+Juan Rijo|Mariners|2150
+Joniel Hernandez|Padres|1400
+Jose Luis Acevedo|Orioles|2300
+Jose Manon|Braves|1497.5
+Santiago Solarte|Marlins|1000
+Wilton Guerrero Jr.|Pirates|1950
+Ariel Roque|Orioles|1697.5
+Albert Fermin|Astros|2147.5
+Ricki Moneys|Brewers|1150
+Randy Santana|Tigers|1097.5
+Jaider Suarez|Royals|1700
+Cleiner Ramirez|Mets|1372.5
+Diego Frontado|Brewers|1600
+Andri Hidalgo|Orioles|622.5
+Samil Serrano|Nationals|1969
+Ronny Munoz|Marlins|1450
+Dawvris Brito|Red Sox|1200
+Ezequiel Melburne|Dodgers|747.5
+Michael Mesa|Blue Jays|797.5
+Fernando Graterol|White Sox|1600
+Gregory Pio|Mariners|3000
+Ricky Duran|Athletics|1050
+Enmanuel Merlo|Twins|1497.5
+Pedro Gomez|Orioles|1247.5
+Garielvin Silverio|Red Sox|1400
+Randy Arias|Astros|1447.5
+Svert Reinoso|Guardians|820
+Juan Parra|Phillies|550
+Isaias Suarez|Nationals|1900
+Gabriel Rosario|Orioles|1047.5
+Ruben Gallego|D-backs|1747.5
+Adrian Lunar|Royals|725
+Fabricio Blanco|Rays|1000
+Jose Perdomo|Athletics|600
+Kendri Fana|Angels|530
+Frandel Pineda|Rangers|347.5
+Leonardo Reynoso|Mariners|775
+Jose Rodriguez|Brewers|1500
+Diego Pacheco|Reds|700
+Carlos Castillo|Angels|1000
+Anderson Rodriguez|Angels|625
+Yonathan Aro|Angels|450
+Esau Taveras|Angels|400
+Wilker Rosales|Angels|350
+Anderson Encarnacion|Angels|300
+Imanol Feliz|Astros|797.5
+Edward Suazo|Athletics|675
+Jonathan Hechavarria|Athletics|337.5
+Juan Caricote|Blue Jays|1847.5
+Aneudi Severino|Blue Jays|697.5
+Starlyn De La Cruz|Braves|1197.5
+Edelson Cabral|Braves|597.5
+Osmar Torrealba|Braves|397.5
+Jorwin Pulido|Braves|347.5
+Moises Salazar|Brewers|700
+Carlos Carrion|Cardinals|1100
+Sebastian Rojas|Cardinals|450
+Rafeli Moronta|Cardinals|450
+Jhon Franganten|Cardinals|350
+Luis Estrella|Cardinals|300
+Christopher Vargas|Cardinals|300
+Yadier Munoz|Cubs|1200
+Jaims Martinez|Cubs|900
+Yanfri Serrano|Cubs|800
+Eduardo Gonzalez|Cubs|800
+Franyel Almanzar|Cubs|604.7
+Johan Geraldo|Cubs|600
+Luis German|Cubs|325
+Leonardo Sevilla|D-backs|722.5
+Brayan Figueroa|D-backs|597.5
+Loidel Amaya|D-backs|557.5
+Yohendi Hernandez|D-backs|547.5
+Jeremy Suriel|D-backs|497.5
+Rubel Arias|Dodgers|997.5
+Ariel Reynoso|Dodgers|597.5
+Jose Victorino|Dodgers|547.5
+Jose Requena|Dodgers|372.5
+Alexis Gallego|Giants|372.5
+Rafeliz Lara|Guardians|800
+Karel Naranjo|Guardians|625
+Carlos Martinez|Guardians|500
+Wilber Reinoso|Guardians|420
+Raynel Quezada|Guardians|400
+Oswaldo Bracho|Guardians|355
+Jostin Melo|Guardians|330
+Jhoseph Leta|Guardians|300
+Ambeiro Recio|Mariners|400
+Carlos De Los Santos|Marlins|475
+Enyer Antonio|Marlins|450
+Raunny Figueredo|Marlins|350
+Oscar Montero|Mets|347.5
+Juan Duran|Nationals|1000
+Angel Ramirez|Nationals|1000
+Carlos Rubecindo|Orioles|397.5
+Joshddy Castillo|Orioles|372.5
+Timothy Mogen|Padres|600
+Johanneiker Leon|Padres|400
+Ricardo De La Paz|Padres|325
+Jordan Perez|Padres|300
+Justin Burgos|Phillies|300
+Alexander Pio|Pirates|500
+Jesus Chavez|Rangers|597.5
+Ariel Abreu|Rangers|497.5
+Santiago Ramirez|Rangers|372.5
+Jean Paredes|Rays|1000
+Emmanuel Hernandez|Rays|400
+Joskairo Ramirez|Red Sox|800
+Esterlin Casanova|Red Sox|620
+Claudio Pereira|Red Sox|500
+Luis Almanzar|Red Sox|400
+Isaac Velasquez|Red Sox|370
+Wilneyker Bruce|Red Sox|300
+Carlos Hernandez|Reds|1000
+Jose Colina|Reds|450
+Eliezer Arias|Reds|332.5
+Gilventon Josephina|Reds|300
+Richard De Los Santos|Rockies|1000
+Ismael Contreras|Rockies|700
+Brandol Fernandez|Rockies|550
+Jose Gudino|Rockies|350
+Amaury De Leon|Rockies|300
+Renso Tenas|Royals|347.5
+Manuel Bolivar|Tigers|2297.5
+Oscar Tineo|Tigers|1447.5
+Douglas Olivo|Tigers|797.5
+Eduardo Tusen|Tigers|312.5
+Abel Sosa|Twins|797.5
+Juan Holmann|Twins|497.5
+Jendy Martinez|Twins|497.5
+Misael Rodriguez|Twins|497.5
+Anibal Beltre|Twins|487.5
+Frederick Hiciano|Twins|387.5
+Jhon Gonzalez|Twins|372.5
+Sebastian Echavarria|Twins|357.5
+Sebastian Romero|White Sox|1500
+Roderic Ramirez|White Sox|400
+Carlos Vielma|White Sox|400
+Ronald Cardozo|White Sox|375
+Franchel Crisostomo|White Sox|350
