@@ -167,7 +167,7 @@ const r = await d.page.evaluate(async () => {
   { const P = n => DESK.players.find(x => x[0] === n); const k = dkSuggest(P('Michael King'), 'fa', null), sk = dkSuggest(P('Tarik Skubal'), 'fa', null);
     o.marketConsensusLoaded = Object.keys(DESK.cons || {}).length >= 45 && !!k.cons && k.sugTot >= 75 && sk.sugTot >= 330;
     switchView('boards'); const b = [...document.querySelectorAll('button')].find(b => b.dataset && b.dataset.tab === 'fa'); if(b) b.click();
-    o.faBoardFairOffer = /Fair Ledger offer/.test(document.getElementById('view-boards').innerText) && /market pays|under our value|about even/.test(document.getElementById('view-boards').innerText); }
+    o.faBoardFairOffer = /Fair value/.test(document.getElementById('view-boards').innerText) && /market pays|under our value|about even/.test(document.getElementById('view-boards').innerText); }
   // Nov 3 (late): org ranks count the Top 100 above them; real QOs; the simulator's trades read on the Deal Desk sheet; FA list on the right
   { const sea = DESK.players.filter(p => p[2] === 'SEA' && !p[9] && (DESK.pros||{})[p[1]] && !(DESK.deb26||{})[p[1]]).sort((a, b) => DESK.pros[a[1]][4] - DESK.pros[b[1]][4])[0];
     const nT = DESK.players.filter(p => p[2] === 'SEA' && p[9] > 0 && !(DESK.deb26||{})[p[1]]).length;

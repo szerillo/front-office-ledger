@@ -18,7 +18,7 @@ const R = await d.page.evaluate(async () => {
   o.heistContext = (() => { const t = folTrades().find(x => x.d.startsWith('2003-11') && x.S.some(s => s.ab === 'SF') && x.S.some(s => s.ab === 'MIN')); const c = t && folHeistCtx(t); return c && c.contender && c.r.w === 100; })();
   o.heistsRankedInContext = (() => { const xs = folTrades().slice().sort((a, b) => folHeistAdj(b) - folHeistAdj(a)); return xs.length > 100 && folHeistAdj(xs[0]) >= folHeistAdj(xs[1]); })();
   o.hubPlayRail = (() => { const gs = [...document.querySelectorAll('#homebody .hp-group')]; if(gs.length !== 2) return false; const t = g => [...g.querySelectorAll('.pt-t')].map(x => x.textContent); const a = t(gs[0]), b = t(gs[1]); return a.length === 4 && a[0] === 'Trade Grade' && a[3] === 'Remember Some Dudes' && /QO/.test(a[2]) && b.length === 3 && b[0] === 'Price any trade' && b[1] === 'Run a winter' && /Daily games/.test(gs[0].textContent) && /Run the front office/.test(gs[1].textContent); })() && !!document.querySelector('#homebody .hub-cols .hub-left #hub-wire');
-  o.hubSections = /champion line 48/.test(document.getElementById('homebody').textContent) && /Org stat of the day/.test(document.getElementById('homebody').textContent) && /Ledger/.test(document.querySelector('#homebody .hub-fa2').textContent) && /Projected/.test(document.querySelector('#homebody .hub-fa2').textContent) && /front offices/.test(document.querySelector('#homebody .hub-stats').textContent) && /\(#\d+ of 30\)/.test(document.getElementById('homebody').textContent);
+  o.hubSections = /champion line 48/.test(document.getElementById('homebody').textContent) && /Org stat of the day/.test(document.getElementById('homebody').textContent) && /Ledger/.test(document.querySelector('#homebody .hub-fa2').textContent) && /Published/.test(document.querySelector('#homebody .hub-fa2').textContent) && /front offices/.test(document.querySelector('#homebody .hub-stats').textContent) && /\(#\d+ of 30\)/.test(document.getElementById('homebody').textContent);
   document.getElementById('hub-find').value = 'Friedman'; folHubFind();
   o.hubSearch = /Andrew Friedman/.test(document.getElementById('hub-find-out').textContent) && /report card/.test(document.getElementById('hub-find-out').textContent);
   document.getElementById('hub-find').value = 'Mookie'; folHubFind();
@@ -42,7 +42,7 @@ const R = await d.page.evaluate(async () => {
   o.teamTimelinePins = document.querySelectorAll('#view-report svg circle').length >= 3;
   o.teamStandingOnlyCurrent = (() => { const h = LB_HIST.find(x => x.realCard); if(!h) return true; switchView('report', h.id); return !(document.getElementById('rc-standing') || {}).textContent; })();
   o.navOrder = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).slice(0, 9).join() === 'home,wire,leaderboard,report,champs,dna,h2h,heists,trees' || [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view).join();
-  o.navQuizUnderPlayGM = (() => { const g = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view + (b.dataset.tab ? ':' + b.dataset.tab : '')); return g.slice(-5).join() === 'desk,gm,scen,quiz,dudes' && g.join().includes('wire:feed,wire:weekly,boards:fa,pickem,boards:pros,horizon'); })();
+  o.navQuizUnderPlayGM = (() => { const g = [...document.querySelectorAll('nav [data-view]')].map(b => b.dataset.view + (b.dataset.tab ? ':' + b.dataset.tab : '')); return g.slice(-5).join() === 'desk,gm,scen,quiz,dudes' && g.join().includes('wire:feed,stove,boards:fa,pickem,boards:pros,horizon,offs'); })();
   // heists: biggest first, and a club filter shows that club's side
   switchView('heists'); await wait(50);
   const gaps = folTrades().map(t => t.gap).sort((a, b) => b - a);
@@ -154,6 +154,46 @@ const R = await d.page.evaluate(async () => {
   try { localStorage.removeItem('fol-team'); } catch(e){}
   return o;
 });
+// Nov 10 (round 2): one name for the offer, reported trade candidates, advanced rates, best seasons,
+// the best and worst winters, the Hot Stove pages
+import fs from 'fs';
+const offsJson = JSON.parse(fs.readFileSync(new URL('../offseasons.json', import.meta.url)));
+Object.assign(R, await d.page.evaluate(async (offsJson) => {
+  const o = {}, wait = ms => new Promise(z => setTimeout(z, ms));
+  const P = n => DESK.players.find(p => p[0] === n);
+  bdState.tab = 'fa'; switchView('boards'); await wait(60);
+  const faTxt = document.getElementById('view-boards').innerText;
+  switchView('pickem'); await wait(60);
+  const pkTxt = document.getElementById('view-pickem').innerText;
+  o.oneNameLedgerOffer = /Ledger offer/i.test(faTxt) && /Fair value/i.test(faTxt) && /Ledger offer/.test(pkTxt) && !/Ledger projection|Projected contract|Fair Ledger offer|Ledger's number/i.test(faTxt + pkTxt + document.getElementById('homebody').innerText);
+  const L = dkAvailList();
+  o.blockReported = L.filter(x => x.rep).length >= 30 && L.some(x => x.p[0] === 'Trea Turner' && x.rep && /Nightengale/.test(dkRumorSrc(x.rep))) && !L.some(x => /Acu.a/.test(x.p[0])) && L.length >= 80;
+  dkState.mode = 'avail'; dkState.av = {pos: '', club: '', read: 'Reported', sort: 'read'}; switchView('desk'); await wait(60);
+  o.blockReportedShown = /Reported/.test(document.getElementById('deskbody').textContent) && /MLB Trade Rumors trade candidates, #1/.test(document.getElementById('deskbody').textContent);
+  dkState.av.read = ''; dkState.mode = 'trade';
+  o.advRates = /xFIP, [\d.]+ SIERA/.test(gmLine26(P('Tarik Skubal'))) && /\.\d{3} xwOBA/.test(gmLine26(P('Zach Neto')));
+  o.dudeBestLine = dudeOf(['x', 'N', 1990, 2000, 0, 10, 3000, 'NYY', 1995, 4, 9.5, '.300/.400/.500, 30 HR, 100 RBI']).bl === '.300/.400/.500, 30 HR, 100 RBI';
+  offsLoadData(offsJson); offState.dir = 'best'; offState.club = ''; offState.focus = ''; switchView('offs'); await wait(60);
+  const cards = [...document.querySelectorAll('#offsbody .offs-card')];
+  o.offsExplorer = cards.length === 15 && /2011-12 Oakland Athletics/.test(cards[0].textContent) && /All-timer/i.test(cards[0].textContent) && cards[0].querySelectorAll('.of-mv a').length >= 3;
+  offState.dir = 'worst'; renderOffs();
+  o.offsWorst = /2012-13 Toronto Blue Jays/.test(document.querySelector('#offsbody .offs-card').textContent);
+  offState.dir = 'best'; offState.club = 'NYM'; renderOffs();
+  o.offsClub = [...document.querySelectorAll('#offsbody .offs-card')].every(c => /Mets/.test(c.textContent));
+  offState.club = '';
+  o.offsSimRank = /would rank <strong>#\d+ of \d+<\/strong>/.test(gmOffsCard(6.5, 4)) && gmOffsCard(0, 0) === '';
+  o.offsRoute = (() => { switchView('offs'); return /view=winters/.test(location.hash); })();
+  // Hot Stove: the hub and one club
+  wireLoadData([], null); stoveGo(''); await wait(60);
+  o.stoveHub = document.querySelectorAll('#stovebody .st-club').length === 30;
+  stoveGo('ATL'); await wait(60);
+  const sv = document.getElementById('stovebody').textContent;
+  o.stoveClub = /Atlanta Braves/.test(sv) && /Gained/.test(sv) && /Lost/.test(sv) && /still unsigned/.test(sv) && /On the trade block/.test(sv) && /What the roster still needs/.test(sv) && /view=stove&id=atl/.test(location.hash) && /Braves hot stove/.test(document.title);
+  switchView('home'); await wait(60);
+  o.stoveTitleReset = !/hot stove/.test(document.title) && document.querySelectorAll('#homebody .hs-chips a').length === 30 && !!document.getElementById('hub-offs');
+  WIRE.items = null;
+  return o;
+}, offsJson));
 await d.browser.close();
 // phones: the bottom bar and no sideways scroll on the new views
 const m = await open({width: 390, height: 844});
