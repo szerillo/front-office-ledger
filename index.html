@@ -24,11 +24,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@600&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+  /* the headline face: Noto Serif Display (SIL Open Font License) pinned at 75% width */
+  @font-face{font-family:'FOL Headline'; font-style:normal; font-weight:400 900; font-stretch:75%; font-display:swap; src:url(https://fonts.gstatic.com/s/notoserifdisplay/v29/buErppa9f8_vkXaZLAgP0G5Wi6QmA1Qwe65MClo.woff2) format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'FOL Headline'; font-style:normal; font-weight:400 900; font-stretch:75%; font-display:swap; src:url(https://fonts.gstatic.com/s/notoserifdisplay/v29/buErppa9f8_vkXaZLAgP0G5Wi6QmA1Qwda5M.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
   :root{
     color-scheme: light;
-    --f-display:'Playfair Display',Georgia,'Times New Roman',serif;
+    --f-display:'FOL Headline','Noto Serif Display',Georgia,'Times New Roman',serif;
+    --f-brand:'Grenze Gotisch','Noto Serif Display',Georgia,serif;
     --f-body:'Source Serif 4','Iowan Old Style',Georgia,'Times New Roman',serif;
     --f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Consolas,monospace;
     /* the scorecard palette (Nov 10): paper, ink, scorecard red, blue, green for good */
@@ -64,10 +68,10 @@
   header{background:var(--page); border-bottom:4px double var(--ink)}
   .hd{max-width:1240px; margin:0 auto; padding:12px 24px 0; border-top:3px solid var(--ink)}
   .brandrow{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
-  .brand{font-family:var(--f-display); font-size:34px; font-weight:900; letter-spacing:0.5px; line-height:1;
+  .brand{font-family:var(--f-brand); font-size:40px; font-weight:600; letter-spacing:0; line-height:1; font-stretch:100%;
     display:inline-flex; align-items:center; gap:12px}
   .brand .logo{width:40px; height:40px; flex:none}
-  .brand .ledger{color:var(--margin)}
+  .brand .ledger{color:inherit}
   #themebtn{margin-left:auto; background:none; border:1px solid var(--border); color:var(--ink-2);
     border-radius:2px; padding:5px 14px; font:600 11px var(--f-body); letter-spacing:1px; text-transform:uppercase;
     cursor:pointer; align-self:center}
@@ -147,15 +151,15 @@
   /* the share frame: what a saved image looks like */
   .fol-frame{position:absolute; left:-20000px; top:0; background:var(--page); color:var(--ink); padding:34px 44px 22px; box-sizing:border-box; font-family:var(--f-body)}
   .ff-head{border-bottom:3px double var(--ink); padding-bottom:12px; margin-bottom:16px}
-  .ff-brand{font:700 15px var(--f-display); letter-spacing:2px}
-  .ff-brand span{color:var(--margin)}
+  .ff-brand{font:600 20px var(--f-brand); letter-spacing:0; font-stretch:100%}
+  .ff-brand span{color:inherit}
   .hz-pick{display:flex; flex-wrap:wrap; gap:6px; align-items:center} .hz-pick .clubchips{display:contents}
   .ff-brandrow{display:flex; align-items:center; justify-content:space-between; gap:12px}
   .ff-brandrow .ff-brand{display:flex; align-items:center; gap:10px}
   .ff-logo{display:inline-block; width:34px; height:34px} .ff-logo svg{width:34px; height:34px; display:block}
   .ff-handle{font:700 14px var(--f-body); color:var(--margin); letter-spacing:.5px}
   .ff-brandrow .ff-brand{white-space:nowrap}
-  @media (max-width:760px){ .ff-brandrow{flex-wrap:wrap; row-gap:4px} .ff-brandrow .ff-brand{font-size:13px; letter-spacing:1.5px} .ff-logo, .ff-logo svg{width:26px; height:26px} }
+  @media (max-width:760px){ .ff-brandrow{flex-wrap:wrap; row-gap:4px} .ff-brandrow .ff-brand{font-size:17px; letter-spacing:0} .ff-logo, .ff-logo svg{width:26px; height:26px} }
   .ff-title{font:700 32px var(--f-display); margin-top:6px; line-height:1.15}
   .ff-sub{font-size:15px; color:var(--ink-2); margin-top:5px}
   .ff-foot{display:flex; justify-content:space-between; border-top:1px solid var(--ink); margin-top:16px; padding-top:9px; font:600 13px var(--f-body); color:var(--muted); letter-spacing:.5px}
@@ -325,7 +329,7 @@
   .lb-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch}
   @media (max-width:760px){
     body{font-size:14px}
-    .brand{font-size:24px}
+    .brand{font-size:30px}
     .hd{padding:8px 12px 0}
     .tagline{display:none}
     nav{flex-wrap:nowrap; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
@@ -599,7 +603,7 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
   .controls select, .controls input{max-width:100%}
 
   /* ---- masthead and nav ---- */
-  .brand{font-size:22px; gap:8px}
+  .brand{font-size:28px; gap:8px}
   .brand .logo{width:30px; height:30px}
   .beta-chip{margin-left:4px}
   nav{scroll-snap-type:x proximity; padding-bottom:2px; mask-image:linear-gradient(90deg,#000 88%,transparent); -webkit-mask-image:linear-gradient(90deg,#000 88%,transparent)}
@@ -610,7 +614,7 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
 
   /* Nov 2026: a compact masthead on phones: one brand row with icon buttons, one nav strip, no group labels */
   .brandrow{flex-wrap:nowrap !important; align-items:center}
-  .brand{font-size:17px !important; white-space:nowrap; min-width:0}
+  .brand{font-size:22px !important; white-space:nowrap; min-width:0}
   .brand .logo{width:26px !important; height:26px !important}
   .beta-chip{display:none !important}
   #xfollow{display:none !important}
@@ -967,8 +971,6 @@ h2.rc-title{margin:0; padding:0; border-top:0; font-size:26px}
   .dl-sub td{font:700 11px var(--f-mono); letter-spacing:1px; text-transform:uppercase; color:var(--ink-2); background:var(--surface-2)}
   @media (max-width: 600px){ .dl-tab th:nth-child(2), .dl-tab td:nth-child(2):not([colspan]){display:none} .dl-tab{font-size:12px} }
   .h-ctx{font-size:13px; color:var(--ink-2); margin-top:8px; padding:7px 10px; background:var(--surface-2); border-left:3px solid var(--rule)}
-  .brand-line{align-self:center; margin-left:14px; font:italic 600 15px var(--f-body); color:var(--ink-2); white-space:nowrap}
-  @media (max-width: 760px){ .brand-line{display:none} }
   .hub-cols{display:grid; grid-template-columns:minmax(0, 2fr) minmax(290px, 1fr); gap:16px; margin-top:14px; align-items:start}
   .hub-cols .hub-left, .hub-cols .hub-right{display:flex; flex-direction:column; gap:16px; min-width:0}
   .hub-cols .hub-right > .card{margin:0}
@@ -1350,7 +1352,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
 <header>
   <div class="hd">
     <div class="brandrow">
-      <h1 class="brand" onclick="switchView('home')" style="cursor:pointer" title="Home"><svg class="logo" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"> <defs> <clipPath id="ball"><circle cx="32" cy="32" r="26"/></clipPath> </defs> <circle cx="32" cy="32" r="26" fill="#efe0bd"/> <g clip-path="url(#ball)" stroke="#a88a5c" stroke-width="1.5"> <line x1="4" y1="18" x2="60" y2="18"/> <line x1="4" y1="25" x2="60" y2="25"/> <line x1="4" y1="32" x2="60" y2="32"/> <line x1="4" y1="39" x2="60" y2="39"/> <line x1="4" y1="46" x2="60" y2="46"/> </g> <g clip-path="url(#ball)" fill="none" stroke="#b23a1e" stroke-width="2.6" stroke-linecap="round"> <path d="M 13 7 C 24 20, 24 44, 13 57"/> <path d="M 51 7 C 40 20, 40 44, 51 57"/> </g> <g clip-path="url(#ball)" stroke="#b23a1e" stroke-width="1.7" stroke-linecap="round"> <line x1="17.1" y1="15.5" x2="22.1" y2="13.1"/> <line x1="19.6" y1="23.5" x2="25.0" y2="22.1"/> <line x1="20.4" y1="32.0" x2="25.9" y2="32.0"/> <line x1="19.6" y1="40.5" x2="25.0" y2="41.9"/> <line x1="17.1" y1="48.5" x2="22.1" y2="50.9"/> <line x1="46.9" y1="15.5" x2="41.9" y2="13.1"/> <line x1="44.4" y1="23.5" x2="39.0" y2="22.1"/> <line x1="43.6" y1="32.0" x2="38.1" y2="32.0"/> <line x1="44.4" y1="40.5" x2="39.0" y2="41.9"/> <line x1="46.9" y1="48.5" x2="41.9" y2="50.9"/> </g> <circle cx="32" cy="32" r="26" fill="none" stroke="#1d1d1b" stroke-width="2.6"/> </svg><span>FRONT OFFICE <span class="ledger">LEDGER</span></span></h1><span class="beta-chip" title="New and still being refined: corrections welcome">Beta</span><span class="brand-line">Every move, graded.</span>
+      <h1 class="brand" onclick="switchView('home')" style="cursor:pointer" title="Home"><svg class="logo" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"> <defs> <clipPath id="ball"><circle cx="32" cy="32" r="26"/></clipPath> </defs> <circle cx="32" cy="32" r="26" fill="#efe0bd"/> <g clip-path="url(#ball)" stroke="#a88a5c" stroke-width="1.5"> <line x1="4" y1="18" x2="60" y2="18"/> <line x1="4" y1="25" x2="60" y2="25"/> <line x1="4" y1="32" x2="60" y2="32"/> <line x1="4" y1="39" x2="60" y2="39"/> <line x1="4" y1="46" x2="60" y2="46"/> </g> <g clip-path="url(#ball)" fill="none" stroke="#b23a1e" stroke-width="2.6" stroke-linecap="round"> <path d="M 13 7 C 24 20, 24 44, 13 57"/> <path d="M 51 7 C 40 20, 40 44, 51 57"/> </g> <g clip-path="url(#ball)" stroke="#b23a1e" stroke-width="1.7" stroke-linecap="round"> <line x1="17.1" y1="15.5" x2="22.1" y2="13.1"/> <line x1="19.6" y1="23.5" x2="25.0" y2="22.1"/> <line x1="20.4" y1="32.0" x2="25.9" y2="32.0"/> <line x1="19.6" y1="40.5" x2="25.0" y2="41.9"/> <line x1="17.1" y1="48.5" x2="22.1" y2="50.9"/> <line x1="46.9" y1="15.5" x2="41.9" y2="13.1"/> <line x1="44.4" y1="23.5" x2="39.0" y2="22.1"/> <line x1="43.6" y1="32.0" x2="38.1" y2="32.0"/> <line x1="44.4" y1="40.5" x2="39.0" y2="41.9"/> <line x1="46.9" y1="48.5" x2="41.9" y2="50.9"/> </g> <circle cx="32" cy="32" r="26" fill="none" stroke="#1d1d1b" stroke-width="2.6"/> </svg><span>Front Office Ledger</span></h1><span class="beta-chip" title="New and still being refined: corrections welcome">Beta</span>
       <span style="margin-left:auto; display:flex; gap:8px; align-items:center"><a id="xfollow" href="https://x.com/FrontOfficeLdgr" target="_blank" rel="noopener" aria-label="Follow @FrontOfficeLdgr on X" title="Follow @FrontOfficeLdgr on X" style="display:inline-flex; align-items:center; gap:6px; border:1px solid var(--rule); color:var(--ink-2); font-family:var(--f-body); font-size:11px; font-weight:700; letter-spacing:.4px; text-transform:uppercase; padding:6px 10px; border-radius:3px; text-decoration:none"><svg aria-hidden="true" viewBox="0 0 24 24" width="12" height="12" style="display:block"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span class="xf-txt">Follow</span></a><button id="methbtn" onclick="switchView('method')" style="background:none; border:1px solid var(--rule); color:var(--ink-2); font-family:var(--f-body); font-size:11px; font-weight:700; letter-spacing:.4px; text-transform:uppercase; padding:6px 12px; border-radius:3px; cursor:pointer">How it works</button>
       <button id="themebtn" aria-label="Toggle theme">Dark mode</button></span>
     </div>
@@ -1396,7 +1398,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
 
   <!-- ================= HOME: your team ================= -->
   <section id="view-home"><div id="homebody"><div class="home-hero"><div class="home-kick">Front Office Ledger</div>
-      <h2>The report card on every front office in baseball since 1998.</h2>
+      <h2>Every move, graded.</h2>
       <p>Each move is scored against what a typical club got from the same kind of move. Then try the moves yourself.</p></div>
     <div class="hub-grid hub-skel" aria-hidden="true"><div class="card home-card hub-wide"></div><div class="card home-card"></div><div class="card home-card"></div><div class="card home-card"></div><div class="card home-card"></div></div></div></section>
 
@@ -13149,7 +13151,7 @@ function folLoadH2C(){
 }
 function folBrandRow(){
   const svg = (document.querySelector('h1.brand svg') || {}).outerHTML || '';
-  return `<div class="ff-brandrow"><div class="ff-brand"><span class="ff-logo">${svg}</span><span style="color:var(--ink)">FRONT OFFICE&nbsp;</span><span>LEDGER</span></div><div class="ff-handle">@SeanZerillo</div></div>`;
+  return `<div class="ff-brandrow"><div class="ff-brand"><span class="ff-logo">${svg}</span><span style="color:var(--ink)">Front Office Ledger</span></div><div class="ff-handle">@SeanZerillo</div></div>`;
 }
 function folFootRow(right){ return `<div class="ff-foot"><span>frontofficeledger.com · @SeanZerillo</span><span>${right}</span></div>`; }
 function folFrame(title, sub, inner, opts){
@@ -13636,8 +13638,8 @@ function folHub(){
   const week = Math.floor((day + 3) / 7);   // weeks start on Monday
   const xPost = (txt, url) => `<button class="actbtn" onclick="folXPost(${JSON.stringify(txt).replace(/"/g, '&quot;')}, '${url}')">Post on X</button>`;
   const dd = T(dudesDays) || 0, dudesDone = T(() => dudesStore('d2-' + dudeDay()));
-  return `<div class="home-hero hh-compact fol-rise"><div class="hh-main"><h2>The report card on every front office in baseball since 1998.</h2>
-      ${stats.tr ? `<div class="hub-stats"><span><b>${fmtN(stats.tr)}</b> trades</span><span><b>${fmtN(stats.fa)}</b> free-agent signings</span><span><b>${fmtN(stats.dr)}</b> draft picks</span><span><b>${fmtN(stats.reg)}</b> front offices</span></div>` : ''}</div>
+  return `<div class="home-hero hh-compact fol-rise"><div class="hh-main"><h2>Every move, graded.</h2>
+      ${stats.tr ? `<div class="hub-stats"><span><b>${fmtN(stats.tr)}</b> trades</span><span><b>${fmtN(stats.fa)}</b> free-agent signings</span><span><b>${fmtN(stats.dr)}</b> draft picks</span><span><b>${fmtN(stats.reg)}</b> front offices</span><span>since 1998</span></div>` : ''}</div>
       <div class="hh-tools"><div class="hub-find"><input id="hub-find" autocomplete="off" placeholder="Look up a player, a GM or a club" aria-label="Look up a player, a GM or a club" oninput="folHubFind()" onkeydown="if(event.key==='Enter'){ const f = document.querySelector('#hub-find-out button'); if(f) f.click(); } if(event.key==='Escape') document.getElementById('hub-find-out').innerHTML=''"><div id="hub-find-out" class="hub-find-out"></div></div>
       <div class="hub-team"><label for="hub-team">Jump to a club</label><select id="hub-team" onchange="if(this.value) folPickTeam(this.value)"><option value="">Pick a club</option>${Object.keys(DESK.teams || {}).sort((a, b) => (CLUB_NAME[a] || a).localeCompare(CLUB_NAME[b] || b)).map(a => `<option value="${a}">${CLUB_NAME[a] || a}</option>`).join('')}</select></div></div></div>
     ${sec('This winter', 'every move graded the day it happens')}
