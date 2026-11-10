@@ -159,6 +159,7 @@ const R = await page.evaluate(async (offsJson) => {
   o.pitcherAgingNotHarsherThanTested = pp[5] / pp[0] > 0.15 && pp[5] / pp[0] <= hp[5] / hp[0] + 0.25 && /0\.03 : 0/.test(dkProjSeasons.toString());
   treeOverlay('605141', 'LAD', 'Mookie Betts'); await wait(700);
   o.extensionOnTheTradeLine = /traded BOS to LAD · control years only\. Under the LAD extension that followed: [+\-−][\d.]+ WAR in \d+ seasons so far/.test(document.getElementById('tree-ov').textContent.replace(/\s+/g, ' '));
+  o.primeHittersNote = /Hitters in their prime\./.test(document.getElementById('view-method').textContent) && /Sixty-two hitters moved/.test(document.getElementById('view-method').textContent);
   { const qp = Object.keys(DESK.qo27 || {}).map(id => DESK.players.find(x => x[1] == id)).filter(Boolean)[0];
     const club = ['LAD', 'NYY', 'KC'].find(c => c !== DESK.qo27[qp[1]]), sg = dkSuggest(qp, 'fa', null);
     const t = dkFaVerdict({p: qp, yrs: sg.sugYrs, tot: sg.sugTot, club, done: 'Nov 10'}).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ');
