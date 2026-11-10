@@ -90,6 +90,11 @@ new facts are the completed postseason and any early offseason transactions.
                                      # desk_data.py (DESK.bio, DESK.line26).
                                      # splice_desk.py re-splices just these two
                                      # tables without rerunning the chain
+    python3 adv26_build.py           # xFIP/SIERA and xwOBA from the tracker dumps
+                                     # (data/adv26_pit.txt, adv26_hit.txt: re-dump them
+                                     # in a browser from the tracker's pitcher_stats.json
+                                     # and hitters.json; the header of the script has
+                                     # the two formats) -> DESK.adv26
     python3 desk_data.py             # Deal Desk data pack. On a pool change
     python3 pt_fetch.py              #   run desk_data -> pt_fetch -> desk_data
     python3 desk_data.py             #   so new pool members get durability
@@ -143,6 +148,18 @@ After regen, update
 by hand in `front-office-ledger-prototype.html`: the footer date line, the
 "postseason in progress" phrasing (now final), and the validation paragraph
 numbers if `validation.json` moved.
+
+### 2c. Side packs outside the chain
+
+    python3 offseasons_build.py      # every club-winter since 1998-99 (trade book +
+                                     # fa_grade rows) -> offseasons.json at the repo
+                                     # root, read by Best & Worst Winters, the
+                                     # simulator's closing rank and the home tile
+    python3 engine/dudes_lines.py <dir>   # best-season stat lines for Remember Some
+                                     # Dudes (after dudes_build.py; needs <dir>/bref/)
+
+Trade reports: `TRADE_RUMORS` and `TRADE_OFF` in the page are hand-kept (sources in
+the comment above them). Refresh them as the winter moves.
 
 ## 3. Verify before shipping
 
