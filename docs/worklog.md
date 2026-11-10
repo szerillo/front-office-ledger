@@ -14,7 +14,17 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 - Refresh tasks: at 23:54 UTC neither `rumors.json` nor `wire.json` carried a `checked` time yet. The first
   runs under the new prompts are due 00:23 UTC (trade reports) and 02:37 UTC (terms); the 22:37 UTC terms run
   fired one minute after the prompt change and left no stamp. Check again after those.
-- Not done yet: reconciling the old task-list items against the live site.
+- **Old task-list items reconciled against the page** (27 were still marked open from earlier chats).
+  Checked directly: no process words (curated, COMPUTED, archive sweep, illustrative, fictional), no "-0.0",
+  no "undefined" or "NaN" in any of the 20 views; the simulator has Start over and a call-ups step; the Deal
+  Desk has Undo and a position filter for free agents; the Chourio extension is in the Brewers' ledger
+  (8 years, $82M). 24 items closed as done or overtaken by later work.
+  Left open for Sean because the page does not settle them:
+  1. Champions view: a color legend and a view toggle were asked for once; the view has the overview and a
+     champion picker, and no legend or toggle that I can find.
+  2. Deal Desk: a "swap sides" control was asked for once; today your club is fixed on the left and there
+     is no swap.
+  3. Simulator: "salary shed counts toward room" was asked for once; not verified either way.
 
 ### Night 10: handoff file
 - `docs/HANDOFF.md`: what the site is, architecture, sources and refresh jobs with schedules, how each

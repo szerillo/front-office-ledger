@@ -114,7 +114,8 @@ seconds when it is not, send a one-line phone note, and the next run catches up.
 ## 9. Open items
 - One real link posted on X to confirm the preview card (only Sean can).
 - Sean's earlier formatting notes were lost with the old chat; a re-list is needed.
-- Old task-list items from earlier chats have not been reconciled against the live site.
+- Three old requests the page does not settle (see `worklog.md`, Night 11): a color legend and view toggle
+  on Champions, a swap-sides control at the Deal Desk, and whether shed salary counts toward room in the simulator.
 - Player names and the Desk's player table still ride in the first download (about 8% and 35% of it).
 - `TP_SETTLE` assumes Opening Day on March 25 2027 (confirmed against MLB's schedule).
 - After Nov 17: qualifying-offer decisions close; the terms task marks unaccepted offers as declined.

@@ -18,6 +18,7 @@ is "no change".
 | Nov 10 | Year-one projection too low for aces and stars? | No: aces 3.6 projected against 3.4 actual, star hitters 5.4 against 5.0 | No change | `engine/y1_bt.py` |
 | Nov 10 | Aging too fast for stars? | Hitters fine for 2010-19 holdout; pitchers aged too fast | Pitcher attrition penalty halved (0.06 to 0.03) | `engine/aging_bt.py` |
 | Nov 10 | Kirk's launch QA (3 blockers, 16 should-fix) | All fixed; re-walked live Nov 10 night, 32 of 32 scripted cases pass | Yes | `docs/qa-rewalk-nov10.md`, `tests/t_qa.mjs` |
+| Nov 10 | Reconcile 27 old open task-list items against the page | 24 done or overtaken (checked: no process words, no "-0.0", no NaN in any view; simulator reset and call-ups; Desk Undo and position filter; Chourio extension). 3 unsettled: champions legend and toggle, Desk swap sides, simulator salary-shed room | Listed for Sean in `worklog.md` | `tests/tools/` |
 | Nov 10 | Recover Sean's earlier formatting notes from stored transcripts | Not recoverable | Needs a re-list | |
 
 ## NHL
