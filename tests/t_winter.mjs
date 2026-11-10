@@ -157,7 +157,7 @@ const r = await d.page.evaluate(async () => {
   o.simAgmOnTop = gb.indexOf('Assistant GM') > -1 && gb.indexOf('Assistant GM') < gb.indexOf('Free agents');
   gmPickThem('WSH'); o.simBackToBlock = !!document.querySelector('button[onclick="gmTradeBlock()"]') && /negotiate the deal/.test(document.getElementById('gmbody').innerText);
   o.clubPickers = ['report', 'trees', 'h2h'].every(v => !!document.getElementById('vc-' + v));
-  o.allSeatsRanked = (() => { renderLB(); const k = document.getElementById('sortsel').value; return [...document.querySelectorAll('#lb tbody td.rk')].filter(td => td.textContent.trim()).length === lbRows().filter(r => lbSortVal(r, k) != null).length; })();
+  o.allSeatsRanked = (() => { renderLB(); const k = document.getElementById('sortsel').value; return [...document.querySelectorAll('#lb tbody td.rk')].filter(td => td.textContent.trim()).length === lbRows().filter(r => lbSortVal(r, k) != null && !lbShort(r)).length; })();   // Nov 10: under two seasons in the seat is listed, not ranked
   // Nov 3 (night): Cashman graded from the 2005-06 winter, 1998-2005 is an archive record; a claim and the same club's later loss are one entry
   { const ny = lbRows().find(r => abOf(r) === 'NYY' && !r._hist), ar = (typeof LB_HIST !== 'undefined' ? LB_HIST : []).find(r => /Cashman/.test(r.exec));
     o.cashmanSplit = !!ny && String(ny.startDate) === '2005-11-01' && !!ar && (ar.flags || []).includes('ownership era') && +ar.start === 1998; }

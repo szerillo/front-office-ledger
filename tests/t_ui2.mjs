@@ -181,7 +181,9 @@ Object.assign(R, await page.evaluate(async () => {
   o.i16_archiveTooltip = tips.length > 0 && tips.every(t => /Not scored for this archive regime/.test(t) && !/Too few graded deals/.test(t));
   // 15b: in All eras, ungraded rows sort last and carry no rank number
   setv('erasel', 'all'); setv('sortsel', 'fa'); renderLB();
-  const rows = [...document.querySelectorAll('#lb tbody tr')];
+  // Nov 10: regimes under two seasons sit below a divider, unranked whatever they have; the rule is checked above it
+  const rowsAll = [...document.querySelectorAll('#lb tbody tr')], dvI = rowsAll.findIndex(r => r.classList.contains('lb-div'));
+  const rows = dvI < 0 ? rowsAll : rowsAll.slice(0, dvI);
   const faCol = [...document.querySelectorAll('#lb thead th')].findIndex(th => /Free Agency/.test(th.textContent));
   const blank = r => r.children[faCol].innerText.trim() === '·';
   const firstBlank = rows.findIndex(blank);

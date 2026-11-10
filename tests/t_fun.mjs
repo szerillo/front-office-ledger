@@ -34,7 +34,7 @@ const R = await d.page.evaluate(async () => {
   folPickTeam('BOS'); await wait(400);
   const rb = document.getElementById('view-report').textContent;
   o.teamPage = !document.getElementById('view-report').hidden && /Craig Breslow/.test(rb) && /#view=cards&id=bos/.test(location.hash);
-  o.teamStanding = !!document.querySelector('#rc-standing .rc-standing') && /active front offices/.test(document.getElementById('rc-standing').textContent) && !document.querySelector('#rc-standing button.actbtn');
+  o.teamStanding = !!document.querySelector('#rc-standing .rc-standing') && /front offices with two or more seasons in the seat/.test(document.getElementById('rc-standing').textContent) && !document.querySelector('#rc-standing button.actbtn');
   o.teamNotRemembered = folTeam() === '' && (() => { try { return !localStorage.getItem('fol-team'); } catch(e){ return true; } })();
   folOpenAs('BOS', 'gm'); await wait(300);
   o.teamRunWinterOpensClub = !document.getElementById('view-gm').hidden && gmState.club === 'BOS';

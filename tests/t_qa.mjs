@@ -126,7 +126,7 @@ const R = await page.evaluate(async (offsJson) => {
     o.ortizTileShowsTheChain = /Ortiz/.test(document.querySelector('#homebody .arch-tree .at-root').textContent) && kids.length >= 3 && kids.some(k => /Burnes/.test(k.textContent)) && !/not on file/.test(document.querySelector('#homebody .arch-tree').textContent);
     Date.now = realNow; renderHome(); }
   switchView('leaderboard'); await wait(200);
-  const lrows = [...document.querySelectorAll('#lbtable tbody tr, .lb-tablecard tbody tr')].slice(0, 28);
+  const lrows = [...document.querySelectorAll('.lb-tablecard tbody tr')].filter(t => !t.classList.contains('lb-div')).slice(0, 28);
   o.rankRowsOneLine = lrows.length >= 20 && lrows.every(tr => !/seasons? in the seat/.test(tr.textContent) && (!tr.querySelector('.execcell .tm') || tr.querySelector('.execcell .tm').getBoundingClientRect().height < 22)) && new Set(lrows.map(tr => Math.round(tr.getBoundingClientRect().height))).size <= 2;
   // a player page has its own link; a near-miss spelling still finds him
   treeOverlay('605141', 'LAD', 'Mookie Betts'); await wait(400);
@@ -137,7 +137,29 @@ const R = await page.evaluate(async (offsJson) => {
   document.getElementById('hub-find').value = 'Mooky Bets'; folHubFind();
   o.nearSpellingFinds = /Mookie Betts/.test(document.getElementById('hub-find-out').textContent);
   document.getElementById('hub-find').value = ''; folHubFind();
+  // Nov 10 evening: short tenures listed under the ranked ones, the score explained, letters explained
+  switchView('leaderboard'); await wait(200);
+  const trs = [...document.querySelectorAll('#lb tbody tr')], di = trs.findIndex(t => t.classList.contains('lb-div'));
+  o.shortTenuresUnranked = di > 15 && trs.slice(0, di).every(t => /^\d+$/.test(t.querySelector('.rk').textContent.trim())) && trs.slice(di + 1).every(t => t.querySelector('.rk').textContent.trim() === '') && /Under two seasons in the seat/.test(trs[di].textContent) && folActiveRank().every(r => !lbShort(r)) && folActiveRank().length === di;
+  o.overallScoreExplained = /number under each Overall grade is the score, in wins a season/.test(document.getElementById('view-leaderboard').textContent) && /wins a season/.test(document.querySelector('#lb th.lb-overall').textContent);
+  const ranked = folActiveRank()[0]; switchView('report', ranked.id); await wait(250);
+  o.rankPoolExplained = /of the \d+ front offices with two or more seasons in the seat/.test(document.getElementById('view-report').textContent) && /graded but not ranked yet/.test(document.getElementById('view-report').textContent);
+  REG_BY_ID_CUR = ranked;
+  o.tradeLettersExplained = /grades each trade against other trades of its size/.test(allTradesTable(ranked));
   return o;
 }, offsJson);
+// phones: the Deal Desk rosters start folded, and a search opens them
+const ph = await open({width: 390, height: 844});
+Object.assign(R, await ph.page.evaluate(async () => {
+  const o = {}, wait = ms => new Promise(z => setTimeout(z, ms));
+  switchView('desk'); dkState.mode = 'trade'; dkState.you = 'NYY'; dkState.them = 'LAA'; dkState.f = {q: '', pos: '', view: 'all', sort: 'proj'}; dkState.ro = {}; renderDesk(); await wait(200);
+  const ds = () => [...document.querySelectorAll('#deskbody details.dk-rost')];
+  o.phoneRostersFolded = ds().length === 2 && ds().every(d => !d.open) && document.documentElement.scrollHeight < 4000;
+  dkState.f.q = 'neto'; renderDesk(); await wait(150);
+  o.phoneSearchOpensRosters = ds().every(d => d.open) && /Zach Neto/.test(document.getElementById('deskbody').textContent);
+  dkState.f.q = ''; return o;
+}));
+R.phoneErrors = ph.errors.length === 0;
+await ph.browser.close();
 await browser.close();
 report('t_qa', R, errors);
