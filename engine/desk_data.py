@@ -166,7 +166,7 @@ for g in d.get("records", []):
 
 # ---- contract book with platform context and realized outcomes ----
 import csv, unicodedata, sys
-sys.path.insert(0, "/work")
+sys.path.insert(0, "/home/claude")
 from contracts_recent import RECENT
 def norm(nm):
     x = unicodedata.normalize("NFKD", nm or "").encode("ascii", "ignore").decode()
@@ -405,7 +405,15 @@ for p in players:
         pt_exp = min(_CAP[role], float(PTM[str(p[1])]))
     missed = debut <= 2025 and _pt(rec, 2025, role) == 0 and _pt(rec, 2026, role) == 0
     if missed: p.append(0.0); p.append(1); continue
-    p.append(round(rate * pt_exp, 2)); p.append(0)
+    base = rate * pt_exp
+    # Nov 10 2026, prime-age regulars. Walk-forward 2016-2026: hitters 30 and under projected for 2.5 to 4.25
+    # wins beat the projection by 0.36 (se 0.11) in year one and 0.30 in year two, in every period block;
+    # hitters 31 and over did not, and starters showed nothing reliable. A quarter win across a year-one
+    # projection of 2.75 to 4.0, fading to nothing at 2.0 and 4.75 (y1_split.py, y1_bump.py).
+    if role == "bat" and p[4] + 1 <= 30:
+        _y1 = base + PC["curves"]["bat"].get(str(min(max(p[4] + 1, 20), 41)), -0.3)
+        base += 0.25 * max(0.0, min(1.0, (_y1 - 2.0) / 0.75, (4.75 - _y1) / 0.75))
+    p.append(round(base, 2)); p.append(0)
     PTX[p[1]] = round(pt_exp) if role == "bat" else round(pt_exp, 1)   # Nov 9: expected 2027 PA / IP, shown beside the projection
 print("service from transactions:", n_svc, "| contract-expiry FAs:", len(CONTRACT_FA))
 
