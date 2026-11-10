@@ -14,7 +14,8 @@ root (adjust paths or symlink if elsewhere).
     git clone https://github.com/szerillo/front-office-ledger
     cp front-office-ledger/engine/*.py front-office-ledger/ingest/*.py .
     cp front-office-ledger/data/*.json front-office-ledger/data/*.csv .
-    cp front-office-ledger/index.html front-office-ledger-prototype.html && cp front-office-ledger/moves.js moves.js
+    python3 front-office-ledger/engine/unsplit_book.py front-office-ledger front-office-ledger-prototype.html   # the live index.html ships without the trade book; this puts it back
+    cp front-office-ledger/moves.js moves.js
 
 Rebuild `ledger.sqlite` (not shipped; too big for the web upload flow):
 

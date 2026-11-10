@@ -5,6 +5,17 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 
 ## 2026-11-10 (Tue)
 
+### Night 10: handoff file
+- `docs/HANDOFF.md`: what the site is, architecture, sources and refresh jobs with schedules, how each
+  number is made, state, open items, what only existed in the chat, which scheduled tasks and chats belong
+  to the project and which can be closed, and the decisions waiting on Sean.
+- `engine/unsplit_book.py` rebuilds the working page from the live `index.html` and `book.js` (checked
+  byte-identical), so a fresh machine can start from the repo. Runbook section 0 updated.
+- `tests/tools/`: the working scripts that were only on the build machine (page eval, every-view sweep,
+  split comparison, phone timing, the 32 QA cases).
+- Wikipedia stays the working NHL trade source for now (instruction relayed by Kirk for Sean);
+  `what-worked.md` says what a better source would have to beat.
+
 ### Night 9: register of what was tried, NHL trades prototype
 - New `docs/what-worked.md`: one row per experiment or fix with its result and whether it was kept, so
   nothing is tested twice. Keep it current alongside this log.

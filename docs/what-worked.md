@@ -34,11 +34,20 @@ is "no change".
 | Nov 10 | General manager tenures from an official source | Found on the league's records site, 332 stints with dates | Yes | `engine/nhl/draft.py` |
 | Nov 10 | Trades from Wikipedia's season transaction pages (prototype) | Parses cleanly: 715 trades in six seasons, 85% of players matched to league ids (the rest mostly never played), 745 picks. The site rate-limits; 15 seasons still to pull, slowly | Prototype; sourcing is Sean's call | `engine/nhl/trades_wiki.py` |
 
+## What a better NHL trade source would have to beat
+Wikipedia's season pages are the working source (Nov 10, pending Sean's decision). They give: every trade
+with its date, both clubs, every player, every pick with round, year and original owner, conditions in
+footnotes, and a citation to the club or league announcement on each row; free to reuse with credit; 85% of
+traded players match a league id by name and the rest mostly never played. A replacement is only worth it
+if it adds at least one of: league player ids on every asset (no name matching), conditions and retained
+salary as data instead of footnotes, the pick each traded selection finally became, or contract terms.
+It would also need to be pullable without the rate limit that slows the Wikipedia pull to a few pages at a time.
+
 ## Standing facts worth not rediscovering
 - Deploy: build with `engine/split_book.py`, upload `index.html` and `book.js` together when the book changes.
 - Running all 12 suites at once makes `t_wire` flake on its readers-grade check; four at a time is clean.
-- GitHub's upload page: the first file input on a fresh tab is `ref_100`, later ones `ref_101`, and a path
-  that does not exist yet gives `ref_103`. Always read the ref from `find`.
+- GitHub's upload page: the file input's ref changes from page to page (`ref_100`, `ref_101`, `ref_103` have
+  all appeared, for existing folders too). Always read it from `find` before uploading.
 - A large upload over the Chrome link can lose its reply while still landing: check with `git fetch` before
   repeating.
 - The NHL stats service returns everything for a season and club in one call with `limit=-1`; game feeds
