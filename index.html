@@ -1741,6 +1741,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
     <h2>Deal Desk · Propose a Move</h2>
     <div class="sub lbkey">
       <div>Build a trade, a signing or an extension and get a verdict.</div>
+      <div class="ttype" style="margin-top:4px"><span class="chip chip-open" style="margin-left:0">Beta</span> Every price here is the Ledger's projection, not a report. It does not model cash, no-trade clauses or medicals, and it will be wrong on individual players.</div>
       <details><summary>How it works</summary>
       <ul>
         <li>Build a trade, free-agent signing or extension and get a verdict: projected value over each piece's control, against what the market pays for deals of that shape.</li>
@@ -1796,6 +1797,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
     <h2>The Offseason Simulator · Run Your Club's Winter</h2>
     <div class="sub lbkey">
       <div>Run your club's real 2026-27 winter, one decision at a time.</div>
+      <div class="ttype" style="margin-top:4px"><span class="chip chip-open" style="margin-left:0">Beta</span> The other 29 clubs, every asking price and the Assistant GM's advice are simulated from the Ledger's projections.</div>
       <details><summary>How it works</summary>
       <ul>
         <li>Run your club's real 2026-27 winter: your free agents, your arbitration class, the real free-agent market and every farm system.</li>
@@ -1958,7 +1960,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
 <li><strong>Rate.</strong> WAR per plate appearance (per inning for pitchers) over the last three seasons, weighted 5/3/2 and regressed toward his role's league rate by sample size. After a big drop or jump the same weights still win: in Ledger terms, breakouts and collapses carry forward about as much as the weights already assume.</li>
 <li><strong>Playing time, hitters.</strong> A regression fit on 2016-26 seasons: the last three seasons' plate appearances and games, plate appearances per game he was healthy (injured-list time from the transaction record), age and the rate. Games matter beside plate appearances because a regular sliding into a part-time or platoon role keeps playing games with fewer trips to the plate in each. Against the old formula it cuts the miss on next-season plate appearances by 11% (177 to 157) and removes most of the over-projection of hitters 31 and older (+78 to +9). Injured-list history, platoon splits and second-half role were tested and added nothing once those are in.</li>
 <li><strong>Playing time, pitchers.</strong> Starters 27 and older are pulled 15% toward half a season, trimmed when recent performance was weak, and kept to at least 70% of a full season just pitched. Relievers use their recent innings.</li>
-<li><strong>Aging.</strong> Curves built from 28,000 careers, with the decline set 1.5 times steeper than the raw year-to-year averages, which only see players who came back the next season. Later seasons also lose a share to attrition (injury, role loss, release) that grows with age.</li>
+<li><strong>Aging.</strong> Curves built from 28,000 careers, with the decline set 1.5 times steeper than the raw year-to-year averages, which only see players who came back the next season. Later seasons also lose a share to attrition (injury, role loss, release) that grows with age. Checked against every regular and star since 1990, six seasons forward: for hitters of the 2010-19 seasons the projected totals land within 3% of what those players went on to produce, stars included. Stars of the 1990s and 2000s aged far more slowly than today's, so a modern star's projected decline can look steep next to memory. Pitchers land about 5% under.</li>
 <li><strong>Defense.</strong> Fielding runs count as they happened (Defensive Runs Saved in the infield, Statcast run value elsewhere), with no extra regression: in the Ledger's own record they hold up year to year as well as batting does. This is the main reason the projection disagrees with public systems on glove-first and glove-poor players.</li>
 <li><strong>Statcast read.</strong> For pitchers, fastball velocity, its change and contact quality allowed (wOBA against beyond xwOBA); for hitters, xwOBA beyond wOBA, sprint speed and its change. Fit on 2017-22 and tested on 2023-25, it trims the miss on next-season WAR by about 1% (pitchers 0.899 to 0.888 RMSE, hitters 1.567 to 1.551). Bat speed has only been tracked since 2023, too short to test.</li>
 <li><strong>On the page.</strong> Every 2027 projection on the free-agent board, the free-agent sheet, the simulator and each trade piece shows its playing time and its rate per 600 plate appearances (per 180 innings for starters, 65 for relievers), so a disagreement about playing time reads apart from one about talent.</li>
@@ -7463,7 +7465,13 @@ function dkProjSeasons(p, n, haircut, noAttrition){
     // retirement, and backtested 5-year totals ran 13% hot for hitters 22-24,
     // 32% at 27-29, 50% at 31-33 and 74% at 34-36 (pitchers 31-33: 84%).
     // From the second season on, each year keeps a share that falls with age.
-    if(i >= 2 && !noAttrition) surv *= Math.max(0.5, (age <= 26 ? 0.97 : age <= 29 ? 0.94 : age <= 32 ? 0.89 : age <= 35 ? 0.84 : 0.78) - (p[3] ? 0.06 : 0));
+    // Nov 10 (aging_bt.py, aging_fit2.py): re-tested on every regular and star since 1990, six seasons forward.
+    // Hitters hold on the modern game: for the 2010-19 cohorts the six-year totals land within 3% of what
+    // those players produced, stars included (hitters of the 1990s and 2000s aged far more slowly, which is
+    // why a modern star's decline can look harsh). Pitchers were being charged too much: the extra yearly
+    // loss is 3 points now, not 6. At 6 the 2010-14 and 2015-19 cohorts came in 12% and 9% under what they
+    // produced (years four to six 28% and 23% under); at 3 they land 6% and 3% under.
+    if(i >= 2 && !noAttrition) surv *= Math.max(0.5, (age <= 26 ? 0.97 : age <= 29 ? 0.94 : age <= 32 ? 0.89 : age <= 35 ? 0.84 : 0.78) - (p[3] ? 0.03 : 0));
     const season = age > 45 ? 0 : Math.max(val,0) * dur * surv * (haircut ? Math.pow(0.9, Math.max(0, i-1)) : 1);
     per.push(season); tot += season;
   }
@@ -14517,7 +14525,7 @@ function folTradingCard(ab){
   return `<div class="tcard-share" style="--tc:${f.col[0]}; --tt:${f.col[1]}">
     <div class="tc-band"><div><div class="tc-kick">Front office</div><div class="tc-club">${f.club}</div><div class="tc-exec">${f.exec}, since ${f.since}</div></div>
       <div class="tc-grade">${f.grade}</div></div>
-    <div class="tc-stats"><div><b>${f.rank ? '#' + f.rank : '·'}</b><span>of ${f.n} front offices</span></div><div><b class="${f.net >= 0 ? 'pos' : 'neg'}">${fmtW(f.net)}</b><span>wins vs. a typical front office</span></div>${f.hz ? `<div><b>#${f.hz}</b><span>in WAR under control for 2031</span></div>` : ''}</div>
+    <div class="tc-stats"><div><b>${f.rank ? '#' + f.rank : '·'}</b><span>${f.rank ? `of ${f.n} ranked front offices` : 'not ranked yet: under two seasons'}</span></div><div><b class="${f.net >= 0 ? 'pos' : 'neg'}">${fmtW(f.net)}</b><span>wins vs. a typical front office</span></div>${f.hz ? `<div><b>#${f.hz}</b><span>in WAR under control for 2031</span></div>` : ''}</div>
     ${mv('Best move', f.best)}${mv('Worst move', f.worst)}
     ${f.trait ? `<div class="tc-trait">Signature: ${f.trait}</div>` : ''}</div>`;
 }
@@ -15135,12 +15143,17 @@ function tpFitsHtml(p){
   return `<div class="tp-fits"><div class="ttype"><strong>The Ledger's price:</strong> ${fmtW(f.sur)} wins of surplus value · ${fmtW(gmProj27(p))} WAR in 2027 at $${sal.toFixed(1)}M, ${pz(ctrl, 'year', 'years')} of control</div>
     ${f.offers.length ? f.offers.map(o => `<div class="tp-fit"><span class="wi-tc" style="${folTC(o.buyer)}">${o.buyer}</span><span class="tp-pk"><strong>${nick(o.buyer)}</strong>${o.fit ? ` <span class="ttype">need at ${o.fit}</span>` : ''}<span class="ttype tp-pcs">${o.pieces.map(x => x.pc.p[0]).join(', ')}</span></span><button class="savebtn" onclick="tpBuild(${p[1]}, '${o.buyer}')">Open the trade</button></div>`).join('') : `<div class="ttype">${f.sur <= 0 ? 'At that salary the numbers show no surplus, so a trade would mean money going with him or a club that sees more than we do.' : 'No club has the pieces that match his price without giving up a regular.'}</div>`}</div>`;
 }
+// a call is right, wrong, or still open: a trade settles it the day it lands; on Opening Day everyone
+// still with his club has stayed. The date is the expected 2027 opener; move it if the schedule moves.
+const TP_SETTLE = Date.parse('2027-03-25T16:00:00Z');
+function tpResult(pid){ const m = tpMine(pid), mv = tpMoved(pid); if(!m.call) return null; if(mv) return m.call === 'y'; return Date.now() >= TP_SETTLE ? m.call === 'n' : null; }
 function tpTeam(pid, ab){ if(!ab) return; const m = tpMine(pid); m.team = ab; tpSave(pid, m); folEvent('wire/tp-team'); pkRedraw(); }
 function tpRow(x){
   const p = x.p, pid = p[1], m = tpMine(pid), mv = tpMoved(pid), c = TP.crowd[pid], nick = ab => teamNick(CLUB_NAME[ab] || ab);
   const club = mv ? mv.from : p[2];
   let res;
   if(mv) res = `<span class="stamp-s pos">traded</span> <span class="ttype">to the ${nick(mv.to)}, ${folMD(mv.d)}</span>${m.call ? ` <span class="ttype">${m.call === 'y' ? (m.team ? (m.team === mv.to ? 'You called the club too' : 'You called the trade, not the club') : 'You called it') : 'You missed this one'}</span>` : ''}`;
+  else if(m.call && tpResult(pid) != null) res = `<span class="stamp-s">stayed</span> <span class="ttype">${tpResult(pid) ? 'You called it' : 'You missed this one'}</span>`;
   else if(m.call) res = `<span class="ttype">Your call: <strong>${m.call === 'y' ? 'traded' : 'stays'}</strong></span>`;
   else res = `<span class="wq-btns"><button class="actbtn" onclick="tpCall(${pid}, 'y')">Traded</button><button class="actbtn" onclick="tpCall(${pid}, 'n')">Stays</button></span>`;
   const n = c ? c.y + c.n : 0, py = n ? Math.round(c.y / n * 100) : 0;
@@ -15152,7 +15165,7 @@ function tpRow(x){
 function tpCard(){
   const xs = T0(tpPool) || []; if(!xs.length) return '';
   if(!tpCard._asked){ tpCard._asked = 1; xs.filter(x => tpMine(x.p[1]).call || tpMoved(x.p[1])).slice(0, 12).forEach(x => tpLoad(x.p[1]).then(pkRedraw)); }
-  const done = xs.filter(x => tpMoved(x.p[1]) && tpMine(x.p[1]).call), right = done.filter(x => tpMine(x.p[1]).call === 'y').length;
+  const done = xs.filter(x => tpResult(x.p[1]) != null), right = done.filter(x => tpResult(x.p[1])).length;
   return `<details class="card home-card wire-qo wire-tp" open><summary><div class="home-kick">Trade pick'em · reports through ${TRADE_RUMORS.asof}</div>
     <h3>Traded this winter, or does he stay?</h3><span class="ttype wq-tap">The ${xs.length} biggest names in trade reports</span></summary>
     <p class="hub-p">Call each one. A trade is scored the day it lands on the Wire; a "stays" call is scored on Opening Day.${done.length ? ` You are ${right} for ${done.length}.` : ''}</p>
@@ -15370,7 +15383,7 @@ function pkSaveCard(){
 function pkMyCard(){
   const qo = Object.keys(DESK.qo27 || {}).map(pid => ({pid, mine: wireQoMine(pid), st: wireQoStatus(pid)})).filter(x => x.mine);
   const pk = pkPool().map(x => ({x, m: pkMine(x.p[1]), act: wireActual(x.p[1])})).filter(z => z.m && (z.m.ou || z.m.ouf || z.m.yrs || z.m.team));
-  const tp = (T0(tpPool) || []).map(x => ({m: tpMine(x.p[1]), mv: tpMoved(x.p[1])})).filter(z => z.m.call);
+  const tp = (T0(tpPool) || []).map(x => ({m: tpMine(x.p[1]), mv: tpMoved(x.p[1]), res: tpResult(x.p[1])})).filter(z => z.m.call);
   if(!qo.length && !pk.length && !tp.length) return '';
   const qoDone = qo.filter(x => x.st !== 'pending'), qoRight = qoDone.filter(x => (x.mine === 'accept') === (x.st === 'accepted')).length;
   const ous = pk.flatMap(z => [z.m.ou ? {z, side: z.m.ou, line: z.x.sg.sugTot} : null, z.m.ouf ? {z, side: z.m.ouf, line: z.x.sg.fairSame} : null].filter(Boolean));
@@ -15382,7 +15395,7 @@ function pkMyCard(){
     <div class="hub-row"><span>Qualifying offers</span><span class="ttype" style="margin-left:auto">${qoDone.length ? `${qoRight} for ${qoDone.length}` : 'none decided yet'}${qo.length > qoDone.length ? ` · ${qo.length - qoDone.length} pending` : ''}</span></div>
     <div class="hub-row"><span>Clubs</span><span class="ttype" style="margin-left:auto">${tmDone.length ? `${tmRight} for ${tmDone.length}` : tms.length ? 'none signed yet' : 'no picks yet'}${tms.length > tmDone.length ? ` · ${tms.length - tmDone.length} pending` : ''}</span></div>
     <div class="hub-row"><span>Over/unders</span><span class="ttype" style="margin-left:auto">${ouDone.length ? `${ouRight} for ${ouDone.length}` : 'none decided yet'}${ous.length > ouDone.length ? ` · ${ous.length - ouDone.length} pending` : ''}</span></div>
-    <div class="hub-row"><span>Trades</span><span class="ttype" style="margin-left:auto">${tp.filter(z => z.mv).length ? `${tp.filter(z => z.mv && z.m.call === 'y').length} for ${tp.filter(z => z.mv).length}` : tp.length ? 'none traded yet' : 'no calls yet'}${tp.filter(z => !z.mv).length ? ` · ${tp.filter(z => !z.mv).length} pending` : ''}</span></div>
+    <div class="hub-row"><span>Trades</span><span class="ttype" style="margin-left:auto">${tp.filter(z => z.res != null).length ? `${tp.filter(z => z.res).length} for ${tp.filter(z => z.res != null).length}` : tp.length ? 'none traded yet' : 'no calls yet'}${tp.filter(z => z.res == null).length ? ` · ${tp.filter(z => z.res == null).length} pending` : ''}</span></div>
     <div class="hub-row"><span>Exact deals</span><span class="ttype" style="margin-left:auto">${pr.length ? `off by $${avg(pr.map(x => x.me)).toFixed(1)}M a year; the Ledger, $${avg(pr.map(x => x.led)).toFixed(1)}M` : `${pz(pk.filter(z => z.m.yrs).length, 'prediction', 'predictions')} waiting on signings`}</span></div>
     <div style="margin-top:10px">${folSaveBtn('pkSaveCard()', 'Save my predictions as an image')}</div>
     <div class="ttype" style="margin-top:6px">Saved in this browser.</div></div>`;
