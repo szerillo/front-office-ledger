@@ -1396,7 +1396,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
 
   <!-- ================= HOME: your team ================= -->
   <section id="view-home"><div id="homebody"><div class="home-hero"><div class="home-kick">Front Office Ledger</div>
-      <h2>Every trade, signing and draft pick since 1998, graded.</h2>
+      <h2>The report card on every front office in baseball since 1998.</h2>
       <p>Each move is scored against what a typical club got from the same kind of move. Then try the moves yourself.</p></div>
     <div class="hub-grid hub-skel" aria-hidden="true"><div class="card home-card hub-wide"></div><div class="card home-card"></div><div class="card home-card"></div><div class="card home-card"></div><div class="card home-card"></div></div></div></section>
 
@@ -13636,7 +13636,7 @@ function folHub(){
   const week = Math.floor((day + 3) / 7);   // weeks start on Monday
   const xPost = (txt, url) => `<button class="actbtn" onclick="folXPost(${JSON.stringify(txt).replace(/"/g, '&quot;')}, '${url}')">Post on X</button>`;
   const dd = T(dudesDays) || 0, dudesDone = T(() => dudesStore('d2-' + dudeDay()));
-  return `<div class="home-hero hh-compact fol-rise"><div class="hh-main"><h2>Every trade, signing and draft pick since 1998, graded.</h2>
+  return `<div class="home-hero hh-compact fol-rise"><div class="hh-main"><h2>The report card on every front office in baseball since 1998.</h2>
       ${stats.tr ? `<div class="hub-stats"><span><b>${fmtN(stats.tr)}</b> trades</span><span><b>${fmtN(stats.fa)}</b> free-agent signings</span><span><b>${fmtN(stats.dr)}</b> draft picks</span><span><b>${fmtN(stats.reg)}</b> front offices</span></div>` : ''}</div>
       <div class="hh-tools"><div class="hub-find"><input id="hub-find" autocomplete="off" placeholder="Look up a player, a GM or a club" aria-label="Look up a player, a GM or a club" oninput="folHubFind()" onkeydown="if(event.key==='Enter'){ const f = document.querySelector('#hub-find-out button'); if(f) f.click(); } if(event.key==='Escape') document.getElementById('hub-find-out').innerHTML=''"><div id="hub-find-out" class="hub-find-out"></div></div>
       <div class="hub-team"><label for="hub-team">Jump to a club</label><select id="hub-team" onchange="if(this.value) folPickTeam(this.value)"><option value="">Pick a club</option>${Object.keys(DESK.teams || {}).sort((a, b) => (CLUB_NAME[a] || a).localeCompare(CLUB_NAME[b] || b)).map(a => `<option value="${a}">${CLUB_NAME[a] || a}</option>`).join('')}</select></div></div></div>
