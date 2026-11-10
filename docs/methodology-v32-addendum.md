@@ -1912,3 +1912,4 @@ Current clubs and statuses for every Desk player from the MLB Stats API (319 cha
 - **Play GM** order: Deal Desk, Offseason Simulator, Scenario Room, Trade Grade, Remember Some Dudes, Pick'em and Polls.
 - **Remember Some Dudes** now draws from 881 regulars whose careers centered on 1991-2014 (began 1984 or later, done by 2020; 2,500+ PA or 700+ IP), with the line re-cut inside that pool.
 - **Still to come on report cards.** Every trade in a tenure since 2019 shows the projected surplus still to come (the Desk's projections for players under control in 2027: the ones who came in and are still here, against the ones who went out and are still controlled elsewhere), with a tenure total. Context only; grades count what has happened.
+- **Tagline.** "Every move, graded." is the page title, the share-preview line and a small line beside the masthead name (hidden on phones). The share image was redrawn to match.
