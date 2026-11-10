@@ -42,7 +42,7 @@ const r = await d.page.evaluate(() => {
   bdState.tab = 'farm'; renderBoards(); o.farmBoard = bdState.tab === 'pros' && document.querySelectorAll('#bd-right tbody tr').length === 30 && document.querySelectorAll('#bd-left tbody tr').length === 100;
   bdOrg('SEA'); o.farmClickFiltersProspects = [...document.querySelectorAll('#bd-left tbody tr')].every(r => r.cells[2] && r.cells[2].textContent.trim() === 'SEA') && !!document.querySelector('#bd-right tr.bd-club.on');
   bdOrg('');
-  o.forwardLookingPitch = !document.querySelector('.tagline') && /report card on every front office/i.test(document.querySelector('#homebody .home-hero h2').textContent) && !/since 1998, graded/.test(document.querySelector('#homebody .home-hero').textContent) && /Looking ahead/.test(document.getElementById('introstrip') ? document.getElementById('introstrip').innerText : 'Looking ahead');
+  o.forwardLookingPitch = !document.querySelector('.tagline') && /^Every move, graded\.$/.test(document.querySelector('#homebody .home-hero h2').textContent.trim()) && !document.querySelector('.brand-line') && !/since 1998, graded/.test(document.querySelector('#homebody .home-hero').textContent) && /Looking ahead/.test(document.getElementById('introstrip') ? document.getElementById('introstrip').innerText : 'Looking ahead');
   // v5.6: international volume counts every signing (Atlanta graded, with the sanctions context)
   const atl = AUTO_REGIMES.find(x => abOf(x) === 'ATL');
   o.braveIntlGraded = atl.chan.intl.n >= 50 && atl.chan.intl.g != null && /sanction/.test(atl.chan.intl.note || '');

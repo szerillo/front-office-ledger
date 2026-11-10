@@ -267,7 +267,7 @@ Object.assign(R, await page.evaluate(async () => {
 
   // ---------- page-wide ----------
   // d: one h1, the site title; headings never skip a level in any view
-  o.d_oneH1 = document.querySelectorAll('h1').length === 1 && /FRONT OFFICE/.test(document.querySelector('h1').textContent);
+  o.d_oneH1 = document.querySelectorAll('h1').length === 1 && /Front Office Ledger/.test(document.querySelector('h1').textContent);
   const skips = [];
   for(const v of ['leaderboard', 'report', 'trees', 'champs', 'dna', 'h2h', 'horizon', 'boards', 'gm', 'desk', 'scen', 'method']){
     switchView(v); await wait(30);
