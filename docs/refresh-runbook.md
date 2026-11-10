@@ -158,6 +158,14 @@ numbers if `validation.json` moved.
     python3 engine/dudes_lines.py <dir>   # best-season stat lines for Remember Some
                                      # Dudes (after dudes_build.py; needs <dir>/bref/)
 
+    node engine/share_live.mjs <out> [site url] [--only-new <repo>]
+                                     # share pages with their own preview images for
+                                     # every graded Wire move (w/), every club's Hot
+                                     # Stove page (s/) and the 40 biggest winters (o/),
+                                     # plus share.json, which tells the page which
+                                     # links exist. A scheduled task runs it with
+                                     # --only-new and uploads what changed.
+
 Trade reports: `TRADE_RUMORS` and `TRADE_OFF` in the page are hand-kept (sources in
 the comment above them). Refresh them as the winter moves.
 
