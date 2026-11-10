@@ -67,7 +67,9 @@ const R = await d.page.evaluate(async ({fx, dz}) => {
   o.clubFilter = [...document.querySelectorAll('#wirebody .wire-item')].every(e => e.querySelector('.wi-tc') && [...e.querySelectorAll('.wi-tc')].some(t => t.textContent === 'TB')) && /id=tb/.test(location.hash);
   wireSetFilt('club', ''); wireSetFilt('kind', 'trade'); await wait(30);
   o.tradeFilter = [...document.querySelectorAll('#wirebody .wire-item')].every(e => /Trade/.test(e.querySelector('.wi-kind').textContent));
-  wireSetFilt('kind', 'mlb');
+  wireSetFilt('kind', 'graded'); await wait(30);
+  o.gradedFilter = WIRE.filt.kind === 'graded' && [...document.querySelectorAll('#wirebody .wire-item')].every(e => !/Outright|Designated|Release/i.test(e.querySelector('.wi-kind').textContent)) && /Graded moves/.test(document.querySelector('.wire-chips .on').textContent);
+  o.homeWinterToCard = /WIRE\.tab='weekly'/.test(wireWinterCard(true)) && !/<details/.test(wireWinterCard(true).split('wire-more')[0]);
   // the winter so far
   const st = wireStandings(WIRE.items);
   o.winterClubMoves = (() => { const d = document.querySelector('.wire-winter .ww-club'); return d && d.querySelectorAll('.ww-mv').length >= 1 && /Every .* move this winter/.test(d.textContent); })();
@@ -130,7 +132,7 @@ const R = await d.page.evaluate(async ({fx, dz}) => {
   o.moneyCard = document.querySelectorAll('.wire-money .wm-row').length === 30;
   o.laborClock = /labor clock|Lockout|labor deal/i.test(document.querySelector('.wire-dates .wd-labor').textContent);
   WIRE.filt.club = ''; location.hash = '#view=wire&id=daily'; await wait(300);
-  o.dailyReport = WIRE.tab === 'daily' && /The Ledger Daily/.test(document.getElementById('wire-daily').textContent) && document.querySelectorAll('#wire-daily .wr-mv').length >= 1;
+  o.dailyReport = WIRE.tab === 'feed' && !document.getElementById('wire-daily') && ![...document.querySelectorAll('.wire-tabs button')].some(b => /Ledger Daily/.test(b.textContent)) && [...document.querySelectorAll('.wire-tabs button')].map(b => b.textContent).join('|') === 'Every move|Winter report card';
   location.hash = '#view=wire&id=weekly'; await wait(300);
   o.weeklyReport = WIRE.tab === 'weekly' && document.querySelectorAll('#wire-weekly .wr-club').length === 30;
   WIRE.tab = 'feed';
