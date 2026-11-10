@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Not found · Front Office Ledger</title>
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="4; url=/">
+<link rel="icon" href="/favicon.png">
+<style>body{font-family:Georgia,serif; background:#f2ecdd; color:#1d1a14; margin:0; padding:12vh 24px; text-align:center} h1{font-size:28px; margin:0 0 10px} p{font-size:17px; margin:8px 0} a{color:#2a5d8f}</style>
+</head><body>
+<h1>That page is not in the ledger.</h1>
+<p>Taking you to the front page.</p>
+<p><a href="/">Front Office Ledger</a> · <a href="/#view=wire">The Wire</a> · <a href="/#view=leaderboard">Front office rankings</a></p>
+<script>
+// a club name typed as a path (/yankees, /nyy) lands on that club's winter page
+(function(){ var m = {yankees:'nyy', redsox:'bos', 'red-sox':'bos', orioles:'bal', rays:'tb', bluejays:'tor', 'blue-jays':'tor', guardians:'cle', tigers:'det', royals:'kc', twins:'min', whitesox:'cws', 'white-sox':'cws', astros:'hou', angels:'laa', athletics:'ath', mariners:'sea', rangers:'tex', braves:'atl', marlins:'mia', mets:'nym', phillies:'phi', nationals:'wsh', cubs:'chc', reds:'cin', brewers:'mil', pirates:'pit', cardinals:'stl', diamondbacks:'ari', dbacks:'ari', rockies:'col', dodgers:'lad', padres:'sd', giants:'sf'};
+  var k = location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase(), abs = Object.keys(m).map(function(x){ return m[x]; });
+  var ab = m[k] || (abs.indexOf(k) >= 0 ? k : '');
+  location.replace(ab ? '/#view=stove&id=' + ab : '/'); })();
+</script>
+</body></html>
