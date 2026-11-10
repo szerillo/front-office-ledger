@@ -138,6 +138,13 @@
   .bd-mini{margin:6px 0 8px; padding-left:18px; font-size:11.5px; color:var(--ink-2); line-height:1.45}
   .bd-mini li{margin:2px 0}
   .bd-bio{opacity:.85}
+.lb-div td, .lb-divc{font:700 11px var(--f-mono); letter-spacing:1.2px; text-transform:uppercase; color:var(--ink-2); background:var(--surface-2, rgba(0,0,0,.035)); padding:8px 12px !important; border-top:2px solid var(--ink)}
+.lb-divc{margin:14px 0 8px; border-radius:4px}
+.lb-what{font-size:13.5px; margin:6px 0 2px; max-width:900px}
+.lb-overall-sub{display:block; font:600 9.5px var(--f-mono); letter-spacing:.4px; text-transform:none; color:var(--muted); margin-top:1px}
+.dk-rost > summary{cursor:pointer; list-style:none} .dk-rost > summary::-webkit-details-marker{display:none}
+.dk-rost > summary .dk-rost-go{font-size:12px; color:var(--link, #2a5d8f); margin-left:6px}
+.dk-rost[open] > summary .dk-rost-go{display:none}
 .hw-v{font:700 12.5px var(--f-mono); min-width:34px; text-align:center}
 .tp-fits{grid-column:1 / -1; flex:1 1 100%; width:100%; margin-top:6px; padding:8px 10px; background:var(--surface-2, rgba(0,0,0,.03)); border-left:3px solid var(--rule); border-radius:3px}
 .tp-fit{display:flex; align-items:center; gap:8px; padding:5px 0; border-top:1px solid var(--grid); margin-top:5px}
@@ -1577,6 +1584,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
     <h2 id="lb-h2">Front Office Rankings · Active MLB Regimes</h2>
     <div class="sub lbkey">
       <div>Pick any front office for its full report card.</div>
+      <div class="lb-what"><strong>The number under each Overall grade is the score, in wins a season.</strong> +3.5 means this front office's decisions have been worth about three and a half more wins every season than a typical front office would have gotten from the same moves; a minus means fewer. The letter is that same number on a grade scale, and the list is sorted by it. The bar beside it is the unadjusted total over the whole tenure.</div>
       <details><summary>How to read a row</summary>
       <ul>
         <li><strong>Channel grades</strong> (Draft through Ret): wins above (+) or below (−) what a typical front office got from the same kind of move, per season in the chair. 50 is average on the 20-80 scale; A is about 70+, F under 35. Hover a grade for its number.</li>
@@ -1629,7 +1637,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
         <thead>
           <tr>
             <th class="rk">#</th><th>Regime</th>
-            <th class="num lb-overall" title="The composite: every channel's decisions against expectation, rolled into one grade. This is the ranking.">Overall</th>
+            <th class="num lb-overall" title="The composite: every channel's decisions against expectation, rolled into one grade. The number under the letter is the score: wins a season above (+) or below (−) a typical front office. This is the ranking.">Overall<span class="lb-overall-sub">+/− wins a season</span></th>
             <th class="lb-netcol" title="Net wins above or below what a typical front office would have gotten from the same moves, all channels">Net wins vs. expectation</th>
             <th class="num">Draft</th><th class="num">Trades</th><th class="num">Free Agency</th><th class="num">Waiver / Minor</th><th class="num" title="International amateur signings, graded vs. the league's realized value per signing class (near-equal bonus pools since 2017)">Int'l</th>
             <th class="num" title="Contract extensions, graded vs. the extension market for the player's service class (pre-debut, early, arb, veteran discounts of open-market $/win); CBT value used where deferrals diverge">Ext</th>
@@ -8640,13 +8648,15 @@ function dkBoardCol(club, side){
     ? `<button onclick="dkTake('recv',${p[1]})" class="grade g60" style="cursor:pointer; border:none; padding:1px 9px">ask</button>`
     : `<button onclick="dkTake('send',${p[1]})" style="cursor:pointer; background:none; border:1px solid var(--rule); color:var(--ink-2); border-radius:2px; padding:1px 9px">offer</button>`;
   const none = what => `<div class="ttype" role="status">No ${what}${f.q || f.pos ? ' match the filters' : ''}.</div>`;
-  return `<div class="card" style="padding:12px 14px; min-width:0">
-    <strong>${side === 'recv' ? club + "'s roster" : 'Your assets · ' + club}</strong> <span class="ttype">· system ranks ${gmSystems().rank(club)} of 30</span>
-    <div style="max-height:520px; overflow:auto">
+  const phone = (window.innerWidth || 1200) <= 700, ro = dkState.ro || (dkState.ro = {});
+  const open = !phone || !!f.q || !!f.pos || !!ro[side];
+  return `<details class="card dk-rost" style="padding:12px 14px; min-width:0"${open ? ' open' : ''} ontoggle="(dkState.ro = dkState.ro || {})['${side}'] = this.open">
+    <summary><strong>${side === 'recv' ? club + "'s roster" : 'Your assets · ' + club}</strong> <span class="ttype">· ${mlb.length + farm.length} players · system ranks ${gmSystems().rank(club)} of 30</span><span class="dk-rost-go">tap to open, or search above</span></summary>
+    <div style="max-height:${phone ? '60vh' : '520px'}; overflow:auto">
       ${f.view !== 'farm' ? (mlb.length ? mlb.map(p => gmAssetRow(`${p[0]}, ${p[4]+1} (${p[13]||p[12]})`, gmPlayerMeta(p, true), btn(p))).join('') : none('players')) : ''}
       ${f.view !== 'mlb' ? `<div class="ttype" style="margin-top:8px; font-weight:700; letter-spacing:1px; text-transform:uppercase">Farm</div>
       ${farm.length ? farm.map(p => gmAssetRow(`${p[0]} (${gmPLabel(p)}, ${p[13]||p[12]})`, `${gmEta(p)} · value ${fmtW(gmPV(p))}${gmProsFacts(p, 1) ? ' · ' + gmProsFacts(p, 1) : ''}`, btn(p))).join('') : none('prospects')}` : ''}
-    </div></div>`;
+    </div></details>`;
 }
 // what a piece is worth to the club giving it up (their asking price) and to the club taking it
 function dkPieceAsk(pc, them){
@@ -12255,7 +12265,7 @@ function lbSortVal(r, key){
   const c = r.chan[key]; return c && c.g != null ? c.g : null;
 }
 // Nov 3: every graded seat is ranked, partial samples included (flagged in the row)
-function lbShort(r){ return false; }
+function lbShort(r){ return !r.isNew && (r.earlySeat || +(r.seatSeasons != null ? r.seatSeasons : r.seasons) < 2); }      // Nov 10: listed under the ranked front offices
 function renderLB(){
   const _era = $('#erasel').value, _h = document.getElementById('lb-h2');
   const _hs = lbHistSpan(), _ho = document.getElementById('erasel-hist');
@@ -12271,8 +12281,8 @@ function renderLB(){
   const rows = _all.sort((a,b)=>{
     if(a.isNew !== b.isNew) return a.isNew ? 1 : -1;
     const va = lbSortVal(a, key), vb = lbSortVal(b, key);
+    if(lbShort(a) !== lbShort(b)) return lbShort(a) ? 1 : -1;      // under two seasons: always below the ranked list
     if((va == null) !== (vb == null)) return va == null ? 1 : -1;
-    if(lbShort(a) !== lbShort(b)) return lbShort(a) ? 1 : -1;
     if(key==='for') return ((b.gradeRate ?? -99) - (a.gradeRate ?? -99)) || b.net - a.net;
     if(key==='success') return b.success.g - a.success.g || b.net - a.net;
     if(key==='net') return b.net - a.net;
@@ -12290,6 +12300,11 @@ function renderLB(){
     const sTip = r.isNew ? 'No record yet: hired after the last completed season' : s.po==null ? `${s.wpct} W% · ${pz(s.div,'division title','division titles')}` : `${s.wpct} W% · ${s.div==='-'?'pre-division era':pz(s.div,'division title','division titles')} · ${pz(s.po,'postseason trip','postseason trips')} · ${pz(s.sw,'series win','series wins')} · ${pz(s.pen,'pennant','pennants')} · ${s.ws} WS`;
     const _sv = lbSortVal(r, key);
     if(_sv != null && !lbShort(r)) _rk++;
+    if(lbShort(r) && !rows.slice(0, i).some(lbShort)){
+      const dv = document.createElement('tr'); dv.className = 'lb-div';
+      dv.innerHTML = `<td colspan="99">Under two seasons in the seat: graded, not ranked yet</td>`; tb.appendChild(dv);
+      cardsHtml.push('<div class="lb-divc">Under two seasons in the seat: graded, not ranked yet</div>');
+    }
     tr.innerHTML = `
       <td class="rk">${_sv == null || lbShort(r) ? '' : _rk}</td>
       <td><div class="execcell"><span class="nm">${regName(r)}${(r.flags||[]).includes('interim')?'<span class="badge-ss" title="Interim head of baseball operations">interim</span>':''}${(r.flags||[]).includes('ownership era')?'<span class="badge-ss" title="Steinbrenner\'s group often had the final say on personnel">ownership era</span>':''}${r.isNew?'<span class="badge-ss" title="Hired after the last completed season: nothing to grade yet">new</span>':r.smallSample?'<span class="badge-ss" title="Small sample: under 3 seasons in the seat, graded as if the rest were average">SS</span>':''}${(r.unscored||[]).length && !r.isNew ? `<span class="badge-ss" title="Not scored here: ${r.unscored.map(k=>({fa:'free agency',intl:'international',ext:'extensions',ret:'retention'})[k]).join(', ')}. ${r._hist ? 'Not scored for this archive regime' : 'Too few graded deals there yet (a free-agent letter needs 3 deals with public terms, an extension letter 2)'}, so the composite fills them at the league-average rate.">partial</span>` : ''}<span class="mfor">${gradeChip(r.forGrade)}</span></span><span class="tm" title="${r.teamEra||r.team} · ${yrSpan(r.start, r.end)}">${teamNick(r.teamEra||r.team)} · ${yrSpan(r.start, r.end)} · ${r.isNew ? 'new' : pz(fmtSeas(r.seatSeasons != null ? r.seatSeasons : r.seasons),'season','seasons')}${r.titles?` · ${r.titles} WS`:''}</span></div></td>
@@ -12994,6 +13009,7 @@ function allTradesTable(r){
   return `<details class="card" id="rc-alltrades" style="grid-column:1/-1; padding:10px 14px">
     <summary style="cursor:pointer; font-weight:700">Every trade in this tenure (${rows.length}) · ${won} graded A or B, ${lost} graded D or F against trades of their size, rows sum to ${fmtW(tot)}${(r.chan.trade||{}).net != null && Math.abs(r.chan.trade.net - tot) > 0.05 ? ` (the channel's ${fmtW(r.chan.trade.net)} before each player's value is rounded)` : ''}</summary>
     <div style="display:flex; gap:6px; margin:8px 0">${btn('best','Best first')}${btn('worst','Worst first')}${btn('date','Newest first')}</div>
+    <div class="ttype" style="margin:0 0 8px">The letter grades each trade against other trades of its size, so a big deal that lost five wins can carry a C beside a small one that lost five and carries an F. The number is the wins either way.</div>
     <div style="overflow:auto"><table style="width:100%"><thead><tr><th>Date</th><th>With</th><th>Got</th><th>Gave</th><th class="num">This move</th>${anyFut ? '<th class="num" title="Projected surplus still to come over the players\' remaining control (deals since 2019)">To come</th>' : ''}</tr></thead><tbody>
     ${srt.map(x => { const f = rcToCome(x, ab0); return `<tr><td style="color:var(--muted); white-space:nowrap">${x.d}</td><td>${x.with.join(', ')}</td><td>${nm(x.got)}</td><td>${nm(x.gave)}</td>
       <td class="num" style="white-space:nowrap">${moveChip(x.net, 'trade', x.st)} <span class="${x.net>=0?'pos':'neg'}">${fmtW(x.net)}</span></td>${anyFut ? `<td class="num" data-label="To come">${f == null ? '' : `<span class="${f >= 0 ? 'pos' : 'neg'}">${fmtW(f)}</span>`}</td>` : ''}</tr>`; }).join('')}
@@ -14000,7 +14016,7 @@ function folNetOf(r){ return CHANNELS.reduce((s, c) => s + ((r.chan[c.key] || ex
 // active seats ranked as the leaderboard ranks them (overall grade, then net)
 function folActiveRank(){
   if(folActiveRank._c) return folActiveRank._c;
-  const xs = [...REGIMES, ...AUTO_REGIMES].filter(r => !r.isNew && r.forGrade != null);
+  const xs = [...REGIMES, ...AUTO_REGIMES].filter(r => !r.isNew && r.forGrade != null && !lbShort(r));      // Nov 10: two or more seasons in the seat
   // Nov 9: the leaderboard's own order is the composite's net wins a season (every channel, weighted by how
   // much it repeats), shrunk toward average as if every GM started with two average seasons; total breaks ties
   const tot = folLbNet;
@@ -14263,9 +14279,9 @@ function folTeamPage(ab, asParts){
   // where this front office sits on the leaderboard, with its neighbors
   const lb = i < 0 ? '' : (() => {
     const lo = Math.max(0, Math.min(rk.length - 5, i - 2)), rows = rk.slice(lo, lo + 5);
-    return `<div class="card home-card fol-rise"><div class="home-kick">Rankings</div><h3>#${i + 1} of ${rk.length} active front offices</h3>
+    return `<div class="card home-card fol-rise"><div class="home-kick">Rankings</div><h3>#${i + 1} of the ${rk.length} front offices with two or more seasons in the seat</h3>
       ${rows.map((x, k) => `<div class="hub-row${x === r ? ' me' : ''}"><strong>${lo + k + 1}</strong><span class="grade ${gradeClass(x.forGrade)}">${g2letter(x.forGrade)}</span><a href="#" onclick="switchView('report','${x.id}'); return false">${regName(x)}</a><span class="ttype">${abOf(x)}</span><span class="ttype ${(x.gradeRate != null ? x.gradeRate : folNetOf(x)) >= 0 ? 'pos' : 'neg'}" style="margin-left:auto" title="Score: wins a season above a typical front office, the number the ranking is sorted on">${x.gradeRate != null ? fmtW(x.gradeRate) : fmtW(folNetOf(x))}</span></div>`).join('')}
-      <div class="ttype" style="margin-top:6px">Score: wins a season above a typical front office, adjusted for time in the seat.</div>
+      <div class="ttype" style="margin-top:6px">Score: wins a season above a typical front office, adjusted for time in the seat. ${30 - rk.length} newer front offices are graded but not ranked yet; the habit ranks further down count all 30 clubs, with those newer ones at the league middle.</div>
       <div style="margin-top:10px"><a href="#" onclick="switchView('leaderboard'); return false">Full leaderboard →</a></div></div>`;
   })();
   const tiles = r.isNew ? `<div class="card" style="padding:14px 16px">A new front office: nothing to grade yet.</div>` : `<div class="home-tiles">
@@ -14287,7 +14303,7 @@ function folTeamPage(ab, asParts){
       <div class="ttype" style="margin:-2px 0 8px">The score is what the rankings sort on: every channel, weighted toward the skills that repeat and adjusted for time in the seat. Unadjusted, the ledger reads ${fmtW(folNetOf(r))} wins over ${pz(Math.round(r.seatSeasons || r.seasons || 1), 'season', 'seasons')} (${fmtW(per(r))} a season).</div>
       <div class="vsleague" style="${folTC(ab)}"><div class="axis"></div>${pts.map(p => `<div class="dot${p.r === r ? ' me' : ''}" style="left:${L(p.v)}%" title="${regName(p.r)} (${abOf(p.r)}): ${fmtW(p.v)} a season"></div>`).join('')}
         <div class="lab" style="left:${L(me.v)}%; font-weight:700; color:var(--ink)">${abOf(r)}</div><div class="end" style="left:0">lowest</div><div class="end" style="right:0">highest</div></div>
-      <div class="ttype">Each dot is one of the ${pts.length} active front offices: net wins per season in the chair.</div></div>`;
+      <div class="ttype">Each dot is one of the ${pts.length} ranked front offices: the score, in wins a season.</div></div>`;
   const moves = folBigMoves(r), best = moves.filter(x => x.war > 0)[0], worst = moves.filter(x => x.war < 0)[0];
   const mv = (x, lbl, cls) => x ? `<div class="card home-card"><div class="home-kick">${lbl}</div><div style="display:flex; gap:10px; align-items:center; margin:6px 0"><span class="stamp ${cls}">${fmtW(x.war)} WAR</span><span class="ttype">${folMon(x.d)} · ${x.t || ''}</span></div><div style="font-size:15px">${x.h}</div></div>` : '';
   const hz = (() => { try { const d = hzClubData(ab), mx = Math.max(1, ...d.seasons.map(y => d.tot[y]));
