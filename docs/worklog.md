@@ -5,6 +5,20 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 
 ## 2026-11-11 (Wed)
 
+### Launch push, block 4 (regressions, sizing, phone)
+- `docs/audit-nov11-c.md`: one regression check per bug, each failing on its pre-fix commit and passing
+  now. The Lowe/Tucker salary issue gets a reported known-issue check (`tests/t_known_salary.py`).
+- Control-end bug sized: 29 extensions and 833 trade seats move; Olson extension -8.2, Polanco -7.4,
+  Olson trade +6.8; 14 clubs change all-time rank (MIL 4 to 2, MIN 15 to 18). Not shipped (engine).
+- $0 post-control seasons: the 2,370 count was wrong (double-counted seats); it is 802 since 2015.
+  Seeded sample of 30: 13 arbitration years (bug), 9 contracts missing from the book (data gap), 6 right,
+  2 outside the window.
+- Shipped: Deal Desk comps load from `deals.js` after the page loads. Slow-4G home content goes from
+  9.07 s to 7.79 s. `DESK.peak` stays inline because home numbers depend on it.
+- Shipped: pre-2021 extensions still running (Betts) and 29 draft and international picks still in
+  control read OPEN; the 2021 cutoff had kept the old flag.
+- Error rate restated: 5 root causes in 60 moves checked; 3 of today's 7 causes were rules written today.
+
 ### Launch push, block 3 (audit of the audit)
 - `docs/audit-nov11-b.md`: sample method and full ID lists (stratified seeded draw from the card rows,
   recent moves under-weighted), 90% intervals, 20 high-traffic moves (3 errors in 92 checks), control-end

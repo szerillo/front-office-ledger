@@ -13,7 +13,7 @@ Written Nov 11 2026 from `HANDOFF.md`, `worklog.md`, `what-worked.md` and a look
 - [ ] Super Two extensions (Donaldson 2016, Olson 2022): engine rebuild.
 
 ## Nice to have
-- [ ] Phone load: home content 3.3 s on 4G, 8.2 s on slow 4G. Next step is moving player names and the Desk's player table out of the first download (about 8% and 35% of it), which is risky before launch.
+- [ ] Phone load: slow-4G home content 7.8 s (was 9.1 s) after the Deal Desk comps moved to deals.js on Nov 11. Next: cards.js (915 KB) and moves.js (524 KB) after first paint.
 - [ ] Brand final pick: nameplate, wordmark font, palette, logo (six rounds of mockups). `HANDOFF.md` says the masthead is settled; confirm whether that covers all four.
 - [ ] Champions color legend and view toggle, Deal Desk swap sides, simulator salary shed (each asked for once).
 
