@@ -2224,11 +2224,23 @@ function folCtl(pid, club){
   const p = folGone._m.get(String(pid));
   return p[2] === club;
 }
-function folTradeOpen(seats){
-  // a trade's number follows each piece wherever he plays until his window
-  // ends (a flip is graded in the flip, not lost), so it stays open while any
-  // piece is still in the league and not a free agent or retired
-  return (seats || []).some(s => (s[2] || []).some(([p]) => folGone(p) !== true));
+function folTradeOpen(seats, d){
+  // a trade's number follows each piece wherever he plays until his window ends
+  // (a flip is graded in the flip, not lost). A piece keeps it open while he is
+  // active and his window from the trade has not run out: six seasons from the
+  // trade, or his club-control years if longer. A piece of unknown status (a
+  // minor leaguer with no current record) counts only inside the six seasons:
+  // Utley to the Dodgers (2015) read OPEN on such a piece (Nov 11 audit)
+  const y = +String(d || '').slice(0, 4), mo = +String(d || '').slice(5, 7), y0 = y ? (mo >= 10 ? y + 1 : y) : 0;
+  const inSix = !y0 || y0 + 5 > FOL_SEASON;
+  return (seats || []).some(s => (s[2] || []).some(([p]) => {
+    const g = folGone(p);
+    if(g === true) return false;
+    if(inSix) return true;
+    if(g === null) return false;
+    const r = folGone._m && folGone._m.get(String(p));
+    return !!(r && gmSvc(r) < 6);
+  }));
 }
 function folTradeSeats(d, pids){
   if(typeof TRADE_BOOK === 'undefined') return null;
@@ -2263,7 +2275,7 @@ function folDecOpen(dec, club){
   const t = String(dec.t || ''), ch = dec.ch || (t === 'Trade' ? 'trade' : /^Free agency/.test(t) ? 'fa' : /^Waiver/.test(t) ? 'waiver'
     : /^Extension/.test(t) ? 'ext' : /^Draft/.test(t) ? 'draft' : /^International/.test(t) ? 'intl' : /walk/.test(t) ? 'walk' : '');
   const pids = (dec.pids || []).map(String);
-  if(ch === 'trade'){ const s = dec.seat ? folTradeSeats(dec.d, pids) || [dec.seat] : folTradeSeats(dec.d, pids); return s ? folTradeOpen(s) : true; }
+  if(ch === 'trade'){ const s = dec.seat ? folTradeSeats(dec.d, pids) || [dec.seat] : folTradeSeats(dec.d, pids); return s ? folTradeOpen(s, dec.d) : true; }
   if(ch === 'fa'){
     const m = String(dec.h || '').match(/(\d+) yrs? \/ \$[\d.]+M \((\d{4})-\d\d winter\)/);
     if(m && +m[2] + +m[1] <= FOL_SEASON) return false;
@@ -2573,7 +2585,7 @@ function autoChainKids(pid, afterDate, r, depth, seen){
     const kids = got.slice(0, 6).map(([p2, v]) => autoChainKids(p2, t.d, r, depth + 1, seen) || pieceLeaf(p2, ab, v));
     return {via: `${t.d} · ${ab}${ex ? ' (' + ex + ')' : ''} traded ${pName(pid)} to ${t.dest || '?'}`,
             nm: got.length ? `${ab} got ${got.map(([p2, v]) => `${pName(p2)} ${fmtW(v)}`).join(', ')} for him; the deal's net for ${ab}:` : `${ab} got no valued players back; the deal's net for ${ab}:`,
-            wv: fmtW(net) + ' net', status: folTradeOpen(t.seats) ? 'open' : 'closed', kids, outflow: net < 0};
+            wv: fmtW(net) + ' net', status: folTradeOpen(t.seats, t.d) ? 'open' : 'closed', kids, outflow: net < 0};
   }
   if(!m) return null;
   const key = pid + '|' + m[0];
@@ -2605,7 +2617,7 @@ function bookTreesFor(r){
     const st = seats.find(x => x[0] === ab); if(!st) return;
     pool.push({d, war: seatNet(st, d), pids: [...st[2], ...st[3]].map(x => x[0]),
                h: `${ab} got ${st[2].map(([p,v]) => pName(p)).join(', ') || 'no valued players'} for ${st[3].map(([p,v]) => pName(p)).join(', ') || 'no valued players'}`,
-               open: folTradeOpen(seats), t: 'trade', seat: st});
+               open: folTradeOpen(seats, d), t: 'trade', seat: st});
   });
   pool.sort((a, b) => Math.abs(b.war) - Math.abs(a.war));
   return pool.slice(0, 6).map(dec => {
@@ -10974,7 +10986,7 @@ function careerTree(pid){
       if(p2 === pid || kids.length >= 8) return;
       kids.push(autoChainKids(p2, d, {abbr: s[0]}, 1, seen) || pieceLeaf(p2, s[0], v));
     }));
-    const tOpen = folTradeOpen(seats);
+    const tOpen = folTradeOpen(seats, d);
     const inc = seats.some(s => s.incomplete);
     ev.push({d, node: {via: `${d} · traded ${from} to ${mine ? mine[0] : '?'}`, nm: inc ? `<div class="ttype">The record of this deal is missing players on one side, so its numbers are held back.</div>` : `<div class="ttrade">${lines.join('')}</div>` + (tOpen ? folProspectTag(seats) : ''), kidsLabel: 'Where the other pieces went',
                        wv: mine && !inc ? fmtW(seatNet(mine, d)) : null, status: tOpen ? 'open' : 'closed', kids}});
