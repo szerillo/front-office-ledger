@@ -1,2 +1,5 @@
 pid,season,salary_m,rule,source
 552640,2026,9.0,buyout row replaced by the salary paid,"Baltimore exercised Kittredge's $9M 2026 option (AP via WTOP, Nov 2025); Baseball-Reference lists the $1M buyout"
+430832,2018,1.0,"split season: larger row is the prorated $545K minimum with NYM; Atlanta rate was $1M","Atlanta: $1M salary if added to the roster, paid $819,672 prorated (AP via CFJC; MLB.com)"
+453281,2020,0.8,"two 2020 rows (450, 100), neither the 2020 salary","Orioles minor league deal paid $800K in the majors (MLB Trade Rumors, MLB.com); the shadow scales 2020 by 60/162"
+592741,2019,0.9,"two 2019 rows (218, 900); the 218 row looks like release pay","$900K, kept after accepting the outright (MLB Trade Rumors)"
