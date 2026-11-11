@@ -21,11 +21,12 @@ for line in open('tests/fixtures/arb_br_2026-11-11.txt'):
         y, k = a.split(':')[:2]; pay.setdefault((int(pid), int(y)), int(k) / 1000)
 # corrections (tests/fixtures/salary_overrides.csv) and 2020: Baseball-Reference lists full 2020 salaries, but
 # 2020 pay was prorated to 60 of 162 games, so a 2020 row is scaled to what was paid
-import csv
-for row in csv.DictReader(open('tests/fixtures/salary_overrides.csv')):
-    pay[(int(row['pid']), int(row['season']))] = float(row['salary_m'])
-for k in list(pay):
-    if k[1] == 2020: pay[k] = pay[k] * 60 / 162
+import csv, os
+if not os.environ.get('NOFIX'):   # NOFIX=1 reproduces the run before the corrections
+    for row in csv.DictReader(open('tests/fixtures/salary_overrides.csv')):
+        pay[(int(row['pid']), int(row['season']))] = float(row['salary_m'])
+    for k in list(pay):
+        if k[1] == 2020: pay[k] = pay[k] * 60 / 162
 zero = set((d, ab, int(pid), y) for d, ab, pid, nm, y, ce in Z['pop'])
 recs = []
 for i, (d, seats) in enumerate(tb['trades']):
@@ -45,6 +46,8 @@ for r in cov:
     delta[(r['i'], r['ab'])] -= c
     if r['giver']: delta[(r['i'], r['giver'])] += c
     per.append((c, r))
+import json as _j
+_j.dump([[tb['trades'][i][0], ab, nets[(i, ab)], nets[(i, ab)] + v] for (i, ab), v in delta.items() if abs(nets[(i, ab)]) >= 0.5 and (nets[(i, ab)] > 0) != (nets[(i, ab)] + v > 0)], open('/tmp/zs_flips' + ('_nofix' if os.environ.get('NOFIX') else '') + '.json', 'w'))
 print('this change: sides 1+ win, flips, top/bottom-25 changes, clubs 2+ ranks, largest rank move:', counts(delta))
 arb = apply_arb([A['real'].get((r['pid'], r['y'])) or r['a'] for r in A['recs']])
 both = defaultdict(float)

@@ -1,0 +1,29 @@
+{
+  "about": "Round 15 assumption test: 20 seeded flagged salary rows (seed 20261127) checked against a second source. Row values in $K as on file; ok = second source supports the row within 5 percent.",
+  "checked": "2026-11-11",
+  "rows": [
+    {"id": 276542, "player": "Joaquin Benoit", "yr": 2018, "row": 1000, "paid": 1000, "ok": true, "src": "AP via news, Nationals $1M"},
+    {"id": 430832, "player": "Jose Bautista", "yr": 2018, "row": 500, "paid": 819.672, "ok": false, "src": "prorated share of $1M with ATL"},
+    {"id": 430832, "player": "Jose Bautista", "yr": 2018, "row": 545, "paid": 545, "ok": true, "src": "Spotrac NYM"},
+    {"id": 435522, "player": "Neil Walker", "yr": 2018, "row": 4000, "paid": 4000, "ok": true, "src": "one-year $4M"},
+    {"id": 453281, "player": "Wade LeBlanc", "yr": 2020, "row": 450, "paid": 800, "ok": false, "src": "2020 deal $800K if on roster; Spotrac $450K is 2019"},
+    {"id": 461872, "player": "Anthony Swarzak", "yr": 2020, "row": 100, "paid": 0, "ok": false, "src": "MLBTR: minor league deal, released Jul 20, never on MLB roster"},
+    {"id": 493329, "player": "Yuli Gurriel", "yr": 2023, "row": 1250, "paid": 1250, "ok": true, "src": "news"},
+    {"id": 506702, "player": "Sandy Leon", "yr": 2020, "row": 2000, "paid": 2000, "ok": true, "src": "one-year $2M"},
+    {"id": 516782, "player": "Starling Marte", "yr": 2026, "row": 1000, "paid": 1000, "ok": true, "src": "KC $1M"},
+    {"id": 570482, "player": "Gio Urshela", "yr": 2024, "row": 1500, "paid": 1500, "ok": true, "src": "Tigers release, $1.5M"},
+    {"id": 571951, "player": "Bryan Mitchell", "yr": 2019, "row": 900, "paid": 910, "ok": true, "src": "AP and Spotrac $910K (row 1.1 percent low)"},
+    {"id": 592717, "player": "Aaron Sanchez", "yr": 2023, "row": 100, "paid": 0, "ok": false, "src": "MLBTR: whole season at Triple-A on minor deals"},
+    {"id": 592741, "player": "Chasen Shreve", "yr": 2019, "row": 218, "paid": 900, "ok": false, "src": "MLBTR: kept $900K after accepting outright"},
+    {"id": 605135, "player": "Chris Bassitt", "yr": 2017, "row": 540, "paid": 540, "ok": true, "src": "Spotrac"},
+    {"id": 606160, "player": "Rafael Montero", "yr": 2018, "row": 558, "paid": 558.025, "ok": true, "src": "AP $558,025"},
+    {"id": 608385, "player": "Jesse Winker", "yr": 2024, "row": 2000, "paid": 2000, "ok": true, "src": "MLB.com $2M (Spotrac shows the $1.5M minor deal)"},
+    {"id": 621242, "player": "Edwin Diaz", "yr": 2023, "row": 21250, "paid": null, "ok": false, "src": "no source matches: AAV 20.4, Spotrac 2023 cash 23.75, tax figure about 18.6"},
+    {"id": 623168, "player": "Tyler Heineman", "yr": 2021, "row": 100, "paid": 0, "ok": false, "src": "Spotrac: minor league deals only in 2021"},
+    {"id": 642086, "player": "Dominic Smith", "yr": 2023, "row": 2000, "paid": 2000, "ok": true, "src": "MLB.com $2M"},
+    {"id": 664141, "player": "JT Brubaker", "yr": 2024, "row": 2275, "paid": 2275, "ok": true, "src": "Spotrac and MLB.com $2.275M"}
+  ],
+  "result": {"wrong": 7, "n": 20, "rate": 0.35, "wilson95": [0.18, 0.57],
+             "wrong_by_250K_or_more": 4, "wilson95_material": [0.08, 0.42],
+             "note": "3 of the 7 are $100K rows for seasons spent only in the minors: small dollars, near zero grade effect"}
+}

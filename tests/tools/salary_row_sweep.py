@@ -27,6 +27,7 @@ for pid, ys in rows.items():
             nxt = ys.get(y + 1)
             if k in BUY and prev > k and not (nxt and max(nxt) > k): flags[4].add(key)
 allf = set().union(*flags.values())
+import json as _j; _j.dump(sorted([list(x) + [[j for j in flags if x in flags[j]]] for x in allf]), open('/tmp/flagged_rows.json', 'w'))
 print('salary rows', n, 'players', len(rows))
 for j in (1, 2, 3, 4): print(f' rule {j}: {len(flags[j])} rows, in the $0 population {sum(1 for x in flags[j] if (x[0], x[1]) in pop)}')
 print(' any rule:', len(allf), '| two or more rules:', sum(1 for x in allf if sum(x in flags[j] for j in flags) >= 2),
