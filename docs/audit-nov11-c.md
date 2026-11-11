@@ -110,7 +110,7 @@ Same profile (slow 4G 1.6 Mbps, 150 ms, 4x CPU, iPhone viewport), live site, med
 | Home content on screen | 9.07 s | 7.79 s |
 | Network idle | 16.86 s | 16.75 s |
 
-Home content arrives 1.3 s sooner. Idle barely moves: cards.js (915 KB) and moves.js (524 KB) still
+Home content arrives 1.3 s sooner. One side effect found and fixed the same hour: when the comps arrived the Desk re-rendered and wiped an Assistant GM note already on screen (t_qa caught it live for LAA); the note is now kept, with its own check (`agmNoteSurvivesComps`). Idle barely moves: cards.js (915 KB) and moves.js (524 KB) still
 dominate it. Moving those behind first paint is the next step.
 
 ## 5. Date-keyed rules added today, checked
