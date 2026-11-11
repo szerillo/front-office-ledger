@@ -1,0 +1,134 @@
+{
+ "prereg": "docs/prereg-step0.md @ 3f0018a",
+ "result": "FAIL: every published file has a different md5 in each of R0 to R6",
+ "runs": {
+  "R0": "unshuffled",
+  "R1-R5": "sweep_tx shuffled, seeds 20261161-20261165",
+  "R6": "PRAGMA reverse_unordered_selects=ON",
+  "R7": "clock 2026-12-15: BLOCKED at desk_data.py by the replay guard (date-based URL not in the frozen cache), so the clock is an input"
+ },
+ "md5": {
+  "cards.js": {
+   "R0": "38ab39ee",
+   "R1": "b454fbdb",
+   "R2": "73381e76",
+   "R3": "006966ee",
+   "R4": "4b6ff82f",
+   "R5": "fcec94df",
+   "R6": "205b1a7a"
+  },
+  "moves.js": {
+   "R0": "d0999ad5",
+   "R1": "40709780",
+   "R2": "c7effdee",
+   "R3": "9f179396",
+   "R4": "221980f9",
+   "R5": "7eed14e7",
+   "R6": "4a5dcda0"
+  },
+  "front-office-ledger-prototype.html": {
+   "R0": "74095949",
+   "R1": "140011da",
+   "R2": "634e72b6",
+   "R3": "38cf76b1",
+   "R4": "4a898196",
+   "R5": "2175718c",
+   "R6": "98a644cf"
+  },
+  "offseasons.json": {
+   "R0": "74238109",
+   "R1": "d986bc69",
+   "R2": "56364f18",
+   "R3": "3f95658c",
+   "R4": "bc2107b1",
+   "R5": "b4ce4285",
+   "R6": "f24a2e62"
+  },
+  "trade_parts.json": {
+   "R0": "92b9c734",
+   "R1": "30fb8699",
+   "R2": "ceb6f654",
+   "R3": "4e930d5c",
+   "R4": "e104856e",
+   "R5": "e1c7977a",
+   "R6": "2d6497e0"
+  },
+  "trade_book.json": {
+   "R0": "7821ae1c",
+   "R1": "9abc92a8",
+   "R2": "196222de",
+   "R3": "8c1a33ce",
+   "R4": "eb9e2fb7",
+   "R5": "b73bdafe",
+   "R6": "60862d70"
+  },
+  "sweep_results.json": {
+   "R0": "e56dc00a",
+   "R1": "151fac92",
+   "R2": "5c487064",
+   "R3": "b37bbf0a",
+   "R4": "fa4e52f2",
+   "R5": "9c086a9c",
+   "R6": "0bb703b8"
+  },
+  "hist_results.json": {
+   "R0": "4486884f",
+   "R1": "0523116f",
+   "R2": "c5b4b042",
+   "R3": "1567d401",
+   "R4": "351e5082",
+   "R5": "d76d3e9f",
+   "R6": "8831192e"
+  },
+  "desk_data.json": {
+   "R0": "29ecc128",
+   "R1": "a21207be",
+   "R2": "fcad2e77",
+   "R3": "364545a7",
+   "R4": "6ab48d15",
+   "R5": "3f80fc1e",
+   "R6": "7626c744"
+  },
+  "lvm_cache.json": {
+   "R0": "71da415d",
+   "R1": "71da415d",
+   "R2": "71da415d",
+   "R3": "71da415d",
+   "R4": "71da415d",
+   "R5": "71da415d",
+   "R6": "71da415d"
+  },
+  "contract_book.json": {
+   "R0": "2b99c600",
+   "R1": "2b99c600",
+   "R2": "2b99c600",
+   "R3": "2b99c600",
+   "R4": "2b99c600",
+   "R5": "2b99c600",
+   "R6": "2b99c600"
+  }
+ },
+ "what_reaches_the_site": [
+  "winters whose numbers vary across runs: 0 | 2022+: 0 | share pages: 0",
+  "winters whose move list varies: 6 | 2022+: 0 | share pages: 0 ['1999-col', '2000-cin', '2000-cws', '2000-tor', '2006-sea', '2008-nyy']",
+  "trade seat nets that vary across runs: 0",
+  "current regimes whose total varies: 13 of 30 | largest spread: 0.2",
+  "archive regimes whose total varies: 0 of 122 | largest spread: 0",
+  "player display names that vary: 2"
+ ],
+ "causes_traced": [
+  "ret2.py:77 (bucket b): the league expectation curve keeps the first Declared Free Agency row per (player, year); 82 such filings sit under two teams, so the team whose production is measured depends on row order. Every current regime's retention net moves: 13 of 30 totals vary by up to 0.2 (sweep_results, cards.js, report cards).",
+  "trade_book.py:73 (buckets a and b): player order inside each trade seat follows row order, and names[pid] keeps the last name seen (2 players vary, e.g. Mike Morse / Michael Morse).",
+  "offseasons move lists (6 settled winters, none 2022+ or with a share page): tied moves now come from trade-side order, not free-agent order."
+ ],
+ "not_yet_traced": [
+  "moves.js: per-player move records differ (counterparty and description on multi-club days)",
+  "desk_data.json and the Deal Desk / Simulator data in the page",
+  "cards.js beyond the regime totals"
+ ],
+ "real_work_tree_md5": {
+  "before": "0c06cf47fca8",
+  "after": "0c06cf47fca8"
+ },
+ "guard": "tests/tools/step0/sitecustomize.py; aborts (exit 97) shown for: write to real /work, write outside the sandbox, socket, urllib, subprocess; OS layer also blocks (read-only mount, no network interface)"
+}

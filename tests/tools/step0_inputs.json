@@ -1,0 +1,131 @@
+{
+ "prereg": "docs/prereg-step0.md @ 3f0018a (2026-11-11T23:01:18Z, before the sandbox was built)",
+ "engine": "repo main at 13a4570 (fa_grade 357f0041, offseasons_build 70c54fe4)",
+ "inputs": {
+  "ledger": "/tmp/sbx/frozen/ledger_frozen.sqlite (md5 c55a1842): rebuilt sweep_tx (backfilled) + draft_picks 1998-2026 frozen from the Stats API (34,439 rows)",
+  "data_files_read": 273,
+  "by_folder": {
+   "(top level)": 61,
+   "repo": 1,
+   "research": 3,
+   "sched_cache": 49,
+   "statsapi_cache": 159
+  },
+  "network_calls_recorded": 623,
+  "network_by_script": [
+   [
+    "debut26.py",
+    "https://statsapi.mlb.com/api/v1/people/{n}/stats",
+    138
+   ],
+   [
+    "champions_build.py",
+    "https://statsapi.mlb.com/api/v1/people/{n}",
+    126
+   ],
+   [
+    "champions_build.py",
+    "https://statsapi.mlb.com/api/v1/teams/{n}",
+    97
+   ],
+   [
+    "regen_v3.py",
+    "https://statsapi.mlb.com/api/v1/people",
+    51
+   ],
+   [
+    "hist_score.py",
+    "https://statsapi.mlb.com/api/v1/schedule",
+    40
+   ],
+   [
+    "sweep_score.py",
+    "https://statsapi.mlb.com/api/v1/standings",
+    29
+   ],
+   [
+    "champions_build.py",
+    "https://statsapi.mlb.com/api/v1/draft/{n}",
+    28
+   ],
+   [
+    "desk_data.py",
+    "https://statsapi.mlb.com/api/v1/people",
+    28
+   ],
+   [
+    "savant_fingerprint.py",
+    "https://baseballsavant.mlb.com/leaderboard/custom",
+    24
+   ],
+   [
+    "desk_data.py",
+    "https://statsapi.mlb.com/api/v1/transactions",
+    23
+   ],
+   [
+    "desk_data.py",
+    "https://statsapi.mlb.com/api/v1/people/{n}/stats",
+    16
+   ],
+   [
+    "sweep_score.py",
+    "https://statsapi.mlb.com/api/v1/schedule",
+    9
+   ],
+   [
+    "fa_skills.py",
+    "https://baseballsavant.mlb.com/leaderboard/custom",
+    4
+   ],
+   [
+    "scenario_build.py",
+    "https://statsapi.mlb.com/api/v1/standings",
+    2
+   ],
+   [
+    "debut26.py",
+    "https://statsapi.mlb.com/api/v1/people",
+    2
+   ],
+   [
+    "sweep_score.py",
+    "https://statsapi.mlb.com/api/v1/people",
+    2
+   ],
+   [
+    "postseason.py",
+    "https://statsapi.mlb.com/api/v1/schedule/postseason/series",
+    1
+   ],
+   [
+    "desk_data.py",
+    "https://statsapi.mlb.com/api/v1/draft/{n}",
+    1
+   ],
+   [
+    "hist_score.py",
+    "https://statsapi.mlb.com/api/v1/people",
+    1
+   ],
+   [
+    "ifa_score.py",
+    "https://statsapi.mlb.com/api/v1/people",
+    1
+   ]
+  ],
+  "clock": [
+   "desk_data.py:532",
+   "desk_data.py:536",
+   "desk_data.py:631",
+   "desk_data.py:643 (date.today; also builds the transactions date window)"
+  ],
+  "env_that_can_change_output": {
+   "PS_FULL": "postseason.py:40 (full postseason refetch switch)",
+   "TZ": "read by every step (local date for date.today)",
+   "OMP_NUM_THREADS, LOKY_*, JOBLIB_* , lscpu probe": "contract_apply.py via scikit-learn (thread count)"
+  },
+  "random": "validation.py:191 seeded (14), deterministic"
+ },
+ "pure_function_of_ledger_and_lvm_cache": false
+}
