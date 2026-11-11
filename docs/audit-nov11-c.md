@@ -615,3 +615,70 @@ the tab as it lands and skips players already stored, so a stall or a 429 resume
 tab closes, what has not been exported is lost**; the durable checkpoint is the fixture file (the first 61 players
 plus the random 40). The 19:30 UTC check exports whatever has landed, done or not, so the fixture becomes the
 resume point.
+
+## 16. Round 13 (Nov 11, 12:50 PM)
+
+Headings in this file carry the time each round was requested (ET), not commit times. Every commit cited below is
+quoted with its GitHub time. Pre-registration for this round: `docs/prereg-round13.md`, bbdcebe at 17:54:29 UTC.
+What ran before it is listed in that file (the re-sign rule's steps 1 to 4, and the suites started).
+
+**142 or 147.** 142 was round 7's difference of two totals (849 OPEN before the release rule, 707 after) from an
+earlier counting harness. Counted directly (each trade read OPEN with the feed hidden from the rule, CLOSED with
+it), the rule closes 147 on today's working page, on the live page, and on the page as deployed at 203a5e3 (the
+commit that added the rule). 147 stands; 142 is withdrawn.
+
+**The 11 on the site.** All 11 trades show a grade (trade grades never read OPEN, section 11) and a CLOSED status
+on the player tree and in the trade rows. With the fix, status turns OPEN and the UNSETTLED chip appears; no grade
+on the page changes. The engine ends the same windows at the release, so two grades also miss value after the
+re-sign (rough, player WAR after the re-sign inside six seasons, before salary): Henriquez on the 2022 MIN side
+(-1.2 shown, about +2.0 missing) and Eli White on the 2023 ATL side (-0.1 shown, about +1.8 missing). Both would
+flip sign if the engine is fixed too. The other nine pieces have 0.0 to 0.2 after the re-sign.
+
+**The fix and the checklist (not deployed; `docs/patches/resign-keeps-open.diff`).**
+1. Rule: a release or free-agent filing followed within 60 days by a *minor-league* re-sign with the club that
+   held him does not end his window; a major-league re-sign is a new signing and still ends it. Engine
+   counterpart: none; `asset_rules.trade_window` ends the window at the release. The page and the engine disagree
+   until the engine gets the same rule.
+2. Tests first: `sameClubResignKeepsOpen` (Eli White 2023 OPEN) failed on the current page and passes with the
+   rule; `otherClosuresStayClosed` (Germán 2014, Kilian 2021) passes on both.
+3. Full count: OPEN trades 710 to 721; exactly the 11 of the census reopen; none close.
+4. Changed items checked outside our data: the 11 rest on 8 players' release-and-re-sign events, all 8 confirmed
+   (MLB.com, MiLB.com, MLB Trade Rumors, Wikipedia, RotoWire): White, Henriquez, Sanmartin, Robberse, Carela,
+   Muñoz, Loutos, Fitzgerald. 8 of 8 right.
+5. Unchanged items: the 26 closures in the two samples that are not in the census were all checked in rounds 11
+   and 12; all 26 labels right.
+6. Planted case: `sameClubResignKeepsOpen` fails on the page without the rule.
+7. All 14 suites pass on the working page with the rule, including `t_grades` (0 grades moved).
+8. Not run: no deploy.
+
+**Arbitration: dollars or percent, out of sample** (`tests/tools/arb_oos.py`). Only 7 of the 83 seasons fall in
+2018-2020 (2, 2 and 3 per third), so the pre-registered test is underpowered and no claim is made. For the
+record, on the 76 test seasons: current model median miss $1.44M (total -17%), percent factor $1.82M (+26%),
+dollar offset $1.70M (+19%); both corrections fit on 7 seasons do worse than no correction. The "flat dollars"
+reading in section 15 is withdrawn as a claim; it describes the 83 in sample only. **83 vs 75:** the 83 are the
+calibration sample (seasons drawn from 40 random arbitration players); the 75 are the seasons of the trade
+shadow's 5,245 that have a real salary on file. Different sets for different jobs.
+
+**Salary rows that may not be pay for playing** (`tests/tools/salary_row_sweep.py`, 518 rows, 90 players):
+two rows in one season 12; under 40% of the prior season 14; a season with no major-league stint 21; a common
+buyout amount ending a run 13. 48 rows (9%) hit at least one rule, 9 hit two. In the $0 population: 12 rows, 4
+above the minimum: Kittredge 2026 $1.0M (buyout; wrong), Canha 2025 $1.4M (real), Chris Martin 2022 $2.5M (a
+one-year deal; real), Sandy León 2020 $2.0M (real, but see 2020 below). So far 1 of 4 is a buyout.
+
+**New finding, not pre-registered: 2020.** The engine charges 2020 salaries at the full-season rate (dpw 2020 =
+2019 = 8.0) while 2020 value is a 60-game season and 2020 pay was prorated (Montero 2020: a prorated $290,741 of
+$785,000, AP). Trout's 2020 charge is 3.13 wins against 2.3 WAR. Re-charging every acquired 2020 trade season at
+60/162 (`tests/tools/season2020_check.py`): 198 seasons, 33.5 wins of charge removed; 6 sides move a win or more, 0
+flips, 1 club moves 2 places. Signing and extension grades that cover 2020 are not sized yet and are likely
+larger.
+
+**Pages that belong to another player.** Check over all 90 players with salary rows (salary seasons against
+played seasons): 0 suspects. The 11 redirect players are checked when the pull lands.
+
+**Timestamps against git.** Every commit time quoted in this file matches GitHub: ddc7026 16:01:26, be53af2
+16:30:49, d4be855 17:30:34 (all UTC). Not checkable against git: "written locally at 15:18 UTC" (section 12, a
+local file time; already labelled not provable) and run-log times (16:31:13, 16:29, 17:22:46, 17:05), which come
+from command output, not commits. Section 14's earlier "draw at 17:05" was the one wrong time; corrected there.
+
+Root causes found Nov 11: 15 (the same-club re-sign in the page rule, 2020 charged at full season), 5 in rules
+written that day.
