@@ -192,3 +192,75 @@ together leaves home content at about 7.3 to 8.0 s (against 7.5 to 8.4 s with no
 first document gates home, not the scripts after it. Inside index.html (919 KB zipped): DESK 322 KB (35%;
 the prospect peaks are about 104 KB of it), code and styles about 354 KB, player names 102 KB, AUTO_REGIMES
 86 KB.
+
+## 8. Fresh sample of 40 (Nov 11, 9 AM round)
+
+**Draw.** Seed 20261113, same LCG. Uniform over every graded move, not the report cards (the cards list each
+club's best and worst moves, so a card-row sample leans to extremes): the 4,172 trades in the trade book (one
+side picked at random) and the 3,545 free-agent signings and extensions in the contract book since 1998.
+The 60 moves already audited are skipped. Drawn: 23 trades, 14 signings, 3 extensions; 13 from 1998-2009,
+16 from 2010-19, 11 from 2020-26. Script: `tests/tools/audit_sample2.py`.
+
+**Checks.** Players and date against the league feed (18 trades) or Baseball-Reference (the feed has gaps
+before about 2008); signing terms against Baseball-Reference salary tables; OPEN/CLOSED against each player's
+status and window; trade sides add to zero.
+
+| Field | Checked | Wrong | Unverified |
+|---|---|---|---|
+| Players and date | 38 | 0 | 2 (Romero/Casilla 2005, Shackelford/Austin 2003: neither source answered) |
+| Terms | 13 | 1: Kurt Suzuki's 2010 extension starts in 2010 in the contract book; it covered 2011-14 | 4 |
+| OPEN / CLOSED | 40 | 1: Utley to the Dodgers (2015) read OPEN | 0 |
+| Trade sides add to zero | 23 | 0 | 0 |
+| **All** | **152** | **2 (1.3%)** | |
+
+**Error rate.** 2 of 40 moves have a wrong field: **5.0%, 90% interval 0.9% to 14.9%**. The Utley error came
+from my own trade OPEN rule (below) and is fixed, which leaves 1 of 40 (2.5%, 0.1% to 11.3%). The earlier
+random 40 had 3 of 40 (7.5%, 2.1% to 18.3%). The intervals overlap almost entirely, so the "7.5% down to 2.7%"
+story is not shown by the data: samples of 40 cannot tell those rates apart. What they do show is that
+errors per move sit somewhere from about 1% to 15%.
+
+**Gaps, separate from errors.** 8 of 40 moves show something missing rather than wrong: 5 signings from the
+2003-05 winters (Clayton, Lofton, Halter, Wells, Wright) show the feed line with no terms and no grade, and 3
+signings are not on the player's tree at all (Flaherty 2004, Suzuki's 2010 extension, Howell 2017). Errors
+plus gaps: 9 of 40 moves, 22.5% (12.3% to 36.0%). Completeness of older signings is the larger problem.
+
+**Root cause found: trade OPEN rule (written Nov 11).** A piece of unknown status counted as active, and an old
+trade had no window check, so 694 of 4,156 pre-2021 trades read OPEN (Utley's on John Richy, a minor leaguer
+with no current record). Fixed: a piece keeps a trade open while he is active and his window from the trade has
+not run out (six seasons, or his club-control years if longer); an unknown-status piece counts only inside the six
+seasons. Pre-2021 trades OPEN: 694 to 88, each with a piece still active and under club control (Trammell keeps
+the 2019 Bauer three-team deal open, correctly). All trades OPEN: 1,512 to 849; 2022-26 unchanged. Tests
+written first and failing before the fix: `oldTradeUnknownPieceClosed`, `controlYearsKeepTradeOpen`.
+
+That makes 8 root causes found Nov 11, 4 of them in rules written that day.
+
+## 9. Phone load, conditions and spread
+
+Playwright Chromium, iPhone viewport 390 x 844 with a mobile user agent, network 1.6 Mbps down / 750 kbps up /
+150 ms (Lighthouse "slow 4G"), CPU slowed 4x, fresh browser context per run (cold cache), live site.
+Metrics: LCP from the browser's own observer, and "home content visible" (the home view present with more than
+2,000 characters of text). LCP fires at about 1 s on the masthead, so it does not measure when the page
+becomes useful; home content visible is the number to quote.
+
+Five clean runs after the Nov 11 9 AM deploy, nothing else running on the machine:
+
+| Run | LCP | DOMContentLoaded | Home content visible | Network idle |
+|---|---|---|---|---|
+| 1 | 1.11 s | 7.23 s | 7.35 s | 16.18 s |
+| 2 | 1.06 s | 7.41 s | 8.13 s | 16.34 s |
+| 3 | 0.72 s | 7.34 s | 7.45 s | 16.31 s |
+| 4 | 1.28 s | 7.71 s | 8.45 s | 16.58 s |
+| 5 | 0.66 s | 7.41 s | 7.51 s | 16.42 s |
+| **Median (range)** | **1.06 s** | **7.41 s** | **7.51 s (7.35 to 8.45)** | **16.34 s** |
+
+An earlier set of five read 8.74 s median; it ran while other test scripts used the CPU, so it is set aside.
+
+**Home-first file, estimate only (not built).** The full index.html is 919 KB zipped: about 4.6 s to download at
+1.6 Mbps plus about 1.5 to 2 s to parse and run at 4x CPU slowdown, which is most of the 7.5 s. A home-first
+document carrying only the home view's code and the numbers it shows would be about 150 to 250 KB zipped, so
+home content could appear at roughly 2.5 to 3.5 s, a saving of about 4 to 5 s, with the full page loading behind
+it. Drift risk: the home numbers would be a snapshot. Built by a separate job, the snapshot could disagree with
+the full data, and home would visibly change when the full page loads, the same problem that kept the prospect
+peaks and player names inline. Built in the same split step from the same data, the risk is small, provided a
+check renders home both ways in every build and fails the build on any difference. Live feeds (the Wire,
+trade reports) would still load live either way.
