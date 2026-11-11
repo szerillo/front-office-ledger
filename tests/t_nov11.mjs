@@ -48,6 +48,16 @@ const r = await page.evaluate(async () => {
   const tor = AUTO_REGIMES.find(x => x.id === 'tor');
   const ol = [...tor.chanLedgers.trade.best, ...tor.chanLedgers.trade.worst].find(x => /Otto Lopez/.test(x.h));
   out.valueWhereverLabel = !ol || ol.sides.some(sd => /wherever he played/.test(sd[0]));
+  // block 3: an extension whose seasons have not started is OPEN; linked same-day legs keep
+  // their own numbers; a deal missing players on a side is held back on the tree
+  const chc = AUTO_REGIMES.find(x => x.id === 'chc');
+  const hoE = [...(chc.chanLedgers.ext.best || []), ...(chc.chanLedgers.ext.worst || [])].find(x => /Nico Hoerner · 6 yr/.test(x.h));
+  out.unstartedExtensionOpen = !!hoE && hoE.open === true;
+  const sx = String(Object.keys(ix).find(p => pName(p) === 'Richie Sexson'));
+  const sxe = (ix[sx] || []).find(e => e.d === '2003-11-28');
+  out.linkedLegsAddToZero = !!sxe && Math.abs(sxe.seats.reduce((a, st) => a + seatNet(st, sxe.d), 0)) < 0.15;
+  const bd = String(Object.keys(ix).find(p => pName(p) === 'Erik Bedard'));
+  out.incompleteDealHeldBack = flat(careerTree(bd)).some(n => /2011-07-31/.test(n.via || '') && n.wv == null && /held back/.test(n.nm || ''));
   // weekly board
   const html = folWeekBoard();
   out.weekBoard = /This week/.test(html) && (html.match(/wk-day/g) || []).length === 7;
