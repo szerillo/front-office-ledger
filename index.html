@@ -1717,7 +1717,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
     <h2>Transaction Trees · How One Decision Becomes the Next</h2>
     <div class="sub lbkey"><details><summary>How to read a tree</summary><ul>
         <li>Follow how one decision becomes the next: a pick becomes a rental ace becomes a comp pick becomes a new draftee.</li>
-        <li>Solid cards came to the club named on the tree; dashed cards left it. Each branch is <span class="chip chip-open" style="margin-left:2px">OPEN</span> (still accruing) or <span class="chip chip-closed" style="margin-left:2px">CLOSED</span> (final).</li>
+        <li>Solid cards came to the club named on the tree; dashed cards left it. Each branch is <span class="chip chip-open" style="margin-left:2px">OPEN</span> (still accruing) or <span class="chip chip-closed" style="margin-left:2px">CLOSED</span> (final). OPEN and CLOSED follow the league&#39;s transaction feed, which misses some minor-league releases and free agency, so an older branch marked OPEN may in fact be settled.</li>
         <li>The main line comes first. Where the other pieces in a deal went folds underneath it: open it when you want the whole web.</li>
       </ul></details></div>
     <div class="tree-tabs" role="tablist" aria-label="Which trees">
@@ -2628,7 +2628,7 @@ function bookTreesFor(r){
     const seen = new Set();
     const kids = [...dec.seat[2].map(([p2, v]) => autoChainKids(p2, dec.d, r, 0, seen) || pieceLeaf(p2, ab, v)),
                   ...dec.seat[3].map(([p2, v]) => ({via: `sent away: ${pName(p2)}`, nm: `what he produced for his new club over the control window, charged to ${ab}`, wv: fmtW(-v), status: 'closed', outflow: true}))];
-    return {title: clip(stripTags(dec.h), 150), sub: `${decDate(dec)} · net ${fmtW(dec.war)} on this ledger · ` + (dec.open ? '<span class="chip chip-open" style="margin-left:0">UNSETTLED</span> values still accruing' : '<span class="chip chip-closed" style="margin-left:0">SETTLED</span> all control windows closed, number is final'),
+    return {title: clip(stripTags(dec.h), 150), sub: `${decDate(dec)} · net ${fmtW(dec.war)} on this ledger · ` + (dec.open ? '<span class="chip chip-open" style="margin-left:0" title="Open as far as the league&#39;s transaction feed shows. The feed misses some minor-league releases and free agency, so an older deal marked open may in fact be settled.">UNSETTLED</span> values still accruing' : '<span class="chip chip-closed" style="margin-left:0">SETTLED</span> all control windows closed, number is final'),
             root: {nm: dec.d + ' · trade', status: dec.open ? 'open' : 'closed', kids}};
   });
 }
@@ -2658,7 +2658,7 @@ function autoTreesFor(r){
          ...seat[3].map(([p2, v]) => ({via: `sent away: ${pName(p2)}`, nm: `what he produced for his new club over the control window, charged to ${ab0}`, wv: fmtW(-v), status: 'closed', outflow: true}))]
       : (dec.pids || []).map(p => autoChainKids(p, dec.d, r, 0, seen)).filter(Boolean);
     roots.push({title: clip(dec.h.replace(/<span class="badge-real">[^<]*<\/span>/g, '').replace(/<[^>]*>/g, '').trim(), 140),
-                sub: `${decDate(dec)} · net ${fmtW(dec.war)} on this ledger · ` + (dec.open ? `<span class="chip chip-open" style="margin-left:0">UNSETTLED</span> values still accruing${dec.proj?` · projected final ${fmtW(dec.proj.final)}`:''}` : '<span class="chip chip-closed" style="margin-left:0">SETTLED</span> all control windows closed, number is final'),
+                sub: `${decDate(dec)} · net ${fmtW(dec.war)} on this ledger · ` + (dec.open ? `<span class="chip chip-open" style="margin-left:0" title="Open as far as the league&#39;s transaction feed shows. The feed misses some minor-league releases and free agency, so an older deal marked open may in fact be settled.">UNSETTLED</span> values still accruing${dec.proj?` · projected final ${fmtW(dec.proj.final)}`:''}` : '<span class="chip chip-closed" style="margin-left:0">SETTLED</span> all control windows closed, number is final'),
                 root: {nm: dec.d + ' · ' + (dec.t || 'trade').split(' ·')[0], status: dec.open ? 'open' : 'closed',
                        kids: kids.length ? kids : (dec.pids || []).slice(0, 4).map(p2 => {
                          const f = chainFate(p2, abOf(r));
@@ -13617,7 +13617,7 @@ function openModal(x, r){
     <div class="side"><div class="dir">${dir}</div>
       ${assets.map(([nm,w])=>`<div class="asset"><span>${nm}</span><span class="${String(w).startsWith('-')?'neg':'pos'}">${w}</span></div>`).join('')}
     </div>`).join('');
-  $('#m-net').innerHTML = `Net to ${r.teamEra||r.team}: <span class="${x.war>=0?'pos':'neg'}" style="font-size:17px">${fmtW(x.war)} WAR</span> <span class="chip ${x.open?'chip-open':'chip-closed'}">${x.open?'UNSETTLED - windows still running, values will move':'SETTLED - every window closed, number is final'}</span>` +
+  $('#m-net').innerHTML = `Net to ${r.teamEra||r.team}: <span class="${x.war>=0?'pos':'neg'}" style="font-size:17px">${fmtW(x.war)} WAR</span> <span class="chip ${x.open?'chip-open':'chip-closed'}"${x.open?' title="Open as far as the league&#39;s transaction feed shows. The feed misses some minor-league releases and free agency, so an older deal marked open may in fact be settled."':''}>${x.open?'UNSETTLED - windows still running, values will move':'SETTLED - every window closed, number is final'}</span>` +
     (x.proj ? `<div style="margin-top:8px; font-size:13px; color:var(--ink-2)">Projected rest of window: <span class="${x.proj.net>=0?'pos':'neg'}" style="font-weight:600">${fmtW(x.proj.net)}</span> (in ${fmtW(x.proj.inn)} / out ${fmtW(-x.proj.out)}) &nbsp;→&nbsp; <strong>projected final verdict: <span class="${x.proj.final>=0?'pos':'neg'}">${fmtW(x.proj.final)} WAR</span></strong>
       <div style="font-size:11px; color:var(--muted); margin-top:3px">Ledger Projection (self-built: Marcel-style regressed recent form on delta-method aging curves; prospects at their rank expectation; backtested r &asymp; 0.62-0.67 vs next-season WAR). A disclosed overlay only: the grades above count realized value and never move on a forecast.</div></div>` : '');
   renderTimelines(x, r);
