@@ -25,6 +25,12 @@ fold = lambda x: unicodedata.normalize('NFD', x).encode('ascii', 'ignore').decod
 D = json.load(open('/work/desk_data.json')); byname = {fold(p[0]): p[1] for p in D['players']}
 for nm, sal in re.findall(r'"([^"]+)":([\d.]+)', calib):
     if fold(nm) in byname: real[(int(byname[fold(nm)]), 2026)] = float(sal)
+def share(pid, y, d, acq):
+    # the engine's trade-season share (asset_rules.trade_window): in a July deal's own season the
+    # acquirer carries his stints with it over all his stints; later seasons and Oct-Dec deals carry 1
+    if int(d[5:7]) >= 10 or y != int(d[:4]): return 1.0
+    rows = [tm for yr, tm, v in (AR._lvm().get(int(pid)) or {}).get('rows', []) if yr == y]
+    return (sum(1 for tm in rows if tm in acq) / len(rows)) if rows else 0.0
 # every priced season: (side key, pid, year, model salary, wins per $M of charge, discount)
 recs = []; nets = {}
 for i, (d, seats) in enumerate(tb['trades']):
@@ -38,7 +44,7 @@ for i, (d, seats) in enumerate(tb['trades']):
                 if AR._book()['_own'].get(pid, {}).get(y) is not None or ce is None or not (ce - 2 <= y <= ce): continue
                 a = AR.arb_salary(pid, y)
                 if not a: continue
-                recs.append(dict(i=i, ab=ab, giver=giver, pid=pid, y=y, a=a, k=AR.money_unit(y) / AR.dpw(y), disc=0.9 ** (y - y0)))
+                recs.append(dict(i=i, ab=ab, giver=giver, pid=pid, y=y, a=a, k=AR.money_unit(y) / AR.dpw(y), disc=0.9 ** (y - y0) * share(pid, y, d, acq)))
 print('priced seasons', len(recs), 'sides', len({(r['i'], r['ab']) for r in recs}))
 def charge(sal, r): return max(0.0, sal - 0.75) * r['k'] * r['disc']
 def apply(newsal):
