@@ -2259,7 +2259,9 @@ function folDecOpen(dec, club){
     return !pids.length || pids.some(p => folCtl(p, club) !== false);
   }
   if(ch === 'ext'){
-    if(!(dec.sides || []).some(x => x[0] === 'Still to come')) return false;
+    // a deal with seasons elapsed and none still to come is over; one whose
+    // seasons have not started yet (Hoerner, signed for 2027-32) is open
+    if((dec.sides || []).length && !/no seasons elapsed/.test(dec.h || '') && !(dec.sides || []).some(x => x[0] === 'Still to come')) return false;
     return !pids.length || pids.some(p => folCtl(p, club) !== false);
   }
   if(ch === 'waiver' || ch === 'walk'){
@@ -10808,6 +10810,26 @@ function tbIndex(){
   // only (Segura, Pena and Hellweg in the 2012 Greinke deal). In a two-club
   // deal what one club gave is what the other got, so complete the giving side
   // and its net from the receiving side.
+  // Nov 11: linked same-day deals are stored as one record with the middle club
+  // listed once per leg (Arizona, Nov 28 2003: Schilling to Boston, then De La
+  // Rosa on to Milwaukee with Sexson). A player who passes through both legs
+  // must not pull one leg's card grade onto the other: mark him shared.
+  (TRADE_BOOK.trades||[]).forEach(([d, seats]) => {
+    const byAb = {};
+    seats.forEach(s => (byAb[s[0]] = byAb[s[0]] || []).push(s));
+    Object.values(byAb).forEach(list => {
+      if(list.length < 2) return;
+      const cnt = {};
+      list.forEach(s => new Set([...s[2], ...s[3]].map(x => x[0])).forEach(p => cnt[p] = (cnt[p] || 0) + 1));
+      list.forEach(s => { s.shared = new Set(Object.keys(cnt).filter(p => cnt[p] > 1)); });
+    });
+  });
+  // Nov 11: deals whose record is missing players on a side (found by the
+  // zero-sum check) are held back rather than shown with a wrong number
+  (TRADE_BOOK.trades||[]).forEach(t => {
+    const [d, seats] = t;
+    if(seats.length < 2 && seats.length > 0) { t.incomplete = true; return; }
+  });
   (TRADE_BOOK.trades||[]).forEach(([d, seats]) => {
     if(seats.length !== 2) return;
     const sum = seats[0][1] + seats[1][1];
@@ -10819,6 +10841,10 @@ function tbIndex(){
       o[2].forEach(x => { if(!have.has(x[0])) s[3].push([x[0], x[1]]); });
       s[1] = Math.round((s[2].reduce((a, x) => a + (+x[1] || 0), 0) - s[3].reduce((a, x) => a + (+x[1] || 0), 0)) * 10) / 10;
     });
+  });
+  (TRADE_BOOK.trades||[]).forEach(t => {
+    const sum = t[1].reduce((a, s) => a + (+s[1] || 0), 0);
+    if(Math.abs(sum) > 0.15) { t.incomplete = true; t[1].forEach(s => { s.incomplete = true; }); }
   });
   (TRADE_BOOK.trades||[]).forEach(([d, seats]) => {
     seats.forEach(seat => {
@@ -10838,7 +10864,7 @@ function seatNet(seat, d){
   // the club's card value wins where the card grades this deal (the three
   // hand-verified cards use their own lenses); otherwise the engine's number
   const [ab, net, ins, outs] = seat;
-  const ps = [...ins, ...outs].map(x => x[0]);
+  const ps = [...ins, ...outs].map(x => x[0]).filter(p => !(seat.shared && seat.shared.has(p)));
   // only a trade decision on the card can stand in for the trade: a Rule 5 pick
   // or a claim graded the same day is a different decision (Nov 11 audit)
   const notTrade = x => (x.ch && !/^trade$/i.test(x.ch)) || /Waiver|Rule 5|Draft|International|Free agency|Extension/i.test(x.t || '');
@@ -10918,8 +10944,9 @@ function careerTree(pid){
       kids.push(autoChainKids(p2, d, {abbr: s[0]}, 1, seen) || pieceLeaf(p2, s[0], v));
     }));
     const tOpen = folTradeOpen(seats);
-    ev.push({d, node: {via: `${d} · traded ${from} to ${mine ? mine[0] : '?'}`, nm: `<div class="ttrade">${lines.join('')}</div>` + (tOpen ? folProspectTag(seats) : ''), kidsLabel: 'Where the other pieces went',
-                       wv: mine ? fmtW(seatNet(mine, d)) : null, status: tOpen ? 'open' : 'closed', kids}});
+    const inc = seats.some(s => s.incomplete);
+    ev.push({d, node: {via: `${d} · traded ${from} to ${mine ? mine[0] : '?'}`, nm: inc ? `<div class="ttype">The record of this deal is missing players on one side, so its numbers are held back.</div>` : `<div class="ttrade">${lines.join('')}</div>` + (tOpen ? folProspectTag(seats) : ''), kidsLabel: 'Where the other pieces went',
+                       wv: mine && !inc ? fmtW(seatNet(mine, d)) : null, status: tOpen ? 'open' : 'closed', kids}});
   });
   let last = '';
   for(const m of (PLAYER_MOVES[pid] || [])){
