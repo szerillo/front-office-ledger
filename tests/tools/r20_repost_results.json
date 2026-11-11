@@ -1,0 +1,228 @@
+{
+ "shuffle_seeds": "random.Random(20261140+k), k=1..5, rows of sweep_tx in /tmp/sweep/ledger_r.sqlite",
+ "variants": {
+  "s": "shipped code",
+  "o": "ORDER BY in fa_grade.priced()",
+  "u": "ORDER BY plus math.fsum (docs/patches/deterministic-order.diff)"
+ },
+ "runs": {
+  "s1": {
+   "md5": "bb0cdd4f",
+   "winters_missing_or_extra": 1,
+   "whole_rows_equal_live": 699,
+   "fa_cols_equal_live": 745,
+   "move_lists_differ": 91
+  },
+  "s2": {
+   "md5": "56b27962",
+   "winters_missing_or_extra": 1,
+   "whole_rows_equal_live": 733,
+   "fa_cols_equal_live": 775,
+   "move_lists_differ": 69
+  },
+  "s3": {
+   "md5": "6fa96539",
+   "winters_missing_or_extra": 1,
+   "whole_rows_equal_live": 727,
+   "fa_cols_equal_live": 766,
+   "move_lists_differ": 70
+  },
+  "s4": {
+   "md5": "e052a4a6",
+   "winters_missing_or_extra": 0,
+   "whole_rows_equal_live": 718,
+   "fa_cols_equal_live": 754,
+   "move_lists_differ": 73
+  },
+  "s5": {
+   "md5": "430e18c6",
+   "winters_missing_or_extra": 0,
+   "whole_rows_equal_live": 709,
+   "fa_cols_equal_live": 755,
+   "move_lists_differ": 87
+  },
+  "o1": {
+   "md5": "ab2140c4",
+   "winters_missing_or_extra": 0,
+   "whole_rows_equal_live": 803,
+   "fa_cols_equal_live": 815,
+   "move_lists_differ": 12
+  },
+  "o2": {
+   "md5": "ab2140c4",
+   "winters_missing_or_extra": 0,
+   "whole_rows_equal_live": 803,
+   "fa_cols_equal_live": 815,
+   "move_lists_differ": 12
+  },
+  "o3": {
+   "md5": "ab2140c4",
+   "winters_missing_or_extra": 0,
+   "whole_rows_equal_live": 803,
+   "fa_cols_equal_live": 815,
+   "move_lists_differ": 12
+  },
+  "o4": {
+   "md5": "ab2140c4",
+   "winters_missing_or_extra": 0,
+   "whole_rows_equal_live": 803,
+   "fa_cols_equal_live": 815,
+   "move_lists_differ": 12
+  },
+  "o5": {
+   "md5": "ab2140c4",
+   "winters_missing_or_extra": 0,
+   "whole_rows_equal_live": 803,
+   "fa_cols_equal_live": 815,
+   "move_lists_differ": 12
+  },
+  "u1": {
+   "md5": "1a4a4a5e",
+   "winters_missing_or_extra": 0,
+   "whole_rows_equal_live": 803,
+   "fa_cols_equal_live": 815,
+   "move_lists_differ": 12
+  },
+  "u2": {
+   "md5": "1a4a4a5e",
+   "winters_missing_or_extra": 0,
+   "whole_rows_equal_live": 803,
+   "fa_cols_equal_live": 815,
+   "move_lists_differ": 12
+  },
+  "u3": {
+   "md5": "1a4a4a5e",
+   "winters_missing_or_extra": 0,
+   "whole_rows_equal_live": 803,
+   "fa_cols_equal_live": 815,
+   "move_lists_differ": 12
+  },
+  "u4": {
+   "md5": "1a4a4a5e",
+   "winters_missing_or_extra": 0,
+   "whole_rows_equal_live": 803,
+   "fa_cols_equal_live": 815,
+   "move_lists_differ": 12
+  },
+  "u5": {
+   "md5": "1a4a4a5e",
+   "winters_missing_or_extra": 0,
+   "whole_rows_equal_live": 803,
+   "fa_cols_equal_live": 815,
+   "move_lists_differ": 12
+  }
+ },
+ "graded_rows_differ_in_o_builds": 0,
+ "listing_rows_differ_in_o_builds": 10,
+ "idmap": {
+  "rows": 900,
+  "ids": 562,
+  "via_join": 562,
+  "name_mismatch": [],
+  "career_window": [
+   [
+    "114208",
+    "John Flaherty",
+    "2006-01-03",
+    1992,
+    2005
+   ],
+   [
+    "119182",
+    "Doug Mirabelli",
+    "2008-01-11",
+    1996,
+    2007
+   ],
+   [
+    "136725",
+    "Matt Clement",
+    "2008-01-03",
+    1998,
+    2006
+   ],
+   [
+    "121009",
+    "Pokey Reese",
+    "2006-01-03",
+    1997,
+    2004
+   ],
+   [
+    "121009",
+    "Pokey Reese",
+    "2005-01-04",
+    1997,
+    2004
+   ],
+   [
+    "407578",
+    "Mark Prior",
+    "2007-12-26",
+    2002,
+    2006
+   ],
+   [
+    "400141",
+    "Horacio Ramírez",
+    "2008-12-11",
+    2003,
+    0
+   ],
+   [
+    "218294",
+    "Byung-Hyun Kim",
+    "2008-02-20",
+    1999,
+    2007
+   ],
+   [
+    "115487",
+    "Pete Harnisch",
+    "2002-02-25",
+    1988,
+    2001
+   ],
+   [
+    "121676",
+    "Scott Sanders",
+    "2000-01-27",
+    1993,
+    1999
+   ],
+   [
+    "110183",
+    "Roberto Alomar",
+    "2005-01-20",
+    1988,
+    2004
+   ],
+   [
+    "110712",
+    "Danny Bautista",
+    "2005-01-18",
+    1993,
+    2004
+   ]
+  ]
+ },
+ "independent_recompute": {
+  "counts": {
+   "realized agrees": 2614,
+   "expected agrees (or +1 QO)": 2615,
+   "realized differs": 1,
+   "contract not uniquely matched": 1
+  },
+  "diffs": [
+   [
+    "BOS",
+    "2004-11-29",
+    "Doug Mirabelli",
+    0.0,
+    0.6,
+    0.61,
+    0.6
+   ]
+  ]
+ }
+}
