@@ -340,3 +340,69 @@ page (the two-club repair recomputes that side). New suite `t_grades`: a snapsho
 and passes on the real page. Regenerate it on purpose with `UPDATE=1` after an intended change.
 
 Root causes found Nov 11: 9, 5 of them in rules written that day.
+
+## 11. Round 8 (Nov 11, 10 AM)
+
+**Do grades read OPEN/CLOSED? No, by design.** `folTradeOpen` and `folDecOpen` return a flag that only goes to a
+decision's `open` field and a tree node's `status` (index.html lines 2282, 2316, 2592, 2624, 10992). Every
+reader of a decision's `.open` draws a label: tree status, the UNSETTLED/SETTLED chip, the prospect-value tag
+(lines 2568-2667, 10950-11042, 13175-13619). No `.open` read sits inside a filter, sum, sort or rank, and the
+grade functions (`seatNet`, card `war`, the engine's `trade_window`) never take it. The engine's only "open" is
+the prospect value still expected, which keys on the trade date and the prospect's status, not on the page flag.
+So the 0 of 13,209 is by construction; `t_grades` now guards it.
+
+**Ten more of the 50 still-open pre-2021 trades (seed 20261116), against Baseball-Reference transactions.**
+Truly open: Wilcox, Koss, Trammell, O'Brien, Baz, Speier, Edwards, Cantillo/Arias/Waldron. Not open: Lukes
+(minor-league free agency 2021, again) and Ponce (released by Pittsburgh Nov 2021; the league feed shows no move
+for him at all). 2 of 10 missed, both invisible to the feed: 20%, 90% interval 7% to 46%, so roughly 5 to 20 of
+the 50. Material, so OPEN is now labelled as following the league's transaction feed: the tree legend, the
+trades legend and every UNSETTLED chip say the feed misses some minor-league releases and free agency, so an
+older deal marked open may in fact be settled.
+
+**`data/research/ext_1998_2014.csv` (532 rows), seeded sample of 30 (seed 20261117) against Baseball-Reference
+salaries.** 20 checkable (Baseball-Reference served pages without salary tables for the other 10 after the
+first 20; not retried today).
+- Wrong: David Ross 2007 is credited to Atlanta; both seasons (2007 $1.6M, 2008 $2.525M) were with
+  Cincinnati, so the grade sits on the wrong club. Chad Tracy 2006 starts in 2006; his 2006 salary was the
+  minimum and the deal ran 2007-09 (the Suzuki pattern, a May signing).
+- Doubtful: Scott Feldman 2010, 2 years / $11.5M; he was paid $6.8M for 2010-11 and $13.3M with the 2012
+  option, so the total matches neither reading.
+- Right: Derrek Lee, Zimmermann, Ziegler, Brett Anderson, Haren, Tulowitzki, Brantley, Buehrle, Motte,
+  Desmond, Figgins, Holliday, Piazza, Kotsay, Burrell (sums match the totals; first seasons match the salary
+  jump); Zito 2002 is consistent if the total includes his 2002 bonus.
+- 2 clear errors in 20 (10%, 90% interval 3.5% to 27%), 3 counting Feldman, plus Suzuki outside the sample.
+  Fields wrong: club, first season, total. That is more than 1 or 2, so the file is a root cause on its own:
+  roughly 20 to 140 of its 532 rows may carry a wrong club, start or total. It feeds the contract book (src
+  `ext98`), so its extension grades and the trade windows those contracts cut are affected.
+
+**Arbitration model: what the 83 are, and whether it feeds public numbers.**
+- The 83: seasons 2018-26 (2025-26 under-weighted: 23% of the sample against 39% of all arbitration seasons
+  in the service data, because multi-year deals own more recent seasons), classes 11% / 29% / 31% / 29%
+  (population 11% / 27% / 36% / 24%), 59% pitchers (population 56%). Close to representative apart from the
+  most recent two seasons.
+- Why the sign flipped: the model squeezes salaries toward the middle. Lowest third of the 83 (paid up to
+  $2.5M): model 12% high. Middle third: 19% low. Top third: 23% low. The first 10 cases were mostly cheap
+  bench and bullpen arms, so they read 20% high.
+- **It does feed public numbers today.** `asset_rules.contract_cost` charges `arb_salary` for any season
+  inside the engine's arbitration years with no contract on file, `ext_grade.py` (line 147) uses it for the
+  arbitration path in extension grades, and the page's `gmArbSal` (16 calls) prices arbitration salaries in
+  the Simulator and Deal Desk. Count: 3,919 of 16,071 acquired player-seasons in trade windows (24%) are
+  priced by it, on 2,007 trade sides; on 315 sides its charge is a win or more. Its compression means trade
+  grades charge too little for good players' arbitration years (acquirers look a little better) and too much
+  for fringe players'. This is a live accuracy item, not a shadow one.
+
+**Phone: compression.** GitHub Pages serves index.html gzipped: 976 KB on the wire from 3.29 MB raw (30%).
+Brotli is not offered (asking for br alone returns the raw file). Brotli at its strongest setting would be
+700 KB, 276 KB less, about 1.4 s on slow 4G, but it needs a host or CDN in front of Pages that serves Brotli,
+not a code change. Cache lifetime is 10 minutes (max-age=600).
+
+**Grade snapshot regeneration now leaves a record.** `UPDATE=1` refuses without `REASON="..."` (15+
+characters). It writes every grade that moved, by how much, and the commit to `docs/grade-changes.md`
+(created today with the baseline entry). Demonstrated on the planted page and reverted.
+
+**Process.** `docs/rule-checklist.md`: the eight steps every new rule passes before it ships (state the rule
+and its engine counterpart, failing tests first, count what moves across the full population, 10 seeded hand
+checks of changed items, 10 of unchanged items, a planted case a suite must catch, all suites with the grade
+snapshot, then a live re-run).
+
+Root causes found Nov 11: 10 (the research file added), 5 in rules written that day.
