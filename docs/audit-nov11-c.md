@@ -682,3 +682,27 @@ from command output, not commits. Section 14's earlier "draw at 17:05" was the o
 
 Root causes found Nov 11: 15 (the same-club re-sign in the page rule, 2020 charged at full season), 5 in rules
 written that day.
+
+## 17. Ship block (Nov 11, 1:05 PM)
+
+1. **Same-club re-sign keeps a trade OPEN: built and tested, not on the live site.** The working page carries the
+   rule; `tests/t_nov11.mjs` now requires Eli White (2023), Robberse (2023), Carela (2023) and Muñoz (2023) to read
+   OPEN (fails on the live page, passes on the build). Rebuilt with `engine/split_book.py`: only index.html changes
+   (book.js 5efd14cbe3 and deals.js ef3f86b4e0 unchanged). OPEN trades 710 to 721; all 14 suites pass on the built
+   page, t_grades with 0 grades moved. Committing index.html to main publishes it (GitHub Pages), which needs
+   Sean's OK, so the change is in `docs/patches/resign-keeps-open.diff` (applies cleanly with `patch -p1`, tested).
+2. **Arbitration correction: not shipped.** The pre-registered out-of-sample test (bbdcebe, section 16) is
+   underpowered (7 training seasons) and both corrections did worse than the current model on 2021 and later.
+   The old estimate stays, with a caveat added to the methodology list in the same build: the estimate runs low
+   against salaries actually paid, and the correction is not applied.
+3. **Scheduled refreshes.** The four "Ledger:" tasks have no computer attached, so their cloud runs cannot reach
+   Chrome. Attaching one ("Require this computer") is a setting only Sean can turn on, in the Claude desktop app
+   on his MacBook Air: open each task's settings and turn it on. Applied here: the contract-terms task's prompt now
+   tells it to read the skill's reference files with the Read tool only (the Nov 11 run stalled on a permission
+   prompt from `sed` on a symlinked file). A GitHub Action is not a fit for three of the four jobs (they need web
+   research by Claude), and the share-page job would publish to the live site on a schedule, which needs Sean's
+   OK; web upload also skips `.github`.
+4. **Buyout and 2020 rows.** `tests/fixtures/salary_overrides.csv` replaces Kittredge 2026 ($1.0M buyout) with the
+   $9.0M Baltimore paid; the $0 shadow now scales every 2020 salary row to 60/162 (2020 pay was prorated). Effect on
+   the shadow (147 covered seasons): paid above the floor 110 to 108; sides moving a win or more 22 (unchanged);
+   flips 6 to 8; clubs moving 2+ places 2 (unchanged). Report only, as before.
