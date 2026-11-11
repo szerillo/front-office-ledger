@@ -1,0 +1,14 @@
+import fs from 'fs';
+const w={}; new Function('window',fs.readFileSync('cards.js','utf8'))(w);
+const decs=[]; const seen=new Set();
+const walk=(o,reg)=>{ if(Array.isArray(o)) o.forEach(x=>walk(x,reg)); else if(o&&typeof o==='object'){ if(o.d&&o.h&&'open' in o){ const k=reg+'|'+o.d+'|'+o.h; if(!seen.has(k)){seen.add(k); decs.push({reg,...o});} } for(const k in o) walk(o[k], reg);} };
+for(const k in w.CARD_DETAIL) walk(w.CARD_DETAIL[k], k);
+const ch=o=>o.ch||(/^Trade/.test(o.t)?'trade':/^Free agency/.test(o.t)?'fa':/^Extension/.test(o.t)?'ext':o.t);
+let seed=20261111; const rnd=()=>{seed=(seed*1103515245+12345)%2147483648; return seed/2147483648;};
+const pick=(arr,n)=>{const a=arr.slice(); const out=[]; while(out.length<n&&a.length){out.push(a.splice(Math.floor(rnd()*a.length),1)[0]);} return out;};
+const by=c=>decs.filter(o=>ch(o)===c && typeof o.war==='number');
+const recent=o=>o.d>='2023-01-01'&&o.d<='2025-12-31';
+const S=[...pick(by('trade').filter(recent),6),...pick(by('trade').filter(o=>!recent(o)),10),...pick(by('fa').filter(recent),4),...pick(by('fa').filter(o=>!recent(o)),10),...pick(by('ext').filter(recent),2),...pick(by('ext').filter(o=>!recent(o)),8)];
+console.log(Object.keys(w.CARD_DETAIL).length, decs.length, {trade:by('trade').length,fa:by('fa').length,ext:by('ext').length});
+fs.writeFileSync('/tmp/sample40.json', JSON.stringify(S,null,1));
+S.forEach((o,i)=>console.log(i, o.reg, ch(o), o.d, 'war',o.war, 'open',o.open, '|', o.h.slice(0,150), '| pids', (o.pids||[]).join(',')));
