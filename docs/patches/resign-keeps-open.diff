@@ -1,0 +1,46 @@
+# Not applied. Same-club re-sign keeps a trade OPEN (rule-checklist steps 1-7 in docs/audit-nov11-c.md section 16).
+# 1) folTradeOpen in the working page (index.html after split_book.py)
+--- a/index.html	2026-11-11 12:53:25.133136722 -0500
++++ b/index.html	2026-11-11 12:51:31.129726105 -0500
+@@ -2235,8 +2235,24 @@
+   const inSix = !y0 || y0 + 5 > FOL_SEASON;
+   // a release or a free-agent signing anywhere after the trade ends that piece's
+   // window, as in the engine (Vieira, released by the White Sox in 2019)
+-  const ended = p => !!(d && typeof PLAYER_MOVES !== 'undefined' && (PLAYER_MOVES[String(p)] || []).some(m => m[0] > String(d)
+-    && /^(Released|Declared Free Agency|Signed as Free Agent|Minor-league deal)$/.test(typeof m[1] === 'number' && typeof PLAYER_MOVE_TYPES !== 'undefined' ? PLAYER_MOVE_TYPES[m[1]] : m[1])));
++  // A release or free-agent filing followed within 60 days by a minor-league re-sign with the club that held
++  // him is a roster move, not the end of his window: the pair is skipped (Eli White, released and re-signed by
++  // Atlanta in July 2023; Nov 11 audit, 11 of 147 closures). A major-league re-sign is a new signing and ends it.
++  const ended = p => {
++    if(!d || typeof PLAYER_MOVES === 'undefined') return false;
++    const rows = PLAYER_MOVES[String(p)] || [];
++    const ty = m => typeof m[1] === 'number' && typeof PLAYER_MOVE_TYPES !== 'undefined' ? PLAYER_MOVE_TYPES[m[1]] : m[1];
++    const skip = new Set();
++    rows.forEach((m, k) => {
++      if(!/^(Released|Declared Free Agency)$/.test(ty(m))) return;
++      const held = rows.slice(0, k).map(x => x[3]).filter(Boolean).pop();
++      const j = rows.findIndex((x, i) => i > k && /^(Signed as Free Agent|Minor-league deal)$/.test(ty(x)));
++      if(j > 0 && ty(rows[j]) === 'Minor-league deal' && held && rows[j][3] === held
++        && (new Date(rows[j][0]) - new Date(m[0])) / 864e5 <= 60){ skip.add(k); skip.add(j); }
++    });
++    return rows.some((m, k) => !skip.has(k) && m[0] > String(d)
++      && /^(Released|Declared Free Agency|Signed as Free Agent|Minor-league deal)$/.test(ty(m)));
++  };
+   return (seats || []).some(s => (s[2] || []).some(([p]) => {
+     const g = folGone(p);
+     if(g === true || ended(p)) return false;
+# 2) tests/t_nov11.mjs
+--- /tmp/t_nov11_live.mjs	2026-11-11 12:56:59.729745638 -0500
++++ tests/t_nov11.mjs	2026-11-11 12:51:18.368478701 -0500
+@@ -96,6 +96,11 @@
+   // Baker, moved only by a waiver claim and a trade, still does
+   out.releasedPieceClosesTrade = tOpen('Thyago Vieira', '2017-11-16') === false && tOpen('Dietrich Enns', '2017-07-30') === false;
+   out.claimedPieceKeepsTradeOpen = tOpen('Bryan Baker', '2018-08-14') === true;
++  // a release or non-tender followed within 60 days by a minor-league re-sign with the club that held him
++  // does not end his window (Eli White: released and re-signed by Atlanta in July 2023, still active);
++  // a deal that closed for another reason stays closed (German: free agency 2023; Kilian: signed with SF)
++  out.sameClubResignKeepsOpen = tOpen('Eli White', '2023-01-03') === true;
++  out.otherClosuresStayClosed = tOpen('Domingo Germán', '2014-12-19') === false && tOpen('Caleb Kilian', '2021-07-30') === false;
+   // weekly board
+   const html = folWeekBoard();
+   out.weekBoard = /This week/.test(html) && (html.match(/wk-day/g) || []).length === 7;
