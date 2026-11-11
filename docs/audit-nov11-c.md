@@ -510,3 +510,64 @@ control end, 42 under a contract the book lacks, 24 after a free-agent filing, 4
 - Not yet done: the pre-registered hand check of 10 covered seasons against a second source (after the pull).
 
 Root causes found Nov 11: 11 (the share error in my own shadow script added), 5 in rules written that day.
+
+## 14. Round 11 (Nov 11, 11:30 AM): sampling bias, closed trades, proration
+
+**Order of record.** Pre-registration `docs/prereg-round11.md`, commit be53af2 at 16:30:49 UTC. First output after
+it: the proration population run at 16:31:13 UTC; the random-40 draw and pull at 17:05 to 17:18 UTC. Before the
+commit (stated in the file): the 15-trade draw and three hand-worked proration cases. The $0 shadow's
+pre-registration, ddc7026, is 16:01:26 UTC; its first output came after it. Section 12's arbitration shadow is
+labelled "pre-registered, not provable".
+
+**$0 seasons: pull order is biased.** The first 40 players were pulled in MLBAM id order, which runs oldest
+first (median id 430,884 against 562,238 in a random draw), so veterans on bigger salaries. Random 40 from the
+802 (seed 20261122, `tests/fixtures/zero_br_rand40_2026-11-11.txt`): 31 have a salary row, **25 paid above the
+$0.75M floor: 62.5%, 95% interval 47% to 76%, so about 500 of the 802 (377 to 608)**. Pull order: 39 of 40
+(97.5%, 87% to 99.6%). The intervals do not overlap: the pull-order figure was biased high and is withdrawn as
+an estimate. With all 147 seasons now covered (pull order plus random): 22 sides move a win or more, 6 flip, 2
+clubs move 2+ places. Still material on the club-rank test.
+- Second source for the random 40 (seed 20261120 drew 10): Montero 2021 $2.25M, Stratton 2023 $2.8M, Heaney 2021
+  $6.75M, McGuire 2026 $1.2M match (MLB Trade Rumors, Spotrac, AP); Hamels 2019 $20M option matches wide reports;
+  Hutchison 2022 $0.7M against Spotrac's $0.8M; **Kittredge 2026 $1.0M is the buyout, not the salary: Baltimore
+  exercised his $9M option**. Mitchell, Font, Stewart (all under the floor) not checked. 1 material miss in 7.
+  McGuire 2026 is a new free-agent deal with the White Sox, so it likely should not sit in the 2022 trade window.
+- "About 240 of 802" (contracts missing from the book) rests on 9 of 30: 30%, 95% interval 17% to 48%, so 134 to
+  384. A guess until the pull finishes.
+
+**15 of the trades the release / free-agency rule closed (147 on today's page; seed 20261121;
+`tests/tools/closed_by_release.mjs`).** Events checked against MLB Trade Rumors, MLB.com, Spotrac, Wikipedia.
+- Wrong label: **Eli White (2023 TEX/ATL)**. Atlanta released him on Jul 22 2023 and re-signed him three days
+  later; he played for Atlanta into 2026 and was traded to Boston in August, so the deal should read OPEN.
+  1 of 15: 6.7%, 95% interval 1.2% to 29.8%, so 2 to 44 of the 147.
+- Right label, wrong reason: Germán (2014 MIA/NYY; non-tendered Dec 3 2015, re-signed by the Yankees Dec 11; the
+  deal closes anyway with his 2023 free agency) and Kilian (2021 CHC/SF; released and re-signed by the Cubs
+  within four days in April 2025). The other 12 events and closures are right (Bryant, Bader, Bleday, Cousins,
+  Canning: free agency or non-tenders; the rest signed elsewhere).
+- **New root cause, engine and page alike:** a release or non-tender followed by re-signing with the same club
+  ends the window. In the engine it also cuts the grade: Germán carries 0.0 in the 2014 Yankees side.
+  `tests/tools/resign_same_club.py`: 63 traded pieces were re-signed by the holding club within 60 days of a
+  release or filing while inside club control (debut-rule control, so a few are true free agents); 13 produced a
+  win or more for that club afterwards inside six seasons, 34.7 wins in all. Not fixed.
+
+**Proration of the trade season.** The engine charges the trade season by the acquirer's share of the player's
+stint rows (1 of 2 rows = half), not the days left. Three 2017 deals worked by hand (`proration_check.py`):
+- Upton (DET to LAA, Aug 31): days left 31 of 183, so $3,747,951 of $22.125M, **matching the AP figure to the
+  dollar** (Detroit paid $747,951 of it). Engine: half of the season, $10.69M above the minimum against $3.62M.
+- Martinez (DET to ARI, Jul 18): 75 of 183 days, $4.82M owed, matching MLB Trade Rumors. Engine $5.94M against
+  $4.51M above the minimum.
+- Darvish (TEX to LAD, Jul 31): three stint rows give the Dodgers two thirds; days left give a third. Engine
+  $6.17M against $3.47M.
+- The assumption fails. Population (1,186 trade-season charges re-prorated by days, flips ignored): 2 sides move
+  a win or more, 2 flip, 1 top or bottom 25 change, 1 club moves 2+ places. Material on two pre-registered tests.
+  Cash sent with a player is not modeled either.
+
+**Arbitration thirds, with n (`tests/tools/arb_terciles.py`).** Calibration is on the 83 held-out seasons (28
+players), not the 75 real salaries in the shadow. By the model's prediction: 27, 28, 28 seasons (18, 20, 20
+players); -51% (95%: -62% to -33%), -25% (-39% to -7%), -7% (-19% to +14%). **The top third cannot be told from
+zero**, so "low in every third" is corrected to "low in the bottom two thirds". By actual salary: +12% (-12% to
++47%), -19% (-42% to +14%), -23% (-32% to -10%). Twenty players per third is too few to pin the top third.
+
+**Baseball-Reference.** One fetcher, one request every 15 seconds, honoring Retry-After (the 429 at 16:29 UTC
+asked for 2,101 seconds; the pull resumed at 17:05). Cross-checks come from MLB Trade Rumors, Spotrac, AP.
+
+Root causes found Nov 11: 13 (proration by stint rows, same-club re-sign added), 5 in rules written that day.

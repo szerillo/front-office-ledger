@@ -1,4 +1,4 @@
-# Pre-registration, round 11 (Nov 11, written about 16:45 UTC)
+# Pre-registration, round 11 (Nov 11; committed as be53af2 at 16:30:49 UTC, the record of its time)
 
 Committed before any of the runs or checks below. What was already done before this commit is listed so the
 order is on the record.
