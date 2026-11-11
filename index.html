@@ -7780,7 +7780,12 @@ function dkDealsLoad(){
   sc.onerror = () => { dkDealsLoad._p = 0; }; document.body.appendChild(sc);
 }
 function dkDealsLoaded(){
-  try { const v = routeView(); if(v === 'desk') renderDesk(); else if(v === 'gm') renderGm(); } catch(e){}
+  // re-render so the comps appear, keeping an Assistant GM note already on screen
+  try { const v = routeView();
+    if(v === 'desk'){ const n = document.getElementById('dk-agm-note'), keep = n ? n.innerHTML : '';
+      const pop = !!(document.getElementById('dk-out') || {classList: {contains: () => false}}).classList.contains('dk-pop');
+      renderDesk(); if(pop) dkEval(); const n2 = document.getElementById('dk-agm-note'); if(n2 && keep && !n2.innerHTML) n2.innerHTML = keep; }
+    else if(v === 'gm') renderGm(); } catch(e){}
 }
 window.addEventListener('load', () => setTimeout(dkDealsLoad, 3000));
 function dkComps(recvTotal, paidTotal, ck, po, inPos, outPos){
