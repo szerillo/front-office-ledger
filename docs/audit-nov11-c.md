@@ -737,3 +737,47 @@ written that day.
    $250K or more: 4 of 20 = 20% (8% to 42%): Bautista ATL 2018, LeBlanc 2020, Shreve 2019, Diaz 2023. Three more are
    $100K rows for seasons spent only in the minors (Swarzak 2020, Sanchez 2023, Heineman 2021). Conclusion: flagged
    rows cannot be trusted as filed; the 19:30 UTC pull plus the valid-row rules is the fix path.
+
+## 19. Round 16 (Nov 11, 2:19 PM): sizing the salary-row problem
+
+1. **What the flag catches.** The flagged population is 48 of 518 Baseball-Reference salary rows (90 players) in the
+   two Nov 11 fixtures, flagged by `tests/tools/salary_row_sweep.py`: two rows in one season (12), under 40% of the
+   prior season (14), no major-league stint that season (21), a common buyout amount ending a run (13); 9 rows hit
+   two rules. Errors in the 20-row sample by rule: two rows in a season 3 of 4, no stint 4 of 9, buyout amount 1 of
+   5, under 40% 0 of 6. So the flag mostly catches split seasons and placeholder rows, not buyouts.
+   - 35% (18% to 57%) of 48 is about 17 wrong rows (9 to 27).
+   - **Grade exposure: none live.** Baseball-Reference rows feed only the two shadow runs; live grades use the
+     contract book and the arbitration model, so no live grade and no share page reads them. In the $0 shadow, 12
+     of the 48 rows sit in priced seasons. Bounds (`tests/tools/flag_bounds.py`): every one at $0 charge, 0 sides
+     move 0.5 or more; every one at the player's prior-season salary (an extreme case: Bautista $18M, Canha
+     $11.5M, both rows verified as right), 4 sides move 0.5 or more on 2 trades (2025-03-22 KC/MIL, 2018-08-28
+     NYM/PHI), 3 flips.
+2. **The four large errors, fixed in `tests/fixtures/salary_overrides.csv`.** Bautista 2018 $1.0M (Atlanta rate;
+   AP and MLB.com), LeBlanc 2020 $0.8M (MLB Trade Rumors, MLB.com; the shadow scales 2020), Shreve 2019 $0.9M (MLB
+   Trade Rumors). Rerun on all 147 covered seasons: paid above the floor 108 to 109; sides moving a win or more 22,
+   flips 8, clubs moving 2+ places 2, all unchanged. The 8 flips (unchanged from section 17): 2015-11-12 SEA/SD,
+   2016-12-01 ATL/STL, 2022-11-18 LAA/MIN, 2025-07-31 CHC/BAL. None has a share page (winter pages are keyed to
+   the winter's start year: 2016-stl, 2015-sea, 2022-min and the others are not in share.json), and the shadow is
+   not live.
+   - **Diaz 2023 $21.25M: traced, not fixed.** It is Baseball-Reference's own figure, copied verbatim into
+     `tests/fixtures/arb_br_2026-11-11.txt` with 2024 also $21.25M and 2025 $21.5M. No outside source matches
+     (Spotrac 2023 cash $23.75M with the signing bonus, AAV $20.4M, tax figure about $18.6M after deferrals). It most
+     likely mixes deferred money and a share of the bonus. No effect: 2023 sits inside his contract, so neither
+     shadow prices it. Left as is and labelled.
+3. **Rule for rows below the season minimum.** A row below that season's major-league minimum is never a
+   major-league salary: drop it. If the season has another valid row, use it; if the player had major-league
+   time, charge the minimum; if not, charge nothing. This is rule A4 of d4be855. It touches 31 of 518 rows (6%): 24
+   with a major-league stint, 7 without. Effect on grades: none (both shadows already charge nothing below the
+   $0.75M floor). Known gap: Walker 2020's only row is $100K, so the rule charges the minimum where he was owed $2M.
+4. **19:30 UTC pull.** Not landed when this section was written; reported separately when it does.
+5. **Baseball-Reference stores the full 2020 rate: 9 of 10 (60% to 98%).** Seed 20261129, named at the draw, not
+   committed before it (`tests/tools/season2020_spotcheck_r16.json`). Holds for a mid-2020 trade (Marte) and an
+   extension (Merrifield). Fails for Walker (a $100K placeholder). **New finding:** Price's row is the right rate,
+   but he opted out and was paid $0, so the 60/162 step charges about $11.85M never paid. Opt-outs are not in
+   the shadow population, and the live engine already charges Price's 2020 season $0 (`asset_rules.contract_cost`).
+6. **Ship mode, checklist item 5 sized** (`tests/tools/season2020_signings.py`): free-agent grades covering 2020
+   are charged too much for that season. Fixing it raises 179 signings, 93 by half a win or more, 21 by a win or
+   more (102.5 wins in all); 87 extensions, 46 by half a win, 14 by a win (60.3 wins, approximate: extensions use
+   another formula). Largest: Cole NYY +2.9, Rendon LAA +2.9, Strasburg WSH +2.9. Public winter pages it would
+   change: 2019-wsh +5.4, 2019-laa +3.7, 2019-phi +2.5, 2015-det +1.8, 2017-stl +1.3, 2014-wsh +1.1, 2017-mil +0.7,
+   2013-tex +0.6. Not built into the live page: Sean's call.
