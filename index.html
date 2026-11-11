@@ -2225,8 +2225,10 @@ function folCtl(pid, club){
   return p[2] === club;
 }
 function folTradeOpen(seats){
-  // a trade stays open while any piece is still with the club that got him
-  return (seats || []).some(s => (s[2] || []).some(([p]) => folCtl(p, s[0]) !== false));
+  // a trade's number follows each piece wherever he plays until his window
+  // ends (a flip is graded in the flip, not lost), so it stays open while any
+  // piece is still in the league and not a free agent or retired
+  return (seats || []).some(s => (s[2] || []).some(([p]) => folGone(p) !== true));
 }
 function folTradeSeats(d, pids){
   if(typeof TRADE_BOOK === 'undefined') return null;
@@ -2243,8 +2245,10 @@ function folWindowDone(dec){
   return first + +m[1] - 1 <= FOL_SEASON;
 }
 function folDecOpen(dec, club){
-  if(!dec || !dec.open) return !!(dec && dec.open);
-  if(+String(dec.d).slice(0,4) < 2021) return true;
+  if(!dec) return false;
+  if(+String(dec.d).slice(0,4) < 2021) return !!dec.open;
+  const isTrade = /^trade$/i.test(dec.ch || '') || dec.t === 'Trade';
+  if(!dec.open && !isTrade) return false;
   const t = String(dec.t || ''), ch = dec.ch || (t === 'Trade' ? 'trade' : /^Free agency/.test(t) ? 'fa' : /^Waiver/.test(t) ? 'waiver'
     : /^Extension/.test(t) ? 'ext' : /^Draft/.test(t) ? 'draft' : /^International/.test(t) ? 'intl' : /walk/.test(t) ? 'walk' : '');
   const pids = (dec.pids || []).map(String);
@@ -2272,6 +2276,12 @@ function folFixOpen(list){
     if(!o || typeof o !== 'object' || depth > 7 || seen.has(o)) return;
     seen.add(o);
     if(Array.isArray(o)){ o.forEach(x => walk(x, club, depth + 1)); return; }
+    if(Array.isArray(o.sides)) o.sides.forEach(sd => {
+      // the number follows each piece wherever he played after the trade, not
+      // only with the club that got him (Otto Lopez: Giants, then Marlins)
+      const m = Array.isArray(sd) && typeof sd[0] === 'string' && /^Surrendered · value realized on (.+)$/.exec(sd[0]);
+      if(m) sd[0] = `Surrendered · value after the trade, wherever he played (went to ${m[1]})`;
+    });
     if(o.d && o.h && 'open' in o && typeof o.open === 'boolean'){
       if(o.open0 === undefined) o.open0 = o.open;
       o.open = folDecOpen(Object.assign({}, o, {open: o.open0}), club);
@@ -10794,6 +10804,22 @@ const pName = p => (typeof PLAYER_NAMES !== 'undefined' && PLAYER_NAMES[String(p
 function tbIndex(){
   if(tbIndex._i) return tbIndex._i;
   const all = {}, out = {};
+  // Nov 11 audit: a few early two-club deals list a piece on the receiving side
+  // only (Segura, Pena and Hellweg in the 2012 Greinke deal). In a two-club
+  // deal what one club gave is what the other got, so complete the giving side
+  // and its net from the receiving side.
+  (TRADE_BOOK.trades||[]).forEach(([d, seats]) => {
+    if(seats.length !== 2) return;
+    const sum = seats[0][1] + seats[1][1];
+    if(Math.abs(sum) < 0.15) return;
+    seats.forEach(s => { s.net0 = s[1]; });
+    seats.forEach((s, i) => {
+      const o = seats[1 - i];
+      const have = new Set(s[3].map(x => x[0]));
+      o[2].forEach(x => { if(!have.has(x[0])) s[3].push([x[0], x[1]]); });
+      s[1] = Math.round((s[2].reduce((a, x) => a + (+x[1] || 0), 0) - s[3].reduce((a, x) => a + (+x[1] || 0), 0)) * 10) / 10;
+    });
+  });
   (TRADE_BOOK.trades||[]).forEach(([d, seats]) => {
     seats.forEach(seat => {
       const [ab, net, ins, outs] = seat;
@@ -10813,7 +10839,10 @@ function seatNet(seat, d){
   // hand-verified cards use their own lenses); otherwise the engine's number
   const [ab, net, ins, outs] = seat;
   const ps = [...ins, ...outs].map(x => x[0]);
-  for(const p of ps){ const c = decAt(ab, p, d); if(c) return c.dec.war; }
+  // only a trade decision on the card can stand in for the trade: a Rule 5 pick
+  // or a claim graded the same day is a different decision (Nov 11 audit)
+  const notTrade = x => (x.ch && !/^trade$/i.test(x.ch)) || /Waiver|Rule 5|Draft|International|Free agency|Extension/i.test(x.t || '');
+  for(const p of ps){ const c = decAt(ab, p, d); if(c && !notTrade(c.dec)) return seat.net0 !== undefined && Math.abs(c.dec.war - seat.net0) < 0.05 ? net : c.dec.war; }
   return net;
 }
 function seatNetLabel(seat, d){
@@ -10897,7 +10926,10 @@ function careerTree(pid){
     if(m === skipMv) continue;
     const [d, ty, from, to, desc] = m;
     if(ty === 'Trade'){
-      if(!tdates.has(d)) ev.push({d, node: {via: `${d} · traded ${from} to ${to}`, nm: stripTags(desc), wv: null, status: 'closed'}});
+      // the league feed sometimes files a trade a day or two off the book's date: one deal, one node
+      const dupe = tdates.has(d) || [...tdates].some(t => Math.abs(Date.parse(t) - Date.parse(d)) <= 3 * 864e5);
+      tdates.add(d);
+      if(!dupe) ev.push({d, node: {via: `${d} · traded ${from} to ${to}`, nm: stripTags(desc), wv: null, status: 'closed'}});
       last = to;
     } else if(ty === 'Signed as Free Agent'){
       const y = +d.slice(0,4);
