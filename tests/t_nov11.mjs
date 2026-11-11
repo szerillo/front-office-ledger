@@ -64,6 +64,27 @@ const r = await page.evaluate(async () => {
   out.linkedLegsAddToZero = !!sxe && Math.abs(sxe.seats.reduce((a, st) => a + seatNet(st, sxe.d), 0)) < 0.15;
   const bd = String(Object.keys(ix).find(p => pName(p) === 'Erik Bedard'));
   out.incompleteDealHeldBack = flat(careerTree(bd)).some(n => /2011-07-31/.test(n.via || '') && n.wv == null && /held back/.test(n.nm || ''));
+  // each OPEN rule written Nov 11 has a case it must get right (audit part 4)
+  const decs = []; const seen2 = new Set();
+  const walk2 = (x, club, d) => { if(!x || typeof x !== 'object' || d > 7 || seen2.has(x)) return; seen2.add(x);
+    if(Array.isArray(x)){ x.forEach(y => walk2(y, club, d + 1)); return; }
+    if(x.d && x.h && typeof x.open === 'boolean') decs.push([club, x]);
+    for(const k in x){ if(x[k] && typeof x[k] === 'object') walk2(x[k], club, d + 1); } };
+  [...REGIMES, ...AUTO_REGIMES, ...LB_HIST].forEach(x => walk2(x, abOf(x), 0));
+  const dec = (club, re) => decs.filter(([c, x]) => c === club && re.test(x.h)).map(([, x]) => x);
+  const allIs = (L, v) => L.length > 0 && L.every(x => x.open === v);
+  // waiver window: next 4 seasons from a Nov 2021 claim (2022-25) are over; a claimant who filed for free agency is over
+  out.waiverWindowEndedClosed = allIs(dec('ARI', /claimed LHP Kyle Nelson off waivers/), false);
+  out.waiverClaimantGoneClosed = allIs(dec('ARI', /claimed RF Jes.s S.nchez off waivers/), false);
+  // free agency: a 4 yr deal from the 2020-21 winter ran 2021-24
+  out.faContractEndedClosed = allIs(dec('ATL', /Signed Marcell Ozuna . 4 yr/), false);
+  // draft after 2021: a pick no longer in the league is over
+  out.draftPickGoneClosed = allIs(dec('COL', /Drafted Benny Montgomery/), false);
+  // two-club repair: the 2012 Greinke deal lists Segura, Pena and Hellweg on both sides and adds to zero
+  const gk = String(Object.keys(ix).find(p => pName(p) === 'Zack Greinke'));
+  const gke = (ix[gk] || []).find(e => e.d === '2012-07-27');
+  out.twoClubRepairGreinke = !!gke && gke.seats.length === 2 && gke.seats.every(st => (st[2].length + st[3].length) === 4)
+    && Math.abs(gke.seats.reduce((a, st) => a + seatNet(st, gke.d), 0)) < 0.15;
   // weekly board
   const html = folWeekBoard();
   out.weekBoard = /This week/.test(html) && (html.match(/wk-day/g) || []).length === 7;
