@@ -938,3 +938,75 @@ Open with Sean: deploy, the 2020 fix, the FILLER rule in the engine, the BRef pu
      deals lowers the rest of the class. That side effect is a design choice for Sean.
    No share page shows extension grades. `tests/tools/r19_results.json`. The free-agent and extension halves of
    checklist item 5 are now both regraded exactly; applying them is Sean's call.
+
+## 24. Round 20 (Nov 11, 4:18 PM)
+
+Correction to section 23, item 6: my 2020 span rule misread two deals (Molina 2017, Braun 2011). Corrected
+counts: **77 extensions covering 2020 change (+48.8 in all), 302 others move (-45.2)**, not 75 and 304.
+
+1. **The 3 rows of 816 that differ, and determinism.** With the backfill, against live:
+   - 2000-01 Dodgers (Malone): Dreifort's signing date. The MLB feed says Dec 19, Retrosheet says Dec 11
+     (`20001211`, transaction 14110, `dreid001`, `LAN`). Live shows Dec 11; my rebuild took the feed row.
+   - 2010-11 Mets (Alderson): tie at 0.0. Live lists Capuano, the rebuild lists Buchholz.
+   - 2016-17 Marlins (Hill): tie at -0.4. Live lists Ellis, the rebuild lists McGowan.
+   None is a public winter. **Shuffle test** (input table shuffled twice, rebuilt twice): with the shipped code the
+   two builds differ from each other and from live (free-agent column matches live on 766 and 779 winters, one
+   winter drops out, 31 to 37 dates and 7 grades change), because `fa_grade.priced()` reads rows with no ORDER BY
+   and back-to-back re-signings can swap contracts. With an ORDER BY the two shuffles give identical files.
+   A second source of order dependence turned up: winter totals are float sums, so add order can move a rounded
+   cell. STL 2004-05 dollars are exactly $15.5M; live rounds to 15, an ORDER BY build to 16. Exact sums fix
+   that. Patch: `docs/patches/deterministic-order.diff` (ORDER BY date, person, transaction id; `math.fsum` for
+   the winter sums; tied moves keep their add order, which is now fixed). Result: both shuffles byte-identical
+   (md5 `1a4a4a5e`), 803 of 816 rows equal live; 12 differ only in moves tied on size (8 same moves in another order,
+   4 a different tied move, one of them +0.1 against -0.1), 1 in that rounding cell; **0 public winters change**. I also tried an explicit tie-break key (date, kind, player):
+   also deterministic, but it changes 75 move lists, 19 of them public, so I do not recommend it. Applying the
+   patch is Sean's call.
+2. **The group-rate recompute is shipped code**, not my sandbox: `engine/ext_grade.py` lines 160-163 build
+   `CLASS_RATE` from every evaluated extension, and lines 172-175 apply it; the repo and `/work` copies are
+   identical. The 2020 fix two ways (list only; the choice is Sean's):
+
+   | | Deals covering 2020 | Other extensions |
+   |---|---|---|
+   | (a) As built (rates recomputed) | 77 change, 63 up, 44 by half a win, 21 by a win, 4 flips, +48.8 | 302 change, 6 by half a win, 1 by a win, 2 flips, -45.2 |
+   | (b) Rates held at pre-fix values | 74 change, 69 up, 44 by half a win, 25 by a win, 5 flips, +58.2 | 0 change |
+
+3. **Supplementary field check, 1998-2008.** Pre-registered at `a94dd4b` (rules) with frame and draw script at
+   `6db694c`, committed before the draw. Seed 20261134; 899 rows (fa97 674, espn 225; Dreifort excluded as already
+   examined); n = 20 fa97 + 5 espn, weighted toward fa97 because that source had never been drawn. Results in
+   `tests/tools/prereg20_results.json`. Club 25 of 25 and Retrosheet date 25 of 25 exact.
+
+   | fa97 (n=20) | match | mismatch | unverified | pass bar (at most 1 and 2) |
+   |---|---|---|---|---|
+   | Club | 20 | 0 | 0 | pass |
+   | Date (outside report) | 18 | 1 (O. Hernandez: AP agreement Dec 22, row Jan 3) | 1 (Dessens) | pass |
+   | Years | 17 | 0 | 3 | **fail** |
+   | Total | 15 | 1 (Fassero: Spotrac $1.35M, card $1.5M) | 4 | **fail** |
+
+   **fa97 fails the pre-registered bar on years and total**, on sourcing coverage: Conine, Hermanson, Dessens and
+   Alfonseca have no listed source for terms (only unlisted salary sites or blogs; AP says Alfonseca's terms were
+   not disclosed). Among verified totals the mismatch rate is 1 of 16 (95% interval 1% to 28%). espn (n=5): one
+   total mismatch, Furcal, card $30M against AP's $33M guaranteed including the $3M buyout (interval 4% to 62%).
+   Notes on judgment calls, kept visible in the results file: R. Alomar scored a match on SI's 4/$32M (AP said
+   $30M to $32M; a later MLB.com piece says 3/$21.9M); Vizcaino and Floyd rest on ESPN text quoted secondhand.
+   Furcal and Fassero are candidates for `salary_overrides.csv`; the bar failure is a finding, not something to fix
+   by widening sources after the fact.
+4. **Assumption about `retro_backfill.py`: it does not double-count a signing that is also in the MLB feed.**
+   Count: 7 same player and club signings within 60 days appear in both sources (3 same day, 4 on different
+   dates, 2 to 32 days apart). Graded twice: **0** (Dreifort and Holmes are graded once; the 2 pairs that do appear
+   twice, in SD 2008-09 and DET 2008-09, have no terms and carry no grade). Also 0 Retrosheet signings lack an MLB
+   id. The date dispute in item 1 comes from this seam: where both sources exist, the feed date can win.
+5. **What would prove rebuild-matches-live wrong, other than bad inputs:**
+   - **Shared code.** The rebuild runs the same engine on the same intermediate outputs, so a byte match shows the
+     site is reproducible, not that the grades are right. A bug reproduces itself. Only an independent
+     recomputation of grades from raw WAR and terms tests this; not yet run.
+   - **Order luck.** The match held for the row order production happened to have; the shuffle test shows another
+     order gives different contracts and dates. Shown above; the patch closes it.
+   - **Float order.** Rounded sums can flip with add order (STL 2004-05). Shown above; same patch.
+   - **The served file is not this file.** Checked: the live `offseasons.json` from frontofficeledger.com, the raw
+     GitHub copy and the repo copy share one md5 (`6842d1d0`), and the page reads the values without recomputing
+     them. Not the cause.
+   - **A different Retrosheet archive in production.** The 813 whole-row match makes a different archive
+     unlikely, but production's archive version is not recorded anywhere. Worth stamping in the build.
+
+Nothing went to the public site. Still with Sean: deploy, the 2020 fix and the rate choice in item 2, the filler
+rule, the Baseball-Reference pull, the bonus method, and now the determinism patch.
