@@ -1,0 +1,16 @@
+{
+  "about": "Round 16: does Baseball-Reference store the full-rate 2020 salary? 10 of the 33 distinct 2020 rows in the fixtures, seed 20261129 (named at the draw, not committed before it). Full rate = the salary for a 162-game season.",
+  "rows": [
+    {"id": 435522, "player": "Neil Walker", "row": 100, "full_rate": 2000, "ok": false, "note": "only 2020 row is $100K; $2M deal if he made the club (NBC Sports Philadelphia), Spotrac shows $1M"},
+    {"id": 596057, "player": "Daniel Norris", "row": 2960, "full_rate": 2962.5, "ok": true, "note": "ESPN tracker $2.9625M"},
+    {"id": 592192, "player": "Mark Canha", "row": 4800, "full_rate": 4800, "ok": true, "note": "AP: set to earn $4.8M, prorated $1,777,778"},
+    {"id": 493329, "player": "Yuli Gurriel", "row": 8400, "full_rate": 8300, "ok": true, "note": "AP $8.3M, prorated $3,074,074; row 1.2 percent high"},
+    {"id": 456034, "player": "David Price", "row": 32000, "full_rate": 32000, "ok": true, "note": "full rate right, but he opted out and was paid $0 in 2020"},
+    {"id": 607074, "player": "Carlos Rodon", "row": 4450, "full_rate": 4450, "ok": true, "note": "ESPN tracker, MLB Trade Rumors"},
+    {"id": 621242, "player": "Edwin Diaz", "row": 5100, "full_rate": 5100, "ok": true, "note": "Spotrac"},
+    {"id": 516782, "player": "Starling Marte", "row": 11500, "full_rate": 11500, "ok": true, "note": "traded ARI to MIA Aug 2020; club option rate, checked earlier this session"},
+    {"id": 605135, "player": "Chris Bassitt", "row": 2250, "full_rate": 2250, "ok": true, "note": "AP: $2.25M prorated to $833,333"},
+    {"id": 593160, "player": "Whit Merrifield", "row": 5000, "full_rate": 5000, "ok": true, "note": "AP: $5M in 2020 under his extension"}
+  ],
+  "result": "9 of 10 full rate (Wilson 95%: 60% to 98%). 1 row is not a salary at all (Walker $100K). Separate failure of the shadow's 2020 step: Price was paid $0 (opt-out), so scaling his row by 60/162 charges about $11.85M that was never paid."
+}
