@@ -10,6 +10,9 @@ def true_end(pid):
     s=SV.get(str(pid))
     if not s: return None, None
     by={int(k):v for k,v in s['by'].items()}; tot=0
+    # a season he played that service.json lacks (deGrom 2017) would push the end a year late: no answer
+    _rec = AR._lvm().get(int(pid)); _pl = {r[0] for r in (_rec or {}).get('rows', [])}
+    if by and any(min(by) < y < max(by) and y not in by for y in _pl): return None, None
     for y in sorted(by):
         tot+=by[y]
         if tot>=1032: return y, len(s.get('arb_winters',[]))==4
