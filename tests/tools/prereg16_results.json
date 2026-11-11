@@ -1,42 +1,246 @@
 {
-  "prereg": "docs/prereg-round16.md, commit 0af4595 (19:41:31 UTC); draw script 7fd54b5; draw run 19:41:43 UTC",
-  "A_2020_full_rate": {
-    "rows": [
-      {"id": 453281, "player": "Wade LeBlanc", "row": 100, "full_rate": 800, "pass": false},
-      {"id": 453281, "player": "Wade LeBlanc", "row": 450, "full_rate": 800, "pass": false},
-      {"id": 456124, "player": "Erik Kratz", "row": 100, "full_rate": 1000, "pass": false, "src": "Spotrac 2020 $1,000,000"},
-      {"id": 457727, "player": "Cameron Maybin", "row": 1500, "full_rate": 1500, "pass": true, "src": "Tigers one-year $1.5M; traded to CHC Aug 31"},
-      {"id": 461872, "player": "Anthony Swarzak", "row": 100, "full_rate": null, "pass": false, "src": "never on a 2020 MLB roster (row is not a salary)"},
-      {"id": 502522, "player": "Justin Miller", "row": 100, "full_rate": null, "pass": false, "src": "did not pitch in the majors in 2020 (MLB Trade Rumors)"},
-      {"id": 518586, "player": "Charlie Culberson", "row": 100, "full_rate": 1000, "pass": false, "src": "Spotrac: 1 year $1M minor league contract, selected Jul 21"},
-      {"id": 592741, "player": "Chasen Shreve", "row": 100, "full_rate": 575, "pass": false, "src": "2020 salary $575,000 (Metsmerized, citing Spotrac)"},
-      {"id": 595978, "player": "Austin Hedges", "row": 3000, "full_rate": 3000, "pass": true, "src": "ESPN tracker $3M; traded to CLE Aug 31"}
-    ],
-    "result": "2 of 9 pass (Wilson 95% 6% to 55%). All 7 fails are placeholder rows below the season minimum ($100K, $450K); both rows at or above the minimum pass (Maybin, Hedges). Rule A4 (d4be855) drops all 7."
-  },
-  "B_large_rows": {
-    "rows": [
-      {"id": 430935, "player": "Cole Hamels", "yr": 2016, "row": 23500, "src": "$22.5M salary plus $1M bonus share (Dallas Morning News)", "mismatch": false},
-      {"id": 430935, "player": "Cole Hamels", "yr": 2020, "row": 18000, "src": "Spotrac 1 year $18M", "mismatch": false},
-      {"id": 456034, "player": "David Price", "yr": 2021, "row": 32000, "src": "$32M per season through 2022", "mismatch": false},
-      {"id": 516782, "player": "Starling Marte", "yr": 2023, "row": 20750, "src": "Spotrac $19.5M base plus $1.25M bonus proration", "mismatch": false},
-      {"id": 516782, "player": "Starling Marte", "yr": 2024, "row": 20750, "src": "Spotrac payroll $20.75M", "mismatch": false},
-      {"id": 518626, "player": "Josh Donaldson", "yr": 2017, "row": 17000, "src": "$17M in 2017", "mismatch": false},
-      {"id": 518626, "player": "Josh Donaldson", "yr": 2019, "row": 23000, "src": "Spotrac 1 year $23M", "mismatch": false},
-      {"id": 518626, "player": "Josh Donaldson", "yr": 2022, "row": 21750, "src": "base $21M (Star Tribune, Spotrac via Sportskeeda); no signing bonus", "mismatch": true, "diff_k": 750},
-      {"id": 553993, "player": "Eugenio Suarez", "yr": 2025, "row": 15000, "src": "Spotrac payroll $15M (club option)", "mismatch": false},
-      {"id": 553993, "player": "Eugenio Suarez", "yr": 2027, "row": 16000, "src": "$16M mutual option, not exercised (FanGraphs)", "mismatch": false, "note": "a future option row, not a salary paid"},
-      {"id": 592178, "player": "Kris Bryant", "yr": 2021, "row": 19500, "src": "Spotrac $19.5M", "mismatch": false},
-      {"id": 592178, "player": "Kris Bryant", "yr": 2025, "row": 27000, "src": "Spotrac $26M base plus $1M bonus", "mismatch": false},
-      {"id": 605135, "player": "Chris Bassitt", "yr": 2024, "row": 22000, "src": "Spotrac payroll $22M", "mismatch": false},
-      {"id": 607074, "player": "Carlos Rodon", "yr": 2025, "row": 27833, "src": "Spotrac $27M plus $833,333 proration", "mismatch": false},
-      {"id": 621242, "player": "Edwin Diaz", "yr": 2023, "row": 21250, "src": "Spotrac: base about $11.75M, cash $23.75M with bonus", "mismatch": true},
-      {"id": 621242, "player": "Edwin Diaz", "yr": 2024, "row": 21250, "src": "Spotrac: base $11.75M, total $19.65M, payroll $14.15M", "mismatch": true, "note": "MLB Trade Rumors (Jan 2023) lists Diaz at $21.25MM among 2024 commitments, so the figure has an outside source, just not Spotrac"},
-      {"id": 664023, "player": "Ian Happ", "yr": 2025, "row": 21000, "src": "Spotrac $20M base plus $1M proration", "mismatch": false},
-      {"id": 664023, "player": "Ian Happ", "yr": 2026, "row": 19000, "src": "Spotrac $18M base plus $1M proration", "mismatch": false},
-      {"id": 666182, "player": "Bo Bichette", "yr": 2026, "row": 42000, "src": "$2M salary plus $40M signing bonus paid March 15, 2026 (AP)", "mismatch": false, "note": "matches cash; spread over three years the bonus share would be $13.3M"},
-      {"id": 669373, "player": "Tarik Skubal", "yr": 2026, "row": 32000, "src": "arbitration award $32M", "mismatch": false}
-    ],
-    "result": "3 of 20 mismatch over $500K (Wilson 95% 5% to 36%): Diaz 2023, Diaz 2024, Donaldson 2022 ($750K). Diaz is not the only one."
-  }
+ "prereg": "docs/prereg-round16.md, commit 0af4595 (19:41:31 UTC); draw script 7fd54b5; draw run 19:41:43 UTC",
+ "A_2020_full_rate": {
+  "rows": [
+   {
+    "id": 453281,
+    "player": "Wade LeBlanc",
+    "row": 100,
+    "full_rate": 800,
+    "pass": false
+   },
+   {
+    "id": 453281,
+    "player": "Wade LeBlanc",
+    "row": 450,
+    "full_rate": 800,
+    "pass": false
+   },
+   {
+    "id": 456124,
+    "player": "Erik Kratz",
+    "row": 100,
+    "full_rate": 1000,
+    "pass": false,
+    "src": "Spotrac 2020 $1,000,000"
+   },
+   {
+    "id": 457727,
+    "player": "Cameron Maybin",
+    "row": 1500,
+    "full_rate": 1500,
+    "pass": true,
+    "src": "Tigers one-year $1.5M; traded to CHC Aug 31"
+   },
+   {
+    "id": 461872,
+    "player": "Anthony Swarzak",
+    "row": 100,
+    "full_rate": null,
+    "pass": false,
+    "src": "never on a 2020 MLB roster (row is not a salary)"
+   },
+   {
+    "id": 502522,
+    "player": "Justin Miller",
+    "row": 100,
+    "full_rate": null,
+    "pass": false,
+    "src": "did not pitch in the majors in 2020 (MLB Trade Rumors)"
+   },
+   {
+    "id": 518586,
+    "player": "Charlie Culberson",
+    "row": 100,
+    "full_rate": 1000,
+    "pass": false,
+    "src": "Spotrac: 1 year $1M minor league contract, selected Jul 21"
+   },
+   {
+    "id": 592741,
+    "player": "Chasen Shreve",
+    "row": 100,
+    "full_rate": 575,
+    "pass": false,
+    "src": "2020 salary $575,000 (Metsmerized, citing Spotrac)"
+   },
+   {
+    "id": 595978,
+    "player": "Austin Hedges",
+    "row": 3000,
+    "full_rate": 3000,
+    "pass": true,
+    "src": "ESPN tracker $3M; traded to CLE Aug 31"
+   }
+  ],
+  "result": "2 of 9 pass (Wilson 95% 6% to 55%). All 7 fails are placeholder rows below the season minimum ($100K, $450K); both rows at or above the minimum pass (Maybin, Hedges). Rule A4 (d4be855) drops all 7."
+ },
+ "B_large_rows": {
+  "rows": [
+   {
+    "id": 430935,
+    "player": "Cole Hamels",
+    "yr": 2016,
+    "row": 23500,
+    "src": "$22.5M salary plus $1M bonus share (Dallas Morning News)",
+    "mismatch": false
+   },
+   {
+    "id": 430935,
+    "player": "Cole Hamels",
+    "yr": 2020,
+    "row": 18000,
+    "src": "Spotrac 1 year $18M",
+    "mismatch": false
+   },
+   {
+    "id": 456034,
+    "player": "David Price",
+    "yr": 2021,
+    "row": 32000,
+    "src": "$32M per season through 2022",
+    "mismatch": false
+   },
+   {
+    "id": 516782,
+    "player": "Starling Marte",
+    "yr": 2023,
+    "row": 20750,
+    "src": "Spotrac $19.5M base plus $1.25M bonus proration",
+    "mismatch": false
+   },
+   {
+    "id": 516782,
+    "player": "Starling Marte",
+    "yr": 2024,
+    "row": 20750,
+    "src": "Spotrac payroll $20.75M",
+    "mismatch": false
+   },
+   {
+    "id": 518626,
+    "player": "Josh Donaldson",
+    "yr": 2017,
+    "row": 17000,
+    "src": "$17M in 2017",
+    "mismatch": false
+   },
+   {
+    "id": 518626,
+    "player": "Josh Donaldson",
+    "yr": 2019,
+    "row": 23000,
+    "src": "Spotrac 1 year $23M",
+    "mismatch": false
+   },
+   {
+    "id": 518626,
+    "player": "Josh Donaldson",
+    "yr": 2022,
+    "row": 21750,
+    "src": "AP: $3M signing bonus, $18M salary 2020, $21M 2021-23, so $21M base plus $0.75M bonus share = $21.75M (rescored in round 17)",
+    "mismatch": false
+   },
+   {
+    "id": 553993,
+    "player": "Eugenio Suarez",
+    "yr": 2025,
+    "row": 15000,
+    "src": "Spotrac payroll $15M (club option)",
+    "mismatch": false
+   },
+   {
+    "id": 553993,
+    "player": "Eugenio Suarez",
+    "yr": 2027,
+    "row": 16000,
+    "src": "$16M mutual option, not exercised (FanGraphs)",
+    "mismatch": false,
+    "note": "a future option row, not a salary paid"
+   },
+   {
+    "id": 592178,
+    "player": "Kris Bryant",
+    "yr": 2021,
+    "row": 19500,
+    "src": "Spotrac $19.5M",
+    "mismatch": false
+   },
+   {
+    "id": 592178,
+    "player": "Kris Bryant",
+    "yr": 2025,
+    "row": 27000,
+    "src": "Spotrac $26M base plus $1M bonus",
+    "mismatch": false
+   },
+   {
+    "id": 605135,
+    "player": "Chris Bassitt",
+    "yr": 2024,
+    "row": 22000,
+    "src": "Spotrac payroll $22M",
+    "mismatch": false
+   },
+   {
+    "id": 607074,
+    "player": "Carlos Rodon",
+    "yr": 2025,
+    "row": 27833,
+    "src": "Spotrac $27M plus $833,333 proration",
+    "mismatch": false
+   },
+   {
+    "id": 621242,
+    "player": "Edwin Diaz",
+    "yr": 2023,
+    "row": 21250,
+    "src": "Spotrac: base about $11.75M, cash $23.75M with bonus",
+    "mismatch": true
+   },
+   {
+    "id": 621242,
+    "player": "Edwin Diaz",
+    "yr": 2024,
+    "row": 21250,
+    "src": "Spotrac: base $11.75M, total $19.65M, payroll $14.15M",
+    "mismatch": true,
+    "note": "MLB Trade Rumors (Jan 2023) lists Diaz at $21.25MM among 2024 commitments, so the figure has an outside source, just not Spotrac"
+   },
+   {
+    "id": 664023,
+    "player": "Ian Happ",
+    "yr": 2025,
+    "row": 21000,
+    "src": "Spotrac $20M base plus $1M proration",
+    "mismatch": false
+   },
+   {
+    "id": 664023,
+    "player": "Ian Happ",
+    "yr": 2026,
+    "row": 19000,
+    "src": "Spotrac $18M base plus $1M proration",
+    "mismatch": false
+   },
+   {
+    "id": 666182,
+    "player": "Bo Bichette",
+    "yr": 2026,
+    "row": 42000,
+    "src": "$2M salary plus $40M signing bonus paid March 15, 2026 (AP)",
+    "mismatch": false,
+    "note": "matches cash; spread over three years the bonus share would be $13.3M"
+   },
+   {
+    "id": 669373,
+    "player": "Tarik Skubal",
+    "yr": 2026,
+    "row": 32000,
+    "src": "arbitration award $32M",
+    "mismatch": false
+   }
+  ],
+  "result": "2 of 20 mismatch over $500K (Wilson 95% 3% to 30%): Diaz 2023 and 2024. Donaldson 2022 was first scored a mismatch; the AP terms show a $3M signing bonus, so it matches base plus bonus share (round 17)."
+ }
 }
