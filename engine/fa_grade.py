@@ -105,7 +105,8 @@ TID2AB = {r["teamId"]: r["abbr"] for r in cfg["regimes"]}
 def priced(tid, start, end="9999-12-31"):
     rows = con.execute("""select date, person_id, person_name from sweep_tx
         where team_id=? and date>=? and date<=? and type_desc='Signed as Free Agent'
-        and lower(description) not like '%minor league%' and person_id is not null""",
+        and lower(description) not like '%minor league%' and person_id is not null
+        order by date, cast(person_id as int), tx_id""",
         (tid, start, end)).fetchall()
     seen = set(); used = set(); out = []
     for x in rows:

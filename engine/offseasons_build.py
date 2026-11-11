@@ -4,7 +4,7 @@ own seat) plus the surplus of every priced free-agent signing (fa_grade rows), i
 2022-23 on are flagged open: contracts and control years are still running.
 Writes offseasons.json: {rows: [[ab, winter, exec, regimeId, tradeNet, nTrades, faNet, nFA, faM, total,
 prevW, nextW, [[kind, date, label, value, pid], ...]]]}"""
-import json
+import json, math
 from collections import defaultdict
 R = "/work/"
 tb = json.load(open(R + "trade_book.json")); NM = tb["names"]
@@ -46,7 +46,7 @@ for d, seats in tb["trades"]:
     w = winter_of(d)
     if w is None or w < 1998 or w > 2025: continue
     for ab, net, got, gave in seats:
-        k = W[(ab, w)]; k["tr"] += net; k["trN"] += 1
+        k = W[(ab, w)]; k.setdefault("trL", []).append(net); k["trN"] += 1
         g = sorted(got, key=lambda x: -x[1]); o = sorted(gave, key=lambda x: -x[1])
         gn = [nm(p) for p, _ in g[:2] if nm(p)]; on = [nm(p) for p, _ in o[:2] if nm(p)]
         if not gn and not on: continue
@@ -68,11 +68,13 @@ for r in sweep + hist:
         w = winter_of(d)
         if w is None or w < 1998 or w > 2025 or (r["abbr"], pid, d) in seen: continue
         seen.add((r["abbr"], pid, d))
-        k = W[(r["abbr"], w)]; k["fa"] += net; k["faN"] += 1; k["faM"] += tot
+        k = W[(r["abbr"], w)]; k.setdefault("faL", []).append(net); k["faN"] += 1; k.setdefault("faML", []).append(tot)
         k["moves"].append(["f", d, f'Signed {name}, {yrs} yr / ${tot:g}M', round(net, 1), pid])
 rows = []
 for (ab, w), k in sorted(W.items(), key=lambda kv: (kv[0][1], kv[0][0])):
     if k["trN"] + k["faN"] < 2: continue
+    # exact sums so the result does not depend on the order moves were added
+    k["tr"] = math.fsum(k.get("trL", [])); k["fa"] = math.fsum(k.get("faL", [])); k["faM"] = math.fsum(k.get("faML", []))
     ex, rid = exec_on(ab, f"{w}-12-15")
     pw, nw = WINS.get((ab, w), (None, None))
     mv = sorted(k["moves"], key=lambda m: -abs(m[3]))[:5]
