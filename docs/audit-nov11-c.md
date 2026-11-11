@@ -24,50 +24,50 @@ All 13 page suites pass locally and live.
 
 ## 2. Control-end bug sized by impact (control_end_impact.py, control_end_movers.py)
 
-Scope: the 1,918 players with service data. 1,159 of them have a control end different from the debut-year
-rule. Corrected (service-time) end versus current:
-- extensions: 29 of the 164 covered move;
-- trade seats: 833 move at all, 143 by 0.5 wins or more, 74 by a win or more (trades and extensions together).
+Scope: the 1,917 players with service data, less 7 whose service record skips a season they played (deGrom
+2017; see section 7). 1,151 have a control end different from the debut-year rule. Corrected (service-time) end versus current:
+- extensions: 28 of the 163 covered move;
+- trade seats: 825 move at all; 71 grades move by a win or more (53 trade seats, 18 extensions).
 
 Top 25 movers:
 
 | # | Kind | Club | Date | Move | Now | Corrected | Change |
 |---|---|---|---|---|---|---|---|
-| 1 | ext | ATL | 2022-03 | Matt Olson 8y/$168M (control end 2022 to 2023) | +12.0 | +3.8 | -8.2 |
-| 2 | ext | MIN | 2019-02 | Jorge Polanco 5y/$25.75M (2020 to 2022) | +8.7 | +1.3 | -7.4 |
-| 3 | trade | ATL | 2022-03-14 | Olson from ATH | -4.2 | +2.6 | +6.8 |
-| 4 | trade | ATH | 2022-03-14 | Olson to ATL | +4.2 | -2.6 | -6.8 |
-| 5 | ext | NYM | 2019-03 | Jacob deGrom 5y/$137.5M (2020 to 2021) | -4.0 | -8.4 | -4.4 |
-| 6 | ext | TB | 2023-01 | Yandy Díaz 3y/$24M (2022 to 2024) | +6.4 | +2.0 | -4.4 |
-| 7 | trade | PHI | 2024-12-22 | Luzardo from MIA | +2.3 | +6.3 | +4.0 |
-| 8 | trade | MIA | 2024-12-22 | Luzardo to PHI | -2.3 | -6.3 | -4.0 |
-| 9 | ext | PHI | 2026-03 | Jesús Luzardo 5y/$135M (2025 to 2026) | +2.1 | -1.8 | -3.9 |
-| 10 | trade | TB | 2018-12-13 | Yandy Díaz three-team deal | +8.4 | +11.5 | +3.1 |
-| 11 | trade | CLE | 2018-12-13 | same deal | -7.4 | -10.5 | -3.1 |
-| 12 | ext | LAD | 2020-02 | Chris Taylor 2y/$13.4M (2020 to 2021) | +2.4 | -0.7 | -3.1 |
-| 13 | trade | TB | 2020-01-09 | Arozarena from STL | +8.6 | +11.7 | +3.1 |
-| 14 | trade | STL | 2020-01-09 | Arozarena to TB | -8.6 | -11.7 | -3.1 |
-| 15 | trade | WSH | 2014-12-19 | Trea Turner three-team deal | +18.5 | +21.5 | +3.0 |
-| 16 | trade | SD | 2014-12-19 | same deal | -13.1 | -16.1 | -3.0 |
-| 17 | trade | MIA | 2021-07-28 | Luzardo from ATH | +5.8 | +8.7 | +2.9 |
-| 18 | trade | ATH | 2021-07-28 | Luzardo to MIA | -5.8 | -8.7 | -2.9 |
-| 19 | ext | MIN | 2021-11 | Byron Buxton 7y/$100M (2021 to 2022) | +7.8 | +4.9 | -2.9 |
-| 20 | ext | TB | 2022-08 | Tyler Glasnow 2y/$30.35M (2022 to 2023) | +1.2 | -1.5 | -2.7 |
-| 21 | ext | LAD | 2020-02 | Max Muncy 3y/$26M (2021 to 2022) | +2.0 | -0.5 | -2.5 |
-| 22 | trade | ATH | 2017-07-16 | Luzardo and Treinen from WSH | +4.9 | +7.4 | +2.5 |
-| 23 | trade | WSH | 2017-07-16 | same deal | -4.9 | -7.4 | -2.5 |
-| 24 | trade | LAD | 2016-06-19 | Chris Taylor from SEA | +9.3 | +11.7 | +2.4 |
-| 25 | trade | SEA | 2016-06-19 | same deal | -9.3 | -11.7 | -2.4 |
+| 1 | ext | ATL | 2022-03 | Matt Olson 8y/$168.0M, control end 2022 to 2023 | +12.0 | +3.8 | -8.2 |
+| 2 | ext | MIN | 2019-02 | Jorge Polanco 5y/$25.75M, control end 2020 to 2022 | +8.7 | +1.3 | -7.4 |
+| 3 | trade | ATL | 2022-03-14 | trade with ATH (Matt Olson +7.0, Shea Langeliers -0.2) | -4.2 | +2.6 | +6.8 |
+| 4 | trade | ATH | 2022-03-14 | trade with ATL (Matt Olson -7.0, Shea Langeliers +0.2) | +4.2 | -2.6 | -6.8 |
+| 5 | ext | TB | 2023-01 | Yandy Díaz 3y/$24.0M, control end 2022 to 2024 | +6.4 | +2.0 | -4.4 |
+| 6 | trade | PHI | 2024-12-22 | trade with MIA (Jesús Luzardo +4.0) | +2.3 | +6.3 | +4.0 |
+| 7 | trade | MIA | 2024-12-22 | trade with PHI (Jesús Luzardo -4.0) | -2.3 | -6.3 | -4.0 |
+| 8 | ext | PHI | 2026-03 | Jesus Luzardo 5y/$135.0M, control end 2025 to 2026 | +2.1 | -1.8 | -3.9 |
+| 9 | trade | TB | 2018-12-13 | trade with CLE/SEA (Yandy Díaz +3.1) | +8.4 | +11.5 | +3.1 |
+| 10 | trade | CLE | 2018-12-13 | trade with SEA/TB (Yandy Díaz -3.1) | -7.4 | -10.5 | -3.1 |
+| 11 | ext | LAD | 2020-02 | Chris Taylor 2y/$13.4M, control end 2020 to 2021 | +2.4 | -0.7 | -3.1 |
+| 12 | trade | TB | 2020-01-09 | trade with STL (Randy Arozarena +3.1) | +8.6 | +11.7 | +3.1 |
+| 13 | trade | STL | 2020-01-09 | trade with TB (Randy Arozarena -3.1) | -8.6 | -11.7 | -3.1 |
+| 14 | trade | WSH | 2014-12-19 | trade with BOS/SD/SD/TB (Joe Ross +0.1, Trea Turner +2.9) | +18.5 | +21.5 | +3.0 |
+| 15 | trade | SD | 2014-12-19 | trade with BOS/TB/WSH (Joe Ross -0.1, Trea Turner -2.9) | -13.1 | -16.1 | -3.0 |
+| 16 | trade | MIA | 2021-07-28 | trade with ATH (Jesús Luzardo +2.9) | +5.8 | +8.7 | +2.9 |
+| 17 | trade | ATH | 2021-07-28 | trade with MIA (Jesús Luzardo -2.9) | -5.8 | -8.7 | -2.9 |
+| 18 | ext | MIN | 2021-11 | Byron Buxton 7y/$100.0M, control end 2021 to 2022 | +7.8 | +4.9 | -2.9 |
+| 19 | ext | TB | 2022-08 | Tyler Glasnow 2y/$30.35M, control end 2022 to 2023 | +1.2 | -1.5 | -2.7 |
+| 20 | ext | LAD | 2020-02 | Max Muncy 3y/$26.0M, control end 2021 to 2022 | +2.0 | -0.5 | -2.5 |
+| 21 | trade | ATH | 2017-07-16 | trade with WSH (Jesús Luzardo +1.9, Blake Treinen +0.5) | +4.9 | +7.4 | +2.5 |
+| 22 | trade | WSH | 2017-07-16 | trade with ATH (Jesús Luzardo -1.9, Blake Treinen -0.5) | -4.9 | -7.4 | -2.5 |
+| 23 | trade | LAD | 2016-06-19 | trade with SEA (Chris Taylor +2.4) | +9.3 | +11.7 | +2.4 |
+| 24 | trade | SEA | 2016-06-19 | trade with LAD (Chris Taylor -2.4) | -9.3 | -11.7 | -2.4 |
+| 25 | ext | COL | 2022-03 | Ryan McMahon 6y/$70.0M, control end 2023 to 2024 | +2.1 | -0.3 | -2.4 |
 
 The pattern: an extra controlled season moves value out of the extension, where it was being called a
 bought-out free-agent year, and into the trade that brought the player in. Atlanta's Olson moves are
 -8.2 on the extension and +6.8 on the trade, nearly a wash for the club but a large swing for each grade.
-Grades that flip sign: Olson trade (both seats), Luzardo extension, Taylor, Glasnow and Muncy extensions.
+Grades that flip sign include the Olson trade (both seats) and the Luzardo, Taylor and Glasnow extensions.
 
 Club ranks (all-time trades plus extensions, the 30-club table; 14 clubs move):
-MIL 4 to 2, TB 2 to 3, ATH 3 to 4; COL 10 to 11, SF 11 to 10; CHC 17 to 13, SD 13 to 15, DET 18 to 16,
+MIL 4 to 2, TB 2 to 3, ATH 3 to 4; COL 10 to 11, SF 11 to 10; CHC 17 to 13, SD 13 to 16, DET 18 to 15,
 MIN 15 to 18, LAD 16 to 17; CWS 19 to 20, KC 20 to 19; SEA 24 to 25, TEX 25 to 24.
-Biggest club totals: MIN -14.5, LAD -9.6, SD -8.8, NYM -7.2, STL -6.2. This is a lower bound, since only
+Biggest club totals: MIN -14.5, LAD -9.6, SD -8.9, STL -6.1, SEA -5.4. This is a lower bound, since only
 players with service data were re-run. Regime (GM) ranks were not recomputed here.
 
 ## 3. $0 post-control seasons, sampled (zero_salary_sample.py)
@@ -141,3 +141,54 @@ That is **5 root causes in 60 moves checked, about one per 12 moves**. In the hi
 and one repeat. Three of the seven causes found today came from rules written today (the OPEN rule, the
 unstarted-extension rule, the 2021 cutoff). New rules are the riskiest code on the site, so each now has a
 named regression check.
+
+## 7. Pushback round (Nov 11, 8:30 ET)
+
+**Where the old 2,370 appeared.** docs/audit-nov11-b.md section 7 (fixed, with the correction noted),
+docs/worklog.md block 3 entry (fixed), project memory (fixed). Not in index.html, site copy, HANDOFF or the
+project docs. Earlier chat summaries to Kirk carried it and cannot be edited; this note supersedes them.
+
+**Arbitration years treated as free.** 13 of 30, so 43% with a 90% interval of 30% to 58%: about 350 of the 802,
+**237 to 466** (Wilson interval). Shadow fix, report only: price each such season with the engine's own award
+model (`arb_salary`: 0.6 plus the better of last season's WAR and the two-season average, times the class step
+1.0 / 1.5 / 3.1, times $/win drift) under the service-time control end. Checked against what the 13 were
+actually paid (Baseball-Reference):
+- 10 of 13 can be priced; Piña, Kratz and Stassi have no service record, so the shadow leaves them at $0.
+- On the 10: $47.9M modeled against $39.8M paid, median miss $1.7M, about 20% too high overall. Worst:
+  Torrens 2026 ($6.2M modeled, $2.3M paid), Richards 2024 ($4.4M against $2.2M).
+- Better rule for the fix: the real salary when it is known (contract book, or the MLB Trade Rumors
+  arbitration files for 2026 and 2027 already in /work), the award model only when it is not.
+- Grades moving by a win or more with the service-time end and the award model applied: 71 (53 trade seats,
+  18 extensions). Window length and salary change together in that run; they were not separated.
+Nothing shipped.
+
+**What would prove the service-time ends wrong, and the hand check.** A season's starting service of 6.000 or
+more means the player was already free; the control end is the last season that starts under 6.000.
+Baseball-Reference salary tables list service at the start of each season:
+
+| Player | Engine (debut rule) | Service time rule | Baseball-Reference | Verdict |
+|---|---|---|---|---|
+| Matt Olson | 2022 | 2023 | 2023 starts 5.103, 2024 starts 6.103 | service rule right |
+| Jorge Polanco | 2020 | 2022 | 2022 starts 5.024, 2023 starts 6.024 | service rule right |
+| Yandy Díaz | 2022 | 2024 | 2024 starts 5.122, 2025 starts 6.122 | service rule right |
+| Chris Taylor | 2020 | 2021 | 2021 starts 5.037, 2022 starts 6.037 | service rule right |
+| Tyler Glasnow | 2022 | 2023 | 2023 starts 5.158, 2024 starts 6.158 | service rule right |
+| Jacob deGrom | 2020 | 2021 | 2020 starts 5.139, 2021 starts 6.139 | **service rule wrong** |
+
+deGrom's service record has no 2017 row although he pitched all of 2017, so the sum ran a season long. Seven
+players have such a hole; the tools now give no service-time answer for them (the debut rule stands). deGrom
+dropped out of the top 25 and the club table above; NYM no longer moves. Sources:
+baseball-reference.com/players/o/olsonma02.shtml, /p/polanjo01, /d/diazya01, /t/tayloch03, /g/glasnty01,
+/d/degroja01 (salary tables, service column).
+
+**Tests for each of today's rules.** Five rules had no check that would catch their own failure: the waiver
+window, a claimant who filed for free agency, an ended free-agent contract, a post-2021 draft pick no longer in
+the league, and the two-club repair. Added to t_nov11 (Kyle Nelson 2021 claim, Jesús Sánchez 2026 claim, Ozuna
+2021-24, Benny Montgomery 2021 draft, Greinke 2012). All five fail on a0340e0 (before the OPEN rules) and pass
+now; the Greinke check also fails on 221d6f5 (before the repair). Every rule written Nov 11 now has one.
+
+**Largest remaining item on the slow-4G load.** index.html itself. Blocking cards.js, moves.js and book.js
+together leaves home content at about 7.3 to 8.0 s (against 7.5 to 8.4 s with nothing blocked), so the
+first document gates home, not the scripts after it. Inside index.html (919 KB zipped): DESK 322 KB (35%;
+the prospect peaks are about 104 KB of it), code and styles about 354 KB, player names 102 KB, AUTO_REGIMES
+86 KB.

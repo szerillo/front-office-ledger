@@ -186,7 +186,8 @@ display font loads as a 77 KB `.woff` where a `.woff2` exists.
 Assumption: a trade charges the acquiring club the salary it actually paid in every season of the window.
 **False for one class of seasons.** Where a season falls after the engine's control end and the contract book
 holds no contract for it (club options, arbitration years the engine thinks are free agency), the salary
-charged is zero. Since 2015: 2,370 of 13,229 acquired player-seasons, touching 835 trade seats. Not all are
+charged is zero. Since 2015: 802 of 6,802 acquired player-seasons, touching 549 trade seats (corrected in
+audit-nov11-c.md; this line first said 2,370 of 13,229 and 835 seats, a double count). Not all are
 wrong (some are true minimum-salary seasons), but the largest are: Trea Turner 2022 (Dodgers, arbitration
 $21M), Chris Sale 2018-19 (Red Sox, options $12.5M and $15M), Brandon Lowe 2026 (Pirates, option $11.5M),
 Kyle Tucker 2025 (Cubs, arbitration $16.5M), Randy Arozarena 2026 (Mariners, arbitration). Same root cause
