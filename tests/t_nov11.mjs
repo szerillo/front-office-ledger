@@ -15,14 +15,16 @@ const r = await page.evaluate(async () => {
   out.holmesProspectNote = !!tr && /prospect value/.test(tr.nm || '');
   out.holmesNymSigningClosed = ho.some(n => /signed with NYM/.test(n.via || '') && n.status === 'closed');
   // no decision before 2021 was reopened, and a played-out one-year deal is closed
-  let reopened = 0, oneYrOpen = 0;
+  let reopened = 0, oneYrOpen = 0, tradeReopened = 0;
   const seen = new Set();
   const walk = (x, d) => { if(!x || typeof x !== 'object' || d > 7 || seen.has(x)) return; seen.add(x);
     if(Array.isArray(x)){ x.forEach(y => walk(y, d + 1)); return; }
-    if(x.d && x.h && typeof x.open === 'boolean'){ if(x.open && x.open0 === false) reopened++; if(x.open && /1 yr \/ \$[\d.]+M \(202[0-5]-\d\d winter\)/.test(x.h)) oneYrOpen++; }
+    if(x.d && x.h && typeof x.open === 'boolean'){ if(x.open && x.open0 === false && !/^trade$/i.test(x.ch || x.t || '')) reopened++; if(x.open && x.open0 === false && /^trade$/i.test(x.ch || x.t || '')) tradeReopened++; if(x.open && /1 yr \/ \$[\d.]+M \(202[0-5]-\d\d winter\)/.test(x.h)) oneYrOpen++; }
     for(const k in x){ if(x[k] && typeof x[k] === 'object') walk(x[k], d + 1); } };
   [...REGIMES, ...AUTO_REGIMES, ...LB_HIST].forEach(x => walk(x, 0));
   out.noneReopened = reopened === 0;
+  out.tradesReopenedFew = tradeReopened < 40;
+  out._tradeReopened = tradeReopened;
   out.playedOutOneYearClosed = oneYrOpen === 0;
   // battle card
   btState.a = 'lad'; btState.b = 'nym'; switchView('h2h'); renderBattle();
@@ -33,6 +35,19 @@ const r = await page.evaluate(async () => {
   const cc = document.getElementById('cc-605141');
   out.careerCard = !!cc && /BOS/.test(cc.innerText) && /LAD/.test(cc.innerText) && /extension is graded on its own/.test(cc.innerText);
   closeTreeOverlay();
+  // audit fixes: a Rule 5 grade no longer stands in for a trade's net; one deal, one tree node;
+  // a flipped piece keeps a trade open; the giving side names where the value went
+  const ix = tbIndex().all;
+  const rom = (ix['605447'] || []).find(e => e.d === '2018-12-13');
+  out.rule5ConduitSign = !!rom && rom.seats.every(st => !(st[2].length === 0 && st[3].length && seatNet(st, rom.d) > 0));
+  const jd = flat(careerTree('518626')).filter(n => /2022-03-1\d · traded MIN to NYY/.test(n.via || ''));
+  out.oneNodePerDeal = jd.length === 1;
+  const cws = AUTO_REGIMES.find(x => x.id === 'cws');
+  const hou = [...cws.chanLedgers.trade.best, ...cws.chanLedgers.trade.worst].find(x => /Adrian Houser/.test(x.h));
+  out.flippedPiecesKeepOpen = !hou || hou.open === true;
+  const tor = AUTO_REGIMES.find(x => x.id === 'tor');
+  const ol = [...tor.chanLedgers.trade.best, ...tor.chanLedgers.trade.worst].find(x => /Otto Lopez/.test(x.h));
+  out.valueWhereverLabel = !ol || ol.sides.some(sd => /wherever he played/.test(sd[0]));
   // weekly board
   const html = folWeekBoard();
   out.weekBoard = /This week/.test(html) && (html.match(/wk-day/g) || []).length === 7;
