@@ -23,7 +23,7 @@ const res = await page.evaluate(() => {
   return out;
 });
 await browser.close();
-console.log('closed by the rule', res.length);
+console.log('closed by the rule', res.length); (await import('fs')).writeFileSync('/tmp/closed147.json', JSON.stringify(res));
 let seed = 20261121; const idx = res.map((_, i) => i), pick = [];
 while(pick.length < 15){ seed = (seed * 1103515245 + 12345) % 2147483648; pick.push(res[idx.splice(seed % idx.length, 1)[0]]); }
 for(const p of pick.sort((a, b) => a.d < b.d ? -1 : 1)) console.log(JSON.stringify(p));
