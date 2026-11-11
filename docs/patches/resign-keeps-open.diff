@@ -1,7 +1,16 @@
-# Not applied. Same-club re-sign keeps a trade OPEN (rule-checklist steps 1-7 in docs/audit-nov11-c.md section 16).
-# 1) folTradeOpen in the working page (index.html after split_book.py)
---- a/index.html	2026-11-11 12:53:25.133136722 -0500
-+++ b/index.html	2026-11-11 12:51:31.129726105 -0500
+# Not applied to the live site (deploy needs Sean's OK). Built from the working page with engine/split_book.py;
+# book.js and deals.js unchanged. Apply: patch -p1 < this file, from the repo root. Checks: docs/audit-nov11-c.md section 17.
+--- a/index.html
++++ b/index.html
+@@ -1918,7 +1918,7 @@
+         <ul class="mlist">
+           <li>Everything is counted in <strong>wins</strong>, using Ledger WAR, this project's own wins-above-replacement measure built from public MLB data. <strong>+2.0 WAR</strong> means two more team wins than a freely available player.</li>
+           <li>A decision's <strong>+/-</strong> is what the club got against what a typical front office gets from the same move: a trade at +3.0 brought back three more wins than it gave up; a signing at −2.0 delivered two fewer wins than its price usually buys.</li>
+-          <li>Money becomes wins at that year's market price per win. Future wins in a trade are discounted 10% a year.</li>
++          <li>Money becomes wins at that year's market price per win. Future wins in a trade are discounted 10% a year.</li><li>An arbitration season with no contract on file is charged an estimated award. Checked against 83 salaries players were actually paid, the estimate runs low (by about $0.7M to $1.3M a season), so a club that traded for arbitration-eligible players can look slightly better than it was. A correction did not beat the current estimate on later seasons, so it is not applied yet.</li>
+           <li><strong>OPEN</strong> means players from the decision are still under club control, so the number can still move. Projections are shown beside open deals and never enter a grade.</li>
+           <li>Grades sit on the 20-80 scouting scale: 50 is average, 60 above average, 70 plus, 80 the very top.</li>
+         </ul>
 @@ -2235,8 +2235,24 @@
    const inSix = !y0 || y0 + 5 > FOL_SEASON;
    // a release or a free-agent signing anywhere after the trade ends that piece's
@@ -29,17 +38,17 @@
    return (seats || []).some(s => (s[2] || []).some(([p]) => {
      const g = folGone(p);
      if(g === true || ended(p)) return false;
-# 2) tests/t_nov11.mjs
---- /tmp/t_nov11_live.mjs	2026-11-11 12:56:59.729745638 -0500
-+++ tests/t_nov11.mjs	2026-11-11 12:51:18.368478701 -0500
-@@ -96,6 +96,11 @@
+--- a/tests/t_nov11.mjs
++++ b/tests/t_nov11.mjs
+@@ -96,6 +96,12 @@
    // Baker, moved only by a waiver claim and a trade, still does
    out.releasedPieceClosesTrade = tOpen('Thyago Vieira', '2017-11-16') === false && tOpen('Dietrich Enns', '2017-07-30') === false;
    out.claimedPieceKeepsTradeOpen = tOpen('Bryan Baker', '2018-08-14') === true;
 +  // a release or non-tender followed within 60 days by a minor-league re-sign with the club that held him
 +  // does not end his window (Eli White: released and re-signed by Atlanta in July 2023, still active);
 +  // a deal that closed for another reason stays closed (German: free agency 2023; Kilian: signed with SF)
-+  out.sameClubResignKeepsOpen = tOpen('Eli White', '2023-01-03') === true;
++  out.sameClubResignKeepsOpen = tOpen('Eli White', '2023-01-03') === true && tOpen('Sem Robberse', '2023-07-30') === true
++    && tOpen('Juan Carela', '2023-08-01') === true && tOpen('Roddery Muñoz', '2023-12-20') === true;
 +  out.otherClosuresStayClosed = tOpen('Domingo Germán', '2014-12-19') === false && tOpen('Caleb Kilian', '2021-07-30') === false;
    // weekly board
    const html = folWeekBoard();
