@@ -7,6 +7,9 @@ is "no change".
 ## MLB
 | Date | Tried | Result | Kept? | Where |
 |---|---|---|---|---|
+| Nov 11 | FanGraphs per-player stats via same-origin fetch for audit WAR | `/api/players/stats?playerid=<fg>&position=P` for pitchers; split rows are type 1 and 2, totals type 0; leaders give the FG id from xMLBAMID | Yes | audit |
+| Nov 11 | Zero-sum check over every trade (seat nets add to 0) | Found the Rule 5 seat bug and two incomplete deals in one pass; 3 left, all pre-2012 | Yes, rerun after any book change | audit |
+| Nov 11 | Trade OPEN by acquirer control | Wrong: flipped pieces keep the trade's number moving; switched to "piece still in the league" | Replaced | page |
 | Nov 11 | OPEN flag from facts (roster status, contract book, last season, filed moves) instead of "2021 or later" | 636 decisions closed, none reopened; trades with unknown minor leaguers stay open (conservative) | Yes | `folDecOpen` in the page, `tests/t_nov11.mjs` |
 | Nov 11 | Why Holmes/Taylor shows a net while open | The Cubs' -1.7 is entirely Rojas's prospect value from the trade book; he has not played | Note on open trades; whether prospect value should count before he plays is Sean's call | page |
 | Nov 11 | Refresh upload path from a chat with Chrome | Works: both files stamped and live in under a minute | Yes | worklog |

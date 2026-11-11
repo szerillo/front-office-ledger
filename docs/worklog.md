@@ -5,6 +5,16 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 
 ## 2026-11-11 (Wed)
 
+### Launch push, block 2 (accuracy)
+- **Audit of 40 random moves** against the league feed, named-source terms and FanGraphs: 5 field errors in
+  184 checks (2.7%), 3 of 40 moves. Full report `docs/audit-nov11.md`.
+- **Fixed live**: trade OPEN now follows flipped pieces (15 trades reopened); "value realized on" relabelled
+  as value after the trade wherever he played; a Rule 5 grade no longer stands in for a trade seat's net
+  (8 deals, Romano 2018 was +3.6 for the White Sox); two early two-club deals completed from the receiving
+  side (Greinke 2012, Gerut 2009); one node per deal on player trees (31 duplicates).
+- **Not fixed (engine)**: Super Two control ends a year early: Donaldson 2016 and Olson 2022 extensions.
+- `tests/t_nov11.mjs` gained four checks; all 13 suites pass on the live site.
+
 ### Launch push, block 1
 - **Launch checklist**: `docs/launch-checklist.md` (must fix, nice to have, after launch).
 - **OPEN and CLOSED from the facts.** The flag was a date rule: every decision from 2021 on read OPEN.

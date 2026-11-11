@@ -8,6 +8,10 @@ Written Nov 11 2026 from `HANDOFF.md`, `worklog.md`, `what-worked.md` and a look
 - [ ] **"Checked" stamps.** `rumors.json` and `wire.json` still have no `checked` time; no scheduled run has uploaded since the prompts changed. Prove the upload path with one real run of each job, then watch the 8:03 and 8:17 AM ET runs. Nov 11: both files stamped 07:51 UTC by hand-run jobs and live; scheduled runs still to be seen.
 - [ ] **Link preview cards.** Home and move pages carry full X and Open Graph tags, and pages and images return 200. Only a real post on X confirms the card (Sean).
 
+- [x] Accuracy audit of 40 random moves (Nov 11): 2.7% field error rate, fixes live. `audit-nov11.md`.
+- [ ] Prospect value in open trades (Crochet, Holmes and Taylor): waits on Sean.
+- [ ] Super Two extensions (Donaldson 2016, Olson 2022): engine rebuild.
+
 ## Nice to have
 - [ ] Phone load: home content 3.3 s on 4G, 8.2 s on slow 4G. Next step is moving player names and the Desk's player table out of the first download (about 8% and 35% of it), which is risky before launch.
 - [ ] Brand final pick: nameplate, wordmark font, palette, logo (six rounds of mockups). `HANDOFF.md` says the masthead is settled; confirm whether that covers all four.
