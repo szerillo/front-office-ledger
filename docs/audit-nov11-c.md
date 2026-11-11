@@ -514,7 +514,8 @@ Root causes found Nov 11: 11 (the share error in my own shadow script added), 5 
 ## 14. Round 11 (Nov 11, 11:30 AM): sampling bias, closed trades, proration
 
 **Order of record.** Pre-registration `docs/prereg-round11.md`, commit be53af2 at 16:30:49 UTC. First output after
-it: the proration population run at 16:31:13 UTC; the random-40 draw and pull at 17:05 to 17:18 UTC. Before the
+it: the proration population run at 16:31:13 UTC; the random-40 draw (seed 20261122, named in be53af2) between
+16:31:13 and 16:33:33 UTC, so after the commit; its salary pull 17:05 to 17:18 UTC. Before the
 commit (stated in the file): the 15-trade draw and three hand-worked proration cases. The $0 shadow's
 pre-registration, ddc7026, is 16:01:26 UTC; its first output came after it. Section 12's arbitration shadow is
 labelled "pre-registered, not provable".
@@ -571,3 +572,46 @@ zero**, so "low in every third" is corrected to "low in the bottom two thirds". 
 asked for 2,101 seconds; the pull resumed at 17:05). Cross-checks come from MLB Trade Rumors, Spotrac, AP.
 
 Root causes found Nov 11: 13 (proration by stint rows, same-club re-sign added), 5 in rules written that day.
+
+## 15. Round 12 (Nov 11, 12:30 PM): while the full salary pull runs
+
+**Order of record.** Pre-registration `docs/prereg-round12.md`, commit d4be855 at 17:30:34 UTC, written before any
+row of the 344-player pull (started 17:22:46 UTC) was read. It fixes what counts as a valid salary row (season,
+dollars, a club he played for that season, not below that season's minimum, larger of two rows) and how the 11
+players whose MLBAM link lands on a minor-league page are checked (salary-row clubs must match his own stints in
+every priced season; 5 of them, seed 20261124, against Spotrac or Cot's). Both apply when the pull is read.
+The random-40 seed (20261122) was named in be53af2 before the draw (section 14 corrected).
+
+**Closures by the release / free-agency rule: a census, then a second sample.**
+- Census (`tests/tools/resign_census.mjs`): of the 147 trades this rule closes, **11 close only because a player
+  was released or non-tendered and re-signed by the club holding him within 60 days**; with those pairs removed
+  they read OPEN: 2017 NYY/TEX, 2018 ATH/TB/TEX, 2019 CIN/NYY/SEA, 2022 MIN/NYY/TEX, 2023 ATL/TEX (Eli White),
+  2023 STL/TOR (Robberse), 2023 CWS/NYY (Carela), 2023 MIA/PIT (Muñoz), 2025 LAD/STL, 2026 SF/TOR, 2026 LAD/TOR.
+  The "club holding him" is the club at the time of the release, so flips count (Muñoz was re-signed by
+  Cincinnati after two claims).
+- Second seeded 15 (seed 20261123, round 11's 15 excluded): 3 wrong (Henriquez, Sanmartin, Muñoz), all of this
+  kind. With round 11: **4 of 30, 13% (95% interval 5% to 30%)**, and every error found is in the census. So the
+  11 are the bulk of it; the census is the number to fix against.
+
+**Arbitration bias: dollars or percent, and flips at the bound** (`tests/tools/arb_bound.py`). Per third of the
+model's prediction (27, 28, 28 seasons): model $1.29M vs paid $2.61M (-$1.32M a season, -51%); $2.72M vs $3.64M
+(-$0.92M, -25%); $9.07M vs $9.78M (-$0.71M, -7%). The shortfall is close to a flat $0.7M to $1.3M a season, so
+the bias is better read as dollars than percent. Rerun with a fixed ratio per third:
+- at the point estimates: 74 sides move a win or more, 5 flips, 4 top or bottom 25 changes, 4 clubs move 2+;
+- at the end of each 95% interval nearest zero (-33%, -7%, 0%): **0 sides move a win, 0 flips**, 2 top or bottom
+  25 changes, no club moves 2+.
+So no public trade grade flips at the least bias the data allow; flips depend on the point estimate. The earlier
+sensitivity median (286 sides, 50 flips) came from per-season random ratios, which add spread; the fixed-ratio
+run is the fairer test of the bias alone.
+
+**One assumption in the $0 rerun: a salary row is money paid for playing that season.** Pre-registered test:
+covered seasons whose row is under 40% of the season before. Only 3 rows qualify (2 player-seasons), not the 5
+planned. Canha 2025 $1.4M is his real salary (MLB Trade Rumors, Spotrac): holds. Kittredge 2026 $1.0M is the
+buyout; Baltimore paid $9M: fails. 1 of 2 fails, so buyout rows can understate a season. In this population it
+is rare (3 of 147 covered seasons by this test, one player) and it errs toward too small a charge.
+
+**Resume point for the pull (item 6).** Checkpointed per player in memory only: the worker stores each player in
+the tab as it lands and skips players already stored, so a stall or a 429 resumes at the next player. **If the
+tab closes, what has not been exported is lost**; the durable checkpoint is the fixture file (the first 61 players
+plus the random 40). The 19:30 UTC check exports whatever has landed, done or not, so the fixture becomes the
+resume point.
