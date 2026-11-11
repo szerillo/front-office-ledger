@@ -171,7 +171,33 @@
 .bt-over{background:var(--surface-2, rgba(0,0,0,.03))}
 .bt-fact .bt-v{opacity:1; font:700 14px var(--f-mono)}
 .bt-foot{padding-top:10px; font-size:13.5px}
-@media (max-width:700px){ .bt-row{grid-template-columns:minmax(0, 1fr) 84px minmax(0, 1fr); gap:6px} .bt-row .bt-nm{font-size:9.5px; letter-spacing:.4px} .bt-row .bt-v .ttype{display:none} .bt-fact .bt-v{font-size:13px} .bt-side strong{font-size:15px} .bt-score b{font-size:22px} .bt-score .ttype{display:none} .bt-pick label, .bt-pick select{width:100%} }
+.wk-card{padding:12px 14px; margin-top:10px}
+.wk-grid{display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:6px; margin:8px 0}
+.wk-day{display:flex; flex-direction:column; align-items:center; border:1px solid var(--grid); border-radius:6px; padding:6px 0}
+.wk-day b{font:700 18px var(--f-mono); min-height:22px}
+.wk-today{border-color:var(--ink)} .wk-perfect b{color:var(--s4)}
+.wk-sum{display:flex; flex-wrap:wrap; gap:6px 16px; font-size:13px; margin-bottom:8px} .wk-sum b{font-family:var(--f-mono)}
+.wk-bars{display:flex; align-items:flex-end; gap:8px; height:62px; margin:6px 0 4px}
+.wk-bar{display:flex; flex-direction:column; align-items:center; gap:2px; width:28px} .wk-bar i{display:block; width:100%; background:var(--grid); border-radius:2px 2px 0 0}
+.wk-bar span{font:700 11px var(--f-mono); color:var(--muted)} .wk-mine i{background:var(--s4)} .wk-mine span{color:var(--ink)}
+
+.cc-card{padding:14px 16px; margin:0 0 10px}
+.cc-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap} .cc-head strong{font:700 20px var(--f-display, inherit)}
+.cc-path{display:flex; flex-wrap:wrap; align-items:center; gap:4px; margin:10px 0}
+.cc-arrow{color:var(--muted); font-size:12px}
+.cc-stats{display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:8px; border-top:1px solid var(--grid); border-bottom:1px solid var(--grid); padding:8px 0; margin-bottom:6px}
+.cc-stats div{display:flex; flex-direction:column; align-items:center} .cc-stats b{font:700 22px var(--f-mono)}
+.cc-line{display:grid; grid-template-columns:110px minmax(0, 1fr); gap:10px; font-size:13px; padding:4px 0}
+.cc-k{font:700 10.5px var(--f-mono); letter-spacing:.8px; text-transform:uppercase; color:var(--ink-2); padding-top:2px}
+.cc-act{margin-top:8px}
+@media (max-width:700px){ .cc-line{grid-template-columns:1fr; gap:2px} .cc-stats b{font-size:18px} }
+
+.bt-mv{display:flex; align-items:baseline; gap:8px; min-width:0; font-size:12.5px; line-height:1.3}
+.bt-mv b{font:700 13px var(--f-mono); white-space:nowrap}
+.bt-mv .bt-mvh{overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical}
+.bt-mv-r{justify-content:flex-end; text-align:right}
+.bt-mvrow .bt-v{align-items:flex-start; opacity:1}
+@media (max-width:700px){ .bt-row{grid-template-columns:minmax(0, 1fr) 84px minmax(0, 1fr); gap:6px} .bt-row .bt-nm{font-size:9.5px; letter-spacing:.4px} .bt-row .bt-v .ttype{display:none} .bt-fact .bt-v{font-size:13px} .bt-mv{font-size:11px} .bt-mv .bt-mvh .ttype{display:none} .bt-side strong{font-size:15px} .bt-score b{font-size:22px} .bt-score .ttype{display:none} .bt-pick label, .bt-pick select{width:100%} }
 .hp-foot{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:10px; padding-top:10px; border-top:1px solid var(--rule)}
 .hp-foot .savebtn{white-space:nowrap}
   /* Nov 10: Play is one stacked card on the right; every row is a title, one note and a button */
@@ -10913,6 +10939,48 @@ function careerTree(pid){
   ev.push({d: '9999', node: {via: 'where it stands', nm: f.nm, wv: null, status: f.status}});
   return {nm: `${nm} · every move on the ledger`, status: f.status, kids: ev.map(e => e.node)};
 }
+/* Nov 11: the player career card. One shareable card on top of the tree: the
+   clubs he passed through, how many moves he was part of, the deal that swung
+   the most wins for a club that got him, and where he stands now. */
+function careerCardData(pid, node){
+  pid = String(pid);
+  const nm = pName(pid) !== 'player' ? pName(pid) : (((DESK.players || []).find(x => String(x[1]) === pid) || [])[0] || 'Player');
+  const mv = (typeof PLAYER_MOVES !== 'undefined' && PLAYER_MOVES[pid]) || [];
+  const path = [];
+  const push = ab => { if(ab && /^[A-Z]{2,3}$/.test(ab) && path[path.length - 1] !== ab) path.push(ab); };
+  const OD = (typeof PLAYER_ORIGIN !== 'undefined' && PLAYER_ORIGIN.d && PLAYER_ORIGIN.d[pid]) || null;
+  if(OD) push(OD[3]);
+  mv.forEach(m => { if(['Trade', 'Signed as Free Agent', 'Claimed Off Waivers', 'Rule 5 Selection', 'Minor-league deal'].includes(m[1])) push(m[3]); });
+  const trades = ((typeof TRADE_BOOK !== 'undefined' && tbIndex().all[pid]) || []).filter((x, i, a) => a.findIndex(y => y.d === x.d) === i);
+  const swings = trades.map(({d, seats}) => {
+    const mine = seats.find(s => s[2].some(x => x[0] === pid)); if(!mine) return null;
+    const own = (mine[2].find(x => x[0] === pid) || [])[1];
+    return {d, ab: mine[0], from: ((seats.find(s => s[3].some(x => x[0] === pid)) || [])[0]) || '', net: seatNet(mine, d), own};
+  }).filter(Boolean);
+  const big = swings.slice().sort((a, b) => Math.abs(b.net) - Math.abs(a.net))[0] || null;
+  const kids = (node && node.kids) || [];
+  const graded = kids.filter(k => k.wv != null).length;
+  const stand = kids.length ? stripTags(String(kids[kids.length - 1].nm || '')) : '';
+  const signings = mv.filter(m => m[1] === 'Signed as Free Agent').length;
+  if(big) big.ext = kids.some(k => new RegExp('extension with ' + big.ab + '\\b').test(k.via || '') && String(k.via).slice(0, 10) > big.d);
+  return {pid, nm, path, trades: swings.length, signings, graded, big, stand, open: node && node.status === 'open'};
+}
+function careerCard(pid, node){
+  const c = careerCardData(pid, node);
+  if(!c.path.length && !c.trades) return '';
+  const url = `https://frontofficeledger.com/#view=trees&player=${c.pid}`;
+  const chips = c.path.map(ab => `<span class="wi-tc" style="${folTC(ab)}">${ab}</span>`).join('<span class="cc-arrow">&rarr;</span>');
+  const big = c.big ? `<div class="cc-line"><span class="cc-k">Biggest swing</span><span>${c.big.d.slice(0, 4)}, ${c.big.from ? c.big.from + ' to ' : ''}${c.big.ab}: <b class="${c.big.net >= 0 ? 'pos' : 'neg'}">${fmtW(c.big.net)}</b> wins for ${c.big.ab} on the whole deal${c.big.own != null ? `, ${fmtW(c.big.own)} from him` : ''}${c.big.ext ? '; control years only, his extension is graded on its own' : ''}</span></div>` : '';
+  const post = `${c.nm}: ${pz(c.path.length, 'club', 'clubs')}, ${pz(c.trades, 'trade', 'trades')}, every move graded.` + (c.big ? ` Biggest swing: ${fmtW(c.big.net)} wins for ${c.big.ab} (${c.big.d.slice(0, 4)}).` : '');
+  return `<div class="card cc-card" id="cc-${c.pid}">
+    <div class="cc-head"><strong>${c.nm}</strong><span class="ttype">career on the ledger</span></div>
+    <div class="cc-path">${chips}</div>
+    <div class="cc-stats"><div><b>${c.path.length}</b><span class="ttype">${c.path.length === 1 ? 'club' : 'clubs'}</span></div><div><b>${c.trades}</b><span class="ttype">${c.trades === 1 ? 'trade' : 'trades'}</span></div><div><b>${c.signings}</b><span class="ttype">${c.signings === 1 ? 'signing' : 'signings'}</span></div><div><b>${c.graded}</b><span class="ttype">graded moves</span></div></div>
+    ${big}
+    ${c.stand ? `<div class="cc-line"><span class="cc-k">Now</span><span>${clip(c.stand, 140)}</span></div>` : ''}
+    <div class="actions cc-act"><button class="actbtn primary" onclick="folCopyLink('${url}', ${JSON.stringify(c.nm).replace(/"/g, '&quot;')})">Copy link</button><button class="actbtn" onclick="folXPost(${JSON.stringify(post).replace(/"/g, '&quot;')}, '${url}')">Post on X</button>${folSaveBtn(`folSaveEl(document.getElementById('cc-${c.pid}'), 'career-${folSlug(c.nm)}', ${JSON.stringify(c.nm).replace(/"/g, '&quot;')}, 'Career on the ledger')`)}</div>
+  </div>`;
+}
 function treeFind(){
   if(whenCards('find', () => treeFind())) return;
   const q = (document.getElementById('tree-find').value || '').trim().toLowerCase();
@@ -10942,7 +11010,8 @@ function treeFind(){
   }
   if(!pid){ out.innerHTML = '<span class="ttype">no player by that name on the graded ledger</span>'; return; }
   const tnm = JSON.stringify(String((typeof PLAYER_NAMES !== 'undefined' && PLAYER_NAMES[pid]) || ((DESK.players||[]).find(x => String(x[1]) === String(pid)) || [])[0] || 'player')).replace(/"/g, '&quot;');
-  out.innerHTML = `<div class="tree-card" style="margin:0"><div class="bd-cardhead tree-savebar">${treeFoldBtn()}${folSaveBtn(`folSaveTree(this, ${tnm})`)}</div>${tnode(careerTree(pid))}</div>
+  const _ct = careerTree(pid);
+  out.innerHTML = careerCard(pid, _ct) + `<div class="tree-card" style="margin:0"><div class="bd-cardhead tree-savebar">${treeFoldBtn()}${folSaveBtn(`folSaveTree(this, ${tnm})`)}</div>${tnode(_ct)}</div>
     <div class="ttype" style="margin-top:6px">origin, every trade (both clubs' grades and every other piece's onward chain), signings with terms, extensions from the contract book, and where it stands now</div>`;
   try { out.scrollIntoView({behavior: 'smooth', block: 'start'}); } catch(e){}
 }
@@ -10984,6 +11053,7 @@ function treeOverlay(pid, ab, label){
   ov.innerHTML = `<div style="background:var(--page); color:var(--ink); border:1.5px solid var(--ink); border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,.35); max-width:860px; width:100%; max-height:84vh; overflow:auto; padding:14px 18px">
     <div style="display:flex; justify-content:space-between; align-items:center; gap:10px"><strong>${nm}</strong>
       <button class="savebtn" style="margin-right:6px" onclick="folCopyLink(location.href, 'Player page')" title="A link that opens this player">Copy link</button><button id="tree-ov-close" onclick="closeTreeOverlay()" aria-label="Close" style="cursor:pointer; background:none; border:1px solid var(--rule); color:var(--muted); border-radius:6px; padding:2px 10px">close</button></div>
+    <div style="margin-top:8px">${careerCard(pid, node)}</div>
     <div class="tree-card" style="margin-top:8px"><div class="bd-cardhead tree-savebar">${treeFoldBtn()}${folSaveBtn(`folSaveTree(this, ${JSON.stringify(nm).replace(/"/g, '&quot;')})`)}</div>${tnode(node)}</div>
     <div style="margin-top:6px"><span class="ttype">every move on the ledger: both clubs' grades on each trade, every other piece's onward chain, contract terms and realized value, and where it stands now</span></div></div>`;
   setTimeout(() => { const c = document.getElementById('tree-ov-close'); if(c) c.focus({preventScroll: true}); }, 0);
@@ -12835,6 +12905,32 @@ function btLine(a, b){
   const t = btTally(btRows(a, b)), ln = x => x.exec.split(' ').slice(-1)[0];
   return t.a === t.b ? `${ln(a)} and ${ln(b)} split the categories, ${t.a} each` : `${t.a > t.b ? ln(a) : ln(b)} takes ${Math.max(t.a, t.b)} of ${t.n} categories`;
 }
+function btSig(r){
+  // each front office's best and worst graded move, from its own card
+  if(!r || !r.chanLedgers) return null;
+  const all = [];
+  Object.keys(r.chanLedgers).forEach(k => { const c = r.chanLedgers[k] || {}; [...(c.best || []), ...(c.worst || [])].forEach(x => { if(x && x.h && typeof x.war === 'number' && !x.pre) all.push(x); }); });
+  if(!all.length) return null;
+  const best = all.reduce((m, x) => x.war > m.war ? x : m, all[0]), worst = all.reduce((m, x) => x.war < m.war ? x : m, all[0]);
+  return {best, worst: worst === best ? null : worst};
+}
+function btMv(x, right){
+  if(!x) return '<span class="ttype">·</span>';
+  let lab = stripTags(x.h);
+  if(/^trade$/i.test(x.ch || x.t || '') && (x.sides || []).length >= 2){
+    const nm = sd => ((sd && sd[1]) || []).map(q => q[0]).filter(n => n && !/^(cash|typical|nothing)/i.test(n));
+    const got = nm(x.sides[0]), gave = nm(x.sides[1]);
+    if(got.length || gave.length) lab = `Got ${got.length ? got.slice(0, 2).join(' and ') + (got.length > 2 ? ` and ${got.length - 2} more` : '') : 'cash'} for ${gave.length ? gave.slice(0, 2).join(' and ') + (gave.length > 2 ? ` and ${gave.length - 2} more` : '') : 'cash'}`;
+  }
+  const w = `<b class="${x.war >= 0 ? 'pos' : 'neg'}">${fmtW(x.war)}</b>`, h = `<span class="bt-mvh">${clip(lab, 70)}${lab.includes(String(x.d).slice(0, 4)) ? '' : ` <span class="ttype">${String(x.d).slice(0, 4)}</span>`}</span>`;
+  return `<span class="bt-mv${right ? ' bt-mv-r' : ''}">${right ? h + w : w + h}</span>`;
+}
+function btSwap(){ const t = btState.a; btState.a = btState.b; btState.b = t; btState.set = true; renderBattle(); routeWrite(); }
+function btRandom(){
+  const all = btAll(); if(all.length < 2) return;
+  const i = Math.floor(Math.random() * all.length); let j = Math.floor(Math.random() * (all.length - 1)); if(j >= i) j++;
+  btState.a = all[i].id; btState.b = all[j].id; btState.set = true; renderBattle(); routeWrite(); folEvent('h2h/random');
+}
 function btUrl(){ return `https://frontofficeledger.com/#view=h2h&vs=${btState.a}~${btState.b}`; }
 function renderBattle(){
   const host = document.getElementById('h2hbattle'); if(!host) return;
@@ -12852,9 +12948,12 @@ function renderBattle(){
       <div class="bt-heads">${head(a, 'a')}<div class="bt-score"><b class="${t.a > t.b ? 'pos' : ''}">${t.a}</b><span class="ttype">categories</span><b class="${t.b > t.a ? 'pos' : ''}">${t.b}</b></div>${head(b, 'b')}</div>
       ${rows.map(r => `<div class="bt-row${r.k === 'overall' ? ' bt-over' : ''}"><span class="bt-v${r.w === 'a' ? ' bt-win' : ''}">${r.ga != null ? `<span class="grade ${gradeClass(r.ga)}">${g2letter(r.ga)}</span>` : '<span class="grade gnone">–</span>'}<span class="ttype">${r.va}</span></span><span class="bt-nm">${r.nm}</span><span class="bt-v${r.w === 'b' ? ' bt-win' : ''}"><span class="ttype">${r.vb}</span>${r.gb != null ? `<span class="grade ${gradeClass(r.gb)}">${g2letter(r.gb)}</span>` : '<span class="grade gnone">–</span>'}</span></div>`).join('')}
       ${fact('Winning pct.', su(a).wpct || '·', su(b).wpct || '·')}${fact('Playoff trips', su(a).po != null ? su(a).po : '·', su(b).po != null ? su(b).po : '·')}${fact('Titles', su(a).ws != null ? su(a).ws : '·', su(b).ws != null ? su(b).ws : '·')}
+      ${(() => { const sa = btSig(a), sb = btSig(b); if(!sa && !sb) return '';
+        const row = (nm, x, y) => `<div class="bt-row bt-mvrow"><span class="bt-v">${btMv(x, false)}</span><span class="bt-nm">${nm}</span><span class="bt-v">${btMv(y, true)}</span></div>`;
+        return row('Best move', sa && sa.best, sb && sb.best) + row('Worst move', sa && sa.worst, sb && sb.worst); })()}
       <div class="bt-foot">${direct ? `They have traded ${pz(direct.n, 'time', 'times')}: <strong class="${direct.net >= 0 ? 'pos' : 'neg'}">${fmtW(direct.net)}</strong> wins for ${a.exec.split(' ').slice(-1)[0]}.${key ? ` <span class="ttype">Biggest, ${String(key.d).slice(0, 4)}: ${key.h}</span>` : ''}` : '<span class="ttype">No trade between these two while both were in the seat.</span>'}</div>
     </div>
-    <div class="actions" style="margin-top:8px"><button class="actbtn primary" onclick="folCopyLink(btUrl(), 'Tale of the tape')">Copy link</button><button class="actbtn" onclick="(()=>{ const a = btAll().find(r => r.id === btState.a), b = btAll().find(r => r.id === btState.b); folXPost('Tale of the tape: ' + a.exec + ' (' + abOf(a) + ') against ' + b.exec + ' (' + abOf(b) + '). ' + btLine(a, b) + '.', btUrl()); })()">Post on X</button>${folSaveBtn("folSaveEl(document.getElementById('bt-card'), 'tale-of-the-tape', 'Tale of the tape', 'Two front offices, category by category')")}<button class="actbtn" onclick="switchView('report', btState.a)">${a.exec.split(' ').slice(-1)[0]}'s report card</button><button class="actbtn" onclick="switchView('report', btState.b)">${b.exec.split(' ').slice(-1)[0]}'s report card</button></div>`;
+    <div class="actions" style="margin-top:8px"><button class="actbtn primary" onclick="folCopyLink(btUrl(), 'Tale of the tape')">Copy link</button><button class="actbtn" onclick="(()=>{ const a = btAll().find(r => r.id === btState.a), b = btAll().find(r => r.id === btState.b); folXPost('Tale of the tape: ' + a.exec + ' (' + abOf(a) + ') against ' + b.exec + ' (' + abOf(b) + '). ' + btLine(a, b) + '.', btUrl()); })()">Post on X</button>${folSaveBtn("folSaveEl(document.getElementById('bt-card'), 'tale-of-the-tape', 'Tale of the tape', 'Two front offices, category by category')")}<button class="actbtn" onclick="btSwap()">Swap sides</button><button class="actbtn" onclick="btRandom()">Random matchup</button><button class="actbtn" onclick="switchView('report', btState.a)">${a.exec.split(' ').slice(-1)[0]}'s report card</button><button class="actbtn" onclick="switchView('report', btState.b)">${b.exec.split(' ').slice(-1)[0]}'s report card</button></div>`;
 }
 function renderH2h(){
   renderBattle();
@@ -14709,6 +14808,50 @@ function folQuizPick(side){
   renderQuiz();
 }
 function folQuizNext(){ const q = quizState; if(!q) return; if(q.i < q.qs.length - 1){ q.i++; renderQuiz(); } else { q.done = true; renderQuiz(); } }
+/* Nov 11: the weekly board for Trade Grade. Your week, Monday to Sunday, from
+   this browser, and how today's readers did, pooled in the public counter
+   (one tally per finished five, nothing personal). */
+function folWeekDays(){ const d = Math.floor(Date.now() / 864e5), mon = d - ((d + 3) % 7); return Array.from({length: 7}, (_, i) => mon + i); }
+function folWeekHit(day, n){
+  try { if(localStorage.getItem('fol-tgw-' + day)) return; localStorage.setItem('fol-tgw-' + day, '1'); } catch(e){ return; }
+  pkHit(`tg27-${day}-${n}`).then(() => { folWeekLoad._c = null; folWeekFill(); });
+}
+function folWeekLoad(day){
+  if(folWeekLoad._c && folWeekLoad._c.day === day && Date.now() - folWeekLoad._c.at < 60e3) return Promise.resolve(folWeekLoad._c.v);
+  return Promise.all([0, 1, 2, 3, 4, 5].map(n => pkGet(`tg27-${day}-${n}`))).then(v => { folWeekLoad._c = {day, at: Date.now(), v}; return v; });
+}
+function folWeekBoard(){
+  const days = folWeekDays(), today = Math.floor(Date.now() / 864e5), DN = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const res = days.map(d => { const a = folQuizStore('day-' + d); return a && a.length ? a.filter(Boolean).length : null; });
+  const played = res.filter(x => x != null), tot = played.reduce((a, b) => a + b, 0), best = played.length ? Math.max(...played) : null;
+  const cells = days.map((d, i) => `<div class="wk-day${d === today ? ' wk-today' : ''}${res[i] === 5 ? ' wk-perfect' : ''}"><span class="ttype">${DN[i]}</span><b>${res[i] != null ? res[i] : d > today ? '' : '·'}</b></div>`).join('');
+  return `<div class="card wk-card" id="wk-card"><div class="home-kick">This week</div>
+    <div class="wk-grid">${cells}</div>
+    <div class="wk-sum"><span><b>${tot}</b>/${played.length * 5 || 0} right</span><span><b>${played.length}</b> of 7 days played</span><span><b>${folQuizDays()}</b> days in a row</span>${best != null ? `<span>best day <b>${best}</b>/5</span>` : ''}</div>
+    <div id="wk-readers" class="ttype">Loading how readers did today...</div>
+    <div class="actions" style="margin-top:8px"><button class="actbtn" onclick="folWeekCopy()">Copy my week</button></div></div>`;
+}
+function folWeekFill(){
+  const host = document.getElementById('wk-readers'); if(!host) return;
+  const today = Math.floor(Date.now() / 864e5), mine = folQuizStore('day-' + today), my = mine && mine.length ? mine.filter(Boolean).length : null;
+  folWeekLoad(today).then(v => {
+    const h = document.getElementById('wk-readers'); if(!h) return;
+    const n = v.reduce((a, b) => a + (+b || 0), 0);
+    if(!n){ h.textContent = 'No finished fives from readers yet today.'; return; }
+    const mx = Math.max(...v, 1);
+    const bars = v.map((c, k) => `<div class="wk-bar${k === my ? ' wk-mine' : ''}"><i style="height:${Math.max(3, Math.round(c / mx * 44))}px"></i><span>${k}</span></div>`).join('');
+    const below = my == null ? null : v.slice(0, my).reduce((a, b) => a + b, 0), same = my == null ? 0 : v[my];
+    const pct = my == null ? null : Math.round((below + same / 2) / n * 100);
+    h.innerHTML = `<div class="wk-bars">${bars}</div><div>${pz(n, 'reader', 'readers')} finished today's five${pct != null ? `. You did better than about ${pct}% of them` : ''}.</div>`;
+  });
+}
+function folWeekCopy(){
+  const days = folWeekDays(), today = Math.floor(Date.now() / 864e5);
+  const res = days.map(d => { const a = folQuizStore('day-' + d); return a && a.length ? a.filter(Boolean).length : null; });
+  const row = res.map((x, i) => x == null ? (days[i] > today ? '' : '⬜') : x === 5 ? '🟩' : x >= 3 ? '🟨' : '🟥').join('');
+  const tot = res.filter(x => x != null).reduce((a, b) => a + b, 0), n = res.filter(x => x != null).length;
+  return folShare('https://frontofficeledger.com/play/trade-grade', 'Front Office Ledger', `Trade Grade this week: ${tot}/${n * 5}\n${row}`);
+}
 function folQuizShareText(){
   const q = quizState; if(!q) return '';
   const dd = folQuizDays();
@@ -14797,7 +14940,9 @@ function renderQuiz(){
       <div class="quiz-q">${n === 5 ? 'Perfect. You could run a front office.' : n >= 4 ? 'Sharp eye. Most front offices would take that.' : n >= 3 ? 'Better than a coin flip.' : n >= 2 ? 'The scouts have notes.' : 'Bold choices. History disagrees.'}</div>
       <div style="font-size:24px; letter-spacing:4px">${q.ans.map(a => a ? '🟩' : '🟥').join('')}</div>
       <div class="actions"><button class="actbtn primary" onclick="folQuizCopy()">Copy my result</button><button class="actbtn" onclick="folQuizSave()">Save as image</button><button class="actbtn" onclick="quizState.i = 0; quizState.done = false; renderQuiz()">Go back through ${q.mode === 'daily' ? "today's" : 'these'} five</button><button class="actbtn" onclick="folQuizStart('free')">Play five more</button><button class="actbtn" onclick="switchView('heists')">See the biggest heists</button></div>
-      ${q.mode === 'daily' ? '<div class="ttype">A new five every day: three trades and two free-agent contracts.</div>' : ''}</div>`;
+      ${q.mode === 'daily' ? '<div class="ttype">A new five every day: three trades and two free-agent contracts.</div>' : ''}</div>`
+      + (q.mode === 'daily' ? folWeekBoard() : '');
+    if(q.mode === 'daily'){ folWeekHit(q.day, n); folWeekFill(); }
     return;
   }
   const t = q.qs[q.i], answered = q.ans.length > q.i;
