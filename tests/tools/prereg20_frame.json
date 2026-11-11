@@ -1,0 +1,8996 @@
+{
+"about": "Frame for docs/prereg-round20.md: every graded free-agent signing dated 1998-2008 in the deterministic rebuild (sweep_tx with ingest/retro_backfill.py, priced() ordered by date, person id, tx id), less Dreifort LAD 2000 (already in the round 18 frame). Built before any draw.",
+"n": 899,
+"rows": [
+{
+"date": "1998-02-03",
+"pid": 110854,
+"club": "ARI",
+"player": "Andy Benes",
+"yrs": 3,
+"tot": 18.0,
+"start": 1998,
+"src": "fa97"
+},
+{
+"date": "1998-11-09",
+"pid": 124164,
+"club": "LAD",
+"player": "Devon White",
+"yrs": 3,
+"tot": 12.4,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-11-13",
+"pid": 120194,
+"club": "DET",
+"player": "Dean Palmer",
+"yrs": 5,
+"tot": 36.0,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-11-13",
+"pid": 123057,
+"club": "ARI",
+"player": "Greg Swindell",
+"yrs": 3,
+"tot": 5.7,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-11-16",
+"pid": 119948,
+"club": "BOS",
+"player": "José Offerman",
+"yrs": 4,
+"tot": 26.0,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-11-17",
+"pid": 111908,
+"club": "HOU",
+"player": "Ken Caminiti",
+"yrs": 2,
+"tot": 9.5,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-11-17",
+"pid": 112461,
+"club": "ARI",
+"player": "Greg Colbrunn",
+"yrs": 2,
+"tot": 1.8,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-11-23",
+"pid": 116747,
+"club": "ATL",
+"player": "Brian Jordan",
+"yrs": 5,
+"tot": 40.0,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-11-25",
+"pid": 124288,
+"club": "NYY",
+"player": "Bernie Williams",
+"yrs": 7,
+"tot": 87.5,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-01",
+"pid": 110183,
+"club": "CLE",
+"player": "Roberto Alomar",
+"yrs": 4,
+"tot": 32.0,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-01",
+"pid": 110839,
+"club": "BAL",
+"player": "Albert Belle",
+"yrs": 5,
+"tot": 65.0,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-01",
+"pid": 123697,
+"club": "NYM",
+"player": "Robin Ventura",
+"yrs": 4,
+"tot": 32.0,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-02",
+"pid": 112381,
+"club": "TEX",
+"player": "Royce Clayton",
+"yrs": 4,
+"tot": 18.0,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-02",
+"pid": 121117,
+"club": "ARI",
+"player": "Armando Reynoso",
+"yrs": 2,
+"tot": 5.5,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-02",
+"pid": 122840,
+"club": "ARI",
+"player": "Todd Stottlemyre",
+"yrs": 4,
+"tot": 32.0,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-04",
+"pid": 120191,
+"club": "TEX",
+"player": "Rafael Palmeiro",
+"yrs": 5,
+"tot": 45.0,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-07",
+"pid": 112345,
+"club": "BAL",
+"player": "Will Clark",
+"yrs": 2,
+"tot": 11.0,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-07",
+"pid": 113291,
+"club": "BAL",
+"player": "Delino DeShields",
+"yrs": 3,
+"tot": 12.5,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-07",
+"pid": 122989,
+"club": "BAL",
+"player": "B. J. Surhoff",
+"yrs": 3,
+"tot": 14.0,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-10",
+"pid": 116615,
+"club": "ARI",
+"player": "Randy Johnson",
+"yrs": 4,
+"tot": 52.4,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-10",
+"pid": 119142,
+"club": "LAD",
+"player": "Alan Mills",
+"yrs": 3,
+"tot": 6.5,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-11",
+"pid": 123678,
+"club": "LAA",
+"player": "Mo Vaughn",
+"yrs": 6,
+"tot": 80.0,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-12",
+"pid": 111554,
+"club": "LAD",
+"player": "Kevin Brown",
+"yrs": 7,
+"tot": 105.0,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1998-12-18",
+"pid": 114135,
+"club": "ARI",
+"player": "Steve Finley",
+"yrs": 4,
+"tot": 21.5,
+"start": 1999,
+"src": "fa97"
+},
+{
+"date": "1999-01-12",
+"pid": 119525,
+"club": "TEX",
+"player": "Mike Munoz",
+"yrs": 1,
+"tot": 0.8,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-01-20",
+"pid": 112213,
+"club": "TB",
+"player": "Norm Charlton",
+"yrs": 1,
+"tot": 0.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-11-15",
+"pid": 120658,
+"club": "DET",
+"player": "Luis Polonia",
+"yrs": 1,
+"tot": 1.4,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-11-17",
+"pid": 113386,
+"club": "COL",
+"player": "Jerry Dipoto",
+"yrs": 2,
+"tot": 4.9,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-11-18",
+"pid": 117740,
+"club": "CIN",
+"player": "Mark Lewis",
+"yrs": 1,
+"tot": 0.6,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-11-19",
+"pid": 110891,
+"club": "MIL",
+"player": "Jason Bere",
+"yrs": 1,
+"tot": 0.8,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-11-19",
+"pid": 118141,
+"club": "ATH",
+"player": "Mike Magnante",
+"yrs": 2,
+"tot": 2.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-11-24",
+"pid": 122329,
+"club": "STL",
+"player": "Heathcliff Slocumb",
+"yrs": 2,
+"tot": 3.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-11-29",
+"pid": 122681,
+"club": "NYY",
+"player": "Mike Stanton",
+"yrs": 3,
+"tot": 7.3,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-02",
+"pid": 113929,
+"club": "HOU",
+"player": "Tony Eusebio",
+"yrs": 2,
+"tot": 2.4,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-02",
+"pid": 124000,
+"club": "MIL",
+"player": "David Weathers",
+"yrs": 2,
+"tot": 1.9,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-03",
+"pid": 115790,
+"club": "HOU",
+"player": "Doug Henry",
+"yrs": 1,
+"tot": 0.8,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-03",
+"pid": 116824,
+"club": "CLE",
+"player": "Scott Kamieniecki",
+"yrs": 2,
+"tot": 3.6,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-03",
+"pid": 122620,
+"club": "ARI",
+"player": "Russ Springer",
+"yrs": 2,
+"tot": 4.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-06",
+"pid": 111676,
+"club": "SEA",
+"player": "Jay Buhner",
+"yrs": 1,
+"tot": 0.6,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-06",
+"pid": 112552,
+"club": "NYY",
+"player": "David Cone",
+"yrs": 1,
+"tot": 12.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-07",
+"pid": 110136,
+"club": "TEX",
+"player": "Luis Alicea",
+"yrs": 1,
+"tot": 0.8,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-07",
+"pid": 111397,
+"club": "PHI",
+"player": "Jeff Brantley",
+"yrs": 1,
+"tot": 0.2,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-07",
+"pid": 116436,
+"club": "PHI",
+"player": "Mike Jackson",
+"yrs": 1,
+"tot": 3.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-07",
+"pid": 117480,
+"club": "CLE",
+"player": "Mark Langston",
+"yrs": 1,
+"tot": 0.3,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-07",
+"pid": 121663,
+"club": "KC",
+"player": "Rey Sánchez",
+"yrs": 2,
+"tot": 4.6,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-07",
+"pid": 123982,
+"club": "NYY",
+"player": "Allen Watson",
+"yrs": 2,
+"tot": 3.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-09",
+"pid": 110456,
+"club": "BAL",
+"player": "Harold Baines",
+"yrs": 1,
+"tot": 2.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-09",
+"pid": 114961,
+"club": "COL",
+"player": "Tom Goodwin",
+"yrs": 3,
+"tot": 10.8,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-10",
+"pid": 123011,
+"club": "PIT",
+"player": "Dale Sveum",
+"yrs": 1,
+"tot": 0.4,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-11",
+"pid": 124755,
+"club": "NYM",
+"player": "Todd Zeile",
+"yrs": 3,
+"tot": 18.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-12",
+"pid": 115783,
+"club": "COL",
+"player": "Butch Henry",
+"yrs": 1,
+"tot": 0.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-12",
+"pid": 121955,
+"club": "ATL",
+"player": "Rudy Seánez",
+"yrs": 1,
+"tot": 1.6,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-13",
+"pid": 123675,
+"club": "TB",
+"player": "Greg Vaughn",
+"yrs": 4,
+"tot": 34.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-14",
+"pid": 112680,
+"club": "PIT",
+"player": "Wil Cordero",
+"yrs": 3,
+"tot": 9.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-15",
+"pid": 114097,
+"club": "LAD",
+"player": "Mike Fetters",
+"yrs": 1,
+"tot": 0.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-15",
+"pid": 114833,
+"club": "CHC",
+"player": "Joe Girardi",
+"yrs": 3,
+"tot": 5.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-15",
+"pid": 119976,
+"club": "SEA",
+"player": "John Olerud",
+"yrs": 3,
+"tot": 20.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-16",
+"pid": 112559,
+"club": "BAL",
+"player": "Jeff Conine",
+"yrs": 2,
+"tot": 5.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-16",
+"pid": 114133,
+"club": "CLE",
+"player": "Chuck Finley",
+"yrs": 3,
+"tot": 27.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-16",
+"pid": 115825,
+"club": "MIL",
+"player": "José Hernández",
+"yrs": 3,
+"tot": 10.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-16",
+"pid": 118490,
+"club": "COL",
+"player": "Brent Mayne",
+"yrs": 2,
+"tot": 4.2,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-17",
+"pid": 115861,
+"club": "LAD",
+"player": "Orel Hershiser",
+"yrs": 1,
+"tot": 2.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-17",
+"pid": 119616,
+"club": "BAL",
+"player": "Greg Myers",
+"yrs": 2,
+"tot": 2.6,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-17",
+"pid": 122011,
+"club": "COL",
+"player": "Scott Servais",
+"yrs": 1,
+"tot": 0.6,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-19",
+"pid": 124314,
+"club": "TB",
+"player": "Gerald Williams",
+"yrs": 2,
+"tot": 5.8,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-20",
+"pid": 115263,
+"club": "CHC",
+"player": "Ricky Gutiérrez",
+"yrs": 1,
+"tot": 2.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-20",
+"pid": 116506,
+"club": "SEA",
+"player": "Stan Javier",
+"yrs": 1,
+"tot": 1.8,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-20",
+"pid": 117841,
+"club": "WSH",
+"player": "Graeme Lloyd",
+"yrs": 3,
+"tot": 9.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-20",
+"pid": 118808,
+"club": "SEA",
+"player": "Mark McLemore",
+"yrs": 1,
+"tot": 2.2,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-21",
+"pid": 121125,
+"club": "SEA",
+"player": "Arthur Rhodes",
+"yrs": 4,
+"tot": 13.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-22",
+"pid": 114032,
+"club": "BOS",
+"player": "Jeff Fassero",
+"yrs": 1,
+"tot": 2.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-22",
+"pid": 115183,
+"club": "BAL",
+"player": "Buddy Groom",
+"yrs": 2,
+"tot": 4.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-22",
+"pid": 116215,
+"club": "STL",
+"player": "Thomas Howard",
+"yrs": 1,
+"tot": 0.7,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "1999-12-29",
+"pid": 121386,
+"club": "TEX",
+"player": "Kenny Rogers",
+"yrs": 3,
+"tot": 22.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-01",
+"pid": 122205,
+"club": "COL",
+"player": "Terry Shumpert",
+"yrs": 1,
+"tot": 0.8,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-07",
+"pid": 110854,
+"club": "STL",
+"player": "Andy Benes",
+"yrs": 3,
+"tot": 18.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-07",
+"pid": 124291,
+"club": "CHC",
+"player": "Brian Williams",
+"yrs": 1,
+"tot": 0.6,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-08",
+"pid": 115267,
+"club": "TB",
+"player": "Juan Guzmán",
+"yrs": 2,
+"tot": 12.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-08",
+"pid": 115415,
+"club": "CLE",
+"player": "Chris Haney",
+"yrs": 1,
+"tot": 0.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-08",
+"pid": 119982,
+"club": "ATH",
+"player": "Omar Olivares",
+"yrs": 2,
+"tot": 8.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-10",
+"pid": 120002,
+"club": "LAD",
+"player": "Gregg Olson",
+"yrs": 2,
+"tot": 3.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-10",
+"pid": 121986,
+"club": "SEA",
+"player": "Aaron Sele",
+"yrs": 2,
+"tot": 15.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-11",
+"pid": 121692,
+"club": "LAD",
+"player": "F. P. Santangelo",
+"yrs": 2,
+"tot": 1.6,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-14",
+"pid": 116358,
+"club": "CHC",
+"player": "Jeff Huson",
+"yrs": 1,
+"tot": 0.3,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-17",
+"pid": 111734,
+"club": "TB",
+"player": "John Burkett",
+"yrs": 1,
+"tot": 0.8,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-17",
+"pid": 116191,
+"club": "MIL",
+"player": "Tyler Houston",
+"yrs": 1,
+"tot": 0.8,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-18",
+"pid": 121977,
+"club": "TOR",
+"player": "David Segui",
+"yrs": 1,
+"tot": 4.3,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-19",
+"pid": 115640,
+"club": "NYM",
+"player": "Charlie Hayes",
+"yrs": 1,
+"tot": 0.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-21",
+"pid": 119827,
+"club": "DET",
+"player": "Hideo Nomo",
+"yrs": 1,
+"tot": 1.2,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-26",
+"pid": 110011,
+"club": "NYM",
+"player": "Kurt Abbott",
+"yrs": 1,
+"tot": 0.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-27",
+"pid": 111262,
+"club": "KC",
+"player": "Ricky Bottalico",
+"yrs": 1,
+"tot": 1.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-27",
+"pid": 119984,
+"club": "TEX",
+"player": "Darren Oliver",
+"yrs": 3,
+"tot": 19.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-27",
+"pid": 121676,
+"club": "CLE",
+"player": "Scott Sanders",
+"yrs": 1,
+"tot": 0.2,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-28",
+"pid": 120933,
+"club": "BAL",
+"player": "Pat Rapp",
+"yrs": 1,
+"tot": 1.1,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-28",
+"pid": 123431,
+"club": "TB",
+"player": "Steve Trachsel",
+"yrs": 1,
+"tot": 1.0,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-01-28",
+"pid": 124498,
+"club": "CIN",
+"player": "Mark Wohlers",
+"yrs": 1,
+"tot": 1.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-02-01",
+"pid": 120891,
+"club": "NYY",
+"player": "Tim Raines",
+"yrs": 1,
+"tot": 0.4,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-02-03",
+"pid": 122612,
+"club": "SD",
+"player": "Ed Sprague",
+"yrs": 1,
+"tot": 0.8,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-02-04",
+"pid": 123163,
+"club": "COL",
+"player": "Billy Taylor",
+"yrs": 1,
+"tot": 0.9,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-02-08",
+"pid": 121363,
+"club": "NYM",
+"player": "Rich Rodriguez",
+"yrs": 2,
+"tot": 1.5,
+"start": 2000,
+"src": "fa97"
+},
+{
+"date": "2000-11-16",
+"pid": 116075,
+"club": "COL",
+"player": "Todd Hollandsworth",
+"yrs": 2,
+"tot": 5.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-11-16",
+"pid": 120028,
+"club": "NYY",
+"player": "Paul O'Neill",
+"yrs": 1,
+"tot": 6.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-11-16",
+"pid": 123118,
+"club": "CHC",
+"player": "Julián Tavárez",
+"yrs": 2,
+"tot": 5.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-11-19",
+"pid": 111736,
+"club": "CLE",
+"player": "Ellis Burks",
+"yrs": 3,
+"tot": 20.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-11-20",
+"pid": 113966,
+"club": "LAA",
+"player": "Jorge Fábregas",
+"yrs": 1,
+"tot": 0.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-11-20",
+"pid": 123743,
+"club": "HOU",
+"player": "José Vizcaíno",
+"yrs": 1,
+"tot": 1.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-11-21",
+"pid": 118986,
+"club": "PHI",
+"player": "José Mesa",
+"yrs": 2,
+"tot": 6.8,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-11-21",
+"pid": 119987,
+"club": "NYY",
+"player": "Joe Oliver",
+"yrs": 1,
+"tot": 1.2,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-11-25",
+"pid": 114374,
+"club": "NYM",
+"player": "John Franco",
+"yrs": 3,
+"tot": 10.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-11-30",
+"pid": 112690,
+"club": "PHI",
+"player": "Rheal Cormier",
+"yrs": 3,
+"tot": 8.8,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-11-30",
+"pid": 123610,
+"club": "CWS",
+"player": "José Valentín",
+"yrs": 3,
+"tot": 15.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-04",
+"pid": 119673,
+"club": "COL",
+"player": "Denny Neagle",
+"yrs": 5,
+"tot": 51.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-04",
+"pid": 119704,
+"club": "SEA",
+"player": "Jeff Nelson",
+"yrs": 3,
+"tot": 10.7,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-06",
+"pid": 110351,
+"club": "LAD",
+"player": "Andy Ashby",
+"yrs": 3,
+"tot": 22.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-06",
+"pid": 113387,
+"club": "LAA",
+"player": "Gary Disarcina",
+"yrs": 1,
+"tot": 0.3,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-06",
+"pid": 120999,
+"club": "NYM",
+"player": "Rick Reed",
+"yrs": 3,
+"tot": 21.8,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-06",
+"pid": 121117,
+"club": "ARI",
+"player": "Armando Reynoso",
+"yrs": 2,
+"tot": 6.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-06",
+"pid": 124084,
+"club": "NYM",
+"player": "Turk Wendell",
+"yrs": 3,
+"tot": 9.4,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-07",
+"pid": 111676,
+"club": "SEA",
+"player": "Jay Buhner",
+"yrs": 1,
+"tot": 1.9,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-07",
+"pid": 112113,
+"club": "BOS",
+"player": "Frank Castillo",
+"yrs": 2,
+"tot": 4.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-07",
+"pid": 113793,
+"club": "CWS",
+"player": "Cal Eldred",
+"yrs": 1,
+"tot": 1.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-07",
+"pid": 114610,
+"club": "SF",
+"player": "Mark Gardner",
+"yrs": 1,
+"tot": 2.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-07",
+"pid": 115270,
+"club": "SD",
+"player": "Tony Gwynn",
+"yrs": 1,
+"tot": 2.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-07",
+"pid": 119608,
+"club": "NYY",
+"player": "Mike Mussina",
+"yrs": 6,
+"tot": 88.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-07",
+"pid": 122522,
+"club": "NYY",
+"player": "Luis Sojo",
+"yrs": 1,
+"tot": 0.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-07",
+"pid": 123801,
+"club": "BOS",
+"player": "Tim Wakefield",
+"yrs": 2,
+"tot": 6.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-08",
+"pid": 113645,
+"club": "SF",
+"player": "Shawon Dunston",
+"yrs": 1,
+"tot": 1.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-08",
+"pid": 114032,
+"club": "CHC",
+"player": "Jeff Fassero",
+"yrs": 2,
+"tot": 5.1,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-08",
+"pid": 114526,
+"club": "TEX",
+"player": "Andrés Galarraga",
+"yrs": 1,
+"tot": 6.2,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-08",
+"pid": 115007,
+"club": "ARI",
+"player": "Mark Grace",
+"yrs": 2,
+"tot": 6.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-08",
+"pid": 120624,
+"club": "TOR",
+"player": "Dan Plesac",
+"yrs": 1,
+"tot": 2.4,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-10",
+"pid": 110818,
+"club": "PIT",
+"player": "Derek Bell",
+"yrs": 2,
+"tot": 9.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-10",
+"pid": 111908,
+"club": "TEX",
+"player": "Ken Caminiti",
+"yrs": 1,
+"tot": 3.2,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-10",
+"pid": 114567,
+"club": "COL",
+"player": "Ron Gant",
+"yrs": 1,
+"tot": 2.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-10",
+"pid": 114924,
+"club": "TOR",
+"player": "Alex Gonzalez",
+"yrs": 4,
+"tot": 20.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-10",
+"pid": 118363,
+"club": "ATL",
+"player": "Dave Martinez",
+"yrs": 2,
+"tot": 3.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-10",
+"pid": 119488,
+"club": "PIT",
+"player": "Terry Mulholland",
+"yrs": 2,
+"tot": 6.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-10",
+"pid": 120472,
+"club": "TEX",
+"player": "Mark Petkovsek",
+"yrs": 2,
+"tot": 4.9,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-11",
+"pid": 110293,
+"club": "NYM",
+"player": "Kevin Appier",
+"yrs": 4,
+"tot": 42.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-11",
+"pid": 114464,
+"club": "TOR",
+"player": "Jeff Frye",
+"yrs": 1,
+"tot": 1.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-11",
+"pid": 115790,
+"club": "KC",
+"player": "Doug Henry",
+"yrs": 2,
+"tot": 2.8,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-11",
+"pid": 120933,
+"club": "LAA",
+"player": "Pat Rapp",
+"yrs": 1,
+"tot": 2.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-12",
+"pid": 115399,
+"club": "COL",
+"player": "Mike Hampton",
+"yrs": 8,
+"tot": 121.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-13",
+"pid": 110312,
+"club": "SD",
+"player": "Alex Arias",
+"yrs": 2,
+"tot": 1.3,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-13",
+"pid": 111502,
+"club": "ATL",
+"player": "Rico Brogna",
+"yrs": 1,
+"tot": 1.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-14",
+"pid": 114971,
+"club": "CHC",
+"player": "Tom Gordon",
+"yrs": 2,
+"tot": 5.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-14",
+"pid": 123431,
+"club": "NYM",
+"player": "Steve Trachsel",
+"yrs": 2,
+"tot": 7.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-15",
+"pid": 111262,
+"club": "PHI",
+"player": "Ricky Bottalico",
+"yrs": 1,
+"tot": 1.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-15",
+"pid": 119827,
+"club": "BOS",
+"player": "Hideo Nomo",
+"yrs": 1,
+"tot": 4.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-18",
+"pid": 110184,
+"club": "CWS",
+"player": "Sandy Alomar",
+"yrs": 2,
+"tot": 5.4,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-18",
+"pid": 110891,
+"club": "CHC",
+"player": "Jason Bere",
+"yrs": 2,
+"tot": 4.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-18",
+"pid": 116569,
+"club": "MIA",
+"player": "Charles Johnson",
+"yrs": 5,
+"tot": 35.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-19",
+"pid": 115797,
+"club": "BAL",
+"player": "Pat Hentgen",
+"yrs": 2,
+"tot": 9.6,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-19",
+"pid": 116316,
+"club": "CHC",
+"player": "Todd Hundley",
+"yrs": 4,
+"tot": 23.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-19",
+"pid": 120903,
+"club": "BOS",
+"player": "Manny Ramirez",
+"yrs": 8,
+"tot": 160.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-20",
+"pid": 111234,
+"club": "BAL",
+"player": "Mike Bordick",
+"yrs": 2,
+"tot": 9.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-20",
+"pid": 111734,
+"club": "ATL",
+"player": "John Burkett",
+"yrs": 1,
+"tot": 1.8,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-21",
+"pid": 121977,
+"club": "BAL",
+"player": "David Segui",
+"yrs": 4,
+"tot": 28.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-22",
+"pid": 111214,
+"club": "SEA",
+"player": "Bret Boone",
+"yrs": 1,
+"tot": 3.2,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-22",
+"pid": 115394,
+"club": "MIL",
+"player": "Jeffrey Hammonds",
+"yrs": 3,
+"tot": 21.8,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2000-12-22",
+"pid": 117442,
+"club": "SEA",
+"player": "Tom Lampkin",
+"yrs": 1,
+"tot": 1.2,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2001-01-03",
+"pid": 111264,
+"club": "HOU",
+"player": "Kent Bottenfield",
+"yrs": 1,
+"tot": 2.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2001-01-05",
+"pid": 111199,
+"club": "STL",
+"player": "Bobby Bonilla",
+"yrs": 1,
+"tot": 0.9,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2001-01-05",
+"pid": 115260,
+"club": "ATH",
+"player": "Mark Guthrie",
+"yrs": 2,
+"tot": 3.6,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2001-01-05",
+"pid": 118132,
+"club": "SD",
+"player": "Dave Magadan",
+"yrs": 1,
+"tot": 0.6,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2001-01-08",
+"pid": 118958,
+"club": "HOU",
+"player": "Orlando Merced",
+"yrs": 1,
+"tot": 1.1,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-01-09",
+"pid": 114932,
+"club": "CLE",
+"player": "Juan González",
+"yrs": 1,
+"tot": 10.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2001-01-10",
+"pid": 112641,
+"club": "CHC",
+"player": "Ron Coomer",
+"yrs": 1,
+"tot": 1.2,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2001-01-11",
+"pid": 112552,
+"club": "BOS",
+"player": "David Cone",
+"yrs": 1,
+"tot": 1.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2001-01-11",
+"pid": 113102,
+"club": "SF",
+"player": "Eric Davis",
+"yrs": 1,
+"tot": 1.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2001-01-11",
+"pid": 121673,
+"club": "ARI",
+"player": "Reggie Sanders",
+"yrs": 1,
+"tot": 1.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2001-01-26",
+"pid": 110136,
+"club": "KC",
+"player": "Luis Alicea",
+"yrs": 1,
+"tot": 0.8,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2001-01-26",
+"pid": 121347,
+"club": "TEX",
+"player": "Alex Rodriguez",
+"yrs": 10,
+"tot": 252.0,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2001-02-15",
+"pid": 121357,
+"club": "NYY",
+"player": "Henry Rodríguez",
+"yrs": 1,
+"tot": 1.5,
+"start": 2001,
+"src": "fa97"
+},
+{
+"date": "2001-03-17",
+"pid": 121693,
+"club": "SF",
+"player": "Benito Santiago",
+"yrs": 2,
+"tot": 3.8,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-11-19",
+"pid": 113966,
+"club": "LAA",
+"player": "Jorge Fábregas",
+"yrs": 1,
+"tot": 0.5,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-11-26",
+"pid": 123650,
+"club": "TEX",
+"player": "Todd Van Poppel",
+"yrs": 3,
+"tot": 7.5,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-03",
+"pid": 116326,
+"club": "HOU",
+"player": "Brian Hunter",
+"yrs": 2,
+"tot": 2.2,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-03",
+"pid": 123743,
+"club": "HOU",
+"player": "José Vizcaíno",
+"yrs": 1,
+"tot": 1.7,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-04",
+"pid": 113291,
+"club": "CHC",
+"player": "Delino DeShields",
+"yrs": 1,
+"tot": 1.2,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-04",
+"pid": 122477,
+"club": "ATL",
+"player": "John Smoltz",
+"yrs": 3,
+"tot": 30.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-05",
+"pid": 112270,
+"club": "SF",
+"player": "Jason Christiansen",
+"yrs": 3,
+"tot": 6.8,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-06",
+"pid": 112682,
+"club": "BAL",
+"player": "Marty Cordova",
+"yrs": 3,
+"tot": 9.1,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-07",
+"pid": 110136,
+"club": "KC",
+"player": "Luis Alicea",
+"yrs": 1,
+"tot": 0.8,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-07",
+"pid": 111214,
+"club": "SEA",
+"player": "Bret Boone",
+"yrs": 3,
+"tot": 25.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-07",
+"pid": 114909,
+"club": "TB",
+"player": "Chris Gomez",
+"yrs": 1,
+"tot": 1.2,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-07",
+"pid": 116853,
+"club": "NYY",
+"player": "Steve Karsay",
+"yrs": 4,
+"tot": 22.2,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-07",
+"pid": 117919,
+"club": "ATL",
+"player": "Javy López",
+"yrs": 1,
+"tot": 6.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-07",
+"pid": 118808,
+"club": "SEA",
+"player": "Mark McLemore",
+"yrs": 2,
+"tot": 6.3,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-11",
+"pid": 112106,
+"club": "ATL",
+"player": "Vinny Castilla",
+"yrs": 2,
+"tot": 8.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-11",
+"pid": 116414,
+"club": "STL",
+"player": "Jason Isringhausen",
+"yrs": 4,
+"tot": 27.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-11",
+"pid": 124748,
+"club": "HOU",
+"player": "Gregg Zaun",
+"yrs": 2,
+"tot": 2.4,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-12",
+"pid": 112213,
+"club": "SEA",
+"player": "Norm Charlton",
+"yrs": 1,
+"tot": 1.2,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-13",
+"pid": 120214,
+"club": "DET",
+"player": "Craig Paquette",
+"yrs": 2,
+"tot": 5.1,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-13",
+"pid": 120717,
+"club": "TEX",
+"player": "Jay Powell",
+"yrs": 3,
+"tot": 9.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-13",
+"pid": 124000,
+"club": "NYM",
+"player": "David Weathers",
+"yrs": 3,
+"tot": 9.4,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-17",
+"pid": 112155,
+"club": "NYM",
+"player": "Roger Cedeño",
+"yrs": 4,
+"tot": 18.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-17",
+"pid": 115263,
+"club": "CLE",
+"player": "Ricky Gutiérrez",
+"yrs": 3,
+"tot": 11.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-17",
+"pid": 124185,
+"club": "NYY",
+"player": "Rondell White",
+"yrs": 2,
+"tot": 10.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-18",
+"pid": 110712,
+"club": "ARI",
+"player": "Danny Bautista",
+"yrs": 3,
+"tot": 9.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-18",
+"pid": 114739,
+"club": "NYY",
+"player": "Jason Giambi",
+"yrs": 7,
+"tot": 120.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-18",
+"pid": 115982,
+"club": "NYY",
+"player": "Sterling Hitchcock",
+"yrs": 2,
+"tot": 12.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-18",
+"pid": 117197,
+"club": "KC",
+"player": "Chuck Knoblauch",
+"yrs": 1,
+"tot": 2.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-18",
+"pid": 118362,
+"club": "STL",
+"player": "Tino Martinez",
+"yrs": 3,
+"tot": 21.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-18",
+"pid": 121834,
+"club": "SF",
+"player": "Jason Schmidt",
+"yrs": 4,
+"tot": 30.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-19",
+"pid": 110189,
+"club": "CHC",
+"player": "Moisés Alou",
+"yrs": 3,
+"tot": 27.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-19",
+"pid": 111692,
+"club": "TEX",
+"player": "Dave Burba",
+"yrs": 1,
+"tot": 2.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-19",
+"pid": 111734,
+"club": "BOS",
+"player": "John Burkett",
+"yrs": 2,
+"tot": 11.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-19",
+"pid": 112621,
+"club": "LAA",
+"player": "Dennis Cook",
+"yrs": 1,
+"tot": 1.2,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-20",
+"pid": 117913,
+"club": "ATL",
+"player": "Albie Lopez",
+"yrs": 1,
+"tot": 4.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-21",
+"pid": 113028,
+"club": "BOS",
+"player": "Johnny Damon",
+"yrs": 4,
+"tot": 31.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-21",
+"pid": 119827,
+"club": "LAD",
+"player": "Hideo Nomo",
+"yrs": 2,
+"tot": 13.8,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2001-12-27",
+"pid": 113833,
+"club": "SD",
+"player": "Alan Embree",
+"yrs": 1,
+"tot": 0.5,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-02",
+"pid": 115608,
+"club": "ATH",
+"player": "Scott Hatteberg",
+"yrs": 1,
+"tot": 1.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-02",
+"pid": 116114,
+"club": "ATH",
+"player": "Mike Holtz",
+"yrs": 2,
+"tot": 1.8,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-02",
+"pid": 122918,
+"club": "CHC",
+"player": "Chris Stynes",
+"yrs": 1,
+"tot": 1.2,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-02",
+"pid": 124328,
+"club": "PIT",
+"player": "Mike Williams",
+"yrs": 2,
+"tot": 7.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-03",
+"pid": 119374,
+"club": "ARI",
+"player": "Mike Morgan",
+"yrs": 1,
+"tot": 0.8,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-03",
+"pid": 122218,
+"club": "SEA",
+"player": "Rubén Sierra",
+"yrs": 1,
+"tot": 1.9,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-04",
+"pid": 121986,
+"club": "LAA",
+"player": "Aaron Sele",
+"yrs": 3,
+"tot": 24.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-07",
+"pid": 118421,
+"club": "HOU",
+"player": "T. J. Mathews",
+"yrs": 1,
+"tot": 1.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-08",
+"pid": 111262,
+"club": "PHI",
+"player": "Ricky Bottalico",
+"yrs": 1,
+"tot": 1.5,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-08",
+"pid": 114932,
+"club": "TEX",
+"player": "Juan González",
+"yrs": 2,
+"tot": 24.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-08",
+"pid": 121673,
+"club": "SF",
+"player": "Reggie Sanders",
+"yrs": 1,
+"tot": 2.2,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-09",
+"pid": 124498,
+"club": "CLE",
+"player": "Mark Wohlers",
+"yrs": 2,
+"tot": 4.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-10",
+"pid": 124184,
+"club": "COL",
+"player": "Rick White",
+"yrs": 1,
+"tot": 1.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-11",
+"pid": 115649,
+"club": "CIN",
+"player": "Jimmy Haynes",
+"yrs": 2,
+"tot": 5.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-01-11",
+"pid": 116734,
+"club": "COL",
+"player": "Todd Jones",
+"yrs": 1,
+"tot": 1.3,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-11",
+"pid": 123690,
+"club": "ATH",
+"player": "Randy Velarde",
+"yrs": 1,
+"tot": 1.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-14",
+"pid": 117731,
+"club": "CHC",
+"player": "Darren Lewis",
+"yrs": 1,
+"tot": 0.5,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-15",
+"pid": 110067,
+"club": "PHI",
+"player": "Terry Adams",
+"yrs": 1,
+"tot": 2.7,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-16",
+"pid": 110359,
+"club": "NYM",
+"player": "Pedro Astacio",
+"yrs": 1,
+"tot": 5.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-16",
+"pid": 120221,
+"club": "TEX",
+"player": "Chan Ho Park",
+"yrs": 5,
+"tot": 65.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-17",
+"pid": 124071,
+"club": "NYY",
+"player": "David Wells",
+"yrs": 2,
+"tot": 7.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-17",
+"pid": 124695,
+"club": "MIL",
+"player": "Eric Young",
+"yrs": 2,
+"tot": 5.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-20",
+"pid": 115727,
+"club": "ARI",
+"player": "Rick Helling",
+"yrs": 1,
+"tot": 4.5,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-24",
+"pid": 111145,
+"club": "PIT",
+"player": "Brian Boehringer",
+"yrs": 2,
+"tot": 3.8,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-01-25",
+"pid": 122644,
+"club": "MIL",
+"player": "Matt Stairs",
+"yrs": 1,
+"tot": 0.5,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-29",
+"pid": 116100,
+"club": "ATL",
+"player": "Darren Holmes",
+"yrs": 1,
+"tot": 0.7,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-01-29",
+"pid": 133342,
+"club": "PHI",
+"player": "Ricky Ledée",
+"yrs": 1,
+"tot": 0.8,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-30",
+"pid": 110503,
+"club": "SEA",
+"player": "James Baldwin",
+"yrs": 1,
+"tot": 1.8,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-30",
+"pid": 112897,
+"club": "SD",
+"player": "Deivi Cruz",
+"yrs": 1,
+"tot": 0.5,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-01-30",
+"pid": 121009,
+"club": "PIT",
+"player": "Pokey Reese",
+"yrs": 2,
+"tot": 5.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-02-01",
+"pid": 117863,
+"club": "CWS",
+"player": "Kenny Lofton",
+"yrs": 1,
+"tot": 1.2,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-02-01",
+"pid": 124234,
+"club": "NYY",
+"player": "Chris Widger",
+"yrs": 1,
+"tot": 0.8,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-02-14",
+"pid": 121252,
+"club": "NYY",
+"player": "Rubén Rivera",
+"yrs": 1,
+"tot": 1.0,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-02-22",
+"pid": 120539,
+"club": "HOU",
+"player": "Hipólito Pichardo",
+"yrs": 1,
+"tot": 0.5,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-02-25",
+"pid": 115487,
+"club": "COL",
+"player": "Pete Harnisch",
+"yrs": 1,
+"tot": 0.2,
+"start": 2002,
+"src": "fa97"
+},
+{
+"date": "2002-11-19",
+"pid": 120051,
+"club": "SD",
+"player": "Jesse Orosco",
+"yrs": 1,
+"tot": 0.8,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-11-26",
+"pid": 124315,
+"club": "STL",
+"player": "Woody Williams",
+"yrs": 2,
+"tot": 14.9,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-02",
+"pid": 110816,
+"club": "PHI",
+"player": "David Bell",
+"yrs": 4,
+"tot": 17.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-02",
+"pid": 123272,
+"club": "PHI",
+"player": "Jim Thome",
+"yrs": 6,
+"tot": 85.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-04",
+"pid": 121060,
+"club": "CHC",
+"player": "Mike Remlinger",
+"yrs": 3,
+"tot": 10.7,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-05",
+"pid": 110536,
+"club": "BOS",
+"player": "Willie Banks",
+"yrs": 1,
+"tot": 0.8,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-05",
+"pid": 114849,
+"club": "NYM",
+"player": "Tom Glavine",
+"yrs": 3,
+"tot": 35.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-06",
+"pid": 119976,
+"club": "SEA",
+"player": "John Olerud",
+"yrs": 2,
+"tot": 15.4,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-06",
+"pid": 123245,
+"club": "CWS",
+"player": "Frank Thomas",
+"yrs": 4,
+"tot": 22.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-06",
+"pid": 123697,
+"club": "NYY",
+"player": "Robin Ventura",
+"yrs": 1,
+"tot": 5.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-07",
+"pid": 112680,
+"club": "WSH",
+"player": "Wil Cordero",
+"yrs": 1,
+"tot": 0.6,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-07",
+"pid": 113660,
+"club": "SF",
+"player": "Ray Durham",
+"yrs": 3,
+"tot": 20.1,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-07",
+"pid": 114032,
+"club": "STL",
+"player": "Jeff Fassero",
+"yrs": 1,
+"tot": 1.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-07",
+"pid": 114135,
+"club": "ARI",
+"player": "Steve Finley",
+"yrs": 2,
+"tot": 11.2,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-07",
+"pid": 115174,
+"club": "SF",
+"player": "Marquis Grissom",
+"yrs": 2,
+"tot": 4.2,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-07",
+"pid": 119469,
+"club": "SEA",
+"player": "Jamie Moyer",
+"yrs": 3,
+"tot": 15.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-07",
+"pid": 120624,
+"club": "PHI",
+"player": "Dan Plesac",
+"yrs": 1,
+"tot": 2.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-07",
+"pid": 121110,
+"club": "HOU",
+"player": "Shane Reynolds",
+"yrs": 1,
+"tot": 1.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-07",
+"pid": 123431,
+"club": "NYM",
+"player": "Steve Trachsel",
+"yrs": 2,
+"tot": 8.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-11",
+"pid": 115436,
+"club": "SD",
+"player": "Dave Hansen",
+"yrs": 2,
+"tot": 1.3,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-13",
+"pid": 115391,
+"club": "NYY",
+"player": "Chris Hammond",
+"yrs": 2,
+"tot": 4.8,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-15",
+"pid": 110135,
+"club": "SF",
+"player": "Edgardo Alfonzo",
+"yrs": 4,
+"tot": 26.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-15",
+"pid": 112897,
+"club": "BAL",
+"player": "Deivi Cruz",
+"yrs": 1,
+"tot": 1.2,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-16",
+"pid": 117928,
+"club": "SD",
+"player": "Mark Loretta",
+"yrs": 1,
+"tot": 1.2,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-16",
+"pid": 119616,
+"club": "TOR",
+"player": "Greg Myers",
+"yrs": 1,
+"tot": 0.8,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-17",
+"pid": 119975,
+"club": "CHC",
+"player": "Troy O'Leary",
+"yrs": 1,
+"tot": 0.8,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-18",
+"pid": 111838,
+"club": "ATL",
+"player": "Paul Byrd",
+"yrs": 2,
+"tot": 10.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-18",
+"pid": 114833,
+"club": "STL",
+"player": "Joe Girardi",
+"yrs": 1,
+"tot": 0.7,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-18",
+"pid": 114844,
+"club": "TEX",
+"player": "Doug Glanville",
+"yrs": 1,
+"tot": 1.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-18",
+"pid": 116999,
+"club": "HOU",
+"player": "Jeff Kent",
+"yrs": 2,
+"tot": 18.2,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-18",
+"pid": 122644,
+"club": "PIT",
+"player": "Matt Stairs",
+"yrs": 1,
+"tot": 0.9,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-19",
+"pid": 110067,
+"club": "PHI",
+"player": "Terry Adams",
+"yrs": 1,
+"tot": 2.9,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-19",
+"pid": 110891,
+"club": "CLE",
+"player": "Jason Bere",
+"yrs": 1,
+"tot": 1.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-19",
+"pid": 122681,
+"club": "NYM",
+"player": "Mike Stanton",
+"yrs": 3,
+"tot": 9.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-19",
+"pid": 124755,
+"club": "NYY",
+"player": "Todd Zeile",
+"yrs": 1,
+"tot": 1.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-19",
+"pid": 425686,
+"club": "NYY",
+"player": "Hideki Matsui",
+"yrs": 3,
+"tot": 21.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-20",
+"pid": 110184,
+"club": "CWS",
+"player": "Sandy Alomar",
+"yrs": 1,
+"tot": 0.7,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-20",
+"pid": 111234,
+"club": "TOR",
+"player": "Mike Bordick",
+"yrs": 1,
+"tot": 1.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-20",
+"pid": 113915,
+"club": "CHC",
+"player": "Shawn Estes",
+"yrs": 1,
+"tot": 3.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-21",
+"pid": 115007,
+"club": "ARI",
+"player": "Mark Grace",
+"yrs": 1,
+"tot": 2.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-21",
+"pid": 122915,
+"club": "TOR",
+"player": "Tanyon Sturtze",
+"yrs": 1,
+"tot": 1.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-23",
+"pid": 110230,
+"club": "CLE",
+"player": "Brian Anderson",
+"yrs": 1,
+"tot": 1.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-23",
+"pid": 123584,
+"club": "TEX",
+"player": "Ugueth Urbina",
+"yrs": 1,
+"tot": 4.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-26",
+"pid": 124643,
+"club": "TEX",
+"player": "Esteban Yan",
+"yrs": 1,
+"tot": 1.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-28",
+"pid": 112131,
+"club": "TOR",
+"player": "Frank Catalanotto",
+"yrs": 1,
+"tot": 2.2,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-30",
+"pid": 112388,
+"club": "NYY",
+"player": "Roger Clemens",
+"yrs": 1,
+"tot": 10.1,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-31",
+"pid": 118730,
+"club": "LAD",
+"player": "Fred McGriff",
+"yrs": 1,
+"tot": 3.8,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-31",
+"pid": 118947,
+"club": "BOS",
+"player": "Ramiro Mendoza",
+"yrs": 2,
+"tot": 6.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2002-12-31",
+"pid": 121663,
+"club": "NYM",
+"player": "Rey Sánchez",
+"yrs": 1,
+"tot": 1.3,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-02",
+"pid": 134002,
+"club": "CHC",
+"player": "Ramón Martínez",
+"yrs": 1,
+"tot": 0.8,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-03",
+"pid": 112461,
+"club": "SEA",
+"player": "Greg Colbrunn",
+"yrs": 2,
+"tot": 3.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-03",
+"pid": 112984,
+"club": "BAL",
+"player": "Omar Daal",
+"yrs": 2,
+"tot": 7.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-06",
+"pid": 114485,
+"club": "LAA",
+"player": "Brad Fullmer",
+"yrs": 1,
+"tot": 1.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-06",
+"pid": 115383,
+"club": "STL",
+"player": "Joey Hamilton",
+"yrs": 1,
+"tot": 0.8,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-06",
+"pid": 123348,
+"club": "BOS",
+"player": "Mike Timlin",
+"yrs": 1,
+"tot": 1.9,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-06",
+"pid": 137001,
+"club": "ATL",
+"player": "Robert Fick",
+"yrs": 1,
+"tot": 1.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-07",
+"pid": 117913,
+"club": "KC",
+"player": "Albie Lopez",
+"yrs": 1,
+"tot": 1.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-08",
+"pid": 116075,
+"club": "MIA",
+"player": "Todd Hollandsworth",
+"yrs": 1,
+"tot": 1.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-08",
+"pid": 119488,
+"club": "CLE",
+"player": "Terry Mulholland",
+"yrs": 1,
+"tot": 0.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-08",
+"pid": 120747,
+"club": "PHI",
+"player": "Todd Pratt",
+"yrs": 1,
+"tot": 0.9,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-01-08",
+"pid": 122918,
+"club": "COL",
+"player": "Chris Stynes",
+"yrs": 1,
+"tot": 0.6,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-08",
+"pid": 123707,
+"club": "CHC",
+"player": "Dave Veres",
+"yrs": 1,
+"tot": 2.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-09",
+"pid": 114260,
+"club": "NYM",
+"player": "Cliff Floyd",
+"yrs": 4,
+"tot": 26.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-10",
+"pid": 119482,
+"club": "BOS",
+"player": "Bill Mueller",
+"yrs": 2,
+"tot": 4.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-12",
+"pid": 124417,
+"club": "CIN",
+"player": "Paul Wilson",
+"yrs": 2,
+"tot": 4.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-13",
+"pid": 150291,
+"club": "ATL",
+"player": "Mike Venafro",
+"yrs": 1,
+"tot": 0.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-15",
+"pid": 116191,
+"club": "PHI",
+"player": "Tyler Houston",
+"yrs": 1,
+"tot": 1.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-16",
+"pid": 114208,
+"club": "NYY",
+"player": "John Flaherty",
+"yrs": 1,
+"tot": 0.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-01-16",
+"pid": 114961,
+"club": "CHC",
+"player": "Tom Goodwin",
+"yrs": 1,
+"tot": 0.7,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-01-16",
+"pid": 117763,
+"club": "BAL",
+"player": "Kerry Ligtenberg",
+"yrs": 1,
+"tot": 1.2,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-16",
+"pid": 118065,
+"club": "SEA",
+"player": "John Mabry",
+"yrs": 1,
+"tot": 0.8,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-16",
+"pid": 136724,
+"club": "TB",
+"player": "Marlon Anderson",
+"yrs": 1,
+"tot": 0.6,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-20",
+"pid": 115260,
+"club": "CHC",
+"player": "Mark Guthrie",
+"yrs": 1,
+"tot": 1.9,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-20",
+"pid": 119215,
+"club": "HOU",
+"player": "Brian Moehler",
+"yrs": 1,
+"tot": 0.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-22",
+"pid": 120074,
+"club": "BOS",
+"player": "David Ortiz",
+"yrs": 1,
+"tot": 1.2,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-23",
+"pid": 114971,
+"club": "CWS",
+"player": "Tom Gordon",
+"yrs": 1,
+"tot": 1.4,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-23",
+"pid": 115832,
+"club": "ATL",
+"player": "Roberto Hernández",
+"yrs": 1,
+"tot": 0.6,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-23",
+"pid": 121002,
+"club": "COL",
+"player": "Steve Reed",
+"yrs": 1,
+"tot": 0.9,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-23",
+"pid": 124184,
+"club": "CWS",
+"player": "Rick White",
+"yrs": 1,
+"tot": 0.8,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-24",
+"pid": 115825,
+"club": "COL",
+"player": "José Hernández",
+"yrs": 1,
+"tot": 1.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-28",
+"pid": 112903,
+"club": "SF",
+"player": "José Cruz",
+"yrs": 1,
+"tot": 2.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-28",
+"pid": 121358,
+"club": "MIA",
+"player": "Iván Rodríguez",
+"yrs": 1,
+"tot": 10.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-01-31",
+"pid": 110209,
+"club": "LAD",
+"player": "Wilson Álvarez",
+"yrs": 1,
+"tot": 1.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-01-31",
+"pid": 122987,
+"club": "PIT",
+"player": "Jeff Suppan",
+"yrs": 1,
+"tot": 1.0,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-02-02",
+"pid": 120190,
+"club": "STL",
+"player": "Orlando Palmeiro",
+"yrs": 1,
+"tot": 0.7,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-02-04",
+"pid": 117758,
+"club": "NYY",
+"player": "Jon Lieber",
+"yrs": 2,
+"tot": 3.5,
+"start": 2003,
+"src": "fa97"
+},
+{
+"date": "2003-02-26",
+"pid": 118353,
+"club": "LAD",
+"player": "Tom Martin",
+"yrs": 2,
+"tot": 3.3,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-03-26",
+"pid": 110427,
+"club": "ARI",
+"player": "Carlos Baerga",
+"yrs": 1,
+"tot": 1.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-11-12",
+"pid": 119023,
+"club": "HOU",
+"player": "Dan Miceli",
+"yrs": 1,
+"tot": 0.6,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-11-17",
+"pid": 123348,
+"club": "BOS",
+"player": "Mike Timlin",
+"yrs": 1,
+"tot": 2.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-11-18",
+"pid": 115797,
+"club": "TOR",
+"player": "Pat Hentgen",
+"yrs": 1,
+"tot": 2.2,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-11-18",
+"pid": 123743,
+"club": "HOU",
+"player": "José Vizcaíno",
+"yrs": 1,
+"tot": 1.2,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-11-19",
+"pid": 110385,
+"club": "HOU",
+"player": "Brad Ausmus",
+"yrs": 2,
+"tot": 4.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-11-19",
+"pid": 116380,
+"club": "SEA",
+"player": "Raúl Ibañez",
+"yrs": 3,
+"tot": 13.2,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-11-21",
+"pid": 110293,
+"club": "KC",
+"player": "Kevin Appier",
+"yrs": 1,
+"tot": 0.3,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-11-24",
+"pid": 113898,
+"club": "LAA",
+"player": "Kelvim Escobar",
+"yrs": 3,
+"tot": 18.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-11-26",
+"pid": 110184,
+"club": "CWS",
+"player": "Sandy Alomar",
+"yrs": 1,
+"tot": 0.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-01",
+"pid": 110230,
+"club": "KC",
+"player": "Brian Anderson",
+"yrs": 2,
+"tot": 6.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-01",
+"pid": 120922,
+"club": "KC",
+"player": "Joe Randa",
+"yrs": 1,
+"tot": 3.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-02",
+"pid": 112020,
+"club": "STL",
+"player": "Chris Carpenter",
+"yrs": 1,
+"tot": 0.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-02",
+"pid": 115812,
+"club": "SF",
+"player": "Dustin Hermanson",
+"yrs": 1,
+"tot": 0.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-03",
+"pid": 115394,
+"club": "SF",
+"player": "Jeffrey Hammonds",
+"yrs": 1,
+"tot": 1.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-03",
+"pid": 115629,
+"club": "CHC",
+"player": "LaTroy Hawkins",
+"yrs": 3,
+"tot": 11.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-04",
+"pid": 115803,
+"club": "NYY",
+"player": "Félix Heredia",
+"yrs": 2,
+"tot": 3.9,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-04",
+"pid": 124234,
+"club": "STL",
+"player": "Chris Widger",
+"yrs": 1,
+"tot": 0.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-05",
+"pid": 119348,
+"club": "MIA",
+"player": "Mike Mordecai",
+"yrs": 1,
+"tot": 0.4,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-06",
+"pid": 110763,
+"club": "SD",
+"player": "Rod Beck",
+"yrs": 1,
+"tot": 1.9,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-07",
+"pid": 113793,
+"club": "STL",
+"player": "Cal Eldred",
+"yrs": 1,
+"tot": 0.9,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-07",
+"pid": 114354,
+"club": "MIA",
+"player": "Chad Fox",
+"yrs": 1,
+"tot": 1.2,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-07",
+"pid": 115169,
+"club": "KC",
+"player": "Jason Grimsley",
+"yrs": 1,
+"tot": 1.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-07",
+"pid": 115210,
+"club": "CHC",
+"player": "Mark Grudzielanek",
+"yrs": 1,
+"tot": 2.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-07",
+"pid": 115586,
+"club": "SEA",
+"player": "Shigetoshi Hasegawa",
+"yrs": 2,
+"tot": 6.3,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-07",
+"pid": 117157,
+"club": "STL",
+"player": "Steve Kline",
+"yrs": 1,
+"tot": 1.7,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-07",
+"pid": 121002,
+"club": "COL",
+"player": "Steve Reed",
+"yrs": 1,
+"tot": 0.6,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-07",
+"pid": 122218,
+"club": "NYY",
+"player": "Rubén Sierra",
+"yrs": 1,
+"tot": 1.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-07",
+"pid": 122497,
+"club": "SF",
+"player": "J. T. Snow",
+"yrs": 1,
+"tot": 1.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-07",
+"pid": 122784,
+"club": "MIN",
+"player": "Shannon Stewart",
+"yrs": 3,
+"tot": 18.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-07",
+"pid": 123494,
+"club": "SF",
+"player": "Michael Tucker",
+"yrs": 2,
+"tot": 3.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-08",
+"pid": 123650,
+"club": "CIN",
+"player": "Todd Van Poppel",
+"yrs": 1,
+"tot": 0.3,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-09",
+"pid": 117763,
+"club": "TOR",
+"player": "Kerry Ligtenberg",
+"yrs": 2,
+"tot": 4.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-09",
+"pid": 122644,
+"club": "KC",
+"player": "Matt Stairs",
+"yrs": 1,
+"tot": 1.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-09",
+"pid": 122975,
+"club": "KC",
+"player": "Scott Sullivan",
+"yrs": 2,
+"tot": 5.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-10",
+"pid": 112526,
+"club": "LAA",
+"player": "Bartolo Colón",
+"yrs": 4,
+"tot": 51.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-10",
+"pid": 123307,
+"club": "ATL",
+"player": "John Thomson",
+"yrs": 2,
+"tot": 7.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-10",
+"pid": 124580,
+"club": "PHI",
+"player": "Tim Worrell",
+"yrs": 2,
+"tot": 5.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-10",
+"pid": 430565,
+"club": "NYM",
+"player": "Kazuo Matsui",
+"yrs": 3,
+"tot": 20.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-11",
+"pid": 112106,
+"club": "COL",
+"player": "Vinny Castilla",
+"yrs": 1,
+"tot": 2.1,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-11",
+"pid": 120408,
+"club": "TB",
+"player": "Eduardo Pérez",
+"yrs": 2,
+"tot": 1.7,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-11",
+"pid": 121693,
+"club": "KC",
+"player": "Benito Santiago",
+"yrs": 2,
+"tot": 4.3,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-16",
+"pid": 114971,
+"club": "NYY",
+"player": "Tom Gordon",
+"yrs": 2,
+"tot": 7.2,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-16",
+"pid": 115017,
+"club": "KC",
+"player": "Tony Graffanino",
+"yrs": 2,
+"tot": 2.2,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-16",
+"pid": 115216,
+"club": "SEA",
+"player": "Eddie Guardado",
+"yrs": 3,
+"tot": 13.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-16",
+"pid": 120485,
+"club": "HOU",
+"player": "Andy Pettitte",
+"yrs": 3,
+"tot": 31.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-17",
+"pid": 112903,
+"club": "TB",
+"player": "José Cruz",
+"yrs": 2,
+"tot": 6.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-17",
+"pid": 120824,
+"club": "NYY",
+"player": "Paul Quantrill",
+"yrs": 2,
+"tot": 6.4,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-17",
+"pid": 121215,
+"club": "ATH",
+"player": "Ricardo Rincón",
+"yrs": 2,
+"tot": 3.6,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-18",
+"pid": 110683,
+"club": "TOR",
+"player": "Miguel Batista",
+"yrs": 3,
+"tot": 13.1,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-18",
+"pid": 113358,
+"club": "DET",
+"player": "Mike Difelice",
+"yrs": 1,
+"tot": 0.7,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-18",
+"pid": 114374,
+"club": "NYM",
+"player": "John Franco",
+"yrs": 1,
+"tot": 1.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-18",
+"pid": 115832,
+"club": "PHI",
+"player": "Roberto Hernández",
+"yrs": 1,
+"tot": 0.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-18",
+"pid": 116075,
+"club": "CHC",
+"player": "Todd Hollandsworth",
+"yrs": 1,
+"tot": 1.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-18",
+"pid": 117722,
+"club": "DET",
+"player": "Al Levine",
+"yrs": 1,
+"tot": 0.9,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-18",
+"pid": 118490,
+"club": "ARI",
+"player": "Brent Mayne",
+"yrs": 1,
+"tot": 0.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-18",
+"pid": 122987,
+"club": "STL",
+"player": "Jeff Suppan",
+"yrs": 2,
+"tot": 6.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-18",
+"pid": 123173,
+"club": "BAL",
+"player": "Miguel Tejada",
+"yrs": 6,
+"tot": 72.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-19",
+"pid": 111867,
+"club": "NYY",
+"player": "Miguel Cairo",
+"yrs": 1,
+"tot": 0.9,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-19",
+"pid": 113946,
+"club": "WSH",
+"player": "Carl Everett",
+"yrs": 2,
+"tot": 7.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-19",
+"pid": 115982,
+"club": "SD",
+"player": "Sterling Hitchcock",
+"yrs": 1,
+"tot": 0.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-19",
+"pid": 118967,
+"club": "CHC",
+"player": "Kent Mercker",
+"yrs": 1,
+"tot": 1.2,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-19",
+"pid": 120407,
+"club": "ATL",
+"player": "Eddie Pérez",
+"yrs": 2,
+"tot": 1.2,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-19",
+"pid": 121663,
+"club": "TB",
+"player": "Rey Sánchez",
+"yrs": 1,
+"tot": 1.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-19",
+"pid": 121673,
+"club": "STL",
+"player": "Reggie Sanders",
+"yrs": 2,
+"tot": 6.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-19",
+"pid": 122111,
+"club": "NYY",
+"player": "Gary Sheffield",
+"yrs": 3,
+"tot": 39.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-19",
+"pid": 122596,
+"club": "SEA",
+"player": "Scott Spiezio",
+"yrs": 3,
+"tot": 9.2,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-19",
+"pid": 122803,
+"club": "KC",
+"player": "Kelly Stinnett",
+"yrs": 1,
+"tot": 0.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-19",
+"pid": 123726,
+"club": "DET",
+"player": "Fernando Viña",
+"yrs": 2,
+"tot": 6.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-19",
+"pid": 124185,
+"club": "DET",
+"player": "Rondell White",
+"yrs": 2,
+"tot": 6.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-20",
+"pid": 115229,
+"club": "LAA",
+"player": "José Guillén",
+"yrs": 2,
+"tot": 6.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-23",
+"pid": 110134,
+"club": "ATL",
+"player": "Antonio Alfonseca",
+"yrs": 1,
+"tot": 1.4,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-23",
+"pid": 111904,
+"club": "NYM",
+"player": "Mike Cameron",
+"yrs": 3,
+"tot": 19.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-23",
+"pid": 115132,
+"club": "MIL",
+"player": "Ben Grieve",
+"yrs": 1,
+"tot": 0.7,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-23",
+"pid": 121009,
+"club": "BOS",
+"player": "Pokey Reese",
+"yrs": 1,
+"tot": 1.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2003-12-23",
+"pid": 121125,
+"club": "ATH",
+"player": "Arthur Rhodes",
+"yrs": 3,
+"tot": 9.2,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-06",
+"pid": 110183,
+"club": "ARI",
+"player": "Roberto Alomar",
+"yrs": 1,
+"tot": 1.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-06",
+"pid": 110682,
+"club": "WSH",
+"player": "Tony Batista",
+"yrs": 1,
+"tot": 1.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-06",
+"pid": 110859,
+"club": "MIA",
+"player": "Armando Benítez",
+"yrs": 1,
+"tot": 3.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-06",
+"pid": 114932,
+"club": "KC",
+"player": "Juan González",
+"yrs": 1,
+"tot": 4.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-06",
+"pid": 117756,
+"club": "CIN",
+"player": "Cory Lidle",
+"yrs": 1,
+"tot": 2.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-06",
+"pid": 117863,
+"club": "NYY",
+"player": "Kenny Lofton",
+"yrs": 2,
+"tot": 6.2,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-06",
+"pid": 117919,
+"club": "BAL",
+"player": "Javy López",
+"yrs": 3,
+"tot": 22.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-06",
+"pid": 121110,
+"club": "ARI",
+"player": "Shane Reynolds",
+"yrs": 1,
+"tot": 1.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-06",
+"pid": 122562,
+"club": "ARI",
+"player": "Steve Sparks",
+"yrs": 1,
+"tot": 0.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-06",
+"pid": 122918,
+"club": "PIT",
+"player": "Chris Stynes",
+"yrs": 1,
+"tot": 1.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-06",
+"pid": 123842,
+"club": "CHC",
+"player": "Todd Walker",
+"yrs": 1,
+"tot": 1.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-06",
+"pid": 124071,
+"club": "SD",
+"player": "David Wells",
+"yrs": 1,
+"tot": 1.2,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-06",
+"pid": 124695,
+"club": "TEX",
+"player": "Eric Young",
+"yrs": 1,
+"tot": 1.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-07",
+"pid": 110067,
+"club": "TOR",
+"player": "Terry Adams",
+"yrs": 1,
+"tot": 1.7,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-07",
+"pid": 114309,
+"club": "TB",
+"player": "Brook Fordyce",
+"yrs": 1,
+"tot": 0.7,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-07",
+"pid": 114342,
+"club": "BOS",
+"player": "Keith Foulke",
+"yrs": 4,
+"tot": 25.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-07",
+"pid": 114909,
+"club": "TOR",
+"player": "Chris Gomez",
+"yrs": 1,
+"tot": 0.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-08",
+"pid": 110383,
+"club": "SEA",
+"player": "Rich Aurilia",
+"yrs": 1,
+"tot": 3.1,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-08",
+"pid": 113211,
+"club": "BAL",
+"player": "Mike DeJean",
+"yrs": 1,
+"tot": 1.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-08",
+"pid": 116747,
+"club": "TEX",
+"player": "Brian Jordan",
+"yrs": 1,
+"tot": 1.4,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-09",
+"pid": 111742,
+"club": "COL",
+"player": "Jeromy Burnitz",
+"yrs": 1,
+"tot": 1.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-09",
+"pid": 123118,
+"club": "STL",
+"player": "Julián Tavárez",
+"yrs": 2,
+"tot": 4.2,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-12",
+"pid": 112316,
+"club": "NYY",
+"player": "Tony Clark",
+"yrs": 1,
+"tot": 0.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-12",
+"pid": 123387,
+"club": "SF",
+"player": "Brett Tomko",
+"yrs": 1,
+"tot": 1.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-12",
+"pid": 212297,
+"club": "ATL",
+"player": "Julio Franco",
+"yrs": 1,
+"tot": 1.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-01-14",
+"pid": 115223,
+"club": "LAA",
+"player": "Vladimir Guerrero",
+"yrs": 5,
+"tot": 70.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-14",
+"pid": 119704,
+"club": "TEX",
+"player": "Jeff Nelson",
+"yrs": 1,
+"tot": 1.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-14",
+"pid": 120191,
+"club": "BAL",
+"player": "Rafael Palmeiro",
+"yrs": 1,
+"tot": 4.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-14",
+"pid": 121386,
+"club": "TEX",
+"player": "Kenny Rogers",
+"yrs": 2,
+"tot": 6.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-14",
+"pid": 123639,
+"club": "CIN",
+"player": "John Vander Wal",
+"yrs": 1,
+"tot": 0.7,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-15",
+"pid": 115370,
+"club": "LAA",
+"player": "Shane Halter",
+"yrs": 1,
+"tot": 0.6,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-19",
+"pid": 112388,
+"club": "HOU",
+"player": "Roger Clemens",
+"yrs": 1,
+"tot": 5.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-19",
+"pid": 120190,
+"club": "HOU",
+"player": "Orlando Palmeiro",
+"yrs": 1,
+"tot": 0.8,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-01-26",
+"pid": 132260,
+"club": "BAL",
+"player": "Sidney Ponson",
+"yrs": 3,
+"tot": 22.5,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-02-06",
+"pid": 121358,
+"club": "DET",
+"player": "Iván Rodríguez",
+"yrs": 4,
+"tot": 40.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-02-10",
+"pid": 123725,
+"club": "SEA",
+"player": "Ron Villone",
+"yrs": 2,
+"tot": 4.2,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-02-12",
+"pid": 118065,
+"club": "STL",
+"player": "John Mabry",
+"yrs": 1,
+"tot": 0.7,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-02-16",
+"pid": 114844,
+"club": "PHI",
+"player": "Doug Glanville",
+"yrs": 1,
+"tot": 0.6,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-02-19",
+"pid": 111492,
+"club": "TEX",
+"player": "Doug Brocail",
+"yrs": 1,
+"tot": 1.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-03-15",
+"pid": 122989,
+"club": "BAL",
+"player": "B. J. Surhoff",
+"yrs": 1,
+"tot": 1.1,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-03-23",
+"pid": 118120,
+"club": "CHC",
+"player": "Greg Maddux",
+"yrs": 2,
+"tot": 15.0,
+"start": 2004,
+"src": "fa97"
+},
+{
+"date": "2004-11-16",
+"pid": 112106,
+"club": "WSH",
+"player": "Vinny Castilla",
+"yrs": 2,
+"tot": 6.2,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-16",
+"pid": 123744,
+"club": "SF",
+"player": "Omar Vizquel",
+"yrs": 3,
+"tot": 12.2,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-16",
+"pid": 150217,
+"club": "WSH",
+"player": "Cristian Guzmán",
+"yrs": 4,
+"tot": 16.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-17",
+"pid": 117756,
+"club": "PHI",
+"player": "Cory Lidle",
+"yrs": 2,
+"tot": 6.3,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-18",
+"pid": 120401,
+"club": "DET",
+"player": "Troy Percival",
+"yrs": 2,
+"tot": 12.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-22",
+"pid": 113702,
+"club": "MIA",
+"player": "Damion Easley",
+"yrs": 1,
+"tot": 0.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-22",
+"pid": 121556,
+"club": "CHC",
+"player": "Glendon Rusch",
+"yrs": 2,
+"tot": 4.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-23",
+"pid": 112128,
+"club": "MIN",
+"player": "Juan Castro",
+"yrs": 2,
+"tot": 2.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-24",
+"pid": 121955,
+"club": "SD",
+"player": "Rudy Seánez",
+"yrs": 1,
+"tot": 0.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-24",
+"pid": 124233,
+"club": "CLE",
+"player": "Bob Wickman",
+"yrs": 1,
+"tot": 2.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-24",
+"pid": 133226,
+"club": "MIN",
+"player": "Mike Redmond",
+"yrs": 2,
+"tot": 1.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-29",
+"pid": 119182,
+"club": "BOS",
+"player": "Doug Mirabelli",
+"yrs": 2,
+"tot": 3.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-29",
+"pid": 121096,
+"club": "SD",
+"player": "Dennys Reyes",
+"yrs": 1,
+"tot": 0.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-30",
+"pid": 119064,
+"club": "MIL",
+"player": "Damian Miller",
+"yrs": 3,
+"tot": 8.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-30",
+"pid": 124417,
+"club": "CIN",
+"player": "Paul Wilson",
+"yrs": 2,
+"tot": 8.2,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-11-30",
+"pid": 150249,
+"club": "NYM",
+"player": "Kris Benson",
+"yrs": 3,
+"tot": 22.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-02",
+"pid": 110859,
+"club": "SF",
+"player": "Armando Benítez",
+"yrs": 3,
+"tot": 21.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-06",
+"pid": 114208,
+"club": "NYY",
+"player": "John Flaherty",
+"yrs": 1,
+"tot": 0.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-06",
+"pid": 123743,
+"club": "HOU",
+"player": "José Vizcaíno",
+"yrs": 1,
+"tot": 1.2,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-07",
+"pid": 112690,
+"club": "PHI",
+"player": "Rheal Cormier",
+"yrs": 2,
+"tot": 5.2,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-07",
+"pid": 113211,
+"club": "NYM",
+"player": "Mike DeJean",
+"yrs": 1,
+"tot": 1.1,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-07",
+"pid": 113793,
+"club": "STL",
+"player": "Cal Eldred",
+"yrs": 1,
+"tot": 0.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-07",
+"pid": 114596,
+"club": "CHC",
+"player": "Nomar Garciaparra",
+"yrs": 1,
+"tot": 8.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-07",
+"pid": 119403,
+"club": "STL",
+"player": "Matt Morris",
+"yrs": 1,
+"tot": 2.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-07",
+"pid": 120190,
+"club": "HOU",
+"player": "Orlando Palmeiro",
+"yrs": 1,
+"tot": 0.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-07",
+"pid": 120747,
+"club": "PHI",
+"player": "Todd Pratt",
+"yrs": 1,
+"tot": 0.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-07",
+"pid": 120878,
+"club": "MIN",
+"player": "Brad Radke",
+"yrs": 2,
+"tot": 18.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-07",
+"pid": 123842,
+"club": "CHC",
+"player": "Todd Walker",
+"yrs": 1,
+"tot": 2.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-07",
+"pid": 124383,
+"club": "SEA",
+"player": "Dan Wilson",
+"yrs": 1,
+"tot": 1.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-07",
+"pid": 133342,
+"club": "LAD",
+"player": "Ricky Ledée",
+"yrs": 2,
+"tot": 2.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-08",
+"pid": 110184,
+"club": "TEX",
+"player": "Sandy Alomar",
+"yrs": 1,
+"tot": 0.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-08",
+"pid": 111072,
+"club": "CHC",
+"player": "Henry Blanco",
+"yrs": 2,
+"tot": 2.7,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-08",
+"pid": 113296,
+"club": "LAD",
+"player": "Elmer Dessens",
+"yrs": 1,
+"tot": 1.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-08",
+"pid": 114909,
+"club": "BAL",
+"player": "Chris Gomez",
+"yrs": 1,
+"tot": 0.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-08",
+"pid": 117652,
+"club": "MIA",
+"player": "Al Leiter",
+"yrs": 1,
+"tot": 8.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-08",
+"pid": 117758,
+"club": "PHI",
+"player": "Jon Lieber",
+"yrs": 3,
+"tot": 21.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-08",
+"pid": 118256,
+"club": "BOS",
+"player": "Matt Mantei",
+"yrs": 1,
+"tot": 0.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-09",
+"pid": 113679,
+"club": "CWS",
+"player": "Jermaine Dye",
+"yrs": 2,
+"tot": 10.2,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-09",
+"pid": 115812,
+"club": "CWS",
+"player": "Dustin Hermanson",
+"yrs": 2,
+"tot": 5.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-09",
+"pid": 124315,
+"club": "SD",
+"player": "Woody Williams",
+"yrs": 1,
+"tot": 3.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-09",
+"pid": 124695,
+"club": "SD",
+"player": "Eric Young",
+"yrs": 1,
+"tot": 1.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-11",
+"pid": 114135,
+"club": "LAA",
+"player": "Steve Finley",
+"yrs": 2,
+"tot": 14.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-11",
+"pid": 133460,
+"club": "ARI",
+"player": "Russ Ortiz",
+"yrs": 4,
+"tot": 33.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-11",
+"pid": 136267,
+"club": "ARI",
+"player": "Troy Glaus",
+"yrs": 4,
+"tot": 45.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-12",
+"pid": 115902,
+"club": "TEX",
+"player": "Richard Hidalgo",
+"yrs": 1,
+"tot": 5.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-13",
+"pid": 112388,
+"club": "HOU",
+"player": "Roger Clemens",
+"yrs": 1,
+"tot": 18.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-13",
+"pid": 112680,
+"club": "WSH",
+"player": "Wil Cordero",
+"yrs": 1,
+"tot": 0.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-14",
+"pid": 111838,
+"club": "LAA",
+"player": "Paul Byrd",
+"yrs": 1,
+"tot": 4.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-14",
+"pid": 113330,
+"club": "STL",
+"player": "Einar Díaz",
+"yrs": 1,
+"tot": 0.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-14",
+"pid": 116734,
+"club": "MIA",
+"player": "Todd Jones",
+"yrs": 1,
+"tot": 1.1,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-14",
+"pid": 124643,
+"club": "LAA",
+"player": "Esteban Yan",
+"yrs": 2,
+"tot": 2.2,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-14",
+"pid": 136731,
+"club": "TOR",
+"player": "Corey Koskie",
+"yrs": 3,
+"tot": 17.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-15",
+"pid": 115825,
+"club": "CLE",
+"player": "José Hernández",
+"yrs": 1,
+"tot": 1.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-15",
+"pid": 116999,
+"club": "LAD",
+"player": "Jeff Kent",
+"yrs": 2,
+"tot": 17.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-15",
+"pid": 118414,
+"club": "SF",
+"player": "Mike Matheny",
+"yrs": 3,
+"tot": 10.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-15",
+"pid": 122027,
+"club": "SEA",
+"player": "Richie Sexson",
+"yrs": 4,
+"tot": 50.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-15",
+"pid": 124000,
+"club": "CIN",
+"player": "David Weathers",
+"yrs": 1,
+"tot": 1.4,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-16",
+"pid": 112381,
+"club": "ARI",
+"player": "Royce Clayton",
+"yrs": 1,
+"tot": 1.4,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-17",
+"pid": 118377,
+"club": "NYM",
+"player": "Pedro Martínez",
+"yrs": 4,
+"tot": 53.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-17",
+"pid": 124071,
+"club": "BOS",
+"player": "David Wells",
+"yrs": 2,
+"tot": 8.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-17",
+"pid": 134181,
+"club": "SEA",
+"player": "Adrian Beltré",
+"yrs": 5,
+"tot": 64.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-17",
+"pid": 134280,
+"club": "BOS",
+"player": "John Halama",
+"yrs": 1,
+"tot": 1.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-19",
+"pid": 112270,
+"club": "SF",
+"player": "Jason Christiansen",
+"yrs": 1,
+"tot": 1.1,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-19",
+"pid": 121074,
+"club": "BOS",
+"player": "Édgar Rentería",
+"yrs": 4,
+"tot": 40.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-19",
+"pid": 135784,
+"club": "PHI",
+"player": "Plácido Polanco",
+"yrs": 1,
+"tot": 4.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-20",
+"pid": 113240,
+"club": "TEX",
+"player": "David Dellucci",
+"yrs": 2,
+"tot": 1.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-20",
+"pid": 117157,
+"club": "BAL",
+"player": "Steve Kline",
+"yrs": 2,
+"tot": 5.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-20",
+"pid": 118967,
+"club": "CIN",
+"player": "Kent Mercker",
+"yrs": 2,
+"tot": 2.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-20",
+"pid": 124523,
+"club": "NYY",
+"player": "Tony Womack",
+"yrs": 2,
+"tot": 4.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-20",
+"pid": 134321,
+"club": "NYY",
+"player": "Carl Pavano",
+"yrs": 4,
+"tot": 40.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-21",
+"pid": 110209,
+"club": "LAD",
+"player": "Wilson Álvarez",
+"yrs": 2,
+"tot": 4.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-21",
+"pid": 112736,
+"club": "ARI",
+"player": "Craig Counsell",
+"yrs": 2,
+"tot": 3.1,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-21",
+"pid": 120922,
+"club": "CIN",
+"player": "Joe Randa",
+"yrs": 1,
+"tot": 2.1,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-21",
+"pid": 123610,
+"club": "LAD",
+"player": "José Valentín",
+"yrs": 1,
+"tot": 3.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-22",
+"pid": 119624,
+"club": "STL",
+"player": "Mike Myers",
+"yrs": 1,
+"tot": 0.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-22",
+"pid": 123040,
+"club": "SD",
+"player": "Mark Sweeney",
+"yrs": 1,
+"tot": 0.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-22",
+"pid": 124604,
+"club": "COL",
+"player": "Jamey Wright",
+"yrs": 1,
+"tot": 0.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-22",
+"pid": 136725,
+"club": "BOS",
+"player": "Matt Clement",
+"yrs": 3,
+"tot": 25.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-23",
+"pid": 136770,
+"club": "LAD",
+"player": "J. D. Drew",
+"yrs": 5,
+"tot": 55.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-23",
+"pid": 275930,
+"club": "STL",
+"player": "David Eckstein",
+"yrs": 3,
+"tot": 10.2,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-24",
+"pid": 123660,
+"club": "BOS",
+"player": "Jason Varitek",
+"yrs": 4,
+"tot": 40.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-25",
+"pid": 117769,
+"club": "KC",
+"player": "José Lima",
+"yrs": 1,
+"tot": 2.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-28",
+"pid": 124605,
+"club": "NYY",
+"player": "Jaret Wright",
+"yrs": 3,
+"tot": 21.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-28",
+"pid": 132980,
+"club": "CIN",
+"player": "Eric Milton",
+"yrs": 3,
+"tot": 25.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2004-12-31",
+"pid": 116075,
+"club": "CHC",
+"player": "Todd Hollandsworth",
+"yrs": 1,
+"tot": 0.9,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-01",
+"pid": 118362,
+"club": "NYY",
+"player": "Tino Martinez",
+"yrs": 1,
+"tot": 3.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-03",
+"pid": 133340,
+"club": "CWS",
+"player": "Orlando Hernández",
+"yrs": 2,
+"tot": 8.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-04",
+"pid": 121009,
+"club": "SEA",
+"player": "Pokey Reese",
+"yrs": 1,
+"tot": 1.2,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-05",
+"pid": 110189,
+"club": "SF",
+"player": "Moisés Alou",
+"yrs": 2,
+"tot": 13.2,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-05",
+"pid": 115103,
+"club": "COL",
+"player": "Todd Greene",
+"yrs": 1,
+"tot": 0.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-05",
+"pid": 134002,
+"club": "DET",
+"player": "Ramón Martínez",
+"yrs": 1,
+"tot": 1.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-06",
+"pid": 115210,
+"club": "STL",
+"player": "Mark Grudzielanek",
+"yrs": 1,
+"tot": 1.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-06",
+"pid": 121058,
+"club": "COL",
+"player": "Desi Relaford",
+"yrs": 1,
+"tot": 1.1,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-06",
+"pid": 123595,
+"club": "MIA",
+"player": "Ismael Valdez",
+"yrs": 1,
+"tot": 1.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-06",
+"pid": 124748,
+"club": "TOR",
+"player": "Gregg Zaun",
+"yrs": 1,
+"tot": 1.1,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-07",
+"pid": 124171,
+"club": "ATL",
+"player": "Gabe White",
+"yrs": 1,
+"tot": 0.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-07",
+"pid": 136602,
+"club": "LAD",
+"player": "Odalis Pérez",
+"yrs": 3,
+"tot": 24.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-08",
+"pid": 119154,
+"club": "CLE",
+"player": "Kevin Millwood",
+"yrs": 1,
+"tot": 7.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-10",
+"pid": 111867,
+"club": "NYM",
+"player": "Miguel Cairo",
+"yrs": 1,
+"tot": 0.9,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-11",
+"pid": 110067,
+"club": "PHI",
+"player": "Terry Adams",
+"yrs": 1,
+"tot": 0.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-11",
+"pid": 117955,
+"club": "LAD",
+"player": "Derek Lowe",
+"yrs": 4,
+"tot": 36.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-12",
+"pid": 111851,
+"club": "LAA",
+"player": "Orlando Cabrera",
+"yrs": 4,
+"tot": 32.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-12",
+"pid": 113915,
+"club": "ARI",
+"player": "Shawn Estes",
+"yrs": 1,
+"tot": 2.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-12",
+"pid": 114924,
+"club": "TB",
+"player": "Alex Gonzalez",
+"yrs": 1,
+"tot": 1.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-13",
+"pid": 122218,
+"club": "NYY",
+"player": "Rubén Sierra",
+"yrs": 1,
+"tot": 1.5,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-13",
+"pid": 132720,
+"club": "LAD",
+"player": "Paul Bako",
+"yrs": 1,
+"tot": 0.7,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-13",
+"pid": 136860,
+"club": "NYM",
+"player": "Carlos Beltrán",
+"yrs": 7,
+"tot": 119.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-14",
+"pid": 115727,
+"club": "MIL",
+"player": "Rick Helling",
+"yrs": 1,
+"tot": 0.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-01-17",
+"pid": 115391,
+"club": "SD",
+"player": "Chris Hammond",
+"yrs": 1,
+"tot": 0.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-18",
+"pid": 110712,
+"club": "TB",
+"player": "Danny Bautista",
+"yrs": 1,
+"tot": 1.9,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-19",
+"pid": 116747,
+"club": "ATL",
+"player": "Brian Jordan",
+"yrs": 1,
+"tot": 0.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-19",
+"pid": 117842,
+"club": "WSH",
+"player": "Esteban Loaiza",
+"yrs": 1,
+"tot": 2.9,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-19",
+"pid": 120107,
+"club": "WSH",
+"player": "Antonio Osuna",
+"yrs": 1,
+"tot": 0.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-20",
+"pid": 110183,
+"club": "TB",
+"player": "Roberto Alomar",
+"yrs": 1,
+"tot": 0.6,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-21",
+"pid": 111262,
+"club": "MIL",
+"player": "Ricky Bottalico",
+"yrs": 1,
+"tot": 0.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-21",
+"pid": 121002,
+"club": "BAL",
+"player": "Steve Reed",
+"yrs": 1,
+"tot": 1.1,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-22",
+"pid": 110383,
+"club": "CIN",
+"player": "Rich Aurilia",
+"yrs": 1,
+"tot": 1.3,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-01-23",
+"pid": 114374,
+"club": "HOU",
+"player": "John Franco",
+"yrs": 1,
+"tot": 0.7,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-24",
+"pid": 112316,
+"club": "ARI",
+"player": "Tony Clark",
+"yrs": 1,
+"tot": 0.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-01-26",
+"pid": 113232,
+"club": "MIA",
+"player": "Carlos Delgado",
+"yrs": 4,
+"tot": 52.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-02-02",
+"pid": 118898,
+"club": "MIA",
+"player": "Jim Mecir",
+"yrs": 1,
+"tot": 1.1,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-02-05",
+"pid": 111742,
+"club": "CHC",
+"player": "Jeromy Burnitz",
+"yrs": 1,
+"tot": 5.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-02-07",
+"pid": 112297,
+"club": "MIL",
+"player": "Jeff Cirillo",
+"yrs": 1,
+"tot": 0.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-02-07",
+"pid": 120044,
+"club": "DET",
+"player": "Magglio Ordóñez",
+"yrs": 5,
+"tot": 75.0,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-02-11",
+"pid": 134162,
+"club": "TB",
+"player": "Travis Lee",
+"yrs": 1,
+"tot": 1.3,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-02-23",
+"pid": 110359,
+"club": "TEX",
+"player": "Pedro Astacio",
+"yrs": 1,
+"tot": 0.8,
+"start": 2005,
+"src": "fa97"
+},
+{
+"date": "2005-11-16",
+"pid": 150398,
+"club": "SD",
+"player": "Geoff Blum",
+"yrs": 1,
+"tot": 0.7,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-11-21",
+"pid": 136724,
+"club": "WSH",
+"player": "Marlon Anderson",
+"yrs": 2,
+"tot": 1.9,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-11-21",
+"pid": 492706,
+"club": "SEA",
+"player": "Kenji Johjima",
+"yrs": 3,
+"tot": 16.5,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-11-22",
+"pid": 124695,
+"club": "SD",
+"player": "Eric Young",
+"yrs": 1,
+"tot": 0.7,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-11-29",
+"pid": 113961,
+"club": "CHC",
+"player": "Scott Eyre",
+"yrs": 3,
+"tot": 11.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-11-29",
+"pid": 117842,
+"club": "ATH",
+"player": "Esteban Loaiza",
+"yrs": 3,
+"tot": 21.4,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-11-29",
+"pid": 123790,
+"club": "NYM",
+"player": "Billy Wagner",
+"yrs": 4,
+"tot": 43.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-11-29",
+"pid": 124805,
+"club": "TOR",
+"player": "B. J. Ryan",
+"yrs": 5,
+"tot": 47.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-11-30",
+"pid": 117244,
+"club": "CWS",
+"player": "Paul Konerko",
+"yrs": 5,
+"tot": 60.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-02",
+"pid": 110870,
+"club": "STL",
+"player": "Gary Bennett",
+"yrs": 1,
+"tot": 0.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-02",
+"pid": 112031,
+"club": "LAA",
+"player": "Héctor Carrasco",
+"yrs": 2,
+"tot": 6.1,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-02",
+"pid": 122620,
+"club": "HOU",
+"player": "Russ Springer",
+"yrs": 1,
+"tot": 0.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-02",
+"pid": 124580,
+"club": "SF",
+"player": "Tim Worrell",
+"yrs": 2,
+"tot": 4.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-05",
+"pid": 112897,
+"club": "STL",
+"player": "Deivi Cruz",
+"yrs": 1,
+"tot": 0.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-05",
+"pid": 114789,
+"club": "SD",
+"player": "Brian Giles",
+"yrs": 3,
+"tot": 30.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-05",
+"pid": 150035,
+"club": "NYY",
+"player": "Kyle Farnsworth",
+"yrs": 3,
+"tot": 17.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-06",
+"pid": 114971,
+"club": "PHI",
+"player": "Tom Gordon",
+"yrs": 3,
+"tot": 18.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-07",
+"pid": 111838,
+"club": "CLE",
+"player": "Paul Byrd",
+"yrs": 2,
+"tot": 14.2,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-07",
+"pid": 116034,
+"club": "SD",
+"player": "Trevor Hoffman",
+"yrs": 2,
+"tot": 13.5,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-07",
+"pid": 118065,
+"club": "CHC",
+"player": "John Mabry",
+"yrs": 1,
+"tot": 1.1,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-07",
+"pid": 119215,
+"club": "MIA",
+"player": "Brian Moehler",
+"yrs": 1,
+"tot": 1.5,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-07",
+"pid": 119469,
+"club": "SEA",
+"player": "Jamie Moyer",
+"yrs": 1,
+"tot": 5.5,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-07",
+"pid": 121616,
+"club": "LAD",
+"player": "Olmedo Sáenz",
+"yrs": 2,
+"tot": 2.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-07",
+"pid": 123955,
+"club": "TEX",
+"player": "John Wasdin",
+"yrs": 1,
+"tot": 0.6,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-07",
+"pid": 124233,
+"club": "CLE",
+"player": "Bob Wickman",
+"yrs": 1,
+"tot": 5.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-07",
+"pid": 150359,
+"club": "TOR",
+"player": "A. J. Burnett",
+"yrs": 5,
+"tot": 55.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-08",
+"pid": 123040,
+"club": "SF",
+"player": "Mark Sweeney",
+"yrs": 2,
+"tot": 1.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-12",
+"pid": 113296,
+"club": "KC",
+"player": "Elmer Dessens",
+"yrs": 2,
+"tot": 3.4,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-12",
+"pid": 120190,
+"club": "HOU",
+"player": "Orlando Palmeiro",
+"yrs": 2,
+"tot": 1.9,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-12",
+"pid": 123610,
+"club": "NYM",
+"player": "José Valentín",
+"yrs": 1,
+"tot": 0.9,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-12",
+"pid": 212297,
+"club": "NYM",
+"player": "Julio Franco",
+"yrs": 2,
+"tot": 2.2,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-13",
+"pid": 110184,
+"club": "LAD",
+"player": "Sandy Alomar",
+"yrs": 1,
+"tot": 0.7,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-13",
+"pid": 110385,
+"club": "HOU",
+"player": "Brad Ausmus",
+"yrs": 2,
+"tot": 7.5,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-13",
+"pid": 113784,
+"club": "WSH",
+"player": "Joey Eischen",
+"yrs": 1,
+"tot": 1.1,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-13",
+"pid": 119403,
+"club": "SF",
+"player": "Matt Morris",
+"yrs": 3,
+"tot": 27.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-13",
+"pid": 120747,
+"club": "ATL",
+"player": "Todd Pratt",
+"yrs": 1,
+"tot": 0.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-13",
+"pid": 137001,
+"club": "WSH",
+"player": "Robert Fick",
+"yrs": 1,
+"tot": 0.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-13",
+"pid": 150421,
+"club": "BAL",
+"player": "Ramón Hernández",
+"yrs": 4,
+"tot": 27.5,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-15",
+"pid": 113702,
+"club": "ARI",
+"player": "Damion Easley",
+"yrs": 1,
+"tot": 0.7,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-15",
+"pid": 115832,
+"club": "PIT",
+"player": "Roberto Hernández",
+"yrs": 1,
+"tot": 2.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-15",
+"pid": 119482,
+"club": "LAD",
+"player": "Bill Mueller",
+"yrs": 2,
+"tot": 9.5,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-15",
+"pid": 121386,
+"club": "DET",
+"player": "Kenny Rogers",
+"yrs": 2,
+"tot": 16.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-16",
+"pid": 111492,
+"club": "SD",
+"player": "Doug Brocail",
+"yrs": 1,
+"tot": 1.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-16",
+"pid": 115210,
+"club": "KC",
+"player": "Mark Grudzielanek",
+"yrs": 1,
+"tot": 4.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-16",
+"pid": 119624,
+"club": "NYY",
+"player": "Mike Myers",
+"yrs": 2,
+"tot": 2.4,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-16",
+"pid": 132720,
+"club": "KC",
+"player": "Paul Bako",
+"yrs": 1,
+"tot": 0.7,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-16",
+"pid": 137006,
+"club": "KC",
+"player": "Doug Mientkiewicz",
+"yrs": 1,
+"tot": 1.9,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-19",
+"pid": 114596,
+"club": "LAD",
+"player": "Nomar Garciaparra",
+"yrs": 1,
+"tot": 6.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-19",
+"pid": 118986,
+"club": "COL",
+"player": "José Mesa",
+"yrs": 1,
+"tot": 2.5,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-19",
+"pid": 121215,
+"club": "STL",
+"player": "Ricardo Rincón",
+"yrs": 2,
+"tot": 2.9,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-19",
+"pid": 279577,
+"club": "LAD",
+"player": "Rafael Furcal",
+"yrs": 3,
+"tot": 39.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-20",
+"pid": 115391,
+"club": "CIN",
+"player": "Chris Hammond",
+"yrs": 1,
+"tot": 0.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-20",
+"pid": 117863,
+"club": "LAD",
+"player": "Kenny Lofton",
+"yrs": 1,
+"tot": 3.9,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-20",
+"pid": 121955,
+"club": "BOS",
+"player": "Rudy Seánez",
+"yrs": 1,
+"tot": 2.1,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-22",
+"pid": 115169,
+"club": "ARI",
+"player": "Jason Grimsley",
+"yrs": 1,
+"tot": 0.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-22",
+"pid": 116734,
+"club": "DET",
+"player": "Todd Jones",
+"yrs": 2,
+"tot": 11.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-22",
+"pid": 124185,
+"club": "MIN",
+"player": "Rondell White",
+"yrs": 1,
+"tot": 3.2,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-22",
+"pid": 131702,
+"club": "STL",
+"player": "Braden Looper",
+"yrs": 3,
+"tot": 13.5,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2005-12-22",
+"pid": 132220,
+"club": "SEA",
+"player": "Jarrod Washburn",
+"yrs": 4,
+"tot": 37.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-03",
+"pid": 113028,
+"club": "NYY",
+"player": "Johnny Damon",
+"yrs": 4,
+"tot": 52.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-03",
+"pid": 114208,
+"club": "BOS",
+"player": "John Flaherty",
+"yrs": 1,
+"tot": 0.7,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-03",
+"pid": 116595,
+"club": "CLE",
+"player": "Jason Johnson",
+"yrs": 1,
+"tot": 4.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-03",
+"pid": 120922,
+"club": "PIT",
+"player": "Joe Randa",
+"yrs": 1,
+"tot": 4.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-03",
+"pid": 121009,
+"club": "MIA",
+"player": "Pokey Reese",
+"yrs": 1,
+"tot": 0.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-03",
+"pid": 123387,
+"club": "LAD",
+"player": "Brett Tomko",
+"yrs": 2,
+"tot": 8.7,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-03",
+"pid": 123743,
+"club": "SF",
+"player": "José Vizcaíno",
+"yrs": 1,
+"tot": 1.2,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-03",
+"pid": 124288,
+"club": "NYY",
+"player": "Bernie Williams",
+"yrs": 1,
+"tot": 1.5,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-03",
+"pid": 136500,
+"club": "MIA",
+"player": "Wes Helms",
+"yrs": 1,
+"tot": 0.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-03",
+"pid": 150222,
+"club": "KC",
+"player": "Joe Mays",
+"yrs": 1,
+"tot": 1.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-03",
+"pid": 150393,
+"club": "WSH",
+"player": "Tony Armas",
+"yrs": 1,
+"tot": 2.1,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-04",
+"pid": 113946,
+"club": "SEA",
+"player": "Carl Everett",
+"yrs": 1,
+"tot": 4.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-04",
+"pid": 136734,
+"club": "NYY",
+"player": "Octavio Dotel",
+"yrs": 1,
+"tot": 2.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-06",
+"pid": 111867,
+"club": "NYY",
+"player": "Miguel Cairo",
+"yrs": 1,
+"tot": 1.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-06",
+"pid": 121673,
+"club": "KC",
+"player": "Reggie Sanders",
+"yrs": 2,
+"tot": 10.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-06",
+"pid": 133343,
+"club": "HOU",
+"player": "Preston Wilson",
+"yrs": 1,
+"tot": 4.5,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-07",
+"pid": 218294,
+"club": "COL",
+"player": "Byung-Hyun Kim",
+"yrs": 1,
+"tot": 1.5,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-09",
+"pid": 111742,
+"club": "PIT",
+"player": "Jeromy Burnitz",
+"yrs": 1,
+"tot": 6.7,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-09",
+"pid": 122497,
+"club": "BOS",
+"player": "J. T. Snow",
+"yrs": 1,
+"tot": 2.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-10",
+"pid": 113845,
+"club": "STL",
+"player": "Juan Encarnación",
+"yrs": 3,
+"tot": 15.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-10",
+"pid": 150218,
+"club": "CHC",
+"player": "Jacque Jones",
+"yrs": 3,
+"tot": 16.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-11",
+"pid": 112559,
+"club": "BAL",
+"player": "Jeff Conine",
+"yrs": 1,
+"tot": 1.7,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-11",
+"pid": 113915,
+"club": "SD",
+"player": "Shawn Estes",
+"yrs": 1,
+"tot": 1.1,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-11",
+"pid": 115017,
+"club": "BOS",
+"player": "Tony Graffanino",
+"yrs": 1,
+"tot": 2.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-11",
+"pid": 117566,
+"club": "SEA",
+"player": "Matt Lawton",
+"yrs": 1,
+"tot": 0.4,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-11",
+"pid": 123494,
+"club": "WSH",
+"player": "Michael Tucker",
+"yrs": 1,
+"tot": 0.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-13",
+"pid": 120408,
+"club": "CLE",
+"player": "Eduardo Pérez",
+"yrs": 1,
+"tot": 1.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-13",
+"pid": 132788,
+"club": "BAL",
+"player": "Kevin Millar",
+"yrs": 1,
+"tot": 2.1,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-18",
+"pid": 118353,
+"club": "COL",
+"player": "Tom Martin",
+"yrs": 1,
+"tot": 0.8,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-01-18",
+"pid": 123118,
+"club": "BOS",
+"player": "Julián Tavárez",
+"yrs": 2,
+"tot": 6.7,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-23",
+"pid": 150063,
+"club": "CHC",
+"player": "Wade Miller",
+"yrs": 1,
+"tot": 1.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-01-31",
+"pid": 121353,
+"club": "WSH",
+"player": "Félix Rodríguez",
+"yrs": 1,
+"tot": 3.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-31",
+"pid": 123245,
+"club": "ATH",
+"player": "Frank Thomas",
+"yrs": 1,
+"tot": 0.5,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-01-31",
+"pid": 134002,
+"club": "LAD",
+"player": "Ramón Martínez",
+"yrs": 1,
+"tot": 0.8,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-02-03",
+"pid": 120536,
+"club": "SD",
+"player": "Mike Piazza",
+"yrs": 1,
+"tot": 2.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-02-06",
+"pid": 134260,
+"club": "TOR",
+"player": "Bengie Molina",
+"yrs": 1,
+"tot": 5.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-02-06",
+"pid": 136460,
+"club": "BOS",
+"player": "Álex González",
+"yrs": 1,
+"tot": 3.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-02-14",
+"pid": 115608,
+"club": "CIN",
+"player": "Scott Hatteberg",
+"yrs": 1,
+"tot": 0.8,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-02-17",
+"pid": 122596,
+"club": "STL",
+"player": "Scott Spiezio",
+"yrs": 2,
+"tot": 4.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-02-22",
+"pid": 119154,
+"club": "TEX",
+"player": "Kevin Millwood",
+"yrs": 5,
+"tot": 60.0,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-02-23",
+"pid": 213711,
+"club": "LAA",
+"player": "Jeff Weaver",
+"yrs": 1,
+"tot": 8.3,
+"start": 2006,
+"src": "fa97"
+},
+{
+"date": "2006-11-12",
+"pid": 133380,
+"club": "CHC",
+"player": "Aramis Ramírez",
+"yrs": 5,
+"tot": 75.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-12",
+"pid": 134268,
+"club": "CHC",
+"player": "Kerry Wood",
+"yrs": 1,
+"tot": 1.8,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-13",
+"pid": 430565,
+"club": "COL",
+"player": "Kazuo Matsui",
+"yrs": 1,
+"tot": 1.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-15",
+"pid": 111072,
+"club": "CHC",
+"player": "Henry Blanco",
+"yrs": 2,
+"tot": 5.2,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-16",
+"pid": 112087,
+"club": "DET",
+"player": "Sean Casey",
+"yrs": 1,
+"tot": 4.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-16",
+"pid": 113702,
+"club": "NYM",
+"player": "Damion Easley",
+"yrs": 1,
+"tot": 0.8,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-17",
+"pid": 133321,
+"club": "BOS",
+"player": "Alex Cora",
+"yrs": 2,
+"tot": 4.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-17",
+"pid": 136500,
+"club": "PHI",
+"player": "Wes Helms",
+"yrs": 2,
+"tot": 5.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-19",
+"pid": 112131,
+"club": "TEX",
+"player": "Frank Catalanotto",
+"yrs": 3,
+"tot": 13.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-19",
+"pid": 133221,
+"club": "LAA",
+"player": "Justin Speier",
+"yrs": 4,
+"tot": 18.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-20",
+"pid": 136460,
+"club": "CIN",
+"player": "Álex González",
+"yrs": 3,
+"tot": 14.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-20",
+"pid": 150093,
+"club": "CHC",
+"player": "Alfonso Soriano",
+"yrs": 8,
+"tot": 136.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-21",
+"pid": 110189,
+"club": "NYM",
+"player": "Moisés Alou",
+"yrs": 1,
+"tot": 8.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-22",
+"pid": 150439,
+"club": "LAA",
+"player": "Gary Matthews",
+"yrs": 5,
+"tot": 50.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-24",
+"pid": 124315,
+"club": "HOU",
+"player": "Woody Williams",
+"yrs": 2,
+"tot": 12.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-24",
+"pid": 150324,
+"club": "HOU",
+"player": "Carlos Lee",
+"yrs": 6,
+"tot": 100.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-27",
+"pid": 119608,
+"club": "NYY",
+"player": "Mike Mussina",
+"yrs": 2,
+"tot": 23.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-27",
+"pid": 276056,
+"club": "BAL",
+"player": "Danys Báez",
+"yrs": 3,
+"tot": 19.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-27",
+"pid": 284566,
+"club": "PHI",
+"player": "Adam Eaton",
+"yrs": 3,
+"tot": 24.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-28",
+"pid": 110870,
+"club": "STL",
+"player": "Gary Bennett",
+"yrs": 1,
+"tot": 0.9,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-28",
+"pid": 136268,
+"club": "BAL",
+"player": "Chad Bradford",
+"yrs": 3,
+"tot": 10.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-28",
+"pid": 150116,
+"club": "LAD",
+"player": "Randy Wolf",
+"yrs": 1,
+"tot": 8.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-28",
+"pid": 150337,
+"club": "STL",
+"player": "Kip Wells",
+"yrs": 1,
+"tot": 4.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-28",
+"pid": 150456,
+"club": "STL",
+"player": "Adam Kennedy",
+"yrs": 3,
+"tot": 10.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-29",
+"pid": 112381,
+"club": "TOR",
+"player": "Royce Clayton",
+"yrs": 1,
+"tot": 1.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-30",
+"pid": 150182,
+"club": "BAL",
+"player": "Scott Williamson",
+"yrs": 1,
+"tot": 0.9,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-11-30",
+"pid": 506606,
+"club": "BOS",
+"player": "Hideki Okajima",
+"yrs": 2,
+"tot": 2.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-01",
+"pid": 113660,
+"club": "SF",
+"player": "Ray Durham",
+"yrs": 2,
+"tot": 14.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-01",
+"pid": 114849,
+"club": "NYM",
+"player": "Tom Glavine",
+"yrs": 1,
+"tot": 10.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-01",
+"pid": 150398,
+"club": "SD",
+"player": "Geoff Blum",
+"yrs": 1,
+"tot": 0.9,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-02",
+"pid": 115832,
+"club": "CLE",
+"player": "Roberto Hernández",
+"yrs": 1,
+"tot": 3.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-02",
+"pid": 132788,
+"club": "BAL",
+"player": "Kevin Millar",
+"yrs": 1,
+"tot": 2.8,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-02",
+"pid": 150269,
+"club": "CLE",
+"player": "Aaron Fultz",
+"yrs": 1,
+"tot": 1.6,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-02",
+"pid": 150353,
+"club": "SF",
+"player": "Dave Roberts",
+"yrs": 3,
+"tot": 18.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-03",
+"pid": 122915,
+"club": "ATL",
+"player": "Tanyon Sturtze",
+"yrs": 1,
+"tot": 0.8,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-04",
+"pid": 110383,
+"club": "SF",
+"player": "Rich Aurilia",
+"yrs": 2,
+"tot": 8.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-05",
+"pid": 112903,
+"club": "SD",
+"player": "José Cruz",
+"yrs": 1,
+"tot": 0.7,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-05",
+"pid": 150061,
+"club": "BOS",
+"player": "Julio Lugo",
+"yrs": 4,
+"tot": 36.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-06",
+"pid": 111244,
+"club": "CLE",
+"player": "Joe Borowski",
+"yrs": 1,
+"tot": 4.2,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-06",
+"pid": 117759,
+"club": "LAD",
+"player": "Mike Lieberthal",
+"yrs": 1,
+"tot": 1.2,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-06",
+"pid": 121834,
+"club": "LAD",
+"player": "Jason Schmidt",
+"yrs": 3,
+"tot": 47.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-06",
+"pid": 132720,
+"club": "BAL",
+"player": "Paul Bako",
+"yrs": 1,
+"tot": 0.9,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-06",
+"pid": 134260,
+"club": "SF",
+"player": "Bengie Molina",
+"yrs": 3,
+"tot": 16.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-08",
+"pid": 114935,
+"club": "LAD",
+"player": "Luis Gonzalez",
+"yrs": 1,
+"tot": 7.3,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-08",
+"pid": 117157,
+"club": "SF",
+"player": "Steve Kline",
+"yrs": 2,
+"tot": 3.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-08",
+"pid": 120485,
+"club": "NYY",
+"player": "Andy Pettitte",
+"yrs": 1,
+"tot": 16.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-08",
+"pid": 120536,
+"club": "ATH",
+"player": "Mike Piazza",
+"yrs": 1,
+"tot": 8.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-08",
+"pid": 122620,
+"club": "STL",
+"player": "Russ Springer",
+"yrs": 1,
+"tot": 1.8,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-08",
+"pid": 136734,
+"club": "KC",
+"player": "Octavio Dotel",
+"yrs": 1,
+"tot": 5.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-12",
+"pid": 117863,
+"club": "TEX",
+"player": "Kenny Lofton",
+"yrs": 1,
+"tot": 6.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-13",
+"pid": 112297,
+"club": "MIN",
+"player": "Jeff Cirillo",
+"yrs": 1,
+"tot": 1.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-13",
+"pid": 118120,
+"club": "SD",
+"player": "Greg Maddux",
+"yrs": 1,
+"tot": 10.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-15",
+"pid": 119182,
+"club": "BOS",
+"player": "Doug Mirabelli",
+"yrs": 1,
+"tot": 0.8,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-15",
+"pid": 132880,
+"club": "CHC",
+"player": "Daryle Ward",
+"yrs": 1,
+"tot": 1.1,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-15",
+"pid": 240694,
+"club": "BOS",
+"player": "J. C. Romero",
+"yrs": 1,
+"tot": 1.6,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-16",
+"pid": 111492,
+"club": "SD",
+"player": "Doug Brocail",
+"yrs": 1,
+"tot": 0.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-17",
+"pid": 150134,
+"club": "CWS",
+"player": "Toby Hall",
+"yrs": 2,
+"tot": 3.6,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-18",
+"pid": 114909,
+"club": "BAL",
+"player": "Chris Gomez",
+"yrs": 1,
+"tot": 0.8,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-19",
+"pid": 150029,
+"club": "PHI",
+"player": "Jayson Werth",
+"yrs": 1,
+"tot": 0.8,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-19",
+"pid": 150302,
+"club": "CHC",
+"player": "Jason Marquis",
+"yrs": 3,
+"tot": 21.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-19",
+"pid": 150378,
+"club": "TEX",
+"player": "Éric Gagné",
+"yrs": 1,
+"tot": 6.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-20",
+"pid": 218595,
+"club": "ATL",
+"player": "Chris Woodward",
+"yrs": 1,
+"tot": 0.8,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-20",
+"pid": 228594,
+"club": "KC",
+"player": "David Riske",
+"yrs": 1,
+"tot": 2.2,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-20",
+"pid": 279578,
+"club": "SD",
+"player": "Marcus Giles",
+"yrs": 1,
+"tot": 3.2,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-21",
+"pid": 150148,
+"club": "PHI",
+"player": "Rod Barajas",
+"yrs": 1,
+"tot": 2.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-24",
+"pid": 122987,
+"club": "MIL",
+"player": "Jeff Suppan",
+"yrs": 4,
+"tot": 42.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-29",
+"pid": 111213,
+"club": "MIA",
+"player": "Aaron Boone",
+"yrs": 1,
+"tot": 0.9,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2006-12-29",
+"pid": 217096,
+"club": "SF",
+"player": "Barry Zito",
+"yrs": 7,
+"tot": 126.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-03",
+"pid": 333492,
+"club": "BAL",
+"player": "Aubrey Huff",
+"yrs": 3,
+"tot": 20.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-04",
+"pid": 334492,
+"club": "BOS",
+"player": "Joel Piñeiro",
+"yrs": 1,
+"tot": 4.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-08",
+"pid": 117928,
+"club": "HOU",
+"player": "Mark Loretta",
+"yrs": 1,
+"tot": 2.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-08",
+"pid": 137006,
+"club": "NYY",
+"player": "Doug Mientkiewicz",
+"yrs": 1,
+"tot": 1.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-10",
+"pid": 150426,
+"club": "STL",
+"player": "Mark Mulder",
+"yrs": 2,
+"tot": 13.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-10",
+"pid": 277410,
+"club": "SEA",
+"player": "Chris Reitsma",
+"yrs": 1,
+"tot": 2.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-11",
+"pid": 123307,
+"club": "TOR",
+"player": "John Thomson",
+"yrs": 1,
+"tot": 0.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-12",
+"pid": 133460,
+"club": "SF",
+"player": "Russ Ortiz",
+"yrs": 1,
+"tot": 0.4,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-12",
+"pid": 425532,
+"club": "WSH",
+"player": "Jerome Williams",
+"yrs": 1,
+"tot": 0.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-16",
+"pid": 407901,
+"club": "NYM",
+"player": "Jorge Sosa",
+"yrs": 1,
+"tot": 1.2,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-19",
+"pid": 119811,
+"club": "CLE",
+"player": "Trot Nixon",
+"yrs": 1,
+"tot": 3.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-19",
+"pid": 346852,
+"club": "ATL",
+"player": "Craig Wilson",
+"yrs": 1,
+"tot": 2.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-22",
+"pid": 211041,
+"club": "STL",
+"player": "Ryan Franklin",
+"yrs": 1,
+"tot": 1.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-24",
+"pid": 113889,
+"club": "CWS",
+"player": "Darin Erstad",
+"yrs": 1,
+"tot": 1.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-25",
+"pid": 150011,
+"club": "NYM",
+"player": "Scott Schoeneweis",
+"yrs": 3,
+"tot": 10.8,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-01-26",
+"pid": 111867,
+"club": "NYY",
+"player": "Miguel Cairo",
+"yrs": 1,
+"tot": 0.8,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-02-01",
+"pid": 114260,
+"club": "CHC",
+"player": "Cliff Floyd",
+"yrs": 1,
+"tot": 3.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-02-01",
+"pid": 133343,
+"club": "STL",
+"player": "Preston Wilson",
+"yrs": 1,
+"tot": 1.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-02-01",
+"pid": 150393,
+"club": "PIT",
+"player": "Tony Armas",
+"yrs": 1,
+"tot": 3.5,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-02-05",
+"pid": 124071,
+"club": "SD",
+"player": "David Wells",
+"yrs": 1,
+"tot": 3.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-02-10",
+"pid": 122784,
+"club": "ATH",
+"player": "Shannon Stewart",
+"yrs": 1,
+"tot": 1.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-02-14",
+"pid": 136770,
+"club": "BOS",
+"player": "J. D. Drew",
+"yrs": 5,
+"tot": 70.0,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-02-15",
+"pid": 111188,
+"club": "SF",
+"player": "Barry Bonds",
+"yrs": 1,
+"tot": 15.8,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-02-18",
+"pid": 150382,
+"club": "COL",
+"player": "Matt Herges",
+"yrs": 1,
+"tot": 2.5,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-03-23",
+"pid": 123431,
+"club": "BAL",
+"player": "Steve Trachsel",
+"yrs": 1,
+"tot": 3.1,
+"start": 2007,
+"src": "espn"
+},
+{
+"date": "2007-11-06",
+"pid": 136724,
+"club": "NYM",
+"player": "Marlon Anderson",
+"yrs": 2,
+"tot": 2.2,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-13",
+"pid": 120691,
+"club": "NYY",
+"player": "Jorge Posada",
+"yrs": 4,
+"tot": 52.4,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-16",
+"pid": 135783,
+"club": "NYM",
+"player": "Ramón Castro",
+"yrs": 2,
+"tot": 4.6,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-18",
+"pid": 114849,
+"club": "ATL",
+"player": "Tom Glavine",
+"yrs": 1,
+"tot": 8.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-19",
+"pid": 112116,
+"club": "NYM",
+"player": "Luis Castillo",
+"yrs": 4,
+"tot": 25.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-19",
+"pid": 121250,
+"club": "NYY",
+"player": "Mariano Rivera",
+"yrs": 3,
+"tot": 45.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-19",
+"pid": 136780,
+"club": "BOS",
+"player": "Mike Lowell",
+"yrs": 3,
+"tot": 37.5,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-20",
+"pid": 150398,
+"club": "HOU",
+"player": "Geoff Blum",
+"yrs": 1,
+"tot": 1.1,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-20",
+"pid": 493131,
+"club": "CLE",
+"player": "Masahide Kobayashi",
+"yrs": 2,
+"tot": 6.5,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-21",
+"pid": 116974,
+"club": "MIL",
+"player": "Jason Kendall",
+"yrs": 1,
+"tot": 4.2,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-22",
+"pid": 116338,
+"club": "LAA",
+"player": "Torii Hunter",
+"yrs": 5,
+"tot": 90.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-23",
+"pid": 276530,
+"club": "CWS",
+"player": "Scott Linebrink",
+"yrs": 4,
+"tot": 19.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-26",
+"pid": 134268,
+"club": "CHC",
+"player": "Kerry Wood",
+"yrs": 1,
+"tot": 4.2,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-28",
+"pid": 150188,
+"club": "CIN",
+"player": "Francisco Cordero",
+"yrs": 4,
+"tot": 46.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-29",
+"pid": 150275,
+"club": "COL",
+"player": "Yorvit Torrealba",
+"yrs": 2,
+"tot": 7.2,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-30",
+"pid": 121386,
+"club": "DET",
+"player": "Kenny Rogers",
+"yrs": 1,
+"tot": 8.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-30",
+"pid": 285131,
+"club": "STL",
+"player": "César Izturis",
+"yrs": 1,
+"tot": 2.9,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-11-30",
+"pid": 430565,
+"club": "HOU",
+"player": "Kazuo Matsui",
+"yrs": 3,
+"tot": 16.5,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-01",
+"pid": 123348,
+"club": "BOS",
+"player": "Mike Timlin",
+"yrs": 1,
+"tot": 3.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-02",
+"pid": 150116,
+"club": "SD",
+"player": "Randy Wolf",
+"yrs": 1,
+"tot": 4.8,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-04",
+"pid": 115229,
+"club": "KC",
+"player": "José Guillén",
+"yrs": 3,
+"tot": 36.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-06",
+"pid": 111213,
+"club": "WSH",
+"player": "Aaron Boone",
+"yrs": 1,
+"tot": 1.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-06",
+"pid": 116662,
+"club": "LAD",
+"player": "Andruw Jones",
+"yrs": 2,
+"tot": 36.2,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-07",
+"pid": 117928,
+"club": "HOU",
+"player": "Mark Loretta",
+"yrs": 1,
+"tot": 2.8,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-10",
+"pid": 150396,
+"club": "TEX",
+"player": "Milton Bradley",
+"yrs": 1,
+"tot": 5.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-12",
+"pid": 114909,
+"club": "PIT",
+"player": "Chris Gomez",
+"yrs": 1,
+"tot": 1.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-12",
+"pid": 120485,
+"club": "NYY",
+"player": "Andy Pettitte",
+"yrs": 1,
+"tot": 16.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-12",
+"pid": 400023,
+"club": "SF",
+"player": "Aaron Rowand",
+"yrs": 5,
+"tot": 60.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-13",
+"pid": 121347,
+"club": "NYY",
+"player": "Alex Rodriguez",
+"yrs": 10,
+"tot": 275.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-13",
+"pid": 150337,
+"club": "COL",
+"player": "Kip Wells",
+"yrs": 1,
+"tot": 3.1,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-13",
+"pid": 150430,
+"club": "COL",
+"player": "Luis Vizcaíno",
+"yrs": 2,
+"tot": 7.5,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-13",
+"pid": 275930,
+"club": "TOR",
+"player": "David Eckstein",
+"yrs": 1,
+"tot": 4.5,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-13",
+"pid": 276361,
+"club": "MIN",
+"player": "Adam Everett",
+"yrs": 1,
+"tot": 2.8,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-13",
+"pid": 406670,
+"club": "WSH",
+"player": "Rob Mackowiak",
+"yrs": 1,
+"tot": 1.5,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-13",
+"pid": 407483,
+"club": "WSH",
+"player": "Willie Harris",
+"yrs": 1,
+"tot": 0.8,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-14",
+"pid": 150286,
+"club": "MIN",
+"player": "Mike Lamb",
+"yrs": 2,
+"tot": 6.6,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-17",
+"pid": 110870,
+"club": "LAD",
+"player": "Gary Bennett",
+"yrs": 1,
+"tot": 0.9,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-17",
+"pid": 114260,
+"club": "TB",
+"player": "Cliff Floyd",
+"yrs": 1,
+"tot": 3.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-17",
+"pid": 445222,
+"club": "HOU",
+"player": "Jack Cassel",
+"yrs": 1,
+"tot": 0.4,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-18",
+"pid": 277184,
+"club": "NYM",
+"player": "Matt Wise",
+"yrs": 1,
+"tot": 1.2,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-18",
+"pid": 406301,
+"club": "HOU",
+"player": "Chad Paronto",
+"yrs": 1,
+"tot": 0.5,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-18",
+"pid": 435338,
+"club": "SD",
+"player": "Tadahito Iguchi",
+"yrs": 1,
+"tot": 4.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-19",
+"pid": 136664,
+"club": "SD",
+"player": "Michael Barrett",
+"yrs": 1,
+"tot": 3.5,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-19",
+"pid": 150178,
+"club": "STL",
+"player": "Jason LaRue",
+"yrs": 1,
+"tot": 0.8,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-19",
+"pid": 150230,
+"club": "COL",
+"player": "Mark Redman",
+"yrs": 1,
+"tot": 1.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-20",
+"pid": 132961,
+"club": "PHI",
+"player": "Geoff Jenkins",
+"yrs": 2,
+"tot": 13.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-20",
+"pid": 239795,
+"club": "PHI",
+"player": "Chad Durbin",
+"yrs": 1,
+"tot": 0.9,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-20",
+"pid": 400067,
+"club": "SEA",
+"player": "Carlos Silva",
+"yrs": 4,
+"tot": 48.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-21",
+"pid": 115629,
+"club": "NYY",
+"player": "LaTroy Hawkins",
+"yrs": 1,
+"tot": 3.8,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-23",
+"pid": 408039,
+"club": "PHI",
+"player": "So Taguchi",
+"yrs": 1,
+"tot": 1.1,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-26",
+"pid": 407578,
+"club": "SD",
+"player": "Mark Prior",
+"yrs": 1,
+"tot": 1.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2007-12-27",
+"pid": 113889,
+"club": "HOU",
+"player": "Darin Erstad",
+"yrs": 1,
+"tot": 1.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-03",
+"pid": 136725,
+"club": "STL",
+"player": "Matt Clement",
+"yrs": 1,
+"tot": 1.5,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-04",
+"pid": 346869,
+"club": "COL",
+"player": "Josh Towers",
+"yrs": 1,
+"tot": 0.4,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-04",
+"pid": 425446,
+"club": "STL",
+"player": "Aaron Miles",
+"yrs": 1,
+"tot": 1.4,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-08",
+"pid": 111867,
+"club": "SEA",
+"player": "Miguel Cairo",
+"yrs": 1,
+"tot": 0.8,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-11",
+"pid": 111548,
+"club": "ATH",
+"player": "Emil Brown",
+"yrs": 1,
+"tot": 1.4,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-11",
+"pid": 115216,
+"club": "TEX",
+"player": "Eddie Guardado",
+"yrs": 1,
+"tot": 2.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-11",
+"pid": 119182,
+"club": "BOS",
+"player": "Doug Mirabelli",
+"yrs": 1,
+"tot": 0.6,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-16",
+"pid": 117758,
+"club": "CHC",
+"player": "Jon Lieber",
+"yrs": 1,
+"tot": 3.5,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-16",
+"pid": 424805,
+"club": "MIA",
+"player": "Mark Hendrickson",
+"yrs": 1,
+"tot": 1.5,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-17",
+"pid": 407298,
+"club": "TEX",
+"player": "Jason Jennings",
+"yrs": 1,
+"tot": 4.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-19",
+"pid": 346793,
+"club": "CIN",
+"player": "Jeremy Affeldt",
+"yrs": 1,
+"tot": 3.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-21",
+"pid": 123387,
+"club": "KC",
+"player": "Brett Tomko",
+"yrs": 1,
+"tot": 3.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-22",
+"pid": 136734,
+"club": "CWS",
+"player": "Octavio Dotel",
+"yrs": 2,
+"tot": 11.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-26",
+"pid": 150148,
+"club": "TOR",
+"player": "Rod Barajas",
+"yrs": 1,
+"tot": 1.2,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-29",
+"pid": 283051,
+"club": "WSH",
+"player": "Johnny Estrada",
+"yrs": 1,
+"tot": 1.2,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-31",
+"pid": 150415,
+"club": "SEA",
+"player": "Brad Wilkerson",
+"yrs": 1,
+"tot": 3.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-01-31",
+"pid": 425774,
+"club": "MIA",
+"player": "Dallas McPherson",
+"yrs": 1,
+"tot": 0.4,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-02-01",
+"pid": 112087,
+"club": "BOS",
+"player": "Sean Casey",
+"yrs": 1,
+"tot": 0.8,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-02-05",
+"pid": 150221,
+"club": "CIN",
+"player": "Mike Lincoln",
+"yrs": 2,
+"tot": 4.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-02-06",
+"pid": 119125,
+"club": "TB",
+"player": "Trever Miller",
+"yrs": 1,
+"tot": 2.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-02-08",
+"pid": 114342,
+"club": "ATH",
+"player": "Keith Foulke",
+"yrs": 1,
+"tot": 7.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-02-11",
+"pid": 112316,
+"club": "SD",
+"player": "Tony Clark",
+"yrs": 1,
+"tot": 0.9,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-02-12",
+"pid": 123040,
+"club": "LAD",
+"player": "Mark Sweeney",
+"yrs": 1,
+"tot": 0.6,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-02-20",
+"pid": 218294,
+"club": "PIT",
+"player": "Byung-Hyun Kim",
+"yrs": 1,
+"tot": 0.8,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-02-20",
+"pid": 276336,
+"club": "HOU",
+"player": "Shawn Chacón",
+"yrs": 1,
+"tot": 2.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-02-21",
+"pid": 150319,
+"club": "CIN",
+"player": "Josh Fogg",
+"yrs": 1,
+"tot": 1.0,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-03-05",
+"pid": 150020,
+"club": "CIN",
+"player": "Jerry Hairston",
+"yrs": 1,
+"tot": 2.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-03-13",
+"pid": 346798,
+"club": "STL",
+"player": "Kyle Lohse",
+"yrs": 1,
+"tot": 4.2,
+"start": 2008,
+"src": "espn"
+},
+{
+"date": "2008-10-31",
+"pid": 150178,
+"club": "STL",
+"player": "Jason LaRue",
+"yrs": 1,
+"tot": 0.9,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-11-12",
+"pid": 150122,
+"club": "NYY",
+"player": "Dámaso Marte",
+"yrs": 3,
+"tot": 12.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-11-19",
+"pid": 133225,
+"club": "CHC",
+"player": "Ryan Dempster",
+"yrs": 4,
+"tot": 52.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-01",
+"pid": 115399,
+"club": "HOU",
+"player": "Mike Hampton",
+"yrs": 1,
+"tot": 2.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-02",
+"pid": 111492,
+"club": "HOU",
+"player": "Doug Brocail",
+"yrs": 1,
+"tot": 2.8,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-03",
+"pid": 119125,
+"club": "STL",
+"player": "Trever Miller",
+"yrs": 1,
+"tot": 0.5,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-03",
+"pid": 133982,
+"club": "SF",
+"player": "Bob Howry",
+"yrs": 1,
+"tot": 2.8,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-03",
+"pid": 137140,
+"club": "SEA",
+"player": "Russell Branyan",
+"yrs": 1,
+"tot": 1.4,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-04",
+"pid": 121074,
+"club": "SF",
+"player": "Édgar Rentería",
+"yrs": 2,
+"tot": 18.5,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-04",
+"pid": 150221,
+"club": "CIN",
+"player": "Mike Lincoln",
+"yrs": 2,
+"tot": 4.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-04",
+"pid": 406402,
+"club": "MIL",
+"player": "Jorge Julio",
+"yrs": 1,
+"tot": 0.9,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-05",
+"pid": 424325,
+"club": "ATL",
+"player": "David Ross",
+"yrs": 2,
+"tot": 3.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-07",
+"pid": 119984,
+"club": "LAA",
+"player": "Darren Oliver",
+"yrs": 1,
+"tot": 3.6,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-07",
+"pid": 124000,
+"club": "CIN",
+"player": "David Weathers",
+"yrs": 1,
+"tot": 3.9,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-08",
+"pid": 117928,
+"club": "LAD",
+"player": "Mark Loretta",
+"yrs": 1,
+"tot": 1.2,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-09",
+"pid": 150286,
+"club": "MIL",
+"player": "Mike Lamb",
+"yrs": 1,
+"tot": 0.4,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-09",
+"pid": 232694,
+"club": "LAD",
+"player": "Casey Blake",
+"yrs": 3,
+"tot": 17.5,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-09",
+"pid": 408061,
+"club": "NYM",
+"player": "Francisco Rodríguez",
+"yrs": 3,
+"tot": 37.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-10",
+"pid": 113833,
+"club": "COL",
+"player": "Alan Embree",
+"yrs": 1,
+"tot": 2.2,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-10",
+"pid": 134268,
+"club": "CLE",
+"player": "Kerry Wood",
+"yrs": 2,
+"tot": 20.5,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-11",
+"pid": 150479,
+"club": "ARI",
+"player": "Felipe López",
+"yrs": 1,
+"tot": 3.5,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-11",
+"pid": 346857,
+"club": "MIN",
+"player": "Nick Punto",
+"yrs": 2,
+"tot": 8.5,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-11",
+"pid": 400141,
+"club": "KC",
+"player": "Horacio Ramírez",
+"yrs": 1,
+"tot": 1.8,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-12",
+"pid": 116380,
+"club": "PHI",
+"player": "Raúl Ibañez",
+"yrs": 3,
+"tot": 31.5,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-12",
+"pid": 121125,
+"club": "CIN",
+"player": "Arthur Rhodes",
+"yrs": 2,
+"tot": 4.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-12",
+"pid": 150359,
+"club": "NYY",
+"player": "A. J. Burnett",
+"yrs": 5,
+"tot": 82.5,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-12",
+"pid": 407496,
+"club": "PIT",
+"player": "Ramón Vázquez",
+"yrs": 2,
+"tot": 4.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-13",
+"pid": 150035,
+"club": "KC",
+"player": "Kyle Farnsworth",
+"yrs": 2,
+"tot": 9.2,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-14",
+"pid": 440361,
+"club": "CIN",
+"player": "Norris Hopper",
+"yrs": 1,
+"tot": 0.4,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-15",
+"pid": 119469,
+"club": "PHI",
+"player": "Jamie Moyer",
+"yrs": 2,
+"tot": 13.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-15",
+"pid": 276361,
+"club": "DET",
+"player": "Adam Everett",
+"yrs": 1,
+"tot": 1.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-15",
+"pid": 346859,
+"club": "HOU",
+"player": "Jason Michaels",
+"yrs": 1,
+"tot": 0.8,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-16",
+"pid": 150469,
+"club": "KC",
+"player": "John Bale",
+"yrs": 1,
+"tot": 1.2,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-16",
+"pid": 285131,
+"club": "BAL",
+"player": "César Izturis",
+"yrs": 2,
+"tot": 5.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-16",
+"pid": 431157,
+"club": "CHC",
+"player": "Joey Gathright",
+"yrs": 1,
+"tot": 0.8,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-17",
+"pid": 279577,
+"club": "LAD",
+"player": "Rafael Furcal",
+"yrs": 3,
+"tot": 30.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-18",
+"pid": 111213,
+"club": "HOU",
+"player": "Aaron Boone",
+"yrs": 1,
+"tot": 0.8,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-19",
+"pid": 119853,
+"club": "ATL",
+"player": "Greg Norton",
+"yrs": 1,
+"tot": 0.8,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-19",
+"pid": 407487,
+"club": "LAA",
+"player": "Juan Rivera",
+"yrs": 3,
+"tot": 12.8,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-20",
+"pid": 282332,
+"club": "NYY",
+"player": "CC Sabathia",
+"yrs": 7,
+"tot": 161.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-26",
+"pid": 116615,
+"club": "SF",
+"player": "Randy Johnson",
+"yrs": 1,
+"tot": 8.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-27",
+"pid": 430838,
+"club": "CIN",
+"player": "Willy Taveras",
+"yrs": 2,
+"tot": 6.2,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-28",
+"pid": 207267,
+"club": "BOS",
+"player": "Brad Penny",
+"yrs": 1,
+"tot": 5.0,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-29",
+"pid": 425555,
+"club": "WSH",
+"player": "Daniel Cabrera",
+"yrs": 1,
+"tot": 2.6,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-30",
+"pid": 406874,
+"club": "TB",
+"player": "Joe Nelson",
+"yrs": 1,
+"tot": 1.3,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-31",
+"pid": 150118,
+"club": "LAA",
+"player": "Brian Fuentes",
+"yrs": 2,
+"tot": 17.5,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-31",
+"pid": 424805,
+"club": "BAL",
+"player": "Mark Hendrickson",
+"yrs": 1,
+"tot": 1.5,
+"start": 2009,
+"src": "espn"
+},
+{
+"date": "2008-12-31",
+"pid": 425446,
+"club": "CHC",
+"player": "Aaron Miles",
+"yrs": 2,
+"tot": 4.9,
+"start": 2009,
+"src": "espn"
+}
+]
+}
