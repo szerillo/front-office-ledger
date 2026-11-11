@@ -1041,3 +1041,36 @@ rule, the Baseball-Reference pull, the bonus method, and now the determinism pat
    which only the field checks test.
 
 Nothing went to the public site.
+
+## 26. Round 21 (Nov 11, 5:19 PM): launch list, determinism, fa97 re-check, WAR vintage
+
+1. **Launch list:** `docs/launch-blockers-nov11.md`, ordered. Top item without Sean: the determinism patch.
+2. **Determinism patch (`4ff51c5`).** 10 shuffled rebuilds under the patch: **1 distinct md5** (`1a4a4a5e`).
+   Tests that could show it is still order-dependent: `PRAGMA reverse_unordered_selects=ON` changes the shipped
+   build (`f375887b` to `a8a1e777`) but not the patched one; PYTHONHASHSEED 1, 2 and 3 and SQLite 3.51.1 against
+   3.53.1 give the same patched md5. The 13 rows it changes against live are listed in full in
+   `tests/tools/r21_determinism.json`: 12 move lists (8 same moves reordered, 4 a different tied move) and one
+   dollar cell; none has a share page and none is a 2022+ winter. They do show in the all-winters view.
+   **Rounding rule as built:** Python `round()` on the sum, which is round-half-to-even. 132 winter dollar totals
+   sit exactly on .5 and live already rounds 131 of them to even (87.5 to 88, 102.5 to 102). The 132nd, Cardinals
+   2004-05 at exactly $15.5M, shows 15 live only because the float sum came out at 15.4999...; with exact sums it
+   is 16, which is the half-even answer. Half-up instead would change 64 cells, 10 in 2022+ winters and 2 on share
+   pages (2005-bos, 2013-det). Recommendation: keep half-even and write it down.
+3. **fa97 re-check, pre-registered** (`docs/prereg-round21.md`, `9753a0b`, committed 22:23:27 UTC before the first
+   new search). Re-sourced inside the budget: Hermanson $800K (AP list), Alfonseca $1.35M (AP list), Dessens
+   $1.55M (AP list), Conine total $1.7M (Baseball Almanac salary table; years still unverified). fa97 now: years
+   19 match, 0 mismatch, 1 unverified; total 19 match, 1 mismatch (Fassero), 0 unverified. **Both pass**, so per the
+   pre-registered rule pre-2009 terms stay as they are. Caveat: only the 4 failing rows were searched again.
+   The card uses Fassero $1.5M (source $1.35M) and Furcal $30M (AP $33M with the buyout). Corrected, their grades
+   move -1.5 to -1.4 and +4.1 to +3.7. Neither has a share page; both show on club pages and player trees.
+   `tests/tools/prereg21_results.json`.
+4. **WAR vintage.** The rebuild and the live grader read the same file: `/work/lvm_cache.json`, md5
+   `4fc652f0`, identical to `data/lvm_cache.json` in the repo and on GitHub main, last changed in commit
+   `0a9f2bd` (Nov 3, 14:24 ET), with version flags `__lvm_v15__` to `__lvm_v17__`. Every live build file is later
+   (`cards.js` Nov 8, `book.js` Nov 10, `offseasons.json` Nov 10). Direct evidence that live used this vintage: the
+   free-agent column rebuilt from it matches live on 815 of 816 winters (the 816th is the rounding cell), and the
+   independent recompute matches 2,614 of 2,615 graded rows. The `/work` file times all read 06:08:27, so they
+   come from a restore and say nothing about vintage. Not covered: trade nets were taken from the shipped outputs,
+   not recomputed from this file.
+
+Nothing went to the public site.
