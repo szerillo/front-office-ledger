@@ -1084,8 +1084,12 @@ Approved by Sean (via Kirk) for patch `4ff51c5` only.
 - **Deployed code, 5 new shuffles** (seeds 20261151 to 20261155), run from the files fetched at `279379f` with only
   I/O paths redirected: 5 of 5 give `1a4a4a5e`. `PRAGMA reverse_unordered_selects=ON`: no change. `/work` untouched.
 - **Live before/after:** 13 of 816 rows changed, none with a share page and none 2022+. 8 are the same five moves
-  in another order. 4 swap one tied move: ATL 2001-02 Castilla for Smoltz (-0.5); ATL 2003-04 Alfonseca for E.
-  Pérez (+0.8); SD 2007-08 Clark +0.1 for Wolf -0.1; MIA 2016-17 Ellis for McGowan (-0.4). The 13th is Cardinals
+  in another order. 4 swap one move tied on rounded size (the list keeps the 5 largest by |grade| rounded to 0.1,
+  `offseasons_build.py:80`; grades rounded at lines 62 and 72): ATL 2001-02 Castilla for Smoltz (-0.5); ATL 2003-04
+  Alfonseca for E. Pérez (+0.8); MIA 2016-17 Ellis for McGowan (-0.4); and **SD 2007-08 Clark +0.1 for Wolf -0.1, a
+  sign flip on a listed move** (corrected round 23; earlier called the same grade). Public-facing: yes. The move list
+  shows in the all-winters view and the page colors each move by sign (`index.html:16314`), so a green +0.1 became a
+  red -0.1. The winter's totals did not change. No share page. The 13th is Cardinals
   2004-05 dollars, 15 to **16**.
 - **Rollback (one step):** upload the previous `offseasons.json` (md5 `6842d1d0`, at
   `raw.githubusercontent.com/szerillo/front-office-ledger/279379f/offseasons.json`) to the repo root through
@@ -1096,3 +1100,38 @@ Approved by Sean (via Kirk) for patch `4ff51c5` only.
   order-free today because `asset_end` takes a minimum. The two set loops (`r5_conduit.py:12`, `desk_data.py:773`)
   only fill lookup maps. Untested whether the others change any published file; that test is step 0 of
   `docs/plan-items-5-6.md`.
+
+## 28. Round 23 (Nov 11, 5:58 PM): tie-break, SELECT risk, Step 0
+
+1. **Tie-break.** `offseasons_build.py:80` keeps the 5 largest moves by |grade| rounded to 0.1 (rounded at lines 62
+   and 72); Python's sort is stable, so equal sizes keep the order moves were added. Padres 2007-08 (Clark +0.1 for
+   Wolf -0.1) is a tie on size, not on grade, and it is a public-facing change: the page colors each move by sign
+   (`index.html:16314`). Added to the deploy record in section 27.
+2. **SELECT risk** (`tests/tools/r23_select_risk.md`): (a) 4, (b) 12, (c) 28, by reading the code.
+3. **Step 0, pre-registered** (`docs/prereg-step0.md`, `3f0018a`, 23:01:18 UTC, before the sandbox was built).
+   - Sandbox: private mount and network namespaces, the real `/work` mounted read-only, and a guard
+     (`tests/tools/step0/sitecustomize.py`) that exits 97 on a write outside the sandbox, any socket, urllib or
+     subprocess call. Each abort was fired on purpose first; without the guard the OS layer still refuses (read-only
+     file system, network unreachable). Real `/work` tree md5 `0c06cf47fca8` before and after every run.
+   - Frozen inputs: the backfilled `sweep_tx`, plus `draft_picks` 1998-2026 fetched once from the Stats API
+     (`/work/ledger.sqlite` is empty here). Network: one record pass saved 623 responses; every run then replayed
+     from them and aborted on a miss.
+   - Deviations, recorded: freezing the clock by replacing the datetime classes crashed pandas' C extension, so the
+     freeze uses `time-machine`; `lscpu` (a library's CPU-count probe) is allowed and logged.
+   - **Result: FAIL.** R0 to R6 give 7 different md5s for every published file (`cards.js`, `moves.js`, the page,
+     `offseasons.json`, `trade_parts.json`). R7 (clock moved to Dec 15) stopped at `desk_data.py`, which builds
+     its transactions URL from today's date: the clock is an input.
+   - On the site this means: 13 of 30 current regime totals vary by up to 0.2; player order inside trade seats; 2
+     display names; 6 settled winter move lists. No trade grade, winter number, share page or 2022+ winter varies.
+   - Traced: `ret2.py:77` (82 filings under two teams shift the league expectation curve) and `trade_book.py:73`
+     (seat order, last-seen name). Not yet traced: `moves.js`, desk data, the rest of `cards.js`.
+4. **Inputs (not a pure function of ledger + WAR cache)** (`tests/tools/step0_inputs.json`): 274 data files (61
+   top-level JSON, 159 Stats API cache, 49 schedule cache, 3 research CSVs, the ESPN contract CSV); 623 network
+   calls from 13 scripts (people, teams, drafts, schedules, standings, transactions, Savant leaderboards), many
+   written back into those caches; the clock (`desk_data.py` lines 532, 536, 631, 643); env `PS_FULL` and `TZ`;
+   scikit-learn thread settings in `contract_apply.py`. `sweep_score.py` fetches WAR for any player missing from the
+   cache and rewrites it; its standings fetch is wrapped in `try/except: continue`, so a failed call silently drops
+   data.
+5. **Found, not changed:** the chain runs from `/work`, whose `fa_grade.py` and `offseasons_build.py` are still
+   unpatched; the runbook seed misses `data/research/` and `/work/repo`; the `JSON.parse(` wrapper step before
+   `split_book.py` is undocumented.

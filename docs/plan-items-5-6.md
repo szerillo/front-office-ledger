@@ -19,6 +19,9 @@ Blocker found tonight: `sweep_score.py` and `hist_score.py` fetch from the netwo
    differing trade side, find the read that causes it, and patch it the same way (ORDER BY or an explicit sort),
    then repeat.
 
+**Status (Nov 11, 23:40 UTC): built and run; FAIL.** See `tests/tools/step0_results.json` and audit section 28.
+Items 5 and 6 wait until the order fixes pass Step 0.
+
 ## Item 5: engine side of the same-club re-sign rule
 
 Patch exists: `docs/patches/engine-resign-rule.diff` (applies cleanly to `engine/asset_rules.py` at main, checked

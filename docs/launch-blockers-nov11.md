@@ -17,6 +17,22 @@ without a decision from Sean (deploys always need his OK). Sizes: S under an hou
 | 10 | 1998-2014 extension file | 3 clear errors in 25 sourced rows | Sean: label or correct | S (label) / L (correct) | No | Label live, or rows corrected from salary tables |
 | 11 | Launch posts | Need the final numbers after item 7 | Kirk drafts, Sean posts | S | Drafting yes | Every number matches the live page |
 
+**Step 0 (Nov 11 evening, prereg `3f0018a`): FAIL.** The trade pipeline is order-dependent: every published file
+changes md5 under a shuffled `sweep_tx` or reversed reads. What reaches the site: 13 of 30 current regime totals vary
+by up to 0.2 (report cards), player order inside trade seats, 2 player display names, 6 settled winter move lists;
+no trade grade, no winter number, no share page, nothing 2022+. Details in `tests/tools/step0_results.json`.
+
+**Next blocker I can clear without Sean:** trace every remaining published difference (`moves.js`, desk data,
+`cards.js`) to its read, write the order fixes as one patch, and re-run Step 0 on the patched build until all
+published files have one md5. Paper only; deploying the patch is Sean's call. Items 5 and 6 wait for it.
+
+Also found, for Sean (not changed):
+- `/work/fa_grade.py` and `/work/offseasons_build.py` are still the unpatched copies (`01c80d6b`, `d6692708`), and
+  `run_chain.sh` runs the chain from `/work`. A rebuild from `/work` would bring back the order-dependent grader.
+  One-step fix: copy `engine/fa_grade.py` and `engine/offseasons_build.py` from main into `/work`.
+- The runbook seed misses `data/research/` and a `/work/repo` checkout, `/work/ledger.sqlite` is empty, and the step
+  that wraps `TRADE_BOOK` in `JSON.parse(` for `split_book.py` is not in the chain or the runbook.
+
 Not blocking launch, listed so they are not lost:
 - fa97 contract terms: the pre-registered re-check passed (`9753a0b`, results `tests/tools/prereg21_results.json`); no label needed. Fassero and Furcal overrides are proposed (grades -1.5 to -1.4 and +4.1 to +3.7; no share page).
 - Filler rule and bonus method: 0 live grades read the affected rows today.
