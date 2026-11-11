@@ -14,15 +14,21 @@ const r = await page.evaluate(async () => {
   out.holmesTradeOpen = !!tr && tr.status === 'open';
   out.holmesProspectNote = !!tr && /prospect value/.test(tr.nm || '');
   out.holmesNymSigningClosed = ho.some(n => /signed with NYM/.test(n.via || '') && n.status === 'closed');
-  // no decision before 2021 was reopened, and a played-out one-year deal is closed
-  let reopened = 0, oneYrOpen = 0, tradeReopened = 0;
+  // no decision before 2021 was reopened without a reason, and a played-out one-year deal is closed
+  let reopened = 0, oneYrOpen = 0, tradeReopened = 0, bettsOpen = true, hendersonOpen = true, judgeClosed = true;
   const seen = new Set();
   const walk = (x, d) => { if(!x || typeof x !== 'object' || d > 7 || seen.has(x)) return; seen.add(x);
     if(Array.isArray(x)){ x.forEach(y => walk(y, d + 1)); return; }
-    if(x.d && x.h && typeof x.open === 'boolean'){ if(x.open && x.open0 === false && !/^trade$/i.test(x.ch || x.t || '')) reopened++; if(x.open && x.open0 === false && /^trade$/i.test(x.ch || x.t || '')) tradeReopened++; if(x.open && /1 yr \/ \$[\d.]+M \(202[0-5]-\d\d winter\)/.test(x.h)) oneYrOpen++; }
+    if(x.d && x.h && typeof x.open === 'boolean'){ if(x.open && x.open0 === false && !/^trade$/i.test(x.ch || x.t || '')){ const pr = (x.pids || []).map(p => { folGone(p); return folGone._m && folGone._m.get(String(p)); }).find(Boolean);
+      const ok = (/^Extended/.test(x.h) && (x.sides || []).some(y => y[0] === 'Still to come')) || (/^(Drafted|Int'l amateur)/.test(x.h) && pr && gmSvc(pr) < 6); if(!ok) reopened++; }
+      if(/^Extended Mookie Betts/.test(x.h)) bettsOpen = bettsOpen && x.open; if(/^Drafted Gunnar Henderson/.test(x.h)) hendersonOpen = hendersonOpen && x.open; if(/^Drafted Aaron Judge/.test(x.h)) judgeClosed = judgeClosed && !x.open; if(x.open && x.open0 === false && /^trade$/i.test(x.ch || x.t || '')) tradeReopened++; if(x.open && /1 yr \/ \$[\d.]+M \(202[0-5]-\d\d winter\)/.test(x.h)) oneYrOpen++; }
     for(const k in x){ if(x[k] && typeof x[k] === 'object') walk(x[k], d + 1); } };
   [...REGIMES, ...AUTO_REGIMES, ...LB_HIST].forEach(x => walk(x, 0));
+  // only for a stated reason: an extension still running with the club (Betts, 2020),
+  // or a pre-2021 draft or international signing still in his control years
   out.noneReopened = reopened === 0;
+  out.preCutoffStillRunningOpen = bettsOpen && hendersonOpen;
+  out.preCutoffControlOverClosed = judgeClosed;
   out.tradesReopenedFew = tradeReopened < 40;
   out._tradeReopened = tradeReopened;
   out.playedOutOneYearClosed = oneYrOpen === 0;
@@ -63,6 +69,13 @@ const r = await page.evaluate(async () => {
   out.weekBoard = /This week/.test(html) && (html.match(/wk-day/g) || []).length === 7;
   out.noEmDash = !/\u2014/.test(bt + (cc ? cc.innerText : '') + html);
   return out;
+});
+// deal comps: inline on the working page, fetched after load on the deployed page;
+// either way the Deal Desk finds real comparable trades
+r.dealsLazy = await page.evaluate(async () => {
+  for(let i = 0; i < 40 && !dkDealsReady(); i++){ dkDealsLoad(); await new Promise(z => setTimeout(z, 250)); }
+  const inline = !window.DESK_DEALS_SRC;
+  return dkDealsReady() && DESK.deals.length > 1000 && dkComps(3, 3, '3+', 'c', '', '').length > 0 && (inline || [...document.scripts].some(x => /deals\.js/.test(x.src)));
 });
 report('t_nov11', r, errors);
 await browser.close();

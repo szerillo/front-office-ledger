@@ -5,6 +5,8 @@ import { open, report } from './_common.mjs';
 const d = await open();
 const r = await d.page.evaluate(async () => {
   const o = {};
+  // the deployed page fetches the Deal Desk comps after load: wait for them as a reader's page does
+  for(let i = 0; i < 40 && typeof dkDealsReady === 'function' && !dkDealsReady(); i++){ dkDealsLoad(); await new Promise(z => setTimeout(z, 250)); }
   const pl = nm => DESK.players.find(x => x[0] === nm);
   // real decisions
   o.saleUnderContract = !gmIsFA(pl('Chris Sale')) && gmControlled(pl('Chris Sale')) && Math.abs(gmBookAAVFor(pl('Chris Sale'), 2027) - 27) < 0.01;
