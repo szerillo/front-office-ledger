@@ -2233,9 +2233,13 @@ function folTradeOpen(seats, d){
   // Utley to the Dodgers (2015) read OPEN on such a piece (Nov 11 audit)
   const y = +String(d || '').slice(0, 4), mo = +String(d || '').slice(5, 7), y0 = y ? (mo >= 10 ? y + 1 : y) : 0;
   const inSix = !y0 || y0 + 5 > FOL_SEASON;
+  // a release or a free-agent signing anywhere after the trade ends that piece's
+  // window, as in the engine (Vieira, released by the White Sox in 2019)
+  const ended = p => !!(d && typeof PLAYER_MOVES !== 'undefined' && (PLAYER_MOVES[String(p)] || []).some(m => m[0] > String(d)
+    && /^(Released|Declared Free Agency|Signed as Free Agent|Minor-league deal)$/.test(typeof m[1] === 'number' && typeof PLAYER_MOVE_TYPES !== 'undefined' ? PLAYER_MOVE_TYPES[m[1]] : m[1])));
   return (seats || []).some(s => (s[2] || []).some(([p]) => {
     const g = folGone(p);
-    if(g === true) return false;
+    if(g === true || ended(p)) return false;
     if(inSix) return true;
     if(g === null) return false;
     const r = folGone._m && folGone._m.get(String(p));
