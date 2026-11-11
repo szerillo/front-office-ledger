@@ -14,6 +14,10 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 - Refresh tasks: at 23:54 UTC neither `rumors.json` nor `wire.json` carried a `checked` time yet. The first
   runs under the new prompts are due 00:23 UTC (trade reports) and 02:37 UTC (terms); the 22:37 UTC terms run
   fired one minute after the prompt change and left no stamp. Check again after those.
+- Stamp check at 00:57 UTC Nov 11: still no `checked` time in `rumors.json`. The trade-reports task did
+  fire at 00:24 UTC under the new prompt and Chrome was reachable minutes earlier, so either the run was
+  still working 33 minutes in or it stopped before uploading; its phone note will say which. Prompts left
+  alone until there is evidence. Next looks: after the 02:37 UTC terms run and the 03:23 UTC trade-reports run.
 - **Old task-list items reconciled against the page** (27 were still marked open from earlier chats).
   Checked directly: no process words (curated, COMPUTED, archive sweep, illustrative, fictional), no "-0.0",
   no "undefined" or "NaN" in any of the 20 views; the simulator has Start over and a call-ups step; the Deal
