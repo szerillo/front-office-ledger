@@ -706,3 +706,34 @@ written that day.
    $9.0M Baltimore paid; the $0 shadow now scales every 2020 salary row to 60/162 (2020 pay was prorated). Effect on
    the shadow (147 covered seasons): paid above the floor 110 to 108; sides moving a win or more 22 (unchanged);
    flips 6 to 8; clubs moving 2+ places 2 (unchanged). Report only, as before.
+
+## 18. Round 15 (Nov 11, afternoon)
+
+1. **2020 source.** BRef 2020 rows are full-season rates, not prorated pay: Heaney 4,300, Montero 785, Marte
+   11,500, Leon 2,000 ($K). AP and Spotrac report the prorated amount, which equals full rate x 60/162 (Heaney
+   $1,592,593 of $4.3M; Montero $290,741 of $785,000; Stassi $296,296 of $800,000; Bundy $1,851,852 of $5M).
+   Counts: BRef 4 of 4 full rate; AP 4 of 4 prorated; Spotrac 1 of 1 prorated. So scaling BRef 2020 rows by 60/162
+   (b894f07) shrinks once, not twice. Cot's was not fetched.
+2. **Why OPEN 710 to 721 moved no grades.** Grades are precomputed in TRADE_BOOK (book.js). `folTradeOpen` only sets
+   the OPEN label; no grade reads it. Eli White 2023 ATL/TEX: label closed to OPEN, seats ATL -0.1 / TEX +0.1
+   unchanged. The grade moves only when the engine applies the same rule (item 5).
+3. **Arbitration out-of-sample test: inconclusive.** Gain +0.29 $M a season, 95% -0.35 to +1.31, SE 0.41; smallest
+   detectable gain at 80% power about $1.16M a season (`tests/tools/arb_oos_power.py`). A better-powered design is
+   pre-registered in `docs/prereg-round14.md` (dff5ab9, 18:35:21 UTC; leave one player out, 200+ seasons, adopt only if the interval
+   excludes 0 and gain is at least $0.25M). Not run.
+4. **Flips 6 to 8.** The two new flips are both sides of the 2025-07-31 CHC/BAL deal (CHC +0.5 to -0.14, BAL -0.5 to
+   +0.14), caused by the Kittredge 2026 $9.0M override charged to the club holding him under flip-follows-piece.
+   Shadow only; that deal shows on club and tree pages, it has no share page.
+5. **Builds (local, not deployed).**
+   - Engine re-sign rule: `docs/patches/engine-resign-rule.diff`. A release or FA filing followed within 60 days
+     by a minor-league re-sign with the club that held him no longer ends the asset. Check
+     (`tests/tools/engine_resign_check.py`): 36 pieces, 72 sides. Henriquez 2022 MIN -1.2 to +0.3; Eli White 2023
+     ATL -0.1 to +1.1. Largest club moves: NYY 2014-12-19 -7.3 to -4.9 (Germán), BOS 2010-11-12 +3.22, MIA
+     2007-12-04 +1.03.
+   - Home first, slow panels after: built, measured, no gain, reverted. Kept as
+     `docs/patches/home-first-not-shipped.diff`.
+6. **Assumption test (rows flagged by the buyout/option sweep).** 20 rows, seed 20261127, each checked against a
+   second source (`tests/tools/salary_spotcheck_r15.json`). Wrong 7 of 20 = 35% (Wilson 95% 18% to 57%). Wrong by
+   $250K or more: 4 of 20 = 20% (8% to 42%): Bautista ATL 2018, LeBlanc 2020, Shreve 2019, Diaz 2023. Three more are
+   $100K rows for seasons spent only in the minors (Swarzak 2020, Sanchez 2023, Heineman 2021). Conclusion: flagged
+   rows cannot be trusted as filed; the 19:30 UTC pull plus the valid-row rules is the fix path.
