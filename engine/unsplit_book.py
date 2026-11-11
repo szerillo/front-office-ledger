@@ -10,4 +10,11 @@ for name, empty in EMPTY.items():
     s = s.replace(a, 'const ' + b[k:e])
 a = '\nwindow.BOOK_READY = false;\n'; assert s.count(a) == 1; s = s.replace(a, '\nwindow.BOOK_READY = true;\n')
 s, n = re.subn(r"<script>\(function\(\)\{ var b = document\.createElement\('script'\); b\.src = 'book\.js\?v=[0-9a-f]+'; document\.body\.appendChild\(b\); \}\)\(\);</script>\n", '', s); assert n == 1
+import os
+if os.path.exists(repo + '/deals.js'):
+    dj = open(repo + '/deals.js', encoding='utf-8').read()
+    frag = dj[dj.index("JSON.parse('") + len("JSON.parse('"):dj.rindex("');\ndkDealsLoaded")]
+    s, n = re.subn(r"\nwindow\.DESK_DEALS_SRC = 'deals\.js\?v=[0-9a-f]+';", '', s); assert n == 1
+    k = s.index('\nconst DESK = JSON.parse('); a = '"deals":null'; i = s.index(a, k); assert i < s.index('\n', k + 1)
+    s = s[:i] + '"deals":' + frag + s[i + len(a):]
 open(out, 'w', encoding='utf-8').write(s); print('wrote', out, len(s))
