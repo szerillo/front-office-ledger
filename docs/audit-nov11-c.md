@@ -1010,3 +1010,34 @@ counts: **77 extensions covering 2020 change (+48.8 in all), 302 others move (-4
 
 Nothing went to the public site. Still with Sean: deploy, the 2020 fix and the rate choice in item 2, the filler
 rule, the Baseball-Reference pull, the bonus method, and now the determinism patch.
+
+## 25. Round 20 repost (Nov 11, 4:59 PM)
+
+1. **Five-way shuffle.** `sweep_tx` rows shuffled 5 times (seeds 20261141 to 20261145), each rebuilt three ways.
+   Shipped code: 5 different files; whole rows equal to live 699 to 733 of 816, FA columns 745 to 775, move
+   lists 69 to 91 differ, 1 winter missing in 3 of 5 runs, 55 to 88 FA listing rows differ. ORDER BY only: 5
+   identical files, 803 of 816 rows equal live, 0 graded rows differ (the 10 listing rows that differ carry no
+   grade: two Retrosheet/feed duplicates, Dreifort and Holmes, and 8 feed rows newer or older than production's
+   snapshot). ORDER BY plus exact sums (the patch): 5 identical files, md5 `1a4a4a5e`, same counts. Note: feed
+   rows have no `tx_id` (NULL), so ties after date and person are broken only for Retrosheet rows; that is
+   harmless because `priced()` already keeps the first row per date and person. `tests/tools/r20_repost_results.json`.
+2. Unchanged from section 24.
+3. Unchanged from section 24: pre-registered at `a94dd4b` (21:22:08 UTC), drawn 21:22:20 UTC; fa97 fails on
+   years and total (unverified counts), passes on club and date.
+4. **Id-map join.** All 562 player ids on the 900 graded signings dated before 2009 (899 plus Dreifort) come
+   through the Retrosheet-to-MLBAM join (4,787 ids in all backfilled rows: 4,782 from the Chadwick register only,
+   5 also in `crosswalk.csv`, 0 disagreements; 0 MLBAM ids mapped from two Retrosheet ids). Checked against MLB's
+   own people records: **562 of 562 names match**. 12 signings fall after the player's last MLB game; all are real
+   signings by players who did not play again (Flaherty 2006, Prior 2007, Clement 2008, R. Alomar 2005, Reese 2005
+   and 2006, Mirabelli 2008, Kim 2008, Harnisch 2002, Sanders 2000, Bautista 2005; H. Ramirez 2008 flags only because MLB lists no last-game date). By hand:
+   the 25 drawn rows of section 24, plus these 12 by name and date. A second assumption in the backfill: a
+   Retrosheet date with day 00 becomes the 15th (4 of 7,021 signings).
+5. **Check run: independent recompute of every graded free-agent row** (`tests/tools/fa_independent_check.py`,
+   my own code from `lvm_cache.json` by club name and the documented price formula, not the engine's functions).
+   Of 2,616 graded rows: realized agrees on 2,614, expected on 2,615 (QO charge included), 1 contract not matched.
+   The 1 realized difference is Mirabelli BOS 2004-05 (0.6 live against 0.0): he was traded to San Diego in 2006
+   and reacquired, and the engine stops crediting a deal once the player leaves, as documented. So the
+   arithmetic holds outside the shared code. It still shares inputs (WAR cache, contract terms, season shares),
+   which only the field checks test.
+
+Nothing went to the public site.
