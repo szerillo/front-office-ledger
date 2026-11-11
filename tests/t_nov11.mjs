@@ -91,6 +91,11 @@ const r = await page.evaluate(async () => {
   const tOpen = (pname, d) => { const p = String(Object.keys(ix).find(q => pName(q) === pname)); const e = (ix[p] || []).find(x => x.d === d); return e ? folTradeOpen(e.seats, e.d) : null; };
   out.oldTradeUnknownPieceClosed = tOpen('Chase Utley', '2015-08-19') === false;
   out.controlYearsKeepTradeOpen = tOpen('Taylor Trammell', '2019-07-31') === true;
+  // a release or free-agent signing after the trade ends that piece's window (the engine's rule):
+  // Vieira (released 2019) and Enns (minor-league deal 2018) no longer hold old trades open;
+  // Baker, moved only by a waiver claim and a trade, still does
+  out.releasedPieceClosesTrade = tOpen('Thyago Vieira', '2017-11-16') === false && tOpen('Dietrich Enns', '2017-07-30') === false;
+  out.claimedPieceKeepsTradeOpen = tOpen('Bryan Baker', '2018-08-14') === true;
   // weekly board
   const html = folWeekBoard();
   out.weekBoard = /This week/.test(html) && (html.match(/wk-day/g) || []).length === 7;
