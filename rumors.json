@@ -1,13 +1,16 @@
 {
  "_about": "Players named in trade reports this winter, read by the trade block, the club pages and trade pick'em. rows: [MLBAM id, rank on MLB Trade Rumors' top trade candidates list (0 = not ranked), reporter credited ('' = none), why in our own words (short, no player name), 1 if a long shot]. off: ids reported as NOT available, with the note. names is for people reading this file; the page ignores it.",
- "asof": "Nov 10",
- "updated": "2026-11-10",
+ "asof": "Nov 11",
+ "updated": "2026-11-11",
+ "checked": "2026-11-11T07:51:13Z",
  "sources": [
   "https://www.mlbtraderumors.com/2026/10/top-trade-candidates-mlb-offseason-2026-27.html",
   "https://www.mlb.com/news/mlb-rumors-and-2026-27-free-agent-news-november-4",
   "https://www.mlb.com/news/mlb-rumors-and-2026-27-free-agent-news-november-9",
   "https://www.mlbtraderumors.com/",
-  "https://www.cbssports.com/mlb/news/mlb-rumors-gm-meetings-trades-cubs-tarik-skubal/"
+  "https://www.cbssports.com/mlb/news/mlb-rumors-gm-meetings-trades-cubs-tarik-skubal/",
+  "https://www.mlb.com/news/mlb-rumors-and-2026-27-free-agent-news-november-10",
+  "https://www.bleachernation.com/cubs/2026/11/09/mlb-trade-talks-lockout/"
  ],
  "rows": [
   [
@@ -73,8 +76,8 @@
   [
    680757,
    11,
-   "",
-   "arbitration salary climbing, a year from free agency; Cleveland says it expects him back"
+   "Jon Paul Morosi, MLB Network",
+   "a year from free agency; Cleveland expects him back; unlikely to move this month"
   ],
   [
    680776,
@@ -91,8 +94,8 @@
   [
    608369,
    14,
-   "Jon Heyman, New York Post",
-   "Texas will consider it to cut payroll; full no-trade clause"
+   "Ken Rosenthal, The Athletic",
+   "Texas will test his market at the GM meetings; full no-trade clause"
   ],
   [
    663616,
