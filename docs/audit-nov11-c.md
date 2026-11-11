@@ -782,7 +782,7 @@ written that day.
    more (102.5 wins in all); 87 extensions, 46 by half a win, 14 by a win (60.3 wins, approximate: extensions use
    another formula). Largest: Cole NYY +2.9, Rendon LAA +2.9, Strasburg WSH +2.9. Public winter pages it would
    change: 2019-wsh +5.4, 2019-laa +3.7, 2019-phi +2.5, 2015-det +1.8, 2017-stl +1.3, 2014-wsh +1.1, 2017-mil +0.7,
-   2013-tex +0.6. Not built into the live page: Sean's call.
+   2013-tex +0.6 (corrected in section 21: this list mixed in extensions). Not built into the live page: Sean's call.
 
 ## 20. Round 17 (Nov 11, 2:39 PM)
 
@@ -823,3 +823,33 @@ written that day.
    scales 2020 by 60/162 in `fa_grade.py` (cost, expected, per-season increments) and `ext_grade.py` (`wins_of`).
    Checked on Cole (above). Full regrade not run here: ledger.sqlite in this workspace lacks the `sweep_tx` table
    that fa_grade.py reads. Applying it is Sean's call.
+
+## 21. Round 18 (Nov 11, 2:58 PM)
+
+1. **Item 5, exact.** Rebuilt the engine's `sweep_tx` table from the public MLB transactions feed
+   (`tests/tools/sweep_tx_build.py`, 235,830 rows, 1997-2026) and ran `fa_grade.py` before and after
+   `docs/patches/season2020-charge.diff`. The rerun reproduces 646 of 646 overlapping published signing grades
+   to the tenth (it covers 646 of the 2,616 card rows). **Cole, before: $36M salary, $35.25M above the minimum
+   charged for 2020 in full, 1.22 WAR in 2020, 18.3 realized against 20.2 expected, -1.9. After: 2020 charged on
+   $13.06M, expected 17.3, +1.0.** Sign: today's grades are too low; the fix raises them. In the 646: 42 grades
+   change, all up; 30 by half a win or more, 6 by a win or more; 6 flip from minus to plus (Cole, Ryu, Treinen,
+   Calhoun, Kelly, Guerra). `tests/tools/fa2020_exact_r17.json`.
+2. **Public pages, corrected.** Section 19's list counted extensions by their start year as winter moves.
+   Signings only, on winter pages in share.json: 2019-wsh +4.8 (Strasburg, Harris, Thames, Kendrick, Castro),
+   2019-laa +3.5 (Rendon, Teheran), 2019-phi +1.6 (Wheeler), 2014-wsh +1.1 (Scherzer), 2015-det +0.7
+   (Zimmermann), 2017-mil +0.7 (Cain), 2013-tex +0.6 (Choo). 2017-stl drops out: none of its signings ran
+   through 2020. These seven come from the free-agent formula (the rerun does not cover those clubs' rows); none
+   is applied to the site.
+3. **Donaldson 2022 rescored.** The AP terms give a $3M signing bonus, an $18M salary in 2020 and $21M in
+   2021-23, so the $21.75M row is $21M plus a quarter of the bonus: a match under the pre-registered rule. Large
+   rows: **2 of 20 mismatch (3% to 30%), both Diaz.**
+4. **Primary sources for the 20 large rows** (AP, a club announcement or MLB.com with the season figure; Cot's
+   pages answer with a bot block, so none came from Cot's): 15 of 20 have one (Hamels 2016 and 2020, Price 2021,
+   Donaldson 2017, 2019 and 2022, Suarez 2025 and 2027, Bryant 2021 and 2025, Bassitt 2024, Happ 2025 and 2026,
+   Bichette 2026, Skubal 2026). Happ's AP story dates the salaries a year late ($20M 2025-26, $18M 2027) against
+   MLB Trade Rumors ($20M 2024-25, $18M 2026); the rows follow MLB Trade Rumors. **No primary source found: Marte
+   2023 and 2024, Rodon 2025 (reports and Spotrac only), Diaz 2023 and 2024 (Spotrac and MLB Trade Rumors, which
+   lists $21.25MM for 2024).** So Diaz is not the only row without one.
+5. **Top launch item without the pull: done.** Item 5's fix is built and, for the free-agent rows the rerun
+   covers, regraded exactly (above). Still open for it: extension grades (`ext_grade.py` needs more of the
+   ledger than `sweep_tx`) and Sean's OK to apply it.
