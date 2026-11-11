@@ -1,0 +1,45 @@
+Only in b/engine: __pycache__
+diff -ru a/engine/ext_grade.py b/engine/ext_grade.py
+--- a/engine/ext_grade.py	2026-11-11 14:43:12.576939281 -0500
++++ b/engine/ext_grade.py	2026-11-11 14:43:12.595738153 -0500
+@@ -124,7 +124,8 @@
+ import asset_rules as AR
+ CB = json.load(open("/work/contract_book.json"))
+ CB_DPW = {int(k): v for k, v in CB["dpw"].items()}; LMIN = CB.get("league_min", 0.75)
+-def wins_of(m, y): return max(0.0, m - LMIN) / CB_DPW.get(y, AR.dpw(y))
++SEASON_FRAC = {2020: 60 / 162}   # 2020 was a 60-game season: value and pay were both prorated
++def wins_of(m, y): return max(0.0, m - LMIN) / CB_DPW.get(y, AR.dpw(y)) * SEASON_FRAC.get(y, 1.0)
+ EVAL = []
+ for c in CB["book"]:
+     if c["kind"] != "ext": continue
+diff -ru a/engine/fa_grade.py b/engine/fa_grade.py
+--- a/engine/fa_grade.py	2026-11-11 14:43:12.575423731 -0500
++++ b/engine/fa_grade.py	2026-11-11 14:43:22.861800931 -0500
+@@ -74,6 +74,7 @@
+ CB_DPW = {int(k): v for k, v in CB["dpw"].items()}
+ TYP = {int(k): v for k, v in CB["typical_fa"].items()}
+ ERA = CB.get("era_adj_pre2006", 1.0); LMIN = CB.get("league_min", 0.75)
++SEASON_FRAC = {2020: 60 / 162}   # 2020 was a 60-game season: value and pay were both prorated
+ BAND = {int(k): v for k, v in CB.get("band_mult", {}).items()}
+ def typical(k, y, b=None):
+     """v5.9: by contract year AND deal size (contract_book.py band multipliers)"""
+@@ -127,8 +128,8 @@
+         if not held: out.append(dict(x=x, hit=(off, c["yrs"], c["tot"], c["src"]), open=True)); continue
+         realized = sum(h[2] for h in held)
+         b = c.get("band")
+-        cost = sum(max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] for h in held)
+-        expected = sum(max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] * typical(h[0], h[1], b) for h in held)
++        cost = sum(max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] * SEASON_FRAC.get(h[1], 1.0) for h in held)
++        expected = sum(max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] * SEASON_FRAC.get(h[1], 1.0) * typical(h[0], h[1], b) for h in held)
+         fee = POSTING_FEE.get((int(x["person_id"]), TID2AB[tid]), 0.0)
+         if fee:
+             fc = fee / CB_DPW.get(held[0][1], 9.7)
+@@ -137,7 +138,7 @@
+         # chart carries free agency too
+         inc = {}
+         for i_, h in enumerate(held):
+-            e_ = max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] * typical(h[0], h[1], b)
++            e_ = max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] * SEASON_FRAC.get(h[1], 1.0) * typical(h[0], h[1], b)
+             if i_ == 0 and fee: e_ += fee / CB_DPW.get(held[0][1], 9.7) * typical(1, held[0][1], b)
+             inc[h[1]] = inc.get(h[1], 0.0) + h[2] - e_
+         out.append(dict(x=x, hit=(off, c["yrs"], c["tot"], c["src"]), pn=norm(x["person_name"]), cbt=None, fee=fee,
