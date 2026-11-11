@@ -1,0 +1,1004 @@
+{
+ "patch": "docs/patches/deterministic-order.diff @ 4ff51c5",
+ "shuffled_rebuilds_under_patch": {
+  "seed 20261141": "1a4a4a5e843cf2a4d6fe46df7bced1d2",
+  "seed 20261142": "1a4a4a5e843cf2a4d6fe46df7bced1d2",
+  "seed 20261143": "1a4a4a5e843cf2a4d6fe46df7bced1d2",
+  "seed 20261144": "1a4a4a5e843cf2a4d6fe46df7bced1d2",
+  "seed 20261145": "1a4a4a5e843cf2a4d6fe46df7bced1d2",
+  "seed 20261146": "1a4a4a5e843cf2a4d6fe46df7bced1d2",
+  "seed 20261147": "1a4a4a5e843cf2a4d6fe46df7bced1d2",
+  "seed 20261148": "1a4a4a5e843cf2a4d6fe46df7bced1d2",
+  "seed 20261149": "1a4a4a5e843cf2a4d6fe46df7bced1d2",
+  "seed 20261150": "1a4a4a5e843cf2a4d6fe46df7bced1d2"
+ },
+ "distinct_md5_under_patch": 1,
+ "falsification_tests": {
+  "PRAGMA reverse_unordered_selects=ON, shipped code": {
+   "off": "f375887bfe6fb5f7570a3e0625592215",
+   "on": "a8a1e7771606c67a020085a78dc587ed",
+   "changed": true
+  },
+  "PRAGMA reverse_unordered_selects=ON, patched": {
+   "off": "1a4a4a5e843cf2a4d6fe46df7bced1d2",
+   "on": "1a4a4a5e843cf2a4d6fe46df7bced1d2",
+   "changed": false
+  },
+  "PYTHONHASHSEED 1,2,3, patched": [
+   "1a4a4a5e843cf2a4d6fe46df7bced1d2",
+   "1a4a4a5e843cf2a4d6fe46df7bced1d2",
+   "1a4a4a5e843cf2a4d6fe46df7bced1d2"
+  ],
+  "SQLite 3.51.1 (pysqlite3) vs 3.53.1, patched": [
+   "1a4a4a5e843cf2a4d6fe46df7bced1d2",
+   "1a4a4a5e843cf2a4d6fe46df7bced1d2"
+  ],
+  "SQLite 3.51.1 vs 3.53.1, shipped": [
+   "f375887bfe6fb5f7570a3e0625592215",
+   "f375887bfe6fb5f7570a3e0625592215"
+  ]
+ },
+ "live_md5": "6842d1d0c48f42ad26fe6c4f1d5d2d92",
+ "rows_changed_vs_live": 13,
+ "rows_with_share_page": 0,
+ "open_winters_2022plus_changed": 0,
+ "rounding": {
+  "rule": "Python round() on an exact sum: round half to even",
+  "faM_cells_exactly_on_.5": 132,
+  "shipped_vs_patched_disagree_on": [
+   "STL 2004-05: exact $15.5M, live 15 (float sum 15.4999...), patched 16"
+  ],
+  "half_up_alternative_would_change": 64,
+  "half_up_open_winters_2022plus": 10,
+  "half_up_share_pages": [
+   "2005-bos",
+   "2013-det"
+  ]
+ },
+ "diff": [
+  {
+   "winter": "1998-99",
+   "club": "LAD",
+   "changed_cells": {},
+   "moves_live": [
+    [
+     "f",
+     "1998-12-12",
+     "Signed Kevin Brown, 7 yr / $105M",
+     -10.7,
+     "111554"
+    ],
+    [
+     "t",
+     "1998-12-01",
+     "Got Todd Hundley for Charles Johnson and Roger Cedeño",
+     -4.4,
+     "116316"
+    ],
+    [
+     "t",
+     "1998-11-11",
+     "Got Mel Rojas for Bobby Bonilla",
+     1.7,
+     "121404"
+    ],
+    [
+     "f",
+     "1998-12-10",
+     "Signed Alan Mills, 3 yr / $6.5M",
+     -1.4,
+     "119142"
+    ],
+    [
+     "f",
+     "1998-11-09",
+     "Signed Devon White, 3 yr / $12.4M",
+     -1.4,
+     "124164"
+    ]
+   ],
+   "moves_patched": [
+    [
+     "f",
+     "1998-12-12",
+     "Signed Kevin Brown, 7 yr / $105M",
+     -10.7,
+     "111554"
+    ],
+    [
+     "t",
+     "1998-12-01",
+     "Got Todd Hundley for Charles Johnson and Roger Cedeño",
+     -4.4,
+     "116316"
+    ],
+    [
+     "t",
+     "1998-11-11",
+     "Got Mel Rojas for Bobby Bonilla",
+     1.7,
+     "121404"
+    ],
+    [
+     "f",
+     "1998-11-09",
+     "Signed Devon White, 3 yr / $12.4M",
+     -1.4,
+     "124164"
+    ],
+    [
+     "f",
+     "1998-12-10",
+     "Signed Alan Mills, 3 yr / $6.5M",
+     -1.4,
+     "119142"
+    ]
+   ]
+  },
+  {
+   "winter": "1999-00",
+   "club": "CLE",
+   "changed_cells": {},
+   "moves_live": [
+    [
+     "f",
+     "1999-12-03",
+     "Signed Scott Kamieniecki, 2 yr / $3.6M",
+     -1.8,
+     "116824"
+    ],
+    [
+     "f",
+     "1999-12-16",
+     "Signed Chuck Finley, 3 yr / $27M",
+     0.5,
+     "114133"
+    ],
+    [
+     "t",
+     "2000-03-27",
+     "Cash or a player to be named for Steve Falteisek",
+     0.0,
+     "113996"
+    ],
+    [
+     "f",
+     "2000-01-08",
+     "Signed Chris Haney, 1 yr / $0.5M",
+     0.0,
+     "115415"
+    ],
+    [
+     "f",
+     "1999-12-07",
+     "Signed Mark Langston, 1 yr / $0.3M",
+     0.0,
+     "117480"
+    ]
+   ],
+   "moves_patched": [
+    [
+     "f",
+     "1999-12-03",
+     "Signed Scott Kamieniecki, 2 yr / $3.6M",
+     -1.8,
+     "116824"
+    ],
+    [
+     "f",
+     "1999-12-16",
+     "Signed Chuck Finley, 3 yr / $27M",
+     0.5,
+     "114133"
+    ],
+    [
+     "t",
+     "2000-03-27",
+     "Cash or a player to be named for Steve Falteisek",
+     0.0,
+     "113996"
+    ],
+    [
+     "f",
+     "1999-12-07",
+     "Signed Mark Langston, 1 yr / $0.3M",
+     0.0,
+     "117480"
+    ],
+    [
+     "f",
+     "2000-01-08",
+     "Signed Chris Haney, 1 yr / $0.5M",
+     0.0,
+     "115415"
+    ]
+   ]
+  },
+  {
+   "winter": "2001-02",
+   "club": "ATL",
+   "changed_cells": {},
+   "moves_live": [
+    [
+     "t",
+     "2002-01-15",
+     "Got Gary Sheffield for Brian Jordan and 2 others",
+     2.1,
+     "122111"
+    ],
+    [
+     "f",
+     "2001-12-07",
+     "Signed Javy López, 1 yr / $6M",
+     -1.3,
+     "117919"
+    ],
+    [
+     "t",
+     "2002-01-18",
+     "Got Kevin Gryboski",
+     1.1,
+     "407839"
+    ],
+    [
+     "f",
+     "2002-01-29",
+     "Signed Darren Holmes, 1 yr / $0.7M",
+     1.0,
+     "116100"
+    ],
+    [
+     "f",
+     "2001-12-11",
+     "Signed Vinny Castilla, 2 yr / $8M",
+     -0.5,
+     "112106"
+    ]
+   ],
+   "moves_patched": [
+    [
+     "t",
+     "2002-01-15",
+     "Got Gary Sheffield for Brian Jordan and 2 others",
+     2.1,
+     "122111"
+    ],
+    [
+     "f",
+     "2001-12-07",
+     "Signed Javy López, 1 yr / $6M",
+     -1.3,
+     "117919"
+    ],
+    [
+     "t",
+     "2002-01-18",
+     "Got Kevin Gryboski",
+     1.1,
+     "407839"
+    ],
+    [
+     "f",
+     "2002-01-29",
+     "Signed Darren Holmes, 1 yr / $0.7M",
+     1.0,
+     "116100"
+    ],
+    [
+     "f",
+     "2001-12-04",
+     "Signed John Smoltz, 3 yr / $30M",
+     -0.5,
+     "122477"
+    ]
+   ]
+  },
+  {
+   "winter": "2003-04",
+   "club": "ATL",
+   "changed_cells": {},
+   "moves_live": [
+    [
+     "t",
+     "2003-12-13",
+     "Got J. D. Drew and 1 other for Adam Wainwright and 2 others",
+     -4.6,
+     "136770"
+    ],
+    [
+     "t",
+     "2004-03-25",
+     "Got Juan Cruz and Steve Smyth for Andy Pratt",
+     4.1,
+     "407297"
+    ],
+    [
+     "f",
+     "2003-12-10",
+     "Signed John Thomson, 2 yr / $7M",
+     2.8,
+     "123307"
+    ],
+    [
+     "t",
+     "2004-03-26",
+     "Got Chris Reitsma for Jung Bong",
+     2.5,
+     "277410"
+    ],
+    [
+     "f",
+     "2003-12-23",
+     "Signed Antonio Alfonseca, 1 yr / $1.4M",
+     0.8,
+     "110134"
+    ]
+   ],
+   "moves_patched": [
+    [
+     "t",
+     "2003-12-13",
+     "Got J. D. Drew and 1 other for Adam Wainwright and 2 others",
+     -4.6,
+     "136770"
+    ],
+    [
+     "t",
+     "2004-03-25",
+     "Got Juan Cruz and Steve Smyth for Andy Pratt",
+     4.1,
+     "407297"
+    ],
+    [
+     "f",
+     "2003-12-10",
+     "Signed John Thomson, 2 yr / $7M",
+     2.8,
+     "123307"
+    ],
+    [
+     "t",
+     "2004-03-26",
+     "Got Chris Reitsma for Jung Bong",
+     2.5,
+     "277410"
+    ],
+    [
+     "f",
+     "2003-12-19",
+     "Signed Eddie Pérez, 2 yr / $1.2M",
+     0.8,
+     "120407"
+    ]
+   ]
+  },
+  {
+   "winter": "2003-04",
+   "club": "CIN",
+   "changed_cells": {},
+   "moves_live": [
+    [
+     "t",
+     "2004-03-26",
+     "Got Jung Bong for Chris Reitsma",
+     -2.5,
+     "407794"
+    ],
+    [
+     "f",
+     "2004-01-14",
+     "Signed John Vander Wal, 1 yr / $0.7M",
+     -0.3,
+     "123639"
+    ],
+    [
+     "f",
+     "2004-01-06",
+     "Signed Cory Lidle, 1 yr / $2.8M",
+     0.2,
+     "117756"
+    ],
+    [
+     "f",
+     "2003-12-08",
+     "Signed Todd Van Poppel, 1 yr / $0.3M",
+     0.2,
+     "123650"
+    ]
+   ],
+   "moves_patched": [
+    [
+     "t",
+     "2004-03-26",
+     "Got Jung Bong for Chris Reitsma",
+     -2.5,
+     "407794"
+    ],
+    [
+     "f",
+     "2004-01-14",
+     "Signed John Vander Wal, 1 yr / $0.7M",
+     -0.3,
+     "123639"
+    ],
+    [
+     "f",
+     "2003-12-08",
+     "Signed Todd Van Poppel, 1 yr / $0.3M",
+     0.2,
+     "123650"
+    ],
+    [
+     "f",
+     "2004-01-06",
+     "Signed Cory Lidle, 1 yr / $2.8M",
+     0.2,
+     "117756"
+    ]
+   ]
+  },
+  {
+   "winter": "2003-04",
+   "club": "COL",
+   "changed_cells": {},
+   "moves_live": [
+    [
+     "t",
+     "2003-12-02",
+     "Got Aaron Miles for Juan Uribe",
+     -5.1,
+     "425446"
+    ],
+    [
+     "f",
+     "2003-12-11",
+     "Signed Vinny Castilla, 1 yr / $2.1M",
+     2.6,
+     "112106"
+    ],
+    [
+     "t",
+     "2003-12-14",
+     "Got Joe Kennedy for Justin Speier",
+     1.6,
+     "406773"
+    ],
+    [
+     "f",
+     "2004-01-09",
+     "Signed Jeromy Burnitz, 1 yr / $1.5M",
+     1.3,
+     "111742"
+    ],
+    [
+     "f",
+     "2003-12-07",
+     "Signed Steve Reed, 1 yr / $0.6M",
+     1.3,
+     "121002"
+    ]
+   ],
+   "moves_patched": [
+    [
+     "t",
+     "2003-12-02",
+     "Got Aaron Miles for Juan Uribe",
+     -5.1,
+     "425446"
+    ],
+    [
+     "f",
+     "2003-12-11",
+     "Signed Vinny Castilla, 1 yr / $2.1M",
+     2.6,
+     "112106"
+    ],
+    [
+     "t",
+     "2003-12-14",
+     "Got Joe Kennedy for Justin Speier",
+     1.6,
+     "406773"
+    ],
+    [
+     "f",
+     "2003-12-07",
+     "Signed Steve Reed, 1 yr / $0.6M",
+     1.3,
+     "121002"
+    ],
+    [
+     "f",
+     "2004-01-09",
+     "Signed Jeromy Burnitz, 1 yr / $1.5M",
+     1.3,
+     "111742"
+    ]
+   ]
+  },
+  {
+   "winter": "2003-04",
+   "club": "KC",
+   "changed_cells": {},
+   "moves_live": [
+    [
+     "f",
+     "2003-12-09",
+     "Signed Scott Sullivan, 2 yr / $5M",
+     -2.0,
+     "122975"
+    ],
+    [
+     "f",
+     "2003-12-01",
+     "Signed Brian Anderson, 2 yr / $6.5M",
+     -1.9,
+     "110230"
+    ],
+    [
+     "f",
+     "2004-01-06",
+     "Signed Juan González, 1 yr / $4.5M",
+     -1.1,
+     "114932"
+    ],
+    [
+     "f",
+     "2003-12-01",
+     "Signed Joe Randa, 1 yr / $3.8M",
+     1.1,
+     "120922"
+    ],
+    [
+     "t",
+     "2004-01-26",
+     "Got Jaime Cerda for Shawn Sedlacek",
+     0.9,
+     "407881"
+    ]
+   ],
+   "moves_patched": [
+    [
+     "f",
+     "2003-12-09",
+     "Signed Scott Sullivan, 2 yr / $5M",
+     -2.0,
+     "122975"
+    ],
+    [
+     "f",
+     "2003-12-01",
+     "Signed Brian Anderson, 2 yr / $6.5M",
+     -1.9,
+     "110230"
+    ],
+    [
+     "f",
+     "2003-12-01",
+     "Signed Joe Randa, 1 yr / $3.8M",
+     1.1,
+     "120922"
+    ],
+    [
+     "f",
+     "2004-01-06",
+     "Signed Juan González, 1 yr / $4.5M",
+     -1.1,
+     "114932"
+    ],
+    [
+     "t",
+     "2004-01-26",
+     "Got Jaime Cerda for Shawn Sedlacek",
+     0.9,
+     "407881"
+    ]
+   ]
+  },
+  {
+   "winter": "2003-04",
+   "club": "NYM",
+   "changed_cells": {},
+   "moves_live": [
+    [
+     "f",
+     "2003-12-10",
+     "Signed Kazuo Matsui, 3 yr / $20M",
+     -4.0,
+     "430565"
+    ],
+    [
+     "t",
+     "2004-03-27",
+     "Got Matt Ginter for Timo Pérez",
+     2.3,
+     "215197"
+    ],
+    [
+     "t",
+     "2004-01-26",
+     "Got Shawn Sedlacek for Jaime Cerda",
+     -0.9,
+     "424184"
+    ],
+    [
+     "f",
+     "2003-12-23",
+     "Signed Mike Cameron, 3 yr / $19.5M",
+     -0.1,
+     "111904"
+    ],
+    [
+     "f",
+     "2003-12-18",
+     "Signed John Franco, 1 yr / $1M",
+     0.1,
+     "114374"
+    ]
+   ],
+   "moves_patched": [
+    [
+     "f",
+     "2003-12-10",
+     "Signed Kazuo Matsui, 3 yr / $20M",
+     -4.0,
+     "430565"
+    ],
+    [
+     "t",
+     "2004-03-27",
+     "Got Matt Ginter for Timo Pérez",
+     2.3,
+     "215197"
+    ],
+    [
+     "t",
+     "2004-01-26",
+     "Got Shawn Sedlacek for Jaime Cerda",
+     -0.9,
+     "424184"
+    ],
+    [
+     "f",
+     "2003-12-18",
+     "Signed John Franco, 1 yr / $1M",
+     0.1,
+     "114374"
+    ],
+    [
+     "f",
+     "2003-12-23",
+     "Signed Mike Cameron, 3 yr / $19.5M",
+     -0.1,
+     "111904"
+    ]
+   ]
+  },
+  {
+   "winter": "2004-05",
+   "club": "STL",
+   "changed_cells": {
+    "faM": [
+     15,
+     16
+    ]
+   }
+  },
+  {
+   "winter": "2007-08",
+   "club": "BOS",
+   "changed_cells": {},
+   "moves_live": [
+    [
+     "t",
+     "2008-01-28",
+     "Got David Aardsma for Miguel Socolovich",
+     2.3,
+     "430911"
+    ],
+    [
+     "f",
+     "2007-11-19",
+     "Signed Mike Lowell, 3 yr / $37.5M",
+     -1.6,
+     "136780"
+    ],
+    [
+     "f",
+     "2007-12-01",
+     "Signed Mike Timlin, 1 yr / $3M",
+     -0.9,
+     "123348"
+    ],
+    [
+     "f",
+     "2008-02-01",
+     "Signed Sean Casey, 1 yr / $0.8M",
+     0.0,
+     "112087"
+    ],
+    [
+     "f",
+     "2008-01-11",
+     "Signed Doug Mirabelli, 1 yr / $0.6M",
+     0.0,
+     "119182"
+    ]
+   ],
+   "moves_patched": [
+    [
+     "t",
+     "2008-01-28",
+     "Got David Aardsma for Miguel Socolovich",
+     2.3,
+     "430911"
+    ],
+    [
+     "f",
+     "2007-11-19",
+     "Signed Mike Lowell, 3 yr / $37.5M",
+     -1.6,
+     "136780"
+    ],
+    [
+     "f",
+     "2007-12-01",
+     "Signed Mike Timlin, 1 yr / $3M",
+     -0.9,
+     "123348"
+    ],
+    [
+     "f",
+     "2008-01-11",
+     "Signed Doug Mirabelli, 1 yr / $0.6M",
+     0.0,
+     "119182"
+    ],
+    [
+     "f",
+     "2008-02-01",
+     "Signed Sean Casey, 1 yr / $0.8M",
+     0.0,
+     "112087"
+    ]
+   ]
+  },
+  {
+   "winter": "2007-08",
+   "club": "CWS",
+   "changed_cells": {},
+   "moves_live": [
+    [
+     "t",
+     "2007-12-03",
+     "Got Carlos Quentin for Chris Carter",
+     6.0,
+     "435041"
+    ],
+    [
+     "t",
+     "2008-01-03",
+     "Got Nick Swisher for Gio Gonzalez and 2 others",
+     -5.6,
+     "430897"
+    ],
+    [
+     "t",
+     "2008-01-28",
+     "Got Miguel Socolovich for David Aardsma",
+     -2.3,
+     "462515"
+    ],
+    [
+     "f",
+     "2008-01-22",
+     "Signed Octavio Dotel, 2 yr / $11M",
+     0.4,
+     "136734"
+    ],
+    [
+     "f",
+     "2007-11-23",
+     "Signed Scott Linebrink, 4 yr / $19M",
+     -0.4,
+     "276530"
+    ]
+   ],
+   "moves_patched": [
+    [
+     "t",
+     "2007-12-03",
+     "Got Carlos Quentin for Chris Carter",
+     6.0,
+     "435041"
+    ],
+    [
+     "t",
+     "2008-01-03",
+     "Got Nick Swisher for Gio Gonzalez and 2 others",
+     -5.6,
+     "430897"
+    ],
+    [
+     "t",
+     "2008-01-28",
+     "Got Miguel Socolovich for David Aardsma",
+     -2.3,
+     "462515"
+    ],
+    [
+     "f",
+     "2007-11-23",
+     "Signed Scott Linebrink, 4 yr / $19M",
+     -0.4,
+     "276530"
+    ],
+    [
+     "f",
+     "2008-01-22",
+     "Signed Octavio Dotel, 2 yr / $11M",
+     0.4,
+     "136734"
+    ]
+   ]
+  },
+  {
+   "winter": "2007-08",
+   "club": "SD",
+   "changed_cells": {},
+   "moves_live": [
+    [
+     "t",
+     "2007-12-14",
+     "Got Jim Edmonds for David Freese",
+     -7.9,
+     "113744"
+    ],
+    [
+     "f",
+     "2007-12-19",
+     "Signed Michael Barrett, 1 yr / $3.5M",
+     -1.0,
+     "136664"
+    ],
+    [
+     "f",
+     "2007-12-18",
+     "Signed Tadahito Iguchi, 1 yr / $4M",
+     -0.5,
+     "435338"
+    ],
+    [
+     "f",
+     "2008-02-11",
+     "Signed Tony Clark, 1 yr / $0.9M",
+     0.1,
+     "112316"
+    ],
+    [
+     "f",
+     "2007-12-26",
+     "Signed Mark Prior, 1 yr / $1M",
+     -0.1,
+     "407578"
+    ]
+   ],
+   "moves_patched": [
+    [
+     "t",
+     "2007-12-14",
+     "Got Jim Edmonds for David Freese",
+     -7.9,
+     "113744"
+    ],
+    [
+     "f",
+     "2007-12-19",
+     "Signed Michael Barrett, 1 yr / $3.5M",
+     -1.0,
+     "136664"
+    ],
+    [
+     "f",
+     "2007-12-18",
+     "Signed Tadahito Iguchi, 1 yr / $4M",
+     -0.5,
+     "435338"
+    ],
+    [
+     "f",
+     "2007-12-02",
+     "Signed Randy Wolf, 1 yr / $4.8M",
+     -0.1,
+     "150116"
+    ],
+    [
+     "f",
+     "2007-12-26",
+     "Signed Mark Prior, 1 yr / $1M",
+     -0.1,
+     "407578"
+    ]
+   ]
+  },
+  {
+   "winter": "2016-17",
+   "club": "MIA",
+   "changed_cells": {},
+   "moves_live": [
+    [
+     "t",
+     "2017-01-19",
+     "Got Dan Straily for Luis Castillo and 2 others",
+     -13.9,
+     "573185"
+    ],
+    [
+     "f",
+     "2016-12-01",
+     "Signed Edinson Volquez, 2 yr / $22M",
+     -1.8,
+     "450172"
+    ],
+    [
+     "f",
+     "2016-12-16",
+     "Signed Junichi Tazawa, 2 yr / $12M",
+     -1.6,
+     "547749"
+    ],
+    [
+     "f",
+     "2016-12-12",
+     "Signed Jeff Locke, 1 yr / $3M",
+     -0.7,
+     "502046"
+    ],
+    [
+     "f",
+     "2016-12-12",
+     "Signed A.J. Ellis, 1 yr / $2.5M",
+     -0.4,
+     "454560"
+    ]
+   ],
+   "moves_patched": [
+    [
+     "t",
+     "2017-01-19",
+     "Got Dan Straily for Luis Castillo and 2 others",
+     -13.9,
+     "573185"
+    ],
+    [
+     "f",
+     "2016-12-01",
+     "Signed Edinson Volquez, 2 yr / $22M",
+     -1.8,
+     "450172"
+    ],
+    [
+     "f",
+     "2016-12-16",
+     "Signed Junichi Tazawa, 2 yr / $12M",
+     -1.6,
+     "547749"
+    ],
+    [
+     "f",
+     "2016-12-12",
+     "Signed Jeff Locke, 1 yr / $3M",
+     -0.7,
+     "502046"
+    ],
+    [
+     "f",
+     "2016-12-12",
+     "Signed Dustin McGowan, 1 yr / $1.8M",
+     -0.4,
+     "430661"
+    ]
+   ]
+  }
+ ]
+}
