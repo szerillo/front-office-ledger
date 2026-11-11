@@ -85,6 +85,12 @@ const r = await page.evaluate(async () => {
   const gke = (ix[gk] || []).find(e => e.d === '2012-07-27');
   out.twoClubRepairGreinke = !!gke && gke.seats.length === 2 && gke.seats.every(st => (st[2].length + st[3].length) === 4)
     && Math.abs(gke.seats.reduce((a, st) => a + seatNet(st, gke.d), 0)) < 0.15;
+  // trade OPEN needs a piece known to be active and still inside his window (Nov 11 fresh audit):
+  // Utley to the Dodgers (2015) was OPEN on a minor leaguer of unknown status; Bauer's three-team deal (2019)
+  // stays OPEN through Trammell's control years; Holmes and Houser stay OPEN
+  const tOpen = (pname, d) => { const p = String(Object.keys(ix).find(q => pName(q) === pname)); const e = (ix[p] || []).find(x => x.d === d); return e ? folTradeOpen(e.seats, e.d) : null; };
+  out.oldTradeUnknownPieceClosed = tOpen('Chase Utley', '2015-08-19') === false;
+  out.controlYearsKeepTradeOpen = tOpen('Taylor Trammell', '2019-07-31') === true;
   // weekly board
   const html = folWeekBoard();
   out.weekBoard = /This week/.test(html) && (html.match(/wk-day/g) || []).length === 7;
