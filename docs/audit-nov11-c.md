@@ -853,3 +853,42 @@ written that day.
 5. **Top launch item without the pull: done.** Item 5's fix is built and, for the free-agent rows the rerun
    covers, regraded exactly (above). Still open for it: extension grades (`ext_grade.py` needs more of the
    ledger than `sweep_tx`) and Sean's OK to apply it.
+
+## 22. Round 18 follow-up (Nov 11, 3:07 PM)
+
+1. **How many signings have a 2020 season.** The 646 in section 21 were current regimes only. All graded
+   free-agent rows (current plus archive): 1,717, of which 1,716 on-page rows the rerun reproduces exactly. **174
+   have a 2020 season: 162 change, 12 do not.** Why the 12 do not: 11 have an AAV of $1.0M or less, so the 2020
+   cost moves at most about $0.16M above the minimum and the grade change rounds away under 0.05 (Hechavarria,
+   Maile, Riddle, Osich, M. Hernandez, Plawecki, Souza, Jeffress, Y. Garcia, Hunter, Hahn). The 12th is Price,
+   whose 2020 share is 0 (he opted out). `tests/tools/r18_results.json`.
+2. **Winter pages, exact.** Rebuilt the winter table (`offseasons_build.py`) from the before and after reruns.
+   It reproduces the published FA column for 548 of 816 winters (the rest hold rows the rerun does not cover).
+   **Exact deltas on the seven public pages: 2019-wsh +5.3 (FA -22.7 to -17.4), 2019-laa +3.8 (FA -18.4 to -14.6,
+   total -20.6 to -16.8), 2019-phi +2.4, 2014-wsh +1.1, 2017-mil +0.8, 2015-det +0.6, 2013-tex +0.5.** Section
+   21's estimates were low on the first three. 71 winters change in all. Local only, nothing applied.
+3. **2020 filler rows.** The 7 failures in the 2020 sample are the whole population: exactly 7 player-seasons
+   carry a $100K or $450K 2020 row. They should hold: LeBlanc $800K, Kratz $1M, Culberson $1M, Shreve $575K,
+   Walker $2M; Swarzak and J. Miller had no MLB salary that year. Exposure: the $0 population includes LeBlanc
+   2020 and Kratz 2020 (both now overridden, Kratz added this round); the arbitration shadow includes none; no
+   graded deal reads these rows. **Rule (FILLER): a row under that season's minimum is raised to the minimum if
+   the player had an MLB stint that season, else dropped.** Applied in the local shadow only: unchanged, 22
+   sides, 8 flips, same list. Engine change is Sean's call.
+4. **Field-level check, pre-registered** (`docs/prereg-round18.md`, d8f8910, committed before the draw; draw
+   e3695ab, seed 20261132, 25 of 1,717 rows, drawn 20:11:20 UTC). Sign date against the MLB feed: **25 of 25**
+   (0 mismatches, Wilson 95% 0% to 13%). Team: **25 of 25** (0% to 13%). Years and total against AP, club or
+   MLB.com, Spotrac as fallback: **24 of 25 (1 mismatch, 4%, 0.7% to 19.5%): Heim ATL 2026, card $1.5M, AP and
+   MLB.com $1.25M.** Later reports give $1.5M, probably base plus a bonus; under the pre-registered order AP wins.
+   Six rows had no AP or club figure (Lewis, Hart, Arguelles, Almonte, Winker, Brogdon) and matched on the
+   fallback. `tests/tools/prereg18_results.json`.
+5. **Large rows.** Primary sources found: **Marte 2023 and 2024** (AP: $14.5M in 2022, $19.5M in each of 2023 to
+   2025, $5M signing bonus; the row adds $5M over 4 years) and **Rodon 2025** (AP: $5M bonus, $22M in 2023, $27M
+   after; the row adds $5M over 6 years). **Diaz 2023 and 2024: flagged unsourced** in
+   `tests/tools/prereg16_results.json` and `tests/tools/salary_spotcheck_r15.json`, the only files that show them
+   (no public page shows season salary rows). AP gives a $17.25M salary in both years plus a $12M bonus; $21.25M is
+   $17.25M plus $12M over 3 years, a split no source states. Over 5 years, as for Marte and Rodon, it is $19.65M.
+6. **Dependency check, re-run** after the Walker and Kratz overrides and the traded-row category: **0** engine,
+   page or tool files outside `tests/` read the fixtures, so **0** live grades touch the 48 flagged rows. 12 of the
+   42 flagged player-seasons are priced live by the contract book's own figure, not the fixture.
+
+Open with Sean: deploy, the 2020 fix, the FILLER rule in the engine, the BRef pull.
