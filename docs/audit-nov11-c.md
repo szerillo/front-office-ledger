@@ -409,7 +409,7 @@ Root causes found Nov 11: 10 (the research file added), 5 in rules written that 
 
 ## 12. Round 9 (Nov 11, 10:30 AM)
 
-**Arbitration salaries in trade grades, shadow only (pre-registered in `docs/prereg-arb-shadow.md`, written
+**Arbitration salaries in trade grades, shadow only. Pre-registered, not provable (`docs/prereg-arb-shadow.md`, written
 locally at 15:18 UTC before the run; it reached the repo only after the run, so the commit time does not prove the
 order; script `tests/tools/arb_shadow.py`).** Population: every acquired player-season in a
 trade window the award model prices: 5,245 seasons on 2,544 trade sides (the earlier 3,919 / 2,007 counted only
