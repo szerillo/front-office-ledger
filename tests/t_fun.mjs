@@ -245,7 +245,7 @@ Object.assign(R, await d.page.evaluate(async (offsJson) => {
   switchView('h2h'); await wait(80);
   const bt = () => document.getElementById('bt-card'), reg = btAll();
   const rws = btRows(reg.find(r => r.id === btState.a), reg.find(r => r.id === btState.b)), tl = btTally(rws);
-  o.battleCard = !!bt() && bt().querySelectorAll('.bt-row').length === rws.length + 3 && tl.a + tl.b <= tl.n && rws[0].k === 'overall' && bt().querySelectorAll('.bt-win').length === rws.filter(r => r.w).length && btState.a !== btState.b;
+  o.battleCard = !!bt() && bt().querySelectorAll('.bt-row:not(.bt-mvrow)').length === rws.length + 3 && tl.a + tl.b <= tl.n && rws[0].k === 'overall' && bt().querySelectorAll('.bt-win').length === rws.filter(r => r.w).length && btState.a !== btState.b;
   btPick('a', btState.b); await wait(40);
   o.battleNoSelf = btState.a !== btState.b && /vs=/.test(location.hash);
   const two = reg.slice(-2).map(r => r.id); routeApply('#view=h2h&vs=' + two.join('~')); await wait(80);
