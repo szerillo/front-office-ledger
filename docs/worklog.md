@@ -3,6 +3,36 @@
 Newest first. One entry per push to the live site: what changed, why, what was checked, what is still open.
 Kept by Claude; every push goes through the GitHub web upload page, never a token.
 
+## 2026-11-11 (Wed)
+
+### Launch push, block 1
+- **Launch checklist**: `docs/launch-checklist.md` (must fix, nice to have, after launch).
+- **OPEN and CLOSED from the facts.** The flag was a date rule: every decision from 2021 on read OPEN.
+  It is now worked out on the page from the winter roster and status, the contract book, each player's
+  last MLB season and his filed moves. Signings close when the contract is played out or he has left the
+  club; extensions when no seasons are left or he has left; claims and walks when their "next N seasons"
+  window ends; draft and amateur picks when he is a free agent or out of the league; a trade stays open
+  while any piece is still with the club that got him. Unknown players keep the old flag, and nothing
+  before 2021 is touched. 636 decisions closed. Tree nodes use the same rule. Morel's Miami deal now reads
+  CLOSED; the Holmes and Taylor deal stays OPEN because Jefferson Rojas is still with the Mets.
+- **Prospect value note.** An open trade with a piece who has never played in the majors now says he
+  counts at his prospect value for now (the Cubs' -1.7 on Holmes and Taylor is all Rojas's ranking value).
+- **Checked stamps.** One real run of each refresh job from this chat: `rumors.json` (Seager now credited
+  to Ken Rosenthal, The Athletic: Texas tests his market at the GM meetings; Kwan to Jon Paul Morosi, MLB
+  Network: one-year players unlikely to move this month) and `wire.json` (no new terms: the one major-league
+  signing since Nov 1, Waguespack to DET, has no named-source terms; no QO decisions yet). Both stamped
+  07:51 UTC and confirmed live. Whether the scheduled 8:03 and 8:17 AM ET runs stamp on their own is
+  checked at 13:40 UTC.
+- **GM battle cards**: the tale of the tape now carries each front office's best and worst graded move
+  (trades read "Got X for Y"), plus Swap sides and Random matchup.
+- **Player career card**: on every player tree (search and pop-out), a card with the clubs he passed
+  through, counts, the deal that swung the most wins for a club that got him (marked control years only
+  when an extension followed), and where he stands, with Copy link, Post on X and Save image. Link:
+  `#view=trees&player=<id>`.
+- **Weekly streak board** under Trade Grade's daily five: Monday to Sunday scores from this browser, the
+  week's total, days played, and how today's readers did (one public tally per finished five, `tg27-<day>-<n>`).
+- New suite `tests/t_nov11.mjs`; `t_fun` battle check counts the two new rows separately. All 13 suites pass.
+
 ## 2026-11-10 (Tue)
 
 ### Night 11: NHL trade channel first cut, checks

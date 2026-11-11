@@ -7,6 +7,9 @@ is "no change".
 ## MLB
 | Date | Tried | Result | Kept? | Where |
 |---|---|---|---|---|
+| Nov 11 | OPEN flag from facts (roster status, contract book, last season, filed moves) instead of "2021 or later" | 636 decisions closed, none reopened; trades with unknown minor leaguers stay open (conservative) | Yes | `folDecOpen` in the page, `tests/t_nov11.mjs` |
+| Nov 11 | Why Holmes/Taylor shows a net while open | The Cubs' -1.7 is entirely Rojas's prospect value from the trade book; he has not played | Note on open trades; whether prospect value should count before he plays is Sean's call | page |
+| Nov 11 | Refresh upload path from a chat with Chrome | Works: both files stamped and live in under a minute | Yes | worklog |
 | Nov 10 | Quarter-win add for hitters 30 and under projected 2.5 to 4.25 wins | Gap was real: +0.36 (se 0.11) in year one, +0.30 in year two, every block of years. After the fix the tiers sit at -0.04, +0.05, +0.07 | Yes, 62 hitters | `engine/y1_split.py`, `y1_bump.py` |
 | Nov 10 | Same question for hitters 31 and over, and for starters | Hitters 31+: -0.02. Starters: +0.11 (se 0.14), young ones over-projected, older under | No change | `engine/y1_split.py` |
 | Nov 10 | Full rebuild of `desk_data.json` to apply a data change | Drifts from the live page in three side tables (status, prospect ranks, one missing table) | No. Change the page's data surgically | `engine/apply_y1.mjs` |

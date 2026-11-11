@@ -111,6 +111,9 @@ seconds when it is not, send a one-line phone note, and the next run catches up.
   3.3 s on 4G and 8.2 s on slow 4G (3.7 and 9.4 before the split).
 - The refresh tasks were re-timed tonight; their first runs on the new schedule have not been observed.
 
+- Nov 11: OPEN/CLOSED now comes from the facts, not the date (see `worklog.md`); battle card moves, career
+  card and weekly board shipped; launch list in `launch-checklist.md`.
+
 ## 9. Open items
 - One real link posted on X to confirm the preview card (only Sean can).
 - Sean's earlier formatting notes were lost with the old chat; a re-list is needed.
