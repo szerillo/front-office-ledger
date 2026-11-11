@@ -892,3 +892,49 @@ written that day.
    42 flagged player-seasons are priced live by the contract book's own figure, not the fixture.
 
 Open with Sean: deploy, the 2020 fix, the FILLER rule in the engine, the BRef pull.
+
+## 23. Round 19 (Nov 11, 3:58 PM)
+
+1. **The 268 winters.** The live site is a faithful build: the shipped engine outputs rebuild `offseasons.json`
+   byte for byte (816 of 816). The gap was my rerun's input, not the site. The `sweep_tx` table I rebuilt
+   (section 21) skipped `ingest/retro_backfill.py`, which production runs after the feed; the MLB feed is nearly
+   empty before 2009 (14 transactions for the whole 2003-04 winter). Causes: **data version 268, code version 0,
+   rounding 0, other 0.** 68 winters (all 1998-2008) were missing and 200 (all 1998-2008) had lost every signing.
+   Largest gaps: 2001-tex (Hart) -21.1, 1998-bal (Wren) -16.5, 2000-col (O'Dowd) -14.2, 2004-nyy (Cashman)
+   -13.8, 1998-lad (Malone) -13.5. **With the backfill applied, the before-fix rebuild matches the free-agent
+   column on 816 of 816 winters** (813 whole rows; the other 3 differ only in which equal-grade move is listed, or
+   a Retrosheet date: Dreifort Dec 11 against Dec 19). The 2020 deltas in section 22 are unchanged, now measured
+   against a baseline that rebuilds exactly. What would show the live site wrong instead: an input that differs
+   from its documented source. The rebuild reads the same files, so it cannot test those; the field checks do.
+   `tests/tools/sweep_tx_build.py` now says to run the backfill.
+2. **Heim: disputed.** AP and MLB.com: $1.25M. The card's $1.5M comes from `engine/contracts_recent.py`, which
+   credits MLB Trade Rumors; Field Level Media and The Big Lead repeat $1.5M in May. No amendment or bonus
+   breakdown found, so the final figure is not established. Labelled disputed in
+   `tests/tools/prereg18_results.json`. Grade effect under 0.05 either way.
+3. **Signing bonuses.** The contract book has no bonus field: all 3,608 contracts store a total. Free-agent grades
+   charge total over years every season (3,608 of 3,608); extensions spread the total along the service path
+   (`asset_rules.ext_salary`). So live grades use one method per contract kind. The spreading choices seen are in
+   Baseball-Reference season rows only: Marte, Rodon, Donaldson over all years; Diaz over 3 (his opt-out followed
+   year 3); Bichette in the year paid. All five sit inside contract-book deals, which neither shadow prices: **grade
+   change 0 under any single method.** Counting every bonus-bearing contract needs a per-contract bonus source
+   (Spotrac; Cot's blocks bots). Method left for Sean.
+4. **Exposure on the full population** (2,616 graded signings, the published count; the 1,717 was the incomplete
+   rerun). Still 162 grade changes (174 with a 2020 season); no 1998-2008 signing reaches 2020. Public pages: the
+   same 7 winter pages; the 19 move pages are November 2026 moves and the 30 club pages show the current winter,
+   so **0 more. The 7-page table is complete.**
+5. **Field-check frame: the assumption fails another way.** The frame was all 1,717 rows (1,717 unique; the seed
+   reproduces the draw), and rows without an outside source were not excluded. But the 1,717 came from the rerun
+   without the backfill, so **899 graded rows from 1998-2008 (34% of 2,616) could not be drawn**, including every
+   contract whose terms come from the `fa97` source (714). Retrosheet dates are a small risk (4 of 7,021 signings
+   have no day). A supplementary pre-registered draw from those rows is the fix.
+6. **Done: the 2020 fix for extensions, exact.** Section 21 said `ext_grade.py` needed more of the ledger than
+   `sweep_tx`; wrong, it needs only the name map, which the backfilled table supplies. In a sandbox (repo
+   `asset_rules.py`, so without the unreleased re-sign rule; `/work` outputs untouched, checked by checksum), the
+   before-fix pass reproduces **806 of 806 extension rows and 152 of 152 regime totals**. With the fix:
+   - extensions covering 2020: 75 change, 61 up, 42 by half a win, 20 by a win or more, 3 flips, +47.1 in all
+     (Arenado -5.6 to -2.0, Trout -2.7 to -0.3, Altuve +1.1 to +3.3, Goldschmidt +5.5 to +7.4);
+   - 304 others move (max 1.0; 8 by half a win, 2 by a win, 3 flips, -43.5 in all) because each class's typical
+     rate is recomputed on the population (veteran 0.370 to 0.392, arbitration 0.167 to 0.180), so lifting 2020
+     deals lowers the rest of the class. That side effect is a design choice for Sean.
+   No share page shows extension grades. `tests/tools/r19_results.json`. The free-agent and extension halves of
+   checklist item 5 are now both regraded exactly; applying them is Sean's call.
