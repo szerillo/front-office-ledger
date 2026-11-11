@@ -2161,12 +2161,114 @@ function bookLoaded(){
   try { const v = routeView(); if(v === 'quiz'){ quizState = null; renderQuiz(); } else if(v === 'heists') renderHeists(); else if(v === 'home') renderHome(); } catch(e){}
   window.dispatchEvent(new Event('book-loaded'));
 }
+/* ---- OPEN or CLOSED, from the facts (Nov 11) ----
+   OPEN means a player from the decision can still add value under it: he is
+   still with the club that got him and his window has seasons left. Read from
+   the page's own facts (winter roster and status, the contract book, each
+   player's last MLB season), not from the date of the decision. */
+const FOL_SEASON = 2026;
+function folGone(pid){
+  // true when his time in the league is over for now: a free agent, retired,
+  // or no MLB club since an earlier season; null when the page cannot tell
+  pid = String(pid);
+  const m = folGone._m || (folGone._m = new Map(((typeof DESK !== 'undefined' && DESK.players) || []).map(p => [String(p[1]), p])));
+  const p = m.get(pid);
+  if(!p){
+    const f = typeof PLAYER_FATE !== 'undefined' && PLAYER_FATE[pid];
+    if(f && +f[0] < FOL_SEASON) return true;
+    const mv = typeof PLAYER_MOVES !== 'undefined' && PLAYER_MOVES[pid];
+    const last = mv && mv.length ? mv[mv.length - 1] : null;
+    if(last && (last[1] === 'Declared Free Agency' || last[1] === 'Released')) return true;
+    return null;
+  }
+  const st = gmStatus(p);
+  if(st && (st[0] === 'fa' || st[0] === 'out')) return true;
+  return false;
+}
+function folCtl(pid, club){
+  // is he still producing for this club? false, true, or null (cannot tell)
+  const g = folGone(pid);
+  if(g === true) return false;
+  if(g === null){
+    // not on a winter roster: his last filed move says where he went
+    const mv = typeof PLAYER_MOVES !== 'undefined' && PLAYER_MOVES[String(pid)];
+    const last = mv && mv.length ? mv[mv.length - 1] : null;
+    return last && last[3] && last[3] !== club ? false : null;
+  }
+  const p = folGone._m.get(String(pid));
+  return p[2] === club;
+}
+function folTradeOpen(seats){
+  // a trade stays open while any piece is still with the club that got him
+  return (seats || []).some(s => (s[2] || []).some(([p]) => folCtl(p, s[0]) !== false));
+}
+function folTradeSeats(d, pids){
+  if(typeof TRADE_BOOK === 'undefined') return null;
+  const ix = tbIndex().all;
+  for(const p of (pids || []).map(String)){ const e = (ix[p] || []).find(x => x.d === d); if(e) return e.seats; }
+  return null;
+}
+function folWindowDone(dec){
+  // "next N seasons" windows (waiver claims, players let walk) end on their own
+  const m = JSON.stringify(dec.sides || []).match(/next (\d+) seasons/) || String(dec.h || '').match(/next (\d+) seasons/);
+  if(!m) return false;
+  const y = +String(dec.d).slice(0,4), mo = +String(dec.d).slice(5,7);
+  const first = mo >= 10 ? y + 1 : y;
+  return first + +m[1] - 1 <= FOL_SEASON;
+}
+function folDecOpen(dec, club){
+  if(!dec || !dec.open) return !!(dec && dec.open);
+  if(+String(dec.d).slice(0,4) < 2021) return true;
+  const t = String(dec.t || ''), ch = dec.ch || (t === 'Trade' ? 'trade' : /^Free agency/.test(t) ? 'fa' : /^Waiver/.test(t) ? 'waiver'
+    : /^Extension/.test(t) ? 'ext' : /^Draft/.test(t) ? 'draft' : /^International/.test(t) ? 'intl' : /walk/.test(t) ? 'walk' : '');
+  const pids = (dec.pids || []).map(String);
+  if(ch === 'trade'){ const s = dec.seat ? folTradeSeats(dec.d, pids) || [dec.seat] : folTradeSeats(dec.d, pids); return s ? folTradeOpen(s) : true; }
+  if(ch === 'fa'){
+    const m = String(dec.h || '').match(/(\d+) yrs? \/ \$[\d.]+M \((\d{4})-\d\d winter\)/);
+    if(m && +m[2] + +m[1] <= FOL_SEASON) return false;
+    return !pids.length || pids.some(p => folCtl(p, club) !== false);
+  }
+  if(ch === 'ext'){
+    if(!(dec.sides || []).some(x => x[0] === 'Still to come')) return false;
+    return !pids.length || pids.some(p => folCtl(p, club) !== false);
+  }
+  if(ch === 'waiver' || ch === 'walk'){
+    if(folWindowDone(dec)) return false;
+    return !pids.length || pids.some(p => folGone(p) !== true);
+  }
+  if(ch === 'draft' || ch === 'intl') return !pids.length || pids.some(p => folGone(p) !== true);
+  return true;
+}
+function folFixOpen(list){
+  // walk every graded decision once the book and the cards are in
+  const seen = new Set();
+  const walk = (o, club, depth) => {
+    if(!o || typeof o !== 'object' || depth > 7 || seen.has(o)) return;
+    seen.add(o);
+    if(Array.isArray(o)){ o.forEach(x => walk(x, club, depth + 1)); return; }
+    if(o.d && o.h && 'open' in o && typeof o.open === 'boolean'){
+      if(o.open0 === undefined) o.open0 = o.open;
+      o.open = folDecOpen(Object.assign({}, o, {open: o.open0}), club);
+    }
+    for(const k in o){ const v = o[k]; if(v && typeof v === 'object') walk(v, club, depth + 1); }
+  };
+  (list || []).forEach(r => { try { walk(r, abOf(r), 0); } catch(e){} });
+}
+function folProspectTag(seats){
+  // a piece who has never played in the majors counts at his ranking value
+  // until he does: say so beside an open deal
+  if(typeof PLAYER_FATE === 'undefined') return '';
+  const ps = [];
+  (seats || []).forEach(s => (s[2] || []).forEach(([p, v]) => { if(Math.abs(+v) >= 0.05 && !PLAYER_FATE[String(p)] && folCtl(p, s[0]) !== false) ps.push(pName(p)); }));
+  return ps.length ? `<div class="ttype">${ps.join(', ')} ${ps.length > 1 ? 'have' : 'has'} not played in the majors yet, so ${ps.length > 1 ? 'they count' : 'he counts'} at ${ps.length > 1 ? 'their' : 'his'} prospect value for now</div>` : '';
+}
 function cardsMerge(){
   if(window.CARDS_READY) return;
   if(!window.BOOK_READY){ if(!cardsMerge._w){ cardsMerge._w = 1; window.addEventListener('book-loaded', () => cardsMerge(), {once: true}); } return; }
   const D = window.CARD_DETAIL || {};
   [...AUTO_REGIMES, ...LB_HIST].forEach(r => { const d = D[r.id]; if(d) Object.assign(r, d); });
   expandHistCards();
+  try { folFixOpen([...(typeof REGIMES!=='undefined'?REGIMES:[]), ...AUTO_REGIMES, ...LB_HIST]); } catch(e){ console.warn('open fix', e); }
   try { folNominalWalk(REGIMES); folNominalWalk(LB_HIST); folNominalWalk(AUTO_REGIMES); } catch(e){}
   window.CARDS_READY = true; try { const _f = document.getElementById("cards-fail"); if(_f) _f.remove(); } catch(e){}
   const q = whenCards._q || {}; whenCards._q = {};
@@ -2422,7 +2524,7 @@ function autoChainKids(pid, afterDate, r, depth, seen){
     const kids = got.slice(0, 6).map(([p2, v]) => autoChainKids(p2, t.d, r, depth + 1, seen) || pieceLeaf(p2, ab, v));
     return {via: `${t.d} · ${ab}${ex ? ' (' + ex + ')' : ''} traded ${pName(pid)} to ${t.dest || '?'}`,
             nm: got.length ? `${ab} got ${got.map(([p2, v]) => `${pName(p2)} ${fmtW(v)}`).join(', ')} for him; the deal's net for ${ab}:` : `${ab} got no valued players back; the deal's net for ${ab}:`,
-            wv: fmtW(net) + ' net', status: +t.d.slice(0,4) >= 2021 ? 'open' : 'closed', kids, outflow: net < 0};
+            wv: fmtW(net) + ' net', status: folTradeOpen(t.seats) ? 'open' : 'closed', kids, outflow: net < 0};
   }
   if(!m) return null;
   const key = pid + '|' + m[0];
@@ -2454,7 +2556,7 @@ function bookTreesFor(r){
     const st = seats.find(x => x[0] === ab); if(!st) return;
     pool.push({d, war: seatNet(st, d), pids: [...st[2], ...st[3]].map(x => x[0]),
                h: `${ab} got ${st[2].map(([p,v]) => pName(p)).join(', ') || 'no valued players'} for ${st[3].map(([p,v]) => pName(p)).join(', ') || 'no valued players'}`,
-               open: +d.slice(0,4) >= 2021, t: 'trade', seat: st});
+               open: folTradeOpen(seats), t: 'trade', seat: st});
   });
   pool.sort((a, b) => Math.abs(b.war) - Math.abs(a.war));
   return pool.slice(0, 6).map(dec => {
@@ -10760,8 +10862,9 @@ function careerTree(pid){
       if(p2 === pid || kids.length >= 8) return;
       kids.push(autoChainKids(p2, d, {abbr: s[0]}, 1, seen) || pieceLeaf(p2, s[0], v));
     }));
-    ev.push({d, node: {via: `${d} · traded ${from} to ${mine ? mine[0] : '?'}`, nm: `<div class="ttrade">${lines.join('')}</div>`, kidsLabel: 'Where the other pieces went',
-                       wv: mine ? fmtW(seatNet(mine, d)) : null, status: +d.slice(0,4) >= 2021 ? 'open' : 'closed', kids}});
+    const tOpen = folTradeOpen(seats);
+    ev.push({d, node: {via: `${d} · traded ${from} to ${mine ? mine[0] : '?'}`, nm: `<div class="ttrade">${lines.join('')}</div>` + (tOpen ? folProspectTag(seats) : ''), kidsLabel: 'Where the other pieces went',
+                       wv: mine ? fmtW(seatNet(mine, d)) : null, status: tOpen ? 'open' : 'closed', kids}});
   });
   let last = '';
   for(const m of (PLAYER_MOVES[pid] || [])){
@@ -10777,7 +10880,7 @@ function careerTree(pid){
       const g = decAt(to, pid, d);
       const terms = bk ? `${bk[3]} yr / $${bk[4]}M${fmtAAV(bk[4], bk[3])}` + (hasRealized(bk) ? ` · realized ${fmtW(+bk[9])} over ${bk[10]} season${bk[10]===1?'':'s'} on the deal` : ' · no seasons played on it yet') : '';
       ev.push({d, node: {via: `${d} · signed with ${to}`, nm: (terms || stripTags(desc)) + (g ? `<br><span class="ttype">graded on ${g.r.exec}'s card: ${fmtW(g.dec.war)}</span>` : ''),
-                         wv: g ? fmtW(g.dec.war) : null, status: (g && g.dec.open) || (bk && bk[10] < bk[3]) ? 'open' : 'closed'}});
+                         wv: g ? fmtW(g.dec.war) : null, status: (g ? g.dec.open : !!(bk && bk[10] < bk[3] && folCtl(pid, to) !== false)) ? 'open' : 'closed'}});
       last = to;
     } else {
       const club = (ty === 'Declared Free Agency' || ty === 'Released') ? (from || to) : (to || from);
@@ -12864,7 +12967,7 @@ function ledgerTable(title, rows, isTrade){
   const body = rows.map((x,i)=>`
     <tr data-l="${title}" data-i="${i}">
       <td style="width:86px; color:var(--muted)">${decDate(x)}</td>
-      <td>${x.h}${x.t?`<div class="ttype">${x.t}</div>`:''}</td>
+      <td>${x.h}${x.t?`<div class="ttype">${x.t}</div>`:''}${x.open && /^trade$/i.test(x.ch || x.t || '') ? folProspectTag(folTradeSeats(x.d, x.pids)) : ''}</td>
       <td class="num" style="width:96px"><span class="${x.war>=0?'pos':'neg'}">${fmtW(x.war)}</span><br><span class="chip ${x.open?'chip-open':'chip-closed'}" style="margin-left:0">${x.open?'OPEN':'CLOSED'}</span></td>
     </tr>`).join('');
   return `<div class="card ledger"><h3>${title}</h3>
@@ -12985,7 +13088,7 @@ function chanLedgerTable(title, rows, g){
   const body = rows.map((x,i)=>`
     <tr data-cl="${x._k}">
       <td style="width:86px; color:var(--muted)">${decDate(x)}</td>
-      <td>${x.h}${x.t?`<div class="ttype">${x.t}</div>`:''}</td>
+      <td>${x.h}${x.t?`<div class="ttype">${x.t}</div>`:''}${x.open && /^trade$/i.test(x.ch || x.t || '') ? folProspectTag(folTradeSeats(x.d, x.pids)) : ''}</td>
       <td class="num" style="width:110px">${/ungraded/.test(title) || x.pre ? '' : moveChip(x.war, x.ch, x.st)} <span class="${x.war>=0?'pos':'neg'}">${fmtW(x.war)}</span><br><span class="chip ${x.open?'chip-open':'chip-closed'}" style="margin-left:0">${x.open?'OPEN':'CLOSED'}</span></td>
     </tr>`).join('');
   return `<div class="card ledger"><h3>${title}</h3>
@@ -13357,6 +13460,7 @@ function closeModal(){
 // v5.9: the career move log arrives in moves.js, in parallel with the page;
 // redraw whatever was drawn before it landed
 window.addEventListener('moves-loaded', () => {
+  try { if(window.CARDS_READY) folFixOpen([...(typeof REGIMES!=='undefined'?REGIMES:[]), ...AUTO_REGIMES, ...LB_HIST]); } catch(e){}
   try {
     if(document.getElementById('tree-ov') && treeOverlay._last) treeOverlay(...treeOverlay._last);
     if(routeView() === 'report' && REG_BY_ID_CUR) renderReport(REG_BY_ID_CUR.id);
