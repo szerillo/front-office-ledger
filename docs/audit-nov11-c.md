@@ -264,3 +264,79 @@ the full data, and home would visibly change when the full page loads, the same 
 peaks and player names inline. Built in the same split step from the same data, the risk is small, provided a
 check renders home both ways in every build and fails the build on any difference. Live feeds (the Wire,
 trade reports) would still load live either way.
+
+## 10. Round 7 (Nov 11, 9:30 AM)
+
+**Ten of the 88 still-open pre-2021 trades, hand-checked (seed 20261114).** Truly open, a piece still active
+and inside his window: Corniell (TEX 2020), Baker (TOR 2018: only waiver claims and a trade since), Wilcox
+(TB 2020), Conine (MIA 2020), Trammell (SEA 2020: claims and a trade, no release). Not open: Vieira (CWS 2017,
+released 2019), Yean (PIT 2020, minor-league deal 2025), Enns (MIN 2017, minor-league deal 2018), Rivas (CIN
+2020, free agent Nov 2022, signed with Seattle Jan 2023 per Baseball-Reference) and Lukes (TB 2016, free agent
+Nov 2021, signed with Toronto). 5 of 10 were rule misses. The engine ends a piece's window at a release or a
+free-agent signing anywhere; my rule did not. Fixed with tests first (`releasedPieceClosesTrade` failing before,
+`claimedPieceKeepsTradeOpen`): pre-2021 OPEN trades 88 to 50, all trades 849 to 707. Rivas and Lukes stay
+OPEN: the league feed carries no minor-league free agency for them, so the page and the engine both miss it.
+
+**Grades and ranks before and after both OPEN fixes.** 0 of 13,209 grades changed (the new grade snapshot
+passes against the page from before the fixes) and no view's text changed except the Wire clock, so no club
+rank moved. OPEN/CLOSED labels changed on player trees and card rows only.
+
+**Suzuki's extension start.** Our own research file, `data/research/ext_1998_2014.csv`, has first_season 2010
+for the July 2010 deal; the build copied it. Baseball-Reference: $420,000 in 2010, $3.4375M in 2011, so it
+started in 2011. Sweep: 3 extensions signed June or later start in the signing season (Suzuki 2010, Tabata
+2011, Luis Lara 2026); 16 more start in the last season of a prior deal with the same club, which is normal for
+a deal that tears up the old one. Hand-checked 5 against Baseball-Reference salaries: Suzuki wrong; Tabata 2011
+(the reported six years include 2011), Pedroia 2014, Carrasco 2019, Chipper Jones 2006 right.
+
+**Signings without terms or grades, full count (3,545 signings and extensions since 1998, matched to the
+player trees):**
+
+| Kind, years | Moves | Graded | Terms, no grade | No terms | Not on the tree |
+|---|---|---|---|---|---|
+| Free agent 1998-2005 | 689 | 318 | 5 | 249 | 117 |
+| Free agent 2006-14 | 839 | 298 | 524 | 15 | 2 |
+| Free agent 2015-26 | 1,210 | 433 | 753 | 20 | 4 |
+| Extension 1998-2005 | 141 | 1 | 0 | 4 | 136 |
+| Extension 2006-14 | 388 | 2 | 8 | 1 | 377 |
+| Extension 2015-26 | 278 | 2 | 263 | 5 | 8 |
+
+"Graded" means a net number on the tree node; "terms, no grade" shows the contract and the WAR produced but no
+net. Extensions from 1998-2014 are almost all missing from the trees (513 of 529, from the ext98 source).
+Trades are all graded (4,172, with 2 held back as incomplete). The report cards and rankings are clean: all
+1,567 signing rows on the cards have terms and a number, so no card or ranking includes an ungraded move.
+The gap is on player trees only. (Counts come from matching each contract to a tree node by club and year;
+the sample findings in section 8 match.)
+
+**The 7 service-record gaps.** No public page changes: the service-time control end is not on the site, and
+the exclusion lives only in the report tools. Filling the gap from Baseball-Reference is better where it
+exists: its salary table gives starting service for deGrom, White, Allen, Sears and Oviedo; it has none for
+Turnbull and one season for Estes. Recommended when the fix ships: Baseball-Reference first, debut rule only
+where neither source has the season.
+
+**Arbitration model, held-out test (`tests/tools/arb_calib_holdout.py`).** Actual salaries from
+Baseball-Reference for 40 arbitration-eligible players (seed 20261115; 9 had no salary table): 83 arbitration
+seasons from 28 players, 2018-26, excluding 2020 and seasons owned by multi-year deals.
+- Current model: $364.7M against $446.2M paid, **18% low**; median miss $1.42M a season.
+- Refit (base and the four class steps), each season held out in turn: 9% low; median miss $1.70M.
+- The earlier 10-case check said 20% high. The direction flips with the sample, and no fit gets a season
+  closer than about $1.5M. Not calibrated; do not use it for the fix. Use actual salaries (contract book,
+  Baseball-Reference) and leave unknown arbitration seasons flagged rather than estimated.
+
+**Phone, top three on the 7.5 s load** (CPU profile on the same slow-4G profile; the profiler slows the run):
+1. Bytes: index.html, 976 KB zipped, 5.7 to 6.4 s on the wire. The CPU sits idle for about 3.5 s of it.
+2. Parse and compile: about 2.6 to 2.8 s of browser work ("program") for the 3.3 MB page at 4x slowdown.
+3. Home render: `renderHome` spends about 0.8 s in Desk and Simulator projections (the hub's free-agent and
+   trade widgets: dkSuggest, gmProj27, gmPV) and the Wire panel about 0.5 s grading signings before it draws.
+
+Cut under 1 s with no new build file: draw the home hub first and fill those two panels on the next frame.
+Same data and same numbers, so no drift; the panels appear a moment later. Estimated 0.8 to 1.2 s off home
+content visible. Not built.
+
+**Do the suites catch a wrong grade?** No, before today. A planted +2.0 on a 2018 CWS/NYY trade (both sides
+moved so they still add to zero) shows on the page and on the player tree, and 12 of 13 suites passed (the
+13th failed only on a check newer than the planted page). A first plant on one side only never reached the
+page (the two-club repair recomputes that side). New suite `t_grades`: a snapshot of all 13,209 shown grades
+(every trade side and every card row) in `tests/fixtures/grades.json`. It fails on the plant (2 grades changed)
+and passes on the real page. Regenerate it on purpose with `UPDATE=1` after an intended change.
+
+Root causes found Nov 11: 9, 5 of them in rules written that day.
