@@ -5,6 +5,16 @@ Kept by Claude; every push goes through the GitHub web upload page, never a toke
 
 ## 2026-11-11 (Wed)
 
+### Launch push, block 3 (audit of the audit)
+- `docs/audit-nov11-b.md`: sample method and full ID lists (stratified seeded draw from the card rows,
+  recent moves under-weighted), 90% intervals, 20 high-traffic moves (3 errors in 92 checks), control-end
+  count (30 of 164 covered extension grades wrong; Olson 12.0 to 3.8 worked by hand), prospect share (765
+  trades since 2019 carry projected value; median 26%), phone profile, salary-charge assumption (2,370
+  player-seasons since 2015 charged $0).
+- Fixed live: unstarted extensions stay OPEN (Hoerner); linked same-day legs keep their own numbers (Arizona
+  2003); the two incomplete pre-2012 deals are held back on trees.
+- Mock (not shipped): `docs/mock-split.html`, played vs projected.
+
 ### Launch push, block 2 (accuracy)
 - **Audit of 40 random moves** against the league feed, named-source terms and FanGraphs: 5 field errors in
   184 checks (2.7%), 3 of 40 moves. Full report `docs/audit-nov11.md`.

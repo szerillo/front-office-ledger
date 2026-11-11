@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mock: realized and projected split (not shipped)</title>
+<style>
+body{font:15px/1.45 Georgia, serif; background:#f6f1e7; color:#1d1a16; margin:0; padding:24px}
+.wrap{max-width:760px; margin:0 auto}
+h1{font-size:20px; margin:0 0 4px} .note{color:#6b6257; font-size:13px; margin-bottom:18px}
+.card{background:#fffdf8; border:1.5px solid #1d1a16; border-radius:10px; padding:14px 16px; margin-bottom:16px}
+.head{display:flex; justify-content:space-between; gap:10px; align-items:baseline}
+.chip{font:700 11px monospace; letter-spacing:.8px; border:1px solid #1d1a16; border-radius:4px; padding:1px 6px}
+.tot{font:700 22px monospace}
+.split{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:10px 0}
+.box{border:1px solid #d8cfbf; border-radius:8px; padding:8px 10px}
+.box b{font:700 18px monospace} .k{font:700 10.5px monospace; letter-spacing:.8px; text-transform:uppercase; color:#4a443c}
+.bar{display:flex; height:10px; border-radius:5px; overflow:hidden; margin:8px 0 2px; background:#e9e1d2}
+.r{background:#2f6b3a} .p{background:repeating-linear-gradient(45deg,#2f6b3a55 0 4px,#2f6b3a22 4px 8px)}
+table{width:100%; border-collapse:collapse; font-size:13.5px} td{padding:4px 0; border-top:1px solid #eee5d6} td.n{text-align:right; font-family:monospace}
+.pos{color:#2f6b3a} .neg{color:#a23b2a} .muted{color:#6b6257}
+</style></head><body><div class="wrap">
+<h1>Mock: each trade's number split into played and projected</h1>
+<div class="note">Not shipped. Numbers are today's live values for two deals; the split is the engine's own open-expectation term, pulled out of the total. The grade letter would rank on the played part only; the projected part sits beside it until it is played.</div>
+
+<div class="card">
+  <div class="head"><strong>White Sox trade Garrett Crochet to Boston (Dec 2024)</strong><span class="chip">OPEN</span></div>
+  <div class="muted" style="font-size:13px">White Sox side</div>
+  <div class="split">
+    <div class="box"><div class="k">Played so far</div><b class="pos">+4.7</b><div class="muted" style="font-size:12.5px">what the players did, net of salary</div></div>
+    <div class="box"><div class="k">Still projected</div><b class="pos">+7.2</b><div class="muted" style="font-size:12.5px">expected from their ranking, not yet played</div></div>
+  </div>
+  <div class="bar"><div class="r" style="width:39%"></div><div class="p" style="width:61%"></div></div>
+  <div class="muted" style="font-size:12px">Total today <span class="tot" style="font-size:14px">+11.9</span>: 39% played, 61% projected</div>
+  <table>
+    <tr><td>Kyle Teel</td><td class="n">+2.6 played</td><td class="n muted">+3.7 projected</td></tr>
+    <tr><td>Chase Meidroth</td><td class="n">+4.7 played</td><td class="n muted">+0.4 projected</td></tr>
+    <tr><td>Braden Montgomery</td><td class="n">+0.7 played</td><td class="n muted">+2.8 projected</td></tr>
+    <tr><td>Wikelman Gonzalez</td><td class="n">+0.4 played</td><td class="n muted">+0.4 projected</td></tr>
+    <tr><td>Garrett Crochet (to Boston)</td><td class="n neg">-3.7 played</td><td class="n muted">0.0 projected</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <div class="head"><strong>Cubs get Clay Holmes and Tyrone Taylor from the Mets (Aug 2026)</strong><span class="chip">OPEN</span></div>
+  <div class="muted" style="font-size:13px">Cubs side</div>
+  <div class="split">
+    <div class="box"><div class="k">Played so far</div><b class="pos">+1.0</b><div class="muted" style="font-size:12.5px">Holmes and Taylor, now free agents</div></div>
+    <div class="box"><div class="k">Still projected</div><b class="neg">-2.7</b><div class="muted" style="font-size:12.5px">Jefferson Rojas, not yet in the majors</div></div>
+  </div>
+  <div class="muted" style="font-size:12px">Total today -1.7. On the played part alone the Cubs are ahead.</div>
+</div>
+</div></body></html>
