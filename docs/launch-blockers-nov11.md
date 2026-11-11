@@ -1,11 +1,11 @@
 # Launch blockers (Nov 11, 5:19 PM round)
 
-Ordered by what has to happen first. "Me" means Claude; "Clear without Sean" means it can be finished
+Ordered by what has to happen first. Plan and verification steps for items 5 and 6: `docs/plan-items-5-6.md`. "Me" means Claude; "Clear without Sean" means it can be finished
 without a decision from Sean (deploys always need his OK). Sizes: S under an hour, M a session, L several.
 
 | # | Item | Why it blocks | Owner | Size | Clear without Sean | Verified when |
 |---|---|---|---|---|---|---|
-| 1 | Determinism patch (`4ff51c5`) | The shipped grader reads signings in no fixed order, so a rebuild can change the public winter table (5 shuffles gave 5 different files) | Me to verify (done), Sean to OK the deploy | S | Verification yes; deploy no | 10 shuffled rebuilds give one md5 (`1a4a4a5e`); PRAGMA reverse_unordered_selects, 3 hash seeds and SQLite 3.51 vs 3.53 change nothing; 13 rows change against live, none with a share page (`tests/tools/r21_determinism.json`) |
+| 1 | **DONE Nov 11 22:40 UTC (Sean approved).** Determinism patch (`4ff51c5`), engine `279379f`, site `13a4570` | The shipped grader reads signings in no fixed order, so a rebuild can change the public winter table (5 shuffles gave 5 different files) | Me to verify (done), Sean to OK the deploy | S | Verification yes; deploy no | 10 shuffled rebuilds give one md5 (`1a4a4a5e`); PRAGMA reverse_unordered_selects, 3 hash seeds and SQLite 3.51 vs 3.53 change nothing; 13 rows change against live, none with a share page (`tests/tools/r21_determinism.json`) |
 | 2 | Rounding rule for winter dollar totals | 132 cells sit exactly on .5; the rule has to be written down before anything is rebuilt | Sean (one line) | S | No | Rule in the methodology doc; a rebuild matches it on all 132 |
 | 3 | 2020 charge fix, version (a) or (b) | Grades covering 2020 are too low (Cole -1.9, about +1.0 fixed); 7 public winter pages move | Sean decides; me to build | M | No | Regrade on the deterministic build; `t_grades` snapshot updated with a REASON; the 7 pages recomputed |
 | 4 | Same-club re-sign rule on the page (`resign-keeps-open.diff`) | 11 trades read CLOSED that are open | Sean OK; me to upload | S | No | 14 suites pass live; OPEN count 721 |

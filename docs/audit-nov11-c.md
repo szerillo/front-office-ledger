@@ -1074,3 +1074,25 @@ Nothing went to the public site.
    not recomputed from this file.
 
 Nothing went to the public site.
+
+## 27. Round 22 (Nov 11, 5:36 PM): determinism patch deployed
+
+Approved by Sean (via Kirk) for patch `4ff51c5` only.
+- **Engine:** `279379f` (`engine/fa_grade.py` md5 `357f0041`, `engine/offseasons_build.py` `70c54fe4`).
+- **Site:** `13a4570` (`offseasons.json` md5 `1a4a4a5e`). GitHub main and frontofficeledger.com (including the
+  `?v=1` URL the page requests) serve `1a4a4a5e`; Pages updated it at 22:40:14 UTC.
+- **Deployed code, 5 new shuffles** (seeds 20261151 to 20261155), run from the files fetched at `279379f` with only
+  I/O paths redirected: 5 of 5 give `1a4a4a5e`. `PRAGMA reverse_unordered_selects=ON`: no change. `/work` untouched.
+- **Live before/after:** 13 of 816 rows changed, none with a share page and none 2022+. 8 are the same five moves
+  in another order. 4 swap one tied move: ATL 2001-02 Castilla for Smoltz (-0.5); ATL 2003-04 Alfonseca for E.
+  Pérez (+0.8); SD 2007-08 Clark +0.1 for Wolf -0.1; MIA 2016-17 Ellis for McGowan (-0.4). The 13th is Cardinals
+  2004-05 dollars, 15 to **16**.
+- **Rollback (one step):** upload the previous `offseasons.json` (md5 `6842d1d0`, at
+  `raw.githubusercontent.com/szerillo/front-office-ledger/279379f/offseasons.json`) to the repo root through
+  the upload page. The engine files can go back the same way from `7c19cf0` (`01c80d6b`, `d6692708`).
+- **Assumption checked: no other build step reorders ties.** It fails: 44 SELECTs without ORDER BY remain in
+  scripts that read `sweep_tx` or the grader outputs (`tests/tools/r22_unordered_selects.txt`, file:line each),
+  including the trade grader (`sweep_score.py` 4, `hist_score.py` 4, `trade_book.py` 1). `asset_rules.py:313` is
+  order-free today because `asset_end` takes a minimum. The two set loops (`r5_conduit.py:12`, `desk_data.py:773`)
+  only fill lookup maps. Untested whether the others change any published file; that test is step 0 of
+  `docs/plan-items-5-6.md`.
