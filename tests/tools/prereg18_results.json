@@ -36,7 +36,8 @@
    "outside_terms": "1/1.25",
    "outside_source": "AP (San Mateo Daily Journal, ESPN mirrors) and MLB.com: $1.25M",
    "terms_ok": false,
-   "note": "card shows 1/1.5; later Field Level Media and The Big Lead cite $1.5M, likely base plus a bonus; per the pre-registered order AP wins, so a $0.25M mismatch over the $0.1M tolerance"
+   "note": "card shows 1/1.5; later Field Level Media and The Big Lead cite $1.5M, likely base plus a bonus; per the pre-registered order AP wins, so a $0.25M mismatch over the $0.1M tolerance",
+   "label": "disputed: AP and MLB.com $1.25M; card $1.5M from contracts_recent.py (credits MLB Trade Rumors); later reports $1.5M; no amendment found"
   },
   {
    "date": "2025-02-04",
@@ -360,5 +361,6 @@
    "terms_ok": true,
    "note": "card 2.2 is rounding, inside $0.1M"
   }
- ]
+ ],
+ "frame_note": "round 19: the frame is all 1,717 rows of the rerun, but that rerun lacked the Retrosheet backfill; the full population is 2,616, and 899 rows from 1998-2008 (terms source fa97) could not be drawn"
 }

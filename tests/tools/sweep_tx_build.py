@@ -1,3 +1,5 @@
+"""NOTE (round 19): the MLB feed is nearly empty before 2009. After this script, run ingest/retro_backfill.py on the
+same database (point its sqlite path there) or 1998-2008 signings vanish from every rerun."""
 """Rebuilds the sweep_tx table (date, team_id, person_id, person_name, type_desc, description) from the public
 MLB transactions feed into /tmp/sweep/ledger.sqlite, so fa_grade.py can run without the original ledger.
 Round 17: with it, fa_grade.py reproduces 646 of 646 overlapping published signing grades exactly."""

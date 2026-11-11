@@ -1,0 +1,3519 @@
+{
+ "item1_baseline": {
+  "live_build": "shipped /work engine outputs (sweep_results.json, hist_results.json) rebuild offseasons.json byte for byte (816 of 816 winters)",
+  "cause_of_268": {
+   "data_version_missing_retrosheet_backfill": 268,
+   "code_version": 0,
+   "rounding": 0,
+   "other": 0
+  },
+  "detail": "the rebuilt sweep_tx skipped ingest/retro_backfill.py; the MLB feed is nearly empty before 2009, so 1998-2008 signings vanished: 68 winters had none (missing) and 200 lost theirs",
+  "after_backfill": "before-fix rebuild: FA column 816 of 816, whole row 813 of 816; the 3 differ only in which equal-grade move is listed or a Retrosheet date (Dreifort Dec 11 vs 19)",
+  "largest_gaps_before": [
+   [
+    "2001-tex",
+    "John Hart",
+    -21.1
+   ],
+   [
+    "1998-bal",
+    "Frank Wren",
+    -16.5
+   ],
+   [
+    "2000-col",
+    "Dan O'Dowd",
+    -14.2
+   ],
+   [
+    "2004-nyy",
+    "Brian Cashman",
+    -13.8
+   ],
+   [
+    "1998-lad",
+    "Kevin Malone",
+    -13.5
+   ]
+  ],
+  "public_deltas_unchanged": "same 7 pages and figures as section 22"
+ },
+ "item2_heim": {
+  "card": 1.5,
+  "AP": 1.25,
+  "MLB.com": 1.25,
+  "card_source": "engine/contracts_recent.py credits MLB Trade Rumors",
+  "later_1.5_reports": "Field Level Media and The Big Lead (May 2026), no amendment or bonus breakdown found",
+  "label": "disputed",
+  "grade_effect": "under 0.05 wins either way (0.5 of one season held)"
+ },
+ "item3_bonus": {
+  "live_contract_book_rows": 3608,
+  "rows_with_bonus_field": 0,
+  "free_agent_method": "total / years every season (all 3,608 rows: aav == tot/yrs)",
+  "extension_method": "total spread by the replaced service path (asset_rules.ext_salary)",
+  "bonus_rows_seen": {
+   "Marte": "all 4 years",
+   "Rodon": "all 6 years",
+   "Donaldson": "all 4 years",
+   "Diaz": "3 years (his opt-out came after year 3)",
+   "Bichette": "cash in the year paid"
+  },
+  "grade_change_one_method": "0: live grades already use one method per contract kind; the five bonus rows sit inside contract-book deals, which neither shadow prices",
+  "to_count_every_bonus_row": "needs a per-contract bonus source (Spotrac pages; Cot's blocks bots); the book carries totals only"
+ },
+ "item4_exposure": {
+  "population": 2616,
+  "changed_fa_grades": 162,
+  "pre2009_changes": 0,
+  "winter_pages": 7,
+  "move_pages": 0,
+  "club_pages": 0,
+  "note": "move pages are 19 November 2026 claims and trades; club pages cover the current winter only"
+ },
+ "item5_frame": {
+  "frame": 1717,
+  "unique": 1717,
+  "seed_reproduces_draw": true,
+  "full_population": 2616,
+  "missing_from_frame": 899,
+  "missing_era": "1998-2008 (900 graded rows in the full build, 1 of them in the frame)",
+  "terms_sources_never_sampled": "fa97 (714 contracts, 1997-2005)",
+  "retrosheet_dates": "4 of 7,021 1998-2008 signings have no day (set to the 15th); 1 has no month (dropped)"
+ },
+ "item6_extension_regrade": {
+  "baseline_reproduces": "806 of 806 extension rows, 152 of 152 regime totals",
+  "with_2020_fix": {
+   "cover_2020": {
+    "changed": 75,
+    "up": 61,
+    "half_win_plus": 42,
+    "win_plus": 20,
+    "flips": 3,
+    "sum": 47.1
+   },
+   "no_2020_season": {
+    "changed": 304,
+    "max_abs": 1.0,
+    "half_win_plus": 8,
+    "win_plus": 2,
+    "flips": 3,
+    "sum": -43.5,
+    "why": "each class's typical rate is recomputed on the population (veteran 0.37 to 0.392, arb 0.167 to 0.18, early -0.077 to -0.069), so lifting 2020 deals lowers other deals in the same class"
+   }
+  },
+  "rows": [
+   [
+    "COL",
+    "Jeff Bridich",
+    "2019-01-15",
+    "Extended Nolan Arenado · 8 yr / $260.0M (veteran)",
+    -5.6,
+    -2.0,
+    true
+   ],
+   [
+    "LAA",
+    "Billy Eppler",
+    "2019-01-15",
+    "Extended Mike Trout · 12 yr / $426.5M (veteran)",
+    -2.7,
+    -0.3,
+    true
+   ],
+   [
+    "HOU",
+    "Jeff Luhnow",
+    "2018-03-15",
+    "Extended José Altuve · 5 yr / $151.0M (veteran)",
+    1.1,
+    3.3,
+    true
+   ],
+   [
+    "BOS",
+    "Dave Dombrowski",
+    "2019-03-15",
+    "Extended Chris Sale · 5 yr / $145.0M (veteran)",
+    -9.1,
+    -7.0,
+    true
+   ],
+   [
+    "HOU",
+    "Jeff Luhnow",
+    "2019-03-15",
+    "Extended Justin Verlander · 2 yr / $66.0M (veteran)",
+    -6.8,
+    -4.7,
+    true
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2019-03-15",
+    "Extended Paul Goldschmidt · 5 yr / $130.0M (veteran)",
+    5.5,
+    7.4,
+    true
+   ],
+   [
+    "MIL",
+    "David Stearns",
+    "2020-03-15",
+    "Extended Christian Yelich · 9 yr / $215.0M (veteran)",
+    -3.2,
+    -1.3,
+    true
+   ],
+   [
+    "LAD",
+    "Andrew Friedman",
+    "2018-11-15",
+    "Extended Clayton Kershaw · 3 yr / $93.0M (veteran)",
+    -3.5,
+    -1.7,
+    true
+   ],
+   [
+    "BOS",
+    "Dave Dombrowski",
+    "2019-04-15",
+    "Extended Xander Bogaerts · 6 yr / $120.0M (veteran)",
+    4.7,
+    6.4,
+    true
+   ],
+   [
+    "SD",
+    "A.J. Preller",
+    "2017-01-15",
+    "Extended Wil Myers · 6 yr / $83.0M (arb)",
+    -1.5,
+    -0.1,
+    true
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2019-04-15",
+    "Extended Matt Carpenter · 2 yr / $39.0M (veteran)",
+    -5.3,
+    -3.9,
+    true
+   ],
+   [
+    "DET",
+    "Dave Dombrowski",
+    "2014-03-15",
+    "Extended Miguel Cabrera · 8 yr / $248.0M (veteran)",
+    -25.5,
+    -24.1,
+    true
+   ],
+   [
+    "ATH",
+    "Billy Beane",
+    "2019-04-15",
+    "Extended Khris Davis · 2 yr / $33.5M (veteran)",
+    -3.2,
+    -1.9,
+    true
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2019-02-15",
+    "Extended Miles Mikolas · 4 yr / $68.0M (veteran)",
+    -4.4,
+    -3.2,
+    true
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2017-02-15",
+    "Extended Carlos Martínez · 5 yr / $51.0M (arb)",
+    -5.2,
+    -4.1,
+    true
+   ],
+   [
+    "COL",
+    "Jeff Bridich",
+    "2018-04-15",
+    "Extended Charlie Blackmon · 6 yr / $108.0M (veteran)",
+    -5.6,
+    -4.5,
+    true
+   ],
+   [
+    "NYY",
+    "Brian Cashman",
+    "2019-11-15",
+    "Extended Aroldis Chapman · 3 yr / $48.0M (veteran)",
+    -3.3,
+    -2.3,
+    true
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2017-04-15",
+    "Extended Yadier Molina · 3 yr / $60.0M (veteran)",
+    -0.1,
+    0.9,
+    false
+   ],
+   [
+    "LAA",
+    "Billy Eppler",
+    "2017-11-15",
+    "Extended Justin Upton · 5 yr / $106.0M (veteran)",
+    -7.3,
+    -6.3,
+    true
+   ],
+   [
+    "ATL",
+    "Frank Wren",
+    "2014-02-15",
+    "Extended Freddie Freeman · 8 yr / $135.0M (arb)",
+    12.0,
+    13.0,
+    true
+   ],
+   [
+    "CIN",
+    "Dick Williams",
+    "2019-01-15",
+    "Extended Sonny Gray · 3 yr / $30.5M (veteran)",
+    0.2,
+    1.2,
+    true
+   ],
+   [
+    "NYY",
+    "Brian Cashman",
+    "2001-02-15",
+    "Extended Derek Jeter · 10 yr / $189.0M (veteran)",
+    -16.6,
+    -17.6,
+    false
+   ],
+   [
+    "SEA",
+    "Jack Zduriencik",
+    "2014-11-15",
+    "Extended Kyle Seager · 7 yr / $100.0M (arb)",
+    0.1,
+    1.0,
+    true
+   ],
+   [
+    "KC",
+    "Dayton Moore",
+    "2017-01-15",
+    "Extended Danny Duffy · 5 yr / $65.0M (veteran)",
+    -3.0,
+    -2.1,
+    true
+   ],
+   [
+    "CIN",
+    "Walt Jocketty",
+    "2012-04-15",
+    "Extended Joey Votto · 10 yr / $225.0M (arb)",
+    9.7,
+    10.5,
+    true
+   ],
+   [
+    "TB",
+    "Erik Neander",
+    "2017-03-15",
+    "Extended Kevin Kiermaier · 6 yr / $53.5M (arb)",
+    1.1,
+    1.9,
+    true
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2013-03-15",
+    "Extended Buster Posey · 9 yr / $167.0M (arb)",
+    9.6,
+    10.3,
+    true
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2015-11-15",
+    "Extended Brandon Crawford · 6 yr / $75.0M (arb)",
+    4.5,
+    5.2,
+    true
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2016-04-15",
+    "Extended Brandon Belt · 5 yr / $72.8M (arb)",
+    5.0,
+    5.7,
+    true
+   ],
+   [
+    "HOU",
+    "Jeff Luhnow",
+    "2019-03-15",
+    "Extended Ryan Pressly · 2 yr / $17.5M (veteran)",
+    -0.2,
+    0.5,
+    true
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2016-03-15",
+    "Extended Kolten Wong · 5 yr / $25.5M (arb)",
+    -0.1,
+    0.6,
+    true
+   ],
+   [
+    "TEX",
+    "Jon Daniels",
+    "2017-03-15",
+    "Extended Rougned Odor · 6 yr / $49.5M (arb)",
+    -2.0,
+    -1.3,
+    true
+   ],
+   [
+    "MIL",
+    "Doug Melvin",
+    "2011-04-15",
+    "Extended Ryan Braun · 5 yr / $105.0M (arb)",
+    1.2,
+    1.9,
+    false
+   ],
+   [
+    "NYY",
+    "Brian Cashman",
+    "2019-02-15",
+    "Extended Aaron Hicks · 7 yr / $70.0M (veteran)",
+    -4.1,
+    -3.4,
+    true
+   ],
+   [
+    "MIN",
+    "Bill Smith",
+    "2010-03-15",
+    "Extended Joe Mauer · 8 yr / $184.0M (veteran)",
+    -6.3,
+    -6.9,
+    false
+   ],
+   [
+    "CLE",
+    "Chris Antonetti",
+    "2018-12-15",
+    "Extended Carlos Carrasco · 4 yr / $47.0M (veteran)",
+    -2.0,
+    -1.4,
+    true
+   ],
+   [
+    "NYM",
+    "Sandy Alderson",
+    "2012-11-15",
+    "Extended David Wright · 8 yr / $138.0M (veteran)",
+    -4.2,
+    -3.6,
+    true
+   ],
+   [
+    "NYM",
+    "Brodie Van Wagenen",
+    "2019-03-15",
+    "Extended Jacob deGrom · 5 yr / $137.5M (arb)",
+    -4.0,
+    -3.4,
+    true
+   ],
+   [
+    "KC",
+    "Dayton Moore",
+    "2016-03-15",
+    "Extended Salvador Pérez · 5 yr / $52.5M (arb)",
+    -2.2,
+    -1.6,
+    true
+   ],
+   [
+    "CIN",
+    "Dick Williams",
+    "2017-09-15",
+    "Extended Tucker Barnhart · 4 yr / $16.0M (arb)",
+    1.1,
+    1.7,
+    true
+   ],
+   [
+    "PIT",
+    "Neal Huntington",
+    "2016-04-15",
+    "Extended Gregory Polanco · 5 yr / $35.0M (early)",
+    -1.9,
+    -1.3,
+    true
+   ],
+   [
+    "NYM",
+    "Omar Minaya",
+    "2008-02-15",
+    "Extended Johan Santana · 6 yr / $137.5M (veteran)",
+    -15.4,
+    -16.0,
+    false
+   ],
+   [
+    "CIN",
+    "Jim Bowden",
+    "2000-02-15",
+    "Extended Ken Griffey Jr. · 9 yr / $116.5M (veteran)",
+    -10.8,
+    -11.4,
+    false
+   ],
+   [
+    "ARI",
+    "Mike Hazen",
+    "2018-10-15",
+    "Extended Eduardo Escobar · 3 yr / $21.0M (veteran)",
+    3.1,
+    3.6,
+    true
+   ],
+   [
+    "CLE",
+    "Chris Antonetti",
+    "2017-04-15",
+    "Extended Jose Ramirez · 5 yr / $26.0M (arb)",
+    10.3,
+    10.8,
+    true
+   ],
+   [
+    "BOS",
+    "Ben Cherington",
+    "2013-07-15",
+    "Extended Dustin Pedroia · 8 yr / $110.0M (veteran)",
+    2.4,
+    2.9,
+    true
+   ],
+   [
+    "TEX",
+    "Jon Daniels",
+    "2013-04-15",
+    "Extended Elvis Andrus · 8 yr / $120.0M (arb)",
+    2.0,
+    2.5,
+    true
+   ],
+   [
+    "CIN",
+    "Dick Williams",
+    "2018-11-15",
+    "Extended Raisel Iglesias · 3 yr / $24.1M (arb)",
+    -1.0,
+    -0.5,
+    true
+   ],
+   [
+    "HOU",
+    "Gerry Hunsicker",
+    "2000-12-15",
+    "Extended Jeff Bagwell · 5 yr / $85.0M (veteran)",
+    -9.8,
+    -10.3,
+    false
+   ],
+   [
+    "NYM",
+    "Steve Phillips",
+    "1998-10-15",
+    "Extended Mike Piazza · 7 yr / $91.0M (veteran)",
+    -7.1,
+    -7.6,
+    false
+   ],
+   [
+    "STL",
+    "Walt Jocketty",
+    "2000-05-15",
+    "Extended Jim Edmonds · 6 yr / $57.0M (veteran)",
+    20.8,
+    20.4,
+    false
+   ],
+   [
+    "DET",
+    "Dave Dombrowski",
+    "2008-03-15",
+    "Extended Miguel Cabrera · 8 yr / $152.3M (arb)",
+    22.3,
+    21.9,
+    false
+   ],
+   [
+    "NYY",
+    "Brian Cashman",
+    "2011-10-15",
+    "Extended CC Sabathia · 5 yr / $122.0M (veteran)",
+    -7.5,
+    -7.9,
+    false
+   ],
+   [
+    "NYM",
+    "Sandy Alderson",
+    "2021-04-15",
+    "Extended Francisco Lindor · 10 yr / $341.0M (veteran)",
+    7.0,
+    6.6,
+    false
+   ],
+   [
+    "SEA",
+    "Jack Zduriencik",
+    "2013-02-15",
+    "Extended Felix Hernandez · 5 yr / $135.5M (veteran)",
+    -14.0,
+    -14.4,
+    false
+   ],
+   [
+    "HOU",
+    "Tim Purpura",
+    "2005-03-15",
+    "Extended Lance Berkman · 6 yr / $85.0M (veteran)",
+    6.0,
+    5.6,
+    false
+   ],
+   [
+    "TOR",
+    "Gord Ash",
+    "2000-10-15",
+    "Extended Carlos Delgado · 4 yr / $68.0M (veteran)",
+    -6.5,
+    -6.9,
+    false
+   ],
+   [
+    "COL",
+    "Dan O'Dowd",
+    "2001-03-15",
+    "Extended Todd Helton · 9 yr / $141.5M (arb)",
+    -1.2,
+    -1.6,
+    false
+   ],
+   [
+    "ARI",
+    "Mike Hazen",
+    "2018-03-15",
+    "Extended Ketel Marte · 5 yr / $24.0M (arb)",
+    0.9,
+    0.5,
+    true
+   ],
+   [
+    "WSH",
+    "Mike Rizzo",
+    "2012-02-15",
+    "Extended Ryan Zimmerman · 8 yr / $126.0M (veteran)",
+    0.3,
+    -0.1,
+    false
+   ],
+   [
+    "PHI",
+    "Matt Klentak",
+    "2016-12-15",
+    "Extended Odúbel Herrera · 5 yr / $30.5M (early)",
+    -0.1,
+    0.3,
+    true
+   ],
+   [
+    "CLE",
+    "Chris Antonetti",
+    "2017-04-15",
+    "Extended Roberto Pérez · 4 yr / $9.0M (arb)",
+    0.6,
+    0.2,
+    true
+   ],
+   [
+    "LAD",
+    "Ned Colletti",
+    "2014-01-15",
+    "Extended Clayton Kershaw · 7 yr / $215.0M (veteran)",
+    -2.4,
+    -2.8,
+    true
+   ],
+   [
+    "ATL",
+    "John Schuerholz",
+    "2000-08-15",
+    "Extended Chipper Jones · 6 yr / $90.0M (veteran)",
+    2.4,
+    2.0,
+    false
+   ],
+   [
+    "SEA",
+    "Bill Bavasi",
+    "2007-07-15",
+    "Extended Ichiro Suzuki · 5 yr / $90.0M (veteran)",
+    -6.4,
+    -6.8,
+    false
+   ],
+   [
+    "MIN",
+    "Derek Falvey",
+    "2019-02-15",
+    "Extended Jorge Polanco · 5 yr / $25.8M (arb)",
+    8.7,
+    8.3,
+    true
+   ],
+   [
+    "PHI",
+    "Ruben Amaro Jr.",
+    "2010-04-15",
+    "Extended Ryan Howard · 5 yr / $125.0M (veteran)",
+    -21.6,
+    -22.0,
+    false
+   ],
+   [
+    "LAD",
+    "Kevin Malone",
+    "1999-11-15",
+    "Extended Shawn Green · 6 yr / $84.0M (veteran)",
+    -8.8,
+    -9.2,
+    false
+   ],
+   [
+    "LAD",
+    "Andrew Friedman",
+    "2020-07-15",
+    "Extended Mookie Betts · 12 yr / $306.7M (veteran)",
+    18.8,
+    18.5,
+    true
+   ],
+   [
+    "CHC",
+    "Jim Hendry",
+    "2007-08-15",
+    "Extended Carlos Zambrano · 5 yr / $91.5M (veteran)",
+    -6.6,
+    -6.9,
+    false
+   ],
+   [
+    "ATH",
+    "Billy Beane",
+    "2004-03-15",
+    "Extended Eric Chavez · 6 yr / $66.0M (veteran)",
+    -5.6,
+    -5.9,
+    false
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2012-04-15",
+    "Extended Matt Cain · 5 yr / $112.5M (veteran)",
+    -18.0,
+    -18.3,
+    false
+   ],
+   [
+    "STL",
+    "Walt Jocketty",
+    "2004-02-15",
+    "Extended Albert Pujols · 7 yr / $100.0M (arb)",
+    21.1,
+    20.8,
+    false
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2012-02-15",
+    "Extended Yadier Molina · 5 yr / $75.0M (veteran)",
+    14.4,
+    14.1,
+    false
+   ],
+   [
+    "NYY",
+    "Brian Cashman",
+    "2002-02-15",
+    "Extended Jorge Posada · 5 yr / $51.0M (veteran)",
+    8.4,
+    8.1,
+    false
+   ],
+   [
+    "CHC",
+    "Jim Hendry",
+    "2006-04-15",
+    "Extended Derrek Lee · 5 yr / $65.0M (veteran)",
+    3.7,
+    3.4,
+    false
+   ],
+   [
+    "STL",
+    "Walt Jocketty",
+    "2006-12-15",
+    "Extended Chris Carpenter · 5 yr / $65.0M (veteran)",
+    1.3,
+    1.0,
+    false
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2013-03-15",
+    "Extended Adam Wainwright · 5 yr / $97.5M (veteran)",
+    -1.8,
+    -2.1,
+    false
+   ],
+   [
+    "COL",
+    "Bob Gebhard",
+    "1999-03-15",
+    "Extended Larry Walker · 6 yr / $75.0M (veteran)",
+    0.1,
+    -0.2,
+    false
+   ],
+   [
+    "DET",
+    "Dave Dombrowski",
+    "2013-03-15",
+    "Extended Justin Verlander · 5 yr / $140.0M (veteran)",
+    0.3,
+    0.0,
+    false
+   ],
+   [
+    "TOR",
+    "Ross Atkins",
+    "2019-04-15",
+    "Extended Randal Grichuk · 5 yr / $52.0M (arb)",
+    -1.4,
+    -1.1,
+    true
+   ],
+   [
+    "CHC",
+    "Theo Epstein",
+    "2019-03-15",
+    "Extended Kyle Hendricks · 4 yr / $55.5M (arb)",
+    -5.3,
+    -5.0,
+    true
+   ],
+   [
+    "LAD",
+    "Ned Colletti",
+    "2012-06-15",
+    "Extended Andre Ethier · 5 yr / $85.0M (veteran)",
+    -3.8,
+    -4.1,
+    false
+   ],
+   [
+    "TEX",
+    "Jon Daniels",
+    "2007-03-15",
+    "Extended Michael Young · 5 yr / $80.0M (veteran)",
+    -4.8,
+    -5.1,
+    false
+   ],
+   [
+    "LAA",
+    "Bill Stoneman",
+    "2004-04-15",
+    "Extended Garret Anderson · 4 yr / $48.0M (veteran)",
+    -6.8,
+    -7.1,
+    false
+   ],
+   [
+    "ATL",
+    "John Schuerholz",
+    "2001-11-15",
+    "Extended Andruw Jones · 6 yr / $75.0M (arb)",
+    7.2,
+    6.9,
+    false
+   ],
+   [
+    "BAL",
+    "Dan Duquette",
+    "2012-05-15",
+    "Extended Adam Jones · 6 yr / $85.5M (veteran)",
+    6.8,
+    6.5,
+    false
+   ],
+   [
+    "TOR",
+    "J.P. Ricciardi",
+    "2006-12-15",
+    "Extended Vernon Wells · 7 yr / $126.0M (veteran)",
+    -4.2,
+    -4.5,
+    false
+   ],
+   [
+    "CHC",
+    "Andy MacPhail (GM term)",
+    "2001-03-15",
+    "Extended Sammy Sosa · 4 yr / $72.0M (veteran)",
+    -3.1,
+    -3.4,
+    false
+   ],
+   [
+    "STL",
+    "Walt Jocketty",
+    "2002-09-15",
+    "Extended Scott Rolen · 8 yr / $90.0M (veteran)",
+    10.2,
+    9.9,
+    false
+   ],
+   [
+    "KC",
+    "Allard Baird",
+    "2002-03-15",
+    "Extended Mike Sweeney · 5 yr / $55.0M (veteran)",
+    -10.4,
+    -10.7,
+    false
+   ],
+   [
+    "CLE",
+    "Chris Antonetti",
+    "2022-04-15",
+    "Extended Jose Ramirez · 7 yr / $141.0M (veteran)",
+    15.4,
+    15.2,
+    false
+   ],
+   [
+    "CHC",
+    "Jim Hendry",
+    "2004-01-15",
+    "Extended Kerry Wood · 3 yr / $32.5M (veteran)",
+    -8.1,
+    -8.3,
+    false
+   ],
+   [
+    "PHI",
+    "Pat Gillick",
+    "2007-01-15",
+    "Extended Chase Utley · 7 yr / $85.0M (arb)",
+    14.3,
+    14.1,
+    false
+   ],
+   [
+    "CIN",
+    "Walt Jocketty",
+    "2014-02-15",
+    "Extended Homer Bailey · 6 yr / $105.0M (veteran)",
+    -10.7,
+    -10.9,
+    false
+   ],
+   [
+    "SD",
+    "A.J. Preller",
+    "2022-07-15",
+    "Extended Joe Musgrove · 5 yr / $100.0M (veteran)",
+    -5.7,
+    -5.9,
+    false
+   ],
+   [
+    "BOS",
+    "Theo Epstein",
+    "2006-04-15",
+    "Extended David Ortiz · 4 yr / $52.0M (veteran)",
+    4.0,
+    3.8,
+    false
+   ],
+   [
+    "BOS",
+    "Ben Cherington",
+    "2015-04-15",
+    "Extended Rick Porcello · 4 yr / $82.5M (veteran)",
+    3.0,
+    2.8,
+    false
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2000-09-15",
+    "Extended Robb Nen · 4 yr / $32.5M (veteran)",
+    -4.3,
+    -4.5,
+    false
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2013-09-15",
+    "Extended Hunter Pence · 5 yr / $90.0M (veteran)",
+    -5.2,
+    -5.4,
+    false
+   ],
+   [
+    "LAD",
+    "Ned Colletti",
+    "2010-10-15",
+    "Extended Ted Lilly · 3 yr / $33.0M (veteran)",
+    -4.3,
+    -4.5,
+    false
+   ],
+   [
+    "LAA",
+    "Bill Stoneman",
+    "2001-03-15",
+    "Extended Tim Salmon · 4 yr / $40.0M (veteran)",
+    -4.7,
+    -4.9,
+    false
+   ],
+   [
+    "LAA",
+    "Bill Stoneman",
+    "2002-08-15",
+    "Extended Darin Erstad · 4 yr / $32.0M (veteran)",
+    -7.0,
+    -7.2,
+    false
+   ],
+   [
+    "MIN",
+    "Bill Smith",
+    "2008-01-15",
+    "Extended Justin Morneau · 6 yr / $80.0M (arb)",
+    -3.5,
+    -3.7,
+    false
+   ],
+   [
+    "MIN",
+    "Bill Smith",
+    "2008-03-15",
+    "Extended Joe Nathan · 4 yr / $47.0M (veteran)",
+    -3.8,
+    -4.0,
+    false
+   ],
+   [
+    "SEA",
+    "Jack Zduriencik",
+    "2010-01-15",
+    "Extended Felix Hernandez · 5 yr / $78.0M (arb)",
+    5.9,
+    5.7,
+    false
+   ],
+   [
+    "SD",
+    "Kevin Towers",
+    "1999-03-15",
+    "Extended Trevor Hoffman · 4 yr / $32.0M (veteran)",
+    -5.7,
+    -5.9,
+    false
+   ],
+   [
+    "CWS",
+    "Ken Williams",
+    "2007-07-15",
+    "Extended Mark Buehrle · 4 yr / $56.0M (veteran)",
+    2.6,
+    2.4,
+    false
+   ],
+   [
+    "CWS",
+    "Rick Hahn",
+    "2020-01-15",
+    "Extended Luis Robert · 6 yr / $50.0M (early)",
+    -3.0,
+    -2.8,
+    true
+   ],
+   [
+    "PHI",
+    "Pat Gillick",
+    "2008-07-15",
+    "Extended Brad Lidge · 3 yr / $37.5M (veteran)",
+    -6.6,
+    -6.8,
+    false
+   ],
+   [
+    "PHI",
+    "Ruben Amaro Jr.",
+    "2009-12-15",
+    "Extended Roy Halladay · 3 yr / $60.0M (veteran)",
+    -2.3,
+    -2.5,
+    false
+   ],
+   [
+    "PHI",
+    "Ruben Amaro Jr.",
+    "2012-07-15",
+    "Extended Cole Hamels · 6 yr / $144.0M (veteran)",
+    -2.3,
+    -2.5,
+    false
+   ],
+   [
+    "PHI",
+    "Matt Klentak",
+    "2019-02-15",
+    "Extended Aaron Nola · 4 yr / $45.0M (arb)",
+    1.9,
+    2.1,
+    true
+   ],
+   [
+    "DET",
+    "Dave Dombrowski",
+    "2007-03-15",
+    "Extended Carlos Guillen · 4 yr / $48.0M (veteran)",
+    -5.5,
+    -5.7,
+    false
+   ],
+   [
+    "CIN",
+    "Walt Jocketty",
+    "2012-04-15",
+    "Extended Brandon Phillips · 6 yr / $72.5M (veteran)",
+    3.0,
+    2.8,
+    false
+   ],
+   [
+    "CIN",
+    "Jim Bowden",
+    "2000-07-15",
+    "Extended Barry Larkin · 3 yr / $27.0M (veteran)",
+    -4.3,
+    -4.5,
+    false
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2019-02-15",
+    "Extended José Martínez · 2 yr / $3.2M (veteran)",
+    -0.5,
+    -0.3,
+    true
+   ],
+   [
+    "WSH",
+    "Mike Rizzo",
+    "2016-05-15",
+    "Extended Stephen Strasburg · 7 yr / $175.0M (veteran)",
+    0.2,
+    -0.0,
+    true
+   ],
+   [
+    "PHI",
+    "Ed Wade",
+    "2003-01-15",
+    "Extended Bobby Abreu · 5 yr / $64.0M (veteran)",
+    -0.3,
+    -0.5,
+    false
+   ],
+   [
+    "LAD",
+    "Andrew Friedman",
+    "2020-02-15",
+    "Extended Max Muncy · 3 yr / $26.0M (arb)",
+    2.0,
+    1.8,
+    true
+   ],
+   [
+    "SD",
+    "A.J. Preller",
+    "2023-02-15",
+    "Extended Manny Machado · 11 yr / $350.0M (veteran)",
+    1.9,
+    1.7,
+    false
+   ],
+   [
+    "CWS",
+    "Ken Williams",
+    "2003-01-15",
+    "Extended Paul Konerko · 3 yr / $23.0M (veteran)",
+    -0.5,
+    -0.7,
+    false
+   ],
+   [
+    "ATL",
+    "John Schuerholz",
+    "2005-03-15",
+    "Extended Tim Hudson · 4 yr / $47.0M (veteran)",
+    -1.7,
+    -1.9,
+    false
+   ],
+   [
+    "KC",
+    "Dayton Moore",
+    "2021-03-15",
+    "Extended Salvador Pérez · 4 yr / $82.0M (veteran)",
+    1.2,
+    1.0,
+    false
+   ],
+   [
+    "DET",
+    "Dave Dombrowski",
+    "2010-02-15",
+    "Extended Justin Verlander · 5 yr / $80.0M (arb)",
+    1.7,
+    1.5,
+    false
+   ],
+   [
+    "PIT",
+    "Neal Huntington",
+    "2018-01-15",
+    "Extended Felipe Vázquez · 4 yr / $22.0M (arb)",
+    -1.5,
+    -1.3,
+    true
+   ],
+   [
+    "NYM",
+    "Steve Phillips",
+    "1998-11-15",
+    "Extended Al Leiter · 4 yr / $32.0M (veteran)",
+    0.6,
+    0.4,
+    false
+   ],
+   [
+    "NYY",
+    "Brian Cashman",
+    "2019-02-15",
+    "Extended Luis Severino · 4 yr / $40.0M (arb)",
+    -2.3,
+    -2.1,
+    true
+   ],
+   [
+    "LAA",
+    "Jerry Dipoto",
+    "2014-03-15",
+    "Extended Mike Trout · 6 yr / $144.5M (arb)",
+    3.9,
+    3.7,
+    false
+   ],
+   [
+    "ATL",
+    "Frank Wren",
+    "2009-03-15",
+    "Extended Chipper Jones · 3 yr / $42.0M (veteran)",
+    3.8,
+    3.6,
+    false
+   ],
+   [
+    "MIL",
+    "Doug Melvin",
+    "2011-02-15",
+    "Extended Rickie Weeks · 4 yr / $38.5M (veteran)",
+    -3.2,
+    -3.4,
+    false
+   ],
+   [
+    "TOR",
+    "J.P. Ricciardi",
+    "2004-01-15",
+    "Extended Roy Halladay · 4 yr / $42.0M (veteran)",
+    3.3,
+    3.1,
+    false
+   ],
+   [
+    "ATL",
+    "Alex Anthopoulos",
+    "2022-03-15",
+    "Extended Matt Olson · 8 yr / $168.0M (veteran)",
+    12.0,
+    11.8,
+    false
+   ],
+   [
+    "NYY",
+    "Brian Cashman",
+    "2014-02-15",
+    "Extended Brett Gardner · 4 yr / $52.0M (veteran)",
+    4.6,
+    4.4,
+    false
+   ],
+   [
+    "HOU",
+    "James Click",
+    "2021-03-15",
+    "Extended Lance McCullers Jr. · 5 yr / $85.0M (veteran)",
+    -9.0,
+    -9.2,
+    false
+   ],
+   [
+    "TOR",
+    "Alex Anthopoulos",
+    "2011-02-15",
+    "Extended Jose Bautista · 5 yr / $65.0M (veteran)",
+    20.4,
+    20.2,
+    false
+   ],
+   [
+    "NYY",
+    "Brian Cashman",
+    "2001-02-15",
+    "Extended Mariano Rivera · 4 yr / $40.0M (veteran)",
+    -8.4,
+    -8.6,
+    false
+   ],
+   [
+    "CLE",
+    "Chris Antonetti",
+    "2015-04-15",
+    "Extended Carlos Carrasco · 4 yr / $22.0M (veteran)",
+    11.3,
+    11.2,
+    false
+   ],
+   [
+    "LAD",
+    "Andrew Friedman",
+    "2023-11-15",
+    "Extended Max Muncy · 2 yr / $24.0M (veteran)",
+    4.4,
+    4.3,
+    false
+   ],
+   [
+    "SD",
+    "A.J. Preller",
+    "2021-02-15",
+    "Extended Fernando Tatis Jr. · 14 yr / $340.0M (early)",
+    6.9,
+    6.8,
+    false
+   ],
+   [
+    "SEA",
+    "Jerry Dipoto",
+    "2020-02-15",
+    "Extended Marco Gonzales · 4 yr / $30.0M (veteran)",
+    -4.2,
+    -4.1,
+    true
+   ],
+   [
+    "TB",
+    "Erik Neander",
+    "2023-01-15",
+    "Extended Yandy Díaz · 3 yr / $24.0M (veteran)",
+    6.4,
+    6.3,
+    false
+   ],
+   [
+    "TOR",
+    "Ross Atkins",
+    "2025-04-15",
+    "Extended Vladimir Guerrero Jr. · 14 yr / $500.0M (veteran)",
+    -4.1,
+    -4.2,
+    false
+   ],
+   [
+    "STL",
+    "Walt Jocketty",
+    "2002-01-15",
+    "Extended Matt Morris · 3 yr / $27.0M (arb)",
+    -4.6,
+    -4.7,
+    false
+   ],
+   [
+    "STL",
+    "Walt Jocketty",
+    "2005-04-15",
+    "Extended Chris Carpenter · 2 yr / $13.0M (veteran)",
+    5.2,
+    5.1,
+    false
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2014-03-15",
+    "Extended Matt Carpenter · 6 yr / $52.0M (arb)",
+    4.4,
+    4.3,
+    false
+   ],
+   [
+    "LAA",
+    "Tony Reagins",
+    "2009-02-15",
+    "Extended Ervin Santana · 4 yr / $30.0M (arb)",
+    -6.6,
+    -6.7,
+    false
+   ],
+   [
+    "CWS",
+    "Ken Williams",
+    "2011-12-15",
+    "Extended John Danks · 5 yr / $65.0M (arb)",
+    -7.1,
+    -7.2,
+    false
+   ],
+   [
+    "CLE",
+    "Mark Shapiro",
+    "2007-04-15",
+    "Extended Jake Westbrook · 3 yr / $33.0M (veteran)",
+    -4.8,
+    -4.9,
+    false
+   ],
+   [
+    "PHI",
+    "Pat Gillick",
+    "2007-02-15",
+    "Extended Brett Myers · 3 yr / $25.8M (arb)",
+    -5.1,
+    -5.2,
+    false
+   ],
+   [
+    "PHI",
+    "Ruben Amaro Jr.",
+    "2010-01-15",
+    "Extended Shane Victorino · 3 yr / $22.0M (veteran)",
+    7.4,
+    7.3,
+    false
+   ],
+   [
+    "TB",
+    "Andrew Friedman",
+    "2008-01-15",
+    "Extended Carlos Pena · 3 yr / $24.1M (veteran)",
+    4.7,
+    4.6,
+    false
+   ],
+   [
+    "DET",
+    "Dave Dombrowski",
+    "2004-06-15",
+    "Extended Carlos Guillen · 3 yr / $14.0M (veteran)",
+    7.2,
+    7.1,
+    false
+   ],
+   [
+    "DET",
+    "Dave Dombrowski",
+    "2006-12-15",
+    "Extended Jeremy Bonderman · 4 yr / $38.0M (arb)",
+    -5.3,
+    -5.4,
+    false
+   ],
+   [
+    "MIL",
+    "Doug Melvin",
+    "2013-03-15",
+    "Extended Carlos Gomez · 3 yr / $24.0M (veteran)",
+    5.9,
+    5.8,
+    false
+   ],
+   [
+    "CIN",
+    "Walt Jocketty",
+    "2010-12-15",
+    "Extended Bronson Arroyo · 3 yr / $35.0M (veteran)",
+    -5.8,
+    -5.9,
+    false
+   ],
+   [
+    "ARI",
+    "Kevin Towers",
+    "2013-03-15",
+    "Extended Paul Goldschmidt · 5 yr / $32.0M (early)",
+    6.7,
+    6.6,
+    false
+   ],
+   [
+    "ARI",
+    "Mike Hazen",
+    "2020-02-15",
+    "Extended Nick Ahmed · 4 yr / $32.5M (veteran)",
+    -2.6,
+    -2.7,
+    true
+   ],
+   [
+    "ARI",
+    "Mike Hazen",
+    "2025-04-15",
+    "Extended Ketel Marte · 6 yr / $116.5M (veteran)",
+    1.3,
+    1.2,
+    false
+   ],
+   [
+    "ATL",
+    "Alex Anthopoulos",
+    "2022-08-15",
+    "Extended Austin Riley · 10 yr / $212.0M (arb)",
+    -2.6,
+    -2.7,
+    false
+   ],
+   [
+    "ATL",
+    "Alex Anthopoulos",
+    "2022-12-15",
+    "Extended Sean Murphy · 6 yr / $73.0M (arb)",
+    -2.5,
+    -2.6,
+    false
+   ],
+   [
+    "ATL",
+    "Alex Anthopoulos",
+    "2026-02-15",
+    "Extended Chris Sale · 1 yr / $27.0M (veteran)",
+    3.4,
+    3.3,
+    false
+   ],
+   [
+    "CHC",
+    "Jed Hoyer",
+    "2023-04-15",
+    "Extended Ian Happ · 3 yr / $61.0M (veteran)",
+    3.0,
+    2.9,
+    false
+   ],
+   [
+    "CLE",
+    "Chris Antonetti",
+    "2014-04-15",
+    "Extended Jason Kipnis · 6 yr / $52.5M (arb)",
+    -3.1,
+    -3.2,
+    false
+   ],
+   [
+    "CLE",
+    "Chris Antonetti",
+    "2022-04-15",
+    "Extended Emmanuel Clase · 5 yr / $20.0M (arb)",
+    -1.2,
+    -1.3,
+    false
+   ],
+   [
+    "KC",
+    "J.J. Picollo",
+    "2024-11-15",
+    "Extended Michael Wacha · 3 yr / $51.0M (veteran)",
+    2.7,
+    2.6,
+    false
+   ],
+   [
+    "LAD",
+    "Andrew Friedman",
+    "2023-12-15",
+    "Extended Tyler Glasnow · 4 yr / $110.0M (veteran)",
+    -1.7,
+    -1.8,
+    false
+   ],
+   [
+    "LAD",
+    "Andrew Friedman",
+    "2025-01-15",
+    "Extended Tommy Edman · 5 yr / $74.0M (veteran)",
+    -1.9,
+    -2.0,
+    false
+   ],
+   [
+    "PHI",
+    "Dave Dombrowski",
+    "2026-03-15",
+    "Extended Jesus Luzardo · 5 yr / $135.0M (veteran)",
+    2.1,
+    2.0,
+    false
+   ],
+   [
+    "SD",
+    "A.J. Preller",
+    "2023-02-15",
+    "Extended Yu Darvish · 6 yr / $108.0M (veteran)",
+    -3.1,
+    -3.2,
+    false
+   ],
+   [
+    "TOR",
+    "Ross Atkins",
+    "2016-02-15",
+    "Extended Josh Donaldson · 2 yr / $28.6M (veteran)",
+    3.0,
+    2.9,
+    false
+   ],
+   [
+    "TOR",
+    "Ross Atkins",
+    "2021-11-15",
+    "Extended Jose Berrios · 7 yr / $131.0M (arb)",
+    -1.7,
+    -1.8,
+    false
+   ],
+   [
+    "TOR",
+    "Ross Atkins",
+    "2022-03-15",
+    "Extended Matt Chapman · 2 yr / $25.0M (arb)",
+    -1.0,
+    -1.1,
+    false
+   ],
+   [
+    "BOS",
+    "Theo Epstein",
+    "2006-07-15",
+    "Extended Josh Beckett · 3 yr / $30.0M (arb)",
+    3.9,
+    3.8,
+    false
+   ],
+   [
+    "BOS",
+    "Theo Epstein",
+    "2011-04-15",
+    "Extended Clay Buchholz · 4 yr / $29.9M (arb)",
+    1.3,
+    1.2,
+    false
+   ],
+   [
+    "CHC",
+    "Jim Hendry",
+    "2005-01-15",
+    "Extended Aramis Ramirez · 4 yr / $42.0M (veteran)",
+    2.4,
+    2.3,
+    false
+   ],
+   [
+    "NYM",
+    "Sandy Alderson",
+    "2011-01-15",
+    "Extended R.A. Dickey · 2 yr / $7.8M (veteran)",
+    3.5,
+    3.4,
+    false
+   ],
+   [
+    "ATH",
+    "Billy Beane",
+    "2005-07-15",
+    "Extended Mark Kotsay · 2 yr / $15.0M (veteran)",
+    -3.1,
+    -3.2,
+    false
+   ],
+   [
+    "ATH",
+    "Billy Beane",
+    "2010-01-15",
+    "Extended Michael Wuertz · 2 yr / $5.2M (veteran)",
+    -1.7,
+    -1.8,
+    false
+   ],
+   [
+    "ATH",
+    "Billy Beane",
+    "2014-02-15",
+    "Extended Coco Crisp · 2 yr / $22.8M (veteran)",
+    -2.5,
+    -2.6,
+    false
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2006-02-15",
+    "Extended Randy Winn · 3 yr / $23.2M (veteran)",
+    4.0,
+    3.9,
+    false
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2010-02-15",
+    "Extended Tim Lincecum · 2 yr / $23.0M (arb)",
+    -3.8,
+    -3.9,
+    false
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2012-04-15",
+    "Extended Madison Bumgarner · 5 yr / $35.0M (arb)",
+    3.7,
+    3.6,
+    false
+   ],
+   [
+    "SF",
+    "Farhan Zaidi",
+    "2024-09-15",
+    "Extended Matt Chapman · 6 yr / $151.0M (veteran)",
+    1.6,
+    1.5,
+    false
+   ],
+   [
+    "HOU",
+    "Ed Wade",
+    "2010-08-15",
+    "Extended Brett Myers · 2 yr / $23.0M (veteran)",
+    -1.7,
+    -1.8,
+    false
+   ],
+   [
+    "HOU",
+    "Jeff Luhnow",
+    "2019-03-15",
+    "Extended Alex Bregman · 5 yr / $100.0M (arb)",
+    -4.0,
+    -3.9,
+    true
+   ],
+   [
+    "HOU",
+    "James Click",
+    "2022-06-15",
+    "Extended Yordan Alvarez · 6 yr / $115.0M (arb)",
+    3.6,
+    3.5,
+    false
+   ],
+   [
+    "LAD",
+    "Ned Colletti",
+    "2006-03-15",
+    "Extended Jeff Kent · 1 yr / $11.5M (veteran)",
+    1.3,
+    1.2,
+    false
+   ],
+   [
+    "LAD",
+    "Ned Colletti",
+    "2010-01-15",
+    "Extended Andre Ethier · 2 yr / $15.2M (arb)",
+    -2.1,
+    -2.2,
+    false
+   ],
+   [
+    "LAD",
+    "Ned Colletti",
+    "2011-11-15",
+    "Extended Matt Kemp · 8 yr / $160.0M (arb)",
+    -2.4,
+    -2.5,
+    false
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2008-09-15",
+    "Extended Kyle Lohse · 4 yr / $41.0M (veteran)",
+    -2.3,
+    -2.4,
+    false
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2011-07-15",
+    "Extended Jaime Garcia · 4 yr / $27.5M (arb)",
+    -0.7,
+    -0.8,
+    false
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2011-09-15",
+    "Extended Chris Carpenter · 2 yr / $21.0M (veteran)",
+    -2.5,
+    -2.6,
+    false
+   ],
+   [
+    "WSH",
+    "Mike Rizzo",
+    "2012-01-15",
+    "Extended Gio Gonzalez · 5 yr / $42.0M (arb)",
+    1.3,
+    1.2,
+    false
+   ],
+   [
+    "WSH",
+    "Mike Rizzo",
+    "2023-03-15",
+    "Extended Keibert Ruiz · 8 yr / $50.0M (arb)",
+    -1.2,
+    -1.3,
+    false
+   ],
+   [
+    "MIA",
+    "Larry Beinfest",
+    "2003-12-15",
+    "Extended Luis Castillo · 3 yr / $16.0M (veteran)",
+    3.5,
+    3.4,
+    false
+   ],
+   [
+    "MIA",
+    "Michael Hill",
+    "2014-11-15",
+    "Extended Giancarlo Stanton · 13 yr / $325.0M (arb)",
+    3.6,
+    3.5,
+    true
+   ],
+   [
+    "TEX",
+    "Jon Daniels",
+    "2007-10-15",
+    "Extended Joaquin Benoit · 2 yr / $6.0M (veteran)",
+    -1.9,
+    -2.0,
+    false
+   ],
+   [
+    "TEX",
+    "Jon Daniels",
+    "2012-04-15",
+    "Extended Ian Kinsler · 5 yr / $75.0M (veteran)",
+    2.0,
+    1.9,
+    false
+   ],
+   [
+    "TEX",
+    "Jon Daniels",
+    "2013-01-15",
+    "Extended Matt Harrison · 5 yr / $55.0M (arb)",
+    -3.3,
+    -3.4,
+    false
+   ],
+   [
+    "LAA",
+    "Tony Reagins",
+    "2010-01-15",
+    "Extended Maicer Izturis · 3 yr / $10.0M (veteran)",
+    1.3,
+    1.2,
+    false
+   ],
+   [
+    "MIN",
+    "Terry Ryan",
+    "2003-01-15",
+    "Extended Torii Hunter · 4 yr / $32.0M (arb)",
+    3.2,
+    3.1,
+    false
+   ],
+   [
+    "MIN",
+    "Terry Ryan",
+    "2007-02-15",
+    "Extended Joe Mauer · 4 yr / $33.0M (arb)",
+    2.4,
+    2.3,
+    false
+   ],
+   [
+    "MIN",
+    "Derek Falvey",
+    "2019-02-15",
+    "Extended Max Kepler · 5 yr / $35.0M (arb)",
+    2.0,
+    1.9,
+    true
+   ],
+   [
+    "MIN",
+    "Derek Falvey",
+    "2020-01-15",
+    "Extended Miguel Sanó · 3 yr / $30.0M (arb)",
+    -3.6,
+    -3.5,
+    true
+   ],
+   [
+    "MIN",
+    "Derek Falvey",
+    "2023-06-15",
+    "Extended Pablo Lopez · 4 yr / $73.5M (arb)",
+    -1.9,
+    -2.0,
+    false
+   ],
+   [
+    "SEA",
+    "Bill Bavasi",
+    "2006-03-15",
+    "Extended Raul Ibanez · 2 yr / $11.0M (veteran)",
+    2.5,
+    2.4,
+    false
+   ],
+   [
+    "SD",
+    "Kevin Towers",
+    "2001-11-15",
+    "Extended Phil Nevin · 4 yr / $34.5M (veteran)",
+    -2.6,
+    -2.7,
+    false
+   ],
+   [
+    "SD",
+    "Jed Hoyer",
+    "2011-01-15",
+    "Extended Jason Bartlett · 2 yr / $11.0M (veteran)",
+    -2.5,
+    -2.6,
+    false
+   ],
+   [
+    "SD",
+    "Josh Byrnes",
+    "2012-07-15",
+    "Extended Carlos Quentin · 3 yr / $30.0M (veteran)",
+    -1.7,
+    -1.8,
+    false
+   ],
+   [
+    "CWS",
+    "Ken Williams",
+    "2001-01-15",
+    "Extended Paul Konerko · 2 yr / $6.1M (arb)",
+    -1.4,
+    -1.5,
+    false
+   ],
+   [
+    "CWS",
+    "Ken Williams",
+    "2007-03-15",
+    "Extended Javier Vazquez · 3 yr / $34.5M (veteran)",
+    2.4,
+    2.3,
+    false
+   ],
+   [
+    "CWS",
+    "Ken Williams",
+    "2007-10-15",
+    "Extended A.J. Pierzynski · 3 yr / $18.4M (veteran)",
+    2.4,
+    2.3,
+    false
+   ],
+   [
+    "CWS",
+    "Ken Williams",
+    "2011-01-15",
+    "Extended Alexei Ramirez · 4 yr / $32.5M (arb)",
+    1.6,
+    1.5,
+    false
+   ],
+   [
+    "CLE",
+    "Mark Shapiro",
+    "2007-07-15",
+    "Extended Travis Hafner · 4 yr / $57.0M (arb)",
+    -3.3,
+    -3.4,
+    false
+   ],
+   [
+    "ATL",
+    "Frank Wren",
+    "2009-11-15",
+    "Extended Tim Hudson · 3 yr / $28.0M (veteran)",
+    3.1,
+    3.0,
+    false
+   ],
+   [
+    "ATL",
+    "John Hart / John Coppolella",
+    "2016-12-15",
+    "Extended Ender Inciarte · 5 yr / $30.5M (early)",
+    -1.1,
+    -1.0,
+    true
+   ],
+   [
+    "PHI",
+    "Ruben Amaro Jr.",
+    "2009-01-15",
+    "Extended Cole Hamels · 3 yr / $20.5M (arb)",
+    -3.1,
+    -3.2,
+    false
+   ],
+   [
+    "PHI",
+    "Ruben Amaro Jr.",
+    "2010-01-15",
+    "Extended Joe Blanton · 3 yr / $24.0M (veteran)",
+    -2.3,
+    -2.4,
+    false
+   ],
+   [
+    "PHI",
+    "Matt Klentak",
+    "2018-03-15",
+    "Extended Scott Kingery · 6 yr / $24.0M (early)",
+    -1.6,
+    -1.5,
+    true
+   ],
+   [
+    "BAL",
+    "Andy MacPhail",
+    "2009-01-15",
+    "Extended Nick Markakis · 6 yr / $66.0M (arb)",
+    -3.8,
+    -3.9,
+    false
+   ],
+   [
+    "TB",
+    "Andrew Friedman",
+    "2012-11-15",
+    "Extended Evan Longoria · 6 yr / $100.0M (arb)",
+    1.8,
+    1.7,
+    false
+   ],
+   [
+    "DET",
+    "Dave Dombrowski",
+    "2010-10-15",
+    "Extended Brandon Inge · 2 yr / $11.5M (veteran)",
+    -2.5,
+    -2.6,
+    false
+   ],
+   [
+    "MIL",
+    "Doug Melvin",
+    "2010-08-15",
+    "Extended Corey Hart · 3 yr / $26.5M (veteran)",
+    1.5,
+    1.4,
+    false
+   ],
+   [
+    "MIL",
+    "David Stearns",
+    "2017-10-15",
+    "Extended Chase Anderson · 2 yr / $11.8M (arb)",
+    -1.0,
+    -1.1,
+    false
+   ],
+   [
+    "CIN",
+    "Wayne Krivsky",
+    "2007-02-15",
+    "Extended Bronson Arroyo · 2 yr / $25.0M (veteran)",
+    -3.8,
+    -3.9,
+    false
+   ],
+   [
+    "CIN",
+    "Wayne Krivsky",
+    "2007-02-15",
+    "Extended Aaron Harang · 4 yr / $36.5M (arb)",
+    -3.3,
+    -3.4,
+    false
+   ],
+   [
+    "CIN",
+    "Walt Jocketty",
+    "2012-02-15",
+    "Extended Sean Marshall · 3 yr / $16.5M (veteran)",
+    -2.0,
+    -2.1,
+    false
+   ],
+   [
+    "COL",
+    "Dan O'Dowd",
+    "2007-12-15",
+    "Extended Aaron Cook · 3 yr / $30.0M (arb)",
+    -1.9,
+    -2.0,
+    false
+   ],
+   [
+    "COL",
+    "Dan O'Dowd",
+    "2011-01-15",
+    "Extended Carlos Gonzalez · 7 yr / $80.0M (arb)",
+    -2.5,
+    -2.6,
+    false
+   ],
+   [
+    "COL",
+    "Jeff Bridich",
+    "2020-01-15",
+    "Extended Trevor Story · 2 yr / $27.5M (arb)",
+    -0.7,
+    -0.8,
+    true
+   ],
+   [
+    "COL",
+    "Bill Schmidt",
+    "2022-04-15",
+    "Extended Kyle Freeland · 5 yr / $64.5M (arb)",
+    1.6,
+    1.5,
+    false
+   ],
+   [
+    "ARI",
+    "Josh Byrnes",
+    "2006-01-15",
+    "Extended Brandon Webb · 4 yr / $19.5M (arb)",
+    -1.2,
+    -1.3,
+    false
+   ],
+   [
+    "ARI",
+    "Josh Byrnes",
+    "2008-04-15",
+    "Extended Chris Young · 5 yr / $28.0M (early)",
+    -1.4,
+    -1.5,
+    false
+   ],
+   [
+    "ARI",
+    "Kevin Towers",
+    "2012-05-15",
+    "Extended Miguel Montero · 5 yr / $60.0M (veteran)",
+    1.6,
+    1.5,
+    false
+   ],
+   [
+    "ARI",
+    "Kevin Towers",
+    "2013-01-15",
+    "Extended Martin Prado · 4 yr / $40.0M (veteran)",
+    3.2,
+    3.1,
+    false
+   ],
+   [
+    "TOR",
+    "Alex Anthopoulos",
+    "2010-08-15",
+    "Extended Ricky Romero · 5 yr / $30.1M (early)",
+    -2.9,
+    -3.0,
+    false
+   ],
+   [
+    "LAA",
+    "Bill Bavasi",
+    "1998-03-15",
+    "Extended Tim Salmon · 4 yr / $23.0M (veteran)",
+    -1.4,
+    -1.5,
+    false
+   ],
+   [
+    "BOS",
+    "Mike Port (interim)",
+    "2002-11-15",
+    "Extended Tim Wakefield · 3 yr / $13.0M (veteran)",
+    3.5,
+    3.4,
+    false
+   ],
+   [
+    "CIN",
+    "Dan O'Brien",
+    "2005-12-15",
+    "Extended Jason LaRue · 2 yr / $9.1M (veteran)",
+    -1.9,
+    -2.0,
+    false
+   ],
+   [
+    "HOU",
+    "Gerry Hunsicker",
+    "1999-12-15",
+    "Extended Craig Biggio · 3 yr / $28.0M (veteran)",
+    1.8,
+    1.7,
+    false
+   ],
+   [
+    "HOU",
+    "Gerry Hunsicker",
+    "2002-01-15",
+    "Extended Lance Berkman · 3 yr / $10.5M (arb)",
+    -1.2,
+    -1.3,
+    false
+   ],
+   [
+    "HOU",
+    "Tim Purpura",
+    "2006-08-15",
+    "Extended Roy Oswalt · 5 yr / $73.0M (arb)",
+    -2.1,
+    -2.2,
+    false
+   ],
+   [
+    "NYM",
+    "Steve Phillips",
+    "2002-07-15",
+    "Extended Al Leiter · 2 yr / $18.0M (veteran)",
+    -3.1,
+    -3.2,
+    false
+   ],
+   [
+    "PHI",
+    "Ed Wade",
+    "2003-01-15",
+    "Extended Pat Burrell · 6 yr / $50.0M (arb)",
+    -3.3,
+    -3.4,
+    false
+   ],
+   [
+    "PIT",
+    "Cam Bonifay",
+    "2000-11-15",
+    "Extended Jason Kendall · 6 yr / $60.0M (arb)",
+    3.7,
+    3.6,
+    false
+   ],
+   [
+    "SEA",
+    "Pat Gillick",
+    "2001-01-15",
+    "Extended Mike Cameron · 3 yr / $15.5M (veteran)",
+    3.4,
+    3.3,
+    false
+   ],
+   [
+    "TB",
+    "Chuck LaMar",
+    "2005-04-15",
+    "Extended Carl Crawford · 4 yr / $15.2M (arb)",
+    -1.4,
+    -1.5,
+    false
+   ],
+   [
+    "WSH",
+    "Omar Minaya (Expos)",
+    "2004-04-15",
+    "Extended Livan Hernandez · 3 yr / $21.0M (veteran)",
+    1.8,
+    1.7,
+    false
+   ],
+   [
+    "NYY",
+    "Brian Cashman",
+    "2004-01-15",
+    "Extended Javier Vazquez · 4 yr / $45.0M (veteran)",
+    -3.4,
+    -3.5,
+    false
+   ],
+   [
+    "CLE",
+    "Chris Antonetti",
+    "2026-01-15",
+    "Extended José Ramírez · 7 yr / $175.0M (veteran)",
+    -0.3,
+    -0.4,
+    false
+   ],
+   [
+    "TB",
+    "Erik Neander",
+    "2019-03-15",
+    "Extended Blake Snell · 5 yr / $50.0M (arb)",
+    -0.4,
+    -0.3,
+    true
+   ],
+   [
+    "BOS",
+    "Theo Epstein",
+    "2009-01-15",
+    "Extended Kevin Youkilis · 4 yr / $41.2M (arb)",
+    0.4,
+    0.3,
+    false
+   ],
+   [
+    "BOS",
+    "Theo Epstein",
+    "2010-04-15",
+    "Extended Josh Beckett · 4 yr / $68.0M (veteran)",
+    0.4,
+    0.3,
+    false
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2012-01-15",
+    "Extended Pablo Sandoval · 3 yr / $17.1M (arb)",
+    -0.3,
+    -0.4,
+    false
+   ],
+   [
+    "WSH",
+    "Jim Bowden",
+    "2006-01-15",
+    "Extended Brian Schneider · 4 yr / $16.0M (veteran)",
+    -0.3,
+    -0.4,
+    false
+   ],
+   [
+    "MIN",
+    "Derek Falvey",
+    "2021-03-15",
+    "Extended Randy Dobnak · 5 yr / $9.2M (early)",
+    -0.3,
+    -0.4,
+    false
+   ],
+   [
+    "TB",
+    "Andrew Friedman",
+    "2008-04-15",
+    "Extended Dan Wheeler · 3 yr / $10.5M (veteran)",
+    -0.3,
+    -0.4,
+    false
+   ],
+   [
+    "COL",
+    "Bill Schmidt",
+    "2024-03-15",
+    "Extended Ezequiel Tovar · 7 yr / $63.5M (early)",
+    -0.3,
+    -0.4,
+    false
+   ],
+   [
+    "CLE",
+    "Chris Antonetti",
+    "2013-02-15",
+    "Extended Mike Aviles · 2 yr / $6.0M (arb)",
+    -0.0,
+    -0.1,
+    false
+   ],
+   [
+    "CLE",
+    "Chris Antonetti",
+    "2017-01-15",
+    "Extended Brandon Guyer · 2 yr / $5.0M (veteran)",
+    0.2,
+    0.1,
+    false
+   ],
+   [
+    "PIT",
+    "Ben Cherington",
+    "2022-04-15",
+    "Extended Ke'Bryan Hayes · 8 yr / $70.0M (early)",
+    -0.0,
+    -0.1,
+    false
+   ],
+   [
+    "BOS",
+    "Dave Dombrowski",
+    "2018-03-15",
+    "Extended Christian Vázquez · 3 yr / $13.6M (arb)",
+    0.1,
+    -0.0,
+    true
+   ],
+   [
+    "BOS",
+    "Chaim Bloom",
+    "2020-02-15",
+    "Extended Andrew Benintendi · 2 yr / $10.0M (arb)",
+    -0.1,
+    -0.0,
+    true
+   ],
+   [
+    "NYM",
+    "Billy Eppler",
+    "2023-01-15",
+    "Extended Jeff McNeil · 4 yr / $50.0M (arb)",
+    0.2,
+    0.1,
+    false
+   ],
+   [
+    "HOU",
+    "Ed Wade",
+    "2007-12-15",
+    "Extended Oscar Villarreal · 2 yr / $2.9M (arb)",
+    -0.1,
+    -0.2,
+    false
+   ],
+   [
+    "STL",
+    "Walt Jocketty",
+    "2000-02-15",
+    "Extended Edgar Renteria · 4 yr / $20.0M (arb)",
+    0.1,
+    0.0,
+    false
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2009-09-15",
+    "Extended Trever Miller · 2 yr / $4.0M (veteran)",
+    -0.1,
+    -0.2,
+    false
+   ],
+   [
+    "WSH",
+    "Jim Bowden",
+    "2008-12-15",
+    "Extended Willie Harris · 2 yr / $3.0M (veteran)",
+    0.1,
+    0.0,
+    false
+   ],
+   [
+    "WSH",
+    "Mike Rizzo",
+    "2009-04-15",
+    "Extended Ryan Zimmerman · 5 yr / $45.0M (arb)",
+    -0.1,
+    -0.2,
+    false
+   ],
+   [
+    "MIA",
+    "Kim Ng",
+    "2021-11-15",
+    "Extended Sandy Alcantara · 5 yr / $56.0M (arb)",
+    0.1,
+    -0.0,
+    false
+   ],
+   [
+    "MIA",
+    "Kim Ng",
+    "2022-03-15",
+    "Extended Richard Bleier · 2 yr / $6.0M (veteran)",
+    0.2,
+    0.1,
+    false
+   ],
+   [
+    "TEX",
+    "Jon Daniels",
+    "2012-02-15",
+    "Extended Nelson Cruz · 2 yr / $16.0M (veteran)",
+    -0.1,
+    -0.2,
+    false
+   ],
+   [
+    "LAA",
+    "Bill Stoneman",
+    "2006-05-15",
+    "Extended Kelvim Escobar · 3 yr / $28.5M (veteran)",
+    -0.1,
+    -0.2,
+    false
+   ],
+   [
+    "SEA",
+    "Bill Bavasi",
+    "2003-12-15",
+    "Extended Ichiro Suzuki · 4 yr / $44.0M (early)",
+    0.1,
+    0.0,
+    false
+   ],
+   [
+    "SD",
+    "Josh Byrnes",
+    "2012-03-15",
+    "Extended Nick Hundley · 3 yr / $9.0M (arb)",
+    -0.1,
+    -0.2,
+    false
+   ],
+   [
+    "CWS",
+    "Ken Williams",
+    "2007-08-15",
+    "Extended Jermaine Dye · 2 yr / $22.0M (veteran)",
+    0.0,
+    -0.1,
+    false
+   ],
+   [
+    "CWS",
+    "Ken Williams",
+    "2012-10-15",
+    "Extended Jake Peavy · 2 yr / $29.0M (veteran)",
+    -0.1,
+    -0.2,
+    false
+   ],
+   [
+    "CWS",
+    "Rick Hahn",
+    "2017-03-15",
+    "Extended Tim Anderson · 6 yr / $25.0M (early)",
+    0.1,
+    0.0,
+    true
+   ],
+   [
+    "CLE",
+    "Mark Shapiro",
+    "2005-04-15",
+    "Extended Travis Hafner · 3 yr / $7.0M (arb)",
+    -0.0,
+    -0.1,
+    false
+   ],
+   [
+    "CIN",
+    "Walt Jocketty",
+    "2011-01-15",
+    "Extended Johnny Cueto · 4 yr / $27.0M (arb)",
+    0.2,
+    0.1,
+    false
+   ],
+   [
+    "PIT",
+    "Neal Huntington",
+    "2016-05-15",
+    "Extended Francisco Cervelli · 3 yr / $31.0M (veteran)",
+    -0.1,
+    -0.2,
+    false
+   ],
+   [
+    "COL",
+    "Dan O'Dowd",
+    "2014-09-15",
+    "Extended Jorge de la Rosa · 2 yr / $25.0M (veteran)",
+    -0.1,
+    -0.2,
+    false
+   ],
+   [
+    "TOR",
+    "J.P. Ricciardi",
+    "2008-04-15",
+    "Extended Alex Rios · 7 yr / $69.8M (arb)",
+    -0.0,
+    -0.1,
+    false
+   ],
+   [
+    "TOR",
+    "Alex Anthopoulos",
+    "2010-04-15",
+    "Extended Adam Lind · 4 yr / $18.0M (arb)",
+    0.1,
+    0.0,
+    false
+   ],
+   [
+    "KC",
+    "Allard Baird",
+    "2001-01-15",
+    "Extended Mike Sweeney · 2 yr / $13.0M (veteran)",
+    0.1,
+    -0.0,
+    false
+   ],
+   [
+    "NYY",
+    "Brian Cashman",
+    "2004-03-15",
+    "Extended Mariano Rivera · 2 yr / $21.0M (veteran)",
+    0.0,
+    -0.1,
+    false
+   ],
+   [
+    "CHC",
+    "Jed Hoyer",
+    "2023-04-15",
+    "Extended Nico Hoerner · 3 yr / $35.0M (arb)",
+    0.6,
+    0.5,
+    false
+   ],
+   [
+    "CLE",
+    "Chris Antonetti",
+    "2014-02-15",
+    "Extended Michael Brantley · 4 yr / $25.0M (arb)",
+    1.0,
+    0.9,
+    false
+   ],
+   [
+    "KC",
+    "J.J. Picollo",
+    "2025-07-15",
+    "Extended Seth Lugo · 2 yr / $46.0M (veteran)",
+    -0.4,
+    -0.5,
+    false
+   ],
+   [
+    "PHI",
+    "Dave Dombrowski",
+    "2024-04-15",
+    "Extended Zack Wheeler · 3 yr / $126.0M (veteran)",
+    0.7,
+    0.6,
+    false
+   ],
+   [
+    "TB",
+    "Erik Neander",
+    "2019-03-15",
+    "Extended Brandon Lowe · 6 yr / $24.0M (early)",
+    -0.3,
+    -0.2,
+    true
+   ],
+   [
+    "BOS",
+    "Chaim Bloom",
+    "2023-06-15",
+    "Extended Rafael Devers · 10 yr / $313.5M (veteran)",
+    -0.4,
+    -0.5,
+    false
+   ],
+   [
+    "CHC",
+    "Theo Epstein",
+    "2019-04-15",
+    "Extended David Bote · 5 yr / $15.0M (early)",
+    -0.9,
+    -0.8,
+    true
+   ],
+   [
+    "ATH",
+    "Billy Beane",
+    "2000-08-15",
+    "Extended Tim Hudson · 4 yr / $9.1M (early)",
+    -0.6,
+    -0.7,
+    false
+   ],
+   [
+    "ATH",
+    "Billy Beane",
+    "2006-01-15",
+    "Extended Mark Ellis · 2 yr / $6.0M (arb)",
+    0.5,
+    0.4,
+    false
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2009-10-15",
+    "Extended Freddy Sanchez · 2 yr / $12.0M (veteran)",
+    0.7,
+    0.6,
+    false
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2012-12-15",
+    "Extended Santiago Casilla · 3 yr / $15.0M (veteran)",
+    0.3,
+    0.2,
+    false
+   ],
+   [
+    "SF",
+    "Farhan Zaidi",
+    "2023-04-15",
+    "Extended Logan Webb · 5 yr / $90.0M (arb)",
+    0.3,
+    0.2,
+    false
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2008-03-15",
+    "Extended Adam Wainwright · 4 yr / $15.0M (arb)",
+    -0.2,
+    -0.3,
+    false
+   ],
+   [
+    "STL",
+    "John Mozeliak",
+    "2009-09-15",
+    "Extended Ryan Franklin · 2 yr / $6.5M (veteran)",
+    -0.8,
+    -0.9,
+    false
+   ],
+   [
+    "MIA",
+    "Larry Beinfest",
+    "2010-01-15",
+    "Extended Josh Johnson · 4 yr / $39.0M (arb)",
+    -0.2,
+    -0.3,
+    false
+   ],
+   [
+    "TEX",
+    "Jon Daniels",
+    "2016-04-15",
+    "Extended Adrián Beltré · 2 yr / $36.0M (veteran)",
+    1.0,
+    0.9,
+    false
+   ],
+   [
+    "LAA",
+    "Jerry Dipoto",
+    "2012-04-15",
+    "Extended Erick Aybar · 4 yr / $35.0M (veteran)",
+    1.0,
+    0.9,
+    false
+   ],
+   [
+    "MIN",
+    "Terry Ryan",
+    "2000-07-15",
+    "Extended Brad Radke · 4 yr / $36.0M (arb)",
+    -0.4,
+    -0.5,
+    false
+   ],
+   [
+    "MIN",
+    "Terry Ryan (second term)",
+    "2012-12-15",
+    "Extended Jared Burton · 2 yr / $5.5M (arb)",
+    0.3,
+    0.2,
+    false
+   ],
+   [
+    "CWS",
+    "Rick Hahn",
+    "2021-07-15",
+    "Extended Lance Lynn · 2 yr / $38.0M (veteran)",
+    -0.4,
+    -0.5,
+    false
+   ],
+   [
+    "CLE",
+    "Mark Shapiro",
+    "2005-01-15",
+    "Extended Jake Westbrook · 2 yr / $7.5M (arb)",
+    -0.4,
+    -0.5,
+    false
+   ],
+   [
+    "ATL",
+    "Frank Wren",
+    "2008-01-15",
+    "Extended Rafael Soriano · 2 yr / $9.0M (veteran)",
+    0.7,
+    0.6,
+    false
+   ],
+   [
+    "TB",
+    "Andrew Friedman",
+    "2008-01-15",
+    "Extended James Shields · 4 yr / $11.2M (early)",
+    -0.8,
+    -0.9,
+    false
+   ],
+   [
+    "MIL",
+    "Doug Melvin",
+    "2007-02-15",
+    "Extended Bill Hall · 4 yr / $24.0M (arb)",
+    -0.9,
+    -1.0,
+    false
+   ],
+   [
+    "CIN",
+    "Walt Jocketty",
+    "2009-12-15",
+    "Extended Scott Rolen · 2 yr / $13.0M (veteran)",
+    0.9,
+    0.8,
+    false
+   ],
+   [
+    "CIN",
+    "Walt Jocketty",
+    "2010-12-15",
+    "Extended Jay Bruce · 6 yr / $51.0M (early)",
+    0.6,
+    0.5,
+    false
+   ],
+   [
+    "COL",
+    "Dan O'Dowd",
+    "2005-12-15",
+    "Extended Brian Fuentes · 2 yr / $5.5M (arb)",
+    -0.2,
+    -0.3,
+    false
+   ],
+   [
+    "ARI",
+    "Josh Byrnes",
+    "2007-01-15",
+    "Extended Doug Davis · 3 yr / $22.0M (veteran)",
+    -0.9,
+    -1.0,
+    false
+   ],
+   [
+    "TOR",
+    "Alex Anthopoulos",
+    "2012-12-15",
+    "Extended R.A. Dickey · 2 yr / $25.0M (veteran)",
+    -0.5,
+    -0.6,
+    false
+   ],
+   [
+    "BAL",
+    "Jim Beattie / Mike Flanagan",
+    "2006-05-15",
+    "Extended Melvin Mora · 3 yr / $25.0M (veteran)",
+    0.3,
+    0.2,
+    false
+   ],
+   [
+    "BOS",
+    "Dan Duquette",
+    "2002-01-15",
+    "Extended Jason Varitek · 3 yr / $14.9M (arb)",
+    0.6,
+    0.5,
+    false
+   ],
+   [
+    "ATH",
+    "David Forst",
+    "2025-01-15",
+    "Extended Brent Rooker · 5 yr / $60.0M (arb)",
+    -0.2,
+    -0.3,
+    false
+   ],
+   [
+    "CHC",
+    "Jim Hendry",
+    "2011-02-15",
+    "Extended Carlos Marmol · 3 yr / $20.0M (arb)",
+    -1.8,
+    -1.9,
+    false
+   ],
+   [
+    "ATH",
+    "Billy Beane",
+    "2010-04-15",
+    "Extended Brett Anderson · 4 yr / $12.5M (early)",
+    -1.1,
+    -1.2,
+    false
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2010-03-15",
+    "Extended Matt Cain · 3 yr / $27.2M (arb)",
+    -1.3,
+    -1.4,
+    false
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2012-01-15",
+    "Extended Ryan Vogelsong · 2 yr / $8.3M (veteran)",
+    -1.1,
+    -1.2,
+    false
+   ],
+   [
+    "TEX",
+    "Jon Daniels",
+    "2010-04-15",
+    "Extended Scott Feldman · 2 yr / $11.5M (arb)",
+    -1.1,
+    -1.2,
+    false
+   ],
+   [
+    "MIN",
+    "Bill Smith",
+    "2008-01-15",
+    "Extended Michael Cuddyer · 3 yr / $24.0M (veteran)",
+    -1.8,
+    -1.9,
+    false
+   ],
+   [
+    "CWS",
+    "Ken Williams",
+    "2006-04-15",
+    "Extended Jose Contreras · 3 yr / $29.0M (arb)",
+    -1.3,
+    -1.4,
+    false
+   ],
+   [
+    "CWS",
+    "Rick Hahn",
+    "2019-03-15",
+    "Extended Eloy Jiménez · 6 yr / $43.0M (early)",
+    -1.9,
+    -1.8,
+    true
+   ],
+   [
+    "MIL",
+    "Doug Melvin",
+    "2005-01-15",
+    "Extended Ben Sheets · 4 yr / $38.5M (arb)",
+    -1.8,
+    -1.9,
+    false
+   ],
+   [
+    "CIN",
+    "Walt Jocketty",
+    "2015-01-15",
+    "Extended Devin Mesoraco · 4 yr / $28.0M (arb)",
+    -1.8,
+    -1.9,
+    false
+   ],
+   [
+    "PIT",
+    "Neal Huntington",
+    "2015-04-15",
+    "Extended Josh Harrison · 4 yr / $27.3M (arb)",
+    -1.3,
+    -1.4,
+    false
+   ],
+   [
+    "LAD",
+    "Paul DePodesta",
+    "2005-06-15",
+    "Extended Brad Penny · 3 yr / $25.5M (arb)",
+    1.9,
+    1.8,
+    false
+   ],
+   [
+    "TOR",
+    "Gord Ash",
+    "2001-01-15",
+    "Extended Esteban Loaiza · 2 yr / $10.3M (veteran)",
+    -1.1,
+    -1.2,
+    false
+   ],
+   [
+    "ARI",
+    "Mike Hazen",
+    "2022-03-15",
+    "Extended Ketel Marte · 5 yr / $76.0M (veteran)",
+    12.4,
+    12.3,
+    false
+   ],
+   [
+    "ATL",
+    "Alex Anthopoulos",
+    "2021-08-15",
+    "Extended Travis d'Arnaud · 2 yr / $16.0M (veteran)",
+    3.3,
+    3.2,
+    false
+   ],
+   [
+    "CLE",
+    "Chris Antonetti",
+    "2015-04-15",
+    "Extended Corey Kluber · 5 yr / $38.5M (arb)",
+    4.6,
+    4.5,
+    false
+   ],
+   [
+    "LAD",
+    "Andrew Friedman",
+    "2026-02-15",
+    "Extended Max Muncy · 1 yr / $10.0M (veteran)",
+    3.8,
+    3.7,
+    false
+   ],
+   [
+    "NYY",
+    "Brian Cashman",
+    "2005-11-15",
+    "Extended Hideki Matsui · 4 yr / $52.0M (early)",
+    -4.4,
+    -4.5,
+    false
+   ],
+   [
+    "NYY",
+    "Brian Cashman",
+    "2008-02-15",
+    "Extended Robinson Cano · 4 yr / $30.0M (arb)",
+    -2.2,
+    -2.3,
+    false
+   ],
+   [
+    "SEA",
+    "Jerry Dipoto",
+    "2022-09-15",
+    "Extended Luis Castillo · 5 yr / $108.0M (arb)",
+    -2.7,
+    -2.8,
+    false
+   ],
+   [
+    "BOS",
+    "Theo Epstein",
+    "2004-05-15",
+    "Extended David Ortiz · 2 yr / $12.5M (veteran)",
+    8.4,
+    8.3,
+    false
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "1998-12-15",
+    "Extended Jeff Kent · 3 yr / $17.7M (veteran)",
+    11.4,
+    11.3,
+    false
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2012-01-15",
+    "Extended Tim Lincecum · 2 yr / $40.5M (arb)",
+    -6.0,
+    -6.1,
+    false
+   ],
+   [
+    "SF",
+    "Brian Sabean",
+    "2013-10-15",
+    "Extended Tim Lincecum · 2 yr / $35.0M (veteran)",
+    -6.0,
+    -6.1,
+    false
+   ],
+   [
+    "SF",
+    "Farhan Zaidi",
+    "2021-08-15",
+    "Extended Brandon Crawford · 2 yr / $32.0M (veteran)",
+    -3.2,
+    -3.3,
+    false
+   ],
+   [
+    "LAD",
+    "Ned Colletti",
+    "2011-03-15",
+    "Extended Chad Billingsley · 3 yr / $35.0M (arb)",
+    -4.5,
+    -4.6,
+    false
+   ],
+   [
+    "MIA",
+    "Michael Hill",
+    "2016-10-15",
+    "Extended Martín Prado · 3 yr / $40.0M (veteran)",
+    -4.7,
+    -4.8,
+    false
+   ],
+   [
+    "MIA",
+    "Michael Hill",
+    "2019-09-15",
+    "Extended Miguel Rojas · 2 yr / $10.2M (arb)",
+    2.7,
+    2.8,
+    true
+   ],
+   [
+    "LAA",
+    "Tony Reagins",
+    "2011-08-15",
+    "Extended Jered Weaver · 5 yr / $85.0M (arb)",
+    -9.5,
+    -9.6,
+    false
+   ],
+   [
+    "LAA",
+    "Jerry Dipoto",
+    "2012-01-15",
+    "Extended Howie Kendrick · 4 yr / $33.5M (veteran)",
+    5.8,
+    5.7,
+    false
+   ],
+   [
+    "MIN",
+    "Terry Ryan",
+    "2005-02-15",
+    "Extended Johan Santana · 4 yr / $39.8M (arb)",
+    5.5,
+    5.4,
+    false
+   ],
+   [
+    "MIN",
+    "Terry Ryan (second term)",
+    "2014-12-15",
+    "Extended Phil Hughes · 3 yr / $42.0M (veteran)",
+    -4.4,
+    -4.5,
+    false
+   ],
+   [
+    "MIN",
+    "Derek Falvey",
+    "2021-11-15",
+    "Extended Byron Buxton · 7 yr / $100.0M (veteran)",
+    7.8,
+    7.7,
+    false
+   ],
+   [
+    "CWS",
+    "Ken Williams",
+    "2001-07-15",
+    "Extended Magglio Ordonez · 3 yr / $29.5M (arb)",
+    -6.9,
+    -7.0,
+    false
+   ],
+   [
+    "CWS",
+    "Ken Williams",
+    "2003-12-15",
+    "Extended Mark Buehrle · 3 yr / $18.0M (arb)",
+    -2.2,
+    -2.3,
+    false
+   ],
+   [
+    "CLE",
+    "Mark Shapiro",
+    "2006-08-15",
+    "Extended Cliff Lee · 4 yr / $15.0M (arb)",
+    2.3,
+    2.2,
+    false
+   ],
+   [
+    "ATL",
+    "John Schuerholz",
+    "2005-11-15",
+    "Extended Chipper Jones · 3 yr / $37.0M (veteran)",
+    14.6,
+    14.5,
+    false
+   ],
+   [
+    "ATL",
+    "Frank Wren",
+    "2011-01-15",
+    "Extended Dan Uggla · 5 yr / $62.0M (arb)",
+    -4.0,
+    -4.1,
+    false
+   ],
+   [
+    "PHI",
+    "Ruben Amaro Jr.",
+    "2009-02-15",
+    "Extended Ryan Howard · 3 yr / $54.0M (arb)",
+    -8.1,
+    -8.2,
+    false
+   ],
+   [
+    "BAL",
+    "Andy MacPhail",
+    "2009-02-15",
+    "Extended Brian Roberts · 4 yr / $40.0M (veteran)",
+    -5.4,
+    -5.5,
+    false
+   ],
+   [
+    "BAL",
+    "Andy MacPhail",
+    "2011-07-15",
+    "Extended J.J. Hardy · 3 yr / $22.5M (veteran)",
+    7.5,
+    7.4,
+    false
+   ],
+   [
+    "BAL",
+    "Dan Duquette",
+    "2014-10-15",
+    "Extended J.J. Hardy · 3 yr / $40.0M (veteran)",
+    -2.7,
+    -2.8,
+    false
+   ],
+   [
+    "TB",
+    "Andrew Friedman",
+    "2010-04-15",
+    "Extended Ben Zobrist · 4 yr / $18.0M (arb)",
+    6.3,
+    6.2,
+    false
+   ],
+   [
+    "KC",
+    "Dayton Moore",
+    "2012-03-15",
+    "Extended Alex Gordon · 4 yr / $37.5M (arb)",
+    9.4,
+    9.3,
+    false
+   ],
+   [
+    "DET",
+    "Dave Dombrowski",
+    "2005-08-15",
+    "Extended Placido Polanco · 4 yr / $18.4M (veteran)",
+    10.0,
+    9.9,
+    false
+   ],
+   [
+    "DET",
+    "Dave Dombrowski",
+    "2006-12-15",
+    "Extended Brandon Inge · 4 yr / $24.0M (arb)",
+    4.6,
+    4.5,
+    false
+   ],
+   [
+    "CIN",
+    "Wayne Krivsky",
+    "2006-02-15",
+    "Extended Adam Dunn · 2 yr / $18.5M (arb)",
+    -2.7,
+    -2.8,
+    false
+   ],
+   [
+    "CIN",
+    "Wayne Krivsky",
+    "2008-02-15",
+    "Extended Brandon Phillips · 4 yr / $27.0M (veteran)",
+    8.6,
+    8.5,
+    false
+   ],
+   [
+    "CIN",
+    "Walt Jocketty",
+    "2011-01-15",
+    "Extended Joey Votto · 3 yr / $38.0M (arb)",
+    -2.7,
+    -2.8,
+    false
+   ],
+   [
+    "PIT",
+    "Neal Huntington",
+    "2016-08-15",
+    "Extended David Freese · 2 yr / $11.0M (veteran)",
+    3.3,
+    3.2,
+    false
+   ],
+   [
+    "COL",
+    "Dan O'Dowd",
+    "2010-11-15",
+    "Extended Troy Tulowitzki · 10 yr / $157.8M (arb)",
+    8.4,
+    8.3,
+    true
+   ],
+   [
+    "ARI",
+    "Josh Byrnes",
+    "2007-08-15",
+    "Extended Eric Byrnes · 3 yr / $30.0M (veteran)",
+    -6.7,
+    -6.8,
+    false
+   ],
+   [
+    "TOR",
+    "J.P. Ricciardi",
+    "2006-03-15",
+    "Extended Roy Halladay · 3 yr / $40.0M (veteran)",
+    7.5,
+    7.4,
+    false
+   ],
+   [
+    "TOR",
+    "J.P. Ricciardi",
+    "2007-01-15",
+    "Extended Lyle Overbay · 4 yr / $24.0M (veteran)",
+    2.8,
+    2.7,
+    false
+   ],
+   [
+    "TOR",
+    "Alex Anthopoulos",
+    "2012-01-15",
+    "Extended Brandon Morrow · 3 yr / $21.0M (arb)",
+    -2.2,
+    -2.3,
+    false
+   ],
+   [
+    "TOR",
+    "Alex Anthopoulos",
+    "2012-07-15",
+    "Extended Edwin Encarnacion · 3 yr / $29.0M (veteran)",
+    9.1,
+    9.0,
+    false
+   ],
+   [
+    "BAL",
+    "Jim Beattie / Mike Flanagan",
+    "2007-03-15",
+    "Extended Brian Roberts · 2 yr / $14.3M (veteran)",
+    2.3,
+    2.2,
+    false
+   ],
+   [
+    "HOU",
+    "Gerry Hunsicker",
+    "2001-01-15",
+    "Extended Richard Hidalgo · 4 yr / $32.0M (arb)",
+    -7.2,
+    -7.3,
+    false
+   ],
+   [
+    "PHI",
+    "Ed Wade",
+    "2005-06-15",
+    "Extended Jimmy Rollins · 5 yr / $40.0M (arb)",
+    10.1,
+    10.0,
+    false
+   ],
+   [
+    "HOU",
+    "Dana Brown",
+    "2024-02-15",
+    "Extended Jose Altuve · 5 yr / $125.0M (veteran)",
+    -2.7,
+    -2.8,
+    false
+   ]
+  ]
+ }
+}
