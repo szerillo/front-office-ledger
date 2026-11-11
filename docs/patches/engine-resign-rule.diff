@@ -1,0 +1,61 @@
+--- a/engine/asset_rules.py	2026-11-11 13:29:53.927606629 -0500
++++ b/engine/asset_rules.py	2026-11-11 13:29:53.940851495 -0500
+@@ -32,6 +32,7 @@
+ # (draft_calib.py, chain step): DRAFT_SHAPE pooled over the matured 1998-2013
+ # classes, and the scale K fit PER CLASS (shrunk toward the pool), so every
+ # pick is judged against what the league got from that slot in that draft.
++from datetime import date as _date
+ import json as _jdc, os as _odc
+ if _odc.path.exists("/work/draft_calib.json"):
+     _DC = _jdc.load(open("/work/draft_calib.json"))
+@@ -310,11 +311,34 @@
+     if _EVENTS is not None: return _EVENTS
+     _EVENTS = _dd(list)
+     con = _sq.connect("/work/ledger.sqlite")
+-    for pid, d, ty, ft in con.execute("select person_id, date, type_desc, from_team from sweep_tx where person_id is not null "
+-                                      "and type_desc in ('Declared Free Agency','Released','Signed as Free Agent')"):
+-        _EVENTS[int(pid)].append((d, ty, ft))
++    try:   # v6.0: keep the signing club and whether it was a minor-league deal (same-club re-sign, below)
++        q = con.execute("select person_id, date, type_desc, from_team, to_team, description from sweep_tx where person_id is not null "
++                        "and type_desc in ('Declared Free Agency','Released','Signed as Free Agent')")
++        for pid, d, ty, ft, tt, desc in q:
++            _EVENTS[int(pid)].append((d, ty, ft or tt, tt, 'minor league' in (desc or '').lower()))
++    except _sq.OperationalError:
++        for pid, d, ty, ft in con.execute("select person_id, date, type_desc, from_team from sweep_tx where person_id is not null "
++                                          "and type_desc in ('Declared Free Agency','Released','Signed as Free Agent')"):
++            _EVENTS[int(pid)].append((d, ty, ft))
++    for v in _EVENTS.values(): v.sort()
+     return _EVENTS
+ 
++def _resign_skip(evs):
++    """v6.0: a release or free-agent filing followed within 60 days by a minor-league re-sign with the club that
++    held him is a roster move, not the end of his window (Eli White, released and re-signed by Atlanta in July
++    2023; Nov 11 audit). Returns the indexes of both events. Events without the signing club (old 3-field rows)
++    are never skipped."""
++    skip = set()
++    for k, e in enumerate(evs):
++        if e[1] not in ("Released", "Declared Free Agency"): continue
++        for j in range(k + 1, len(evs)):
++            f = evs[j]
++            if f[1] != "Signed as Free Agent": continue
++            if len(f) >= 5 and f[4] and f[3] and f[3] == e[2] and (_date.fromisoformat(f[0][:10]) - _date.fromisoformat(e[0][:10])).days <= 60:
++                skip.update((k, j))
++            break
++    return skip
++
+ _LVM = None
+ def _lvm():
+     global _LVM
+@@ -329,8 +353,10 @@
+     club) ends it that season, a free-agent filing ends it with that season
+     (a filing before September closes the prior one)"""
+     end = 9999
+-    for d, ty, ft in _events().get(int(pid), []):
+-        if d <= str(after): continue
++    evs = _events().get(int(pid), []); skip = _resign_skip(evs)
++    for k, ev in enumerate(evs):
++        d, ty = ev[0], ev[1]
++        if d <= str(after) or k in skip: continue
+         yy = int(d[:4])
+         if ty == "Declared Free Agency": end = min(end, yy if int(d[5:7]) >= 9 else yy - 1)
+         elif ty == "Released": end = min(end, yy)

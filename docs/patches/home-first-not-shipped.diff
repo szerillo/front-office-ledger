@@ -1,0 +1,55 @@
+--- a/index.html
++++ b/index.html
+@@ -14416,11 +14416,19 @@
+ 
+ // ---- HOME: the hub (teasers first, a compact team strip) ----
+ function renderHome(){
++  // Nov 11: draw the hub first without its two slow parts (the Desk projections behind the free-agent and
++  // prospect tiles, and the Wire grading), then draw the full hub on the next frame. Same data and numbers;
++  // the slow tiles appear a moment later.
+   const host = document.getElementById('homebody'); if(!host) return;
+-  host.innerHTML = folHub();
+-  folCountUp(host);
+-  try { wireHomeFill(); } catch(e){}
+-  try { offsHomeFill(); } catch(e){}
++  const k = (renderHome._k = (renderHome._k || 0) + 1);
++  host.innerHTML = folHub({light: true});
++  setTimeout(() => {
++    if(k !== renderHome._k || !document.getElementById('homebody')) return;
++    host.innerHTML = folHub();
++    folCountUp(host);
++    try { wireHomeFill(); } catch(e){}
++    try { offsHomeFill(); } catch(e){}
++  }, 0);
+ }
+ function folMD(d){ const m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+String(d).slice(5, 7) - 1]; return m ? `${m} ${+String(d).slice(8, 10)}` : ''; }
+ // the moves made closest to today's date in past years: within a week either side, the biggest first
+@@ -14459,14 +14467,15 @@
+       <details class="sg-how"><summary>Where the numbers come from</summary>      <div class="ttype" style="margin-top:4px">Over ${span} the club paid about $${Math.round(paid)}M. ${winter[1] ? `In the ${winter[1]}-${winter[2]} market` : 'At the time'} a win cost about $${perWin.toFixed(1)}M on the open market, so that was about ${costW.toFixed(1)} wins' worth of salary. Signings like this one usually return about ${typical.toFixed(1)} WAR${qo ? ', counting the draft pick the signing cost' : ''}.${prod < 0 ? ' Below zero means he played worse than a freely available replacement.' : ''}</div></details></div>`;
+   } catch(e){ return ''; }
+ }
+-function folHub(){
++function folHub(opt){
++  const light = !!(opt && opt.light);
+   const rk = folActiveRank(), mine = folTeam(), day = Math.floor(Date.now() / 864e5);
+   const T = f => { try { return f(); } catch(e){ return null; } };
+   // Nov 10: each GM's strongest channel, read as "Strength: drafting"
+   const bestAt = r => { const NM = {draft: 'drafting', trade: 'trades', fa: 'free agency', waiver: 'waivers', intl: 'international signings', ext: 'extensions'}; const c = CHANNELS.map(c => [c.key, (r.chan[c.key] || {}).net, (r.chan[c.key] || {}).g]).filter(x => x[2] != null && x[1] > 0).sort((a, b) => b[1] - a[1])[0]; return c ? NM[c[0]] : ''; };
+   const topLb = rk.slice(0, 8).map((r, i) => `<div class="hub-lb"><strong>${i + 1}</strong><span class="hl-who"><a href="#" onclick="switchView('report','${r.id}'); return false">${regName(r)}</a> <span class="ttype">${abOf(r)}</span>${bestAt(r) ? `<span class="ttype hl-best">Strength: ${bestAt(r)}</span>` : ''}</span><span class="grade ${gradeClass(r.forGrade)}">${g2letter(r.forGrade)}</span><span class="hl-ps ${r.gradeRate >= 0 ? 'pos' : 'neg'}" title="Overall score: wins a season above a typical front office, adjusted">${fmtW(r.gradeRate)}</span></div>`).join('');
+   const sc = T(() => { const xs = scAll(); if(!xs.length) return null; const k = day % xs.length; return {s: xs[k], k}; });
+-  const fas = T(() => DESK.players.filter(x => gmIsFA(x) && !gmIsProsRow(x)).map(x => ({x, v: gmProj27(x)})).sort((a, b) => b.v - a.v).slice(0, 5)) || [];
++  const fas = light ? [] : T(() => DESK.players.filter(x => gmIsFA(x) && !gmIsProsRow(x)).map(x => ({x, v: gmProj27(x)})).sort((a, b) => b.v - a.v).slice(0, 5)) || [];
+   const quizDone = folQuizStore('day-' + day), scDone = T(() => folDailyGet(day).s);
+   const tr = T(() => { treeSync(); return TREES.length ? TREES[day % TREES.length] : null; });
+   const rv = T(() => { const ps = []; [...REGIMES, ...AUTO_REGIMES].forEach(r => (r.h2h || []).forEach(p => { if(p.n >= 4 && p.net > 2) ps.push({a: r, p}); })); ps.sort((x, y) => y.p.net - x.p.net); const top = ps.slice(0, 30); return top.length ? top[Math.floor((day + 3) / 7) % top.length] : null; });
+@@ -14478,8 +14487,8 @@
+     const o = opts[day % opts.length], xs = L[o[0]].xs; return {t: o[1], rows: o[3] ? xs.slice(-5).reverse() : xs.slice(0, 5), rk: i => o[3] ? xs.length - i : i + 1, f: o[2]}; });
+   const farms = T(() => bdFarmList().slice(0, 5)) || [];
+   // featured farm system: one club's top five prospects a day, with its rank
+-  const ff = T(() => { const L = bdFarmList(), k = day % L.length, c = L[k]; return {c, rank: k + 1, ps: (DESK.players || []).filter(p => p[2] === c.ab && gmIsProsRow(p)).map(p => ({p, v: gmPV(p)})).sort((a, b) => b.v - a.v).slice(0, 5)}; });
+-  const pros = T(() => (DESK.players || []).filter(p => gmIsProsRow(p)).map(p => ({p, v: gmPV(p)})).sort((a, b) => b.v - a.v).slice(0, 5)) || [];
++  const ff = light ? null : T(() => { const L = bdFarmList(), k = day % L.length, c = L[k]; return {c, rank: k + 1, ps: (DESK.players || []).filter(p => p[2] === c.ab && gmIsProsRow(p)).map(p => ({p, v: gmPV(p)})).sort((a, b) => b.v - a.v).slice(0, 5)}; });
++  const pros = light ? [] : T(() => (DESK.players || []).filter(p => gmIsProsRow(p)).map(p => ({p, v: gmPV(p)})).sort((a, b) => b.v - a.v).slice(0, 5)) || [];
+   const ch = T(() => { const cs = CHAMPS_AUTO.slice().sort((a, b) => b.year - a.year), c = cs[0]; if(!c) return null;      // Nov 10: anchored to the reigning champion (was a weekly rotation: cs[Math.floor((day + 3) / 7) % cs.length])
+     const nm = {fa: 'free agency', trade: 'trades', draft: 'the draft', intl: 'international and minor-league finds', inh: 'inherited players'}, acc = {};
+     (c.roster || []).forEach(x => { const w = +x[5] || 0; if(w <= 0) return; const k = x[4] === 'inh' ? 'inh' : x[1]; acc[k] = (acc[k] || 0) + w; });
