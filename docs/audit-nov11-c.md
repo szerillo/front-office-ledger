@@ -406,3 +406,77 @@ checks of changed items, 10 of unchanged items, a planted case a suite must catc
 snapshot, then a live re-run).
 
 Root causes found Nov 11: 10 (the research file added), 5 in rules written that day.
+
+## 12. Round 9 (Nov 11, 10:30 AM)
+
+**Arbitration salaries in trade grades, shadow only (pre-registered in `docs/prereg-arb-shadow.md` at
+15:18 UTC, before the run; script `tests/tools/arb_shadow.py`).** Population: every acquired player-season in a
+trade window the award model prices: 5,245 seasons on 2,544 trade sides (the earlier 3,919 / 2,007 counted only
+seasons charged above the minimum).
+- Run 1, real salaries where we have them: 75 of 5,245 seasons (1.4%). 2 sides move a win or more, 2 flip, no
+  top-25 or club-rank change. Too little coverage to settle anything.
+- Run 2, sensitivity: each season's salary times a ratio drawn from the 83 held-out seasons, binned by the
+  model's predicted salary, 500 draws (seed 20261118). Median (5th to 95th percentile): **341 sides move a win
+  or more (305 to 374); 63 sign flips (46 to 77); 5 changes to the league top or bottom 25 (3 to 6); 10 clubs
+  move 2+ places in the all-time trade table (6 to 15), the largest by 5 (3 to 7).**
+- **Material on all four pre-registered tests.** Caveat: draws are independent by season, so they ignore that a
+  player's seasons miss together; that widens the true spread but does not move the median direction, since the
+  model is low in every bin.
+
+**Calibration terciles, both ways (player-level bootstrap, 2,000 draws, seed 20261119).**
+
+| Split on | Low third | Middle third | Top third |
+|---|---|---|---|
+| Actual salary | +12% (-10% to +39%) | -19% (-39% to +8%) | -23% (-31% to -13%) |
+| Model's predicted salary | **-51% (-60% to -35%)** | **-25% (-37% to -10%)** | -7% (-18% to +10%) |
+
+Splitting on actual salary manufactured the "squeeze": sorting on the outcome puts players who were paid less
+than expected in the bottom third. Split on the prediction, the model is low everywhere, worst where it predicts
+the least (near its $0.75M floor). Last round's "12% high on the cheapest third" is withdrawn.
+
+**`ext_1998_2014.csv`, all 30 sampled rows.** Baseball-Reference served the other 11 pages without salary
+tables again, so the second source was contemporary reports and Spotrac: 6 confirmed (Capps 2008-09 $3.05M,
+Villarreal 2008-09 $2.85M, Freddy Sánchez 2010-11 $12M, Alexei Ramírez 2012-15 $32.5M, Dessens two years, and
+Webb). 5 (Vázquez, Lincecum, Willis, Delgado, Morneau) match widely reported terms but were not fetched.
+- Wrong, 3 clear in 25 sourced rows (12%, 90% interval 5% to 28%): Ross 2007 (club), Tracy 2006 (first season a
+  year early), **Webb 2006 (first season a year early: the deal ran 2007-10; Spotrac, signed Jan 13 2006, and 2006
+  was paid under his earlier contract)**. Plus Feldman 2010 (total doubtful) and Ramírez 2011 (signing month
+  January in the file, February 3 per Spotrac and MLB Trade Rumors; minor).
+- Fields that fail: first season (2), club (1), total (1 doubtful), signing month (1).
+- One rule per field, run on all 532 rows (`tests/tools/ext98_rules.py`):
+  - Club: the row's club must be a team he played for in the signing season, the season before, or the first
+    season (the signing club, so later trades are not errors). Flags exactly 1 row, Ross. Clean and complete for
+    what we found.
+  - First season, signed June or later starting the same season: flags Suzuki (right) and Tabata (wrong flag),
+    misses Tracy (May) and Webb (January).
+  - First season inside a prior contract with the same club: catches Webb among 16 candidates, most of them
+    correct tear-up deals; misses Tracy, whose prior deal is not in the book.
+  - So club errors are caught by one rule; first-season and total errors are not, without each row's salary
+    history. The dependable rule is "first season = the first season paid at the new rate", which needs salary
+    tables for all 532 rows (Baseball-Reference, paced over several sessions, or Spotrac).
+
+**Public counts of open trades.** None. OPEN appears only as per-row labels (tree status, UNSETTLED chips); the
+"still open" strings in the page belong to scenarios and unfinished winters, not trades. Nothing needs an
+interval.
+
+**Retroactive checklist on the five rules behind today's rule-made root causes.**
+
+| Rule | 1 engine rule | 2 tests first | 3 full count | 4 hand-check changed | 5 hand-check unchanged | 6 planted case | 7 all suites | 8 live re-run | Bug it let through |
+|---|---|---|---|---|---|---|---|---|---|
+| Trade OPEN follows the acquirer, then any piece in the league (morning) | no | no | partial (15 reopened) | no | no | no | yes | yes | Houser; later Utley, Vieira |
+| Extension OPEN from elapsed seasons (morning) | no | no | no | no | no | no | yes | yes | Hoerner |
+| Pre-2021 decisions keep the engine flag (morning) | no | no | no | no | no | no | yes | yes | Betts, 29 drafts |
+| Trade window, unknown-status pieces (9 AM) | partial | yes | yes (694 to 88) | no | no (done next round: 5 of 10 wrong) | no | yes | yes | Vieira, Yean, Enns |
+| Release or free agency ends the window (9:30) | yes | yes | yes (88 to 50) | **no** | yes (next round: 2 of 10 wrong, both feed gaps) | partial (grades guarded, OPEN labels not) | yes | yes | none found yet |
+
+Every rule skipped step 4, the hand-check of items it changed. The last rule still has that gap: the 142 trades it
+closed have not been checked against an outside source (Baseball-Reference was throttling); that is the first job
+next session. No rule had a planted OPEN case; `t_nov11` now holds real cases for each, which serves the same purpose
+going forward.
+
+**Phone transfer size, checked as a phone.** iPhone Safari (gzip, br) and Android Chrome (gzip, br, zstd) both get
+gzip: index.html 976,214 bytes on an edge-cache miss and on a hit; cards.js 914,312, moves.js 523,701, book.js
+197,996, deals.js 107,389. 2.72 MB on the wire in all; the cold mobile Playwright profile measured the same
+976 KB for index.html.
+
+Root causes found Nov 11: 10, 5 in rules written that day (no new kind this round; Webb is the research file).
