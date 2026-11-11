@@ -1,0 +1,48 @@
+# SELECTs without ORDER BY in engine scripts that read sweep_tx or the grader outputs (Nov 11, round 22).
+# Only fa_grade.py:106 was fixed (279379f). asset_rules.py:313 is order-free today (asset_end takes a min).
+# The rest are untested: a shuffle test of the trade pipeline is the next step.
+engine/archetype.py:124  select date, person_id from sweep_tx where team_id=? and date>=? and type_desc='Declared Free Agency' and person_id is n
+engine/archetype.py:167  select * from sweep_tx where team_id=? and date>=? and type_desc='Trade'
+engine/archetype.py:193  select person_id from sweep_tx where team_id=? and date>=? and type_desc='Status Change' and (lower(description) like '%
+engine/archetype.py:202  select bonus, pick_value, school, round from draft_picks where cast(year as int)>=? and cast(round as int)<=10 and signe
+engine/archetype.py:222  select date, person_id, to_team from sweep_tx where team_id=? and date>=? and type_desc='Trade' and person_id is not nul
+engine/asset_rules.py:313  select person_id, date, type_desc, from_team from sweep_tx where person_id is not null
+engine/champions_build.py:68  select person_id, cast(year as int) y, team from draft_picks where person_id is not null
+engine/champions_build.py:169  select date, type_desc, description, from_team, to_team from sweep_tx
+engine/champions_build.py:212  select description from sweep_tx where person_id=? and date=? and type_desc=?
+engine/contract_book.py:144  select person_id, date, from_team from sweep_tx where type_desc in ('Trade','Claimed Off Waivers') and person_id is not 
+engine/controlled_market.py:28  select person_id, date from sweep_tx where type_desc='Declared Free Agency' and person_id is not null
+engine/controlled_market.py:63  select * from sweep_tx where team_id=? and date>='2005-01-01' and type_desc='Trade'
+engine/desk_data.py:719  select distinct person_id from sweep_tx where date>='2026-03-26' and date<='2026-10-31'
+engine/drs_ingest.py:70  select distinct person_name, person_id from sweep_tx where person_id is not null
+engine/ext_grade.py:50  select distinct person_name, person_id from sweep_tx where person_id is not null and person_name is not null
+engine/hist_score.py:94  select * from sweep_tx where type_desc in ('Claimed Off Waivers','Rule 5 Selection')
+engine/hist_score.py:109  select * from sweep_tx where team_id=? and date>=? and date<=? and type_desc in
+engine/hist_score.py:120  select * from draft_picks where cast(year as int)=? and team in (%s)
+engine/hist_score.py:129  select person_id, cast(year as int) from draft_picks where person_id is not null
+engine/ifa_score.py:48  select team_id, date, person_id, person_name from sweep_tx where type_desc='Signed as Free Agent' and lower(description)
+engine/ifa_score.py:52  select person_id, min(date) d from sweep_tx where person_id is not null group by person_id
+engine/proj_v1.py:153  select person_id, date from sweep_tx where team_id=? and type_desc='Trade'
+engine/proj_v1.py:187  select min(date) d from sweep_tx where person_id=? and type_desc='Declared Free Agency' and date>?
+engine/proj_v1.py:226  select person_id, from_team, to_team from sweep_tx where team_id=? and date=? and type_desc='Trade'
+engine/prospect_bio.py:35  select year,round,pick_overall,person_id,bonus,school from draft_picks where person_id is not null and person_id!=''
+engine/r5_conduit.py:15  select rowid,date,person_id,person_name,from_team,to_team from sweep_tx
+engine/r5_conduit.py:17  select rowid,date,to_team from sweep_tx where type_desc='Trade' and person_id=? and from_team=? and date>=?
+engine/r5_conduit.py:41  select date, team_id, type_desc, person_name, group_concat(distinct person_id) from sweep_tx where person_id is not null
+engine/rental_baseline.py:39  select person_id, date from sweep_tx where type_desc='Declared Free Agency' and person_id is not null
+engine/rental_baseline.py:72  select * from sweep_tx where team_id=? and date>=? and type_desc='Trade'
+engine/ret2.py:77  select * from sweep_tx where type_desc='Declared Free Agency' and date<='2023-12-31'
+engine/ret2.py:164  select * from sweep_tx where team_id=? and date>=? and type_desc='Declared Free Agency' and date<='2025-12-31'
+engine/savant_fingerprint.py:83  select date, person_id, type_desc, description, to_team from sweep_tx where team_id=? and date>=? and person_id is not n
+engine/scenario_build.py:166  SELECT DISTINCT person_id, person_name, from_team, to_team FROM sweep_tx
+engine/sweep_score.py:139  select * from sweep_tx where type_desc in ('Claimed Off Waivers','Rule 5 Selection')
+engine/sweep_score.py:153  select * from sweep_tx where team_id=? and date>=? and type_desc in
+engine/sweep_score.py:164  select * from draft_picks where cast(year as int)>=? and team in (%s)
+engine/sweep_score.py:173  select person_id, cast(year as int) from draft_picks where person_id is not null
+engine/trade_book.py:73  select * from sweep_tx where team_id=? and date>='1998-01-01' and type_desc='Trade'
+engine/trade_comps.py:49  select person_id, date from sweep_tx where type_desc='Declared Free Agency' and person_id is not null
+engine/trade_comps.py:97  select * from sweep_tx where team_id=? and date>='1998-01-01' and date<='2023-12-31' and type_desc='Trade'
+engine/trade_comps.py:126  select person_id, to_team from sweep_tx where team_id=? and date=? and type_desc='Trade'
+engine/tradegroup.py:62  select date, person_id, from_team, to_team from sweep_tx where type_desc='Trade' and person_id is not null
+engine/tradegroup.py:187  select date, person_id, from_team, to_team, description from sweep_tx
+# Set iteration: engine/r5_conduit.py:12 and engine/desk_data.py:773 loop over sets only to fill lookup dicts (order-free).
