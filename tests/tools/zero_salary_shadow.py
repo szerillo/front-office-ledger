@@ -22,6 +22,17 @@ for line in open('tests/fixtures/arb_br_2026-11-11.txt'):
 # corrections (tests/fixtures/salary_overrides.csv) and 2020: Baseball-Reference lists full 2020 salaries, but
 # 2020 pay was prorated to 60 of 162 games, so a 2020 row is scaled to what was paid
 import csv, os
+# round 18 filler rule (FILLER=1): a row below the season's major-league minimum is not a salary. If every row
+# for a season is below it, the season is charged the minimum when the player had a major-league stint that
+# season, and is uncovered (no salary) when he did not. Sourced overrides below still win.
+if os.environ.get('FILLER'):
+    MINK = {2015: 507.5, 2016: 507.5, 2017: 535, 2018: 545, 2019: 555, 2020: 563.5, 2021: 570.5, 2022: 700,
+            2023: 720, 2024: 740, 2025: 760, 2026: 780}
+    for k in list(pay):
+        if pay[k] * 1000 < MINK.get(k[1], 500):
+            stint = any(yy == k[1] for yy, tm, v in (AR._lvm().get(k[0]) or {}).get('rows', []))
+            if stint: pay[k] = MINK.get(k[1], 500) / 1000
+            else: del pay[k]
 if not os.environ.get('NOFIX'):   # NOFIX=1 reproduces the run before the corrections
     for row in csv.DictReader(open('tests/fixtures/salary_overrides.csv')):
         pay[(int(row['pid']), int(row['season']))] = float(row['salary_m'])

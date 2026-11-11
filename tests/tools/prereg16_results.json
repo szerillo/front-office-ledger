@@ -107,7 +107,9 @@
     "yr": 2023,
     "row": 20750,
     "src": "Spotrac $19.5M base plus $1.25M bonus proration",
-    "mismatch": false
+    "mismatch": false,
+    "primary": "AP (ABC7 NY mirror): $14.5M in 2022, $19.5M in each of 2023 to 2025, $5M signing bonus; $1.25M is $5M over 4 years",
+    "sourced": true
    },
    {
     "id": 516782,
@@ -115,7 +117,9 @@
     "yr": 2024,
     "row": 20750,
     "src": "Spotrac payroll $20.75M",
-    "mismatch": false
+    "mismatch": false,
+    "primary": "AP (ABC7 NY mirror): $14.5M in 2022, $19.5M in each of 2023 to 2025, $5M signing bonus; $1.25M is $5M over 4 years",
+    "sourced": true
    },
    {
     "id": 518626,
@@ -188,7 +192,9 @@
     "yr": 2025,
     "row": 27833,
     "src": "Spotrac $27M plus $833,333 proration",
-    "mismatch": false
+    "mismatch": false,
+    "primary": "AP (KSL, theScore mirrors): $5M signing bonus, $22M in 2023, $27M each later season; $833,333 is $5M over 6 years",
+    "sourced": true
    },
    {
     "id": 621242,
@@ -196,7 +202,9 @@
     "yr": 2023,
     "row": 21250,
     "src": "Spotrac: base about $11.75M, cash $23.75M with bonus",
-    "mismatch": true
+    "mismatch": true,
+    "flag": "UNSOURCED (round 18): AP gives a $17.25M salary for 2023 and 2024 plus a $12M signing bonus; $21.25M equals $17.25M plus $12M spread over 3 years, a split no club, AP or Spotrac text states. Spreading over the 5 contract years, as the Marte and Rodon rows do, gives $19.65M.",
+    "sourced": false
    },
    {
     "id": 621242,
@@ -205,7 +213,9 @@
     "row": 21250,
     "src": "Spotrac: base $11.75M, total $19.65M, payroll $14.15M",
     "mismatch": true,
-    "note": "MLB Trade Rumors (Jan 2023) lists Diaz at $21.25MM among 2024 commitments, so the figure has an outside source, just not Spotrac"
+    "note": "MLB Trade Rumors (Jan 2023) lists Diaz at $21.25MM among 2024 commitments, so the figure has an outside source, just not Spotrac",
+    "flag": "UNSOURCED (round 18): AP gives a $17.25M salary for 2023 and 2024 plus a $12M signing bonus; $21.25M equals $17.25M plus $12M spread over 3 years, a split no club, AP or Spotrac text states. Spreading over the 5 contract years, as the Marte and Rodon rows do, gives $19.65M.",
+    "sourced": false
    },
    {
     "id": 664023,

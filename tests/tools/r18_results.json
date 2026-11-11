@@ -1,0 +1,827 @@
+{
+ "item1_2020_population": {
+  "graded_fa_rows": 1717,
+  "with_2020_season": 174,
+  "changed": 162,
+  "unchanged": 12,
+  "why_unchanged": "11 have AAV of $1.0M or less, so the 2020 cost change is at most about $0.16M above the minimum and rounds away under 0.05; Price has a 2020 share of 0 (opt-out)",
+  "unchanged_rows": [
+   {
+    "player": "Adeiny Hechavarría",
+    "date": "2020-01-16",
+    "aav": 1.0,
+    "share2020": 1.0,
+    "cost_above_min_2020": 0.157
+   },
+   {
+    "player": "Luke Maile",
+    "date": "2019-12-16",
+    "aav": 0.9,
+    "share2020": 1.0,
+    "cost_above_min_2020": 0.094
+   },
+   {
+    "player": "JT Riddle",
+    "date": "2020-01-31",
+    "aav": 0.85,
+    "share2020": 1.0,
+    "cost_above_min_2020": 0.063
+   },
+   {
+    "player": "David Price",
+    "date": "2015-12-04",
+    "aav": 31.0,
+    "share2020": 0.0,
+    "cost_above_min_2020": 19.046
+   },
+   {
+    "player": "Josh Osich",
+    "date": "2019-12-04",
+    "aav": 0.85,
+    "share2020": 0.5,
+    "cost_above_min_2020": 0.063
+   },
+   {
+    "player": "Marco Hernández",
+    "date": "2019-12-04",
+    "aav": 0.65,
+    "share2020": 1.0,
+    "cost_above_min_2020": 0.0
+   },
+   {
+    "player": "Kevin Plawecki",
+    "date": "2020-01-02",
+    "aav": 0.9,
+    "share2020": 1.0,
+    "cost_above_min_2020": 0.094
+   },
+   {
+    "player": "Steven Souza Jr.",
+    "date": "2020-01-28",
+    "aav": 1.0,
+    "share2020": 1.0,
+    "cost_above_min_2020": 0.157
+   },
+   {
+    "player": "Jeremy Jeffress",
+    "date": "2020-02-01",
+    "aav": 0.8,
+    "share2020": 1.0,
+    "cost_above_min_2020": 0.031
+   },
+   {
+    "player": "Yimi García",
+    "date": "2019-12-20",
+    "aav": 0.58,
+    "share2020": 1.0,
+    "cost_above_min_2020": 0.0
+   },
+   {
+    "player": "Tommy Hunter",
+    "date": "2020-02-12",
+    "aav": 0.85,
+    "share2020": 1.0,
+    "cost_above_min_2020": 0.063
+   },
+   {
+    "player": "Jesse Hahn",
+    "date": "2019-12-13",
+    "aav": 0.6,
+    "share2020": 1.0,
+    "cost_above_min_2020": 0.0
+   }
+  ],
+  "note": "the round 17 figure of 42 of 646 covered current regimes only"
+ },
+ "item2_winter_pages": {
+  "rows_published": 816,
+  "fa_column_reproduced": 548,
+  "winters_changed": 71,
+  "public_pages_changed": [
+   {
+    "page": "2019-wsh",
+    "exec": "Mike Rizzo",
+    "fa_before": -22.7,
+    "fa_after": -17.4,
+    "total_before": -22.7,
+    "total_after": -17.4,
+    "delta": 5.3
+   },
+   {
+    "page": "2019-laa",
+    "exec": "Billy Eppler",
+    "fa_before": -18.4,
+    "fa_after": -14.6,
+    "total_before": -20.6,
+    "total_after": -16.8,
+    "delta": 3.8
+   },
+   {
+    "page": "2019-phi",
+    "exec": "Matt Klentak",
+    "fa_before": 13.1,
+    "fa_after": 15.5,
+    "total_before": 24.5,
+    "total_after": 26.9,
+    "delta": 2.4
+   },
+   {
+    "page": "2014-wsh",
+    "exec": "Mike Rizzo",
+    "fa_before": 10.9,
+    "fa_after": 12.0,
+    "total_before": 32.8,
+    "total_after": 33.9,
+    "delta": 1.1
+   },
+   {
+    "page": "2017-mil",
+    "exec": "David Stearns",
+    "fa_before": 1.1,
+    "fa_after": 1.9,
+    "total_before": 20.3,
+    "total_after": 21.1,
+    "delta": 0.8
+   },
+   {
+    "page": "2015-det",
+    "exec": "Al Avila",
+    "fa_before": -9.2,
+    "fa_after": -8.6,
+    "total_before": -21.9,
+    "total_after": -21.3,
+    "delta": 0.6
+   },
+   {
+    "page": "2013-tex",
+    "exec": "Jon Daniels",
+    "fa_before": -6.6,
+    "fa_after": -6.1,
+    "total_before": -28.5,
+    "total_after": -28.0,
+    "delta": 0.5
+   }
+  ],
+  "all_changes": [
+   {
+    "page": "2019-min",
+    "exec": "Derek Falvey",
+    "fa_before": -4.3,
+    "fa_after": 1.2,
+    "total_before": -6.4,
+    "total_after": -0.9,
+    "delta": 5.5
+   },
+   {
+    "page": "2019-wsh",
+    "exec": "Mike Rizzo",
+    "fa_before": -22.7,
+    "fa_after": -17.4,
+    "total_before": -22.7,
+    "total_after": -17.4,
+    "delta": 5.3
+   },
+   {
+    "page": "2019-cws",
+    "exec": "Rick Hahn",
+    "fa_before": 0.3,
+    "fa_after": 5.3,
+    "total_before": 0.0,
+    "total_after": 5.0,
+    "delta": 5.0
+   },
+   {
+    "page": "2019-atl",
+    "exec": "Alex Anthopoulos",
+    "fa_before": -3.7,
+    "fa_after": 0.4,
+    "total_before": -3.7,
+    "total_after": 0.4,
+    "delta": 4.1
+   },
+   {
+    "page": "2019-laa",
+    "exec": "Billy Eppler",
+    "fa_before": -18.4,
+    "fa_after": -14.6,
+    "total_before": -20.6,
+    "total_after": -16.8,
+    "delta": 3.8
+   },
+   {
+    "page": "2019-nyy",
+    "exec": "Brian Cashman",
+    "fa_before": -2.8,
+    "fa_after": 1.0,
+    "total_before": -2.1,
+    "total_after": 1.7,
+    "delta": 3.8
+   },
+   {
+    "page": "2018-phi",
+    "exec": "Matt Klentak",
+    "fa_before": 12.3,
+    "fa_after": 15.4,
+    "total_before": 9.3,
+    "total_after": 12.4,
+    "delta": 3.1
+   },
+   {
+    "page": "2019-ari",
+    "exec": "Mike Hazen",
+    "fa_before": -9.0,
+    "fa_after": -6.2,
+    "total_before": -3.1,
+    "total_after": -0.3,
+    "delta": 2.8
+   },
+   {
+    "page": "2019-cin",
+    "exec": "Dick Williams",
+    "fa_before": -3.8,
+    "fa_after": -1.0,
+    "total_before": -3.9,
+    "total_after": -1.1,
+    "delta": 2.8
+   },
+   {
+    "page": "2019-tor",
+    "exec": "Ross Atkins",
+    "fa_before": -5.1,
+    "fa_after": -2.4,
+    "total_before": -5.2,
+    "total_after": -2.5,
+    "delta": 2.7
+   },
+   {
+    "page": "2018-nyy",
+    "exec": "Brian Cashman",
+    "fa_before": 1.3,
+    "fa_after": 3.9,
+    "total_before": 0.5,
+    "total_after": 3.1,
+    "delta": 2.6
+   },
+   {
+    "page": "2018-sd",
+    "exec": "A.J. Preller",
+    "fa_before": 3.6,
+    "fa_after": 6.2,
+    "total_before": 1.8,
+    "total_after": 4.4,
+    "delta": 2.6
+   },
+   {
+    "page": "2019-phi",
+    "exec": "Matt Klentak",
+    "fa_before": 13.1,
+    "fa_after": 15.5,
+    "total_before": 24.5,
+    "total_after": 26.9,
+    "delta": 2.4
+   },
+   {
+    "page": "2019-mil",
+    "exec": "David Stearns",
+    "fa_before": -2.0,
+    "fa_after": 0.2,
+    "total_before": -1.0,
+    "total_after": 1.2,
+    "delta": 2.2
+   },
+   {
+    "page": "2019-sf",
+    "exec": "Farhan Zaidi",
+    "fa_before": 1.9,
+    "fa_after": 4.0,
+    "total_before": -0.1,
+    "total_after": 2.0,
+    "delta": 2.1
+   },
+   {
+    "page": "2018-wsh",
+    "exec": "Mike Rizzo",
+    "fa_before": -6.1,
+    "fa_after": -4.1,
+    "total_before": -7.8,
+    "total_after": -5.8,
+    "delta": 2.0
+   },
+   {
+    "page": "2019-nym",
+    "exec": "Brodie Van Wagenen",
+    "fa_before": -2.0,
+    "fa_after": 0.0,
+    "total_before": -2.1,
+    "total_after": -0.1,
+    "delta": 2.0
+   },
+   {
+    "page": "2019-mia",
+    "exec": "Michael Hill",
+    "fa_before": -2.5,
+    "fa_after": -0.6,
+    "total_before": -3.1,
+    "total_after": -1.2,
+    "delta": 1.9
+   },
+   {
+    "page": "2013-nyy",
+    "exec": "Brian Cashman",
+    "fa_before": -7.7,
+    "fa_after": -6.0,
+    "total_before": -9.9,
+    "total_after": -8.2,
+    "delta": 1.7
+   },
+   {
+    "page": "2017-col",
+    "exec": "Jeff Bridich",
+    "fa_before": -5.7,
+    "fa_after": -4.0,
+    "total_before": -5.7,
+    "total_after": -4.0,
+    "delta": 1.7
+   },
+   {
+    "page": "2018-nym",
+    "exec": "Brodie Van Wagenen",
+    "fa_before": -3.3,
+    "fa_after": -1.6,
+    "total_before": 5.9,
+    "total_after": 7.6,
+    "delta": 1.7
+   },
+   {
+    "page": "2019-det",
+    "exec": "Al Avila",
+    "fa_before": -1.6,
+    "fa_after": 0.0,
+    "total_before": -0.7,
+    "total_after": 0.9,
+    "delta": 1.6
+   },
+   {
+    "page": "2016-nym",
+    "exec": "Sandy Alderson",
+    "fa_before": -7.8,
+    "fa_after": -6.3,
+    "total_before": -7.3,
+    "total_after": -5.8,
+    "delta": 1.5
+   },
+   {
+    "page": "2017-chc",
+    "exec": "Theo Epstein",
+    "fa_before": -6.8,
+    "fa_after": -5.3,
+    "total_before": -6.8,
+    "total_after": -5.3,
+    "delta": 1.5
+   },
+   {
+    "page": "2019-tex",
+    "exec": "Jon Daniels",
+    "fa_before": -2.3,
+    "fa_after": -0.8,
+    "total_before": -5.4,
+    "total_after": -3.9,
+    "delta": 1.5
+   },
+   {
+    "page": "2016-lad",
+    "exec": "Andrew Friedman",
+    "fa_before": 12.3,
+    "fa_after": 13.7,
+    "total_before": 14.0,
+    "total_after": 15.4,
+    "delta": 1.4
+   },
+   {
+    "page": "2017-phi",
+    "exec": "Matt Klentak",
+    "fa_before": -7.0,
+    "fa_after": -5.8,
+    "total_before": -9.7,
+    "total_after": -8.5,
+    "delta": 1.2
+   },
+   {
+    "page": "2018-lad",
+    "exec": "Andrew Friedman",
+    "fa_before": 1.1,
+    "fa_after": 2.3,
+    "total_before": 0.2,
+    "total_after": 1.4,
+    "delta": 1.2
+   },
+   {
+    "page": "2018-tex",
+    "exec": "Jon Daniels",
+    "fa_before": 0.6,
+    "fa_after": 1.8,
+    "total_before": 2.4,
+    "total_after": 3.6,
+    "delta": 1.2
+   },
+   {
+    "page": "2019-lad",
+    "exec": "Andrew Friedman",
+    "fa_before": -1.3,
+    "fa_after": -0.1,
+    "total_before": -5.3,
+    "total_after": -4.1,
+    "delta": 1.2
+   },
+   {
+    "page": "2019-sd",
+    "exec": "A.J. Preller",
+    "fa_before": -1.6,
+    "fa_after": -0.4,
+    "total_before": 9.6,
+    "total_after": 10.8,
+    "delta": 1.2
+   },
+   {
+    "page": "2014-wsh",
+    "exec": "Mike Rizzo",
+    "fa_before": 10.9,
+    "fa_after": 12.0,
+    "total_before": 32.8,
+    "total_after": 33.9,
+    "delta": 1.1
+   },
+   {
+    "page": "2015-sf",
+    "exec": "Brian Sabean",
+    "fa_before": -6.7,
+    "fa_after": -5.6,
+    "total_before": -6.7,
+    "total_after": -5.6,
+    "delta": 1.1
+   },
+   {
+    "page": "2016-stl",
+    "exec": "John Mozeliak",
+    "fa_before": -5.9,
+    "fa_after": -4.8,
+    "total_before": -6.6,
+    "total_after": -5.5,
+    "delta": 1.1
+   },
+   {
+    "page": "2019-bos",
+    "exec": "Chaim Bloom",
+    "fa_before": 0.0,
+    "fa_after": 1.1,
+    "total_before": 8.9,
+    "total_after": 10.0,
+    "delta": 1.1
+   },
+   {
+    "page": "2017-bos",
+    "exec": "Dave Dombrowski",
+    "fa_before": 4.0,
+    "fa_after": 5.0,
+    "total_before": 6.5,
+    "total_after": 7.5,
+    "delta": 1.0
+   },
+   {
+    "page": "2019-hou",
+    "exec": "Jeff Luhnow",
+    "fa_before": -1.3,
+    "fa_after": -0.3,
+    "total_before": -1.1,
+    "total_after": -0.1,
+    "delta": 1.0
+   },
+   {
+    "page": "2011-laa",
+    "exec": "Jerry Dipoto",
+    "fa_before": -13.1,
+    "fa_after": -12.2,
+    "total_before": -18.3,
+    "total_after": -17.4,
+    "delta": 0.9
+   },
+   {
+    "page": "2014-chc",
+    "exec": "Theo Epstein",
+    "fa_before": -0.3,
+    "fa_after": 0.6,
+    "total_before": 0.0,
+    "total_after": 0.9,
+    "delta": 0.9
+   },
+   {
+    "page": "2018-bos",
+    "exec": "Dave Dombrowski",
+    "fa_before": 1.3,
+    "fa_after": 2.2,
+    "total_before": 1.6,
+    "total_after": 2.5,
+    "delta": 0.9
+   },
+   {
+    "page": "2017-mil",
+    "exec": "David Stearns",
+    "fa_before": 1.1,
+    "fa_after": 1.9,
+    "total_before": 20.3,
+    "total_after": 21.1,
+    "delta": 0.8
+   },
+   {
+    "page": "2017-sd",
+    "exec": "A.J. Preller",
+    "fa_before": -0.9,
+    "fa_after": -0.1,
+    "total_before": 0.7,
+    "total_after": 1.5,
+    "delta": 0.8
+   },
+   {
+    "page": "2018-hou",
+    "exec": "Jeff Luhnow",
+    "fa_before": 4.8,
+    "fa_after": 5.6,
+    "total_before": 0.3,
+    "total_after": 1.1,
+    "delta": 0.8
+   },
+   {
+    "page": "2019-kc",
+    "exec": "Dayton Moore",
+    "fa_before": -0.1,
+    "fa_after": 0.7,
+    "total_before": 0.1,
+    "total_after": 0.9,
+    "delta": 0.8
+   },
+   {
+    "page": "2019-stl",
+    "exec": "John Mozeliak",
+    "fa_before": 0.1,
+    "fa_after": 0.9,
+    "total_before": -15.4,
+    "total_after": -14.6,
+    "delta": 0.8
+   },
+   {
+    "page": "2015-bal",
+    "exec": "Dan Duquette",
+    "fa_before": -17.8,
+    "fa_after": -17.1,
+    "total_before": -15.8,
+    "total_after": -15.1,
+    "delta": 0.7
+   },
+   {
+    "page": "2015-chc",
+    "exec": "Theo Epstein",
+    "fa_before": 0.3,
+    "fa_after": 1.0,
+    "total_before": -0.5,
+    "total_after": 0.2,
+    "delta": 0.7
+   },
+   {
+    "page": "2017-bal",
+    "exec": "Dan Duquette",
+    "fa_before": -5.7,
+    "fa_after": -5.0,
+    "total_before": -6.3,
+    "total_after": -5.6,
+    "delta": 0.7
+   },
+   {
+    "page": "2018-ath",
+    "exec": "Billy Beane",
+    "fa_before": -1.0,
+    "fa_after": -0.3,
+    "total_before": -3.8,
+    "total_after": -3.1,
+    "delta": 0.7
+   },
+   {
+    "page": "2018-sea",
+    "exec": "Jerry Dipoto",
+    "fa_before": -3.6,
+    "fa_after": -2.9,
+    "total_before": 5.6,
+    "total_after": 6.3,
+    "delta": 0.7
+   },
+   {
+    "page": "2018-stl",
+    "exec": "John Mozeliak",
+    "fa_before": -2.0,
+    "fa_after": -1.3,
+    "total_before": -5.6,
+    "total_after": -4.9,
+    "delta": 0.7
+   },
+   {
+    "page": "2018-tb",
+    "exec": "Erik Neander",
+    "fa_before": 4.6,
+    "fa_after": 5.3,
+    "total_before": 12.9,
+    "total_after": 13.6,
+    "delta": 0.7
+   },
+   {
+    "page": "2015-det",
+    "exec": "Al Avila",
+    "fa_before": -9.2,
+    "fa_after": -8.6,
+    "total_before": -21.9,
+    "total_after": -21.3,
+    "delta": 0.6
+   },
+   {
+    "page": "2016-col",
+    "exec": "Jeff Bridich",
+    "fa_before": -7.4,
+    "fa_after": -6.8,
+    "total_before": -7.4,
+    "total_after": -6.8,
+    "delta": 0.6
+   },
+   {
+    "page": "2018-col",
+    "exec": "Jeff Bridich",
+    "fa_before": -3.2,
+    "fa_after": -2.6,
+    "total_before": -6.3,
+    "total_after": -5.7,
+    "delta": 0.6
+   },
+   {
+    "page": "2018-min",
+    "exec": "Derek Falvey",
+    "fa_before": 3.5,
+    "fa_after": 4.1,
+    "total_before": 1.0,
+    "total_after": 1.6,
+    "delta": 0.6
+   },
+   {
+    "page": "2019-cle",
+    "exec": "Chris Antonetti",
+    "fa_before": 0.5,
+    "fa_after": 1.1,
+    "total_before": 6.9,
+    "total_after": 7.5,
+    "delta": 0.6
+   },
+   {
+    "page": "2013-tex",
+    "exec": "Jon Daniels",
+    "fa_before": -6.6,
+    "fa_after": -6.1,
+    "total_before": -28.5,
+    "total_after": -28.0,
+    "delta": 0.5
+   },
+   {
+    "page": "2015-kc",
+    "exec": "Dayton Moore",
+    "fa_before": -8.1,
+    "fa_after": -7.6,
+    "total_before": -8.4,
+    "total_after": -7.9,
+    "delta": 0.5
+   },
+   {
+    "page": "2015-mia",
+    "exec": "Michael Hill",
+    "fa_before": -6.8,
+    "fa_after": -6.3,
+    "total_before": -6.8,
+    "total_after": -6.3,
+    "delta": 0.5
+   },
+   {
+    "page": "2016-hou",
+    "exec": "Jeff Luhnow",
+    "fa_before": 3.7,
+    "fa_after": 4.2,
+    "total_before": 2.4,
+    "total_after": 2.9,
+    "delta": 0.5
+   },
+   {
+    "page": "2018-cws",
+    "exec": "Rick Hahn",
+    "fa_before": -1.7,
+    "fa_after": -1.2,
+    "total_before": -12.5,
+    "total_after": -12.0,
+    "delta": 0.5
+   },
+   {
+    "page": "2019-ath",
+    "exec": "Billy Beane",
+    "fa_before": -0.4,
+    "fa_after": 0.1,
+    "total_before": -4.3,
+    "total_after": -3.8,
+    "delta": 0.5
+   },
+   {
+    "page": "2014-ari",
+    "exec": "Dave Stewart",
+    "fa_before": -6.0,
+    "fa_after": -5.7,
+    "total_before": -8.6,
+    "total_after": -8.3,
+    "delta": 0.3
+   },
+   {
+    "page": "2017-sf",
+    "exec": "Brian Sabean",
+    "fa_before": 0.8,
+    "fa_after": 1.1,
+    "total_before": -11.7,
+    "total_after": -11.4,
+    "delta": 0.3
+   },
+   {
+    "page": "2019-bal",
+    "exec": "Mike Elias",
+    "fa_before": 0.8,
+    "fa_after": 1.1,
+    "total_before": 4.7,
+    "total_after": 5.0,
+    "delta": 0.3
+   },
+   {
+    "page": "2015-lad",
+    "exec": "Andrew Friedman",
+    "fa_before": -2.9,
+    "fa_after": -2.7,
+    "total_before": -6.3,
+    "total_after": -6.1,
+    "delta": 0.2
+   },
+   {
+    "page": "2017-tex",
+    "exec": "Jon Daniels",
+    "fa_before": 5.1,
+    "fa_after": 5.3,
+    "total_before": 4.7,
+    "total_after": 4.9,
+    "delta": 0.2
+   },
+   {
+    "page": "2018-chc",
+    "exec": "Theo Epstein",
+    "fa_before": -2.0,
+    "fa_after": -1.8,
+    "total_before": -0.4,
+    "total_after": -0.2,
+    "delta": 0.2
+   },
+   {
+    "page": "2019-sea",
+    "exec": "Jerry Dipoto",
+    "fa_before": -0.4,
+    "fa_after": -0.2,
+    "total_before": -4.4,
+    "total_after": -4.2,
+    "delta": 0.2
+   },
+   {
+    "page": "2019-pit",
+    "exec": "Ben Cherington",
+    "fa_before": -1.1,
+    "fa_after": -1.0,
+    "total_before": -7.3,
+    "total_after": -7.2,
+    "delta": 0.1
+   }
+  ]
+ },
+ "item3_2020_filler": {
+  "player_seasons": 7,
+  "should_hold": {
+   "LeBlanc": 0.8,
+   "Kratz": 1.0,
+   "Culberson": 1.0,
+   "Shreve": 0.575,
+   "Walker": 2.0,
+   "Swarzak": null,
+   "J. Miller": null
+  },
+  "exposure": "$0 population touches LeBlanc 2020 and Kratz 2020, both now overridden; the arbitration shadow touches none",
+  "rule": "FILLER: a row under that season's minimum is raised to the minimum if the player had an MLB stint that season, else dropped",
+  "shadow_after": "unchanged: 22 sides, 8 flips, same list"
+ },
+ "item6_dependency": {
+  "engine_page_tool_files_outside_tests_reading_fixtures": 0,
+  "live_grades_reading_48_flagged_rows": 0,
+  "flagged_player_seasons_priced_live_by_contract_book": "12 of 42"
+ }
+}
