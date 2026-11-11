@@ -77,5 +77,15 @@ r.dealsLazy = await page.evaluate(async () => {
   const inline = !window.DESK_DEALS_SRC;
   return dkDealsReady() && DESK.deals.length > 1000 && dkComps(3, 3, '3+', 'c', '', '').length > 0 && (inline || [...document.scripts].some(x => /deals\.js/.test(x.src)));
 });
+// comps arriving after an Assistant GM note is on screen keep the note (live race, Nov 11)
+r.agmNoteSurvivesComps = await page.evaluate(async () => {
+  if(!window.DESK_DEALS_SRC) return true;
+  DESK.deals = null; dkDealsLoad._p = 0; switchView('desk');
+  const rb = Object.keys(DESK.teams).filter(ab => folPosture(ab).key === 'rebuilding'), ct = Object.keys(DESK.teams).filter(ab => folPosture(ab).key === 'contender');
+  dkState.you = rb[0]; dkState.them = ct[0]; dkState.recv = []; dkState.send = []; renderDesk(); dkAgm();
+  for(let i = 0; i < 40 && !dkDealsReady(); i++) await new Promise(z => setTimeout(z, 250));
+  await new Promise(z => setTimeout(z, 300));
+  return /Assistant GM/.test((document.getElementById('dk-agm-note') || {}).textContent || '');
+});
 report('t_nov11', r, errors);
 await browser.close();
