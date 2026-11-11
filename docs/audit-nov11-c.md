@@ -420,7 +420,10 @@ seasons charged above the minimum).
   model's predicted salary, 500 draws (seed 20261118). Median (5th to 95th percentile): **341 sides move a win
   or more (305 to 374); 63 sign flips (46 to 77); 5 changes to the league top or bottom 25 (3 to 6); 10 clubs
   move 2+ places in the all-time trade table (6 to 15), the largest by 5 (3 to 7).**
-- **Material on all four pre-registered tests.** Caveat: draws are independent by season, so they ignore that a
+- **Correction (section 13):** these runs charged a deadline deal's own season in full; the engine charges the
+  acquirer's share of it. Corrected: run 1 moves 0 sides by a win (1 club rank by 1); run 2 median 286 sides
+  (254 to 316), 50 flips (35 to 62), 5 top/bottom-25 changes (3 to 6), 10 clubs 2+ places (6 to 14), largest 4.
+- **Material on all four pre-registered tests** (still true after the correction). Caveat: draws are independent by season, so they ignore that a
   player's seasons miss together; that widens the true spread but does not move the median direction, since the
   model is low in every bin.
 
@@ -481,3 +484,29 @@ gzip: index.html 976,214 bytes on an edge-cache miss and on a hit; cards.js 914,
 976 KB for index.html.
 
 Root causes found Nov 11: 10, 5 in rules written that day (no new kind this round; Webb is the research file).
+
+## 13. Round 10 (Nov 11, 11 AM): the $0 seasons with real salaries
+
+**Correction to section 12.** The arbitration shadow charged the trade season in full. The engine
+(`asset_rules.trade_window`) charges a July deal's own season by the acquirer's share of the player's stints
+that year. Fixed in `tests/tools/arb_shadow.py` (`share`). Corrected run 1: 0 sides move a win or more, 0 flips.
+Corrected run 2 (median, 5th to 95th): 286 sides move a win or more (254 to 316); 50 flips (35 to 62); 5 top or
+bottom 25 changes (3 to 6); 10 clubs move 2+ places (6 to 14), largest 4. Still material on all four tests.
+
+**Shadow: $0 post-control seasons at what players were paid** (pre-registered in
+`docs/prereg-zero-salary-shadow.md`, committed as ddc7026 before any salary was matched to a grade; script
+`tests/tools/zero_salary_shadow.py`). 802 seasons on trade sides since 2015 sit after the engine's control end
+with no contract in the book and a $0 charge (`zero_salary_classes.py` sorts them: 252 inside the service-time
+control end, 42 under a contract the book lacks, 24 after a free-agent filing, 484 with no service record).
+- Baseball-Reference salary tables for the 413 players, pulled at one player every 9 seconds. Three parallel
+  workers tripped the site's rate limit after 24 players (my error: about 24 requests a minute against its 20);
+  11 more redirect to minor-league pages. Coverage so far: **40 of 802 seasons (5%), 39 paid above the $0.75M
+  floor.** Fixture: `tests/fixtures/zero_br_2026-11-11.txt`. The pull resumes with one worker once the block lifts.
+- On those 40 alone: **14 sides move a win or more, 2 flip, 1 club moves 2 places** in the all-time trade table.
+  The club-rank test is already met, so this is material on the pre-registered bar at 5% coverage. Largest
+  movers: Hamels 2019 ($20M club option, charged on both the 2015 TEX and 2018 CHC deals, -1.8 and -1.3),
+  Marte 2020-21 (ARI, MIA, -1.6 each), Teoscar Hernández 2023 (SEA, -1.2).
+- Combined with arbitration run 1 (real salaries only): 14 sides, 2 flips, 0 top-25 changes.
+- Not yet done: the pre-registered hand check of 10 covered seasons against a second source (after the pull).
+
+Root causes found Nov 11: 11 (the share error in my own shadow script added), 5 in rules written that day.

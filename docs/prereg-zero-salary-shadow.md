@@ -1,6 +1,6 @@
 # Pre-registration: $0 seasons in trade grades, real salaries (shadow only)
 
-Written 2026-11-11 at about 16:40 UTC, committed to the repo before the salaries are matched or any grade is
+Written 2026-11-11 at about 16:00 UTC (first version said 16:40 in error; the commit time, ddc7026, is the record), committed to the repo before the salaries are matched or any grade is
 recomputed. The Baseball-Reference pull had started; no salary had been compared with a grade. Nothing here is
 deployed.
 
