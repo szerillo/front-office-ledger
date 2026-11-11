@@ -19,6 +19,13 @@ for line in open('tests/fixtures/arb_br_2026-11-11.txt'):
     pid, rest = line.strip().split('#')
     for a in rest.split(','):
         y, k = a.split(':')[:2]; pay.setdefault((int(pid), int(y)), int(k) / 1000)
+# corrections (tests/fixtures/salary_overrides.csv) and 2020: Baseball-Reference lists full 2020 salaries, but
+# 2020 pay was prorated to 60 of 162 games, so a 2020 row is scaled to what was paid
+import csv
+for row in csv.DictReader(open('tests/fixtures/salary_overrides.csv')):
+    pay[(int(row['pid']), int(row['season']))] = float(row['salary_m'])
+for k in list(pay):
+    if k[1] == 2020: pay[k] = pay[k] * 60 / 162
 zero = set((d, ab, int(pid), y) for d, ab, pid, nm, y, ce in Z['pop'])
 recs = []
 for i, (d, seats) in enumerate(tb['trades']):
