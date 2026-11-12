@@ -1962,6 +1962,8 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
       <h3>Who owns a season: control, contracts and money</h3>
       <ul class="mlist">
         <li><strong>Club control</strong> runs six seasons from the MLB debut (a debut after mid-April runs it one season longer). That rule ignores time sent back to the minors and service awarded for rookie honors: against official service time published for 1,366 graded players who reached arbitration, it ends control a year or more early for 834 of them and late for 12, so grades of past moves can credit too few controlled seasons. Front office channel letters that change when every player's control runs one season longer (133 of 662) are marked "depends on control end". For current players, the Deal Desk, simulator and club pages use official service time where it is published (293 players eligible for arbitration this winter) and mark every other control end as estimated. The decision that acquired a player (the pick, the signing, the trade) owns those seasons wherever he plays them, until a release or a free-agent filing.</li>
+        <li><strong>How far off the grading control rule runs.</strong> Grades count control from the debut (the rule above). Checked against 28 extended players with no arbitration figure and a public free-agent year, it ended control early for 7 of them (25%, 95% range 13% to 43%; a small sample) and late for none.</li>
+        <li><strong>How far off an estimated control end runs.</strong> On the Deal Desk, simulator and club pages, a control end marked estimated comes from our own count of roster transactions. Checked against 778 published service-time figures, that count is off by a year or more for 146 players (19%, 95% range 16% to 22%), and 126 of those 146 run late, so an estimated control end is more often too long than too short.</li>
         <li><strong>One contract book</strong> holds every guaranteed deal the ledger knows: <span data-n="cbfa">2,779</span> free-agent contracts from the 1997-98 winter on and <span data-n="cbext">826</span> extensions. A free-agent deal owns its seasons; an extension owns only the seasons beyond the player's original control.</li>
         <li><strong>Salary is charged</strong> at what that money typically buys: a free-agent season at the typical return for its contract year and size (so taking on or shedding a typical contract is neutral, and dumping the last years of a deal is not a windfall). An arbitration season with no contract costs the estimated award: (0.6 + platform WAR) x a class step of 1.0, 1.5 and 3.1 x the $/win drift, calibrated on 48 real 2026 awards (leave-one-out miss about $1.6M). A season lost to injury still charges the salary; cash sent in a trade is charged to the club that paid it.</li>
       </ul>
@@ -9859,7 +9861,11 @@ function gmSvcDays(s){ const w = Math.floor(s); return w * 172 + Math.round((s -
 // Cade Horton (NL runner-up 2025) each reach 2.000 at the end of 2026, so control runs through 2030 (MLBTR, CBS Sports).
 // 2026 top two (Stewart, Benge, McGonigle, Messick) already had a full 2026 year, so no credit changes their count.
 const AWARD_SVC = {"701762":2.000,"690990":2.000};
-function gmPubSvc(p){ return PUB_SVC[p[1]] ?? AWARD_SVC[p[1]]; }
+// Nov 12 (round 49): one published figure the name match could not place. MLB Trade Rumors lists "Luis García Jr." under the
+// Yankees at 5.142; two Yankees share that folded name, so it was checked by hand: MLBAM 671277 (1B, traded from Washington
+// Aug 3, 2026), not 677651 (the RHP on a minor league deal).
+const HAND_SVC = {"671277":5.142};
+function gmPubSvc(p){ return PUB_SVC[p[1]] ?? AWARD_SVC[p[1]] ?? HAND_SVC[p[1]]; }
 function gmSvc(p){ return gmPubSvc(p) ?? p[11] ?? (6 - p[8]); }
 function gmCtrlYrs(p){ const s = gmPubSvc(p); return s == null ? p[8] : Math.max(0, Math.ceil((1032 - gmSvcDays(s)) / 172)); }
 // control end from our own count (no published service time, no contract covering it): shown as estimated
