@@ -83,11 +83,21 @@ const data = await p.evaluate(([KEEP_O, TOO_CLOSE]) => {
   });
   // the 20 best and 20 worst winters
   const st = offsSettled().slice().sort((a, b) => b.tot - a.tot), top = st.slice(0, 20).concat(st.slice(-20)), pick = top.concat(st.filter(r => KEEP_O.includes(r.id) && !top.includes(r)));
-  const O = pick.map(r => { const nm = `${offsYr(r.w)} ${offsName(r)}`, rank = st.indexOf(r) + 1, worst = st.length - rank + 1;
+  // Nov 12 (round 41): a rank is shown only inside the top or bottom 20; exact ties share a rank (T-18); a page kept
+  // outside the 20s (round 36) carries no rank at all (it used to read "#675 worst" for a +18.2 winter)
+  const rankTxt = (r, unit) => {
+    if(TOO_CLOSE[r.id]) return `One of the two best ${unit}s on record (too close to rank vs ${TOO_CLOSE[r.id]})`;
+    const t1 = x => Math.round(x.tot * 10), me = t1(r);      // ranks and ties on the shown value (one decimal)
+    const hi = st.filter(x => t1(x) > me).length + 1, lo = st.filter(x => t1(x) < me).length + 1, tie = st.filter(x => t1(x) === me).length > 1;
+    if(hi <= 20) return `The ${tie ? 'T-' : '#'}${hi} best ${unit} since 1998`;
+    if(lo <= 20) return `The ${tie ? 'T-' : '#'}${lo} worst ${unit} since 1998`;
+    return null;
+  };
+  const O = pick.map(r => { const nm = `${offsYr(r.w)} ${offsName(r)}`, rkD = rankTxt(r, 'offseason'), rkK = rankTxt(r, 'winter');
     const mv = r.moves.slice(0, 3).map(m => `<div style="display:flex; gap:14px; margin-top:10px; font-size:24px"><span style="min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">${m[2]}</span><strong class="${m[3] >= 0 ? 'pos' : 'neg'}" style="margin-left:auto; font:700 24px var(--f-mono)">${fmtW(m[3])}</strong></div>`).join('');
-    return {id: r.id, title: `${nm}: ${fmtW(r.tot)} wins in one winter · Front Office Ledger`, desc: `${TOO_CLOSE[r.id] ? `One of the two best offseasons on record (too close to rank vs ${TOO_CLOSE[r.id]})` : rank <= 20 ? `The #${rank} best offseason since 1998` : `The #${worst} worst offseason since 1998`}, under ${r.exec || 'that front office'}: trades ${fmtW(r.tr)}, free agents ${fmtW(r.fa)}. ${r.moves[0] ? r.moves[0][2] + '.' : ''}`,
+    return {id: r.id, title: `${nm}: ${fmtW(r.tot)} wins in one winter · Front Office Ledger`, desc: `${rkD || `A ${fmtW(r.tot)}-win offseason`}, under ${r.exec || 'that front office'}: trades ${fmtW(r.tr)}, free agents ${fmtW(r.fa)}. ${r.moves[0] ? r.moves[0][2] + '.' : ''}`,
       to: `#view=winters&id=${r.id}`, link: `${nm} on Front Office Ledger`,
-      inner: kick(`${TOO_CLOSE[r.id] ? `One of the two best winters on record (too close to rank vs ${TOO_CLOSE[r.id]})` : rank <= 20 ? `The #${rank} best winter since 1998` : `The #${worst} worst winter since 1998`} · ${r.exec || ''}`) + `<div style="display:flex; align-items:center; gap:20px; margin-top:6px">${chip(r.ab, 30)}${head(nm, nm.length > 30 ? 46 : 54)}<strong class="${r.tot >= 0 ? 'pos' : 'neg'}" style="margin-left:auto; font:700 52px var(--f-mono); white-space:nowrap">${fmtW(r.tot)}</strong></div>
+      inner: kick(`${rkK || 'One winter, every move graded'} · ${r.exec || ''}`) + `<div style="display:flex; align-items:center; gap:20px; margin-top:6px">${chip(r.ab, 30)}${head(nm, nm.length > 30 ? 46 : 54)}<strong class="${r.tot >= 0 ? 'pos' : 'neg'}" style="margin-left:auto; font:700 52px var(--f-mono); white-space:nowrap">${fmtW(r.tot)}</strong></div>
         <div style="font-size:24px; color:var(--ink-2); margin-top:8px">Trades ${fmtW(r.tr)} · free agents ${fmtW(r.fa)}${r.prevW != null && r.nextW != null ? ` · ${r.prevW} wins before, ${r.nextW} after` : ''}</div><div style="border-top:2px solid var(--ink); margin-top:14px"></div>${mv}`}; });
   return {W, S, O};
 }, [KEEP_O, TOO_CLOSE]);
