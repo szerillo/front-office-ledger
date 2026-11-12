@@ -1,0 +1,120 @@
+diff -ru d/engine/ext_grade.py e/engine/ext_grade.py
+--- d/engine/ext_grade.py	2026-11-11 20:00:11.371765837 -0500
++++ e/engine/ext_grade.py	2026-11-11 20:06:58.177386045 -0500
+@@ -124,41 +124,51 @@
+ import asset_rules as AR
+ CB = json.load(open("/work/contract_book.json"))
+ CB_DPW = {int(k): v for k, v in CB["dpw"].items()}; LMIN = CB.get("league_min", 0.75)
+-def wins_of(m, y): return max(0.0, m - LMIN) / CB_DPW.get(y, AR.dpw(y))
+-EVAL = []
+-for c in CB["book"]:
+-    if c["kind"] != "ext": continue
+-    sign, player, ab, yrs, tot = c["sign"], c["name"], c["club"], c["yrs"], c["tot"]
+-    if ab not in ABBR2TID: continue
+-    tid = ABBR2TID[ab]
+-    pid = str(c["pid"]); sy = int(sign[:4])
+-    dy = debut_year(pid) if pid else None
+-    if dy is None or dy > sy: cls = "pre-debut"
+-    elif sy - dy <= 2: cls = "early"
+-    elif sy - dy <= 5: cls = "arb"
+-    else: cls = "veteran"
+-    ce = AR.control_end(int(pid))
+-    held = [h for h in c.get("held", []) if h[1] <= (2023 if player == "Wander Franco" else 2026)]
+-    ctrl_save = 0.0; fa_prod = 0.0; fa_exp = 0.0; cost = 0.0; ctrl_n = fa_n = 0; inc = {}; cst = {}; kof = {}
+-    for k, y, w, sh in held:
+-        kof[y] = k
+-        ext_c = wins_of(AR.ext_salary(c, y), y) * sh
+-        if ce is not None and y <= ce:
+-            arb = AR.arb_salary(int(pid), y) or LMIN
+-            v_ = (wins_of(arb, y) - ext_c) * AR.money_unit(y)
+-            ctrl_save += v_; ctrl_n += 1
+-        else:
+-            kk = y - ce if ce is not None else k
+-            e_ = ext_c * AR.typical_fa(kk, y, c.get("band"))
+-            v_ = w - e_
+-            fa_prod += w; fa_exp += e_; fa_n += 1
+-        cost += ext_c; inc[y] = inc.get(y, 0.0) + v_; cst[y] = cst.get(y, 0.0) + ext_c
+-    raw = ctrl_save + fa_prod - fa_exp
+-    EVAL.append(dict(sign=sign, player=player, tid=tid, ab=ab, sign_date=sign + "-15", pid=pid, cls=cls, yrs=yrs, tot=tot,
+-                     seasons=[h[1] for h in held], raw=raw, cost=cost, ctrl_save=ctrl_save, fa_prod=fa_prod, fa_exp=fa_exp,
+-                     ctrl_n=ctrl_n, fa_n=fa_n, inc=inc, cst=cst, kof=kof))
++# item 2 (Nov 11, Sean: "group rates HELD"): 2020 was a 60-game season, so the 2020 charge is prorated 60/162 for
++# the deal being graded, while the class rates are computed with the unprorated charge, as shipped, so no other
++# extension moves (no spillover).
++SEASON_FRAC = {2020: 60 / 162}
++_FRAC = {}
++def wins_of(m, y): return max(0.0, m - LMIN) / CB_DPW.get(y, AR.dpw(y)) * _FRAC.get(y, 1.0)
++def _build_eval():
++    EVAL = []
++    for c in CB["book"]:
++        if c["kind"] != "ext": continue
++        sign, player, ab, yrs, tot = c["sign"], c["name"], c["club"], c["yrs"], c["tot"]
++        if ab not in ABBR2TID: continue
++        tid = ABBR2TID[ab]
++        pid = str(c["pid"]); sy = int(sign[:4])
++        dy = debut_year(pid) if pid else None
++        if dy is None or dy > sy: cls = "pre-debut"
++        elif sy - dy <= 2: cls = "early"
++        elif sy - dy <= 5: cls = "arb"
++        else: cls = "veteran"
++        ce = AR.control_end(int(pid))
++        held = [h for h in c.get("held", []) if h[1] <= (2023 if player == "Wander Franco" else 2026)]
++        ctrl_save = 0.0; fa_prod = 0.0; fa_exp = 0.0; cost = 0.0; ctrl_n = fa_n = 0; inc = {}; cst = {}; kof = {}
++        for k, y, w, sh in held:
++            kof[y] = k
++            ext_c = wins_of(AR.ext_salary(c, y), y) * sh
++            if ce is not None and y <= ce:
++                arb = AR.arb_salary(int(pid), y) or LMIN
++                v_ = (wins_of(arb, y) - ext_c) * AR.money_unit(y)
++                ctrl_save += v_; ctrl_n += 1
++            else:
++                kk = y - ce if ce is not None else k
++                e_ = ext_c * AR.typical_fa(kk, y, c.get("band"))
++                v_ = w - e_
++                fa_prod += w; fa_exp += e_; fa_n += 1
++            cost += ext_c; inc[y] = inc.get(y, 0.0) + v_; cst[y] = cst.get(y, 0.0) + ext_c
++        raw = ctrl_save + fa_prod - fa_exp
++        EVAL.append(dict(sign=sign, player=player, tid=tid, ab=ab, sign_date=sign + "-15", pid=pid, cls=cls, yrs=yrs, tot=tot,
++                         seasons=[h[1] for h in held], raw=raw, cost=cost, ctrl_save=ctrl_save, fa_prod=fa_prod, fa_exp=fa_exp,
++                         ctrl_n=ctrl_n, fa_n=fa_n, inc=inc, cst=cst, kof=kof))
++    return EVAL
++EVAL_RATES = _build_eval()          # unprorated: sets CLASS_RATE exactly as shipped
++_FRAC = SEASON_FRAC
++EVAL = _build_eval()                # prorated: the grades
+ _acc = defaultdict(lambda: [0.0, 0.0, 0])
+-for e in EVAL:
++for e in EVAL_RATES:
+     if e["seasons"]: a_ = _acc[e["cls"]]; a_[0] += e["raw"]; a_[1] += e["cost"]; a_[2] += 1
+ CLASS_RATE = {k: round(a_[0] / a_[1], 3) for k, a_ in _acc.items() if a_[1] > 0}
+ # v5.9 (Nov 2): the extension's cost now follows a rising salary schedule
+diff -ru d/engine/fa_grade.py e/engine/fa_grade.py
+--- d/engine/fa_grade.py	2026-11-11 20:00:11.373344300 -0500
++++ e/engine/fa_grade.py	2026-11-11 20:07:15.510975590 -0500
+@@ -74,6 +74,7 @@
+ CB_DPW = {int(k): v for k, v in CB["dpw"].items()}
+ TYP = {int(k): v for k, v in CB["typical_fa"].items()}
+ ERA = CB.get("era_adj_pre2006", 1.0); LMIN = CB.get("league_min", 0.75)
++SEASON_FRAC = {2020: 60 / 162}   # item 2: 2020 was a 60-game season, charge prorated; typical rates (contract_book) unchanged, so no spillover
+ BAND = {int(k): v for k, v in CB.get("band_mult", {}).items()}
+ def typical(k, y, b=None):
+     """v5.9: by contract year AND deal size (contract_book.py band multipliers)"""
+@@ -128,8 +129,8 @@
+         if not held: out.append(dict(x=x, hit=(off, c["yrs"], c["tot"], c["src"]), open=True)); continue
+         realized = sum(h[2] for h in held)
+         b = c.get("band")
+-        cost = sum(max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] for h in held)
+-        expected = sum(max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] * typical(h[0], h[1], b) for h in held)
++        cost = sum(max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] * SEASON_FRAC.get(h[1], 1.0) for h in held)
++        expected = sum(max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] * SEASON_FRAC.get(h[1], 1.0) * typical(h[0], h[1], b) for h in held)
+         fee = POSTING_FEE.get((int(x["person_id"]), TID2AB[tid]), 0.0)
+         if fee:
+             fc = fee / CB_DPW.get(held[0][1], 9.7)
+@@ -138,7 +139,7 @@
+         # chart carries free agency too
+         inc = {}
+         for i_, h in enumerate(held):
+-            e_ = max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] * typical(h[0], h[1], b)
++            e_ = max(0.0, c["aav"] - LMIN) / CB_DPW.get(h[1], 9.7) * h[3] * SEASON_FRAC.get(h[1], 1.0) * typical(h[0], h[1], b)
+             if i_ == 0 and fee: e_ += fee / CB_DPW.get(held[0][1], 9.7) * typical(1, held[0][1], b)
+             inc[h[1]] = inc.get(h[1], 0.0) + h[2] - e_
+         out.append(dict(x=x, hit=(off, c["yrs"], c["tot"], c["src"]), pn=norm(x["person_name"]), cbt=None, fee=fee,
