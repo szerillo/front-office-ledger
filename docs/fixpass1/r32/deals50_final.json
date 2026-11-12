@@ -1,0 +1,689 @@
+{
+ "seed": 20261112,
+ "eligible_mlb": 519,
+ "eligible_fa": 240,
+ "deals": [
+  {
+   "id": "T01",
+   "mode": "trade",
+   "you": "MIA",
+   "them": "PHI",
+   "send": [
+    669622
+   ],
+   "recv": [
+    689147
+   ]
+  },
+  {
+   "id": "T02",
+   "mode": "trade",
+   "you": "TB",
+   "them": "CWS",
+   "send": [
+    810938
+   ],
+   "recv": [
+    663436
+   ]
+  },
+  {
+   "id": "T03",
+   "mode": "trade",
+   "you": "BOS",
+   "them": "DET",
+   "send": [
+    686580
+   ],
+   "recv": [
+    693307
+   ]
+  },
+  {
+   "id": "T04",
+   "mode": "trade",
+   "you": "DET",
+   "them": "CHC",
+   "send": [
+    672761
+   ],
+   "recv": [
+    807713
+   ]
+  },
+  {
+   "id": "T05",
+   "mode": "trade",
+   "you": "MIN",
+   "them": "PIT",
+   "send": [
+    663616
+   ],
+   "recv": [
+    696149
+   ]
+  },
+  {
+   "id": "T06",
+   "mode": "trade",
+   "you": "ARI",
+   "them": "PIT",
+   "send": [
+    672515
+   ],
+   "recv": [
+    670990
+   ]
+  },
+  {
+   "id": "T07",
+   "mode": "trade",
+   "you": "MIL",
+   "them": "BOS",
+   "send": [
+    682842
+   ],
+   "recv": [
+    657136
+   ]
+  },
+  {
+   "id": "T08",
+   "mode": "trade",
+   "you": "ATH",
+   "them": "CHC",
+   "send": [
+    701762
+   ],
+   "recv": [
+    676962
+   ]
+  },
+  {
+   "id": "T09",
+   "mode": "trade",
+   "you": "STL",
+   "them": "MIL",
+   "send": [
+    669467
+   ],
+   "recv": [
+    806198
+   ]
+  },
+  {
+   "id": "T10",
+   "mode": "trade",
+   "you": "ATH",
+   "them": "DET",
+   "send": [
+    671732
+   ],
+   "recv": [
+    675512
+   ]
+  },
+  {
+   "id": "T11",
+   "mode": "trade",
+   "you": "WSH",
+   "them": "MIN",
+   "send": [
+    693312
+   ],
+   "recv": [
+    670242
+   ]
+  },
+  {
+   "id": "T12",
+   "mode": "trade",
+   "you": "PIT",
+   "them": "CLE",
+   "send": [
+    596133
+   ],
+   "recv": [
+    676440
+   ]
+  },
+  {
+   "id": "T13",
+   "mode": "trade",
+   "you": "BOS",
+   "them": "LAD",
+   "send": [
+    678882
+   ],
+   "recv": [
+    808967
+   ]
+  },
+  {
+   "id": "T14",
+   "mode": "trade",
+   "you": "SF",
+   "them": "LAD",
+   "send": [
+    657277
+   ],
+   "recv": [
+    676508
+   ]
+  },
+  {
+   "id": "T15",
+   "mode": "trade",
+   "you": "DET",
+   "them": "CLE",
+   "send": [
+    672761
+   ],
+   "recv": [
+    682657
+   ]
+  },
+  {
+   "id": "T16",
+   "mode": "trade",
+   "you": "ATH",
+   "them": "MIN",
+   "send": [
+    663687
+   ],
+   "recv": [
+    668885
+   ]
+  },
+  {
+   "id": "T17",
+   "mode": "trade",
+   "you": "ATL",
+   "them": "MIN",
+   "send": [
+    592696
+   ],
+   "recv": [
+    641927
+   ]
+  },
+  {
+   "id": "T18",
+   "mode": "trade",
+   "you": "NYM",
+   "them": "LAD",
+   "send": [
+    681035
+   ],
+   "recv": [
+    808975
+   ]
+  },
+  {
+   "id": "T19",
+   "mode": "trade",
+   "you": "ARI",
+   "them": "DET",
+   "send": [
+    669194
+   ],
+   "recv": [
+    669724
+   ]
+  },
+  {
+   "id": "T20",
+   "mode": "trade",
+   "you": "MIL",
+   "them": "LAA",
+   "send": [
+    686217
+   ],
+   "recv": [
+    666139
+   ]
+  },
+  {
+   "id": "T21",
+   "mode": "trade",
+   "you": "BOS",
+   "them": "LAD",
+   "send": [
+    624133,
+    678394
+   ],
+   "recv": [
+    606192
+   ]
+  },
+  {
+   "id": "T22",
+   "mode": "trade",
+   "you": "MIL",
+   "them": "PHI",
+   "send": [
+    676879,
+    686217
+   ],
+   "recv": [
+    656941
+   ]
+  },
+  {
+   "id": "T23",
+   "mode": "trade",
+   "you": "ATL",
+   "them": "COL",
+   "send": [
+    645277,
+    621566
+   ],
+   "recv": [
+    663372
+   ]
+  },
+  {
+   "id": "T24",
+   "mode": "trade",
+   "you": "STL",
+   "them": "DET",
+   "send": [
+    681517,
+    681676
+   ],
+   "recv": [
+    679529
+   ]
+  },
+  {
+   "id": "T25",
+   "mode": "trade",
+   "you": "SF",
+   "them": "LAD",
+   "send": [
+    676254,
+    664056
+   ],
+   "recv": [
+    663656
+   ]
+  },
+  {
+   "id": "T26",
+   "mode": "trade",
+   "you": "CLE",
+   "them": "KC",
+   "send": [
+    670059,
+    800050
+   ],
+   "recv": [
+    686469
+   ]
+  },
+  {
+   "id": "T27",
+   "mode": "trade",
+   "you": "SF",
+   "them": "ATL",
+   "send": [
+    664056,
+    642715
+   ],
+   "recv": [
+    680885
+   ]
+  },
+  {
+   "id": "T28",
+   "mode": "trade",
+   "you": "DET",
+   "them": "CLE",
+   "send": [
+    663837,
+    690993
+   ],
+   "recv": [
+    677944
+   ]
+  },
+  {
+   "id": "T29",
+   "mode": "trade",
+   "you": "TOR",
+   "them": "LAD",
+   "send": [
+    672386,
+    680755
+   ],
+   "recv": [
+    680736
+   ]
+  },
+  {
+   "id": "T30",
+   "mode": "trade",
+   "you": "WSH",
+   "them": "TOR",
+   "send": [
+    695734,
+    695418
+   ],
+   "recv": [
+    672386
+   ]
+  },
+  {
+   "id": "F01",
+   "mode": "fa",
+   "pid": 518595,
+   "yrs": 4,
+   "factor": 1.19,
+   "club": "BOS",
+   "tot": 1
+  },
+  {
+   "id": "F02",
+   "mode": "fa",
+   "pid": 674370,
+   "yrs": 3,
+   "factor": 1.15,
+   "club": "MIN",
+   "tot": 3
+  },
+  {
+   "id": "F03",
+   "mode": "fa",
+   "pid": 542888,
+   "yrs": 4,
+   "factor": 0.79,
+   "club": "BOS",
+   "tot": 5
+  },
+  {
+   "id": "F04",
+   "mode": "fa",
+   "pid": 605452,
+   "yrs": 6,
+   "factor": 1.16,
+   "club": "SEA",
+   "tot": 4
+  },
+  {
+   "id": "F05",
+   "mode": "fa",
+   "pid": 592626,
+   "yrs": 5,
+   "factor": 0.8,
+   "club": "BAL",
+   "tot": 1
+  },
+  {
+   "id": "F06",
+   "mode": "fa",
+   "pid": 543309,
+   "yrs": 5,
+   "factor": 1.17,
+   "club": "TEX",
+   "tot": 1
+  },
+  {
+   "id": "F07",
+   "mode": "fa",
+   "pid": 500743,
+   "yrs": 2,
+   "factor": 0.94,
+   "club": "CWS",
+   "tot": 6
+  },
+  {
+   "id": "F08",
+   "mode": "fa",
+   "pid": 642397,
+   "yrs": 3,
+   "factor": 0.8,
+   "club": "ATH",
+   "tot": 21
+  },
+  {
+   "id": "F09",
+   "mode": "fa",
+   "pid": 645302,
+   "yrs": 2,
+   "factor": 1.39,
+   "club": "CLE",
+   "tot": 9
+  },
+  {
+   "id": "F10",
+   "mode": "fa",
+   "pid": 671083,
+   "yrs": 5,
+   "factor": 1.15,
+   "club": "ATH",
+   "tot": 1
+  },
+  {
+   "id": "F11",
+   "mode": "fa",
+   "pid": 678225,
+   "yrs": 2,
+   "factor": 1.09,
+   "club": "TB",
+   "tot": 3
+  },
+  {
+   "id": "F12",
+   "mode": "fa",
+   "pid": 622569,
+   "yrs": 4,
+   "factor": 1.01,
+   "club": "CWS",
+   "tot": 1
+  },
+  {
+   "id": "D01",
+   "mode": "draft",
+   "recv": [
+    {
+     "kind": "pick",
+     "pick": 546,
+     "year": 2027
+    },
+    {
+     "kind": "pick",
+     "pick": 583,
+     "year": 2027
+    }
+   ],
+   "send": [
+    {
+     "kind": "pick",
+     "pick": 49,
+     "year": 2027
+    },
+    {
+     "kind": "pick",
+     "pick": 81,
+     "year": 2027
+    }
+   ]
+  },
+  {
+   "id": "D02",
+   "mode": "draft",
+   "recv": [
+    {
+     "kind": "pick",
+     "pick": 146,
+     "year": 2027
+    },
+    {
+     "kind": "pick",
+     "pick": 20,
+     "year": 2027
+    }
+   ],
+   "send": [
+    {
+     "kind": "pick",
+     "pick": 270,
+     "year": 2027
+    }
+   ]
+  },
+  {
+   "id": "D03",
+   "mode": "draft",
+   "recv": [
+    {
+     "kind": "pick",
+     "pick": 296,
+     "year": 2027
+    },
+    {
+     "kind": "pick",
+     "pick": 367,
+     "year": 2027
+    }
+   ],
+   "send": [
+    {
+     "kind": "pick",
+     "pick": 537,
+     "year": 2027
+    },
+    {
+     "kind": "pick",
+     "pick": 329,
+     "year": 2027
+    }
+   ]
+  },
+  {
+   "id": "D04",
+   "mode": "draft",
+   "recv": [
+    {
+     "kind": "pick",
+     "pick": 44,
+     "year": 2027
+    }
+   ],
+   "send": [
+    {
+     "kind": "pick",
+     "pick": 315,
+     "year": 2027
+    },
+    {
+     "kind": "pick",
+     "pick": 540,
+     "year": 2027
+    }
+   ]
+  },
+  {
+   "id": "D05",
+   "mode": "draft",
+   "recv": [
+    {
+     "kind": "pick",
+     "pick": 616,
+     "year": 2027
+    }
+   ],
+   "send": [
+    {
+     "kind": "pick",
+     "pick": 114,
+     "year": 2027
+    }
+   ]
+  },
+  {
+   "id": "D06",
+   "mode": "draft",
+   "recv": [
+    {
+     "kind": "pick",
+     "pick": 380,
+     "year": 2027
+    },
+    {
+     "kind": "pick",
+     "pick": 208,
+     "year": 2027
+    }
+   ],
+   "send": [
+    {
+     "kind": "pick",
+     "pick": 488,
+     "year": 2027
+    },
+    {
+     "kind": "pick",
+     "pick": 431,
+     "year": 2027
+    }
+   ]
+  },
+  {
+   "id": "D07",
+   "mode": "draft",
+   "recv": [
+    {
+     "kind": "pick",
+     "pick": 351,
+     "year": 2027
+    },
+    {
+     "kind": "pick",
+     "pick": 344,
+     "year": 2027
+    }
+   ],
+   "send": [
+    {
+     "kind": "pick",
+     "pick": 600,
+     "year": 2027
+    },
+    {
+     "kind": "pick",
+     "pick": 380,
+     "year": 2027
+    }
+   ]
+  },
+  {
+   "id": "D08",
+   "mode": "draft",
+   "recv": [
+    {
+     "kind": "pick",
+     "pick": 523,
+     "year": 2027
+    },
+    {
+     "kind": "pick",
+     "pick": 325,
+     "year": 2027
+    }
+   ],
+   "send": [
+    {
+     "kind": "pick",
+     "pick": 169,
+     "year": 2027
+    },
+    {
+     "kind": "pick",
+     "pick": 61,
+     "year": 2027
+    }
+   ]
+  }
+ ]
+}
