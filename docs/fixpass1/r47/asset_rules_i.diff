@@ -1,0 +1,19 @@
+64a65,75
+> _PUB = None
+> def _published():
+>     """r47: last season of control implied by published official service time (MLB Trade Rumors arbitration posts),
+>     docs/fixpass1/r46/published_service.json; players not in it keep the debut rule"""
+>     global _PUB
+>     if _PUB is None:
+>         import json as _j, os as _o
+>         p = _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "published_service.json")
+>         if not _o.path.exists(p): p = "/work/published_service.json"
+>         _PUB = {int(k): v["ctrl_end"] for k, v in _j.load(open(p)).items()}
+>     return _PUB
+74c85,86
+<     if d and int(d[:4]) == y0 and d[5:] <= "04-15": return (y0, y0 + 5)
+---
+>     pub = _published().get(int(pid)) if pid else None   # r47: published official service time (docs/fixpass1/r46)
+>     if d and int(d[:4]) == y0 and d[5:] <= "04-15": return (y0, pub if pub else y0 + 5)
+75a88
+>     if pub: return (y0, pub)
