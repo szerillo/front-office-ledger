@@ -1,8 +1,21 @@
 {
   "_about": "Facts the league's transaction feed does not carry, read by The Wire. terms: reported contract terms by MLBAM id (yrs, tot in $M). qo: qualifying offer decisions announced before the feed shows them (s: accepted|declined, d: date). extra: moves not in the feed (kind: option|ext|other, d, club, pid, txt, optional yrs/tot).",
-  "updated": "2026-11-09",
-  "checked": "2026-11-11T07:51:13Z",
-  "terms": {},
+  "updated": "2026-11-12",
+  "checked": "2026-11-12T13:22:14Z",
+  "terms": {
+    "621097": {
+      "yrs": 1,
+      "tot": 1.3,
+      "club": "DET",
+      "d": "2026-11-02"
+    },
+    "680802": {
+      "yrs": 1,
+      "tot": 1.85,
+      "club": "SD",
+      "d": "2026-11-10"
+    }
+  },
   "qo": {},
   "extra": []
 }
