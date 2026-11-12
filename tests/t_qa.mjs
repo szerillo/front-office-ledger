@@ -140,7 +140,7 @@ const R = await page.evaluate(async (offsJson) => {
   // Nov 10 evening: short tenures listed under the ranked ones, the score explained, letters explained
   switchView('leaderboard'); await wait(200);
   const trs = [...document.querySelectorAll('#lb tbody tr')], di = trs.findIndex(t => t.classList.contains('lb-div'));
-  o.shortTenuresUnranked = di > 15 && trs.slice(0, di).every(t => /^\d+$/.test(t.querySelector('.rk').textContent.trim())) && trs.slice(di + 1).every(t => t.querySelector('.rk').textContent.trim() === '') && /Under two seasons in the seat/.test(trs[di].textContent) && folActiveRank().every(r => !lbShort(r)) && folActiveRank().length === di;
+  o.shortTenuresUnranked = di > 15 && trs.slice(0, di).every(t => t.querySelector('.rk').textContent.trim() === '')   /* Nov 12 (r43): no rank numbers */ && trs.slice(di + 1).every(t => t.querySelector('.rk').textContent.trim() === '') && /Under two seasons in the seat/.test(trs[di].textContent) && folActiveRank().every(r => !lbShort(r)) && folActiveRank().length === di;
   o.overallScoreExplained = /number under each Overall grade is the score, in wins a season/.test(document.getElementById('view-leaderboard').textContent) && /wins a season/.test(document.querySelector('#lb th.lb-overall').textContent);
   const ranked = folActiveRank()[0]; switchView('report', ranked.id); await wait(250);
   o.rankPoolExplained = /of the \d+ front offices with two or more seasons in the seat/.test(document.getElementById('view-report').textContent) && /graded but not ranked yet/.test(document.getElementById('view-report').textContent);

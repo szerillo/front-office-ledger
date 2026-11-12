@@ -113,7 +113,7 @@ const r = await page.evaluate(async () => {
 r.dealsLazy = await page.evaluate(async () => {
   for(let i = 0; i < 40 && !dkDealsReady(); i++){ dkDealsLoad(); await new Promise(z => setTimeout(z, 250)); }
   const inline = !window.DESK_DEALS_SRC;
-  return dkDealsReady() && DESK.deals.length > 1000 && dkComps(3, 3, '3+', 'c', '', '').length > 0 && (inline || [...document.scripts].some(x => /deals\.js/.test(x.src)));
+  return dkDealsReady() && DESK.deals.length > 1000 && dkComps(3, 3, '3+', 'c', '', '').length > 0 && (inline || [...document.scripts].some(x => /deals(\.[0-9a-f]{10})?\.js/.test(x.src)))   /* Nov 12 (r43): hashed name since r42 */;
 });
 // comps arriving after an Assistant GM note is on screen keep the note (live race, Nov 11)
 r.agmNoteSurvivesComps = await page.evaluate(async () => {

@@ -188,7 +188,9 @@ Object.assign(R, await d.page.evaluate(async (offsJson) => {
   offState.dir = 'best'; offState.club = 'NYM'; renderOffs();
   o.offsClub = [...document.querySelectorAll('#offsbody .offs-card')].every(c => /Mets/.test(c.textContent));
   offState.club = '';
-  o.offsSimRank = /would rank <strong>#\d+ of \d+<\/strong>/.test(gmOffsCard(6.5, 4)) && gmOffsCard(0, 0) === '';
+  o.offsSimRank = /would land <strong>better than about \d+%<\/strong>/.test(gmOffsCard(6.5, 4)) && !/#\d/.test(gmOffsCard(6.5, 4)) && gmOffsCard(0, 0) === '';
+  // Nov 12 (r43): no exact rank on a winter card; the one tested band shows on TOR 2012-13 only
+  o.offsNoRank = (() => { const cs = [...document.querySelectorAll('#offsbody .offs-card .h-date')].map(e => e.textContent); return cs.length > 0 && cs.every(t => !/#\d/.test(t)); })() && offsBand({rid: 'tor-alex-anthopoulos', w: 2012}) === 'Among the 20 worst since 1998' && offsBand({rid: 'wsh', w: 2014}) === '';
   o.offsRoute = (() => { switchView('offs'); return /view=winters/.test(location.hash); })();
   // Hot Stove: the hub and one club
   wireLoadData([], null); stoveGo(''); await wait(60);
