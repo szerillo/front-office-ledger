@@ -58,3 +58,7 @@ Round 6 stopped by me after W0 and W1 finished (W2, W3 partial). Under 5e81190 i
 Round 7 (rules 1 to 13, ledger_v2): W0 to W5 one md5 on every published and mid file; W6 (PRAGMA reverse_unordered_selects) differs on cards.js, the prototype, sweep_results and hist_results, ORDER only: allx.draft lists (28 clubs in sweep_results, 114 regimes in hist_results) plus 2 draft comp lists. No guard abort in any run. Under 5e81190 round 7 is a FAIL.
 - Every draft_picks read has no ORDER BY (sweep_score.py:166, :175; hist_score.py:122, :131; archetype.py:202 (a float sum); champions_build.py:68; dev_score.py:69 (year only); draft_calib.py:38, :41, :79; prospect_bio.py:35). The shuffles only reorder sweep_tx, so only the reversed-read run sees it.
   Rule 14: every draft_picks read is ORDER BY cast(year as int), cast(pick_overall as int), person_id, team.
+
+## Deploy-candidate build (after round 8 PASS)
+Final engine = round 8 engine + 2020 held rates (a449800) + engine re-sign rule (engine-resign-rule.diff, 0f98a54), with its event sort made full and None-safe.
+Build bug found (not an order bug): regen_v3.py:319 swaps AUTO_REGIMES up to the first ";\n\n/* =". On the current page the value line is followed by a try { folNominalWalk(...) } line, so the swap deleted 339 lines of page code (the helpers section with const $, the leaderboard code); the built page throws "$ is not defined". Rounds 1 to 8 compared md5s only, so they could not see it. Fix: end the swap at the value line's own ";\n". The one-md5 check is rerun on this engine (runs X0 to X6).
