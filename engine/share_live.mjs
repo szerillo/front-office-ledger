@@ -85,12 +85,13 @@ const data = await p.evaluate(([KEEP_O, TOO_CLOSE]) => {
   const st = offsSettled().slice().sort((a, b) => b.tot - a.tot), top = st.slice(0, 20).concat(st.slice(-20)), pick = top.concat(st.filter(r => KEEP_O.includes(r.id) && !top.includes(r)));
   // Nov 12 (round 41): a rank is shown only inside the top or bottom 20; exact ties share a rank (T-18); a page kept
   // outside the 20s (round 36) carries no rank at all (it used to read "#675 worst" for a +18.2 winter)
+  // Nov 12 (round 42): the pre-registered threshold run (docs/fixpass1/r42) found no adjacent pair of winters whose
+  // order holds in 90% of 2,000 draws of WAR-source disagreement, so pages give a band, never an exact rank or a tie.
   const rankTxt = (r, unit) => {
-    if(TOO_CLOSE[r.id]) return `One of the two best ${unit}s on record (too close to rank vs ${TOO_CLOSE[r.id]})`;
-    const t1 = x => Math.round(x.tot * 10), me = t1(r);      // ranks and ties on the shown value (one decimal)
-    const hi = st.filter(x => t1(x) > me).length + 1, lo = st.filter(x => t1(x) < me).length + 1, tie = st.filter(x => t1(x) === me).length > 1;
-    if(hi <= 20) return `The ${tie ? 'T-' : '#'}${hi} best ${unit} since 1998`;
-    if(lo <= 20) return `The ${tie ? 'T-' : '#'}${lo} worst ${unit} since 1998`;
+    const t1 = x => Math.round(x.tot * 10), me = t1(r);      // on the shown value (one decimal)
+    const hi = st.filter(x => t1(x) > me).length + 1, lo = st.filter(x => t1(x) < me).length + 1;
+    if(hi <= 20) return `Among the 20 best ${unit}s since 1998`;
+    if(lo <= 20) return `Among the 20 worst ${unit}s since 1998`;
     return null;
   };
   const O = pick.map(r => { const nm = `${offsYr(r.w)} ${offsName(r)}`, rkD = rankTxt(r, 'offseason'), rkK = rankTxt(r, 'winter');
