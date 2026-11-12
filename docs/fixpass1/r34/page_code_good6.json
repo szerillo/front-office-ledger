@@ -1,0 +1,6 @@
+{
+ "sha": "df6f92e7058fad11",
+ "codeLines": 10212,
+ "reason": "Deal Desk GM line: a GM with deals but no grade (under 3 deals or new in the seat) reads 'N deals so far, too few to grade', not g2letter(null) = F (round 34)",
+ "at": "2026-11-12T06:20:23.831Z"
+}
