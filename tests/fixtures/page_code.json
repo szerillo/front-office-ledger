@@ -1,6 +1,6 @@
 {
- "sha": "03d350bb3eef9c45",
- "codeLines": 11783,
- "reason": "round 48: award service credit for Kurtz and Horton (AWARD_SVC, gmPubSvc)",
- "at": "2026-11-12T17:10:58.015Z"
+ "sha": "e1fd710a7a79d278",
+ "codeLines": 11789,
+ "reason": "round 49: two methodology lines on control-end error (grading rule, estimated control ends); hand-checked service figure for Luis Garcia Jr. (671277)",
+ "at": "2026-11-12T17:39:34.581Z"
 }
