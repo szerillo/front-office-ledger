@@ -1,0 +1,17 @@
+{
+ "views": {
+  "home": 0,
+  "leaderboard": 0,
+  "dna": 0,
+  "boards": 0,
+  "heists": 0,
+  "offs": 0,
+  "report cards": 2,
+  "desk GM lines": 0
+ },
+ "calls": {
+  "gradeClass line 12763: ${(dv=>dv?`<div class=\"card tile\"><div class=\"lbl\">Player development< => \"gnone\"": 1,
+  "g2letter line 12763: ${(dv=>dv?`<div class=\"card tile\"><div class=\"lbl\">Player development< => \"·\"": 1
+ },
+ "errors": []
+}

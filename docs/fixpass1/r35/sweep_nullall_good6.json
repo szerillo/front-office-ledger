@@ -1,0 +1,27 @@
+{
+ "views": {
+  "home": 16,
+  "leaderboard": 0,
+  "dna": 0,
+  "boards": 0,
+  "heists": 0,
+  "offs": 0,
+  "report cards": 938,
+  "desk GM lines": 0
+ },
+ "calls": {
+  "gradeClass line 14472: const topLb = rk.slice(0, 8).map((r, i) => `<div class=\"hub-lb\"><stron => \"g30\"": 8,
+  "g2letter line 14472: const topLb = rk.slice(0, 8).map((r, i) => `<div class=\"hub-lb\"><stron => \"F\"": 8,
+  "gradeClass line 12761: <div class=\"card tile\"><div class=\"lbl\">Overall grade</div><div class= => \"g30\"": 149,
+  "g2letter line 12761: <div class=\"card tile\"><div class=\"lbl\">Overall grade</div><div class= => \"F\"": 149,
+  "gradeClass line 12762: <div class=\"card tile\"><div class=\"lbl\">Team success during tenure</di => \"g30\"": 149,
+  "g2letter line 12762: <div class=\"card tile\"><div class=\"lbl\">Team success during tenure</di => \"F\"": 149,
+  "gradeClass line 12763: ${(dv=>dv?`<div class=\"card tile\"><div class=\"lbl\">Player development< => \"g30\"": 28,
+  "g2letter line 12763: ${(dv=>dv?`<div class=\"card tile\"><div class=\"lbl\">Player development< => \"F\"": 28,
+  "gradeClass line 14640: ${rows.map((x, k) => `<div class=\"hub-row${x === r ? ' me' : ''}\"><str => \"g30\"": 115,
+  "g2letter line 14640: ${rows.map((x, k) => `<div class=\"hub-row${x === r ? ' me' : ''}\"><str => \"F\"": 115,
+  "g2letter line 14645: <div class=\"card tile\"><div class=\"lbl\">Overall grade</div><div class= => \"F\"": 28,
+  "g2letter line 14654: <button class=\"actbtn\" onclick=\"folShare('https://frontofficeledger.co => \"F\"": 28
+ },
+ "errors": []
+}

@@ -1,0 +1,6 @@
+{
+ "sha": "13cdf05414f28d3e",
+ "codeLines": 11738,
+ "reason": "round 35: page-code hash covers everything but the named engine/build data blocks; g2letter/gradeClass/deskLetter return no letter for a missing grade; dev tile tooltip; success fallback removed",
+ "at": "2026-11-12T06:40:41.798Z"
+}
