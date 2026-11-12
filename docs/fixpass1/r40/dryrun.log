@@ -1,0 +1,9 @@
+Dry run (round 40, B): content-hash names, old and new builds on one server (/tmp/r40/b/dry, served like Pages: gzip, max-age 600, query ignored)
+old = rollback set rb5 (live before 8de35fd) with hash_names.py; new = good7 (live now) with hash_names.py; probe.mjs per phase.
+PHASE 0 old hashed site: chcOverall 60, chcWaiverNet -2.3, trades 4172, clubs 152, errors 0, 404s none; loaded offseasons.1a4a4a5e84.json, book.1ca8d7c28a.js, moves.564030f034.js, cards.6478c40339.js, cards2.bc21eaa482.js
+PHASE 1 new data files land first (7 added, 0 overwritten), old index.html: chcOverall 60, waiver -2.3, trades 4172, errors 0, 404s none, same old files loaded -> fully old, consistent
+PHASE 2 new index.html: chcOverall 55, waiver -6.7, trades 4178, errors 0, 404s none; loaded offseasons.ec6b882c53.json, book.4e6757e8f6.js, cards.d3e5a83173.js, moves.3be8d3107f.js, cards2.d7fb83c8d5.js -> fully new, consistent
+ROLLBACK old index.html back, every file kept: chcOverall 60, waiver -2.3, trades 4172, 404s none -> fully old
+HAZARD new index.html before its data: 404 on offseasons/cards/moves/book/deals, cards banner shown, 0 clubs -> upload order rule: data commit first, confirm live, then index.html
+Suites on the hashed good7 served locally: t_launch, t_wire, t_cards, t_nullgrades, t_hashnames PASS; t_build FAIL (page code hash 4d2e6d5f vs pinned 13cdf054: the loader strings are code, so a real deploy must re-pin t_build in the same tests commit)
+t_hashnames: hashed site PASS (11: 7 hashed + cards2 + 3 exempt live files); live main today FAIL (8); one reference reverted to the plain name FAIL; a hashed file edited after naming FAIL

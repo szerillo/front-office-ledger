@@ -1,0 +1,3 @@
+BAR 2 (as written): seats moved 92 ; in a trade with no listed piece 2 [(('2022-07-11', 'ATL'), 0.1), (('2022-07-11', 'KC'), -0.1)] -> FAIL
+PUBLIC: trade seat nets that change at 1 decimal: 92
+PUBLIC: winter totals that change: 59 largest 1.9 [('ATH', 2011, 33.4, 33.8)]
