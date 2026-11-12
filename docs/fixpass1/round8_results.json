@@ -1,0 +1,233 @@
+{
+ "prereg": "5e81190",
+ "amendments": [
+  "8e79455",
+  "d6656e3",
+  "1457561"
+ ],
+ "engine_patch": "79922d7 (order-fix-pass1-r8.diff)",
+ "ledger": "ledger_v2 md5 d192a2bd",
+ "runs": {
+  "W0": {
+   "cards.js": "52fee312",
+   "moves.js": "25e94287",
+   "front-office-ledger-prototype.html": "e42ae083",
+   "offseasons.json": "39e25875",
+   "trade_parts.json": "ef4bc7c3",
+   "trade_book.json": "6238825c",
+   "sweep_results.json": "249c00fa",
+   "hist_results.json": "ffbf72e8",
+   "desk_data.json": "419e532d",
+   "guard_aborts": 0
+  },
+  "W1": {
+   "cards.js": "52fee312",
+   "moves.js": "25e94287",
+   "front-office-ledger-prototype.html": "e42ae083",
+   "offseasons.json": "39e25875",
+   "trade_parts.json": "ef4bc7c3",
+   "trade_book.json": "6238825c",
+   "sweep_results.json": "249c00fa",
+   "hist_results.json": "ffbf72e8",
+   "desk_data.json": "419e532d",
+   "guard_aborts": 0
+  },
+  "W2": {
+   "cards.js": "52fee312",
+   "moves.js": "25e94287",
+   "front-office-ledger-prototype.html": "e42ae083",
+   "offseasons.json": "39e25875",
+   "trade_parts.json": "ef4bc7c3",
+   "trade_book.json": "6238825c",
+   "sweep_results.json": "249c00fa",
+   "hist_results.json": "ffbf72e8",
+   "desk_data.json": "419e532d",
+   "guard_aborts": 0
+  },
+  "W3": {
+   "cards.js": "52fee312",
+   "moves.js": "25e94287",
+   "front-office-ledger-prototype.html": "e42ae083",
+   "offseasons.json": "39e25875",
+   "trade_parts.json": "ef4bc7c3",
+   "trade_book.json": "6238825c",
+   "sweep_results.json": "249c00fa",
+   "hist_results.json": "ffbf72e8",
+   "desk_data.json": "419e532d",
+   "guard_aborts": 0
+  },
+  "W4": {
+   "cards.js": "52fee312",
+   "moves.js": "25e94287",
+   "front-office-ledger-prototype.html": "e42ae083",
+   "offseasons.json": "39e25875",
+   "trade_parts.json": "ef4bc7c3",
+   "trade_book.json": "6238825c",
+   "sweep_results.json": "249c00fa",
+   "hist_results.json": "ffbf72e8",
+   "desk_data.json": "419e532d",
+   "guard_aborts": 0
+  },
+  "W5": {
+   "cards.js": "52fee312",
+   "moves.js": "25e94287",
+   "front-office-ledger-prototype.html": "e42ae083",
+   "offseasons.json": "39e25875",
+   "trade_parts.json": "ef4bc7c3",
+   "trade_book.json": "6238825c",
+   "sweep_results.json": "249c00fa",
+   "hist_results.json": "ffbf72e8",
+   "desk_data.json": "419e532d",
+   "guard_aborts": 0
+  },
+  "W6": {
+   "cards.js": "52fee312",
+   "moves.js": "25e94287",
+   "front-office-ledger-prototype.html": "e42ae083",
+   "offseasons.json": "39e25875",
+   "trade_parts.json": "ef4bc7c3",
+   "trade_book.json": "6238825c",
+   "sweep_results.json": "249c00fa",
+   "hist_results.json": "ffbf72e8",
+   "desk_data.json": "419e532d",
+   "guard_aborts": 0
+  }
+ },
+ "one_md5_per_published_file": true,
+ "result": "PASS",
+ "code_effect_vs_RV0": {
+  "report_card_cells": [
+   [
+    "ari",
+    "chan.ret.net2",
+    22.4,
+    22.3
+   ],
+   [
+    "cle",
+    "chan.ret.net2",
+    22.9,
+    22.8
+   ],
+   [
+    "nym",
+    "chan.ret.net2",
+    4.5,
+    4.4
+   ],
+   [
+    "nyy",
+    "chan.ret.net2",
+    15.1,
+    15.0
+   ],
+   [
+    "phi",
+    "chan.trade.n",
+    110,
+    109
+   ],
+   [
+    "phi",
+    "chan.waiver.net",
+    -0.5,
+    0.4
+   ],
+   [
+    "phi",
+    "chan.waiver.n",
+    56,
+    55
+   ],
+   [
+    "phi",
+    "chan.ret.net2",
+    1.4,
+    1.3
+   ],
+   [
+    "pit",
+    "chan.waiver.net",
+    1.3,
+    1.1
+   ],
+   [
+    "pit",
+    "chan.waiver.n",
+    88,
+    87
+   ],
+   [
+    "sd",
+    "chan.ret.net2",
+    -16.0,
+    -16.1
+   ],
+   [
+    "sea",
+    "chan.intl.n",
+    202,
+    201
+   ],
+   [
+    "tor",
+    "chan.intl.n",
+    359,
+    360
+   ]
+  ],
+  "winter_number_rows": [
+   [
+    [
+     "PHI",
+     2021,
+     "phi"
+    ],
+    [
+     -1.0,
+     6,
+     -1.6,
+     4,
+     195,
+     -2.6,
+     82,
+     87
+    ],
+    [
+     -1.0,
+     5,
+     -1.6,
+     4,
+     195,
+     -2.6,
+     82,
+     87
+    ]
+   ]
+  ],
+  "winter_move_value_changes": [
+   [
+    [
+     "PHI",
+     2021,
+     "phi"
+    ],
+    [
+     "t",
+     "2021-11-19",
+     "656793"
+    ],
+    -0.3,
+    -0.5
+   ]
+  ],
+  "winters_any_move_text_or_value": 51,
+  "trade_seat_net_only_base": [
+   "[\"2021-11-19\", [[\"NYY\", 0.5], [\"PHI\", -0.3], [\"PHI\", -0.2]]]"
+  ],
+  "trade_seat_net_only_patched": [
+   "[\"2021-11-19\", [[\"NYY\", 0.5], [\"PHI\", -0.5]]]"
+  ],
+  "trade_parts_value_changes": []
+ }
+}
