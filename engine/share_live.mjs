@@ -49,7 +49,10 @@ const page = o => `<!doctype html>
 </head><body><p><a href="/${o.to}">${esc(o.link)}</a></p>
 <script>location.replace(${JSON.stringify('/' + o.to)});</script></body></html>
 `;
-const data = await p.evaluate(() => {
+// Nov 12 (round 36): winter pages already in the repo that are no longer in the top/bottom 20 are rebuilt too, so no
+// winter page keeps an old number after a regrade
+const KEEP_O = REPO && fs.existsSync(`${REPO}/o`) ? fs.readdirSync(`${REPO}/o`).filter(f => f.endsWith('.html')).map(f => f.slice(0, -5)) : [];
+const data = await p.evaluate((KEEP_O) => {
   const nick = ab => teamNick(CLUB_NAME[ab] || ab), slug = id => String(id).replace(/[^A-Za-z0-9_-]/g, '-');
   const chip = (ab, px) => `<span class="wi-tc" style="${folTC(ab)}; font-size:${px}px; padding:${Math.round(px / 5)}px ${Math.round(px / 2.4)}px; border-radius:6px">${ab}</span>`;
   const grade = (g, px) => g ? `<span class="grade ${letterClass(g)}" style="font-size:${px}px; padding:${Math.round(px / 6)}px ${Math.round(px / 2.2)}px">${g}</span>` : '';
@@ -76,7 +79,7 @@ const data = await p.evaluate(() => {
         + line('Gained', c.ins.map(nm).filter(Boolean), 'nobody yet') + line('Lost', c.outs.map(nm).filter(Boolean), 'nobody yet') + line('Still unsigned', own.map(q => q[0]), 'none') + line('Needs', c.needs.filter(x => !c.filled.includes(x)), 'no clear need')};
   });
   // the 20 best and 20 worst winters
-  const st = offsSettled().slice().sort((a, b) => b.tot - a.tot), pick = st.slice(0, 20).concat(st.slice(-20));
+  const st = offsSettled().slice().sort((a, b) => b.tot - a.tot), top = st.slice(0, 20).concat(st.slice(-20)), pick = top.concat(st.filter(r => KEEP_O.includes(r.id) && !top.includes(r)));
   const O = pick.map(r => { const nm = `${offsYr(r.w)} ${offsName(r)}`, rank = st.indexOf(r) + 1, worst = st.length - rank + 1;
     const mv = r.moves.slice(0, 3).map(m => `<div style="display:flex; gap:14px; margin-top:10px; font-size:24px"><span style="min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">${m[2]}</span><strong class="${m[3] >= 0 ? 'pos' : 'neg'}" style="margin-left:auto; font:700 24px var(--f-mono)">${fmtW(m[3])}</strong></div>`).join('');
     return {id: r.id, title: `${nm}: ${fmtW(r.tot)} wins in one winter · Front Office Ledger`, desc: `${rank <= 20 ? `The #${rank} best` : `The #${worst} worst`} offseason since 1998, under ${r.exec || 'that front office'}: trades ${fmtW(r.tr)}, free agents ${fmtW(r.fa)}. ${r.moves[0] ? r.moves[0][2] + '.' : ''}`,
@@ -84,14 +87,15 @@ const data = await p.evaluate(() => {
       inner: kick(`${rank <= 20 ? `The #${rank} best` : `The #${worst} worst`} winter since 1998 · ${r.exec || ''}`) + `<div style="display:flex; align-items:center; gap:20px; margin-top:6px">${chip(r.ab, 30)}${head(nm, nm.length > 30 ? 46 : 54)}<strong class="${r.tot >= 0 ? 'pos' : 'neg'}" style="margin-left:auto; font:700 52px var(--f-mono); white-space:nowrap">${fmtW(r.tot)}</strong></div>
         <div style="font-size:24px; color:var(--ink-2); margin-top:8px">Trades ${fmtW(r.tr)} · free agents ${fmtW(r.fa)}${r.prevW != null && r.nextW != null ? ` · ${r.prevW} wins before, ${r.nextW} after` : ''}</div><div style="border-top:2px solid var(--ink); margin-top:14px"></div>${mv}`}; });
   return {W, S, O};
-});
+}, KEEP_O);
 const prev = (dir, id) => { if(!REPO) return null; const f = `${REPO}/${dir}/${id}.html`; return fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : null; };
 const ver = new Date().toISOString().slice(0, 10).replace(/-/g, '');
 let made = {w: 0, s: 0, o: 0};
 for(const [dir, rows] of [['w', data.W], ['s', data.S], ['o', data.O]]){
   for(const r of rows){
     const old = prev(dir, r.id);
-    if(old && (dir !== 's' || old.includes(`content="${esc(r.desc)}"`))) continue;      // already built; a club page only when its winter moved
+    // Nov 12 (round 35): winter pages carry a number too, so they are rebuilt when their description changes, like club pages
+    if(old && (dir === 'w' || old.includes(`content="${esc(r.desc)}"`))) continue;      // already built; club and winter pages only when they moved
     await shot(r.inner, `${OUT}/og/${dir}/${r.id}.png`);
     fs.writeFileSync(`${OUT}/${dir}/${r.id}.html`, page({title: r.title, desc: r.desc, path: `${dir}/${r.id}`, img: `og/${dir}/${r.id}.png`, to: r.to, link: r.link, ver}));
     made[dir]++;
