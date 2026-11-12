@@ -1662,7 +1662,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
       <div class="lb-wrap"><table id="lb">
         <thead>
           <tr>
-            <th class="rk">#</th><th>Regime</th>
+            <th class="rk"></th><th>Regime</th>
             <th class="num lb-overall" title="The composite: every channel's decisions against expectation, rolled into one grade. The number under the letter is the score: wins a season above (+) or below (−) a typical front office. This is the ranking.">Overall<span class="lb-overall-sub">+/− wins a season</span></th>
             <th class="lb-netcol" title="Net wins above or below what a typical front office would have gotten from the same moves, all channels">Net wins vs. expectation</th>
             <th class="num">Draft</th><th class="num">Trades</th><th class="num">Free Agency</th><th class="num">Waiver / Minor</th><th class="num" title="International amateur signings, graded vs. the league's realized value per signing class (near-equal bonus pools since 2017)">Int'l</th>
@@ -1980,6 +1980,9 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
 
       <h3>Player development (DEV)</h3>
       <p>Prospects are marked to market on a rank-to-surplus-wins curve from the top-100 rankings archive (2011-2026, 1,548 rank-rows), with the holding org taken from minor-league rosters.</p><ul class="mbul"><li>Entry credit is net of acquisition cost; a prospect developed to the list under a predecessor earns the new regime nothing at entry.</li><li>Rank moves accrue to the org holding the player, graduation is a neutral exit, falling off without debuting is charged, and credit stays home when the prospect is later traded.</li><li>Grades are league-relative (about +2.5 wins of prospect value per club-season league-wide).</li></ul>
+
+      <h3>Known limits</h3>
+      <p>Pitching value is built on strikeouts, walks and home runs (fielding-independent numbers), not runs allowed, so a pitcher whose results beat or trail those numbers is graded on the numbers. When a player changes clubs mid-season, his salary is split by the stat rows each club has, not by days on the roster. Arbitration salaries we could not source come from a model that runs low. Extensions signed from 1998 to 2014 come from a hand-built file with a few known errors. And a player released before a season starts is still counted against his old club for that season; that fix is parked. Each can move a grade a little.</p>
 
       <h3>Projections (shown, never graded)</h3>
       <p>Open deals show a projected finish beside the realized grade.</p><ul class="mbul"><li>The projection is self-built: <strong>rate x playing time</strong>, then aged forward. Each piece was kept only if it beat the alternative on seasons it had not seen.<ul class="mbul">
@@ -12630,7 +12633,7 @@ function renderLB(){
       cardsHtml.push('<div class="lb-divc">Under two seasons in the seat: graded, not ranked yet</div>');
     }
     tr.innerHTML = `
-      <td class="rk">${_sv == null || lbShort(r) ? '' : _rk}</td>
+      <td class="rk"></td>
       <td><div class="execcell"><span class="nm">${regName(r)}${(r.flags||[]).includes('interim')?'<span class="badge-ss" title="Interim head of baseball operations">interim</span>':''}${(r.flags||[]).includes('ownership era')?'<span class="badge-ss" title="Steinbrenner\'s group often had the final say on personnel">ownership era</span>':''}${r.isNew?'<span class="badge-ss" title="Hired after the last completed season: nothing to grade yet">new</span>':r.smallSample?'<span class="badge-ss" title="Small sample: under 3 seasons in the seat, graded as if the rest were average">SS</span>':''}${(r.unscored||[]).length && !r.isNew ? `<span class="badge-ss" title="Not scored here: ${r.unscored.map(k=>({fa:'free agency',intl:'international',ext:'extensions',ret:'retention'})[k]).join(', ')}. ${r._hist ? 'Not scored for this archive regime' : 'Too few graded deals there yet (a free-agent letter needs 3 deals with public terms, an extension letter 2)'}, so the composite fills them at the league-average rate.">partial</span>` : ''}<span class="mfor">${gradeChip(r.forGrade)}</span></span><span class="tm" title="${r.teamEra||r.team} · ${yrSpan(r.start, r.end)}">${teamNick(r.teamEra||r.team)} · ${yrSpan(r.start, r.end)} · ${r.isNew ? 'new' : pz(fmtSeas(r.seatSeasons != null ? r.seatSeasons : r.seasons),'season','seasons')}${r.titles?` · ${r.titles} WS`:''}</span></div></td>
       <td class="num lb-overall">${gradeChip(r.forGrade, true)}${r.isNew || r.gradeRate == null ? '' : `<span class="lb-ps" title="Overall score: wins a season above a typical front office, weighted toward the skills that repeat and adjusted for time in the seat. The ranking.">${fmtW(r.gradeRate)}</span>`}</td>
       <td class="lb-netcol">${bar}</td>
@@ -12639,7 +12642,7 @@ function renderLB(){
       <td class="num" title="${(dv=>dv?`${fmtW(dv.net)} prospect value created · ${dv.n} graded moves · ${farmLine(r, dv)}`:'development grading needs the regime to overlap the top-100 archive (2011+)')(devOf(r))}">${gradeChip((devOf(r)||{}).g==null?null:devOf(r).g)}</td>
       <td class="num" title="${sTip}">${gradeChip(s.g)}</td>`;
     tr.addEventListener('click', ()=>{ if(r.hasCard) switchView('report', r.id); });
-    cardsHtml.push(lbCard(r, _sv == null ? '' : _rk, maxPos, maxNeg));
+    cardsHtml.push(lbCard(r, '', maxPos, maxNeg));
     if(r.hasCard){ tr.tabIndex = 0; tr.title = 'Open the report card'; tr.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); switchView('report', r.id); } }); }
     tb.appendChild(tr);
   });
@@ -14634,9 +14637,9 @@ function folTeamPage(ab, asParts){
   // where this front office sits on the leaderboard, with its neighbors
   const lb = i < 0 ? '' : (() => {
     const lo = Math.max(0, Math.min(rk.length - 5, i - 2)), rows = rk.slice(lo, lo + 5);
-    return `<div class="card home-card fol-rise"><div class="home-kick">Rankings</div><h3>#${i + 1} of the ${rk.length} front offices with two or more seasons in the seat</h3>
-      ${rows.map((x, k) => `<div class="hub-row${x === r ? ' me' : ''}"><strong>${lo + k + 1}</strong><span class="grade ${gradeClass(x.forGrade)}">${g2letter(x.forGrade)}</span><a href="#" onclick="switchView('report','${x.id}'); return false">${regName(x)}</a><span class="ttype">${abOf(x)}</span><span class="ttype ${(x.gradeRate != null ? x.gradeRate : folNetOf(x)) >= 0 ? 'pos' : 'neg'}" style="margin-left:auto" title="Score: wins a season above a typical front office, the number the ranking is sorted on">${x.gradeRate != null ? fmtW(x.gradeRate) : fmtW(folNetOf(x))}</span></div>`).join('')}
-      <div class="ttype" style="margin-top:6px">Score: wins a season above a typical front office, adjusted for time in the seat. ${30 - rk.length} newer front offices are graded but not ranked yet; the habit ranks further down count all 30 clubs, with those newer ones at the league middle.</div>
+    return `<div class="card home-card fol-rise"><div class="home-kick">Rankings</div><h3>Overall ${g2letter(r.forGrade)}, one of the ${rk.length} front offices with two or more seasons in the seat</h3>
+      ${rows.map((x, k) => `<div class="hub-row${x === r ? ' me' : ''}"><strong></strong><span class="grade ${gradeClass(x.forGrade)}">${g2letter(x.forGrade)}</span><a href="#" onclick="switchView('report','${x.id}'); return false">${regName(x)}</a><span class="ttype">${abOf(x)}</span><span class="ttype ${(x.gradeRate != null ? x.gradeRate : folNetOf(x)) >= 0 ? 'pos' : 'neg'}" style="margin-left:auto" title="Score: wins a season above a typical front office, the number the ranking is sorted on">${x.gradeRate != null ? fmtW(x.gradeRate) : fmtW(folNetOf(x))}</span></div>`).join('')}
+      <div class="ttype" style="margin-top:6px">Listed by score, without rank numbers: our test of WAR-source noise found exact ranks do not hold for winters, and we have not shown they hold here. Score: wins a season above a typical front office, adjusted for time in the seat. ${30 - rk.length} newer front offices are graded but not ranked yet; the habit ranks further down count all 30 clubs, with those newer ones at the league middle.</div>
       <div style="margin-top:10px"><a href="#" onclick="switchView('leaderboard'); return false">Full leaderboard →</a></div></div>`;
   })();
   const tiles = r.isNew ? `<div class="card" style="padding:14px 16px">A new front office: nothing to grade yet.</div>` : `<div class="home-tiles">
@@ -16331,6 +16334,10 @@ function offsMove(m, ab){
   const lbl = m[4] ? `<a href="#" onclick="treeOverlay('${m[4]}', '${ab}', ${JSON.stringify(nm).replace(/"/g, '&quot;')}); return false" title="Open the transaction tree">${m[2]}</a>` : m[2];
   return `<div class="of-mv"><span class="ttype">${folMon(m[1])}</span><span>${lbl}</span><span class="wv ${m[3] >= 0 ? 'pos' : 'neg'}">${fmtW(m[3])}</span></div>`;
 }
+// Nov 12 (round 43): no exact rank on a winter. A band shows only where the pre-registered membership test
+// (docs/fixpass1/r43) found it held in 90% of 2,000 draws of WAR-source disagreement; one winter passed.
+const OFFS_BAND = {'tor-alex-anthopoulos|2012': 'Among the 20 worst since 1998'};
+function offsBand(r){ return OFFS_BAND[`${r.rid}|${r.w}`] || ''; }
 function offsCard(r, rank, o){
   o = o || {};
   const v = r.tot, cls = v >= 3 ? 'pos' : v <= -3 ? 'neg' : 'mid', mx = Math.max(Math.abs(r.tr), Math.abs(r.fa), 1);
@@ -16339,7 +16346,7 @@ function offsCard(r, rank, o){
   const head = `${offsYr(r.w)} ${offsName(r)}`;
   const wins = r.prevW != null && r.nextW != null ? `${r.prevW} wins before, ${r.nextW} the season after (${r.nextW - r.prevW >= 0 ? '+' : ''}${r.nextW - r.prevW})` : '';
   return `<div class="${o.compact ? '' : 'card '}heist offs-card fol-rise" id="of-${r.id}"${o.compact ? ' style="padding:0; margin:6px 0 0"' : ''}>
-    <div class="h-top"><div><div class="h-date">${rank ? `#${rank} · ` : ''}${r.exec || 'front office'}${r.w >= OFFS.openFrom ? ' · <span class="chip chip-open">still open</span>' : ''}</div><div class="h-head"><span class="wi-tc" style="${folTC(r.ab)}">${r.ab}</span> ${head}</div>${wins ? `<div class="ttype">${wins}</div>` : ''}</div><span class="stamp ${cls}">${offsStamp(v)} · ${fmtW(v)}</span></div>
+    <div class="h-top"><div><div class="h-date">${offsBand(r) ? `${offsBand(r)} · ` : ''}${r.exec || 'front office'}${r.w >= OFFS.openFrom ? ' · <span class="chip chip-open">still open</span>' : ''}</div><div class="h-head"><span class="wi-tc" style="${folTC(r.ab)}">${r.ab}</span> ${head}</div>${wins ? `<div class="ttype">${wins}</div>` : ''}</div><span class="stamp ${cls}">${offsStamp(v)} · ${fmtW(v)}</span></div>
     <div class="of-split">${bar(`Trades <span class="ttype">(${r.trN})</span>`, r.tr)}${bar(`Free agents <span class="ttype">(${r.faN}${r.faM ? `, $${r.faM}M` : ''})</span>`, r.fa)}</div>
     <div class="of-moves"><div class="ttype">${o.compact ? 'The biggest move' : 'The moves that decided it'}</div>${r.moves.slice(0, o.compact ? 1 : 5).map(m => offsMove(m, r.ab)).join('')}</div>
     ${o.compact ? '' : `<div class="actions" style="margin-top:8px">${hasCard ? `<button class="actbtn" onclick="switchView('report','${r.rid}')">${r.exec}'s report card</button>` : ''}<button class="actbtn" onclick="heistState.club='${r.ab}'; heistState.kind='trades'; switchView('heists')">Every ${teamNick(CLUB_NAME[r.ab] || r.ab)} trade</button><button class="actbtn" onclick="folShare(offsUrl('${r.id}'), 'Offseason', ${JSON.stringify(`${head}: ${fmtW(v)} wins in one winter`).replace(/"/g, '&quot;')})">Share</button>${folSaveBtn(`folSaveEl(document.getElementById('of-${r.id}'), 'offseason-${r.id}', ${JSON.stringify(head + ': the winter, added up').replace(/"/g, '&quot;')}, 'Trades at the club\\'s net over the control years · signings at surplus against what the money usually buys · in wins')`)}</div>`}</div>`;
@@ -16369,7 +16376,7 @@ function gmOffsCard(totSur, n){
   const up = xs[rank - 2], dn = xs[rank - 1], one = r => r ? `the ${offsYr(r.w)} ${teamNick(offsName(r))} (${fmtW(r.tot)})` : '';
   const pct = Math.round((1 - (rank - 1) / xs.length) * 100);
   return `<div class="card" style="padding:12px 16px; margin-top:10px"><strong>Against every real winter</strong> <span class="ttype">· ${xs.length} club-winters since 1998-99 that have fully played out</span>
-    <div style="font-size:13.5px; margin-top:6px">Your moves project to <strong class="${totSur >= 0 ? 'pos' : 'neg'}">${fmtW(totSur)}</strong> of surplus. If they play out as projected, this winter would rank <strong>#${rank} of ${xs.length + 1}</strong> (better than ${pct}% of real ones)${up || dn ? `, ${up && dn ? `between ${one(up)} and ${one(dn)}` : up ? `just behind ${one(up)}` : `ahead of ${one(dn)}`}` : ''}.</div>
+    <div style="font-size:13.5px; margin-top:6px">Your moves project to <strong class="${totSur >= 0 ? 'pos' : 'neg'}">${fmtW(totSur)}</strong> of surplus. If they play out as projected, this winter would land <strong>better than about ${Math.min(90, Math.max(10, Math.round(pct / 10) * 10))}%</strong> of real ones.</div>
     <div class="ttype" style="margin-top:5px">Theirs are results and yours is a projection, so read it as a ceiling: real winters land wider than any plan.</div>
     <div style="margin-top:8px"><a href="#" onclick="switchView('offs'); return false">The best and worst winters since 1998 →</a></div></div>`;
 }
