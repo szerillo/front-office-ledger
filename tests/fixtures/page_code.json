@@ -1,6 +1,6 @@
 {
- "sha": "a3b9bb167efa91a8",
- "codeLines": 11738,
- "reason": "Nov 12 round 42: content-hash data file names (hash_names.py); hashed names masked like ?v=",
- "at": "2026-11-12T13:27:05.012Z"
+ "sha": "6729ce1ba7a2eaa7",
+ "codeLines": 11745,
+ "reason": "Nov 12 round 43: no rank numbers in the explorer, leaderboard and simulator; known-limits paragraph",
+ "at": "2026-11-12T14:12:19.584Z"
 }
