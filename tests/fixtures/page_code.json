@@ -1,6 +1,6 @@
 {
- "sha": "e1fd710a7a79d278",
+ "sha": "faf0ec6b60ecd7ff",
  "codeLines": 11789,
- "reason": "round 49: two methodology lines on control-end error (grading rule, estimated control ends); hand-checked service figure for Luis Garcia Jr. (671277)",
- "at": "2026-11-12T17:39:34.581Z"
+ "reason": "round 50: grading-rule methodology line gives the count (7 of 28), no rate",
+ "at": "2026-11-12T19:09:04.837Z"
 }
