@@ -1,0 +1,50 @@
+diff -ru /tmp/fix/zi/engine/ifa_score.py /tmp/fix/yi/engine/ifa_score.py
+--- /tmp/fix/zi/engine/ifa_score.py	2026-11-11 22:07:18.698210419 -0500
++++ /tmp/fix/yi/engine/ifa_score.py	2026-11-12 14:46:24.486972050 -0500
+@@ -114,6 +114,14 @@
+ class_tot = defaultdict(float); class_n = defaultdict(int)
+ for tid, yr, pid, nm, v, dt in ifa:
+     class_tot[yr] += v; class_n[yr] += 1
++import os as _os, json as _json
++def _fz(name, v):
++    """r51 record/replay of an in-run fit (prereg r51): RECORD writes the live value, FREEZE2 replays it"""
++    if _os.environ.get("RECORD"): _json.dump(v, open(_os.environ["RECORD"] + "/" + name + ".json", "w"))
++    if _os.environ.get("FREEZE2"): return _json.load(open(_os.environ["FREEZE2"] + "/" + name + ".json"))
++    return v
++_ct = _fz("ifa_class", {"tot": {str(k): v for k, v in class_tot.items()}, "n": {str(k): v for k, v in class_n.items()}})
++class_tot = defaultdict(float, {int(k): v for k, v in _ct["tot"].items()}); class_n = defaultdict(int, {int(k): v for k, v in _ct["n"].items()})
+ def per_signing(yr):
+     """v5.8: one signing's expectation, the class's average signee"""
+     return class_tot[yr] / class_n[yr] if class_n[yr] else 0.0
+diff -ru /tmp/fix/zi/ingest/regen_v3.py /tmp/fix/yi/ingest/regen_v3.py
+--- /tmp/fix/zi/ingest/regen_v3.py	2026-11-11 22:15:46.573241589 -0500
++++ /tmp/fix/yi/ingest/regen_v3.py	2026-11-12 14:46:24.487304425 -0500
+@@ -4,6 +4,12 @@
+ container reclaim (original regen lived outside the repo; lesson learned,
+ this one ships in ingest/)."""
+ import json, sqlite3
++import os as _os, json as _json
++def _fz(name, v):
++    """r51 record/replay of an in-run fit (prereg r51): RECORD writes the live value, FREEZE2 replays it"""
++    if _os.environ.get("RECORD"): _json.dump(v, open(_os.environ["RECORD"] + "/" + name + ".json", "w"))
++    if _os.environ.get("FREEZE2"): return _json.load(open(_os.environ["FREEZE2"] + "/" + name + ".json"))
++    return v
+ 
+ P = "/work/front-office-ledger-prototype.html"
+ res = json.load(open("/work/sweep_results.json"))
+@@ -50,6 +56,7 @@
+         vals = [v for r in res if (v := metric(r, fn)) is not None]
+         if len(vals) >= 6 and statistics.pstdev(vals) > 1e-9:
+             stats[key] = (statistics.mean(vals), statistics.pstdev(vals))
++    stats = {k: tuple(v) for k, v in _fz('style_stats', {k: list(v) for k, v in stats.items()}).items()}
+     out = {}
+     for r in res:
+         scored = []
+@@ -764,6 +771,7 @@
+         out.append([seg[-1][0] if b < nb - 1 else 9999, q, len(seg)])
+     return out
+ MOVE_BANDS = {k: _bands(v, 10 if k == "trade" else 5) for k, v in _pop.items() if v}
++MOVE_BANDS = _fz("move_bands", MOVE_BANDS)
+ s = _re.sub(r"const MOVE_BANDS = .*?;\n", lambda m: "const MOVE_BANDS = " + json.dumps(MOVE_BANDS, separators=(",", ":"), ensure_ascii=False) + ";\n", s, count=1, flags=_re.S)
+ print("move bands:", {k: [b[2] for b in v] for k, v in MOVE_BANDS.items()})
+ # v5.9 (Nov 2): data behind the Methodology charts
