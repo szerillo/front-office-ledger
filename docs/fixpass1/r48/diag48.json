@@ -1,0 +1,173 @@
+[
+ {
+  "fid": "phi",
+  "chan": "ext",
+  "entries_moved": 3,
+  "ch_players_found_after_accent_fold": [
+   "Extended Jesus Luzardo \u00b7 5 yr / $135.0M (veteran)"
+  ],
+  "cause": "tracer reach",
+  "net": [
+   3.0
+  ],
+  "net_I1": [
+   0.4
+  ]
+ },
+ {
+  "fid": "lad-ned-colletti",
+  "chan": "ext",
+  "entries_moved": 7,
+  "ch_players_found_after_accent_fold": [],
+  "cause": "recalibration",
+  "net": [
+   -22.1
+  ],
+  "net_I1": [
+   -20.9
+  ]
+ },
+ {
+  "fid": "mia-kim-ng",
+  "chan": "ext",
+  "entries_moved": 0,
+  "ch_players_found_after_accent_fold": [],
+  "cause": "recalibration",
+  "net": [
+   1.6
+  ],
+  "net_I1": [
+   1.8
+  ]
+ },
+ {
+  "fid": "phi-pat-gillick",
+  "chan": "ext",
+  "entries_moved": 3,
+  "ch_players_found_after_accent_fold": [],
+  "cause": "recalibration",
+  "net": [
+   2.9
+  ],
+  "net_I1": [
+   3.4
+  ]
+ },
+ {
+  "fid": "phi-matt-klentak",
+  "chan": "ext",
+  "entries_moved": 0,
+  "ch_players_found_after_accent_fold": [],
+  "cause": "recalibration",
+  "net": [
+   1.0
+  ],
+  "net_I1": [
+   1.0
+  ]
+ },
+ {
+  "fid": "det-dave-dombrowski",
+  "chan": "ext",
+  "entries_moved": 10,
+  "ch_players_found_after_accent_fold": [],
+  "cause": "recalibration",
+  "net": [
+   4.1
+  ],
+  "net_I1": [
+   6.3
+  ]
+ },
+ {
+  "fid": "cin-dick-williams",
+  "chan": "ext",
+  "entries_moved": 2,
+  "ch_players_found_after_accent_fold": [],
+  "cause": "recalibration",
+  "net": [
+   0.8
+  ],
+  "net_I1": [
+   1.0
+  ]
+ },
+ {
+  "fid": "bal-jim-beattie-/-mike-flanagan",
+  "chan": "ext",
+  "entries_moved": 3,
+  "ch_players_found_after_accent_fold": [],
+  "cause": "recalibration",
+  "net": [
+   0.7
+  ],
+  "net_I1": [
+   1.0
+  ]
+ },
+ {
+  "fid": "bos-dan-duquette",
+  "chan": "draft",
+  "entries_moved": 0,
+  "ch_players_found_after_accent_fold": [],
+  "cause": "recalibration",
+  "net": [
+   26.6
+  ],
+  "net_I1": [
+   26.4
+  ]
+ },
+ {
+  "fid": "mia-dave-dombrowski",
+  "chan": "draft",
+  "entries_moved": 2,
+  "ch_players_found_after_accent_fold": [],
+  "cause": "recalibration",
+  "net": [
+   2.9
+  ],
+  "net_I1": [
+   2.6
+  ]
+ },
+ {
+  "fid": "hou-tim-purpura",
+  "chan": "ext",
+  "entries_moved": 3,
+  "ch_players_found_after_accent_fold": [],
+  "cause": "recalibration",
+  "net": [
+   0.6
+  ],
+  "net_I1": [
+   1.2
+  ]
+ },
+ {
+  "fid": "nyy-brian-cashman",
+  "chan": "ext",
+  "entries_moved": 4,
+  "ch_players_found_after_accent_fold": [],
+  "cause": "recalibration",
+  "net": [
+   -20.1
+  ],
+  "net_I1": [
+   -18.4
+  ]
+ },
+ {
+  "fid": "ari-joe-garagiola-jr",
+  "chan": "overall:draft",
+  "entries_moved": 5,
+  "ch_players_found_after_accent_fold": [],
+  "cause": "recalibration",
+  "net": [
+   30.2
+  ],
+  "net_I1": [
+   29.4
+  ]
+ }
+]

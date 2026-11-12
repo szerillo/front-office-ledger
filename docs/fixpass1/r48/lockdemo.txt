@@ -1,0 +1,2 @@
+allsuites: another suite run holds /tmp/fol_suites.lock, refusing to start
+second exit=75

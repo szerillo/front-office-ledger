@@ -1,0 +1,150 @@
+[
+ {
+  "player": "Hoby Milner",
+  "pid": "571948",
+  "returned": "2017-03-24",
+  "code": "RTN",
+  "to_mlb": true,
+  "counter_days": 106,
+  "mlb_games": 74,
+  "acq": [
+   [
+    "2016-12-08",
+    "CLW",
+    "Cleveland Indians claimed LHP Hoby Milner off waivers from Philadelphi"
+   ]
+  ]
+ },
+ {
+  "player": "Tyler Jones",
+  "pid": "592448",
+  "returned": "2017-03-24",
+  "code": "RTN",
+  "to_mlb": true,
+  "counter_days": 1,
+  "mlb_games": 0,
+  "acq": [
+   [
+    "2016-12-08",
+    "CLW",
+    "Arizona Diamondbacks claimed Tyler Jones off waivers from New York Yan"
+   ]
+  ]
+ },
+ {
+  "player": "Mike Hauschild",
+  "pid": "623434",
+  "returned": "2017-04-22",
+  "code": "RTN",
+  "to_mlb": true,
+  "counter_days": 20,
+  "mlb_games": 4,
+  "acq": [
+   [
+    "2016-12-08",
+    "CLW",
+    "Texas Rangers claimed RHP Mike Hauschild off waivers from Houston Astr"
+   ]
+  ]
+ },
+ {
+  "player": "Jordan Milbrath",
+  "pid": "641872",
+  "returned": "2018-03-27",
+  "code": "RTN",
+  "to_mlb": true,
+  "counter_days": 0,
+  "mlb_games": 0,
+  "acq": [
+   [
+    "2017-12-14",
+    "CLW",
+    "Pittsburgh Pirates claimed RHP Jordan Milbrath off waivers from Akron "
+   ]
+  ]
+ },
+ {
+  "player": "Drew Ferguson",
+  "pid": "664916",
+  "returned": "2019-03-22",
+  "code": "RTN",
+  "to_mlb": true,
+  "counter_days": 7,
+  "mlb_games": 0,
+  "acq": [
+   [
+    "2018-12-13",
+    "CLW",
+    "San Francisco Giants claimed CF Drew Ferguson off waivers from Round R"
+   ]
+  ]
+ },
+ {
+  "player": "Kirk McCarty",
+  "pid": "668948",
+  "returned": "2022-04-25",
+  "code": "RTN",
+  "to_mlb": false,
+  "counter_days": 86,
+  "mlb_games": 13,
+  "acq": []
+ },
+ {
+  "player": "Penn Murfee",
+  "pid": "682171",
+  "returned": "2022-04-27",
+  "code": "RTN",
+  "to_mlb": false,
+  "counter_days": 172,
+  "mlb_games": 128,
+  "acq": []
+ },
+ {
+  "player": "Jos\u00e9 Lopez",
+  "pid": "673111",
+  "returned": "2023-03-27",
+  "code": "RTN",
+  "to_mlb": true,
+  "counter_days": 1,
+  "mlb_games": 1,
+  "acq": [
+   [
+    "2022-12-07",
+    "CLW",
+    "San Diego Padres claimed LHP Jose Lopez off waivers from Durham Bulls."
+   ]
+  ]
+ },
+ {
+  "player": "Nick Avila",
+  "pid": "687014",
+  "returned": "2023-03-28",
+  "code": "RTN",
+  "to_mlb": true,
+  "counter_days": 0,
+  "mlb_games": 0,
+  "acq": [
+   [
+    "2022-12-07",
+    "CLW",
+    "Chicago White Sox claimed RHP Nick Avila off waivers from Richmond Fly"
+   ]
+  ]
+ },
+ {
+  "player": "Cooper Bowman",
+  "pid": "688682",
+  "returned": "2025-03-12",
+  "code": "RTN",
+  "to_mlb": true,
+  "counter_days": 0,
+  "mlb_games": 0,
+  "acq": [
+   [
+    "2024-12-11",
+    "R5",
+    "Cincinnati Reds purchased contract of 2B Cooper Bowman from Athletics "
+   ]
+  ]
+ }
+]
