@@ -52,7 +52,10 @@ const page = o => `<!doctype html>
 // Nov 12 (round 36): winter pages already in the repo that are no longer in the top/bottom 20 are rebuilt too, so no
 // winter page keeps an old number after a regrade
 const KEEP_O = REPO && fs.existsSync(`${REPO}/o`) ? fs.readdirSync(`${REPO}/o`).filter(f => f.endsWith('.html')).map(f => f.slice(0, -5)) : [];
-const data = await p.evaluate((KEEP_O) => {
+// Nov 12 (round 40): winters whose rank is too close to call (gap under 0.5 wins, model-sensitive) say so instead of a
+// rank number. Only the pairs listed here; each entry names the winter it cannot be separated from.
+const TOO_CLOSE = {'2014-wsh': "2011 A's", '2011-ath': '2014 Nationals'};
+const data = await p.evaluate(([KEEP_O, TOO_CLOSE]) => {
   const nick = ab => teamNick(CLUB_NAME[ab] || ab), slug = id => String(id).replace(/[^A-Za-z0-9_-]/g, '-');
   const chip = (ab, px) => `<span class="wi-tc" style="${folTC(ab)}; font-size:${px}px; padding:${Math.round(px / 5)}px ${Math.round(px / 2.4)}px; border-radius:6px">${ab}</span>`;
   const grade = (g, px) => g ? `<span class="grade ${letterClass(g)}" style="font-size:${px}px; padding:${Math.round(px / 6)}px ${Math.round(px / 2.2)}px">${g}</span>` : '';
@@ -82,12 +85,12 @@ const data = await p.evaluate((KEEP_O) => {
   const st = offsSettled().slice().sort((a, b) => b.tot - a.tot), top = st.slice(0, 20).concat(st.slice(-20)), pick = top.concat(st.filter(r => KEEP_O.includes(r.id) && !top.includes(r)));
   const O = pick.map(r => { const nm = `${offsYr(r.w)} ${offsName(r)}`, rank = st.indexOf(r) + 1, worst = st.length - rank + 1;
     const mv = r.moves.slice(0, 3).map(m => `<div style="display:flex; gap:14px; margin-top:10px; font-size:24px"><span style="min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">${m[2]}</span><strong class="${m[3] >= 0 ? 'pos' : 'neg'}" style="margin-left:auto; font:700 24px var(--f-mono)">${fmtW(m[3])}</strong></div>`).join('');
-    return {id: r.id, title: `${nm}: ${fmtW(r.tot)} wins in one winter · Front Office Ledger`, desc: `${rank <= 20 ? `The #${rank} best` : `The #${worst} worst`} offseason since 1998, under ${r.exec || 'that front office'}: trades ${fmtW(r.tr)}, free agents ${fmtW(r.fa)}. ${r.moves[0] ? r.moves[0][2] + '.' : ''}`,
+    return {id: r.id, title: `${nm}: ${fmtW(r.tot)} wins in one winter · Front Office Ledger`, desc: `${TOO_CLOSE[r.id] ? `One of the two best offseasons on record (too close to rank vs ${TOO_CLOSE[r.id]})` : rank <= 20 ? `The #${rank} best offseason since 1998` : `The #${worst} worst offseason since 1998`}, under ${r.exec || 'that front office'}: trades ${fmtW(r.tr)}, free agents ${fmtW(r.fa)}. ${r.moves[0] ? r.moves[0][2] + '.' : ''}`,
       to: `#view=winters&id=${r.id}`, link: `${nm} on Front Office Ledger`,
-      inner: kick(`${rank <= 20 ? `The #${rank} best` : `The #${worst} worst`} winter since 1998 · ${r.exec || ''}`) + `<div style="display:flex; align-items:center; gap:20px; margin-top:6px">${chip(r.ab, 30)}${head(nm, nm.length > 30 ? 46 : 54)}<strong class="${r.tot >= 0 ? 'pos' : 'neg'}" style="margin-left:auto; font:700 52px var(--f-mono); white-space:nowrap">${fmtW(r.tot)}</strong></div>
+      inner: kick(`${TOO_CLOSE[r.id] ? `One of the two best winters on record (too close to rank vs ${TOO_CLOSE[r.id]})` : rank <= 20 ? `The #${rank} best winter since 1998` : `The #${worst} worst winter since 1998`} · ${r.exec || ''}`) + `<div style="display:flex; align-items:center; gap:20px; margin-top:6px">${chip(r.ab, 30)}${head(nm, nm.length > 30 ? 46 : 54)}<strong class="${r.tot >= 0 ? 'pos' : 'neg'}" style="margin-left:auto; font:700 52px var(--f-mono); white-space:nowrap">${fmtW(r.tot)}</strong></div>
         <div style="font-size:24px; color:var(--ink-2); margin-top:8px">Trades ${fmtW(r.tr)} · free agents ${fmtW(r.fa)}${r.prevW != null && r.nextW != null ? ` · ${r.prevW} wins before, ${r.nextW} after` : ''}</div><div style="border-top:2px solid var(--ink); margin-top:14px"></div>${mv}`}; });
   return {W, S, O};
-}, KEEP_O);
+}, [KEEP_O, TOO_CLOSE]);
 const prev = (dir, id) => { if(!REPO) return null; const f = `${REPO}/${dir}/${id}.html`; return fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : null; };
 const ver = new Date().toISOString().slice(0, 10).replace(/-/g, '');
 let made = {w: 0, s: 0, o: 0};
