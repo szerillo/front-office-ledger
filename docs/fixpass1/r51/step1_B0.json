@@ -1,0 +1,30 @@
+{
+ "letters_changed": 0,
+ "overall_changed": 0,
+ "nets_changed": 0,
+ "trades_changed": 0,
+ "winters_changed": 0,
+ "untraced_letters": 0,
+ "untraced_overall": 0,
+ "unattributed_nets": 0,
+ "unattributed_entries": 0,
+ "unattributed_trades": 0,
+ "unattributed_winters": 0,
+ "untraced_pages": 0,
+ "TOR_base": [
+  1,
+  31.7
+ ],
+ "TOR_run": [
+  1,
+  31.7
+ ],
+ "examples": {
+  "letters": [],
+  "overall": [],
+  "nets": [],
+  "trades": [],
+  "winters": []
+ },
+ "all_attributed": true
+}

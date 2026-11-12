@@ -1,0 +1,20 @@
+t_audit exit=0 PASS
+t_build exit=0 PASS
+t_cards exit=0 PASS
+t_consistency exit=0 PASS
+t_datashape exit=0 PASS
+t_features exit=0 PASS
+t_fun exit=0 PASS
+t_gm_core exit=0 PASS
+t_grades exit=0 PASS
+t_hashnames exit=0 PASS
+t_launch exit=0 PASS
+t_leak exit=0 PASS
+t_math exit=0 PASS
+t_nov11 exit=0 PASS
+t_nullgrades exit=0 PASS
+t_qa exit=0 PASS
+t_ui2 exit=0 PASS
+t_winter exit=0 PASS
+t_wire exit=0 PASS
+DONE 19/19

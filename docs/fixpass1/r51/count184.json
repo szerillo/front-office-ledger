@@ -1,0 +1,24 @@
+{
+ "same_day_option_left_on": {
+  "players": 1,
+  "dates": 1,
+  "days_overcounted": 32,
+  "list": [
+   [
+    "501789",
+    "2013-04-06",
+    [
+     "OPT",
+     "CLW"
+    ],
+    32
+   ]
+  ]
+ },
+ "truth_method_blind_spots": {
+  "retroactive_IL_players": 133,
+  "retroactive_IL_records": 332,
+  "in_season_DFA_players": 65,
+  "in_season_DFA_records": 106
+ }
+}

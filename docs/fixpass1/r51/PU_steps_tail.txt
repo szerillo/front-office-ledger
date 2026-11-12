@@ -1,0 +1,3 @@
+validation rc=0 secs=1
+champions_build rc=97 secs=10
+STOP

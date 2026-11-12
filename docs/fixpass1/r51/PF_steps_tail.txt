@@ -1,0 +1,3 @@
+savant_fingerprint rc=0 secs=15
+champions_build rc=97 secs=11
+STOP
