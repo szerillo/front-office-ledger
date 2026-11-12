@@ -1,6 +1,6 @@
 {
- "sha": "9dfce0828ed1e47d",
+ "sha": "a3b9bb167efa91a8",
  "codeLines": 11738,
- "reason": "Nov 12 round 41: methodology line, letters are relative (Kirk approved)",
- "at": "2026-11-12T12:57:41.417Z"
+ "reason": "Nov 12 round 42: content-hash data file names (hash_names.py); hashed names masked like ?v=",
+ "at": "2026-11-12T13:27:05.012Z"
 }
