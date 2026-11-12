@@ -75,6 +75,9 @@ def classify(t, on):
     # r47: two codes the counter did not read (Odubel Herrera 2015-18, Jordan Walden 2010-12 had 0 days while playing)
     if c == "DR": return True if (to_mlb and (t.get("date") or "")[5:7] == "12") else on   # Rule 5 draft, major league phase (December)
     if c == "PUR": return True if to_mlb else on        # contract purchased by a major league club
+    # r48: a player who elects free agency leaves the roster. The feed files it under the DFA code, which the counter
+    # kept as limbo, so a player unsigned after electing free agency kept accruing days (Jordan Walden after 2016).
+    if c == "DFA" and "elected free agency" in d: return False
     if c == "SFA":
         if "minor league" in d: return False
         return True if to_mlb else on
