@@ -90,8 +90,11 @@ const data = await p.evaluate(([KEEP_O, TOO_CLOSE]) => {
   const rankTxt = (r, unit) => {
     const t1 = x => Math.round(x.tot * 10), me = t1(r);      // on the shown value (one decimal)
     const hi = st.filter(x => t1(x) > me).length + 1, lo = st.filter(x => t1(x) < me).length + 1;
-    if(hi <= 20) return `Among the 20 best ${unit}s since 1998`;
-    if(lo <= 20) return `Among the 20 worst ${unit}s since 1998`;
+    // Nov 12 (round 43): the band itself had to pass a pre-registered membership test (docs/fixpass1/r43:
+    // in the 20 in 90% of 2,000 draws); only these winters did. Any other winter carries no band and no rank.
+    const PASSED = {'2012-tor': 'worst'};
+    if(hi <= 20 && PASSED[r.id] === 'best') return `Among the 20 best ${unit}s since 1998`;
+    if(lo <= 20 && PASSED[r.id] === 'worst') return `Among the 20 worst ${unit}s since 1998`;
     return null;
   };
   const O = pick.map(r => { const nm = `${offsYr(r.w)} ${offsName(r)}`, rkD = rankTxt(r, 'offseason'), rkK = rankTxt(r, 'winter');
