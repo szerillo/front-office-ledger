@@ -1,0 +1,40 @@
+[11:15:29] 0. dry tree = live copy; index 5f430172
+[11:15:29] 1. deploy commit: 8 files
+[11:15:29] 2. verify
+[11:15:29]   OK   md5 index.html 279c1e66
+[11:15:29]   OK   md5 book.js 4e6757e8
+[11:15:29]   OK   md5 deals.js a8327e0c
+[11:15:29]   OK   md5 cards.js d3e5a831
+[11:15:29]   OK   md5 cards2.d7fb83c8d5.js d7fb83c8
+[11:15:29]   OK   md5 moves.js 3be8d310
+[11:15:29]   OK   md5 offseasons.json ec6b882c
+[11:15:29]   OK   md5 trade_parts.json 9f438cf9
+[11:15:29]   OK   served index.html md5 279c1e66
+[11:15:30]   OK   verify_stamps on the tree
+[11:15:35]   OK   TARGET=live t_build
+[11:15:39]   OK   TARGET=live t_launch
+[11:15:57]   OK   TARGET=live t_wire
+[11:16:01]   OK   TARGET=live t_cards
+[11:16:07]   OK   TARGET=live t_nullgrades
+[11:16:07]   OK   t_datashape
+[11:16:12]   OK   letters census = good7 (102 vs live)
+Traceback (most recent call last):
+  File "/tmp/deploy/offs_stamps.py", line 7, in <module>
+    for c in sorted(ch, key=lambda c: -abs(c[2] - c[1])): print(' ', c[0][0], c[0][1], c[1], '->', c[2], c[3], '->', c[4])
+                                                          ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+[11:16:12]   OK   tier labels 18
+[11:16:12]   OK   note check
+[11:16:12]   OK   winter pages stale before 2b (expected red: winter pages: 40 checked, 14 differ from offseasons.json)
+[11:16:12] 3. share step 2b
+[11:16:21]   OK   share job: share pages written: 0 moves (of 19), 4 clubs (of 30), 28 winters (of 44) -> /tmp/dry/share
+[11:16:21]   OK   winter pages after 2b: winter pages: 44 checked, 0 differ from offseasons.json
+[11:16:21] 4. tests commit
+[11:20:23]   OK   all suites from the tree's own tests folder (18)
+[11:20:23] 5. rollback
+[11:20:23]   OK   candidate cards2 part still present after rollback
+[11:20:23]   OK   verify_stamps after rollback
+[11:20:29]   OK   letters census after rollback = live
+[11:20:29]   OK   winter pages after rollback: winter pages: 40 checked, 0 differ from offseasons.json
+[11:20:33]   OK   TARGET=live t_launch after rollback
+[11:20:33] DONE fail=0
