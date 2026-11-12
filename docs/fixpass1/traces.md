@@ -27,3 +27,19 @@ Iteration 2, F0 vs F1: trade_book, hist_results, desk_data, offseasons, trade_pa
   Rule 9: allx_intl sorts by (date, person id). Order only; no value changes.
   Rule 9 also covers ifa_score.py:165 (intl tops cut at 5 by value only): ties go to the earlier date, then lower id. Same in F0/F1 so far; patched before it can bite.
 Iteration 2 stopped by me after F0 and F1 finished (F2, F3 partial, F4 to F6 not started) once rule 9 was found; its results are superseded and not used for the bar.
+
+## Round 4 traces (written before the round 4 runs; from round 3 G0 vs G1)
+Round 3 (iteration 3), G0 vs G1: cards.js, offseasons.json, trade_parts.json and every mid file one md5. moves.js and the prototype page still differ, VALUES: 85 players' move lists.
+- ingest/regen_v3.py:538 reads each player's moves ORDER BY date only. The feed often files one event twice the same day with two texts (Kinley 641755, 2019-12-09: "claimed RHP Tyler Kinley, and off waivers" vs "claimed P Tyler Kinley off waivers"). The dedupe at :555-559 swaps in the other text only if its garble score is strictly better, so on an equal score the row read first wins, and its from/to clubs stay.
+  Rule 10: that read is ORDER BY date, type_desc, team_id, description, from_team, to_team, person_id. The garble-score choice is unchanged; this only settles exact ties. Order also fixes PLAYER_MOVES key order.
+Round 3 stopped by me after G0 and G1 finished (G2, G3 partial; G4 to G6 not started). Under 5e81190 it is already a FAIL (two md5s for moves.js and the prototype).
+
+## Round 5 traces (written before the round 5 runs; from round 4 H0 vs H1)
+Round 4, H0 vs H1: every published and mid file one md5 except front-office-ledger-prototype.html: one line, SCEN (scenario_build.py), Cabrera 2007 trade: the recv list order (Cabrera, Willis vs Willis, Cabrera).
+- scenario_build.py:165-167 reads a deal's pieces with SELECT DISTINCT and no ORDER BY; recv and sent keep that order, and seller_tid is the first seller seen. :296 sorts comps by score only.
+  Rule 11: that read is ORDER BY person_id, person_name, from_team, to_team; the comps sort breaks score ties on the comp row's text. Order only for recv/sent.
+Round 4 stopped by me after H0 and H1 finished (H2, H3 partial). Under 5e81190 it is a FAIL (two md5s for the prototype page).
+
+## Rule 6 amended (after the second-source check, before any v2 run)
+Felipe Bello (806593): MLB.com's transaction log for him shows both 2022-08-02 filings, then "assigned to DSL Blue Jays" on 2022-08-03, and every minor-league line after (DSL, FCL and Dunedin Blue Jays, 2022-24) is a Toronto affiliate. He signed with Toronto; the Seattle row is a feed error.
+Rule 6 (amended): a same-day minor-league signing filed by two clubs is resolved by a sourced override (SAME_DAY_CLUB in ifa_score.py, one entry: Bello to Toronto, source above); without an override it still counts for neither club. Effect: TOR intl n counts him, SEA does not; value 0.0.
