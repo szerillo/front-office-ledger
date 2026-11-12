@@ -1,0 +1,5 @@
+Pause verify, Nov 12 2026 (fresh clone at ad3019f)
+live index md5  c3e08d1c55faed0aac0c37bff63e024c = repo index md5 (match)
+gate_index      CLEAR, 8 data files live with the right bytes
+allsuites_v3    DONE 19/19, every suite at or above its check count (weekend_suites.txt)
+value dumps     Desk c25bca11a598, grades 28cf6541870f, PUB_SVC map 8ef3fd0a1c31 (unchanged since round 50)
