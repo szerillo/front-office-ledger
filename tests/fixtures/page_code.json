@@ -1,6 +1,6 @@
 {
- "sha": "34c7aac39a798205",
- "codeLines": 11772,
- "reason": "Nov 12 round 46: published service time (PUB_SVC) and estimated control-end labels; trade reports checked by club and date",
- "at": "2026-11-12T15:55:52.671Z"
+ "sha": "c442ed4c96459a56",
+ "codeLines": 11777,
+ "reason": "Nov 12 round 47: depends-on-control-end mark on 133 channel letters (CTRL_FLIP) and methodology line",
+ "at": "2026-11-12T16:33:41.540Z"
 }
