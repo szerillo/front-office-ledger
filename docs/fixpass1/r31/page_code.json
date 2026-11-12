@@ -1,0 +1,6 @@
+{
+ "sha": "948cd866e33982ec",
+ "codeLines": 10352,
+ "reason": "data files offseasons.json and trade_parts.json now stamped with their content hash",
+ "at": "2026-11-12T05:08:23.032Z"
+}
