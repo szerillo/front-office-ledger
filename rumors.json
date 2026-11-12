@@ -1,8 +1,8 @@
 {
  "_about": "Players named in trade reports this winter, read by the trade block, the club pages and trade pick'em. rows: [MLBAM id, rank on MLB Trade Rumors' top trade candidates list (0 = not ranked), reporter credited ('' = none), why in our own words (short, no player name), 1 if a long shot]. off: ids reported as NOT available, with the note. names is for people reading this file; the page ignores it.",
- "asof": "Nov 11",
- "updated": "2026-11-11",
- "checked": "2026-11-11T07:51:13Z",
+ "asof": "Nov 12",
+ "updated": "2026-11-12",
+ "checked": "2026-11-12T13:06:49Z",
  "sources": [
   "https://www.mlbtraderumors.com/2026/10/top-trade-candidates-mlb-offseason-2026-27.html",
   "https://www.mlb.com/news/mlb-rumors-and-2026-27-free-agent-news-november-4",
@@ -10,7 +10,10 @@
   "https://www.mlbtraderumors.com/",
   "https://www.cbssports.com/mlb/news/mlb-rumors-gm-meetings-trades-cubs-tarik-skubal/",
   "https://www.mlb.com/news/mlb-rumors-and-2026-27-free-agent-news-november-10",
-  "https://www.bleachernation.com/cubs/2026/11/09/mlb-trade-talks-lockout/"
+  "https://www.bleachernation.com/cubs/2026/11/09/mlb-trade-talks-lockout/",
+  "https://www.mlbtraderumors.com/2026/11/nationals-fielding-trade-interest-in-dylan-crews.html",
+  "https://www.mlb.com/news/mlb-rumors-and-2026-27-free-agent-news-november-11",
+  "https://cbssports.com/mlb/news/mlb-rumors-yankees-alec-bohm-tarik-skubal-dodgers-blue-jays-nationals-padres-mariners-orioles"
  ],
  "rows": [
   [
@@ -82,8 +85,8 @@
   [
    680776,
    12,
-   "",
-   "down year in a crowded outfield"
+   "Peter Abraham, Boston Globe",
+   "Boston is shopping him again after a down year"
   ],
   [
    594798,
@@ -94,8 +97,8 @@
   [
    608369,
    14,
-   "Ken Rosenthal, The Athletic",
-   "Texas will test his market at the GM meetings; full no-trade clause"
+   "Jon Heyman, New York Post",
+   "Texas is listening; talks with the Yankees reported; full no-trade clause"
   ],
   [
    663616,
@@ -248,10 +251,29 @@
    "Texas will consider it to free up payroll"
   ],
   [
+   686611,
+   0,
+   "Spencer Nusbaum, The Athletic",
+   "Washington is taking calls and not turning teams away"
+  ],
+  [
+   695734,
+   0,
+   "Spencer Nusbaum, The Athletic",
+   "drawing calls, though Washington's asking price is high"
+  ],
+  [
    683002,
    0,
    "Andy Kostka, Baltimore Banner",
-   "Baltimore would listen, at a steep price",
+   "the club calls core players very unlikely to move; only for a huge offer",
+   1
+  ],
+  [
+   682985,
+   0,
+   "Jon Paul Morosi, MLB Network",
+   "rival executives see him as a candidate; Detroit says a deal is not a focus",
    1
   ]
  ],
@@ -298,6 +320,9 @@
   "607208": "Trea Turner",
   "543135": "Nathan Eovaldi",
   "683002": "Gunnar Henderson",
-  "694497": "Evan Carter"
+  "694497": "Evan Carter",
+  "686611": "Dylan Crews",
+  "695734": "Daylen Lile",
+  "682985": "Riley Greene"
  }
 }
