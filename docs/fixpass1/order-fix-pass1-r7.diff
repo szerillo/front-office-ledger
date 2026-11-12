@@ -1,0 +1,352 @@
+diff -ru a/engine/debut26.py d/engine/debut26.py
+--- a/engine/debut26.py	2026-11-11 19:05:50.046997027 -0500
++++ d/engine/debut26.py	2026-11-11 20:00:11.371234491 -0500
+@@ -22,11 +22,11 @@
+         except Exception as e: print("retry", e); time.sleep(2 + att * 2)
+     return {}
+ 
+-todo = [p for p in cands if p not in DEB]
++todo = sorted(p for p in cands if p not in DEB)   # fix pass 1: fixed batches
+ for i in range(0, len(todo), 150):
+     d = get("https://statsapi.mlb.com/api/v1/people?personIds=" + ",".join(todo[i:i + 150]) + "&fields=people,id,mlbDebutDate")
+     for x in d.get("people", []): DEB[str(x["id"])] = x.get("mlbDebutDate")
+-deb = [p for p in cands if str(DEB.get(p) or "").startswith("2026")]
++deb = sorted(p for p in cands if str(DEB.get(p) or "").startswith("2026"))
+ out = {}
+ for pid in deb:
+     d = get(f"https://statsapi.mlb.com/api/v1/people/{pid}/stats?stats=season&season=2026&group=hitting,pitching&sportId=1")
+diff -ru a/engine/fa_grade.py d/engine/fa_grade.py
+--- a/engine/fa_grade.py	2026-11-11 19:05:50.049367450 -0500
++++ d/engine/fa_grade.py	2026-11-11 20:00:11.373344300 -0500
+@@ -200,11 +200,11 @@
+         if r.get("cum"):
+             y0c = r["start"]
+             r["cum"] = [round(v + sum(x for yy, x in fa_inc.items() if yy <= y0c + i), 1) for i, v in enumerate(r["cum"])]
+-    decs.sort(key=lambda d: -abs(d["net"]))
++    decs.sort(key=lambda x: (-abs(x["net"]), x.get("d") or "", x.get("h") or "", str(x.get("pids"))))   # fix pass 1 rule 5
+     r["fa_tops"] = decs[:4]
+     r.setdefault("dna", {})["fa"] = {k: round(v, 1) for k, v in fa_dna.items()}
+-    r["fa_led"] = dict(best=sorted([d for d in decs if d["net"] > 0], key=lambda x: -x["net"])[:5],
+-                       worst=sorted([d for d in decs if d["net"] < 0], key=lambda x: x["net"])[:5])
++    r["fa_led"] = dict(best=sorted([d for d in decs if d["net"] > 0], key=lambda x: (-x["net"], x.get("d") or "", x.get("h") or "", str(x.get("pids"))))[:5],
++                       worst=sorted([d for d in decs if d["net"] < 0], key=lambda x: (x["net"], x.get("d") or "", x.get("h") or "", str(x.get("pids"))))[:5])
+     best = decs[0]["h"][:40] + f" ({decs[0]['net']:+.1f})" if decs else "-"
+     worst = min(decs, key=lambda d: d["net"])["net"] if decs else 0
+     print(f"{r['abbr']:<5}{(net if covered else 0):>+8.1f}{matched:>9}{len(majors):>8}   {best} / worst {worst:+.1f}")
+diff -ru a/engine/hist_score.py d/engine/hist_score.py
+--- a/engine/hist_score.py	2026-11-11 19:05:50.047860485 -0500
++++ d/engine/hist_score.py	2026-11-11 20:00:11.373175639 -0500
+@@ -92,7 +92,8 @@
+     so the channel is two-sided in every era."""
+     have = {(r["date"], r["person_id"], r["type_desc"]) for r in rows}
+     q = ("select * from sweep_tx where type_desc in ('Claimed Off Waivers','Rule 5 Selection') "
+-         "and date>=? and date<=? and from_team in (%s)" % ",".join("?" * len(names)))
++         "and date>=? and date<=? and from_team in (%s)" % ",".join("?" * len(names))
++         + " order by date, (description like '%(Retrosheet archive)'), tx_id, description, person_id, from_team, to_team")   # fix pass 1 rule 8
+     add = []
+     for r in con.execute(q, (start, end, *names)):
+         r = dict(r)
+@@ -107,7 +108,8 @@
+     tid = reg["teamId"]; start = max(reg["start"], "1998-01-01"); end = reg["end"]
+     rows = [dict(r) for r in con.execute(
+         "select * from sweep_tx where team_id=? and date>=? and date<=? and type_desc in "
+-        "('Trade','Claimed Off Waivers','Rule 5 Selection','Signed as Free Agent','Declared Free Agency')",
++        "('Trade','Claimed Off Waivers','Rule 5 Selection','Signed as Free Agent','Declared Free Agency')"
++        " order by date, (description like '%(Retrosheet archive)'), tx_id, description, person_id, from_team, to_team",   # fix pass 1 rule 8
+         (tid, start, end))]
+     regime_rows[i] = mirror_losses(dedupe_rows(rows, tid, start, end), ALIAS.get(tid, {reg['team']}), start, end)
+     for r in rows:
+@@ -343,12 +345,12 @@
+     total = tr_net + dr_net + wv_net
+     w, l, div, _octs = _rec(tid, start, end, wl)
+     wpct = w / (w + l) if (w + l) else 0.5
+-    decs.sort(key=lambda x: -abs(x["net"]))
+-    walk.sort(key=lambda x: x["net"])
++    decs.sort(key=lambda x: (-abs(x["net"]), x.get("d") or "", x.get("h") or "", str(x.get("pids"))))   # fix pass 1 rule 5
++    walk.sort(key=lambda x: (x["net"], x.get("d") or "", x.get("h") or "", str(x.get("pids"))))
+     def chbw(ch, n=4):
+         pool = [d for d in decs if d["ch"] == ch]
+-        best = sorted([d for d in pool if d["net"] > 0], key=lambda x: -x["net"])[:n]
+-        worst = sorted([d for d in pool if d["net"] < 0], key=lambda x: x["net"])[:n]
++        best = sorted([d for d in pool if d["net"] > 0], key=lambda x: (-x["net"], x.get("d") or "", x.get("h") or "", str(x.get("pids"))))[:n]
++        worst = sorted([d for d in pool if d["net"] < 0], key=lambda x: (x["net"], x.get("d") or "", x.get("h") or "", str(x.get("pids"))))[:n]
+         return dict(best=best, worst=worst)
+     slug = (reg["abbr"] + "-" + reg["exec"]).lower().replace(" ", "-").replace(".", "")
+     if slug in {x["id"] for x in results}: slug += "-" + reg["start"][:4]     # a second tenure (Alderson, NYM 2020-21)
+diff -ru a/engine/ifa_score.py d/engine/ifa_score.py
+--- a/engine/ifa_score.py	2026-11-11 19:05:50.047879052 -0500
++++ d/engine/ifa_score.py	2026-11-11 20:12:33.299099676 -0500
+@@ -83,7 +83,16 @@
+ # classify + realize
+ ifa = []  # (team_id, class_year, person_id, name, realized, sign_date)
+ _seen_ifa = set()
++# fix pass 1 rule 6: a minor-league signing filed by two clubs on the same day is contradictory; it counts for neither
++_clubs_day = defaultdict(set)
++for r in rows: _clubs_day[(r["person_id"], r["date"])].add(r["team_id"])
++DATA_ISSUES = sorted(k for k, v in _clubs_day.items() if len(v) > 1)
++if DATA_ISSUES: print("data issue, same-day signing filed by two clubs, counted for neither:", DATA_ISSUES, flush=True)
++# rule 6 amended: a sourced override names the club; MLB.com shows Bello assigned to the DSL Blue Jays the next day
++SAME_DAY_CLUB = {("806593", "2022-08-02"): 141}
+ for r in rows:
++    _k = (r["person_id"], r["date"])
++    if len(_clubs_day[_k]) > 1 and SAME_DAY_CLUB.get(_k) != r["team_id"]: continue
+     pid = r["person_id"]
+     if pid not in bio: continue
+     bd, bc = bio[pid]
+@@ -156,8 +165,8 @@
+         r["chan"]["intl"]["note"] = ("Context: in November 2017 MLB sanctioned Atlanta for the previous front office's "
+                                      "international violations: 13 signees were released, signings were capped at $10,000 "
+                                      "for the 2019-20 period, and the 2020-21 bonus pool was cut in half.")
+-    tops = sorted(p["tops"], key=lambda t: -t[0])[:5]
+-    r["allx_intl"] = [[dt, nm, y, round(v, 1), pp, round(v - per_signing(y), 2)] for v, y, nm, pp, dt in sorted(p["tops"], key=lambda t: t[4]) if abs(v) >= 0.05]
++    tops = sorted(p["tops"], key=lambda t: (-t[0], t[4], int(t[3])))[:5]   # fix pass 1 rule 9
++    r["allx_intl"] = [[dt, nm, y, round(v, 1), pp, round(v - per_signing(y), 2)] for v, y, nm, pp, dt in sorted(p["tops"], key=lambda t: (t[4], int(t[3]))) if abs(v) >= 0.05]
+     r["intl_tops"] = [dict(d=dt, ch="intl", net=round(v - per_signing(y), 1), st=0.5,
+                            h=f"Int'l amateur signing: {nm} ({y} class)",
+                            sides=[["Produced in his six control seasons (any club)", [[nm, f"{v:+.1f}"]]],
+diff -ru a/engine/r5_conduit.py d/engine/r5_conduit.py
+--- a/engine/r5_conduit.py	2026-11-11 19:05:50.048784480 -0500
++++ d/engine/r5_conduit.py	2026-11-11 20:41:14.527682976 -0500
+@@ -12,16 +12,20 @@
+     for n in set(cfg["aliases"].get(str(r["teamId"]), [])) | {r["team"]}: N2T[n] = r["teamId"]
+ c = sqlite3.connect("/work/ledger.sqlite")
+ n = 0
+-for rid, d, pid, nm, fr, to in c.execute("select rowid,date,person_id,person_name,from_team,to_team from sweep_tx "
+-                                         "where type_desc='Rule 5 Selection' and person_id is not null").fetchall():
+-    tr = [x for x in c.execute("select rowid,date,to_team from sweep_tx where type_desc='Trade' and person_id=? and from_team=? and date>=?",
+-                               (pid, to, d)).fetchall()
++# fix pass 1 rule 13: one pass per selection, in a fixed order; the selecting club's copy is the row re-filed
++_sel = c.execute("select date, person_id, min(person_name), min(from_team), min(to_team) from sweep_tx "
++                 "where type_desc='Rule 5 Selection' and person_id is not null group by date, person_id, to_team "
++                 "order by date, person_id, min(to_team)").fetchall()
++for d, pid, nm, fr, to in _sel:
++    tr = [x for x in c.execute("select rowid,date,to_team from sweep_tx where type_desc='Trade' and person_id=? and from_team=? and date>=? "
++                               "order by date, to_team, rowid", (pid, to, d)).fetchall()
+           if (date.fromisoformat(x[1][:10]) - date.fromisoformat(d[:10])).days <= 3]
+     if not tr: continue
+     final = tr[0][2]
+-    if final not in N2T: continue
+-    c.execute("update sweep_tx set to_team=?, team_id=? where rowid=?", (final, N2T[final], rid))
+-    # the same selection filed under the losing club: it lost him to the final club
++    if final not in N2T or to not in N2T: continue
++    # the copy filed under the selecting club moves to the final club; every other copy keeps its club
++    c.execute("update sweep_tx set to_team=?, team_id=? where type_desc='Rule 5 Selection' and person_id=? and date=? and to_team=? and team_id=?",
++              (final, N2T[final], pid, d, to, N2T[to]))
+     c.execute("update sweep_tx set to_team=? where type_desc='Rule 5 Selection' and person_id=? and date=? and to_team=?", (final, pid, d, to))
+     for x in tr: c.execute("update sweep_tx set type_desc='Trade (Rule 5 conduit)' where rowid=?", (x[0],))
+     n += 1; print(d, nm, fr, "->", to, "->", final)
+diff -ru a/engine/ret2.py d/engine/ret2.py
+--- a/engine/ret2.py	2026-11-11 19:05:50.048840417 -0500
++++ d/engine/ret2.py	2026-11-11 20:00:11.372991780 -0500
+@@ -74,13 +74,14 @@
+ # ---- league expectation curve, all departures 1998-2023 ----
+ _F1, _F2, _F3 = [], [], []
+ events = [dict(r) for r in con.execute(
+-    "select * from sweep_tx where type_desc='Declared Free Agency' and date<='2023-12-31'")]
++    "select * from sweep_tx where type_desc='Declared Free Agency' and date<='2023-12-31' "
++    "order by date, team_id, tx_id, description")]
+ seen = set(); pairs = []
+ for r in events:
+     pid, tid = r["person_id"], r["team_id"]
+     if not pid or tid not in TEAMS: continue
+     yr = int(r["date"][:4])
+-    k = (pid, yr)
++    k = (pid, tid, yr)   # fix pass 1: each club's departure counts once (82 players filed from two clubs in a year)
+     if k in seen: continue
+     seen.add(k)
+     names = TEAMS[tid]
+@@ -161,7 +162,8 @@
+     start = max(REG[tid]["start"], "1998-01-01")
+     names = TEAMS[tid]
+     rows = [dict(x) for x in con.execute(
+-        "select * from sweep_tx where team_id=? and date>=? and type_desc='Declared Free Agency' and date<='2025-12-31'",
++        "select * from sweep_tx where team_id=? and date>=? and type_desc='Declared Free Agency' and date<='2025-12-31' "
++        "order by date, tx_id, description",
+         (tid, start))]
+     seen2 = set(); net2 = 0.0; n2 = 0; qo_n = 0; worst = []
+     for x in rows:
+diff -ru a/engine/scenario_build.py d/engine/scenario_build.py
+--- a/engine/scenario_build.py	2026-11-11 19:05:50.048871783 -0500
++++ d/engine/scenario_build.py	2026-11-11 20:08:54.036153508 -0500
+@@ -164,7 +164,8 @@
+ def deal_pieces(date, buyer_tid, like):
+     rows = con.execute(
+         "SELECT DISTINCT person_id, person_name, from_team, to_team FROM sweep_tx "
+-        "WHERE date=? AND description LIKE ? AND type_desc LIKE '%rade%'", (date, f"%{like}%")).fetchall()
++        "WHERE date=? AND description LIKE ? AND type_desc LIKE '%rade%' "
++        "ORDER BY person_id, person_name, from_team, to_team", (date, f"%{like}%")).fetchall()   # fix pass 1 rule 11
+     buyer_names = TEAMNAMES[buyer_tid]
+     recv, sent, seller_tid = [], [], None
+     for pid, nm, ft, tt in rows:
+@@ -293,7 +294,7 @@
+         cBlend, cPeak = c[7] * 0.65 + c[8] * 0.35, max(c[7], c[8])
+         s = abs(cBlend - pBlend) + abs(cPeak - pPeak) * 0.5 + abs(c[5] - age) * 0.45
+         cands.append((s, c))
+-    cands.sort(key=lambda x: x[0])
++    cands.sort(key=lambda x: (x[0], str(x[1])))   # rule 11
+     comps = [c for _, c in cands[:8]]
+     if not comps: return None
+     yr1 = min(off + 1, 2026)
+diff -ru a/engine/sweep_score.py d/engine/sweep_score.py
+--- a/engine/sweep_score.py	2026-11-11 19:05:50.049129554 -0500
++++ d/engine/sweep_score.py	2026-11-11 20:00:11.373426524 -0500
+@@ -137,7 +137,8 @@
+     so the channel is two-sided in every era."""
+     have = {(r["date"], r["person_id"], r["type_desc"]) for r in rows}
+     q = ("select * from sweep_tx where type_desc in ('Claimed Off Waivers','Rule 5 Selection') "
+-         "and date>=? and date<=? and from_team in (%s)" % ",".join("?" * len(names)))
++         "and date>=? and date<=? and from_team in (%s)" % ",".join("?" * len(names))
++         + " order by date, (description like '%(Retrosheet archive)'), tx_id, description, person_id, from_team, to_team")   # fix pass 1 rule 8
+     add = []
+     for r in con.execute(q, (start, end, *names)):
+         r = dict(r)
+@@ -151,7 +152,8 @@
+     tid = reg["teamId"]; start = max(reg["start"], "1998-01-01")
+     rows = [dict(r) for r in con.execute(
+         "select * from sweep_tx where team_id=? and date>=? and type_desc in "
+-        "('Trade','Claimed Off Waivers','Rule 5 Selection','Signed as Free Agent','Declared Free Agency')",
++        "('Trade','Claimed Off Waivers','Rule 5 Selection','Signed as Free Agent','Declared Free Agency')"
++        " order by date, (description like '%(Retrosheet archive)'), tx_id, description, person_id, from_team, to_team",   # fix pass 1 rule 8
+         (tid, start))]
+     regime_rows[tid] = mirror_losses(dedupe_rows(rows, tid, start), ALIAS.get(tid, {reg['team']}), start)
+     for r in rows:
+@@ -425,12 +427,12 @@
+     total = tr_net + dr_net + wv_net
+     w, l, div, _octs = _rec(tid, start, None, wl)
+     wpct = w / (w + l) if (w + l) else 0.5
+-    decs.sort(key=lambda x: -abs(x["net"]))
+-    walk.sort(key=lambda x: x["net"])
++    decs.sort(key=lambda x: (-abs(x["net"]), x.get("d") or "", x.get("h") or "", str(x.get("pids"))))   # fix pass 1 rule 5
++    walk.sort(key=lambda x: (x["net"], x.get("d") or "", x.get("h") or "", str(x.get("pids"))))
+     def chbw(ch, n=5):
+         pool = [d for d in decs if d["ch"] == ch]
+-        best = sorted([d for d in pool if d["net"] > 0], key=lambda x: -x["net"])[:n]
+-        worst = sorted([d for d in pool if d["net"] < 0], key=lambda x: x["net"])[:n]
++        best = sorted([d for d in pool if d["net"] > 0], key=lambda x: (-x["net"], x.get("d") or "", x.get("h") or "", str(x.get("pids"))))[:n]
++        worst = sorted([d for d in pool if d["net"] < 0], key=lambda x: (x["net"], x.get("d") or "", x.get("h") or "", str(x.get("pids"))))[:n]
+         return dict(best=best, worst=worst)
+     results.append(dict(
+         id=reg["abbr"].lower(), teamId=tid, exec=reg["exec"], team=reg["team"], abbr=reg["abbr"],
+diff -ru a/engine/trade_book.py d/engine/trade_book.py
+--- a/engine/trade_book.py	2026-11-11 19:05:50.049158826 -0500
++++ d/engine/trade_book.py	2026-11-11 20:34:45.609605375 -0500
+@@ -65,14 +65,19 @@
+ con = sqlite3.connect(f"{ROOT}/ledger.sqlite"); con.row_factory = sqlite3.Row
+ from tradegroup import dedupe_rows, group_trades
+ names = {}
++names_arch = {}
++names_feedonly = {}
+ seat_groups = []     # (tid, d, rows, base keys)
+ for r in cfg["regimes"]:
+     tid = r["teamId"]
+     nm = ALIAS.get(tid, set()) | {r["team"]}
+     rows = dedupe_rows([dict(x) for x in con.execute(
+-        "select * from sweep_tx where team_id=? and date>='1998-01-01' and type_desc='Trade'", (tid,))], tid, "1998-01-01")
+-    for x in rows:
+-        if x["person_id"]: names[str(x["person_id"])] = x["person_name"]
++        "select * from sweep_tx where team_id=? and date>='1998-01-01' and type_desc='Trade' "
++        "order by date, tx_id, person_id, description, from_team, to_team", (tid,))], tid, "1998-01-01")   # fix pass 1: later rows win, so the name is the latest one
++    for x in rows:   # rule 12b (amendment 3): the Retrosheet archive spelling when an archive row exists, else the latest feed name
++        if not x["person_id"]: continue
++        _arch = str(x.get("tx_id") or "").startswith("retro-") or (x.get("description") or "").endswith("(Retrosheet archive)")
++        (names if _arch else names_feedonly)[str(x["person_id"])] = x["person_name"]
+     for (d, desc, rs) in group_trades(rows, nm):
+         seat_groups.append((tid, d, rs, {(x["date"], x["description"]) for x in rs}))
+ # a trade = every seat group linked through a shared (date, description) filing
+@@ -113,13 +118,15 @@
+         ins = {x["person_id"] for x in rs if x["to_team"] in nm and x["person_id"] and str(x["person_id"]) != "0"}
+         outs = {x["person_id"]: x["to_team"] for x in rs if x["from_team"] in nm and x["person_id"] and str(x["person_id"]) != "0" and x["to_team"]}
+         ins_from = {x["person_id"]: x["from_team"] for x in rs if x["to_team"] in nm and x["person_id"]}
+-        idet = [[str(p), round(val_control(p, nm, yr, date=d, sender=club_names(ins_from.get(p, ""))), 1)] for p in ins]
+-        odet = [[str(p), round(val_control(p, club_names(dest), yr, date=d, sender=nm), 1)] for p, dest in outs.items()]
++        idet = [[str(p), round(val_control(p, nm, yr, date=d, sender=club_names(ins_from.get(p, ""))), 1)] for p in sorted(ins, key=str)]
++        odet = [[str(p), round(val_control(p, club_names(dest), yr, date=d, sender=nm), 1)] for p, dest in sorted(outs.items(), key=lambda kv: str(kv[0]))]
+         if not idet and not odet: continue
++        idet.sort(key=lambda t: (-t[1], -int(t[0]))); odet.sort(key=lambda t: (-t[1], -int(t[0])))   # rule 12a: value, then higher id
+         net = sum(v for _, v in idet) - sum(v for _, v in odet)
+         row.append([TID2AB.get(tid, "?"), round(net, 1), idet, odet])
++    row.sort(key=lambda s: s[0])
+     if row: out.append([d, row])
+-out.sort(key=lambda t: t[0])
++out.sort(key=lambda t: (t[0], json.dumps(t[1])))   # fix pass 1: same-day trades in a fixed order
+ 
+ # self-check against every trade decision already graded on a card
+ def card_trades():
+@@ -145,6 +152,7 @@
+         if len(bad) < 15: bad.append((ab, d, net, cands, fn))
+ print(f"trades graded: {len(out)} | card cross-check: {match} match, {miss} differ")
+ for b in bad: print("  differ:", b)
++for _k, _v in names_feedonly.items(): names.setdefault(_k, _v)
+ json.dump({"trades": out, "names": names, "check": {"match": match, "differ": miss}},
+           open(f"{ROOT}/trade_book.json", "w"), separators=(",", ":"))
+ import os
+diff -ru a/engine/trade_comps.py d/engine/trade_comps.py
+--- a/engine/trade_comps.py	2026-11-11 19:05:50.049191484 -0500
++++ d/engine/trade_comps.py	2026-11-11 20:00:11.373214546 -0500
+@@ -94,19 +94,20 @@
+ for reg in cfg["regimes"]:
+     tid = reg["teamId"]; names = ALIAS.get(tid, {reg["team"]})
+     rows = [dict(r) for r in con.execute(
+-        "select * from sweep_tx where team_id=? and date>='1998-01-01' and date<='2023-12-31' and type_desc='Trade'", (tid,))]
++        "select * from sweep_tx where team_id=? and date>='1998-01-01' and date<='2023-12-31' and type_desc='Trade' "
++        "order by date, description, tx_id, person_id, from_team, to_team", (tid,))]   # fix pass 1 rule 7
+     trades = defaultdict(list)
+     for r in rows: trades[(r["date"], r["description"])].append(r)
+     for (d, desc), rs in trades.items():
+         yr = int(d[:4])
+-        acq = [x for x in rs if x["to_team"] in names and x["person_id"]]
++        acq = sorted([x for x in rs if x["to_team"] in names and x["person_id"]], key=lambda x: int(x["person_id"]))   # rule 7
+         if not acq: continue
+         outs = {x["person_id"]: x["to_team"] for x in rs
+                 if x["from_team"] in names and x["person_id"] and x["to_team"]}
+         received = sum(val_control(int(x["person_id"]), names, yr) for x in acq)
+         paid = sum(val_control(int(p), {dest}, yr) for p, dest in outs.items())
+         best = max(acq, key=lambda x: val_control(int(x["person_id"]), names, yr))
+-        gave = max(outs.items(), key=lambda t: val_control(int(t[0]), {t[1]}, yr))[0] if outs else None
++        gave = max(sorted(outs.items(), key=lambda t: int(t[0])), key=lambda t: val_control(int(t[0]), {t[1]}, yr))[0] if outs else None
+         gave_nm = next((x["person_name"] for x in rs if x["person_id"] == gave), None) if gave else None
+         ctrl = max(control_years(x["person_id"], d) for x in acq)
+         deals.append(dict(d=d, yr=yr, tid=tid, ab=ABBR[tid], ph=phase(d), ck=bucket(ctrl),
+@@ -138,7 +139,7 @@
+                  + (0.0 if x["ck"] == ck0 else 2.5)
+                  + (0.0 if x["po"] == po0 else 1.2))
+         cands.append((score, x))
+-    cands.sort(key=lambda t: t[0])
++    cands.sort(key=lambda t: (t[0], t[1]["d"], t[1]["tid"], t[1]["who"]))   # rule 7
+     out, seen = [], set()
+     for _, x in cands:
+         key = (x["d"], x["tid"])
+diff -ru a/engine/tradegroup.py d/engine/tradegroup.py
+--- a/engine/tradegroup.py	2026-11-11 19:05:50.049232987 -0500
++++ d/engine/tradegroup.py	2026-11-11 20:00:11.373243156 -0500
+@@ -59,7 +59,8 @@
+     _LEGS = {}
+     seen = set()
+     rows = [dict(zip(("date", "person_id", "from_team", "to_team"), x)) for x in
+-            con.execute("select date, person_id, from_team, to_team from sweep_tx where type_desc='Trade' and person_id is not null")]
++            con.execute("select date, person_id, from_team, to_team from sweep_tx where type_desc='Trade' and person_id is not null "
++                       "order by date, person_id, from_team, to_team")]   # fix pass 1 rule 8
+     rows += [dict(date=r["date"], person_id=r["person_id"], from_team=r["from_team"], to_team=r["to_team"]) for r in _REPAIRS]
+     for r in rows:
+         a, b = _N2T.get(r["from_team"]), _N2T.get(r["to_team"])
+@@ -185,7 +186,7 @@
+     import sqlite3 as _sq
+     con = _sq.connect("/work/ledger.sqlite")
+     rows = con.execute("select date, person_id, from_team, to_team, description from sweep_tx "
+-                       "where type_desc='Trade' and person_id is not null").fetchall()
++                       "where type_desc='Trade' and person_id is not null order by date, person_id, from_team, to_team, description").fetchall()   # rule 8
+     promises = []
+     for d, pid, fr, to, desc in rows:
+         snd = _ptbnl_sender(desc)
+diff -ru a/ingest/regen_v3.py d/ingest/regen_v3.py
+--- a/ingest/regen_v3.py	2026-11-11 20:00:11.377556530 -0500
++++ d/ingest/regen_v3.py	2026-11-11 20:00:34.428228354 -0500
+@@ -538,7 +538,7 @@
+     q = ("select person_id, person_name, date, team_id, type_desc, description, from_team, to_team from sweep_tx "
+          "where person_id in (%s) and type_desc in ('Trade','Signed as Free Agent',"
+          "'Declared Free Agency','Claimed Off Waivers','Rule 5 Selection','Released','Selected') "
+-         "order by date" % ",".join("?" * len(pidset)))
++         "order by date, type_desc, team_id, description, from_team, to_team, person_id" % ",".join("?" * len(pidset)))   # fix pass 1 rule 10
+     seen = set()
+     from feed_text import clean as _ft_clean, garble_score as _ft_score
+     _MV_AT = {}
