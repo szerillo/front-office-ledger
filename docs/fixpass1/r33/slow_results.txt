@@ -1,0 +1,7 @@
+live slow4g cards ready at 18.2 s; banner shown at null ; banner still up after ready: false
+unsplit slow4g cards ready at 18.2 s; banner shown at null ; banner still up after ready: false
+split slow4g cards ready at 18.1 s; banner shown at null ; banner still up after ready: false
+live slow3g cards ready at 66.8 s; banner shown at 46.9 ; banner still up after ready: false
+unsplit slow3g cards ready at 66.6 s; banner shown at 47.0 ; banner still up after ready: false
+split slow3g cards ready at 66.7 s; banner shown at 47.3 ; banner still up after ready: false
+ALLDONE

@@ -1,0 +1,642 @@
+{
+"gm|data (feed after Nov 1)": [
+[
+"T01",
+[
+"109",
+"110"
+]
+],
+[
+"T01",
+[
+"plays the slot book straight,",
+""
+]
+],
+[
+"T01",
+[
+"here;",
+"here, shops for arms;"
+]
+],
+[
+"T01",
+[
+"plays the slot book straight,",
+""
+]
+],
+[
+"T01",
+[
+"here:",
+"here, shops for arms:"
+]
+],
+[
+"T02",
+[
+"trades for thump,",
+"swings over slot,"
+]
+],
+[
+"T02",
+[
+"230",
+"231"
+]
+],
+[
+"T02",
+[
+"trades for thump,",
+"swings over slot,"
+]
+],
+[
+"T03",
+[
+"57",
+"58"
+]
+],
+[
+"T03",
+[
+"spends on bats,",
+"prep-school dreamer,"
+]
+],
+[
+"T03",
+[
+"60",
+"63"
+]
+],
+[
+"T03",
+[
+"spends on bats,",
+"prep-school dreamer,"
+]
+],
+[
+"T04",
+[
+"57",
+"58"
+]
+],
+[
+"T04",
+[
+"spends on bats,",
+"prep-school dreamer,"
+]
+],
+[
+"T07",
+[
+"60",
+"63"
+]
+],
+[
+"T08",
+[
+"new in the seat, no trades graded yet.",
+"trade grade F over 1 deal."
+]
+],
+[
+"T09",
+[
+"13",
+"14"
+]
+],
+[
+"T10",
+[
+"57",
+"58"
+]
+],
+[
+"T10",
+[
+"spends on bats,",
+"prep-school dreamer,"
+]
+],
+[
+"T10",
+[
+"new in the seat, no trades graded yet.",
+"trade grade F over 1 deal."
+]
+],
+[
+"T10",
+[
+"spends on bats,",
+"prep-school dreamer,"
+]
+],
+[
+"T11",
+[
+"20",
+"22"
+]
+],
+[
+"T13",
+[
+"60",
+"63"
+]
+],
+[
+"T14",
+[
+"A\u2212",
+"A"
+]
+],
+[
+"T14",
+[
+"24",
+"26"
+]
+],
+[
+"T15",
+[
+"57",
+"58"
+]
+],
+[
+"T15",
+[
+"spends on bats,",
+"prep-school dreamer,"
+]
+],
+[
+"T16",
+[
+"new in the seat, no trades graded yet.",
+"trade grade F over 1 deal."
+]
+],
+[
+"T17",
+[
+"swings over slot;",
+"bargain-bin believer;"
+]
+],
+[
+"T18",
+[
+"college polish only,",
+""
+]
+],
+[
+"T18",
+[
+"here;",
+"here, swings over slot;"
+]
+],
+[
+"T19",
+[
+"57",
+"58"
+]
+],
+[
+"T19",
+[
+"spends on bats,",
+"prep-school dreamer,"
+]
+],
+[
+"T19",
+[
+"spends on bats,",
+"prep-school dreamer,"
+]
+],
+[
+"T21",
+[
+"60",
+"63"
+]
+],
+[
+"T22",
+[
+"109",
+"110"
+]
+],
+[
+"T22",
+[
+"plays the slot book straight,",
+""
+]
+],
+[
+"T22",
+[
+"here;",
+"here, shops for arms;"
+]
+],
+[
+"T22",
+[
+"plays the slot book straight,",
+""
+]
+],
+[
+"T22",
+[
+"here:",
+"here, shops for arms:"
+]
+],
+[
+"T23",
+[
+"swings over slot;",
+"bargain-bin believer;"
+]
+],
+[
+"T24",
+[
+"57",
+"58"
+]
+],
+[
+"T24",
+[
+"spends on bats,",
+"prep-school dreamer,"
+]
+],
+[
+"T24",
+[
+"13",
+"14"
+]
+],
+[
+"T24",
+[
+"spends on bats,",
+"prep-school dreamer,"
+]
+],
+[
+"T25",
+[
+"A\u2212",
+"A"
+]
+],
+[
+"T25",
+[
+"24",
+"26"
+]
+],
+[
+"T26",
+[
+"swings over slot,",
+"shops for arms,"
+]
+],
+[
+"T26",
+[
+"swings over slot,",
+"shops for arms,"
+]
+],
+[
+"T27",
+[
+"swings over slot;",
+"bargain-bin believer;"
+]
+],
+[
+"T27",
+[
+"A\u2212",
+"A"
+]
+],
+[
+"T27",
+[
+"24",
+"26"
+]
+],
+[
+"T27",
+[
+"swings over slot:",
+"bargain-bin believer:"
+]
+],
+[
+"T28",
+[
+"57",
+"58"
+]
+],
+[
+"T28",
+[
+"spends on bats,",
+"prep-school dreamer,"
+]
+],
+[
+"T30",
+[
+"20",
+"22"
+]
+]
+],
+"gm|fix pass rules 1-14": [
+[
+"T01",
+[
+"110",
+"109"
+]
+],
+[
+"T22",
+[
+"110",
+"109"
+]
+]
+],
+"comps|data (feed after Nov 1)": [
+[
+"T07",
+[
+"2017 \u00b7 CIN acquires Hendrik Clementina catcher \u00b7 for Tony Cingrani (pitcher) \u00b7 four or more years, or prospects \u00b7 rebuilding buyer \u00b7 -1.4 for CIN 0.0 W +1.4 W 2018 \u00b7 WSH acquires K.J. Harrison catcher \u00b7 for Gio Gonzalez (pitcher) \u00b7 four or more years, or prospects \u00b7 mid-pack buyer \u00b7 -1.3 for WSH 0.0 W +1.3 W",
+""
+]
+],
+[
+"T07",
+[
+"",
+"2023 \u00b7 CLE acquires Kody Huff catcher \u00b7 for Cal Quantrill (pitcher) \u00b7 four or more years, or prospects \u00b7 mid-pack buyer \u00b7 -0.9 for CLE 0.0 W +0.9 W 2006 \u00b7 CLE acquires Max Ram\u00edrez catcher \u00b7 for Bob Wickman (pitcher) \u00b7 four or more years, or prospects \u00b7 mid-pack buyer \u00b7 -1.6 for CLE 0.0 W +1.6 W"
+]
+],
+[
+"T09",
+[
+"Marcus Johnson",
+"Santiago Suarez"
+]
+],
+[
+"T10",
+[
+"",
+"2011 \u00b7 ARI acquires Trevor Cahill pitcher \u00b7 for Collin Cowgill (outfielder) \u00b7 four or more years, or prospects \u00b7 contending buyer \u00b7 +4.0 for ARI +4.0 W 0.0 W"
+]
+],
+[
+"T10",
+[
+"2012 \u00b7 COL acquires Josh Outman pitcher \u00b7 for Seth Smith (outfielder) \u00b7 four or more years, or prospects \u00b7 rebuilding buyer \u00b7 +2.2 for COL +2.2 W 0.0 W",
+""
+]
+],
+[
+"T11",
+[
+"TB acquires Cal Stevenson outfielder \u00b7 for Austin Pruitt (pitcher) \u00b7 four or more years, or prospects \u00b7 mid-pack buyer \u00b7 +0.3 for TB 0.0 W -0.3 W 2020 \u00b7",
+""
+]
+],
+[
+"T11",
+[
+"",
+"2016 \u00b7 NYY acquires Clint Frazier outfielder \u00b7 for Andrew Miller (pitcher) \u00b7 four or more years, or prospects \u00b7 mid-pack buyer \u00b7 +0.3 for NYY +0.3 W 0.0 W"
+]
+],
+[
+"T16",
+[
+"",
+"2017 \u00b7 CIN acquires Scott Van Slyke outfielder \u00b7 for Tony Cingrani (pitcher) \u00b7 four or more years, or prospects \u00b7 rebuilding buyer \u00b7 -1.4 for CIN 0.0 W +1.4 W"
+]
+],
+[
+"T16",
+[
+"2023 \u00b7 NYM acquires Drew Gilbert outfielder \u00b7 for Justin Verlander (pitcher) \u00b7 four or more years, or prospects \u00b7 mid-pack buyer \u00b7 -1.4 for NYM 0.0 W +1.4 W",
+""
+]
+]
+],
+"comps|fix pass rules 1-14": [
+[
+"T07",
+[
+"",
+"2018 \u00b7 WSH acquires K.J. Harrison catcher \u00b7 for Gio Gonzalez (pitcher) \u00b7 four or more years, or prospects \u00b7 mid-pack buyer \u00b7 -1.3 for WSH 0.0 W +1.3 W"
+]
+],
+[
+"T07",
+[
+"2006 \u00b7 CLE acquires Max Ram\u00edrez catcher \u00b7 for Bob Wickman (pitcher) \u00b7 four or more years, or prospects \u00b7 mid-pack buyer \u00b7 -1.6 for CLE 0.0 W +1.6 W",
+""
+]
+],
+[
+"T09",
+[
+"Santiago Suarez",
+"Marcus Johnson"
+]
+],
+[
+"T09",
+[
+"2021",
+"2013"
+]
+],
+[
+"T09",
+[
+"TEX",
+"HOU"
+]
+],
+[
+"T09",
+[
+"Josh Smith",
+"Chris Carter"
+]
+],
+[
+"T09",
+[
+"Joely Rodr\u00edguez",
+"Fernando Rodriguez Jr."
+]
+],
+[
+"T09",
+[
+"+9.1",
+"+11.0"
+]
+],
+[
+"T09",
+[
+"TEX +9.9",
+"HOU +11.0"
+]
+],
+[
+"T09",
+[
+"+0.8",
+"0.0"
+]
+],
+[
+"T10",
+[
+"2011 \u00b7 ARI acquires Trevor Cahill pitcher \u00b7 for Collin Cowgill (outfielder) \u00b7 four or more years, or prospects \u00b7 contending buyer \u00b7 +4.0 for ARI +4.0 W 0.0 W",
+""
+]
+],
+[
+"T10",
+[
+"",
+"2012 \u00b7 COL acquires Josh Outman pitcher \u00b7 for Seth Smith (outfielder) \u00b7 four or more years, or prospects \u00b7 rebuilding buyer \u00b7 +2.2 for COL +2.2 W 0.0 W"
+]
+],
+[
+"T11",
+[
+"",
+"TB acquires Cal Stevenson outfielder \u00b7 for Austin Pruitt (pitcher) \u00b7 four or more years, or prospects \u00b7 mid-pack buyer \u00b7 +0.3 for TB 0.0 W -0.3 W 2020 \u00b7"
+]
+],
+[
+"T11",
+[
+"2016 \u00b7 NYY acquires Clint Frazier outfielder \u00b7 for Andrew Miller (pitcher) \u00b7 four or more years, or prospects \u00b7 mid-pack buyer \u00b7 +0.3 for NYY +0.3 W 0.0 W",
+""
+]
+],
+[
+"T17",
+[
+"2021 \u00b7 NYM acquires Rich Hill pitcher \u00b7 for Matthew Dyer (outfielder) \u00b7 a rental \u00b7 mid-pack buyer \u00b7 +0.4 for NYM +0.4 W 0.0 W",
+""
+]
+],
+[
+"T17",
+[
+"",
+"W 0.0 W 2019 \u00b7 BOS acquires Andrew Cashner pitcher \u00b7 for Elio Prado (outfielder) \u00b7 a rental \u00b7 mid-pack buyer \u00b7 +0.3 for BOS +0.3"
+]
+],
+[
+"T27",
+[
+"2012",
+"2015"
+]
+],
+[
+"T27",
+[
+"BOS",
+"SD"
+]
+],
+[
+"T27",
+[
+"Steven Wright",
+"Drew Pomeranz"
+]
+],
+[
+"T27",
+[
+"Lars Anderson",
+"Yonder Alonso"
+]
+],
+[
+"T27",
+[
+"+3.3",
+"+2.5"
+]
+],
+[
+"T27",
+[
+"BOS +3.3",
+"SD +2.5"
+]
+]
+],
+"gm|re-sign rule / tie-break": [
+[
+"T29",
+[
+"+2.8",
+"+2.7"
+]
+]
+]
+}
