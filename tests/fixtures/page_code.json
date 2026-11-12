@@ -1,6 +1,6 @@
 {
- "sha": "b0a80fc82ebbb4b8",
- "codeLines": 11745,
- "reason": "Nov 12 round 45: methodology line on the band test (player error carried across seasons; 3 winters just short)",
- "at": "2026-11-12T15:22:40.910Z"
+ "sha": "34c7aac39a798205",
+ "codeLines": 11772,
+ "reason": "Nov 12 round 46: published service time (PUB_SVC) and estimated control-end labels; trade reports checked by club and date",
+ "at": "2026-11-12T15:55:52.671Z"
 }
