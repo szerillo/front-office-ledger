@@ -1961,7 +1961,7 @@ try { var _t = localStorage.getItem('fol-theme'); if(_t === 'dark' || _t === 'li
 
       <h3>Who owns a season: control, contracts and money</h3>
       <ul class="mlist">
-        <li><strong>Club control</strong> runs six seasons from the MLB debut (a debut after mid-April runs it one season longer). The decision that acquired a player (the pick, the signing, the trade) owns those seasons wherever he plays them, until a release or a free-agent filing.</li>
+        <li><strong>Club control</strong> runs six seasons from the MLB debut (a debut after mid-April runs it one season longer). That rule ignores time sent back to the minors and service awarded for rookie honors: against official service time published for 1,366 graded players who reached arbitration, it ends control a year or more early for 834 of them and late for 12, so grades of past moves can credit too few controlled seasons. For current players, the Deal Desk, simulator and club pages use official service time where it is published (293 players eligible for arbitration this winter) and mark every other control end as estimated. The decision that acquired a player (the pick, the signing, the trade) owns those seasons wherever he plays them, until a release or a free-agent filing.</li>
         <li><strong>One contract book</strong> holds every guaranteed deal the ledger knows: <span data-n="cbfa">2,779</span> free-agent contracts from the 1997-98 winter on and <span data-n="cbext">826</span> extensions. A free-agent deal owns its seasons; an extension owns only the seasons beyond the player's original control.</li>
         <li><strong>Salary is charged</strong> at what that money typically buys: a free-agent season at the typical return for its contract year and size (so taking on or shedding a typical contract is neutral, and dumping the last years of a deal is not a windfall). An arbitration season with no contract costs the estimated award: (0.6 + platform WAR) x a class step of 1.0, 1.5 and 3.1 x the $/win drift, calibrated on 48 real 2026 awards (leave-one-out miss about $1.6M). A season lost to injury still charges the salary; cash sent in a trade is charged to the club that paid it.</li>
       </ul>
@@ -2571,7 +2571,7 @@ function nowStatus(pid){
   }
   if(gmControlled(p)){
     const k = gmArbNo(p, 2027);
-    return {txt: `under team control through ${gmCtrlEnd(p)} (${k === 0 ? 'pre-arbitration' : 'arbitration-eligible'})`, open: true, club};
+    return {txt: `under team control through ${gmCtrlEnd(p)}${gmEstTag(p)} (${k === 0 ? 'pre-arbitration' : 'arbitration-eligible'})`, open: true, club};
   }
   return null;
 }
@@ -7723,7 +7723,7 @@ function dkPieceTerms(pc){
   const end = 2026 + pc.ctrl, sal = gmSalary27(pc.p);
   // Nov 9: the 2027 projection split into playing time and rate (true talent per 600 PA)
   const v27 = gmProj27(pc.p), ptn = dkPTNote(pc.p, v27);
-  return `$${sal.toFixed(1)}M in 2027 · ${pz(pc.ctrl, 'year', 'years')} of control (through ${end})${ptn ? ` · 2027: ${fmtW(v27)} WAR, ${ptn}` : ''}`;
+  return `$${sal.toFixed(1)}M in 2027 · ${pz(pc.ctrl, 'year', 'years')} of control (through ${end}${pc.ctrl === gmCtrlOf(pc.p) ? gmEstTag(pc.p, true) : ''})${ptn ? ` · 2027: ${fmtW(v27)} WAR, ${ptn}` : ''}`;
 }
 function dkPieceChip(pc, side, i){
   const pr = dkProjPiece(pc);
@@ -8194,7 +8194,7 @@ function dkStatusNote(p){
   if(st && st[0] === 'out') t = `${p[0]} is not available: ${st[1]}.`;
   else if(st && (st[0] === 'pendfa' || st[0] === 'pendin')) t = `${p[0]}: ${st[1]}.`;
   else if(!gmIsFA(p) && bk >= 2027) t = `${p[0]} is under contract with ${p[2]} through ${bk}${st && st[0] === 'ctr' ? ` (${st[1]})` : ''}; this prices a hypothetical.`;
-  else if(!gmIsFA(p) && gmControlled(p)) t = `${p[0]} is under club control with ${p[2]} through ${gmCtrlEnd(p)}; this prices a hypothetical.`;
+  else if(!gmIsFA(p) && gmControlled(p)) t = `${p[0]} is under club control with ${p[2]} through ${gmCtrlEnd(p)}${gmEstTag(p)}; this prices a hypothetical.`;
   return t ? `<div class="ttype" style="margin-top:8px; border-left:3px solid var(--rule); padding-left:8px">${t}</div>` : '';
 }
 function dkSuggestHtml(p, mode, cls){
@@ -8757,7 +8757,7 @@ function hzClubData(ab){
   seasons.forEach(s => { tot[s] = 0; contrib[s] = []; fallers[s] = []; });
   live.forEach(r => {
     r.per.forEach((v, i) => { const s = 2027 + i; if(s > 2031) return; tot[s] += v; contrib[s].push([r.p[0], v]); });
-    if(r.rawEnd <= 2031) fallers[r.rawEnd].push([r.p[0], r.fromBook ? 'contract' : 'control']);
+    if(r.rawEnd <= 2031) fallers[r.rawEnd].push([r.p[0] + (!r.fromBook && gmCtrlEst(r.p) ? ' (est.)' : ''), r.fromBook ? 'contract' : 'control']);
   });
   seasons.forEach((s, i) => { farmTot[s] = farm.reduce((a, f) => a + (f.per[i] || 0), 0); tot[s] += farmTot[s]; });
   seasons.forEach(s => contrib[s].sort((a, b) => b[1] - a[1]));
@@ -8809,7 +8809,7 @@ function renderHorizon(){
       <li>Payroll is guaranteed money plus arbitration and pre-arb estimates; the club's own 2026-27 free agents drop out.</li>
     </ul>`
     + rows + farmLine
-    + `<ul class="bd-mini" style="color:var(--muted)"><li>Control ends at the later of service time and guaranteed contract years. Players projected below replacement show at zero.</li><li>Propose a move at the Deal Desk to see what it does to this curve.</li></ul>`
+    + `<ul class="bd-mini" style="color:var(--muted)"><li>Control ends at the later of service time and guaranteed contract years. Service time is official where MLB Trade Rumors publishes it (players eligible for arbitration this winter); otherwise it is our own count from transactions, and those control ends are marked est. Players projected below replacement show at zero.</li><li>Propose a move at the Deal Desk to see what it does to this curve.</li></ul>`
     + `<h3 style="margin-top:18px">The salary book, season by season</h3>` + moneyTable(ab);
 }
 function hzSaveClub(ab){
@@ -9159,7 +9159,26 @@ function rumorsLoadData(j){
   dkRumor._m = null; dkAvailList._c = null; try { _scW27 = null; } catch(e){}
 }
 setTimeout(() => { try { fetch('rumors.json?h=' + Math.floor(Date.now() / 36e5)).then(r => r.ok ? r.json() : null).then(j => { rumorsLoadData(j); try { const v = routeView(); if(v === 'stove') renderStove(); else if(v === 'desk' && dkState.mode === 'avail') renderDesk(); } catch(e){} }).catch(() => {}); } catch(e){} }, 900);
-function dkRumor(pid){ const m = dkRumor._m || (dkRumor._m = Object.fromEntries(TRADE_RUMORS.rows.map(r => [r[0], {rank: r[1], by: r[2], why: r[3], long: !!r[4]}]))); return m[pid] || null; }
+function dkRumor(pid){
+  // Nov 12 (round 46): a report counts only while it is about the player's current club and no move of his
+  // came after it. rows[5] = club the report is about, rows[6] = date it was last confirmed on file
+  // (older rows without them fall back to the file's checked date and are not club-checked).
+  const m = dkRumor._m || (dkRumor._m = Object.fromEntries(TRADE_RUMORS.rows.map(r => [r[0], {rank: r[1], by: r[2], why: r[3], long: !!r[4], club: r[5] || '', d: r[6] || String(TRADE_RUMORS.checked || '').slice(0, 10)}])));
+  const r = m[pid]; if(!r) return null;
+  const p = wireP(pid); if(r.club && p && p[2] && p[2] !== r.club) return null;
+  const mv = dkLastMove(pid); if(mv && (mv.d > r.d || (r.club && mv.to && mv.to !== r.club))) return null;
+  return r;
+}
+function dkLastMove(pid){
+  // his latest change of club on the live transaction feed (trade, signing, claim, Rule 5, purchase), if loaded
+  let best = null;
+  ((typeof WIRE !== 'undefined' && WIRE.tx) || []).forEach(x => {
+    if(!x.person || x.person.id !== +pid || !['TR', 'SFA', 'SGN', 'CLW', 'R5', 'PUR'].includes(x.typeCode)) return;
+    const d = String(x.date || x.effectiveDate || '').slice(0, 10), to = wireAbOf(x.toTeam);
+    if(to && (!best || d > best.d)) best = {d, to};
+  });
+  return best;
+}
 function dkRumorSrc(r){ return [r.rank ? `MLB Trade Rumors trade candidates, #${r.rank}` : '', r.by].filter(Boolean).join(' · '); }
 
 /* available players: our read of who could move this winter */
@@ -9223,7 +9242,7 @@ function dkAvailHtml(){
       <td><strong>${playerLink(x.p[1], x.p[0])}</strong> <span class="ttype">${x.p[13]||x.p[12]}, ${x.p[4]+1}</span>${gmLine26(x.p) ? `<div class="ttype">2026: ${gmLine26(x.p)}</div>` : ''}</td>
       <td data-label="Club">${x.ab}</td>
       <td class="num" data-label="2027">${fmtW(x.w)}</td>
-      <td class="num" data-label="Salary · control">$${x.sal.toFixed(1)}M · ${x.ctrl}y</td>
+      <td class="num" data-label="Salary · control">$${x.sal.toFixed(1)}M · ${x.ctrl}y${gmEstTag(x.p, true)}</td>
       <td data-label="Surplus" class="num ${x.sur >= 0 ? 'pos' : 'neg'}">${fmtW(x.sur)}</td>
       <td data-label="Our read"><span class="chip ${x.s >= 4 ? 'chip-reg' : ''}">${dkAvailRead(x.s)}</span>${x.rep ? ' <span class="chip chip-open" title="Named in trade reports this winter">Reported</span>' : ''}<div class="ttype">${x.why.join(' · ')}</div>${x.rep ? `<div class="ttype av-src">${dkRumorSrc(x.rep)}</div>` : ''}</td>
       <td data-label=""><button onclick="dkAvailAsk(${x.p[1]})" class="grade g60" style="cursor:pointer; border:none; padding:3px 10px; white-space:nowrap">Ask about him</button></td></tr>`).join('');
@@ -9438,7 +9457,7 @@ function scWinter27(){
     used.add(p[1]); usedClub.add(x.ab); usedBuyer.add(B.ab);
     out.push({id: 'w27-tr-' + p[1], kind: 'trade', seat: 'buyer', live27: 1, sv: 1, team: B.ab, teamName: B.ab, opp: x.ab, exec_: 'you',
       date: '2026-27 winter', phase: 'offseason',
-      setup: `${teamNick(CLUB_NAME[x.ab] || x.ab)} (${teams[x.ab]} wins) will move ${p[0]}, controlled through ${2026 + x.ctrl}, and he fits where you are thin, at ${B.fit}. Their ask is on the table: ${pk.map(o => o.p[0]).join(', ')}.${fits.length === pk.length && pk.length > 1 ? ' Every piece plays where their own roster is thin.' : fits.length ? ` They built it around what their own roster lacks: ${fits.join(', ')}.` : ''}`,
+      setup: `${teamNick(CLUB_NAME[x.ab] || x.ab)} (${teams[x.ab]} wins) will move ${p[0]}, controlled through ${2026 + x.ctrl}${gmEstTag(p)}, and he fits where you are thin, at ${B.fit}. Their ask is on the table: ${pk.map(o => o.p[0]).join(', ')}.${fits.length === pk.length && pk.length > 1 ? ' Every piece plays where their own roster is thin.' : fits.length ? ` They built it around what their own roster lacks: ${fits.join(', ')}.` : ''}`,
       ctx: ctxOf(B.ab),
       recv: [{pid: p[1], name: p[0], age: (p[4]||0) + 1, plat: p[7], cur: p[7], rank: 0, mlb: 1, cur8d: 0}],
       send: pk.map(o => ({pid: o.p[1], name: o.p[0], age: (o.p[4]||0) + 1, plat: 0, cur: 0, rank: o.p[9] || 0, mlb: 0, cur8d: 0})),
@@ -9831,7 +9850,15 @@ function gmNonTenderCall(sal, war){
   const dpw = (DESK.market.dpw['2027']) || 10;
   return (sal - 0.8) > Math.max(war, 0) * dpw * 0.85 && sal >= 1.0;
 }
-function gmSvc(p){ return p[11] ?? (6 - p[8]); }
+// Nov 12 (round 46): official service time at the end of 2026 where it is published (MLB Trade Rumors' 2027
+// arbitration projections, Oct 2026); everyone else keeps our transaction count and is marked estimated.
+const PUB_SVC = {"668800":5.139,"676051":4.059,"663611":5.137,"543238":4.019,"675916":4.13,"642121":5.096,"622088":5.145,"663878":5.042,"669060":5.049,"621550":4.135,"657006":5.143,"656529":5.157,"669622":5.153,"669302":5.144,"672335":5.139,"669330":5.132,"596117":5.139,"665750":5.031,"670623":5.16,"663556":5.158,"663567":5.069,"668731":3.082,"683734":5.142,"657376":5.148,"666176":5.085,"672282":4.159,"676694":4.161,"665161":5.0,"676391":4.168,"669276":4.15,"642201":4.14,"661388":5.112,"683232":5.022,"656730":5.002,"663457":5.076,"680977":5.0,"669467":4.145,"623474":5.069,"656976":4.144,"607455":5.135,"666808":5.071,"680757":5.0,"666129":4.006,"663743":4.149,"665795":4.147,"642048":4.043,"642100":5.0,"669923":4.151,"656731":5.031,"680686":5.075,"669022":5.0,"665152":5.107,"668939":5.0,"669134":4.003,"669016":5.078,"681082":5.0,"670912":5.079,"650559":3.148,"663698":5.02,"670059":4.108,"670764":5.092,"664076":5.06,"642350":4.15,"663992":4.052,"656557":5.1,"680776":4.155,"676710":4.136,"666157":5.0,"663372":4.071,"664728":5.043,"663738":4.136,"676684":5.1,"656716":5.099,"671345":4.15,"663837":5.026,"656638":4.145,"689225":4.007,"641927":5.093,"592779":5.093,"643377":5.091,"657746":5.033,"663616":5.014,"661395":5.0,"668904":4.139,"657757":5.076,"667755":4.121,"681351":3.171,"687263":3.17,"686613":4.035,"673237":4.035,"669713":3.17,"656986":3.156,"666211":3.143,"669127":4.051,"668709":4.013,"686610":3.15,"665622":3.146,"623168":4.066,"666214":3.166,"669397":3.164,"669003":4.04,"668930":3.165,"669357":4.055,"676475":4.029,"669461":3.144,"665871":3.167,"664983":4.074,"672515":4.061,"669194":4.02,"675627":3.122,"669743":3.161,"676254":3.05,"672275":3.136,"681807":3.154,"670036":3.153,"677960":4.066,"677053":4.053,"676974":3.166,"676534":3.156,"666374":4.121,"670042":4.106,"682243":3.153,"623211":3.17,"682626":3.164,"657585":3.143,"682928":4.13,"663623":3.152,"642585":5.0,"683002":4.036,"544150":3.159,"676664":3.108,"695243":3.166,"621383":4.092,"665561":4.006,"670990":4.135,"665833":4.11,"669701":4.116,"669394":4.127,"677649":4.053,"673962":4.027,"666624":4.08,"666139":4.075,"641329":4.049,"686752":4.005,"687330":3.156,"680700":3.156,"670955":3.15,"655889":3.139,"663853":4.044,"657136":4.079,"671213":4.032,"657514":3.153,"668933":4.13,"663574":4.099,"668715":4.035,"680574":3.14,"682227":3.139,"686668":3.161,"672582":4.082,"686681":4.068,"663704":3.15,"668674":3.125,"682985":4.11,"679529":4.076,"681481":4.057,"663947":4.047,"663485":4.017,"656537":4.04,"664776":4.091,"661563":3.119,"656234":3.169,"665828":3.069,"518585":4.035,"683011":3.142,"676609":3.17,"680869":3.05,"663687":2.146,"663897":3.07,"693821":3.069,"676059":3.098,"681297":3.043,"655316":3.099,"677161":3.08,"669711":3.079,"677800":3.041,"669062":3.0,"686580":3.0,"663330":2.148,"594027":2.133,"665804":3.13,"672356":3.124,"669020":3.109,"681799":3.08,"683737":3.045,"676962":2.169,"694037":2.154,"678246":3.101,"669684":3.055,"673929":2.161,"671096":3.119,"682829":3.118,"667472":3.037,"668909":3.103,"663368":3.075,"683769":3.073,"682120":3.058,"677587":3.001,"671922":3.0,"677944":2.155,"696100":3.01,"687597":2.133,"681857":3.123,"672761":3.0,"678009":2.169,"669854":3.1,"677976":3.148,"679525":3.078,"680570":3.129,"690829":3.075,"694384":3.045,"672724":3.014,"696147":2.149,"686218":3.063,"694813":3.034,"681624":2.155,"691587":3.113,"672640":3.109,"676604":3.104,"665923":3.064,"669364":3.034,"680767":3.024,"669065":3.012,"669084":3.074,"686217":3.072,"687401":3.03,"666310":3.014,"666152":3.011,"681982":3.007,"657649":2.158,"682990":2.134,"667297":3.165,"665019":3.134,"671737":3.097,"681810":3.137,"668901":3.102,"683146":3.088,"665506":3.086,"673380":3.074,"671218":3.103,"669224":3.031,"689147":3.01,"669387":3.081,"669707":3.071,"682848":3.044,"680779":3.039,"693304":3.018,"683003":3.0,"694973":3.0,"687462":2.152,"666023":3.165,"663773":3.133,"669093":3.069,"666745":2.138,"669477":3.035,"676130":2.168,"678495":2.148,"693433":3.121,"660825":3.118,"678606":3.094,"621074":3.069,"686527":3.014,"681867":2.143,"672841":2.14,"691026":3.045,"691023":3.044,"671056":3.034,"686780":2.166,"681517":2.14,"676356":3.085,"669947":3.032,"666018":3.03,"674003":3.086,"676395":3.086,"694671":3.0,"694497":2.17,"656641":2.17,"670102":3.098,"681293":2.166,"686973":2.163,"664770":2.145,"676914":2.142,"696285":3.037,"680730":2.167};
+function gmSvcDays(s){ const w = Math.floor(s); return w * 172 + Math.round((s - w) * 1000); }
+function gmSvc(p){ return PUB_SVC[p[1]] ?? p[11] ?? (6 - p[8]); }
+function gmCtrlYrs(p){ const s = PUB_SVC[p[1]]; return s == null ? p[8] : Math.max(0, Math.ceil((1032 - gmSvcDays(s)) / 172)); }
+// control end from our own count (no published service time, no contract covering it): shown as estimated
+function gmCtrlEst(p){ return !gmIsProsRow(p) && PUB_SVC[p[1]] == null && !gmFaDealEnd()[p[1]] && (hzBookEnd()[p[1]] || 0) < gmCtrlEnd(p); }
+function gmEstTag(p, short){ return gmCtrlEst(p) ? (short ? ' est.' : ' (estimated)') : ''; }
 function gmArbNo(p, season){
   // which arbitration award this season would be: 0 = pre-arb, null = free agent
   const fe = gmFaDealEnd()[p[1]];
@@ -9903,7 +9930,7 @@ function gmCtrlEnd(p){
   // a free-agent contract's control is the contract itself
   const fe = gmFaDealEnd()[p[1]];
   if(fe) return Math.max(fe, hzBookEnd()[p[1]] || 0);
-  return gmSvc(p) >= 6 ? 2026 : 2026 + p[8];
+  return gmSvc(p) >= 6 ? 2026 : 2026 + gmCtrlYrs(p);
 }
 function gmControlled(p){
   const st = gmStatus(p);
@@ -11196,7 +11223,7 @@ function gmAvailCard(){
   return `<div class="card" style="padding:12px 14px; margin-top:10px"><strong>Trade block</strong> <span class="ttype">· our read of who could move this winter, best players first</span>
     <div class="filters" style="margin:8px 0 6px"><span class="fgrp"><label for="gm-av-pos">position</label><select id="gm-av-pos" onchange="gmState.avPos=this.value; gmShow()">${GM_POS_OPTS.map(x => `<option value="${x}"${x === pos ? ' selected' : ''}>${x || 'all'}</option>`).join('')}</select></span>
     <span class="ttype">${pz(all.length, 'player', 'players')}${pos ? ' at ' + pos : ''}</span></div>
-    ${L.length ? L.map(x => gmAssetRow(`${x.p[0]}, ${x.p[4]+1} (${x.p[13]||x.p[12]}, ${x.ab})`, `2027 ${fmtW(x.w)} · $${x.sal.toFixed(1)}M, ${x.ctrl}y · surplus ${fmtW(x.sur)} · <strong>${dkAvailRead(x.s)}${x.rep ? ', reported' : ''}</strong>: ${x.why.join(', ')}`,
+    ${L.length ? L.map(x => gmAssetRow(`${x.p[0]}, ${x.p[4]+1} (${x.p[13]||x.p[12]}, ${x.ab})`, `2027 ${fmtW(x.w)} · $${x.sal.toFixed(1)}M, ${x.ctrl}y${gmEstTag(x.p, true)} · surplus ${fmtW(x.sur)} · <strong>${dkAvailRead(x.s)}${x.rep ? ', reported' : ''}</strong>: ${x.why.join(', ')}`,
       `<button onclick="gmAvailAsk(${x.p[1]})" class="grade g60" style="cursor:pointer; border:none; padding:1px 9px">ask</button>`)).join('') : '<div class="ttype">Nobody at that position.</div>'}</div>`;
 }
 function gmTradeBlock(){ const t = gmState.tr || {}; gmState.tr = {them: null, want: [], give: [], q: t.q, pos: t.pos, view: t.view, sort: t.sort}; gmShow(); }
@@ -16444,7 +16471,7 @@ function stoveClub(ab){
     </div>
     <div class="st-grid">
       ${sec('Their free agents, still unsigned', ownLeft.length, ownLeft.length ? ownLeft.slice(0, 12).map(p => { const sg = wireSg(p); return `<div class="hub-row"><span><strong>${playerLink(p[1], p[0])}</strong> <span class="ttype">${p[13] || p[12] || ''}, ${p[4] + 1}${qo.has(p[1]) ? ' · qualifying offer' : ''}</span>${gmLine26(p) ? `<div class="ttype">2026: ${gmLine26(p)}</div>` : ''}</span><span class="ttype" style="margin-left:auto; text-align:right; white-space:nowrap">${fmtW(gmProj27(p))} in 2027${sg ? `<br>Ledger offer ${sg.sugYrs} yr / $${sg.sugTot}M` : ''}</span></div>`; }).join('') + (ownLeft.length > 12 ? `<div class="ttype" style="margin-top:6px">and ${ownLeft.length - 12} more</div>` : '') + `<div style="margin-top:10px"><a href="#" onclick="switchView('pickem'); return false">Call where they sign →</a></div>` : (() => { const dep = (DESK.players || []).filter(p => p[2] === ab && gmIsFA(p) && !gmIsProsRow(p) && !wireActual(p[1])).sort((a, b) => (b[7] || 0) - (a[7] || 0) || gmProj27(b) - gmProj27(a)); return `<div class="ttype">${own.length ? 'All of the regulars have signed.' : 'Nobody who projects as a big-league regular.'}${dep.length ? ` ${pz(dep.length, 'depth player', 'depth players')} out of contract, among them ${dep.slice(0, 4).map(p => p[0]).join(', ')}.` : ''}</div>`; })())}
-      ${sec('On the trade block', block.length, block.length ? block.slice(0, 10).map(x => `<div class="hub-row"><span><strong>${playerLink(x.p[1], x.p[0])}</strong> <span class="ttype">${x.p[13] || x.p[12]}, ${x.p[4] + 1} · $${x.sal.toFixed(1)}M, ${x.ctrl}y</span><div class="ttype"><span class="chip ${x.s >= 4 ? 'chip-reg' : ''}">${dkAvailRead(x.s)}</span>${x.rep ? ' <span class="chip chip-open">Reported</span>' : ''} ${x.why.join(' · ')}</div></span><button class="actbtn" style="margin-left:auto" onclick="dkState.mode='walk'; dkState.you='${ab}'; dkState.walk=${x.p[1]}; switchView('desk')">See the offers</button></div>`).join('') + `<div class="ttype" style="margin-top:6px">Reported means named in trade reports through ${TRADE_RUMORS.asof}; the rest is our read from the numbers.</div>` : '<div class="ttype">Nobody stands out as available.</div>')}
+      ${sec('On the trade block', block.length, block.length ? block.slice(0, 10).map(x => `<div class="hub-row"><span><strong>${playerLink(x.p[1], x.p[0])}</strong> <span class="ttype">${x.p[13] || x.p[12]}, ${x.p[4] + 1} · $${x.sal.toFixed(1)}M, ${x.ctrl}y${gmEstTag(x.p, true)}</span><div class="ttype"><span class="chip ${x.s >= 4 ? 'chip-reg' : ''}">${dkAvailRead(x.s)}</span>${x.rep ? ' <span class="chip chip-open">Reported</span>' : ''} ${x.why.join(' · ')}</div></span><button class="actbtn" style="margin-left:auto" onclick="dkState.mode='walk'; dkState.you='${ab}'; dkState.walk=${x.p[1]}; switchView('desk')">See the offers</button></div>`).join('') + `<div class="ttype" style="margin-top:6px">Reported means named in trade reports through ${TRADE_RUMORS.asof}; the rest is our read from the numbers.</div>` : '<div class="ttype">Nobody stands out as available.</div>')}
     </div>
     <div class="st-grid">
       ${sec('What the roster still needs', open.length, (c.needs.length ? `<div class="wi-line">${c.needs.map(pos => c.filled.includes(pos) ? `<span class="pos">${pos} (filled this winter)</span>` : `<strong>${pos}</strong>`).join(' · ')}</div>` : '<div class="ttype">No position projects under an average regular.</div>') + (fits.length ? `<div class="ttype" style="margin:8px 0 2px">Best fits still on the market</div>${fits.map(f => `<div class="hub-row"><strong>${f.pos}</strong><span>${playerLink(f.p[1], f.p[0])} <span class="ttype">${f.p[4] + 1} · ${fmtW(gmProj27(f.p))} in 2027</span></span><span class="ttype" style="margin-left:auto; white-space:nowrap">${f.sg ? `${f.sg.sugYrs} yr / $${f.sg.sugTot}M` : ''}</span></div>`).join('')}<div style="margin-top:10px"><a href="#" onclick="bdState.tab='fa'; switchView('boards'); return false">Every free agent →</a></div>` : ''))}
