@@ -1,0 +1,2 @@
+gate: 8 data files checked at https://frontofficeledger.com/; bad 0
+CLEAR: every data file is live with the right bytes; index.html may be uploaded

@@ -1,0 +1,24 @@
+Rank-threshold run, script docs/fixpass1/r42/sim.js at 79632bb (committed before the run), run 13:33-13:34 UTC Nov 12
+in a Baseball-Reference tab (daily WAR files dated Nov 6 2026 03:08 UTC). Ledger WAR: data/lvm_cache.json md5 4fc652f0.
+Sample: 300 of 41,979 player-team-seasons (seed 20261150), 0 unmatched. Residual (Ledger - bWAR): mean +0.027, SD 0.611.
+Thirds by playing time (PA + IPouts; cuts 77, 220): n 99 / 100 / 101, SD 0.22 / 0.51 / 0.87.
+Players across the 697 settled winters: 2,403 (28 player-seasons with no B-R match got playing time 0).
+Columns: winter, total, next winter, P(order holds) as pre-registered, P(order holds) sensitivity (independent seasons).
+BEST: WSH|2014 33.9 > ATH|2011 0.478/0.373; ATH|2011 33.4 > TEX|2010 0.634/0.740; TEX|2010 28.7 > WSH|2003 0.644/0.748;
+WSH|2003 27.7 > ARI|1998 0.530/0.629; ARI|1998 27.2 > PHI|2019 0.457/0.349; PHI|2019 26.9 > CWS|2006 0.466/0.474;
+CWS|2006 26.5 > SD|2005 0.521/0.582; SD|2005 26.4 > DET|2009 0.510/0.482; DET|2009 23.9 > LAD|2014 0.490/0.455;
+LAD|2014 23.6 > DET|2013 0.547/0.625; DET|2013 23.4 > ATH|2000 0.543/0.536; ATH|2000 22.1 > TOR|2021 0.577/0.666;
+TOR|2021 21.5 > MIL|2017 0.506/0.489; MIL|2017 21.1 > ARI|2005 0.436/0.420; ARI|2005 20.7 > ATH|2004 0.505/0.568;
+ATH|2004 20.1 > BAL|2007 0.492/0.455; BAL|2007 19.9 > SD|1998 0.557/0.585; SD|1998 19.5 > SD|2006 0.511/0.482;
+SD|2006 19.5 > MIA|2012 0.510/0.566; MIA|2012 19.5 > MIN|2003 0.545/0.589; MIN|2003 19.3 > PIT|2012 0.406/0.282
+WORST: TOR|2012 -50.8 < SD|2014 0.615/0.770; SD|2014 -46.5 < DET|1998 0.715/0.876; DET|1998 -30.5 < CIN|2011 0.571/0.716;
+CIN|2011 -29.6 < TEX|2013 0.544/0.492; TEX|2013 -28.0 < ARI|2007 0.613/0.721; ARI|2007 -27.4 < BOS|2005 0.445/0.454;
+BOS|2005 -26.7 < STL|2017 0.551/0.578; STL|2017 -26.1 < ARI|2003 0.617/0.703; ARI|2003 -24.8 < NYY|2009 0.421/0.344;
+NYY|2009 -22.8 < DET|2014 0.635/0.796; DET|2014 -21.5 < DET|2015 0.286/0.064; DET|2015 -21.3 < NYY|1998 0.662/0.840;
+NYY|1998 -21.0 < BOS|2014 0.569/0.651; BOS|2014 -20.9 < MIL|2010 0.435/0.417; MIL|2010 -20.7 < LAA|1998 0.484/0.452;
+LAA|1998 -20.6 < TEX|2005 0.576/0.683; TEX|2005 -20.3 < CWS|2014 0.446/0.364; CWS|2014 -19.6 < WSH|2001 0.544/0.563;
+WSH|2001 -19.4 < MIA|2016 0.528/0.646; MIA|2016 -19.2 < NYM|2020 0.516/0.459; NYM|2020 -19.1 < CLE|2003 0.531/0.574
+Result: no adjacent pair reaches 0.90 (highest 0.715 as written, 0.876 sensitivity). Median gap needed for a 10% flip
+rate over all 696 adjacent pairs: 11.2 wins.
+Note: P below 0.5 means the lower total finished ahead more often; the term list differs from the production totals
+(flip returns missing; see run_notes.md), so the simulated center is not exactly the published total.
