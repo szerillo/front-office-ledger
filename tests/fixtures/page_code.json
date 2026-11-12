@@ -1,6 +1,6 @@
 {
- "sha": "c442ed4c96459a56",
- "codeLines": 11777,
- "reason": "Nov 12 round 47: depends-on-control-end mark on 133 channel letters (CTRL_FLIP) and methodology line",
- "at": "2026-11-12T16:33:41.540Z"
+ "sha": "03d350bb3eef9c45",
+ "codeLines": 11783,
+ "reason": "round 48: award service credit for Kurtz and Horton (AWARD_SVC, gmPubSvc)",
+ "at": "2026-11-12T17:10:58.015Z"
 }
