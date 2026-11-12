@@ -1,0 +1,3 @@
+fa_skills rc=0 secs=3
+regen_v3 rc=97 secs=2
+STOP

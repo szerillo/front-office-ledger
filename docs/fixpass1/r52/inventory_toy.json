@@ -1,0 +1,21 @@
+{
+ "globals_changed_numeric": [],
+ "globals_changed_other": [
+  [
+   "toy_fit.py",
+   "__main__.vals",
+   "list",
+   800
+  ],
+  [
+   "toy_fit.py",
+   "__main__.RESULT",
+   "list",
+   800
+  ]
+ ],
+ "estimator_calls_changed": [],
+ "reads_changed": {
+  "toy_fit.py": []
+ }
+}

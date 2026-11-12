@@ -1,0 +1,155 @@
+{
+ "letters_changed": 335,
+ "overall_changed": 74,
+ "nets_changed": 623,
+ "trades_changed": 2116,
+ "winters_changed": 125,
+ "untraced_letters": 308,
+ "untraced_overall": 74,
+ "unattributed_nets": 587,
+ "unattributed_entries": 6962,
+ "unattributed_trades": 1087,
+ "unattributed_winters": 101,
+ "untraced_pages": 1051,
+ "TOR_base": [
+  1,
+  31.7
+ ],
+ "TOR_run": [
+  1,
+  31.2
+ ],
+ "examples": {
+  "letters": [
+   [
+    "cin-dan-o'brien",
+    "draft"
+   ],
+   [
+    "cin-dan-o'brien",
+    "fa"
+   ],
+   [
+    "col-dan-o'dowd",
+    "draft"
+   ],
+   [
+    "ari",
+    "waiver"
+   ],
+   [
+    "ari-dave-stewart",
+    "draft"
+   ],
+   [
+    "ari-dave-stewart",
+    "trade"
+   ]
+  ],
+  "overall": [
+   "ari",
+   "ari-joe-garagiola-jr",
+   "ari-josh-byrnes",
+   "ath-billy-beane",
+   "ath-david-forst",
+   "atl-frank-wren"
+  ],
+  "nets": [
+   [
+    "cin-dan-o'brien",
+    "draft"
+   ],
+   [
+    "cin-dan-o'brien",
+    "ext"
+   ],
+   [
+    "cin-dan-o'brien",
+    "fa"
+   ],
+   [
+    "cin-dan-o'brien",
+    "trade"
+   ],
+   [
+    "col-dan-o'dowd",
+    "draft"
+   ],
+   [
+    "col-dan-o'dowd",
+    "ext"
+   ]
+  ],
+  "trades": [
+   [
+    "2026-01-21",
+    [
+     "MIL",
+     "NYM"
+    ]
+   ],
+   [
+    "2023-07-30",
+    [
+     "NYM",
+     "TEX"
+    ]
+   ],
+   [
+    "2024-03-24",
+    [
+     "PHI",
+     "TB"
+    ]
+   ],
+   [
+    "2024-07-27",
+    [
+     "LAA",
+     "PHI"
+    ]
+   ],
+   [
+    "2015-12-09",
+    [
+     "MIL",
+     "SEA"
+    ]
+   ],
+   [
+    "2004-11-19",
+    [
+     "LAA",
+     "WSH"
+    ]
+   ]
+  ],
+  "winters": [
+   [
+    "ARI",
+    2014
+   ],
+   [
+    "ARI",
+    2019
+   ],
+   [
+    "ATH",
+    2007
+   ],
+   [
+    "ATH",
+    2019
+   ],
+   [
+    "ATL",
+    2015
+   ],
+   [
+    "ATL",
+    2019
+   ]
+  ]
+ },
+ "all_attributed": false
+}

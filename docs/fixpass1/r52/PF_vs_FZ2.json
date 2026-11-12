@@ -1,0 +1,155 @@
+{
+ "letters_changed": 329,
+ "overall_changed": 91,
+ "nets_changed": 576,
+ "trades_changed": 1701,
+ "winters_changed": 125,
+ "untraced_letters": 258,
+ "untraced_overall": 91,
+ "unattributed_nets": 487,
+ "unattributed_entries": 3933,
+ "unattributed_trades": 684,
+ "unattributed_winters": 101,
+ "untraced_pages": 768,
+ "TOR_base": [
+  1,
+  31.7
+ ],
+ "TOR_run": [
+  1,
+  31.2
+ ],
+ "examples": {
+  "letters": [
+   [
+    "cin-dan-o'brien",
+    "fa"
+   ],
+   [
+    "ari",
+    "ext"
+   ],
+   [
+    "ari",
+    "waiver"
+   ],
+   [
+    "ari-dave-stewart",
+    "trade"
+   ],
+   [
+    "ari-jerry-dipoto-(interim)",
+    "trade"
+   ],
+   [
+    "ari-josh-byrnes",
+    "fa"
+   ]
+  ],
+  "overall": [
+   "ari",
+   "ari-dave-stewart",
+   "ari-josh-byrnes",
+   "ari-kevin-towers",
+   "ath-billy-beane",
+   "atl"
+  ],
+  "nets": [
+   [
+    "cin-dan-o'brien",
+    "ext"
+   ],
+   [
+    "cin-dan-o'brien",
+    "fa"
+   ],
+   [
+    "cin-dan-o'brien",
+    "trade"
+   ],
+   [
+    "col-dan-o'dowd",
+    "ext"
+   ],
+   [
+    "col-dan-o'dowd",
+    "fa"
+   ],
+   [
+    "col-dan-o'dowd",
+    "trade"
+   ]
+  ],
+  "trades": [
+   [
+    "2005-11-25",
+    [
+     "CWS",
+     "PHI"
+    ]
+   ],
+   [
+    "2013-12-18",
+    [
+     "CLE",
+     "COL"
+    ]
+   ],
+   [
+    "2018-11-29",
+    [
+     "CHC",
+     "LAA"
+    ]
+   ],
+   [
+    "2021-11-27",
+    [
+     "SD",
+     "SEA"
+    ]
+   ],
+   [
+    "2003-01-11",
+    [
+     "DET",
+     "MIA"
+    ]
+   ],
+   [
+    "2025-07-30",
+    [
+     "NYM",
+     "STL"
+    ]
+   ]
+  ],
+  "winters": [
+   [
+    "ARI",
+    2014
+   ],
+   [
+    "ARI",
+    2019
+   ],
+   [
+    "ATH",
+    2007
+   ],
+   [
+    "ATH",
+    2019
+   ],
+   [
+    "ATL",
+    2015
+   ],
+   [
+    "ATL",
+    2019
+   ]
+  ]
+ },
+ "all_attributed": false
+}

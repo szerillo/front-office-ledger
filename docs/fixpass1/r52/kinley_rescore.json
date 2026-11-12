@@ -1,0 +1,713 @@
+{
+ "rescore": [
+  {
+   "pid": "502624",
+   "name": "RHP Chase Anderson",
+   "season": 2023,
+   "old": 152,
+   "new": 152,
+   "truth_v2": 151,
+   "parts": {
+    "active": 100,
+    "il": 50,
+    "dfa": 2,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "605113",
+   "name": "SS Nick Ahmed",
+   "season": 2025,
+   "old": 10,
+   "new": 10,
+   "truth_v2": 10,
+   "parts": {
+    "active": 9,
+    "il": 0,
+    "dfa": 2,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "668678",
+   "name": "RHP Zac Gallen",
+   "season": 2026,
+   "old": 78,
+   "new": 172,
+   "truth_v2": 172,
+   "parts": {
+    "active": 125,
+    "il": 62,
+    "dfa": 0,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": false
+  },
+  {
+   "pid": "606965",
+   "name": "RHP Chris Devenski",
+   "season": 2022,
+   "old": 43,
+   "new": 43,
+   "truth_v2": 44,
+   "parts": {
+    "active": 40,
+    "il": 0,
+    "dfa": 2,
+    "opt": 1,
+    "opt_credited": 1
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "623149",
+   "name": "P Paul Sewald",
+   "season": 2021,
+   "old": 143,
+   "new": 143,
+   "truth_v2": 140,
+   "parts": {
+    "active": 140,
+    "il": 0,
+    "dfa": 0,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "644433",
+   "name": "C Chadwick Tromp",
+   "season": 2024,
+   "old": 65,
+   "new": 65,
+   "truth_v2": 65,
+   "parts": {
+    "active": 68,
+    "il": 0,
+    "dfa": 0,
+    "opt": 117,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "623474",
+   "name": "P Jimmy Herget",
+   "season": 2021,
+   "old": 40,
+   "new": 40,
+   "truth_v2": 47,
+   "parts": {
+    "active": 40,
+    "il": 0,
+    "dfa": 2,
+    "opt": 5,
+    "opt_credited": 5
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "666204",
+   "name": "RHP Dany Jim\u00e9nez",
+   "season": 2025,
+   "old": 0,
+   "new": 0,
+   "truth_v2": 0,
+   "parts": {
+    "active": 0,
+    "il": 0,
+    "dfa": 0,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "641755",
+   "name": "RHP Tyler Kinley",
+   "season": 2026,
+   "old": 107,
+   "new": 172,
+   "truth_v2": 172,
+   "parts": {
+    "active": 162,
+    "il": 16,
+    "dfa": 4,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": false
+  },
+  {
+   "pid": "571657",
+   "name": "2B Kyle Farmer",
+   "season": 2026,
+   "old": 144,
+   "new": 144,
+   "truth_v2": 144,
+   "parts": {
+    "active": 96,
+    "il": 49,
+    "dfa": 0,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "621057",
+   "name": "RHP Justin Garza",
+   "season": 2024,
+   "old": 0,
+   "new": 0,
+   "truth_v2": 0,
+   "parts": {
+    "active": 0,
+    "il": 0,
+    "dfa": 0,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "641745",
+   "name": "RHP Brad Keller",
+   "season": 2025,
+   "old": 172,
+   "new": 172,
+   "truth_v2": 172,
+   "parts": {
+    "active": 186,
+    "il": 0,
+    "dfa": 0,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "669212",
+   "name": "RHP Eli Morgan",
+   "season": 2026,
+   "old": 61,
+   "new": 61,
+   "truth_v2": 53,
+   "parts": {
+    "active": 50,
+    "il": 0,
+    "dfa": 3,
+    "opt": 80,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "656546",
+   "name": "RHP Jeff Hoffman",
+   "season": 2023,
+   "old": 151,
+   "new": 151,
+   "truth_v2": 151,
+   "parts": {
+    "active": 152,
+    "il": 0,
+    "dfa": 0,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "519326",
+   "name": "RHP Hunter Strickland",
+   "season": 2023,
+   "old": 0,
+   "new": 0,
+   "truth_v2": 0,
+   "parts": {
+    "active": 0,
+    "il": 0,
+    "dfa": 0,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "519326",
+   "name": "RHP Hunter Strickland",
+   "season": 2025,
+   "old": 128,
+   "new": 128,
+   "truth_v2": 128,
+   "parts": {
+    "active": 50,
+    "il": 84,
+    "dfa": 0,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "542881",
+   "name": "LHP Tyler Anderson",
+   "season": 2023,
+   "old": 172,
+   "new": 172,
+   "truth_v2": 172,
+   "parts": {
+    "active": 176,
+    "il": 186,
+    "dfa": 0,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "622098",
+   "name": "RHP Drew Smith",
+   "season": 2026,
+   "old": 0,
+   "new": 0,
+   "truth_v2": 0,
+   "parts": {
+    "active": 0,
+    "il": 0,
+    "dfa": 0,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  },
+  {
+   "pid": "641598",
+   "name": "C Mitch Garver",
+   "season": 2026,
+   "old": 131,
+   "new": 131,
+   "truth_v2": 131,
+   "parts": {
+    "active": 132,
+    "il": 0,
+    "dfa": 0,
+    "opt": 0,
+    "opt_credited": 0
+   },
+   "new_ok": true,
+   "old_ok": true
+  }
+ ],
+ "summary": {
+  "correct_new": 19,
+  "n": 19,
+  "correct_old": 17,
+  "kinley_2026_new": 172
+ },
+ "option_sizing": {
+  "player_seasons_1_19_option_days": 53,
+  "players": 46,
+  "max_service_change_days": 28,
+  "total_days_added": 206,
+  "with_any_change": 28
+ },
+ "option_rows": [
+  [
+   "657277",
+   2021,
+   6,
+   172,
+   0
+  ],
+  [
+   "605397",
+   2017,
+   11,
+   172,
+   0
+  ],
+  [
+   "621439",
+   2015,
+   10,
+   105,
+   10
+  ],
+  [
+   "519023",
+   2012,
+   10,
+   172,
+   0
+  ],
+  [
+   "453943",
+   2012,
+   13,
+   172,
+   0
+  ],
+  [
+   "501571",
+   2021,
+   5,
+   172,
+   0
+  ],
+  [
+   "570649",
+   2015,
+   1,
+   172,
+   0
+  ],
+  [
+   "446372",
+   2013,
+   15,
+   171,
+   1
+  ],
+  [
+   "518858",
+   2021,
+   4,
+   61,
+   4
+  ],
+  [
+   "458708",
+   2015,
+   15,
+   171,
+   1
+  ],
+  [
+   "519058",
+   2014,
+   10,
+   172,
+   0
+  ],
+  [
+   "543939",
+   2014,
+   16,
+   170,
+   2
+  ],
+  [
+   "543939",
+   2016,
+   11,
+   172,
+   0
+  ],
+  [
+   "500208",
+   2014,
+   7,
+   169,
+   3
+  ],
+  [
+   "593372",
+   2014,
+   16,
+   170,
+   2
+  ],
+  [
+   "501789",
+   2013,
+   3,
+   172,
+   0
+  ],
+  [
+   "572039",
+   2017,
+   13,
+   172,
+   0
+  ],
+  [
+   "571466",
+   2015,
+   12,
+   172,
+   0
+  ],
+  [
+   "502624",
+   2015,
+   1,
+   172,
+   0
+  ],
+  [
+   "519096",
+   2013,
+   5,
+   110,
+   5
+  ],
+  [
+   "519096",
+   2014,
+   3,
+   172,
+   0
+  ],
+  [
+   "657557",
+   2017,
+   3,
+   126,
+   3
+  ],
+  [
+   "664068",
+   2026,
+   3,
+   30,
+   3
+  ],
+  [
+   "593160",
+   2017,
+   16,
+   170,
+   2
+  ],
+  [
+   "600917",
+   2018,
+   19,
+   167,
+   5
+  ],
+  [
+   "650391",
+   2019,
+   7,
+   172,
+   0
+  ],
+  [
+   "650391",
+   2024,
+   7,
+   172,
+   0
+  ],
+  [
+   "543294",
+   2014,
+   11,
+   68,
+   11
+  ],
+  [
+   "608566",
+   2017,
+   16,
+   170,
+   2
+  ],
+  [
+   "623520",
+   2019,
+   10,
+   172,
+   0
+  ],
+  [
+   "500743",
+   2014,
+   2,
+   110,
+   2
+  ],
+  [
+   "623184",
+   2017,
+   13,
+   172,
+   0
+  ],
+  [
+   "621035",
+   2017,
+   17,
+   169,
+   3
+  ],
+  [
+   "642547",
+   2019,
+   14,
+   172,
+   0
+  ],
+  [
+   "605182",
+   2020,
+   12,
+   144,
+   28
+  ],
+  [
+   "677976",
+   2019,
+   12,
+   39,
+   12
+  ],
+  [
+   "677976",
+   2020,
+   12,
+   153,
+   19
+  ],
+  [
+   "677976",
+   2021,
+   18,
+   168,
+   4
+  ],
+  [
+   "664058",
+   2023,
+   2,
+   55,
+   2
+  ],
+  [
+   "622608",
+   2017,
+   10,
+   172,
+   0
+  ],
+  [
+   "641857",
+   2017,
+   14,
+   39,
+   14
+  ],
+  [
+   "664056",
+   2018,
+   5,
+   172,
+   0
+  ],
+  [
+   "664702",
+   2024,
+   5,
+   14,
+   5
+  ],
+  [
+   "605488",
+   2019,
+   19,
+   168,
+   4
+  ],
+  [
+   "605488",
+   2020,
+   13,
+   150,
+   22
+  ],
+  [
+   "664238",
+   2019,
+   4,
+   172,
+   0
+  ],
+  [
+   "458537",
+   2016,
+   16,
+   69,
+   16
+  ],
+  [
+   "467793",
+   2025,
+   3,
+   172,
+   0
+  ],
+  [
+   "446185",
+   2012,
+   11,
+   172,
+   0
+  ],
+  [
+   "446185",
+   2016,
+   13,
+   19,
+   13
+  ],
+  [
+   "501800",
+   2015,
+   8,
+   70,
+   8
+  ],
+  [
+   "500779",
+   2025,
+   15,
+   172,
+   0
+  ],
+  [
+   "543228",
+   2013,
+   13,
+   172,
+   0
+  ]
+ ]
+}
