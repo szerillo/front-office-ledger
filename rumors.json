@@ -1,5 +1,5 @@
 {
- "_about": "Players named in trade reports this winter, read by the trade block, the club pages and trade pick'em. rows: [MLBAM id, rank on MLB Trade Rumors' top trade candidates list (0 = not ranked), reporter credited ('' = none), why in our own words (short, no player name), 1 if a long shot]. off: ids reported as NOT available, with the note. names is for people reading this file; the page ignores it.",
+ "_about": "Players named in trade reports this winter, read by the trade block, the club pages and trade pick'em. rows: [MLBAM id, rank on MLB Trade Rumors' top trade candidates list (0 = not ranked), reporter credited ('' = none), why in our own words (short, no player name), 1 if a long shot (0 if not), club abbreviation the report is about, date the report was last confirmed on file (YYYY-MM-DD)]. The page drops a report if the player is now with another club or moved after that date. off: ids reported as NOT available, with the note. names is for people reading this file; the page ignores it.",
  "asof": "Nov 12",
  "updated": "2026-11-12",
  "checked": "2026-11-12T13:06:49Z",
@@ -20,261 +20,388 @@
    672282,
    1,
    "",
-   "career year, two years of control, a club without a direction"
+   "career year, two years of control, a club without a direction",
+   0,
+   "LAA",
+   "2026-11-12"
   ],
   [
    656876,
    2,
    "Jeff Passan, ESPN",
-   "$20M option picked up; the Rays say they intend to keep him for now"
+   "$20M option picked up; the Rays say they intend to keep him for now",
+   0,
+   "TB",
+   "2026-11-12"
   ],
   [
    687263,
    3,
    "",
-   "three years of control if the Angels rebuild"
+   "three years of control if the Angels rebuild",
+   0,
+   "LAA",
+   "2026-11-12"
   ],
   [
    669923,
    4,
    "",
-   "Seattle has starters to spare"
+   "Seattle has starters to spare",
+   0,
+   "SEA",
+   "2026-11-12"
   ],
   [
    676106,
    5,
    "",
-   "four years of control from a deep rotation"
+   "four years of control from a deep rotation",
+   0,
+   "SEA",
+   "2026-11-12"
   ],
   [
    606466,
    6,
    "Steve Gilbert, MLB.com",
-   "Arizona is listening again; he holds a full no-trade clause"
+   "Arizona is listening again; he holds a full no-trade clause",
+   0,
+   "ARI",
+   "2026-11-12"
   ],
   [
    682928,
    7,
    "",
-   "two arbitration years left"
+   "two arbitration years left",
+   0,
+   "WSH",
+   "2026-11-12"
   ],
   [
    670623,
    8,
    "",
-   "crowded Houston infield"
+   "crowded Houston infield",
+   0,
+   "HOU",
+   "2026-11-12"
   ],
   [
    572233,
    9,
    "",
-   "one year left on a crowded infield"
+   "one year left on a crowded infield",
+   0,
+   "HOU",
+   "2026-11-12"
   ],
   [
    676475,
    10,
    "",
-   "two years of control on a club in transition"
+   "two years of control on a club in transition",
+   0,
+   "STL",
+   "2026-11-12"
   ],
   [
    680757,
    11,
    "Jon Paul Morosi, MLB Network",
-   "a year from free agency; Cleveland expects him back; unlikely to move this month"
+   "a year from free agency; Cleveland expects him back; unlikely to move this month",
+   0,
+   "CLE",
+   "2026-11-12"
   ],
   [
    680776,
    12,
    "Peter Abraham, Boston Globe",
-   "Boston is shopping him again after a down year"
+   "Boston is shopping him again after a down year",
+   0,
+   "BOS",
+   "2026-11-12"
   ],
   [
    594798,
    13,
    "Jon Heyman, New York Post",
-   "Texas wants to cut payroll; full no-trade clause"
+   "Texas wants to cut payroll; full no-trade clause",
+   0,
+   "TEX",
+   "2026-11-12"
   ],
   [
    608369,
    14,
    "Jon Heyman, New York Post",
-   "Texas is listening; talks with the Yankees reported; full no-trade clause"
+   "Texas is listening; talks with the Yankees reported; full no-trade clause",
+   0,
+   "TEX",
+   "2026-11-12"
   ],
   [
    663616,
    15,
    "",
-   "last arbitration year, outfield depth behind him"
+   "last arbitration year, outfield depth behind him",
+   0,
+   "MIN",
+   "2026-11-12"
   ],
   [
    606192,
    16,
    "",
-   "last guaranteed year, young outfielders arriving"
+   "last guaranteed year, young outfielders arriving",
+   0,
+   "LAD",
+   "2026-11-12"
   ],
   [
    669022,
    17,
    "",
-   "one year of control"
+   "one year of control",
+   0,
+   "TEX",
+   "2026-11-12"
   ],
   [
    665161,
    18,
    "",
-   "a year from free agency, no extension in sight"
+   "a year from free agency, no extension in sight",
+   0,
+   "HOU",
+   "2026-11-12"
   ],
   [
    646240,
    19,
    "",
-   "big contract on a club that may want flexibility"
+   "big contract on a club that may want flexibility",
+   0,
+   "SF",
+   "2026-11-12"
   ],
   [
    696100,
    20,
    "",
-   "three years of control on a rebuilding club"
+   "three years of control on a rebuilding club",
+   0,
+   "COL",
+   "2026-11-12"
   ],
   [
    669127,
    21,
    "",
-   "two arbitration years on a rebuilding club"
+   "two arbitration years on a rebuilding club",
+   0,
+   "ATH",
+   "2026-11-12"
   ],
   [
    679529,
    22,
    "",
-   "Detroit may turn over its lineup"
+   "Detroit may turn over its lineup",
+   0,
+   "DET",
+   "2026-11-12"
   ],
   [
    664983,
    23,
    "",
-   "affordable outfielder on a rebuilding club"
+   "affordable outfielder on a rebuilding club",
+   0,
+   "COL",
+   "2026-11-12"
   ],
   [
    699625,
    24,
    "",
-   "blocked behind the plate"
+   "blocked behind the plate",
+   0,
+   "STL",
+   "2026-11-12"
   ],
   [
    579328,
    25,
    "",
-   "final contract year on a retooling club"
+   "final contract year on a retooling club",
+   0,
+   "LAA",
+   "2026-11-12"
   ],
   [
    683734,
    26,
    "",
-   "final control year after a breakout"
+   "final control year after a breakout",
+   0,
+   "MIL",
+   "2026-11-12"
   ],
   [
    656730,
    27,
    "",
-   "final control year for a closer"
+   "final control year for a closer",
+   0,
+   "MIL",
+   "2026-11-12"
   ],
   [
    669016,
    28,
    "",
-   "final arbitration year after a poor second half"
+   "final arbitration year after a poor second half",
+   0,
+   "PHI",
+   "2026-11-12"
   ],
   [
    666176,
    29,
    "",
-   "final arbitration year"
+   "final arbitration year",
+   0,
+   "CLE",
+   "2026-11-12"
   ],
   [
    669387,
    30,
    "",
-   "squeezed out of a full rotation"
+   "squeezed out of a full rotation",
+   0,
+   "PIT",
+   "2026-11-12"
   ],
   [
    701542,
    31,
    "",
-   "rotation depth in New York"
+   "rotation depth in New York",
+   0,
+   "NYY",
+   "2026-11-12"
   ],
   [
    677960,
    32,
    "",
-   "rotation depth in New York"
+   "rotation depth in New York",
+   0,
+   "NYY",
+   "2026-11-12"
   ],
   [
    665795,
    33,
    "",
-   "two arbitration years left after a rough first season in Chicago"
+   "two arbitration years left after a rough first season in Chicago",
+   0,
+   "CHC",
+   "2026-11-12"
   ],
   [
    641857,
    34,
    "",
-   "$16M salary in his final year"
+   "$16M salary in his final year",
+   0,
+   "NYY",
+   "2026-11-12"
   ],
   [
    683011,
    35,
    "",
-   "buy-low shortstop without a clear spot"
+   "buy-low shortstop without a clear spot",
+   0,
+   "NYY",
+   "2026-11-12"
   ],
   [
    668904,
    36,
    "",
-   "uneven seasons, infield options behind him"
+   "uneven seasons, infield options behind him",
+   0,
+   "MIN",
+   "2026-11-12"
   ],
   [
    694497,
    0,
    "MLB Trade Rumors",
-   "Texas is looking at center fielders; his value is down after hip surgery"
+   "Texas is looking at center fielders; his value is down after hip surgery",
+   0,
+   "TEX",
+   "2026-11-12"
   ],
   [
    607208,
    0,
    "Bob Nightengale, USA Today",
-   "reported available after a career-worst season"
+   "reported available after a career-worst season",
+   0,
+   "PHI",
+   "2026-11-12"
   ],
   [
    543135,
    0,
    "Jon Heyman, New York Post",
-   "Texas will consider it to free up payroll"
+   "Texas will consider it to free up payroll",
+   0,
+   "TEX",
+   "2026-11-12"
   ],
   [
    686611,
    0,
    "Spencer Nusbaum, The Athletic",
-   "Washington is taking calls and not turning teams away"
+   "Washington is taking calls and not turning teams away",
+   0,
+   "WSH",
+   "2026-11-12"
   ],
   [
    695734,
    0,
    "Spencer Nusbaum, The Athletic",
-   "drawing calls, though Washington's asking price is high"
+   "drawing calls, though Washington's asking price is high",
+   0,
+   "WSH",
+   "2026-11-12"
   ],
   [
    683002,
    0,
    "Andy Kostka, Baltimore Banner",
    "the club calls core players very unlikely to move; only for a huge offer",
-   1
+   1,
+   "BAL",
+   "2026-11-12"
   ],
   [
    682985,
    0,
    "Jon Paul Morosi, MLB Network",
    "rival executives see him as a candidate; Detroit says a deal is not a focus",
-   1
+   1,
+   "DET",
+   "2026-11-12"
   ]
  ],
  "off": {
