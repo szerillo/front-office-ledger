@@ -1,0 +1,168 @@
+{
+ "CH": 846,
+ "channel_letters_changed": 59,
+ "overall_grades_changed": 23,
+ "untraced_letters": 12,
+ "untraced_overall": 1,
+ "trade_nets_changed": 1606,
+ "untraced_trade_nets_gt_0.2": 72,
+ "winters_changed": 338,
+ "untraced_winters": 77,
+ "TOR_rank_margin_live": [
+  1,
+  31.7
+ ],
+ "TOR_rank_margin_I1": [
+  2,
+  31.6
+ ],
+ "untraced_pages": 90,
+ "bar": {
+  "letters<=150": true,
+  "overall<=40": true,
+  "untraced_letters_or_overall<=5": false,
+  "untraced_trade_nets<=50": false,
+  "band_kept": true,
+  "untraced_pages<=50": false
+ },
+ "PASS": false,
+ "examples": {
+  "untraced_letters": [
+   [
+    "phi",
+    "ext"
+   ],
+   [
+    "lad-ned-colletti",
+    "ext"
+   ],
+   [
+    "mia-kim-ng",
+    "ext"
+   ],
+   [
+    "phi-pat-gillick",
+    "ext"
+   ],
+   [
+    "phi-matt-klentak",
+    "ext"
+   ],
+   [
+    "det-dave-dombrowski",
+    "ext"
+   ],
+   [
+    "cin-dick-williams",
+    "ext"
+   ],
+   [
+    "bal-jim-beattie-/-mike-flanagan",
+    "ext"
+   ],
+   [
+    "bos-dan-duquette",
+    "draft"
+   ],
+   [
+    "mia-dave-dombrowski",
+    "draft"
+   ],
+   [
+    "hou-tim-purpura",
+    "ext"
+   ],
+   [
+    "nyy-brian-cashman",
+    "ext"
+   ]
+  ],
+  "untraced_overall": [
+   "ari-joe-garagiola-jr"
+  ],
+  "untraced_trade_nets": [
+   [
+    "2012-07-31",
+    "CHC"
+   ],
+   [
+    "2013-07-02",
+    "CHC"
+   ],
+   [
+    "2014-07-31",
+    "ATH"
+   ],
+   [
+    "2014-12-11",
+    "COL"
+   ],
+   [
+    "2015-01-14",
+    "WSH"
+   ],
+   [
+    "2015-07-31",
+    "TOR"
+   ],
+   [
+    "2015-07-31",
+    "BAL"
+   ],
+   [
+    "2016-08-01",
+    "TB"
+   ],
+   [
+    "2016-08-01",
+    "MIN"
+   ],
+   [
+    "2016-08-01",
+    "SF"
+   ]
+  ],
+  "untraced_winters": [
+   [
+    "BAL",
+    2007
+   ],
+   [
+    "NYY",
+    2007
+   ],
+   [
+    "SD",
+    2007
+   ],
+   [
+    "SEA",
+    2007
+   ],
+   [
+    "ATL",
+    2008
+   ],
+   [
+    "DET",
+    2008
+   ],
+   [
+    "SEA",
+    2008
+   ],
+   [
+    "CIN",
+    2009
+   ],
+   [
+    "NYY",
+    2009
+   ],
+   [
+    "PIT",
+    2009
+   ]
+  ]
+ }
+}
