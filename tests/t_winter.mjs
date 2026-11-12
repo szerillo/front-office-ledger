@@ -126,7 +126,12 @@ const r = await d.page.evaluate(async () => {
   dkWalkLoad(dkWalkOffer(P('Logan Webb'), 'SF', 'SD').buyer);
   o.tradeWalkLoads = dkState.mode === 'trade' && dkState.them === 'SD' && dkState.send.length === 1 && dkState.recv.length >= 1 && /Will it get done\?/.test(document.getElementById('dk-out').innerText);
   dkState.mode = 'avail'; renderDesk(); const AV = dkAvailList();
-  o.availList = AV.length >= 40 && AV.every(x => !(gmFranchise(x.p) && gmClubPosture(x.ab) !== 'rebuilding')) && document.querySelectorAll('#deskbody tbody tr').length >= 20;
+  // Nov 12 (r44): a core player of a club that is not rebuilding may be listed only when a named report says he is
+  // available (Daylen Lile, WSH, Nov 12). Self-check: a planted unreported core player must still fail the rule.
+  const availOk = L => L.every(x => !(gmFranchise(x.p) && gmClubPosture(x.ab) !== 'rebuilding') || !!x.rep);
+  const plant = DESK.players.find(q => q[2] && gmFranchise(q) && gmClubPosture(q[2]) !== 'rebuilding' && !dkRumor(q[1]) && !AV.some(x => x.p === q));
+  o.availList = AV.length >= 40 && availOk(AV) && document.querySelectorAll('#deskbody tbody tr').length >= 20;
+  o.availReportedOnly = !!plant && !availOk(AV.concat([{p: plant, ab: plant[2], rep: null}])) && AV.some(x => x.rep && gmFranchise(x.p) && gmClubPosture(x.ab) !== 'rebuilding');
   dkState.mode = 'trade'; dkState.you = 'BOS'; dkState.them = 'PIT';
   dkState.recv = [{kind: 'player', p: P('Oneil Cruz'), ctrl: gmCtrlOf(P('Oneil Cruz'))}]; dkState.send = [{kind: 'player', p: P('Jarren Duran'), ctrl: gmCtrlOf(P('Jarren Duran'))}]; renderDesk(); dkEval();
   const chip = document.querySelector('.tdeal').innerText;
