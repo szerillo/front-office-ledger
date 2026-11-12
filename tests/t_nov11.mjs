@@ -96,6 +96,12 @@ const r = await page.evaluate(async () => {
   // Baker, moved only by a waiver claim and a trade, still does
   out.releasedPieceClosesTrade = tOpen('Thyago Vieira', '2017-11-16') === false && tOpen('Dietrich Enns', '2017-07-30') === false;
   out.claimedPieceKeepsTradeOpen = tOpen('Bryan Baker', '2018-08-14') === true;
+  // a release or non-tender followed within 60 days by a minor-league re-sign with the club that held him
+  // does not end his window (Eli White: released and re-signed by Atlanta in July 2023, still active);
+  // a deal that closed for another reason stays closed (German: free agency 2023; Kilian: signed with SF)
+  out.sameClubResignKeepsOpen = tOpen('Eli White', '2023-01-03') === true && tOpen('Sem Robberse', '2023-07-30') === true
+    && tOpen('Juan Carela', '2023-08-01') === true && tOpen('Roddery Muñoz', '2023-12-20') === true;
+  out.otherClosuresStayClosed = tOpen('Domingo Germán', '2014-12-19') === false && tOpen('Caleb Kilian', '2021-07-30') === false;
   // weekly board
   const html = folWeekBoard();
   out.weekBoard = /This week/.test(html) && (html.match(/wk-day/g) || []).length === 7;

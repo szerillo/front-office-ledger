@@ -179,7 +179,10 @@ Object.assign(R, await d.page.evaluate(async (offsJson) => {
   o.dudeBestLine = dudeOf(['x', 'N', 1990, 2000, 0, 10, 3000, 'NYY', 1995, 4, 9.5, '.300/.400/.500, 30 HR, 100 RBI']).bl === '.300/.400/.500, 30 HR, 100 RBI';
   offsLoadData(offsJson); offState.dir = 'best'; offState.club = ''; offState.focus = ''; switchView('offs'); await wait(60);
   const cards = [...document.querySelectorAll('#offsbody .offs-card')];
-  o.offsExplorer = cards.length === 15 && /2011-12 Oakland Athletics/.test(cards[0].textContent) && /All-timer/i.test(cards[0].textContent) && cards[0].querySelectorAll('.of-mv a').length >= 3;
+  // Nov 12 (round 35): the #1 winter comes from the data, not a fixed club. The 2020 salary fix moved WSH 2014-15
+  // (+33.9) above OAK 2011-12 (+33.4), and the old fixed expectation failed on the candidate for that reason only.
+  const _top = offsJson.rows.filter(r => r[9] != null).sort((a, b) => b[9] - a[9])[0];
+  o.offsExplorer = cards.length === 15 && cards[0].textContent.includes(`${_top[1]}-${String((_top[1] + 1) % 100).padStart(2, '0')}`) && cards[0].textContent.includes('+' + _top[9].toFixed(1)) && /All-timer/i.test(cards[0].textContent) && cards[0].querySelectorAll('.of-mv a').length >= 3;
   offState.dir = 'worst'; renderOffs();
   o.offsWorst = /2012-13 Toronto Blue Jays/.test(document.querySelector('#offsbody .offs-card').textContent);
   offState.dir = 'best'; offState.club = 'NYM'; renderOffs();

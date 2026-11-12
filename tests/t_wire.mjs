@@ -63,7 +63,8 @@ const R = await d.page.evaluate(async ({fx, dz}) => {
   wireMine('990003', 'B'); await wait(30);
   o.yourGrade = /Ledger: [A-F]/.test(document.getElementById('wi-990003').textContent);
   // readers' grades pooled: five counters a move; the harness answers 5 for each, which averages to a C on 25 grades
-  await wait(500);
+  // Nov 12 (round 35): poll up to 5 s instead of a fixed 500 ms; under parallel load the five counter replies can land later
+  for(let k = 0; k < 50 && !/Readers: C on 25 grades/.test((document.getElementById('wi-990003') || {}).textContent || ''); k++) await wait(100);
   o.readersGrade = /Readers: C on 25 grades/.test(document.getElementById('wi-990003').textContent) && wgKey('a b/c', 'A') === 'wg-a-b-c-A';
   // filters: one club, trades only
   wireSetFilt('club', 'TB'); await wait(30);

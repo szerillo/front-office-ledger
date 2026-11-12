@@ -167,7 +167,8 @@ Object.assign(R, await page.evaluate(async () => {
   // 42: the camp's opening ask is computed once per player
   gmState.stage = 2; gmState.open.tab = 'fa'; gmShow();
   const t1 = performance.now(); gmShow(); const t2 = performance.now();
-  o.i42_marketRenderCached = Object.keys(GM_SG).length >= 30 && t2 - t1 < 400;
+  // Nov 12 (round 35): two checks, so a failure says which part broke; the timing is reported (serial 47-60 ms, parallel 50-71 ms)
+  o.i42_marketBuilt = Object.keys(GM_SG).length >= 30; o.i42_renderCached = t2 - t1 < 400; o._i42ms = Math.round(t2 - t1);
 
   // ---------- Leaderboard ----------
   switchView('leaderboard');

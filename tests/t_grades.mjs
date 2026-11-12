@@ -23,6 +23,7 @@ const now = await page.evaluate(() => {
   return out;
 });
 await browser.close();
+if(process.env.DUMP) fs.writeFileSync(process.env.DUMP, JSON.stringify(now));   // Nov 11: dump for attribution
 if(process.env.UPDATE === '1'){
   // regeneration leaves a record: every grade that moved, by how much, the commit and the reason,
   // appended to docs/grade-changes.md, so no grade changes without a stated cause
