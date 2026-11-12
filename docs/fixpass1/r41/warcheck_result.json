@@ -1,0 +1,224 @@
+[
+[
+"mover",
+"Samy Natera Jr.",
+2026,
+"LAA",
+1.153,
+0.76,
+0.39,
+"ok",
+[]
+],
+[
+"mover",
+"Sean Bouchard",
+2022,
+"COL",
+0.977,
+0.94,
+0.04,
+"ok",
+[]
+],
+[
+"mover",
+"Ben Malgeri",
+2026,
+"DET",
+0.827,
+0.93,
+-0.1,
+"ok",
+[]
+],
+[
+"mover",
+"Sean Bouchard",
+2025,
+"COL",
+-0.71,
+-0.94,
+0.23,
+"ok",
+[]
+],
+[
+"mover",
+"Jonah Tong",
+2026,
+"NYM",
+0.645,
+0.12,
+0.53,
+"ok",
+[]
+],
+[
+"mover",
+"Andrew Saalfrank",
+2025,
+"ARI",
+0.635,
+1.58,
+-0.95,
+"ok",
+[]
+],
+[
+"mover",
+"Caden Dana",
+2024,
+"LAA",
+-0.613,
+-0.46,
+-0.15,
+"ok",
+[]
+],
+[
+"mover",
+"Koda Glover",
+2017,
+"WSN",
+0.594,
+-0.09,
+0.68,
+"ok",
+[]
+],
+[
+"mover",
+"Braxton Fulford",
+2026,
+"COL",
+-0.588,
+-0.32,
+-0.27,
+"ok",
+[]
+],
+[
+"mover",
+"Brad Kilby",
+2009,
+"OAK",
+0.587,
+0.72,
+-0.13,
+"ok",
+[]
+],
+[
+"random",
+"Scott Richmond",
+2011,
+"TOR",
+0.002,
+0.01,
+-0.01,
+"ok",
+[]
+],
+[
+"random",
+"Brandon Lyon",
+2012,
+"TOR",
+0.606,
+0.55,
+0.06,
+"ok",
+[
+"HOU"
+]
+],
+[
+"random",
+"Michael Tonkin",
+2015,
+"MIN",
+0.012,
+0.33,
+-0.32,
+"ok",
+[]
+],
+[
+"random",
+"Jonathan Heasley",
+2026,
+"TBR",
+-0.152,
+-0.11,
+-0.04,
+"ok",
+[]
+],
+[
+"random",
+"Adam Kennedy",
+2002,
+"ANA",
+2.818,
+4.54,
+-1.72,
+"size: gap 1.72",
+[]
+],
+[
+"random",
+"Kyle Blanks",
+2011,
+"SDP",
+1.188,
+1.37,
+-0.18,
+"ok",
+[]
+],
+[
+"random",
+"Deven Marrero",
+2022,
+"NYM",
+-0.12,
+-0.12,
+0.0,
+"ok",
+[]
+],
+[
+"random",
+"Phil Hughes",
+2015,
+"MIN",
+-0.078,
+1.77,
+-1.85,
+"size: gap 1.85",
+[]
+],
+[
+"random",
+"D'Angelo Jimenez",
+2007,
+"WSN",
+0.185,
+-0.05,
+0.23,
+"ok",
+[]
+],
+[
+"random",
+"Bailey Falter",
+2022,
+"PHI",
+0.307,
+1.08,
+-0.77,
+"ok",
+[]
+]
+]

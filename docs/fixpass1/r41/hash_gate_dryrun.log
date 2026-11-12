@@ -1,0 +1,13 @@
+Round 41, item 3 (staged, not deployed). Hashed tree h41 = live tree with the methodology line + hash_names.py.
+t_build re-pinned on h41 with hashed file names masked like ?v= (t_build_hashed.mjs; fixture sha a3b9bb167efa91a8):
+  h41  (clean)                                  t_build PASS | t_hashnames PASS (11)
+  s1   one reference reverted to moves.js       t_build FAIL | t_hashnames FAIL (1)
+  s2   hashed offseasons file edited after naming t_build PASS | t_hashnames FAIL (1)
+  s3   index points at moves.0123456789.js (file present, wrong name) t_build PASS | t_hashnames FAIL (1)
+t_build only sees page code, and the names are masked so a data refresh passes; name-to-bytes is t_hashnames's job.
+Gate (gate_index.py) against a local copy of today's live tree:
+  STEP 1 before the data commit: 7 of 8 files 404 -> REFUSE, exit 3
+  STEP 2 data landed, book file with wrong bytes: HTTP 200, md5 0164d161cd -> REFUSE, exit 3
+  STEP 3 every file live and right -> CLEAR, exit 0
+  STEP 4 index uploaded: chcOverall 55, trades 4178, 152 clubs, 0 errors, 0 404s
+Gate against https://frontofficeledger.com/ today: 404s -> REFUSE, exit 3 (correct: no hashed files are live)

@@ -1,0 +1,165 @@
+{
+ "written": "2026-11-12T12:58:46.812728Z",
+ "sample": [
+  {
+   "set": "mover",
+   "pid": "696519",
+   "year": 2026,
+   "team": "Los Angeles Angels",
+   "name": "Samy Natera Jr.",
+   "lwar": 1.153
+  },
+  {
+   "set": "mover",
+   "pid": "656248",
+   "year": 2022,
+   "team": "Colorado Rockies",
+   "name": "Sean Bouchard",
+   "lwar": 0.977
+  },
+  {
+   "set": "mover",
+   "pid": "701162",
+   "year": 2026,
+   "team": "Detroit Tigers",
+   "name": "Ben Malgeri",
+   "lwar": 0.827
+  },
+  {
+   "set": "mover",
+   "pid": "656248",
+   "year": 2025,
+   "team": "Colorado Rockies",
+   "name": "Sean Bouchard",
+   "lwar": -0.71
+  },
+  {
+   "set": "mover",
+   "pid": "804636",
+   "year": 2026,
+   "team": "New York Mets",
+   "name": "Jonah Tong",
+   "lwar": 0.645
+  },
+  {
+   "set": "mover",
+   "pid": "685314",
+   "year": 2025,
+   "team": "Arizona Diamondbacks",
+   "name": "Andrew Saalfrank",
+   "lwar": 0.635
+  },
+  {
+   "set": "mover",
+   "pid": "702674",
+   "year": 2024,
+   "team": "Los Angeles Angels",
+   "name": "Caden Dana",
+   "lwar": -0.613
+  },
+  {
+   "set": "mover",
+   "pid": "606983",
+   "year": 2017,
+   "team": "Washington Nationals",
+   "name": "Koda Glover",
+   "lwar": 0.594
+  },
+  {
+   "set": "mover",
+   "pid": "690924",
+   "year": 2026,
+   "team": "Colorado Rockies",
+   "name": "Braxton Fulford",
+   "lwar": -0.588
+  },
+  {
+   "set": "mover",
+   "pid": "489020",
+   "year": 2009,
+   "team": "Oakland Athletics",
+   "name": "Brad Kilby",
+   "lwar": 0.587
+  },
+  {
+   "set": "random",
+   "pid": "446341",
+   "year": 2011,
+   "team": "Toronto Blue Jays",
+   "name": "Scott Richmond",
+   "lwar": 0.002
+  },
+  {
+   "set": "random",
+   "pid": "407193",
+   "year": 2012,
+   "team": "Toronto Blue Jays",
+   "name": "Brandon Lyon",
+   "lwar": 0.606
+  },
+  {
+   "set": "random",
+   "pid": "543859",
+   "year": 2015,
+   "team": "Minnesota Twins",
+   "name": "Michael Tonkin",
+   "lwar": 0.012
+  },
+  {
+   "set": "random",
+   "pid": "669169",
+   "year": 2026,
+   "team": "Tampa Bay Rays",
+   "name": "Jonathan Heasley",
+   "lwar": -0.152
+  },
+  {
+   "set": "random",
+   "pid": "150456",
+   "year": 2002,
+   "team": "Anaheim Angels",
+   "name": "Adam Kennedy",
+   "lwar": 2.818
+  },
+  {
+   "set": "random",
+   "pid": "452035",
+   "year": 2011,
+   "team": "San Diego Padres",
+   "name": "Kyle Blanks",
+   "lwar": 1.188
+  },
+  {
+   "set": "random",
+   "pid": "571918",
+   "year": 2022,
+   "team": "New York Mets",
+   "name": "Deven Marrero",
+   "lwar": -0.12
+  },
+  {
+   "set": "random",
+   "pid": "461833",
+   "year": 2015,
+   "team": "Minnesota Twins",
+   "name": "Phil Hughes",
+   "lwar": -0.078
+  },
+  {
+   "set": "random",
+   "pid": "150090",
+   "year": 2007,
+   "team": "Washington Nationals",
+   "name": "D'Angelo Jimenez",
+   "lwar": 0.185
+  },
+  {
+   "set": "random",
+   "pid": "663559",
+   "year": 2022,
+   "team": "Philadelphia Phillies",
+   "name": "Bailey Falter",
+   "lwar": 0.307
+  }
+ ]
+}
