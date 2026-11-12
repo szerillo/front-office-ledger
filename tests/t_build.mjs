@@ -35,7 +35,9 @@ const lines = fs.readFileSync(PAGE, 'utf8').split('\n');
 const mask = dataMask(lines);
 const code = lines.filter((l, i) => !mask[i]).map(l => l.replace(/\s+$/, ''));
 // the cache-busting hashes in script URLs change with the data; mask them
-const norm = code.map(l => l.replace(/\?v=[0-9a-f]{6,}/g, '?v=*'));
+// Nov 12 (round 41, staged): content-hash file names (hash_names.py) change with the data like ?v= did; mask them too.
+// Whether each name matches its file's bytes is t_hashnames.mjs's job, not this test's.
+const norm = code.map(l => l.replace(/\?v=[0-9a-f]{6,}/g, '?v=*').replace(/\.[0-9a-f]{10}\.(js|json)\b/g, '.*.$1'));
 const sha = crypto.createHash('sha256').update(norm.join('\n')).digest('hex').slice(0, 16);
 if (process.env.UPDATE === '1') {
   if (!process.env.REASON) { console.log('UPDATE=1 needs REASON'); process.exit(1); }
