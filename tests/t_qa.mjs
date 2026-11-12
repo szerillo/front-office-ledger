@@ -57,7 +57,9 @@ const R = await page.evaluate(async (offsJson) => {
   for(const [you, them, ask] of pairs){ set(you, them, ask, []); dkAgm(); await wait(10); dkState.send.forEach(x => { if(!gmIsProsRow(x.p) && (gmFranchise(x.p) || gmProj27(x.p) >= 4)) paidStar.push(x.p[0]); }); }
   o.neverPaysWithAStar = paidStar.length === 0; if(paidStar.length) o.paidStar = paidStar.join(', ');
   // cornerstones are off the table on every kind of club unless they are in trade reports
-  o.cornerstonesStay = ['Paul Skenes', 'Bobby Witt Jr.', 'Nick Kurtz'].every(n => { const p = P(n); return dkRumor(p[1]) || !isFinite(gmAskCore(p, p[2])); });
+  // Nov 12 (round 46): Skenes now has three seasons of control left on official service time, so he is no longer
+  // a cornerstone under the four-season rule; Crow-Armstrong takes his place in this check
+  o.cornerstonesStay = ['Pete Crow-Armstrong', 'Bobby Witt Jr.', 'Nick Kurtz'].every(n => { const p = P(n); return dkRumor(p[1]) || !isFinite(gmAskCore(p, p[2])); });
   // one posture function behind every label
   o.onePosture = Object.keys(DESK.teams).every(ab => { const k = folPosture(ab).key; return gmClubPosture(ab) === (k === 'contender' ? 'contender' : k === 'rebuilding' ? 'rebuilding' : 'middle') && dkPosture(ab) === (k === 'contender' ? 'c' : k === 'rebuilding' ? 'r' : 'm'); }) && /wins last year, \d+ projected/.test(folPosture('SD').why);
   dkState.send = []; dkState.recv = [];

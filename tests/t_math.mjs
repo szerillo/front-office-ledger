@@ -9,7 +9,7 @@ const r = await d.page.evaluate(async () => {
   const baty = pl('Brett Baty'), alv = pl('Francisco Alvarez');
   o.batyFirstArb = gmArbNo(baty, 2027) === 1 && gmArbSal(baty, 2027) < 5;          // was $12.0M at the 3rd-award ratio
   o.alvarezSecondArb = gmArbNo(alv, 2027) === 2 && gmArbSal(alv, 2027) < 8;        // was $14.4M
-  o.serviceIsReal = Math.abs(gmSvc(pl('Bobby Witt Jr.')) - 5.0) < 0.01 && gmSvc(pl('Paul Skenes')) < 2.3;
+  o.serviceIsReal = Math.abs(gmSvc(pl('Bobby Witt Jr.')) - 5.0) < 0.01 && Math.abs(gmSvc(pl('Paul Skenes')) - 3.0) < 0.01 && gmCtrlEnd(pl('Paul Skenes')) === 2029;   // Nov 12 (round 46): official service time, published (MLB Trade Rumors, Oct 2026): 3.000 after his 2024 Rookie of the Year year was credited in full; was our count of 2.136
   o.stephensonIsFA = gmIsFA(pl('Tyler Stephenson'));                               // old proxy fix wrongly held him back
   o.qoIsReal = GM_QO === 23.15;
   // one net figure per regime, one grade rule for every card

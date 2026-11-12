@@ -132,10 +132,28 @@ const r = await d.page.evaluate(async () => {
   const plant = DESK.players.find(q => q[2] && gmFranchise(q) && gmClubPosture(q[2]) !== 'rebuilding' && !dkRumor(q[1]) && !AV.some(x => x.p === q));
   o.availList = AV.length >= 40 && availOk(AV) && document.querySelectorAll('#deskbody tbody tr').length >= 20;
   o.availReportedOnly = !!plant && !availOk(AV.concat([{p: plant, ab: plant[2], rep: null}])) && AV.some(x => x.rep && gmFranchise(x.p) && gmClubPosture(x.ab) !== 'rebuilding');
+  // Nov 12 (round 46): a report counts only for the player's current club and only if no move of his came after it.
+  // Plant 1: move a reported player to a contending club on the Desk (row kept). Plant 2: his club is unchanged
+  // on the Desk but the live feed shows a trade dated after the report. Both must drop the report.
+  {
+    const row = TRADE_RUMORS.rows.find(r => { const q = wireP(r[0]); return q && q[2] && dkRumor(r[0]); });
+    const contender = Object.keys(DESK.teams).find(ab => gmClubPosture(ab) !== 'rebuilding' && (!row || ab !== wireP(row[0])[2]));
+    if(row && contender){
+      const q = wireP(row[0]), home = q[2];
+      q[2] = contender; const r1 = dkRumor(row[0]); q[2] = home;
+      const keep = WIRE.tx; const d0 = (dkRumor(row[0]) || {}).d || '2026-11-12';
+      const later = new Date(Date.parse(d0) + 2 * 864e5).toISOString().slice(0, 10);
+      WIRE.tx = (keep || []).concat([{typeCode: 'TR', date: later, person: {id: row[0], fullName: q[0]}, fromTeam: {name: CLUB_NAME[home]}, toTeam: {name: CLUB_NAME[contender]}, description: 'planted'}]);
+      const r2 = dkRumor(row[0]); WIRE.tx = keep;
+      o.staleReportClubRejected = r1 === null;
+      o.staleReportDateRejected = r2 === null;
+      o.currentReportKept = !!dkRumor(row[0]);
+    } else { o.staleReportClubRejected = false; o.staleReportDateRejected = false; o.currentReportKept = false; }
+  }
   dkState.mode = 'trade'; dkState.you = 'BOS'; dkState.them = 'PIT';
   dkState.recv = [{kind: 'player', p: P('Oneil Cruz'), ctrl: gmCtrlOf(P('Oneil Cruz'))}]; dkState.send = [{kind: 'player', p: P('Jarren Duran'), ctrl: gmCtrlOf(P('Jarren Duran'))}]; renderDesk(); dkEval();
   const chip = document.querySelector('.tdeal').innerText;
-  o.pieceShowsTerms = /\$\d+\.\dM in 2027/.test(chip) && /years? of control \(through 20\d\d\)/.test(chip) && !document.querySelector('.tdeal button[onclick^="dkCtrl"]');
+  o.pieceShowsTerms = /\$\d+\.\dM in 2027/.test(chip) && /years? of control \(through 20\d\d( est\.)?\)/.test(chip) && !document.querySelector('.tdeal button[onclick^="dkCtrl"]');
   const out = document.getElementById('dk-out').innerText;
   o.verdictBothSides = /Boston Red Sox/.test(out) && /Pittsburgh Pirates/.test(out) && !/Sandbox verdict/.test(out);
   const comps = [...document.querySelectorAll('#dk-out .lens-box')].find(c => /Market comps/.test(c.textContent));
