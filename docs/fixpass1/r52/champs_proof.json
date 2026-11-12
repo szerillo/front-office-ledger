@@ -1,0 +1,18 @@
+{
+ "baseline_md5": "0ced72a00e3c083717defa0914a8cea5",
+ "steps_reading_it_directly": [
+  "regen_v3.py"
+ ],
+ "steps_downstream": [
+  "regen_v3.py"
+ ],
+ "files_downstream": [
+  "cards.js",
+  "champs_computed.json",
+  "front-office-ledger-prototype.html",
+  "moves.js",
+  "statsapi_cache/names.json"
+ ],
+ "graded_files_downstream": [],
+ "count_graded_readers": 0
+}
