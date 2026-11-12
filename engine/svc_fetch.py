@@ -72,6 +72,9 @@ def classify(t, on):
     if c in ("OUT", "REL", "RET"): return False
     if c in ("SE", "CU"): return True
     if c in ("R5", "CLW"): return True if to_mlb else on
+    # r47: two codes the counter did not read (Odubel Herrera 2015-18, Jordan Walden 2010-12 had 0 days while playing)
+    if c == "DR": return True if (to_mlb and (t.get("date") or "")[5:7] == "12") else on   # Rule 5 draft, major league phase (December)
+    if c == "PUR": return True if to_mlb else on        # contract purchased by a major league club
     if c == "SFA":
         if "minor league" in d: return False
         return True if to_mlb else on
