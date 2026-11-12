@@ -1,6 +1,6 @@
 {
- "sha": "13cdf05414f28d3e",
+ "sha": "9dfce0828ed1e47d",
  "codeLines": 11738,
- "reason": "round 35: page-code hash covers everything but the named engine/build data blocks; g2letter/gradeClass/deskLetter return no letter for a missing grade; dev tile tooltip; success fallback removed",
- "at": "2026-11-12T06:40:41.798Z"
+ "reason": "Nov 12 round 41: methodology line, letters are relative (Kirk approved)",
+ "at": "2026-11-12T12:57:41.417Z"
 }
