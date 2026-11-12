@@ -1,0 +1,10 @@
+173a174,175
+> # r49 freeze: read the live class rates instead of the fit (prereg b2477dc)
+> if os.environ.get("FREEZE"): CLASS_RATE = json.load(open(os.environ["FREEZE"] + "/ext_class_rate.json"))["cls"]
+186a189,190
+>     # r49 spread plant: +PLANT_D on one extension (pid|sign date), prereg step 2
+>     if os.environ.get("PLANT") and f'{e["pid"]}:{e["sign_date"]}' == os.environ["PLANT"]: e["net"] += float(os.environ.get("PLANT_D", "5.0"))
+228c232
+< json.dump(dict(cls=CLASS_RATE), open("/work/ext_class_rate.json", "w"))
+---
+> if not os.environ.get("FREEZE"): json.dump(dict(cls=CLASS_RATE), open("/work/ext_class_rate.json", "w"))

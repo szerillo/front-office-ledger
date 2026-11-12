@@ -1,0 +1,283 @@
+[
+ {
+  "pid": "502624",
+  "name": "RHP Chase Anderson",
+  "season": 2023,
+  "asg": "2023-03-06",
+  "on40": [],
+  "old": 152,
+  "new": 152,
+  "truth": 136,
+  "new_ok": false,
+  "old_ok": false
+ },
+ {
+  "pid": "605113",
+  "name": "SS Nick Ahmed",
+  "season": 2025,
+  "asg": "2025-02-22",
+  "on40": [],
+  "old": 10,
+  "new": 10,
+  "truth": 9,
+  "new_ok": true,
+  "old_ok": true
+ },
+ {
+  "pid": "668678",
+  "name": "RHP Zac Gallen",
+  "season": 2026,
+  "asg": "2026-02-15",
+  "on40": [
+   [
+    "2026-02-15",
+    109,
+    true
+   ]
+  ],
+  "old": 78,
+  "new": 172,
+  "truth": 172,
+  "new_ok": true,
+  "old_ok": false
+ },
+ {
+  "pid": "606965",
+  "name": "RHP Chris Devenski",
+  "season": 2022,
+  "asg": "2022-03-17",
+  "on40": [],
+  "old": 43,
+  "new": 43,
+  "truth": 41,
+  "new_ok": true,
+  "old_ok": true
+ },
+ {
+  "pid": "623149",
+  "name": "P Paul Sewald",
+  "season": 2021,
+  "asg": "2021-01-28",
+  "on40": [],
+  "old": 143,
+  "new": 143,
+  "truth": 140,
+  "new_ok": true,
+  "old_ok": true
+ },
+ {
+  "pid": "644433",
+  "name": "C Chadwick Tromp",
+  "season": 2024,
+  "asg": "2023-11-21",
+  "on40": [
+   [
+    "2023-11-21",
+    144,
+    false
+   ]
+  ],
+  "old": 65,
+  "new": 65,
+  "truth": 65,
+  "new_ok": true,
+  "old_ok": true
+ },
+ {
+  "pid": "623474",
+  "name": "P Jimmy Herget",
+  "season": 2021,
+  "asg": "2021-02-20",
+  "on40": [],
+  "old": 40,
+  "new": 40,
+  "truth": 40,
+  "new_ok": true,
+  "old_ok": true
+ },
+ {
+  "pid": "666204",
+  "name": "RHP Dany Jim\u00e9nez",
+  "season": 2025,
+  "asg": "2025-02-25",
+  "on40": [],
+  "old": 0,
+  "new": 0,
+  "truth": 0,
+  "new_ok": true,
+  "old_ok": true
+ },
+ {
+  "pid": "641755",
+  "name": "RHP Tyler Kinley",
+  "season": 2026,
+  "asg": "2026-01-10",
+  "on40": [
+   [
+    "2026-01-10",
+    144,
+    true
+   ]
+  ],
+  "old": 107,
+  "new": 172,
+  "truth": 172,
+  "new_ok": true,
+  "old_ok": false
+ },
+ {
+  "pid": "571657",
+  "name": "2B Kyle Farmer",
+  "season": 2026,
+  "asg": "2026-02-06",
+  "on40": [
+   [
+    "2026-02-06",
+    144,
+    false
+   ]
+  ],
+  "old": 144,
+  "new": 144,
+  "truth": 142,
+  "new_ok": true,
+  "old_ok": true
+ },
+ {
+  "pid": "621057",
+  "name": "RHP Justin Garza",
+  "season": 2024,
+  "asg": "2024-03-15",
+  "on40": [],
+  "old": 0,
+  "new": 0,
+  "truth": 0,
+  "new_ok": true,
+  "old_ok": true
+ },
+ {
+  "pid": "641745",
+  "name": "RHP Brad Keller",
+  "season": 2025,
+  "asg": "2025-01-29",
+  "on40": [
+   [
+    "2024-03-08",
+    145,
+    false
+   ],
+   [
+    "2025-01-29",
+    112,
+    false
+   ]
+  ],
+  "old": 172,
+  "new": 172,
+  "truth": 172,
+  "new_ok": true,
+  "old_ok": true
+ },
+ {
+  "pid": "669212",
+  "name": "RHP Eli Morgan",
+  "season": 2026,
+  "asg": "2026-01-30",
+  "on40": [],
+  "old": 61,
+  "new": 61,
+  "truth": 50,
+  "new_ok": false,
+  "old_ok": false
+ },
+ {
+  "pid": "656546",
+  "name": "RHP Jeff Hoffman",
+  "season": 2023,
+  "asg": "2023-03-05",
+  "on40": [],
+  "old": 151,
+  "new": 151,
+  "truth": 151,
+  "new_ok": true,
+  "old_ok": true
+ },
+ {
+  "pid": "519326",
+  "name": "RHP Hunter Strickland",
+  "season": 2023,
+  "asg": "2023-03-05",
+  "on40": [
+   [
+    "2025-03-15",
+    140,
+    false
+   ]
+  ],
+  "old": 0,
+  "new": 0,
+  "truth": 0,
+  "new_ok": true,
+  "old_ok": true
+ },
+ {
+  "pid": "519326",
+  "name": "RHP Hunter Strickland",
+  "season": 2025,
+  "asg": "2025-03-15",
+  "on40": [
+   [
+    "2025-03-15",
+    140,
+    false
+   ]
+  ],
+  "old": 128,
+  "new": 128,
+  "truth": 128,
+  "new_ok": true,
+  "old_ok": true
+ },
+ {
+  "pid": "542881",
+  "name": "LHP Tyler Anderson",
+  "season": 2023,
+  "asg": "2022-11-15",
+  "on40": [
+   [
+    "2022-11-15",
+    108,
+    true
+   ]
+  ],
+  "old": 172,
+  "new": 172,
+  "truth": 172,
+  "new_ok": true,
+  "old_ok": true
+ },
+ {
+  "pid": "622098",
+  "name": "RHP Drew Smith",
+  "season": 2026,
+  "asg": "2026-03-02",
+  "on40": [],
+  "old": 0,
+  "new": 0,
+  "truth": 0,
+  "new_ok": true,
+  "old_ok": true
+ },
+ {
+  "pid": "641598",
+  "name": "C Mitch Garver",
+  "season": 2026,
+  "asg": "2026-03-03",
+  "on40": [],
+  "old": 131,
+  "new": 131,
+  "truth": 131,
+  "new_ok": true,
+  "old_ok": true
+ }
+]

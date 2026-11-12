@@ -1,0 +1,154 @@
+[
+{
+"pid": "502624",
+"efa": "2022-11-06",
+"asg": "2023-03-06",
+"club": 113,
+"season": 2023,
+"desc": "RHP Chase Anderson assigned to Cincinnati Reds."
+},
+{
+"pid": "605113",
+"efa": "2024-10-31",
+"asg": "2025-02-22",
+"club": 140,
+"season": 2025,
+"desc": "SS Nick Ahmed assigned to Texas Rangers."
+},
+{
+"pid": "668678",
+"efa": "2025-11-02",
+"asg": "2026-02-15",
+"club": 109,
+"season": 2026,
+"desc": "RHP Zac Gallen assigned to Arizona Diamondbacks."
+},
+{
+"pid": "606965",
+"efa": "2021-10-08",
+"asg": "2022-03-17",
+"club": 109,
+"season": 2022,
+"desc": "RHP Chris Devenski assigned to Arizona Diamondbacks."
+},
+{
+"pid": "623149",
+"efa": "2020-12-02",
+"asg": "2021-01-28",
+"club": 136,
+"season": 2021,
+"desc": "P Paul Sewald assigned to Seattle Mariners ."
+},
+{
+"pid": "644433",
+"efa": "2023-11-17",
+"asg": "2023-11-21",
+"club": 144,
+"season": 2024,
+"desc": "C Chadwick Tromp assigned to Atlanta Braves."
+},
+{
+"pid": "623474",
+"efa": "2020-12-02",
+"asg": "2021-02-20",
+"club": 140,
+"season": 2021,
+"desc": "P Jimmy Herget assigned to Texas Rangers ."
+},
+{
+"pid": "666204",
+"efa": "2024-11-22",
+"asg": "2025-02-25",
+"club": 144,
+"season": 2025,
+"desc": "RHP Dany Jim\u00e9nez assigned to Atlanta Braves."
+},
+{
+"pid": "641755",
+"efa": "2025-11-06",
+"asg": "2026-01-10",
+"club": 144,
+"season": 2026,
+"desc": "RHP Tyler Kinley assigned to Atlanta Braves."
+},
+{
+"pid": "571657",
+"efa": "2025-11-04",
+"asg": "2026-02-06",
+"club": 144,
+"season": 2026,
+"desc": "2B Kyle Farmer assigned to Atlanta Braves."
+},
+{
+"pid": "621057",
+"efa": "2023-11-06",
+"asg": "2024-03-15",
+"club": 137,
+"season": 2024,
+"desc": "RHP Justin Garza assigned to San Francisco Giants."
+},
+{
+"pid": "641745",
+"efa": "2024-08-13",
+"asg": "2025-01-29",
+"club": 112,
+"season": 2025,
+"desc": "RHP Brad Keller assigned to Chicago Cubs."
+},
+{
+"pid": "669212",
+"efa": "2025-11-21",
+"asg": "2026-01-30",
+"club": 118,
+"season": 2026,
+"desc": "RHP Eli Morgan assigned to Kansas City Royals."
+},
+{
+"pid": "656546",
+"efa": "2022-11-18",
+"asg": "2023-03-05",
+"club": 142,
+"season": 2023,
+"desc": "RHP Jeff Hoffman assigned to Minnesota Twins."
+},
+{
+"pid": "519326",
+"efa": "2022-11-06",
+"asg": "2023-03-05",
+"club": 113,
+"season": 2023,
+"desc": "RHP Hunter Strickland assigned to Cincinnati Reds."
+},
+{
+"pid": "519326",
+"efa": "2024-10-31",
+"asg": "2025-03-15",
+"club": 140,
+"season": 2025,
+"desc": "RHP Hunter Strickland assigned to Texas Rangers."
+},
+{
+"pid": "542881",
+"efa": "2022-11-06",
+"asg": "2022-11-15",
+"club": 108,
+"season": 2023,
+"desc": "LHP Tyler Anderson assigned to Los Angeles Angels."
+},
+{
+"pid": "622098",
+"efa": "2025-11-04",
+"asg": "2026-03-02",
+"club": 120,
+"season": 2026,
+"desc": "RHP Drew Smith assigned to Washington Nationals."
+},
+{
+"pid": "641598",
+"efa": "2025-11-03",
+"asg": "2026-03-03",
+"club": 136,
+"season": 2026,
+"desc": "C Mitch Garver assigned to Seattle Mariners."
+}
+]

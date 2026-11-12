@@ -1,0 +1,152 @@
+{
+ "CH": 846,
+ "letters_changed": 58,
+ "overall_changed": 26,
+ "untraced_letters": 2,
+ "untraced_overall": 3,
+ "changed_nets": 250,
+ "unattributed_nets": 8,
+ "changed_seats": 1180,
+ "unattributed_seats": 74,
+ "changed_winters": 320,
+ "unattributed_winters": 71,
+ "unattributed_entries": 80,
+ "TOR_live": [
+  1,
+  31.7
+ ],
+ "TOR_run": [
+  2,
+  31.6
+ ],
+ "untraced_pages": 80,
+ "bars": {
+  "untraced_letters==0": false,
+  "untraced_overall==0": false,
+  "every_number_attributed": false,
+  "letters<=150": true,
+  "overall<=40": true,
+  "TOR_top2_90pct": true,
+  "untraced_pages<=50": false
+ },
+ "PASS": false,
+ "examples": {
+  "untraced_letters": [
+   [
+    "cle",
+    "intl"
+   ],
+   [
+    "sd",
+    "intl"
+   ]
+  ],
+  "untraced_overall": [
+   "lad",
+   "nyy",
+   "sd-omar-minaya-/-aj-hinch-/-fred-uhlman-jr-(interim)"
+  ],
+  "unattributed_nets": [
+   [
+    "ari",
+    "intl"
+   ],
+   [
+    "cle",
+    "intl"
+   ],
+   [
+    "kc-dayton-moore",
+    "draft"
+   ],
+   [
+    "lad",
+    "intl"
+   ],
+   [
+    "nyy",
+    "intl"
+   ],
+   [
+    "sd",
+    "intl"
+   ],
+   [
+    "sea",
+    "intl"
+   ],
+   [
+    "tor",
+    "intl"
+   ]
+  ],
+  "unattributed_seats": [
+   [
+    "2010-07-31",
+    "ATL"
+   ],
+   [
+    "2012-07-31",
+    "CHC"
+   ],
+   [
+    "2013-07-02",
+    "CHC"
+   ],
+   [
+    "2014-07-31",
+    "ATH"
+   ],
+   [
+    "2014-12-11",
+    "COL"
+   ],
+   [
+    "2014-12-12",
+    "ARI"
+   ],
+   [
+    "2014-12-12",
+    "BOS"
+   ],
+   [
+    "2014-12-19",
+    "NYY"
+   ]
+  ],
+  "unattributed_winters": [
+   [
+    "ARI",
+    2011
+   ],
+   [
+    "ARI",
+    2013
+   ],
+   [
+    "ARI",
+    2014
+   ],
+   [
+    "ARI",
+    2016
+   ],
+   [
+    "ARI",
+    2025
+   ],
+   [
+    "ATL",
+    2008
+   ],
+   [
+    "ATL",
+    2010
+   ],
+   [
+    "ATL",
+    2015
+   ]
+  ]
+ }
+}
