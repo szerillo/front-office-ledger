@@ -43,3 +43,7 @@ Round 4 stopped by me after H0 and H1 finished (H2, H3 partial). Under 5e81190 i
 ## Rule 6 amended (after the second-source check, before any v2 run)
 Felipe Bello (806593): MLB.com's transaction log for him shows both 2022-08-02 filings, then "assigned to DSL Blue Jays" on 2022-08-03, and every minor-league line after (DSL, FCL and Dunedin Blue Jays, 2022-24) is a Toronto affiliate. He signed with Toronto; the Seattle row is a feed error.
 Rule 6 (amended): a same-day minor-league signing filed by two clubs is resolved by a sourced override (SAME_DAY_CLUB in ifa_score.py, one entry: Bello to Toronto, source above); without an override it still counts for neither club. Effect: TOR intl n counts him, SEA does not; value 0.0.
+
+## Round 6 engine (after amendments 2 and 3)
+Rule 12 (as replaced in amendment 3) in trade_book.py: seats ordered by value then higher id; display name from the archive row when one exists. Round 5 (rules 1 to 11 on ledger_v2) stopped by me before any run finished; not judged.
+Guard change before round 6: the /people batch rebuild covers every query suffix (hist_score asked a 37-id batch the record pass had fetched as 38 ids); it still aborts on any id never asked in the record.
