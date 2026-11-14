@@ -1,0 +1,23 @@
+== preview_check
+problems: 0 []
+PASS
+== r56_page_check
+{"copy":{"heists":false,"tables":152,"levT":0},"method":{"sec":true,"chips":5,"chipsOk":5,"note":true},"w2020":{"n":57,"ok":57,"bad":[],"other":0},"trades":{"n":4162,"labelled":636,"miss":0,"extra":0,"listKeys":631}}
+PASS
+== tradetotal_check
+problems: 0 []
+PASS
+== rawtxt_check
+{"pages":152,"hits":0,"cut":0,"cards":0,"ex":[],"moves":0,"movesReady":true}
+PASS
+== method_check
+{"nr":5,"nw":5,"bad":[]}
+PASS
+== corrlinks_check
+{"foot":"/corrections/","chips":55,"chipsOk":55,"idx":true,"idxLinks":true,"back":true,"smCorr":true,"c":152,"t":30,"s":30,"o":44,"h":116,"noidx":0,"missing":0}
+PASS
+== hz_check
+PASS
+== winterlink_check
+PASS
+review_check PASS

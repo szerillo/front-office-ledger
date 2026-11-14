@@ -1,0 +1,16 @@
+== preview_check (staged copy, t/hou desc set to +0.4 wins)
+problems: 1 [
+FAIL: all_ok, problems_0
+problems: 1 [
+  't/HOU: new seat: desc Randy Flores, +0.4 wins vs. a typical front office.'
+]
+
+== hz_check (old live page, no memo reset, order-dependent ties)
+FAIL: feed_restarts_ranking, tie_break_same
+
+== r56_page_check (staged copy, trade 2010-12-19 KC/MIL removed from the page's list)
+page errors: none
+FAIL: trades_labelled_as_listed
+
+== corrlinks_check updated (old live page: labels link the log, not the section)
+FAIL: labels_link_method
