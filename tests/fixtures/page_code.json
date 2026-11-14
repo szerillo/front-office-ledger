@@ -1,6 +1,6 @@
 {
- "sha": "2cf292c5430a4d61",
- "codeLines": 11823,
- "reason": "round 55: Nov 14 audit display fixes (trade total note, corrections links, heist context, methodology numbers, raw text tidy, winter links)",
- "at": "2026-11-14T08:22:30.097Z"
+ "sha": "839dc69c231c99d1",
+ "codeLines": 11800,
+ "reason": "round 54: under-review labels, 107 cards and 320 explorer winters (launch path A), labels only",
+ "at": "2026-11-14T07:02:23.568Z"
 }
