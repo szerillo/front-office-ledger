@@ -1,11 +1,11 @@
 // Round 54: every value on the known-wrong list carries the under-review label, and nothing else does.
-// Pass: 108 report cards labelled exactly as listed (page note, net value, overall where it moves, each listed channel,
-// letter label where the letter moves), 0 other cards labelled, 19 winter cards labelled in the explorer and 19 winter
-// share pages labelled, 0 others. Exit 1 on any miss. Usage: TARGET=live LIVE_URL=<site> node review_check.mjs
+// Pass: the report cards in the expected file (107) labelled exactly as listed (page note, net value, overall where it
+// moves, each listed channel, letter label where the letter moves), 0 other cards labelled; the explorer winters in the
+// file (320) labelled and 0 others; the winter share pages in the file (19) labelled and 0 others. Exit 1 on any miss. Usage: TARGET=live LIVE_URL=<site> node review_check.mjs
 import { open } from './_common.mjs';
 const BASE = process.env.LIVE_URL || 'https://frontofficeledger.com/';
 const fsx = await import('fs');
-const EXP = JSON.parse(fsx.readFileSync(process.env.EXPECT || 'review_list.json', 'utf8'));
+const EXP = JSON.parse(fsx.readFileSync(process.env.EXPECT || 'review_expected.json', 'utf8'));
 const E = Object.fromEntries(Object.entries(EXP.cards).map(([k, v]) => [k, {c: v.chans, l: v.letters, o: v.overall ? 1 : 0}]));
 const d = await open();
 const r = await d.page.evaluate(async ([E, WL]) => {
@@ -50,7 +50,7 @@ const r = await d.page.evaluate(async ([E, WL]) => {
     if (W.has(row.id) !== (c === 1)) problems.push(`winter ${row.id}: label ${c} expected ${W.has(row.id) ? 1 : 0}`);
   }
   return {cards_labelled: labelled.length, cards_on_list: listIds.length, card_pages: seen.size, winter_cards_labelled: wl, winter_list: W.size, problems};
-}, [E, EXP.winter_pages.map(f => f.replace(/\.html$/, ''))]);
+}, [E, EXP.winter_explorer]);
 const pages = (await (await fetch(BASE + 'share.json?t=' + Date.now())).json().catch(() => null));
 const fs = await import('fs');
 const O = (process.env.OPAGES || '').split(',').filter(Boolean);
@@ -64,5 +64,7 @@ for (const f of O) {
 }
 r.share_pages_labelled = oLab; r.problems.push(...oProb);
 console.log(JSON.stringify(r, null, 1));
-const ok = r.problems.length === 0 && r.cards_labelled === 108 && r.cards_on_list === 108 && r.winter_cards_labelled === 19 && oLab === 19;
+const C = EXP.counts;
+const ok = r.problems.length === 0 && r.cards_labelled === C.cards && r.cards_on_list === C.cards && r.winter_cards_labelled === C.winter_explorer && oLab === C.winter_pages;
+r.expected_counts = C;
 console.log(ok ? 'review_check PASS' : 'review_check FAIL'); await d.browser.close(); process.exit(ok ? 0 : 1);

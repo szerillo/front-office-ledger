@@ -1,0 +1,1348 @@
+{
+ "about": "Expected under-review labels for round 54 (launch path A). Source: round 50 frozen run F1 vs the live run Z_X6 (docs/fixpass1/r50). Dropped from the card list: sd-omar-minaya-/-aj-hinch-/-fred-uhlman-jr-(interim) (0.2 seasons, 2014): the site shows it as a new seat with no grade, net or channel, so nothing visible to label (Kirk, Nov 14).",
+ "cards": {
+  "ari": {
+   "chans": [
+    "ext",
+    "intl",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": false
+  },
+  "ari-dave-stewart": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "ari-jerry-dipoto-(interim)": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "ari-josh-byrnes": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "ari-kevin-towers": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": false
+  },
+  "ath-billy-beane": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "ath-david-forst": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "waiver"
+   ],
+   "overall": false
+  },
+  "atl": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "atl-frank-wren": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "atl-john-hart-/-john-coppolella": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": true
+  },
+  "atl-john-schuerholz": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "bal": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "bal-andy-macphail": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "bal-dan-duquette": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": true
+  },
+  "bal-jim-beattie-/-mike-flanagan": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": false
+  },
+  "bos": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "waiver"
+   ],
+   "overall": false
+  },
+  "bos-ben-cherington": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext"
+   ],
+   "overall": false
+  },
+  "bos-chaim-bloom": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "bos-dave-dombrowski": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "waiver"
+   ],
+   "overall": true
+  },
+  "bos-theo-epstein": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "chc": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "waiver"
+   ],
+   "overall": false
+  },
+  "chc-jim-hendry": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": true
+  },
+  "chc-theo-epstein": {
+   "chans": [
+    "draft",
+    "ext",
+    "waiver"
+   ],
+   "letters": [
+    "draft",
+    "waiver"
+   ],
+   "overall": false
+  },
+  "cin": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "waiver"
+   ],
+   "overall": false
+  },
+  "cin-dick-williams": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "cin-walt-jocketty": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "cle": {
+   "chans": [
+    "draft",
+    "ext",
+    "intl",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext",
+    "intl"
+   ],
+   "overall": false
+  },
+  "cle-mark-shapiro": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": true
+  },
+  "col": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": false
+  },
+  "col-bill-schmidt": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext",
+    "trade"
+   ],
+   "overall": false
+  },
+  "col-dan-o'dowd": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "draft",
+    "trade"
+   ],
+   "overall": true
+  },
+  "col-jeff-bridich": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "cws": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "cws-ken-williams": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "cws-rick-hahn": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "det": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "det-al-avila": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "det-dave-dombrowski": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "hou-dana-brown": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "hou-ed-wade": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [
+    "draft",
+    "trade"
+   ],
+   "overall": true
+  },
+  "hou-james-click": {
+   "chans": [
+    "ext",
+    "trade"
+   ],
+   "letters": [
+    "ext"
+   ],
+   "overall": false
+  },
+  "hou-jeff-luhnow": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext"
+   ],
+   "overall": false
+  },
+  "kc": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "kc-dayton-moore": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "laa": {
+   "chans": [],
+   "letters": [],
+   "overall": false
+  },
+  "laa-bill-stoneman": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "laa-billy-eppler": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext",
+    "trade"
+   ],
+   "overall": true
+  },
+  "laa-jerry-dipoto": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "trade",
+    "waiver"
+   ],
+   "overall": false
+  },
+  "laa-perry-minasian": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "laa-tony-reagins": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "lad": {
+   "chans": [
+    "draft",
+    "ext",
+    "intl",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext"
+   ],
+   "overall": true
+  },
+  "lad-dan-evans": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "lad-ned-colletti": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": false
+  },
+  "mia": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": true
+  },
+  "mia-kim-ng": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": false
+  },
+  "mia-larry-beinfest": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": true
+  },
+  "mia-michael-hill": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": false
+  },
+  "mil": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "mil-david-stearns": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "mil-doug-melvin": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": false
+  },
+  "min": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "min-bill-smith": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "min-derek-falvey": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext"
+   ],
+   "overall": false
+  },
+  "min-rob-antony-(interim)": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": false
+  },
+  "min-terry-ryan": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "min-terry-ryan-(second-term)": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "trade",
+    "waiver"
+   ],
+   "overall": false
+  },
+  "nym": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "nym-billy-eppler": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "trade",
+    "waiver"
+   ],
+   "overall": false
+  },
+  "nym-brodie-van-wagenen": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "nym-omar-minaya": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": true
+  },
+  "nym-sandy-alderson": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "nym-sandy-alderson-2020": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "waiver"
+   ],
+   "overall": false
+  },
+  "nyy": {
+   "chans": [
+    "draft",
+    "ext",
+    "intl",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": true
+  },
+  "nyy-brian-cashman": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "phi": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext"
+   ],
+   "overall": false
+  },
+  "phi-matt-klentak": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "phi-ruben-amaro-jr": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": false
+  },
+  "pit": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "waiver"
+   ],
+   "overall": false
+  },
+  "pit-dave-littlefield": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [
+    "draft",
+    "trade"
+   ],
+   "overall": false
+  },
+  "pit-neal-huntington": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "sd": {
+   "chans": [
+    "draft",
+    "ext",
+    "intl",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "intl"
+   ],
+   "overall": false
+  },
+  "sd-jed-hoyer": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "sd-josh-byrnes": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": true
+  },
+  "sd-kevin-towers": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "sea": {
+   "chans": [
+    "ext",
+    "intl",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "sea-bill-bavasi": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "sea-jack-zduriencik": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "sf": {
+   "chans": [],
+   "letters": [],
+   "overall": false
+  },
+  "sf-brian-sabean": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "sf-farhan-zaidi": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "stl": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "stl-john-mozeliak": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "stl-walt-jocketty": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "tb": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext",
+    "trade"
+   ],
+   "overall": false
+  },
+  "tb-andrew-friedman": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "tb-chuck-lamar": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": false
+  },
+  "tb-matt-silverman": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "tex": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "tex-john-hart": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "tex-jon-daniels": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "tor": {
+   "chans": [
+    "ext",
+    "intl",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext",
+    "waiver"
+   ],
+   "overall": false
+  },
+  "tor-alex-anthopoulos": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "tor-jp-ricciardi": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "wsh": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "wsh-jim-bowden": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "wsh-mike-debartolo-(interim)": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "wsh-mike-rizzo": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": true
+  }
+ },
+ "winter_pages": [
+  "2007-bal.html",
+  "2009-nyy.html",
+  "2010-mil.html",
+  "2011-ath.html",
+  "2011-cin.html",
+  "2012-mia.html",
+  "2012-tor.html",
+  "2013-tex.html",
+  "2014-bos.html",
+  "2014-cws.html",
+  "2014-det.html",
+  "2014-lad.html",
+  "2014-sd.html",
+  "2014-wsh.html",
+  "2016-mia.html",
+  "2017-stl.html",
+  "2019-laa.html",
+  "2020-nym.html",
+  "2021-tor.html"
+ ],
+ "winter_explorer": [
+  "2009-ari",
+  "2011-ari",
+  "2012-ari",
+  "2013-ari",
+  "2014-ari",
+  "2015-ari",
+  "2016-ari",
+  "2017-ari",
+  "2018-ari",
+  "2019-ari",
+  "2025-ari",
+  "2009-ath",
+  "2010-ath",
+  "2011-ath",
+  "2012-ath",
+  "2013-ath",
+  "2014-ath",
+  "2015-ath",
+  "2016-ath",
+  "2017-ath",
+  "2018-ath",
+  "2019-ath",
+  "2020-ath",
+  "2021-ath",
+  "2022-ath",
+  "2008-atl",
+  "2009-atl",
+  "2010-atl",
+  "2014-atl",
+  "2015-atl",
+  "2016-atl",
+  "2017-atl",
+  "2022-atl",
+  "2023-atl",
+  "2024-atl",
+  "2025-atl",
+  "2007-bal",
+  "2013-bal",
+  "2014-bal",
+  "2019-bal",
+  "2022-bal",
+  "2025-bal",
+  "2011-bos",
+  "2012-bos",
+  "2014-bos",
+  "2015-bos",
+  "2016-bos",
+  "2019-bos",
+  "2021-bos",
+  "2022-bos",
+  "2023-bos",
+  "2010-chc",
+  "2011-chc",
+  "2012-chc",
+  "2013-chc",
+  "2014-chc",
+  "2015-chc",
+  "2016-chc",
+  "2019-chc",
+  "2020-chc",
+  "2022-chc",
+  "2023-chc",
+  "2024-chc",
+  "2025-chc",
+  "2009-cin",
+  "2011-cin",
+  "2012-cin",
+  "2014-cin",
+  "2015-cin",
+  "2016-cin",
+  "2018-cin",
+  "2020-cin",
+  "2021-cin",
+  "2024-cin",
+  "2025-cin",
+  "2008-cle",
+  "2011-cle",
+  "2012-cle",
+  "2014-cle",
+  "2015-cle",
+  "2016-cle",
+  "2017-cle",
+  "2018-cle",
+  "2019-cle",
+  "2020-cle",
+  "2023-cle",
+  "2011-col",
+  "2013-col",
+  "2014-col",
+  "2015-col",
+  "2018-col",
+  "2020-col",
+  "2021-col",
+  "2022-col",
+  "2023-col",
+  "2025-col",
+  "2008-cws",
+  "2012-cws",
+  "2014-cws",
+  "2015-cws",
+  "2016-cws",
+  "2017-cws",
+  "2018-cws",
+  "2022-cws",
+  "2023-cws",
+  "2024-cws",
+  "2008-det",
+  "2014-det",
+  "2019-det",
+  "2022-det",
+  "2011-hou",
+  "2012-hou",
+  "2013-hou",
+  "2014-hou",
+  "2015-hou",
+  "2017-hou",
+  "2018-hou",
+  "2019-hou",
+  "2020-hou",
+  "2021-hou",
+  "2024-hou",
+  "2025-hou",
+  "2010-kc",
+  "2012-kc",
+  "2013-kc",
+  "2014-kc",
+  "2016-kc",
+  "2017-kc",
+  "2021-kc",
+  "2022-kc",
+  "2023-kc",
+  "2025-kc",
+  "2011-laa",
+  "2013-laa",
+  "2014-laa",
+  "2015-laa",
+  "2016-laa",
+  "2018-laa",
+  "2019-laa",
+  "2022-laa",
+  "2023-laa",
+  "2024-laa",
+  "2025-laa",
+  "2014-lad",
+  "2015-lad",
+  "2017-lad",
+  "2019-lad",
+  "2020-lad",
+  "2021-lad",
+  "2023-lad",
+  "2024-lad",
+  "2025-lad",
+  "2010-mia",
+  "2012-mia",
+  "2013-mia",
+  "2014-mia",
+  "2016-mia",
+  "2018-mia",
+  "2019-mia",
+  "2020-mia",
+  "2021-mia",
+  "2022-mia",
+  "2023-mia",
+  "2024-mia",
+  "2025-mia",
+  "2010-mil",
+  "2011-mil",
+  "2013-mil",
+  "2014-mil",
+  "2015-mil",
+  "2016-mil",
+  "2018-mil",
+  "2019-mil",
+  "2020-mil",
+  "2021-mil",
+  "2022-mil",
+  "2023-mil",
+  "2024-mil",
+  "2025-mil",
+  "2013-min",
+  "2015-min",
+  "2017-min",
+  "2019-min",
+  "2021-min",
+  "2022-min",
+  "2023-min",
+  "2025-min",
+  "2012-nym",
+  "2014-nym",
+  "2015-nym",
+  "2018-nym",
+  "2019-nym",
+  "2020-nym",
+  "2021-nym",
+  "2023-nym",
+  "2024-nym",
+  "2025-nym",
+  "2007-nyy",
+  "2009-nyy",
+  "2011-nyy",
+  "2012-nyy",
+  "2013-nyy",
+  "2014-nyy",
+  "2015-nyy",
+  "2016-nyy",
+  "2017-nyy",
+  "2018-nyy",
+  "2021-nyy",
+  "2022-nyy",
+  "2023-nyy",
+  "2024-nyy",
+  "2025-nyy",
+  "2015-phi",
+  "2017-phi",
+  "2018-phi",
+  "2020-phi",
+  "2021-phi",
+  "2022-phi",
+  "2023-phi",
+  "2024-phi",
+  "2009-pit",
+  "2011-pit",
+  "2012-pit",
+  "2013-pit",
+  "2014-pit",
+  "2015-pit",
+  "2017-pit",
+  "2018-pit",
+  "2020-pit",
+  "2021-pit",
+  "2025-pit",
+  "2007-sd",
+  "2010-sd",
+  "2011-sd",
+  "2012-sd",
+  "2013-sd",
+  "2014-sd",
+  "2015-sd",
+  "2016-sd",
+  "2017-sd",
+  "2018-sd",
+  "2019-sd",
+  "2020-sd",
+  "2021-sd",
+  "2023-sd",
+  "2007-sea",
+  "2008-sea",
+  "2011-sea",
+  "2012-sea",
+  "2014-sea",
+  "2015-sea",
+  "2016-sea",
+  "2017-sea",
+  "2018-sea",
+  "2020-sea",
+  "2021-sea",
+  "2022-sea",
+  "2023-sea",
+  "2025-sea",
+  "2012-sf",
+  "2014-sf",
+  "2017-sf",
+  "2022-sf",
+  "2023-sf",
+  "2007-stl",
+  "2013-stl",
+  "2014-stl",
+  "2016-stl",
+  "2017-stl",
+  "2018-stl",
+  "2019-stl",
+  "2020-stl",
+  "2023-stl",
+  "2025-stl",
+  "2008-tb",
+  "2010-tb",
+  "2011-tb",
+  "2012-tb",
+  "2013-tb",
+  "2014-tb",
+  "2015-tb",
+  "2016-tb",
+  "2017-tb",
+  "2018-tb",
+  "2019-tb",
+  "2020-tb",
+  "2021-tb",
+  "2022-tb",
+  "2023-tb",
+  "2024-tb",
+  "2025-tb",
+  "2012-tex",
+  "2013-tex",
+  "2014-tex",
+  "2015-tex",
+  "2018-tex",
+  "2019-tex",
+  "2020-tex",
+  "2022-tex",
+  "2024-tex",
+  "2010-tor",
+  "2011-tor",
+  "2012-tor",
+  "2014-tor",
+  "2015-tor",
+  "2017-tor",
+  "2018-tor",
+  "2020-tor",
+  "2021-tor",
+  "2022-tor",
+  "2023-tor",
+  "2025-tor",
+  "2007-wsh",
+  "2011-wsh",
+  "2012-wsh",
+  "2013-wsh",
+  "2014-wsh",
+  "2015-wsh",
+  "2018-wsh",
+  "2024-wsh"
+ ],
+ "counts": {
+  "cards": 107,
+  "winter_pages": 19,
+  "winter_explorer": 320,
+  "winter_explorer_not_share_pages": 301
+ }
+}
