@@ -98,11 +98,12 @@ const data = await p.evaluate(([KEEP_O, TOO_CLOSE]) => {
     return null;
   };
   const O = pick.map(r => { const nm = `${offsYr(r.w)} ${offsName(r)}`, rkD = rankTxt(r, 'offseason'), rkK = rankTxt(r, 'winter');
+    const rv = typeof CTRL_REVIEW_W !== 'undefined' && CTRL_REVIEW_W.has(r.id);   // Nov 14 (round 54): under-review label, launch path A
     const mv = r.moves.slice(0, 3).map(m => `<div style="display:flex; gap:14px; margin-top:10px; font-size:24px"><span style="min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">${m[2]}</span><strong class="${m[3] >= 0 ? 'pos' : 'neg'}" style="margin-left:auto; font:700 24px var(--f-mono)">${fmtW(m[3])}</strong></div>`).join('');
-    return {id: r.id, title: `${nm}: ${fmtW(r.tot)} wins in one winter · Front Office Ledger`, desc: `${rkD || `A ${fmtW(r.tot)}-win offseason`}, under ${r.exec || 'that front office'}: trades ${fmtW(r.tr)}, free agents ${fmtW(r.fa)}. ${r.moves[0] ? r.moves[0][2] + '.' : ''}`,
+    return {id: r.id, title: `${nm}: ${fmtW(r.tot)} wins in one winter${rv ? ' (under review)' : ''} · Front Office Ledger`, desc: `${rkD || `A ${fmtW(r.tot)}-win offseason`}, under ${r.exec || 'that front office'}: trades ${fmtW(r.tr)}, free agents ${fmtW(r.fa)}. ${r.moves[0] ? r.moves[0][2] + '.' : ''}${rv ? ' Under review: control-end data being corrected.' : ''}`,
       to: `#view=winters&id=${r.id}`, link: `${nm} on Front Office Ledger`,
       inner: kick(`${rkK || 'One winter, every move graded'} · ${r.exec || ''}`) + `<div style="display:flex; align-items:center; gap:20px; margin-top:6px">${chip(r.ab, 30)}${head(nm, nm.length > 30 ? 46 : 54)}<strong class="${r.tot >= 0 ? 'pos' : 'neg'}" style="margin-left:auto; font:700 52px var(--f-mono); white-space:nowrap">${fmtW(r.tot)}</strong></div>
-        <div style="font-size:24px; color:var(--ink-2); margin-top:8px">Trades ${fmtW(r.tr)} · free agents ${fmtW(r.fa)}${r.prevW != null && r.nextW != null ? ` · ${r.prevW} wins before, ${r.nextW} after` : ''}</div><div style="border-top:2px solid var(--ink); margin-top:14px"></div>${mv}`}; });
+        <div style="font-size:24px; color:var(--ink-2); margin-top:8px">Trades ${fmtW(r.tr)} · free agents ${fmtW(r.fa)}${r.prevW != null && r.nextW != null ? ` · ${r.prevW} wins before, ${r.nextW} after` : ''}</div>${rv ? '<div style="font-size:22px; color:#5a4410; background:#f3e3b5; padding:4px 10px; margin-top:8px">Under review: control-end data being corrected</div>' : ''}<div style="border-top:2px solid var(--ink); margin-top:14px"></div>${mv}`}; });
   return {W, S, O};
 }, [KEEP_O, TOO_CLOSE]);
 const prev = (dir, id) => { if(!REPO) return null; const f = `${REPO}/${dir}/${id}.html`; return fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : null; };
