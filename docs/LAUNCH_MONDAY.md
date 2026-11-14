@@ -1,13 +1,22 @@
 # LAUNCH MONDAY (Nov 16, 2026)
 
-## Status (Sat Nov 14, after round 56)
-- Live: index.html md5 6b1221b7c9f02ba2e202f1f5d4ed779e (a509c42), fixture 56e0c0b, generators f7e6df2. Previews:
-  og b70044f 20f14db 710117a c1746fa, og/t b009fb7, og/h 6fa38f4 991ebfb 6223e8b, og/o ddc40e7; pages c/ ee87f07
-  fed1fa0, t/ cd31ba3, h/ 8cb83f1 f630627, o/ eb4add0, play f2e197a; corrections 8f9b242.
-- Post-deploy: live md5 = repo; allsuites_v3 19/19 on a fresh clone (f7e6df2); value dumps unchanged (Desk
-  c25bca11a598, grades 28cf6541870f); gate CLEAR; round 54 label check PASS; preview_check (extended), hz_check,
-  r56_page_check and the round 55 checks all PASS on the live site (docs/fixpass1/r56/live_checks.txt).
-- Round 55 detail (still true): docs/fixpass1/r55/README.md.
+## Status (Sat Nov 14, after round 57)
+- Live: index.html md5 12c0906b83b895016ac7e58825d8c288 (5775916), fixture acf62e6. Previews og/t 33085cc,
+  club pages t/ 3b39db9, corrections 3c31b14.
+- Post-deploy: live md5 = repo; allsuites_v3 19/19 on a fresh clone (acf62e6); value dumps unchanged (Desk
+  c25bca11a598, grades 28cf6541870f); gate CLEAR; round 54 label check PASS; every round 55/56/57 check PASS on the
+  live site, including hzpage_check (30 loads, half with the feed delayed) and sim2020_check
+  (docs/fixpass1/r57/live_checks.txt).
+
+## Round 57 (Auditor verdict on r56): all four items fixed
+1. Next-five-years ranks: the report card, club page and home club card are redrawn once the day's transactions are
+   in; hzpage_check loads 5 clubs 6 times each and fails on any difference (it reproduces the Auditor's flip on r56).
+2. Trade labels matched on date, clubs and players received: 632 trades, exactly the list; the 4 wrongly labelled
+   trades are no longer labelled.
+3. HOU and ATH previews: stray dot removed.
+4. Simulator: winters across 2020 left out of the comparable winters, which restores the round 55 base rates exactly
+   for all 30 clubs (round 56's pacing had moved 14 clubs by up to 11.8 wins). How it was verified:
+   docs/fixpass1/r57/README.md.
 
 ## Round 56 (Auditor re-audit, Nov 14): all seven items fixed, none deferred
 1. No rank numbers in any card or club share text or preview (the site shows none).
@@ -15,10 +24,10 @@
 3. Next-five-years ranks: recomputed once the day's transactions arrive, stable tie-break; club previews no longer
    carry this rank (it moves with every transaction).
 4. HOU and ATH club previews: "too new to grade".
-5. 2020 shown with its 162-game pace in the explorer, the four 2019/2020 winter previews and the simulator.
+5. 2020 shown with its 162-game pace in the explorer and the four 2019/2020 winter previews (simulator: see round 57).
 6. Methodology section on the "under review" label; labels link to it.
-7. Trades: 631 trades whose values move under the published control ends are labelled (Heists list, 40 of 116 trade
-   share pages); evidence and values in docs/fixpass1/r56/trade_review_expected.json.
+7. Trades: labelled (Heists list, 40 of 116 trade share pages); round 57 corrected the match, list and values now in
+   docs/fixpass1/r57/trade_review_expected.json.
 
 ## Launch blockers
 None open. The three Nov 14 Auditor blockers are fixed:
@@ -53,7 +62,7 @@ None open. The three Nov 14 Auditor blockers are fixed:
 
 ## Known wrong, labelled (control end counted from the debut)
 - 107 report cards, 320 explorer winters, 19 winter share pages, as in round 54 (docs/fixpass1/r54/).
-  Card and club previews carry the label too. Round 56 adds 631 trades (Heists list) and 40 trade share pages.
+  Card and club previews carry the label too. Round 56/57 add 632 trades (Heists list) and 40 trade share pages.
 
 ## Known open items, disclosed (not control end)
 - On /corrections/: the two one-sided trade records, postseason series counts, winter headline class,
@@ -66,6 +75,7 @@ None open. The three Nov 14 Auditor blockers are fixed:
   X re-crawls (new links use the versioned image URL; round 56 previews use ?v=20261114b).
 
 ## One-command rollback
+    python3 docs/fixpass1/r57/rollback_r57.py rollback_out   (back to round 56, index 6b1221b7; tested, 37 files)
     python3 docs/fixpass1/r56/rollback_r56.py rollback_out   (back to round 55, index 0aa79ede; tested, 566 files)
     python3 docs/fixpass1/r55/rollback_r55.py rollback_out
 Downloads the pre-round-55 version (9d2288c) of every file this round changed into rollback_out and checks the
