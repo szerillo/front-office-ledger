@@ -1,0 +1,1025 @@
+{
+ "cards": {
+  "ari": {
+   "chans": [
+    "ext",
+    "intl",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": false
+  },
+  "ari-dave-stewart": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "ari-jerry-dipoto-(interim)": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "ari-josh-byrnes": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "ari-kevin-towers": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": false
+  },
+  "ath-billy-beane": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "ath-david-forst": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "waiver"
+   ],
+   "overall": false
+  },
+  "atl": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "atl-frank-wren": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "atl-john-hart-/-john-coppolella": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": true
+  },
+  "atl-john-schuerholz": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "bal": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "bal-andy-macphail": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "bal-dan-duquette": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": true
+  },
+  "bal-jim-beattie-/-mike-flanagan": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": false
+  },
+  "bos": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "waiver"
+   ],
+   "overall": false
+  },
+  "bos-ben-cherington": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext"
+   ],
+   "overall": false
+  },
+  "bos-chaim-bloom": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "bos-dave-dombrowski": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "waiver"
+   ],
+   "overall": true
+  },
+  "bos-theo-epstein": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "chc": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "waiver"
+   ],
+   "overall": false
+  },
+  "chc-jim-hendry": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": true
+  },
+  "chc-theo-epstein": {
+   "chans": [
+    "draft",
+    "ext",
+    "waiver"
+   ],
+   "letters": [
+    "draft",
+    "waiver"
+   ],
+   "overall": false
+  },
+  "cin": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "waiver"
+   ],
+   "overall": false
+  },
+  "cin-dick-williams": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "cin-walt-jocketty": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "cle": {
+   "chans": [
+    "draft",
+    "ext",
+    "intl",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext",
+    "intl"
+   ],
+   "overall": false
+  },
+  "cle-mark-shapiro": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": true
+  },
+  "col": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": false
+  },
+  "col-bill-schmidt": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext",
+    "trade"
+   ],
+   "overall": false
+  },
+  "col-dan-o'dowd": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "draft",
+    "trade"
+   ],
+   "overall": true
+  },
+  "col-jeff-bridich": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "cws": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "cws-ken-williams": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "cws-rick-hahn": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "det": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "det-al-avila": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "det-dave-dombrowski": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "hou-dana-brown": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "hou-ed-wade": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [
+    "draft",
+    "trade"
+   ],
+   "overall": true
+  },
+  "hou-james-click": {
+   "chans": [
+    "ext",
+    "trade"
+   ],
+   "letters": [
+    "ext"
+   ],
+   "overall": false
+  },
+  "hou-jeff-luhnow": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext"
+   ],
+   "overall": false
+  },
+  "kc": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "kc-dayton-moore": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "laa": {
+   "chans": [],
+   "letters": [],
+   "overall": false
+  },
+  "laa-bill-stoneman": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "laa-billy-eppler": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext",
+    "trade"
+   ],
+   "overall": true
+  },
+  "laa-jerry-dipoto": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "trade",
+    "waiver"
+   ],
+   "overall": false
+  },
+  "laa-perry-minasian": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "laa-tony-reagins": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "lad": {
+   "chans": [
+    "draft",
+    "ext",
+    "intl",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext"
+   ],
+   "overall": true
+  },
+  "lad-dan-evans": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "lad-ned-colletti": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": false
+  },
+  "mia": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": true
+  },
+  "mia-kim-ng": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": false
+  },
+  "mia-larry-beinfest": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": true
+  },
+  "mia-michael-hill": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": false
+  },
+  "mil": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "mil-david-stearns": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "mil-doug-melvin": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": false
+  },
+  "min": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "min-bill-smith": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "min-derek-falvey": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext"
+   ],
+   "overall": false
+  },
+  "min-rob-antony-(interim)": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": false
+  },
+  "min-terry-ryan": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "min-terry-ryan-(second-term)": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "trade",
+    "waiver"
+   ],
+   "overall": false
+  },
+  "nym": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "nym-billy-eppler": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "trade",
+    "waiver"
+   ],
+   "overall": false
+  },
+  "nym-brodie-van-wagenen": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "nym-omar-minaya": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": true
+  },
+  "nym-sandy-alderson": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "nym-sandy-alderson-2020": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "waiver"
+   ],
+   "overall": false
+  },
+  "nyy": {
+   "chans": [
+    "draft",
+    "ext",
+    "intl",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": true
+  },
+  "nyy-brian-cashman": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "phi": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext"
+   ],
+   "overall": false
+  },
+  "phi-matt-klentak": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "phi-ruben-amaro-jr": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [
+    "trade"
+   ],
+   "overall": false
+  },
+  "pit": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "waiver"
+   ],
+   "overall": false
+  },
+  "pit-dave-littlefield": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [
+    "draft",
+    "trade"
+   ],
+   "overall": false
+  },
+  "pit-neal-huntington": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "sd": {
+   "chans": [
+    "draft",
+    "ext",
+    "intl",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "intl"
+   ],
+   "overall": false
+  },
+  "sd-jed-hoyer": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "sd-josh-byrnes": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": true
+  },
+  "sd-kevin-towers": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "sd-omar-minaya-/-aj-hinch-/-fred-uhlman-jr-(interim)": {
+   "chans": [],
+   "letters": [],
+   "overall": true
+  },
+  "sea": {
+   "chans": [
+    "ext",
+    "intl",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "sea-bill-bavasi": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "sea-jack-zduriencik": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "sf": {
+   "chans": [],
+   "letters": [],
+   "overall": false
+  },
+  "sf-brian-sabean": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "sf-farhan-zaidi": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "stl": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "stl-john-mozeliak": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "stl-walt-jocketty": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "tb": {
+   "chans": [
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext",
+    "trade"
+   ],
+   "overall": false
+  },
+  "tb-andrew-friedman": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "tb-chuck-lamar": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [
+    "draft"
+   ],
+   "overall": false
+  },
+  "tb-matt-silverman": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "tex": {
+   "chans": [
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "tex-john-hart": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "tex-jon-daniels": {
+   "chans": [
+    "draft",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "tor": {
+   "chans": [
+    "ext",
+    "intl",
+    "trade",
+    "waiver"
+   ],
+   "letters": [
+    "ext",
+    "waiver"
+   ],
+   "overall": false
+  },
+  "tor-alex-anthopoulos": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "tor-jp-ricciardi": {
+   "chans": [
+    "draft"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "wsh": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "wsh-jim-bowden": {
+   "chans": [
+    "draft",
+    "trade"
+   ],
+   "letters": [],
+   "overall": true
+  },
+  "wsh-mike-debartolo-(interim)": {
+   "chans": [
+    "trade"
+   ],
+   "letters": [],
+   "overall": false
+  },
+  "wsh-mike-rizzo": {
+   "chans": [
+    "draft",
+    "ext",
+    "trade",
+    "waiver"
+   ],
+   "letters": [],
+   "overall": true
+  }
+ },
+ "winter_pages": [
+  "2007-bal.html",
+  "2009-nyy.html",
+  "2010-mil.html",
+  "2011-ath.html",
+  "2011-cin.html",
+  "2012-mia.html",
+  "2012-tor.html",
+  "2013-tex.html",
+  "2014-bos.html",
+  "2014-cws.html",
+  "2014-det.html",
+  "2014-lad.html",
+  "2014-sd.html",
+  "2014-wsh.html",
+  "2016-mia.html",
+  "2017-stl.html",
+  "2019-laa.html",
+  "2020-nym.html",
+  "2021-tor.html"
+ ],
+ "source": "round 50 F1 (frozen) vs live run Z_X6"
+}

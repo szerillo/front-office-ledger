@@ -1,0 +1,20 @@
+{
+ "cards_labelled": 106,
+ "cards_on_list": 108,
+ "card_pages": 152,
+ "winter_cards_labelled": 19,
+ "winter_list": 19,
+ "problems": [
+  "ari: page note 0",
+  "ari: net label 0",
+  "ari: channel trade label false expected true",
+  "ari: letter trade label false expected true",
+  "ari: channel ext label false expected true",
+  "ari: channel intl label false expected true",
+  "ari: channel waiver label false expected true",
+  "sd-omar-minaya-/-aj-hinch-/-fred-uhlman-jr-(interim): listed but new (no card)",
+  "o/2014-wsh.html: label false expected true"
+ ],
+ "share_pages_labelled": 18
+}
+review_check FAIL
