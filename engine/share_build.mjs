@@ -52,7 +52,7 @@ await q.setContent(frame(`<div style="display:flex; justify-content:space-betwee
 await q.screenshot({path: OUT + '/og.png'});
 for(const r of data.rows){
   const sub = `${r.team} · ${r.span}${r.titles ? ` · ${r.titles} World Series title${r.titles > 1 ? 's' : ''}` : ''}`;
-  const rk = r.rank ? `#${r.rank} of ${data.nAct} graded active front offices` : r.hist ? 'archive regime' : '';
+  // Nov 14 (round 56): no rank numbers in share text or previews: the site publishes none (exact ranks do not hold)
   const html = frame(`<div style="display:flex; justify-content:space-between; align-items:flex-start; gap:30px">
     <div style="min-width:0"><div style="font:600 22px 'IBM Plex Mono', monospace; color:#b23a1e; letter-spacing:2px">REPORT CARD</div>
       <div style="font:700 ${r.exec.length > 18 ? 76 : 92}px/1.02 'Noto Serif Display', serif; font-stretch:75%; margin-top:8px">${esc(r.exec)}</div>
@@ -60,11 +60,11 @@ for(const r of data.rows){
     <div style="text-align:center; flex:none">${chip(r.overall, r.og, true)}<div style="font:600 20px 'IBM Plex Mono', monospace; color:#78705f; margin-top:10px">OVERALL</div></div></div>
     <div style="margin-top:34px; display:flex; flex-wrap:wrap; gap:14px; align-items:center; font:500 24px 'IBM Plex Mono', monospace; color:#45423b">
       ${r.best.map(([n, l, g]) => `<span>${esc(n)} ${chip(l, g)}</span>`).join('')}<span>Success ${chip(r.success, r.sg)}</span></div>
-    <div style="margin-top:26px; font:500 25px 'IBM Plex Mono', monospace; color:#45423b">${r.isNew ? 'too new to grade' : `${r.net} wins vs expectation`}${rk ? ` · ${rk}` : ''}</div>${r.review ? `<div style="display:inline-block; margin-top:16px; background:#f3e3b5; color:#5a4410; border:2px solid #c9a64a; border-radius:6px; font:600 22px 'IBM Plex Mono', monospace; padding:6px 12px">UNDER REVIEW: control-end data being corrected</div>` : ''}`);
+    <div style="margin-top:26px; font:500 25px 'IBM Plex Mono', monospace; color:#45423b">${r.isNew ? 'too new to grade' : `${r.net} wins vs expectation`}</div>${r.review ? `<div style="display:inline-block; margin-top:16px; background:#f3e3b5; color:#5a4410; border:2px solid #c9a64a; border-radius:6px; font:600 22px 'IBM Plex Mono', monospace; padding:6px 12px">UNDER REVIEW: control-end data being corrected</div>` : ''}`);
   await q.setContent(html, {waitUntil: 'networkidle'});
   await q.screenshot({path: `${OUT}/og/${slug(r.id)}.png`});
   const title = `${r.exec}, ${r.team}: ${r.isNew ? 'new, not yet graded' : r.overall}${r.review ? ' (under review)' : ''} · Front Office Ledger`;
-  const desc = r.isNew ? `${r.exec} (${r.team}) is too new to grade.` : `Overall ${r.overall}, ${r.net} wins vs expectation${rk ? ', ' + rk : ''}. Best: ${r.best.map(([n, l]) => `${n} ${l}`).join(', ')}. Every decision graded against what a typical club got from the same move.${r.review ? ' Under review: control-end data being corrected.' : ''}`;
+  const desc = r.isNew ? `${r.exec} (${r.team}) is too new to grade.` : `Overall ${r.overall}, ${r.net} wins vs expectation. Best: ${r.best.map(([n, l]) => `${n} ${l}`).join(', ')}. Every decision graded against what a typical club got from the same move.${r.review ? ' Under review: control-end data being corrected.' : ''}`;
   const url = `https://frontofficeledger.com/c/${slug(r.id)}`, dest = `/#view=cards&id=${encodeURIComponent(r.id)}`;
   fs.writeFileSync(`${OUT}/c/${slug(r.id)}.html`, `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">

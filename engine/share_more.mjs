@@ -45,20 +45,20 @@ const page = (o) => `<!doctype html>
 <script>location.replace(${JSON.stringify(o.dest)});</script></body></html>
 `;
 // team pages
-const teams = await p.evaluate(() => Object.keys(DESK.teams || {}).sort().map(ab => { const f = folCardFacts(ab); return f ? {ab, club: f.club, exec: f.exec, grade: f.grade, rank: f.rank, n: f.n, net: fmtW(f.net), best: f.best ? String(f.best.h).replace(/<[^>]*>/g, '') : '', bw: f.best ? fmtW(f.best.war) : '', html: folTradingCard(ab), rv: typeof CTRL_REVIEW !== 'undefined' && !!CTRL_REVIEW[ab.toLowerCase()]} : null; }).filter(Boolean));
+const teams = await p.evaluate(() => Object.keys(DESK.teams || {}).sort().map(ab => { const f = folCardFacts(ab); return f ? {ab, club: f.club, exec: f.exec, grade: f.grade, rank: f.rank, n: f.n, net: fmtW(f.net), best: f.best ? String(f.best.h).replace(/<[^>]*>/g, '') : '', bw: f.best ? fmtW(f.best.war) : '', isNew: !!f.r.isNew, html: folTradingCard(ab), rv: typeof CTRL_REVIEW !== 'undefined' && !!CTRL_REVIEW[ab.toLowerCase()]} : null; }).filter(Boolean));
 for(const t of teams){
   const slug = t.ab.toLowerCase();
   await shot(`<div style="transform:scale(1.0); transform-origin:left top; margin-top:6px">${t.html.replace('width:1040px', 'width:1088px')}</div>${t.rv ? `<div style="position:absolute; right:56px; top:40px; background:#f3e3b5; color:#5a4410; border:2px solid #c9a64a; border-radius:6px; font:600 18px var(--f-mono); padding:5px 10px">UNDER REVIEW: control-end data being corrected</div>` : ''}`, `${OUT}/og/t/${slug}.png`);
   const title = `${t.club} front office: ${t.grade}${t.rv ? ' (under review)' : ''} · Front Office Ledger`;
-  const desc = `${t.exec}${t.rank ? `, #${t.rank} of the ${t.n} ranked front offices` : ''}, ${t.net} wins vs. a typical front office.${t.best ? ` Best move: ${t.best} (${t.bw}).` : ''}${t.rv ? ' Under review: control-end data being corrected.' : ''}`;
+  const desc = `${t.exec}, ${t.isNew ? 'too new to grade: nothing to grade yet in this seat' : `${t.net} wins vs. a typical front office`}.${t.best ? ` Best move: ${t.best} (${t.bw}).` : ''}${t.rv ? ' Under review: control-end data being corrected.' : ''}`;
   fs.writeFileSync(`${OUT}/t/${slug}.html`, page({title, desc, path: `t/${slug}`, img: `og/t/${slug}.png`, dest: `/#view=team&id=${slug}`, link: `Open the ${t.club} front office on Front Office Ledger`}));
 }
 // heists: every trade the heist of the day draws from
-const heists = await p.evaluate(() => folTrades().filter(t => t.gap >= 8 && t.S.length === 2).sort((a, b) => b.gap - a.gap).slice(0, 150).map(t => ({id: folHeistId(t), d: t.d, html: folHeistCard(t), head: (() => { const d = document.createElement('div'); d.innerHTML = folHeistCard(t); return (d.querySelector('.h-head') || {}).textContent || `${folNickAt(t.win.ab, t.d)} got ${(t.win.got[0] || {}).nm || 'the better end'} from the ${folNickAt(t.lose.ab, t.d)}`; })(), gap: fmtW(t.gap), stamp: folStamp(t.gap), mon: folMon(t.d)})));
+const heists = await p.evaluate(() => folTrades().filter(t => t.gap >= 8 && t.S.length === 2).sort((a, b) => b.gap - a.gap).slice(0, 150).map(t => ({id: folHeistId(t), d: t.d, html: folHeistCard(t), rv: typeof CTRL_REVIEW_T !== 'undefined' && CTRL_REVIEW_T.has(tradeReviewKey(t)), head: (() => { const d = document.createElement('div'); d.innerHTML = folHeistCard(t); return (d.querySelector('.h-head') || {}).textContent || `${folNickAt(t.win.ab, t.d)} got ${(t.win.got[0] || {}).nm || 'the better end'} from the ${folNickAt(t.lose.ab, t.d)}`; })(), gap: fmtW(t.gap), stamp: folStamp(t.gap), mon: folMon(t.d)})));
 for(const h of heists){
   await shot(`<div style="font:600 20px var(--f-mono); color:var(--margin); letter-spacing:2px; margin-bottom:8px">HEISTS AND DISASTERS</div><div style="font-size:21px; zoom:1.3">${h.html}</div>`, `${OUT}/og/h/${h.id}.png`);
-  const title = `${h.head} (${h.stamp}, ${h.gap} wins) · Front Office Ledger`;
-  const desc = `${h.mon}: what every player produced for the club that got him, over his control window. Every trade since 1998, ranked.`;
+  const title = `${h.head} (${h.stamp}, ${h.gap} wins)${h.rv ? ' (under review)' : ''} · Front Office Ledger`;
+  const desc = `${h.mon}: what every player produced for the club that got him, over his control window. Every trade since 1998, ranked.${h.rv ? ' Under review: control-end data being corrected.' : ''}`;
   fs.writeFileSync(`${OUT}/h/${h.id}.html`, page({title, desc, path: `h/${h.id}`, img: `og/h/${h.id}.png`, dest: `/#view=heists&id=${h.id}`, link: `See this trade on Front Office Ledger`}));
 }
 // the daily game: Trade Grade (play/who-won kept for links already shared)
@@ -68,5 +68,8 @@ await shot(`<div style="font:600 20px var(--f-mono); color:var(--margin); letter
   <div style="font-size:44px; letter-spacing:8px; margin-top:22px">🟩🟥🟩🟩🟩</div>`, `${OUT}/og/trade-grade.png`);
 for(const slug of ['trade-grade', 'who-won'])
   fs.writeFileSync(`${OUT}/play/${slug}.html`, page({title: 'Trade Grade · Front Office Ledger', desc: 'Five real calls a day: three trades and two free-agent contracts. Pick the winner; the Ledger shows the receipts.', path: `play/${slug}`, img: 'og/trade-grade.png', dest: '/#view=quiz', link: "Play today's Trade Grade on Front Office Ledger"}));
+// Nov 14 (round 56): what each club preview was rendered with, and the image md5, so a check can hold it to the page
+{ const crypto = await import('crypto');
+  fs.writeFileSync(`${OUT}/og/t/clubs-manifest.json`, JSON.stringify({built: new Date().toISOString(), ver: VER, clubs: Object.fromEntries(teams.map(t => [t.ab.toLowerCase(), {grade: t.grade, net: t.isNew ? null : t.net, isNew: t.isNew, review: !!t.rv, png: crypto.createHash('md5').update(fs.readFileSync(`${OUT}/og/t/${t.ab.toLowerCase()}.png`)).digest('hex')}]))})); }
 console.log('team pages', teams.length, '| heist pages', heists.length);
 await b.close();
