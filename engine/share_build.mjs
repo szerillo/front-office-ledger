@@ -6,10 +6,12 @@ let chromium; try { ({ chromium } = require('playwright')); } catch { ({ chromiu
 import fs from 'fs';
 const OUT = process.argv[2] || '/work/share';
 fs.mkdirSync(OUT + '/c', {recursive: true}); fs.mkdirSync(OUT + '/og', {recursive: true});
-const b = await chromium.launch({proxy: process.env.HTTPS_PROXY ? {server: process.env.HTTPS_PROXY} : undefined});
+const b = await chromium.launch({proxy: process.env.HTTPS_PROXY ? {server: process.env.HTTPS_PROXY, bypass: '127.0.0.1,localhost'} : undefined});
 const p = await b.newPage();
 await p.route('**/statsapi.mlb.com/**', r => r.abort());
-await p.goto('file:///work/front-office-ledger-prototype.html');
+// Nov 14: build from any copy of the page (a staged tree served locally, or the live site): node engine/share_build.mjs <out> [page url] [version tag]
+const SRC = process.argv[3] || 'file:///work/front-office-ledger-prototype.html', VER = process.argv[4] || '';
+await p.goto(SRC);
 await p.waitForFunction(() => window.CARDS_READY === true, null, {timeout: 60000});
 const data = await p.evaluate(() => {
   normalizeCurated();
@@ -22,7 +24,7 @@ const data = await p.evaluate(() => {
     const net = CHANNELS.reduce((s, c) => s + ((r.chan[c.key]||{}).net||0), 0) + ((r.chan.ret && r.chan.ret.net2)||0);
     return {id: r.id, exec: regName(r), team: r.teamEra || r.team, span: yrSpan(r.start, r.end), hist: !!LB_HIST.includes(r), isNew: !!r.isNew,
       overall: L(r.forGrade), og: r.forGrade, net: fmtW(net), success: L((r.success||{}).g), sg: (r.success||{}).g, best: ch.slice(0, 3).map(([n, g]) => [n, L(g), g]), rank: rank[r.id] || null,
-      titles: r.titles || 0};
+      titles: r.titles || 0, review: typeof CTRL_REVIEW !== 'undefined' && !!CTRL_REVIEW[r.id]};
   });
   return {rows, n: AUTO_REGIMES.length + LB_HIST.length, nAct: act.length};
 });
@@ -58,11 +60,11 @@ for(const r of data.rows){
     <div style="text-align:center; flex:none">${chip(r.overall, r.og, true)}<div style="font:600 20px 'IBM Plex Mono', monospace; color:#78705f; margin-top:10px">OVERALL</div></div></div>
     <div style="margin-top:34px; display:flex; flex-wrap:wrap; gap:14px; align-items:center; font:500 24px 'IBM Plex Mono', monospace; color:#45423b">
       ${r.best.map(([n, l, g]) => `<span>${esc(n)} ${chip(l, g)}</span>`).join('')}<span>Success ${chip(r.success, r.sg)}</span></div>
-    <div style="margin-top:26px; font:500 25px 'IBM Plex Mono', monospace; color:#45423b">${r.isNew ? 'too new to grade' : `${r.net} wins vs expectation`}${rk ? ` · ${rk}` : ''}</div>`);
+    <div style="margin-top:26px; font:500 25px 'IBM Plex Mono', monospace; color:#45423b">${r.isNew ? 'too new to grade' : `${r.net} wins vs expectation`}${rk ? ` · ${rk}` : ''}</div>${r.review ? `<div style="display:inline-block; margin-top:16px; background:#f3e3b5; color:#5a4410; border:2px solid #c9a64a; border-radius:6px; font:600 22px 'IBM Plex Mono', monospace; padding:6px 12px">UNDER REVIEW: control-end data being corrected</div>` : ''}`);
   await q.setContent(html, {waitUntil: 'networkidle'});
   await q.screenshot({path: `${OUT}/og/${slug(r.id)}.png`});
-  const title = `${r.exec}, ${r.team}: ${r.isNew ? 'new, not yet graded' : r.overall} · Front Office Ledger`;
-  const desc = r.isNew ? `${r.exec} (${r.team}) is too new to grade.` : `Overall ${r.overall}, ${r.net} wins vs expectation${rk ? ', ' + rk : ''}. Best: ${r.best.map(([n, l]) => `${n} ${l}`).join(', ')}. Every decision graded against what a typical club got from the same move.`;
+  const title = `${r.exec}, ${r.team}: ${r.isNew ? 'new, not yet graded' : r.overall}${r.review ? ' (under review)' : ''} · Front Office Ledger`;
+  const desc = r.isNew ? `${r.exec} (${r.team}) is too new to grade.` : `Overall ${r.overall}, ${r.net} wins vs expectation${rk ? ', ' + rk : ''}. Best: ${r.best.map(([n, l]) => `${n} ${l}`).join(', ')}. Every decision graded against what a typical club got from the same move.${r.review ? ' Under review: control-end data being corrected.' : ''}`;
   const url = `https://frontofficeledger.com/c/${slug(r.id)}`, dest = `/#view=cards&id=${encodeURIComponent(r.id)}`;
   fs.writeFileSync(`${OUT}/c/${slug(r.id)}.html`, `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -70,15 +72,18 @@ for(const r of data.rows){
 <meta name="description" content="${esc(desc)}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Front Office Ledger">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
-<meta property="og:url" content="${url}"><meta property="og:image" content="https://frontofficeledger.com/og/${slug(r.id)}.png">
+<meta property="og:url" content="${url}"><meta property="og:image" content="https://frontofficeledger.com/og/${slug(r.id)}.png${VER ? `?v=${VER}` : ''}">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@FrontOfficeLdgr"><meta name="twitter:creator" content="@SeanZerillo"><meta name="twitter:title" content="${esc(title)}">
-<meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="https://frontofficeledger.com/og/${slug(r.id)}.png">
+<meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="https://frontofficeledger.com/og/${slug(r.id)}.png${VER ? `?v=${VER}` : ''}">
 <meta http-equiv="refresh" content="0; url=${dest}">
 <style>body{font-family:Georgia,serif; background:#f4efe2; color:#1d1d1b; padding:40px}</style>
 </head><body><p><a href="${dest}">Open ${esc(r.exec)}'s report card on Front Office Ledger</a></p>
 <script>location.replace(${JSON.stringify(dest)});</script></body></html>
 `);
 }
+// Nov 14: what each preview was rendered with, and the image's md5, so a check can hold previews to the live cards
+const crypto = await import('crypto');
+fs.writeFileSync(`${OUT}/og/cards-manifest.json`, JSON.stringify({built: new Date().toISOString(), src: SRC, ver: VER, cards: Object.fromEntries(data.rows.map(r => [slug(r.id), {id: r.id, overall: r.isNew ? null : r.overall, net: r.isNew ? null : r.net, review: r.review, png: crypto.createHash('md5').update(fs.readFileSync(`${OUT}/og/${slug(r.id)}.png`)).digest('hex')}]))}, null, 0));
 console.log('share pages:', data.rows.length);
 await b.close();

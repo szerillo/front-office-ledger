@@ -4,11 +4,12 @@ import { createRequire } from 'module'; import { execSync } from 'child_process'
 const require = createRequire(import.meta.url);
 let chromium; try { ({ chromium } = require('playwright')); } catch { ({ chromium } = require(execSync('npm root -g').toString().trim() + '/playwright')); }
 const OUT = process.argv[2] || '/work/share';
+const VER = process.argv[4] || '';   // Nov 14: version tag on preview image URLs so X refetches a changed image
 for(const d of ['t', 'h', 'play', 'og/t', 'og/h']) fs.mkdirSync(`${OUT}/${d}`, {recursive: true});
-const b = await chromium.launch();
+const b = await chromium.launch({proxy: process.env.HTTPS_PROXY ? {server: process.env.HTTPS_PROXY, bypass: '127.0.0.1,localhost'} : undefined});
 const p = await b.newPage({viewport: {width: 1200, height: 630}});
 await p.route('**/statsapi.mlb.com/**', r => r.abort());
-await p.goto('file://' + (process.argv[3] || '/work/front-office-ledger-prototype.html'));
+await p.goto(/^https?:/.test(process.argv[3] || '') ? process.argv[3] : 'file://' + (process.argv[3] || '/work/front-office-ledger-prototype.html'));
 await p.waitForFunction(() => window.CARDS_READY === true, null, {timeout: 60000});
 await p.evaluate(() => { document.querySelectorAll('.fol-rise, .fol-anim').forEach(e => e.classList.remove('fol-rise', 'fol-anim')); document.documentElement.dataset.theme = 'light'; });
 const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
@@ -19,7 +20,7 @@ const shot = async (inner, file) => {
     f = document.createElement('div'); f.id = 'og-frame';
     f.style.cssText = 'position:fixed; left:0; top:0; width:1200px; height:630px; z-index:999999; background:var(--page); color:var(--ink); padding:34px 56px; box-sizing:border-box; overflow:hidden; display:flex; flex-direction:column';
     f.innerHTML = `<div style="display:flex; align-items:center; gap:12px; font:700 36px/1 var(--f-brand); color:var(--ink)">${document.querySelector('.brand .logo').outerHTML.replace('class="logo"', 'width="38" height="38"')}Front Office Ledger</div>
-      <div style="flex:1; display:flex; flex-direction:column; justify-content:center; min-height:0">${inner}</div>
+      <div style="flex:1; display:flex; flex-direction:column; justify-content:safe center; min-height:0; overflow:hidden; margin-top:10px">${inner}</div>
       <div style="font:600 20px var(--f-mono); color:var(--muted)">frontofficeledger.com · Every move, graded.</div>`;
     f.innerHTML = f.innerHTML.replace(/\bfol-rise\b/g, '').replace(/\bfol-anim\b/g, '');
     document.body.appendChild(f);
@@ -34,28 +35,28 @@ const page = (o) => `<!doctype html>
 <meta name="description" content="${esc(o.desc)}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Front Office Ledger">
 <meta property="og:title" content="${esc(o.title)}"><meta property="og:description" content="${esc(o.desc)}">
-<meta property="og:url" content="https://frontofficeledger.com/${o.path}"><meta property="og:image" content="https://frontofficeledger.com/${o.img}">
+<meta property="og:url" content="https://frontofficeledger.com/${o.path}"><meta property="og:image" content="https://frontofficeledger.com/${o.img}${VER ? `?v=${VER}` : ''}">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@FrontOfficeLdgr"><meta name="twitter:creator" content="@SeanZerillo">
-<meta name="twitter:title" content="${esc(o.title)}"><meta name="twitter:description" content="${esc(o.desc)}"><meta name="twitter:image" content="https://frontofficeledger.com/${o.img}">
+<meta name="twitter:title" content="${esc(o.title)}"><meta name="twitter:description" content="${esc(o.desc)}"><meta name="twitter:image" content="https://frontofficeledger.com/${o.img}${VER ? `?v=${VER}` : ''}">
 <meta http-equiv="refresh" content="0; url=${o.dest}">
 <style>body{font-family:Georgia,serif; background:#f4efe2; color:#1d1d1b; padding:40px}</style>
 </head><body><p><a href="${o.dest}">${esc(o.link)}</a></p>
 <script>location.replace(${JSON.stringify(o.dest)});</script></body></html>
 `;
 // team pages
-const teams = await p.evaluate(() => Object.keys(DESK.teams || {}).sort().map(ab => { const f = folCardFacts(ab); return f ? {ab, club: f.club, exec: f.exec, grade: f.grade, rank: f.rank, n: f.n, net: fmtW(f.net), best: f.best ? String(f.best.h).replace(/<[^>]*>/g, '') : '', bw: f.best ? fmtW(f.best.war) : '', html: folTradingCard(ab)} : null; }).filter(Boolean));
+const teams = await p.evaluate(() => Object.keys(DESK.teams || {}).sort().map(ab => { const f = folCardFacts(ab); return f ? {ab, club: f.club, exec: f.exec, grade: f.grade, rank: f.rank, n: f.n, net: fmtW(f.net), best: f.best ? String(f.best.h).replace(/<[^>]*>/g, '') : '', bw: f.best ? fmtW(f.best.war) : '', html: folTradingCard(ab), rv: typeof CTRL_REVIEW !== 'undefined' && !!CTRL_REVIEW[ab.toLowerCase()]} : null; }).filter(Boolean));
 for(const t of teams){
   const slug = t.ab.toLowerCase();
-  await shot(`<div style="transform:scale(1.0); transform-origin:left top; margin-top:6px">${t.html.replace('width:1040px', 'width:1088px')}</div>`, `${OUT}/og/t/${slug}.png`);
-  const title = `${t.club} front office: ${t.grade} · Front Office Ledger`;
-  const desc = `${t.exec}${t.rank ? `, #${t.rank} of the ${t.n} ranked front offices` : ''}, ${t.net} wins vs. a typical front office.${t.best ? ` Best move: ${t.best} (${t.bw}).` : ''}`;
+  await shot(`<div style="transform:scale(1.0); transform-origin:left top; margin-top:6px">${t.html.replace('width:1040px', 'width:1088px')}</div>${t.rv ? `<div style="position:absolute; right:56px; top:40px; background:#f3e3b5; color:#5a4410; border:2px solid #c9a64a; border-radius:6px; font:600 18px var(--f-mono); padding:5px 10px">UNDER REVIEW: control-end data being corrected</div>` : ''}`, `${OUT}/og/t/${slug}.png`);
+  const title = `${t.club} front office: ${t.grade}${t.rv ? ' (under review)' : ''} · Front Office Ledger`;
+  const desc = `${t.exec}${t.rank ? `, #${t.rank} of the ${t.n} ranked front offices` : ''}, ${t.net} wins vs. a typical front office.${t.best ? ` Best move: ${t.best} (${t.bw}).` : ''}${t.rv ? ' Under review: control-end data being corrected.' : ''}`;
   fs.writeFileSync(`${OUT}/t/${slug}.html`, page({title, desc, path: `t/${slug}`, img: `og/t/${slug}.png`, dest: `/#view=team&id=${slug}`, link: `Open the ${t.club} front office on Front Office Ledger`}));
 }
 // heists: every trade the heist of the day draws from
 const heists = await p.evaluate(() => folTrades().filter(t => t.gap >= 8 && t.S.length === 2).sort((a, b) => b.gap - a.gap).slice(0, 150).map(t => ({id: folHeistId(t), d: t.d, html: folHeistCard(t), head: (() => { const d = document.createElement('div'); d.innerHTML = folHeistCard(t); return (d.querySelector('.h-head') || {}).textContent || `${folNickAt(t.win.ab, t.d)} got ${(t.win.got[0] || {}).nm || 'the better end'} from the ${folNickAt(t.lose.ab, t.d)}`; })(), gap: fmtW(t.gap), stamp: folStamp(t.gap), mon: folMon(t.d)})));
 for(const h of heists){
-  await shot(`<div style="font:600 20px var(--f-mono); color:var(--margin); letter-spacing:2px; margin-bottom:8px">HEISTS AND DISASTERS</div><div style="font-size:21px; zoom:1.45">${h.html}</div>`, `${OUT}/og/h/${h.id}.png`);
+  await shot(`<div style="font:600 20px var(--f-mono); color:var(--margin); letter-spacing:2px; margin-bottom:8px">HEISTS AND DISASTERS</div><div style="font-size:21px; zoom:1.3">${h.html}</div>`, `${OUT}/og/h/${h.id}.png`);
   const title = `${h.head} (${h.stamp}, ${h.gap} wins) · Front Office Ledger`;
   const desc = `${h.mon}: what every player produced for the club that got him, over his control window. Every trade since 1998, ranked.`;
   fs.writeFileSync(`${OUT}/h/${h.id}.html`, page({title, desc, path: `h/${h.id}`, img: `og/h/${h.id}.png`, dest: `/#view=heists&id=${h.id}`, link: `See this trade on Front Office Ledger`}));
