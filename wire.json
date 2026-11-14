@@ -1,7 +1,7 @@
 {
   "_about": "Facts the league's transaction feed does not carry, read by The Wire. terms: reported contract terms by MLBAM id (yrs, tot in $M). qo: qualifying offer decisions announced before the feed shows them (s: accepted|declined, d: date). extra: moves not in the feed (kind: option|ext|other, d, club, pid, txt, optional yrs/tot).",
-  "updated": "2026-11-13",
-  "checked": "2026-11-13T18:27:09Z",
+  "updated": "2026-11-14",
+  "checked": "2026-11-14T13:23:01Z",
   "terms": {
     "621097": {
       "yrs": 1,
@@ -22,6 +22,22 @@
       "d": "2026-11-12"
     }
   },
-  "qo": {},
-  "extra": []
+  "qo": {
+    "680777": {
+      "s": "declined",
+      "d": "2026-11-11"
+    }
+  },
+  "extra": [
+    {
+      "id": "x-young-wsh-ext",
+      "d": "2026-11-11",
+      "kind": "ext",
+      "club": "WSH",
+      "pid": 696285,
+      "txt": "Nationals extend their center fielder through 2030 with a club option for 2031.",
+      "yrs": 4,
+      "tot": 23
+    }
+  ]
 }
