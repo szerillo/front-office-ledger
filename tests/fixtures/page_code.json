@@ -1,6 +1,6 @@
 {
- "sha": "faf0ec6b60ecd7ff",
- "codeLines": 11789,
- "reason": "round 50: grading-rule methodology line gives the count (7 of 28), no rate",
- "at": "2026-11-12T19:09:04.837Z"
+ "sha": "839dc69c231c99d1",
+ "codeLines": 11800,
+ "reason": "round 54: under-review labels, 107 cards and 320 explorer winters (launch path A), labels only",
+ "at": "2026-11-14T07:02:23.568Z"
 }
