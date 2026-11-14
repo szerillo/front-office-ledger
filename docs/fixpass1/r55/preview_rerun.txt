@@ -1,0 +1,11 @@
+problems: 0 []
+preview_check {
+ "cards": 152,
+ "cards_ok": 152,
+ "teams": 30,
+ "teams_ok": 30,
+ "all_ok": true,
+ "problems_0": true
+}
+page errors: none
+PASS

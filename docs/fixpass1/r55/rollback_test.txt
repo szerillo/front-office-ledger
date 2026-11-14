@@ -1,0 +1,1 @@
+rollback_r55.py tested Nov 14 on a local download: files 606, new files left in place 2, index md5 a47cecdea9574a0469e9266f8fb71c4b OK; c/ identical to pre-deploy repo.

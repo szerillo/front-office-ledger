@@ -1,0 +1,30 @@
+== preview_check
+ "problems_0": false
+}
+page errors: none
+FAIL: all_ok, problems_0
+== tradetotal_check
+ "problems_0": true
+}
+page errors: none
+PASS
+== rawtxt_check
+ "moves_placeholder_0": true
+}
+page errors: none
+PASS
+== method_check
+ "mismatches_0": true
+}
+page errors: none
+PASS
+== corrlinks_check
+ "sitemap_missing_0": true
+}
+page errors: none
+PASS
+== winterlink_check
+page errors: none
+PASS
+
+NOTE: in the first post-redeploy run above, preview_check failed (its problem list was not captured: only the last lines were kept). Three reruns on the live site minutes later: PASS, 152/152 cards and 30/30 club pages, 0 problems (preview_rerun.txt). Likely cause: a preview image or page still being served from the CDN cache right after the redeploy; not confirmed.

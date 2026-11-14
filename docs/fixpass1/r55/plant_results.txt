@@ -1,0 +1,68 @@
+== tradetotal_check (old live page, old wording)
+  'cle: gap -0.10 with no note',
+  'col: old rounding wording'
+]
+tradetotal_check {
+ "cards_checked_over_100": true,
+ "gap_notes": 124,
+ "completed_rows": 0,
+ "old_wording_0": false,
+ "problems_0": false
+}
+page errors: none
+FAIL: old_wording_0, problems_0
+
+== preview_check (staged copy, c/wsh title changed to B)
+problems: 1 [ 'wsh: title letter B vs card C+' ]
+preview_check {
+ "cards": 152,
+ "cards_ok": 151,
+ "all_ok": false,
+ "problems_0": false
+}
+page errors: none
+FAIL: all_ok, problems_0
+
+== preview_check (staged copy, t/nyy title changed to B)
+problems: 1 [ 't/NYY: title grade B vs team view C' ]
+preview_check {
+ "cards": 152,
+ "cards_ok": 152,
+ "teams": 30,
+ "teams_ok": 29,
+ "all_ok": false,
+ "problems_0": false
+}
+page errors: none
+FAIL: all_ok, problems_0
+
+== winterlink_check (old live page)
+2011-oak {"focus":"2011-oak","shared":false,"miss":false,"wid":null}
+1997-zzz {"focus":"1997-zzz","shared":false,"miss":false,"wid":null}
+winterlink_check {
+ "2007-chc": true,
+ "2000-nyy": true,
+ "2018-nyy": true,
+ "2018-19-nyy": false,
+ "2011-oak": false,
+ "1997-zzz": false
+}
+page errors: none
+FAIL: 2018-19-nyy, 2011-oak, 1997-zzz
+
+== rawtxt_check (old live page)
+ "moves_placeholder_0": false
+}
+page errors: none
+FAIL: placeholder_0, cut_name_0, moves_placeholder_0
+
+== method_check (staged copy, free agency weight changed to 0.73)
+ "mismatches_0": false
+}
+page errors: none
+FAIL: mismatches_0
+
+== corrlinks_check (old live site)
+page errors: none
+FAIL: footer_to_log, labels_link_log, log_loads, log_links_dated, dated_link_back, sitemap_log, sitemap_counts, sitemap_noindex_0
+
