@@ -1,6 +1,6 @@
 {
- "sha": "3836ced0fc761f81",
- "codeLines": 11844,
- "reason": "round 56: re-audit fixes (no share ranks, new-seat card wording, next-five-years memo reset and tie-break, 2020 pace, leverage copy, label methodology section, trade review labels)",
- "at": "2026-11-14T10:36:35.919Z"
+ "sha": "e0d9c98fe40b7bda",
+ "codeLines": 11855,
+ "reason": "round 57: rank views redrawn after the feed, unique trade keys for labels, no dot on new-seat card, simulator leaves 2020 winters out",
+ "at": "2026-11-14T13:00:58.320Z"
 }
