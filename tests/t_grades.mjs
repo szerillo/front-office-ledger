@@ -17,7 +17,7 @@ const now = await page.evaluate(() => {
   const seen2 = new Set();
   const walk = (o, reg, d) => { if(!o || typeof o !== 'object' || d > 7 || seen2.has(o)) return; seen2.add(o);
     if(Array.isArray(o)){ o.forEach(x => walk(x, reg, d + 1)); return; }
-    if(o.d && o.h && typeof o.war === 'number') out['c|' + reg + '|' + o.d + '|' + String(o.h).slice(0, 60)] = o.war.toFixed(1);
+    if(o.d && o.h && typeof o.war === 'number') out['c|' + reg + '|' + o.d + '|' + String(o.h).slice(0, 60)] = o.war.toFixed(1);   // keys are normalized below
     for(const k in o){ const v = o[k]; if(v && typeof v === 'object') walk(v, reg, d + 1); } };
   [...(typeof REGIMES !== 'undefined' ? REGIMES : []), ...AUTO_REGIMES, ...LB_HIST].forEach(r => walk(r, abOf(r), 0));
   return out;
@@ -48,9 +48,16 @@ if(process.env.UPDATE === '1'){
   fs.writeFileSync(FIX, JSON.stringify(now));
   console.log(lines.join('\n')); console.log('t_grades fixture written:', Object.keys(now).length, 'grades; logged in docs/grade-changes.md'); process.exit(0);
 }
-const was = JSON.parse(fs.readFileSync(FIX, 'utf8'));
+// Nov 14 (round 55): card-row keys hold headline text, and the page tidies raw transaction text ("traded player, X")
+// once normalizeCurated has run, so whether a key is tidied depended on timing. Compare on a normalized key: the same
+// tidy, then the first 52 characters. Values are compared exactly as before.
+const nk = k => { if(!k.startsWith('c|')) return k; const i = k.indexOf('|', k.indexOf('|', 2) + 1); return k.slice(0, i + 1) + k.slice(i + 1).replace(/ traded player, /g, ' traded ').replace(/St\. Louis Cardina(?=$|[^l])/g, 'St. Louis Cardinals').slice(0, 52); };
+const norm = o => { const m = {}; for(const k in o) m[nk(k)] = o[k]; return m; };
+const was0 = JSON.parse(fs.readFileSync(FIX, 'utf8')), was = norm(was0), now0n = Object.keys(now).length;
+{ const n2 = norm(now); for(const k of Object.keys(now)) delete now[k]; Object.assign(now, n2); }
+if(Object.keys(was).length !== Object.keys(was0).length || Object.keys(now).length !== now0n) console.log('t_grades: key normalization merged rows', Object.keys(was0).length, '->', Object.keys(was).length, '|', now0n, '->', Object.keys(now).length);
 const changed = Object.keys(was).filter(k => k in now && now[k] !== was[k]);
 const gone = Object.keys(was).filter(k => !(k in now)), added = Object.keys(now).filter(k => !(k in was));
 changed.slice(0, 10).forEach(k => console.log('changed', k, was[k], '->', now[k]));
 gone.slice(0, 5).forEach(k => console.log('missing', k)); added.slice(0, 5).forEach(k => console.log('new', k));
-report('t_grades', {gradesUnchanged: changed.length === 0, noneMissing: gone.length === 0, noneAdded: added.length === 0, _counted: Object.keys(now).length, _changed: changed.length}, errors);
+report('t_grades', {gradesUnchanged: changed.length === 0, noneMissing: gone.length === 0, noneAdded: added.length === 0, keysKept: Object.keys(was).length === Object.keys(was0).length && Object.keys(now).length === now0n, _counted: Object.keys(now).length, _changed: changed.length}, errors);
