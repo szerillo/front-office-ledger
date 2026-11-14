@@ -1,0 +1,21 @@
+== hzpage_check on the old live page (r56, md5 6b1221b7), half the loads with the feed 4 s late
+  'bos load 4: shown #3,#8,#11,#12,#9 table #3,#8,#11,#12,#10 feed true',
+  'bos load 6: shown #3,#8,#11,#12,#9 table #3,#8,#11,#12,#10 feed true',
+  'sf load 2: shown #17,#13,#13,#8,#10 table #17,#13,#13,#8,#9 feed true',
+  'sf load 4: shown #17,#13,#13,#8,#10 table #17,#13,#13,#8,#9 feed true',
+  'sf load 6: shown #17,#13,#13,#8,#10 table #17,#13,#13,#8,#9 feed true'
+]
+hzpage_check {
+ "all_loads_drawn": true,
+ "same_ranks_every_load": false,
+ "drawn_equals_league_table": false
+page errors: none
+FAIL: same_ranks_every_load, drawn_equals_league_table
+
+== r56_page_check (exact trade set) on the old live page
+FAIL: trades_labelled_as_listed, labelled_set_equals_list, auditor_four_not_labelled
+
+== sim2020_check on the old live page (r56 paced 2020 comps) against the r55 base rates
+{"n":480,"touch2020":30,"clubs":30,"refGiven":true,"differ":["ATH","BAL","CIN","COL","DET","KC","LAA","MIN","NYM","SEA","SF","STL","TOR","WSH"]}
+page errors: none
+FAIL: no_2020_comps, count_450, base_rates_match_reference

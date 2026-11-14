@@ -1,0 +1,6 @@
+ "all_loads_drawn": true,
+ "same_ranks_every_load": true,
+ "drawn_equals_league_table": true
+}
+page errors: none
+PASS

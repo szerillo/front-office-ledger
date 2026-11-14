@@ -1,0 +1,24 @@
+== preview_check
+PASS
+== r56_page_check
+PASS
+== tradetotal_check
+PASS
+== rawtxt_check
+PASS
+== method_check
+PASS
+== corrlinks_check
+PASS
+== hz_check
+PASS
+== sim2020_check
+{"n":450,"touch2020":0,"clubs":30,"refGiven":true,"differ":[]}
+PASS
+== hzpage_check (N=6 x 5 clubs, half with feed delayed)
+loads 30 flips [] mismatches []
+PASS
+== winterlink_check
+PASS
+== review_check
+review_check PASS
